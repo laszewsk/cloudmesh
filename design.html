@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>3   Design: Blueprint &mdash; Cloudmesh 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-2.3.2/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootswatch/2.3.2/cosmo/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-2.3.2/css/bootstrap-responsive.min.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-2.3.2/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="top" title="Cloudmesh 0.1 documentation" href="index.html" />
+    <link rel="next" title="Mockup" href="mock.html" />
+    <link rel="prev" title="2   Plan: Cloudmesh Service Shift" href="plan.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body>
+
+  <div id="navbar" class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+
+        <a class="brand" href="index.html">Cloudmesh</a>
+        <span class="navbar-text pull-left"><b>0.1</b></span>
+
+        <div class="nav-collapse">
+          <ul class="nav">
+            <li class="divider-vertical"></li>
+            
+              <li class="dropdown globaltoc-container">
+  <a href="index.html"
+     class="dropdown-toggle"
+     data-toggle="dropdown">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+    ><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="about.html">1&nbsp;&nbsp;&nbsp;About this document</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plan.html">2&nbsp;&nbsp;&nbsp;Plan: Cloudmesh Service Shift</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="plan.html#project-objectives">2.1&nbsp;&nbsp;&nbsp;Project Objectives</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="plan.html#development-objectives">2.1.1&nbsp;&nbsp;&nbsp;Development Objectives</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plan.html#production-objectives">2.1.2&nbsp;&nbsp;&nbsp;Production Objectives</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="plan.html#project-deliverables">2.2&nbsp;&nbsp;&nbsp;Project Deliverables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plan.html#evolution-of-the-project">2.3&nbsp;&nbsp;&nbsp;Evolution of the Project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plan.html#refernce-materials">2.4&nbsp;&nbsp;&nbsp;Refernce Materials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plan.html#definitions-and-acronyms">2.5&nbsp;&nbsp;&nbsp;Definitions and Acronyms</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">3&nbsp;&nbsp;&nbsp;Design: Blueprint</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#features">3.1&nbsp;&nbsp;&nbsp;Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#difference-to-other-efforts">3.2&nbsp;&nbsp;&nbsp;Difference to other efforts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#component-view">3.3&nbsp;&nbsp;&nbsp;Component View</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#component-user-management">3.4&nbsp;&nbsp;&nbsp;Component User Management</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#user-management">3.4.1&nbsp;&nbsp;&nbsp;User Management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#accounting-will-not-be-worked-on-much">3.4.2&nbsp;&nbsp;&nbsp;Accounting (Will not be worked on much)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#component-resource-management-includes-cloudshifting-as-part-of-reservation">3.5&nbsp;&nbsp;&nbsp;Component Resource Management (includes cloudshifting as part of reservation)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#resource-management">3.6&nbsp;&nbsp;&nbsp;Resource Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#scheduler">3.7&nbsp;&nbsp;&nbsp;Scheduler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#interfaces">3.8&nbsp;&nbsp;&nbsp;Interfaces</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mock.html">Mockup</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mock.html#create-user">create_user</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cal.html">Calendar</a></li>
+</ul>
+</ul>
+</li>
+              <li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"><ul>
+<li><a class="reference internal" href="#">3&nbsp;&nbsp;&nbsp;Design: Blueprint</a><ul>
+<li><a class="reference internal" href="#features">3.1&nbsp;&nbsp;&nbsp;Features</a></li>
+<li><a class="reference internal" href="#difference-to-other-efforts">3.2&nbsp;&nbsp;&nbsp;Difference to other efforts</a></li>
+<li><a class="reference internal" href="#component-view">3.3&nbsp;&nbsp;&nbsp;Component View</a></li>
+<li><a class="reference internal" href="#component-user-management">3.4&nbsp;&nbsp;&nbsp;Component User Management</a><ul>
+<li><a class="reference internal" href="#user-management">3.4.1&nbsp;&nbsp;&nbsp;User Management</a></li>
+<li><a class="reference internal" href="#accounting-will-not-be-worked-on-much">3.4.2&nbsp;&nbsp;&nbsp;Accounting (Will not be worked on much)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#component-resource-management-includes-cloudshifting-as-part-of-reservation">3.5&nbsp;&nbsp;&nbsp;Component Resource Management (includes cloudshifting as part of reservation)</a></li>
+<li><a class="reference internal" href="#resource-management">3.6&nbsp;&nbsp;&nbsp;Resource Management</a></li>
+<li><a class="reference internal" href="#scheduler">3.7&nbsp;&nbsp;&nbsp;Scheduler</a></li>
+<li><a class="reference internal" href="#interfaces">3.8&nbsp;&nbsp;&nbsp;Interfaces</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+            
+            
+              
+  <li><a href="plan.html"
+         title="previous chapter">&laquo; 2&nbsp;&nbsp;&nbsp;Plan: Cloudmesh Service Shift</a></li>
+  <li><a href="mock.html"
+         title="next chapter">Mockup &raquo;</a></li>
+            
+            
+              <li>
+  <a href="_sources/design.txt"
+     rel="nofollow">Source</a></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-search pull-right" action="search.html" method="get">
+  <input type="text" name="q" class="search-query" placeholder="Search" />
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div class="container">
+  
+  <div class="section" id="design-blueprint">
+<h1>3&nbsp;&nbsp;&nbsp;Design: Blueprint<a class="headerlink" href="#design-blueprint" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="features">
+<h2>3.1&nbsp;&nbsp;&nbsp;Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
+<p>The features we envision include</p>
+<ul class="simple">
+<li>An inventory system to add our servers and services</li>
+<li>The ability to provision an OS on the servers</li>
+<li>The ability to provision services onto the servers</li>
+<li>The ability to move services between servers</li>
+</ul>
+<p>Design requiremnts include</p>
+<ul class="simple">
+<li>The support of services such as<ul>
+<li>SLURM worker nodes</li>
+<li>OpenStack  worker nodes</li>
+<li>Eucalyptus worker nodes</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="difference-to-other-efforts">
+<h2>3.2&nbsp;&nbsp;&nbsp;Difference to other efforts<a class="headerlink" href="#difference-to-other-efforts" title="Permalink to this headline">¶</a></h2>
+<p>This system is different form other efforts as it allows to run HPC, Eucalyptus and OpenStack services on the same cluster.</p>
+</div>
+<div class="section" id="component-view">
+<h2>3.3&nbsp;&nbsp;&nbsp;Component View<a class="headerlink" href="#component-view" title="Permalink to this headline">¶</a></h2>
+<p>Our design includes four different commonent portions:</p>
+<ul class="simple">
+<li>Interfaces<ul>
+<li>Portal</li>
+<li>Command Line</li>
+<li>API</li>
+<li>REST</li>
+</ul>
+</li>
+<li>User Management<ul>
+<li>Authentication</li>
+<li>Authorization</li>
+<li>LDAP</li>
+<li>OpenStack Integration</li>
+<li>Eucalyptus Integration</li>
+<li>HPC Integration</li>
+<li>Accounting</li>
+</ul>
+</li>
+<li>Image Management<ul>
+<li>RAIN templated imapge management</li>
+<li>IaaS image management</li>
+<li>HPC imabe management</li>
+</ul>
+</li>
+<li>Resource Management<ul>
+<li>Scheduling</li>
+<li>Reservation</li>
+<li>OS provisioning</li>
+<li>Service provisioning</li>
+</ul>
+</li>
+</ul>
+<p>Our design focusses on satisfying our various user communities by providing four main categories of interfaces. This includes</p>
+<div class="figure align-center">
+<img alt="_images/Slide02.png" src="_images/Slide02.png" />
+<p class="caption"><strong>Figure:</strong> The component view of the design</p>
+</div>
+<div class="figure align-center">
+<img alt="_images/Slide03.png" src="_images/Slide03.png" />
+<p class="caption"><strong>Figure:</strong> The subcomponents of the design</p>
+</div>
+</div>
+<div class="section" id="component-user-management">
+<h2>3.4&nbsp;&nbsp;&nbsp;Component User Management<a class="headerlink" href="#component-user-management" title="Permalink to this headline">¶</a></h2>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="_images/Slide05.png"><img alt="_images/Slide05.png" src="_images/Slide05.png" /></a>
+<p class="caption"><strong>Figure:</strong> The subcomponent user management</p>
+</div>
+<div class="section" id="user-management">
+<h3>3.4.1&nbsp;&nbsp;&nbsp;User Management<a class="headerlink" href="#user-management" title="Permalink to this headline">¶</a></h3>
+<p>We reused scripts from before that were not properly done, but carried us over. Limits of these scripts have been reached in regards to</p>
+<ul class="simple">
+<li>Group management</li>
+<li>Deactivation of accounts</li>
+<li>Integration to accounting system</li>
+<li>Changing IaaS faremworks (mostly done)</li>
+<li>Better use of backup services</li>
+<li>Plan fg-manage<ul>
+<li>fg-manage opentack<ul>
+<li>Update the yaml file generation</li>
+<li>Update deployment of yaml file</li>
+<li>Deploy on machines</li>
+</ul>
+</li>
+<li>fg-manage eucalyptus<ul>
+<li>Update the yaml file generation</li>
+<li>Update deployment of yaml file</li>
+<li>Deploy on machines</li>
+</ul>
+</li>
+<li>Documentation</li>
+<li>Time needed: less than a week</li>
+</ul>
+</li>
+<li>Plan fg-manage xsede<ul>
+<li>Develop small convenience scripts to monitor incomming users from xsede</li>
+<li>Develop document so that account creation can be done with multiple persons and not just Allan</li>
+</ul>
+</li>
+</ul>
+<p>Can be done as part of ongoing work, less than a day</p>
+<ul>
+<li><p class="first">Authorization: Active and Deactive users</p>
+<ul>
+<li><p class="first">Current LDAP has only authorized users in it.</p>
+</li>
+<li><p class="first">With joining of XSEDE we need also to deactivate users by not just removing them from LDAP.</p>
+</li>
+<li><dl class="first docutils">
+<dt>Idea. Create master LDAP tree, from which we copy into active and deactive user trees.</dt>
+<dd><ul class="first last simple">
+<li>This was actually suggested by Archit way back, but was rejected at that time.</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="accounting-will-not-be-worked-on-much">
+<h3>3.4.2&nbsp;&nbsp;&nbsp;Accounting (Will not be worked on much)<a class="headerlink" href="#accounting-will-not-be-worked-on-much" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><dl class="first docutils">
+<dt>New development of accounting</dt>
+<dd><ul class="first last simple">
+<li>Cloud Metric (hyungro):</li>
+<li>Switch database from sql to mongodb (1 week)</li>
+<li>Develop commandline tools to backup, and manipulate data (1 week).</li>
+<li>Variable charge model (1 week)</li>
+<li>Integration with gold via cm_accounting (1 week)</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Cm_accounting:</dt>
+<dd><ul class="first last simple">
+<li>Functionality interface to gold(1 week, started by Gregor, disbandening 1-1-gold interface from Hyungro as not needed and unimportant for our work)</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>XSEDE tests and updates</dt>
+<dd><ul class="first last simple">
+<li>Interact with xsede (one phone call every week)</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="component-resource-management-includes-cloudshifting-as-part-of-reservation">
+<h2>3.5&nbsp;&nbsp;&nbsp;Component Resource Management (includes cloudshifting as part of reservation)<a class="headerlink" href="#component-resource-management-includes-cloudshifting-as-part-of-reservation" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="resource-management">
+<h2>3.6&nbsp;&nbsp;&nbsp;Resource Management<a class="headerlink" href="#resource-management" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><dl class="first docutils">
+<dt>Inventory</dt>
+<dd><ul class="first last">
+<li><dl class="first docutils">
+<dt>Requirements</dt>
+<dd><ul class="first last simple">
+<li>Have inventory of all hardware compute resources</li>
+<li>Have a mechanism to describe networks between resources</li>
+<li>Provide status information</li>
+<li>Use information for scheduler and reservation</li>
+<li>Use inventory for cloud shifting</li>
+<li>Totally independent from XCAT, SLURM, OpenStack, Eucalyptus or other systems, but can be used by such</li>
+<li>Inventory is needed to determine what SHOULD run on them not just what currently runs on them</li>
+<li>IMPORTANT: Includes inventory of services it is not just a compute fabric inventory</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Development</dt>
+<dd><ul class="first last simple">
+<li>All in python, mongodb</li>
+<li>Has backup with timestamps</li>
+<li>We will just start with compute servers and for us important services that run on such servers</li>
+<li>Servers will have rest interface so we can also query what runs on them</li>
+<li>Estimated time 3 weeks overall</li>
+<li>Networking is abit fuzzy as we need real inventory of existing networks first before we can determine wht we should do to simplify access to it</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="scheduler">
+<h2>3.7&nbsp;&nbsp;&nbsp;Scheduler<a class="headerlink" href="#scheduler" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><dl class="first docutils">
+<dt>Approach via Torque/Maui</dt>
+<dd><ul class="first last">
+<li><dl class="first docutils">
+<dt>Advantage</dt>
+<dd><ul class="first last simple">
+<li>use existing HPC scheduler to allow bare metal just as any regular hpc job</li>
+<li>Originally suggested in 2010 and 11</li>
+<li>Some aspect of Teefaa uses this approach</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Disadvantage</dt>
+<dd><ul class="first last simple">
+<li>Not all services we have are or should be integrated in HPC scheduling service</li>
+<li>Approach hierarchical scheduler</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p class="first">Decouple scheduling decision form Moab/Maui</p>
+</li>
+<li><p class="first">Provide integration with various monitoring tools so we can identify IMPORTANT status for shifting resources to services</p>
+</li>
+<li><p class="first">Provide simple reservation interface</p>
+</li>
+<li><p class="first">Have first a human scheduler using simple cloudmesh commands</p>
+</li>
+<li><dl class="first docutils">
+<dt>Provide abstraction to bare metal provisioning so we are independent from teefaa, openstack bare metal, moab, slurm, cobler bare metal provisioning. Provide only absolute necessary</dt>
+<dd><ul class="first last simple">
+<li>Biggest issue is that we have ongoing production and that both ways require essentially a <em>vanilla</em> cluster</li>
+<li>Networking</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="_images/Slide15.png"><img alt="_images/Slide15.png" src="_images/Slide15.png" /></a>
+<p class="caption"><strong>Figure:</strong> The Subcompoenet for resource management</p>
+</div>
+</div>
+<div class="section" id="interfaces">
+<h2>3.8&nbsp;&nbsp;&nbsp;Interfaces<a class="headerlink" href="#interfaces" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">Portal</p>
+</li>
+<li><p class="first">Freeze development as much as possible</p>
+</li>
+<li><p class="first">Focus on metric integration, status update, project page improvements</p>
+</li>
+<li><p class="first">Shift focus on content</p>
+</li>
+<li><p class="first">URL management needs to be improved</p>
+</li>
+<li><dl class="first docutils">
+<dt>Not all features of the portal have been properly communicated to users or and the portal framework has not been properly integrated into our processes leading to a confusion on users and staff side.</dt>
+<dd><ul class="first last simple">
+<li><ol class="first upperalpha">
+<li>Example automatic forum posts to blogs</li>
+</ol>
+</li>
+<li><ol class="first upperalpha" start="2">
+<li>Some in our own team do not use the portal and we miss clear opportunities of improvements</li>
+</ol>
+</li>
+<li><ol class="first upperalpha" start="3">
+<li>Redesign of project information shows that information in projects has been removed that is essential but this removal leads now to confusion in project application process.</li>
+</ol>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p class="first">There are more.</p>
+</li>
+<li><dl class="first docutils">
+<dt>Fix: Fugang, Allan, Gregor, will join Carrie and Barbara for 5-7 business days to get most technical issues resolved, so we can focus on content after that.</dt>
+<dd><ul class="first last">
+<li><dl class="first docutils">
+<dt>Remaining tasks will be identified.</dt>
+<dd><ul class="first last simple">
+<li>I expect small fixes need to be done.</li>
+<li>Some new aspects of the portal are to be improved</li>
+<li>Some god things from the xsede portal was not implemented in our portal over the last year</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Command line &amp; API</dt>
+<dd><ul class="first last">
+<li><dl class="first docutils">
+<dt>Use uniformly CMD3 (developed by Gregor)</dt>
+<dd><ul class="first last simple">
+<li>Will provide clean command line tool</li>
+<li>Automatically delivers a shell</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p class="first">REST services via flask (cloudmesh)</p>
+</li>
+<li><p class="first">Integration with OpenID via CRWOD (demonstrated by Gregor)</p>
+</li>
+<li><p class="first">Focus on cloudmesh abstraction and inventory to manage multiple clouds, rain, and resources for shifting/reprovisioning.</p>
+</li>
+<li><p class="first">Will be ongoing principal</p>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+</div>
+
+
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2013, Gregor von Laszewski for  FutureGrid.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>
