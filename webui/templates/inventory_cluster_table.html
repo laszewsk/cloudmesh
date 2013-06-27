@@ -46,7 +46,7 @@ GREGOR
   <tr>
     {% for server in cluster.compute_nodes|sort(attribute='name')  %}
 
-      {% if loop.index %10 != 0  %}	
+      {% if loop.index %parameters.columns != 0  %}	
 
 	{{loop.index}}
 
