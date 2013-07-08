@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+{% from "_helper.html" import image_button %}g
+{% block content %}
+
+<table>
+<tr colspan="3"> Server Details </tr>
+<tr>
+<th>IP Address </th>
+<th> Type </th>
+<th> SubType </th>
+</tr>
+<tr> 
+<td> {{server.ip_address }} </td>
+<td> {{ server.kind }} </td>
+<td> {{ server.subkind }}</td>
+</tr>
+</table> 
+
+{% endblock %}
