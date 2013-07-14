@@ -6,6 +6,18 @@ TAG=`cat VERSION.txt`
 all:
 	make -f Makefile force
 
+
+stats:
+	pep8 --statistics --filename *.py */*.py */*/*.py */*/*/*.py */*/*/*/*.py */*/*/*/*/*.py
+
+autopep8:
+	autopep8 -i */*.py
+	autopep8 -i */*/*.py
+	autopep8 -i */*/*/*.py
+	autopep8 -i */*/*/*/*.py
+	autopep8 -i */*/*/*/*/*.py
+	autopep8 -i */*/*/*/*/*/*.py
+
 ######################################################################
 # GIT INTERFACES
 ######################################################################
@@ -79,12 +91,15 @@ qc:
 
 
 clean:
+	rm -rf *.egg
 	find . -name "*~" -exec rm {} \;  
 	find . -name "*.pyc" -exec rm {} \;  
 	rm -rf build doc/build dist *.egg-info *~ #*
 	cd doc; make clean
 	rm -rf *.egg-info
 
+uninstall:
+	yes | pip uninstall cloudmesh
 
 #############################################################################
 # SPHINX DOC

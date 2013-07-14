@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>cloudmesh.accounting.metrics &mdash; Cloudmesh 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/bootstrap-2.3.2/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootswatch/2.3.2/cosmo/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/bootstrap-2.3.2/css/bootstrap-responsive.min.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../../../_static/js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="../../../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../../../_static/bootstrap-2.3.2/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../../_static/bootstrap-sphinx.js"></script>
+    <link rel="author" title="About these documents" href="../../../about.html" />
+    <link rel="top" title="Cloudmesh 0.1 documentation" href="../../../index.html" />
+    <link rel="up" title="Module code" href="../../index.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body>
+
+  <div id="navbar" class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+
+        <a class="brand" href="../../../index.html">Cloudmesh</a>
+        <span class="navbar-text pull-left"><b>0.1</b></span>
+
+        <div class="nav-collapse">
+          <ul class="nav">
+            <li class="divider-vertical"></li>
+            
+              <li class="dropdown globaltoc-container">
+  <a href="../../../index.html"
+     class="dropdown-toggle"
+     data-toggle="dropdown">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+    ><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../about.html">1&nbsp;&nbsp;&nbsp;About this document</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../todo.html">Instalation Instructions for Ubuntu for Inventory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../inventory/index.html">Welcome to FutureGrid Cloud Inventory</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../inventory/index.html#cloud-inventory">Cloud Inventory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../inventory/index.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../inventory/index.html#status">Status</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../inventory/index.html#data-model">Data Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../inventory/index.html#quickstart-example">Quickstart Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../inventory/index.html#list-of-commands">List of Commands</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../inventory/assign.html">assign</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../inventory/assign.html#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../inventory/assign.html#description">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../inventory/assign.html#list-of-parameters">List of Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../inventory/assign.html#example">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../inventory/add.html">add</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../inventory/add.html#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../inventory/add.html#description">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../inventory/add.html#list-of-parameters">List of Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../inventory/add.html#example">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../inventory/unassign.html">unassign</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../inventory/unassign.html#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../inventory/unassign.html#description">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../inventory/unassign.html#list-of-parameters">List of Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../inventory/unassign.html#example">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../inventory/list.html">list</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../inventory/list.html#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../inventory/list.html#description">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../inventory/list.html#parameters">Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../inventory/list.html#example">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../inventory/support.html">Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cm/intro.html">Cloud Mesh</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cm/intro.html#commands">Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../plan/plan.html">2&nbsp;&nbsp;&nbsp;Plan: Cloudmesh Service Shift</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../plan/plan.html#project-objectives">2.1&nbsp;&nbsp;&nbsp;Project Objectives</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../plan/plan.html#development-objectives">2.1.1&nbsp;&nbsp;&nbsp;Development Objectives</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plan/plan.html#production-objectives">2.1.2&nbsp;&nbsp;&nbsp;Production Objectives</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plan/plan.html#project-deliverables">2.2&nbsp;&nbsp;&nbsp;Project Deliverables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plan/plan.html#evolution-of-the-project">2.3&nbsp;&nbsp;&nbsp;Evolution of the Project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plan/plan.html#refernce-materials">2.4&nbsp;&nbsp;&nbsp;Refernce Materials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plan/plan.html#definitions-and-acronyms">2.5&nbsp;&nbsp;&nbsp;Definitions and Acronyms</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../plan/design.html">3&nbsp;&nbsp;&nbsp;Design: Blueprint</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../plan/design.html#features">3.1&nbsp;&nbsp;&nbsp;Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plan/design.html#difference-to-other-efforts">3.2&nbsp;&nbsp;&nbsp;Difference to other efforts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plan/design.html#component-view">3.3&nbsp;&nbsp;&nbsp;Component View</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plan/design.html#component-user-management">3.4&nbsp;&nbsp;&nbsp;Component User Management</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../plan/design.html#user-management">3.4.1&nbsp;&nbsp;&nbsp;User Management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plan/design.html#accounting-will-not-be-worked-on-much">3.4.2&nbsp;&nbsp;&nbsp;Accounting (Will not be worked on much)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plan/design.html#component-resource-management-includes-cloudshifting-as-part-of-reservation">3.5&nbsp;&nbsp;&nbsp;Component Resource Management (includes cloudshifting as part of reservation)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plan/design.html#resource-management">3.6&nbsp;&nbsp;&nbsp;Resource Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plan/design.html#scheduler">3.7&nbsp;&nbsp;&nbsp;Scheduler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plan/design.html#interfaces">3.8&nbsp;&nbsp;&nbsp;Interfaces</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../plan/mock.html">Mockup</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../plan/mock.html#create-user">create_user</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../plan/cal.html">Calendar</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules/modules.html">Modules and Classes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../modules/cloudmesh.html">cloudmesh Package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/cloudmesh.html#id1"><tt class="docutils literal"><span class="pre">cloudmesh</span></tt> Package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/cloudmesh.html#module-cloudmesh.cloudmesh"><tt class="docutils literal"><span class="pre">cloudmesh</span></tt> Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/cloudmesh.html#cm-mongodb-module"><tt class="docutils literal"><span class="pre">cm_mongodb</span></tt> Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/cloudmesh.html#gitinfo-module"><tt class="docutils literal"><span class="pre">gitinfo</span></tt> Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/cloudmesh.html#mongodb-module"><tt class="docutils literal"><span class="pre">mongodb</span></tt> Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/cloudmesh.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/cloudmesh.accounting.html">accounting Package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.accounting.html#gold-module"><tt class="docutils literal"><span class="pre">gold</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.accounting.html#module-cloudmesh.accounting.metrics"><tt class="docutils literal"><span class="pre">metrics</span></tt> Module</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/cloudmesh.config.html">config Package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#module-cloudmesh.config.cloudmesh_cloud"><tt class="docutils literal"><span class="pre">cloudmesh_cloud</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#module-cloudmesh.config.cloudmesh_cloud_handler"><tt class="docutils literal"><span class="pre">cloudmesh_cloud_handler</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#module-cloudmesh.config.cm_config"><tt class="docutils literal"><span class="pre">cm_config</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#module-cloudmesh.config.cm_keys"><tt class="docutils literal"><span class="pre">cm_keys</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#module-cloudmesh.config.cm_projects"><tt class="docutils literal"><span class="pre">cm_projects</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#module-cloudmesh.config.cm_rc"><tt class="docutils literal"><span class="pre">cm_rc</span></tt> Module</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="../../../modules/cloudmesh.config.html#cm-manage-config">cm-manage config</a></li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#module-cloudmesh.config.ldap_user"><tt class="docutils literal"><span class="pre">ldap_user</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#module-cloudmesh.config.mock_cloud"><tt class="docutils literal"><span class="pre">mock_cloud</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#module-cloudmesh.config.mock_keystone"><tt class="docutils literal"><span class="pre">mock_keystone</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#module-cloudmesh.config.mock_user"><tt class="docutils literal"><span class="pre">mock_user</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#module-cloudmesh.config.openstack_essex_cloud"><tt class="docutils literal"><span class="pre">openstack_essex_cloud</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#module-cloudmesh.config.openstack_grizzly_cloud"><tt class="docutils literal"><span class="pre">openstack_grizzly_cloud</span></tt> Module</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/cloudmesh.iaas.html">iaas Package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.iaas.html#module-cloudmesh.iaas.ComputeBaseType"><tt class="docutils literal"><span class="pre">ComputeBaseType</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.iaas.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="../../../modules/cloudmesh.iaas.azure.html">azure Package</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="../../../modules/cloudmesh.iaas.azure.html#id1"><tt class="docutils literal"><span class="pre">azure</span></tt> Package</a></li>
+<li class="toctree-l7"><a class="reference internal" href="../../../modules/cloudmesh.iaas.azure.html#module-cloudmesh.iaas.azure.cm_azure"><tt class="docutils literal"><span class="pre">cm_azure</span></tt> Module</a></li>
+<li class="toctree-l7"><a class="reference internal" href="../../../modules/cloudmesh.iaas.azure.html#fabfile-module"><tt class="docutils literal"><span class="pre">fabfile</span></tt> Module</a></li>
+</ul>
+</li>
+<li class="toctree-l6"><a class="reference internal" href="../../../modules/cloudmesh.iaas.eucalyptus.html">eucalyptus Package</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="../../../modules/cloudmesh.iaas.eucalyptus.html#eucalyptus-module"><tt class="docutils literal"><span class="pre">eucalyptus</span></tt> Module</a></li>
+<li class="toctree-l7"><a class="reference internal" href="../../../modules/cloudmesh.iaas.eucalyptus.html#eucalyptus-libcloud-module"><tt class="docutils literal"><span class="pre">eucalyptus_libcloud</span></tt> Module</a></li>
+<li class="toctree-l7"><a class="reference internal" href="../../../modules/cloudmesh.iaas.eucalyptus.html#module-cloudmesh.iaas.eucalyptus.eucalyptus_new"><tt class="docutils literal"><span class="pre">eucalyptus_new</span></tt> Module</a></li>
+</ul>
+</li>
+<li class="toctree-l6"><a class="reference internal" href="../../../modules/cloudmesh.iaas.openstack.html">openstack Package</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="../../../modules/cloudmesh.iaas.openstack.html#id1"><tt class="docutils literal"><span class="pre">openstack</span></tt> Package</a></li>
+<li class="toctree-l7"><a class="reference internal" href="../../../modules/cloudmesh.iaas.openstack.html#module-cloudmesh.iaas.openstack.cm_compute"><tt class="docutils literal"><span class="pre">cm_compute</span></tt> Module</a></li>
+<li class="toctree-l7"><a class="reference internal" href="../../../modules/cloudmesh.iaas.openstack.html#module-cloudmesh.iaas.openstack.cm_table"><tt class="docutils literal"><span class="pre">cm_table</span></tt> Module</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/cloudmesh.inventory.html">inventory Package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.inventory.html#resources-module"><tt class="docutils literal"><span class="pre">resources</span></tt> Module</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/cloudmesh.provisioner.html">provisioner Package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.provisioner.html#module-cloudmesh.provisioner.provisioner"><tt class="docutils literal"><span class="pre">provisioner</span></tt> Module</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/cloudmesh.shell.html">shell Package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.shell.html#module-cloudmesh.shell.cm_shell"><tt class="docutils literal"><span class="pre">cm_shell</span></tt> Module</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="../../../modules/cloudmesh.shell.html#cm-config">cm config</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/cloudmesh.util.html">util Package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.util.html#module-cloudmesh.util.logger"><tt class="docutils literal"><span class="pre">logger</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.util.html#module-cloudmesh.util.util"><tt class="docutils literal"><span class="pre">util</span></tt> Module</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              <li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"></ul>
+</li>
+            
+            
+              
+            
+            
+              <li></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-search pull-right" action="../../../search.html" method="get">
+  <input type="text" name="q" class="search-query" placeholder="Search" />
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div class="container">
+  
+  <h1>Source code for cloudmesh.accounting.metrics</h1><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">pickle</span>
+<span class="kn">from</span> <span class="nn">sh</span> <span class="kn">import</span> <span class="n">fgrep</span>
+<span class="kn">from</span> <span class="nn">sh</span> <span class="kn">import</span> <span class="n">nova</span>
+<span class="kn">from</span> <span class="nn">sh</span> <span class="kn">import</span> <span class="n">tail</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">pprint</span>
+<span class="n">pp</span> <span class="o">=</span> <span class="n">pprint</span><span class="o">.</span><span class="n">PrettyPrinter</span><span class="p">(</span><span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+
+<span class="c"># import shelve</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.config.cm_config</span> <span class="kn">import</span> <span class="n">cm_config</span>
+<span class="c"># from openstack.cm_compute import openstack as os_client</span>
+
+<span class="c"># Error Cannot Import Openstack</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.iaas.openstack.cm_compute</span> <span class="kn">import</span> <span class="n">openstack</span>
+
+<span class="kn">from</span> <span class="nn">cloudmesh.iaas.eucalyptus.eucalyptus_new</span> <span class="kn">import</span> <span class="n">eucalyptus</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.iaas.azure.cm_azure</span> <span class="kn">import</span> <span class="n">cm_azure</span> <span class="k">as</span> <span class="n">azure</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="c"># from sh import fgmetric</span>
+    <span class="kn">from</span> <span class="nn">fgmetric.FGMetricsAPI</span> <span class="kn">import</span> <span class="n">FGMetricsAPI</span>
+    <span class="c"># OR</span>
+    <span class="c"># from sh import fgmetric</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="c"># TODO THIS IS NOT HOW WE DO IT, SETUP CONTAINS ALL REQUEMENTS</span>
+    <span class="c"># FIX SETUP</span>
+    <span class="k">print</span> <span class="s">&quot;---------------------&quot;</span>
+    <span class="k">print</span> <span class="s">&quot;fgmetric not imported&quot;</span>
+    <span class="k">print</span> <span class="s">&quot;---------------------&quot;</span>
+    <span class="k">pass</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">bson</span> <span class="kn">import</span> <span class="n">json_util</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="c"># TODO THIS IS NOT HOW WE DO IT, SETUP CONTAINS ALL REQUEMENTS</span>
+    <span class="c"># FIX SETUP</span>
+    <span class="k">print</span> <span class="s">&quot;--------------------------------&quot;</span>
+    <span class="k">print</span> <span class="s">&quot;Please run &#39;pip install pymongo&#39;&quot;</span>
+    <span class="k">print</span> <span class="s">&quot;--------------------------------&quot;</span>
+
+    <span class="c">#</span>
+
+<span class="c"># WHY ARE WE NOT MORE CLEANLY SEPARATING METRIC FROM THIS?</span>
+
+
+<div class="viewcode-block" id="cloudmesh"><a class="viewcode-back" href="../../../modules/cloudmesh.accounting.html#cloudmesh.accounting.metrics.cloudmesh">[docs]</a><span class="k">class</span> <span class="nc">cloudmesh</span><span class="p">:</span>
+
+    <span class="c">#</span>
+    <span class="c"># global variables that define the information managed by this class</span>
+    <span class="c">#</span>
+
+    <span class="n">datastore</span> <span class="o">=</span> <span class="s">&quot;data/clouds.txt&quot;</span>
+
+    <span class="c"># dict that holds vms, flavors, images for al iaas</span>
+    <span class="n">clouds</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="c"># array with keys from the user</span>
+    <span class="n">keys</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="c">#</span>
+    <span class="c"># variables that we can most likely eliminate</span>
+    <span class="c">#</span>
+
+    <span class="c"># user needs to come from credential ...</span>
+    <span class="n">user</span> <span class="o">=</span> <span class="s">&quot;gvonlasz&quot;</span>
+
+    <span class="c">#</span>
+    <span class="c"># initialization methods</span>
+    <span class="c">#</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+        <span class="c"># Read Yaml File to find all the cloud configurations present</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">()</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">metric_api</span> <span class="o">=</span> <span class="n">FGMetricsAPI</span><span class="p">()</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="k">pass</span>
+
+<div class="viewcode-block" id="cloudmesh.clear"><a class="viewcode-back" href="../../../modules/cloudmesh.accounting.html#cloudmesh.accounting.metrics.cloudmesh.clear">[docs]</a>    <span class="k">def</span> <span class="nf">clear</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">clouds</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">keys</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">user</span> <span class="o">=</span> <span class="s">&quot;gvonlasz&quot;</span>
+
+    <span class="c">#</span>
+    <span class="c"># some metric methods</span>
+    <span class="c">#</span>
+</div>
+<div class="viewcode-block" id="cloudmesh.get_metrics_cli"><a class="viewcode-back" href="../../../modules/cloudmesh.accounting.html#cloudmesh.accounting.metrics.cloudmesh.get_metrics_cli">[docs]</a>    <span class="k">def</span> <span class="nf">get_metrics_cli</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">args</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Get usage data from FG Metric CLI&quot;&quot;&quot;</span>
+        <span class="sd">&quot;&quot;&quot; This is replica with get_metrics but using CLI instead of API &quot;&quot;&quot;</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Args:</span>
+<span class="sd">                args (dict): parameters for CLI with option</span>
+<span class="sd">            Return:</span>
+<span class="sd">                (dict): output of fgmetric in a dict type</span>
+<span class="sd">            Raise:</span>
+<span class="sd">                n/a</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">res</span> <span class="o">=</span> <span class="n">fgmetric</span><span class="p">(</span>
+                <span class="n">args</span><span class="p">)</span>  <span class="c"># args should be list-lized before send it out as a parameter</span>
+            <span class="k">return</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">object_hook</span><span class="o">=</span><span class="n">json_util</span><span class="o">.</span><span class="n">object_hook</span><span class="p">)</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="k">pass</span>
+</div>
+<div class="viewcode-block" id="cloudmesh.get_metrics"><a class="viewcode-back" href="../../../modules/cloudmesh.accounting.html#cloudmesh.accounting.metrics.cloudmesh.get_metrics">[docs]</a>    <span class="k">def</span> <span class="nf">get_metrics</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">args</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get usage data from FG Metrics&quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">metric_api</span><span class="p">:</span>
+            <span class="k">return</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">args</span><span class="p">[</span><span class="s">&quot;user&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="s">&quot;user&quot;</span><span class="p">]</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">user</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_set_metric_api_vars</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+            <span class="c"># print args</span>
+            <span class="n">stats</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">metric_api</span><span class="o">.</span><span class="n">_set_dict_vars</span><span class="p">()</span>
+            <span class="n">metrics</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">metric_api</span><span class="o">.</span><span class="n">get_stats</span><span class="p">()</span>
+            <span class="n">stats</span><span class="p">[</span><span class="s">&quot;stats&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">metrics</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">metrics</span> <span class="o">=</span> <span class="n">stats</span>
+            <span class="c"># print self.metrics</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="k">print</span> <span class="n">sys</span><span class="o">.</span><span class="n">exc_info</span><span class="p">()</span>
+            <span class="k">pass</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">metrics</span>
+</div>
+<div class="viewcode-block" id="cloudmesh.get_realtime_metrics"><a class="viewcode-back" href="../../../modules/cloudmesh.accounting.html#cloudmesh.accounting.metrics.cloudmesh.get_realtime_metrics">[docs]</a>    <span class="k">def</span> <span class="nf">get_realtime_metrics</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">args</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; get real-time usage data from FG Metrics&quot;&quot;&quot;</span>
+
+        <span class="c"># IN DEVELOPMENT</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">metric_api</span><span class="p">:</span>
+            <span class="k">return</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">print</span> <span class="mi">1</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="k">pass</span>
+</div>
+    <span class="k">def</span> <span class="nf">_set_metric_api_vars</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">args</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">metric_api</span><span class="o">.</span><span class="n">set_date</span><span class="p">(</span><span class="n">args</span><span class="p">[</span><span class="s">&quot;s_date&quot;</span><span class="p">],</span> <span class="n">args</span><span class="p">[</span><span class="s">&quot;e_date&quot;</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">metric_api</span><span class="o">.</span><span class="n">set_metric</span><span class="p">(</span>
+            <span class="s">&quot;count runtime cores mem disks&quot;</span><span class="p">)</span>  <span class="c"># args[&quot;metric&quot;])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">metric_api</span><span class="o">.</span><span class="n">set_user</span><span class="p">(</span><span class="n">args</span><span class="p">[</span><span class="s">&quot;user&quot;</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">metric_api</span><span class="o">.</span><span class="n">set_cloud</span><span class="p">(</span><span class="n">args</span><span class="p">[</span><span class="s">&quot;cloud&quot;</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">metric_api</span><span class="o">.</span><span class="n">set_hostname</span><span class="p">(</span><span class="n">args</span><span class="p">[</span><span class="s">&quot;host&quot;</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">metric_api</span><span class="o">.</span><span class="n">set_period</span><span class="p">(</span><span class="n">args</span><span class="p">[</span><span class="s">&quot;period&quot;</span><span class="p">])</span>
+
+    <span class="c">#</span>
+    <span class="c"># the configuration method that must be called to get the cloud info</span>
+    <span class="c">#</span>
+
+<div class="viewcode-block" id="cloudmesh.config"><a class="viewcode-back" href="../../../modules/cloudmesh.accounting.html#cloudmesh.accounting.metrics.cloudmesh.config">[docs]</a>    <span class="k">def</span> <span class="nf">config</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        reads the cloudmesh yaml file that defines which clouds build</span>
+<span class="sd">        the cloudmesh</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">configuration</span> <span class="o">=</span> <span class="n">cm_config</span><span class="p">()</span>
+        <span class="n">pp</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">configuration</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">cloud_name</span> <span class="ow">in</span> <span class="n">configuration</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="k">print</span> <span class="s">&quot;--------------------&quot;</span>
+
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">credential</span> <span class="o">=</span> <span class="n">configuration</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="n">cloud_name</span><span class="p">)</span>
+                <span class="n">cloud_type</span> <span class="o">=</span> <span class="n">credential</span><span class="p">[</span><span class="s">&#39;cm_type&#39;</span><span class="p">]</span>
+
+                <span class="k">print</span> <span class="n">credential</span>
+
+                <span class="k">print</span> <span class="s">&quot;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&quot;</span><span class="p">,</span> <span class="n">cloud_name</span><span class="p">,</span> <span class="n">cloud_type</span>
+
+                <span class="k">if</span> <span class="n">cloud_type</span> <span class="ow">in</span> <span class="p">[</span><span class="s">&#39;openstack&#39;</span><span class="p">,</span> <span class="s">&#39;eucalyptus&#39;</span><span class="p">]:</span>
+                    <span class="k">print</span> <span class="s">&quot;AAAAA&quot;</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">clouds</span><span class="p">[</span><span class="n">cloud_name</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+                        <span class="s">&#39;cm_type&#39;</span><span class="p">:</span> <span class="n">cloud_type</span><span class="p">,</span> <span class="s">&#39;credential&#39;</span><span class="p">:</span> <span class="n">credential</span><span class="p">}</span>
+                    <span class="k">print</span> <span class="s">&quot;BBBB&quot;</span>
+                    <span class="k">try</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">cloud_name</span><span class="p">,</span> <span class="n">cloud_type</span><span class="p">)</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">clouds</span><span class="p">[</span><span class="n">cloud_name</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+                            <span class="s">&#39;cm_type&#39;</span><span class="p">:</span> <span class="n">cloud_type</span><span class="p">,</span> <span class="s">&#39;credential&#39;</span><span class="p">:</span> <span class="n">credential</span><span class="p">}</span>
+                    <span class="k">except</span><span class="p">:</span>
+                        <span class="k">print</span> <span class="s">&quot;ERROR: can not connect to&quot;</span><span class="p">,</span> <span class="n">cloud_name</span>
+                    <span class="k">print</span> <span class="s">&quot;CCCC&quot;</span>
+
+            <span class="k">except</span> <span class="ne">Exception</span><span class="p">,</span> <span class="n">e</span><span class="p">:</span>
+                <span class="k">print</span> <span class="s">&quot;ERROR: Not a cloud:&quot;</span><span class="p">,</span> <span class="n">cloud_name</span><span class="p">,</span> <span class="n">e</span>
+        <span class="k">return</span>
+
+    <span class="c">#</span>
+    <span class="c"># importnat get methods</span>
+    <span class="c">#</span>
+</div>
+<div class="viewcode-block" id="cloudmesh.get"><a class="viewcode-back" href="../../../modules/cloudmesh.accounting.html#cloudmesh.accounting.metrics.cloudmesh.get">[docs]</a>    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;returns the dict that contains all the information&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">clouds</span>
+
+    <span class="c">#</span>
+    <span class="c"># important print methods</span>
+    <span class="c">#</span>
+    <span class="c"># includes sanitizing to remove the credentials</span>
+    <span class="c">#</span>
+</div>
+    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">tmp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sanitize</span><span class="p">()</span>
+        <span class="k">print</span> <span class="n">tmp</span>
+
+    <span class="k">def</span> <span class="nf">_sanitize</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c"># copy the self.cloud</span>
+        <span class="c"># delete the attributes called credential for all clouds</span>
+
+        <span class="n">all_keys</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">clouds</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">cloud</span> <span class="ow">in</span> <span class="n">all_keys</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">clouds</span><span class="p">[</span><span class="n">cloud</span><span class="p">][</span><span class="s">&#39;credential&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">clouds</span>
+
+<div class="viewcode-block" id="cloudmesh.dump"><a class="viewcode-back" href="../../../modules/cloudmesh.accounting.html#cloudmesh.accounting.metrics.cloudmesh.dump">[docs]</a>    <span class="k">def</span> <span class="nf">dump</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">tmp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sanitize</span><span class="p">()</span>
+        <span class="k">print</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">tmp</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+
+    <span class="c">#</span>
+    <span class="c"># the refresh method that gets upto date information for cloudmesh</span>
+    <span class="c"># If cloudname is provided only that cloud will be refreshed</span>
+    <span class="c"># else all the clouds will be refreshed</span>
+    <span class="c">#</span>
+</div>
+<div class="viewcode-block" id="cloudmesh.refresh"><a class="viewcode-back" href="../../../modules/cloudmesh.accounting.html#cloudmesh.accounting.metrics.cloudmesh.refresh">[docs]</a>    <span class="k">def</span> <span class="nf">refresh</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cloud_name</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="k">print</span> <span class="s">&quot;Refershing cloud </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">cloud_name</span>
+        <span class="n">servers</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">cloud</span> <span class="o">=</span> <span class="bp">None</span>
+
+        <span class="k">if</span><span class="p">(</span><span class="n">cloud_name</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">):</span>
+            <span class="n">all_clouds</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">clouds</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+            <span class="k">for</span> <span class="n">cloud_name</span> <span class="ow">in</span> <span class="n">all_clouds</span><span class="p">:</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="nb">type</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">clouds</span><span class="p">[</span><span class="n">cloud_name</span><span class="p">][</span><span class="s">&#39;cm_type&#39;</span><span class="p">]</span>
+
+                    <span class="k">if</span> <span class="nb">type</span> <span class="o">==</span> <span class="s">&#39;openstack&#39;</span><span class="p">:</span>
+                        <span class="n">cloud</span> <span class="o">=</span> <span class="n">openstack</span><span class="p">(</span><span class="n">cloud_name</span><span class="p">)</span>
+
+                    <span class="k">elif</span> <span class="nb">type</span> <span class="o">==</span> <span class="s">&#39;eucalyptus&#39;</span><span class="p">:</span>
+                        <span class="c"># Where do i find the project name ? Is there a defaul</span>
+                        <span class="c"># one ?</span>
+                        <span class="n">cloud</span> <span class="o">=</span> <span class="n">eucalyptus</span><span class="p">(</span><span class="n">cloud_name</span><span class="p">,</span> <span class="s">&#39;fg-82&#39;</span><span class="p">)</span>
+
+                    <span class="k">elif</span> <span class="nb">type</span> <span class="o">==</span> <span class="s">&#39;azure&#39;</span><span class="p">:</span>
+                        <span class="n">cloud</span> <span class="o">=</span> <span class="n">azure</span><span class="o">.</span><span class="n">cm_azure</span><span class="p">()</span>
+
+                    <span class="n">cloud</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">clouds</span><span class="p">[</span><span class="n">cloud_name</span><span class="p">][</span><span class="s">&#39;flavors&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cloud</span><span class="o">.</span><span class="n">flavors</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">clouds</span><span class="p">[</span><span class="n">cloud_name</span><span class="p">][</span><span class="s">&#39;images&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cloud</span><span class="o">.</span><span class="n">images</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">clouds</span><span class="p">[</span><span class="n">cloud_name</span><span class="p">][</span><span class="s">&#39;servers&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cloud</span><span class="o">.</span><span class="n">servers</span>
+
+                <span class="k">except</span> <span class="ne">Exception</span><span class="p">,</span> <span class="n">e</span><span class="p">:</span>
+                    <span class="k">print</span> <span class="n">e</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="nb">type</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">clouds</span><span class="p">[</span><span class="n">cloud_name</span><span class="p">][</span><span class="s">&#39;cm_type&#39;</span><span class="p">]</span>
+
+                <span class="k">if</span> <span class="nb">type</span> <span class="o">==</span> <span class="s">&#39;openstack&#39;</span><span class="p">:</span>
+                    <span class="n">cloud</span> <span class="o">=</span> <span class="n">openstack</span><span class="p">(</span><span class="n">cloud_name</span><span class="p">)</span>
+
+                <span class="k">elif</span> <span class="nb">type</span> <span class="o">==</span> <span class="s">&#39;eucalyptus&#39;</span><span class="p">:</span>
+                    <span class="c"># Where do i find the project name ? Is there a defaul one ?</span>
+                    <span class="c"># this is obvious;ly wrong as the tennent comes from profile</span>
+                    <span class="c"># TODO EUCALYPTUS DOES NOT YET WORK</span>
+
+                    <span class="n">cloud</span> <span class="o">=</span> <span class="n">eucalyptus</span><span class="p">(</span><span class="n">cloud_name</span><span class="p">,</span> <span class="s">&#39;fg-82&#39;</span><span class="p">)</span>
+
+                <span class="k">elif</span> <span class="nb">type</span> <span class="o">==</span> <span class="s">&#39;azure&#39;</span><span class="p">:</span>
+                    <span class="n">cloud</span> <span class="o">=</span> <span class="n">azure</span><span class="o">.</span><span class="n">cm_azure</span><span class="p">()</span>
+
+                <span class="n">cloud</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">clouds</span><span class="p">[</span><span class="n">cloud_name</span><span class="p">][</span><span class="s">&#39;flavors&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cloud</span><span class="o">.</span><span class="n">flavors</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">clouds</span><span class="p">[</span><span class="n">cloud_name</span><span class="p">][</span><span class="s">&#39;images&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cloud</span><span class="o">.</span><span class="n">images</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">clouds</span><span class="p">[</span><span class="n">cloud_name</span><span class="p">][</span><span class="s">&#39;servers&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cloud</span><span class="o">.</span><span class="n">servers</span>
+
+            <span class="k">except</span> <span class="ne">Exception</span><span class="p">,</span> <span class="n">e</span><span class="p">:</span>
+                <span class="k">print</span> <span class="n">e</span>
+        <span class="k">return</span> <span class="n">cloud</span>
+</div>
+<div class="viewcode-block" id="cloudmesh.update"><a class="viewcode-back" href="../../../modules/cloudmesh.accounting.html#cloudmesh.accounting.metrics.cloudmesh.update">[docs]</a>    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="nb">type</span><span class="p">):</span>
+        <span class="n">servers</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">refresh</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">clouds</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s">&#39;name&#39;</span><span class="p">:</span> <span class="n">name</span><span class="p">,</span>
+                                  <span class="s">&#39;cm_type&#39;</span><span class="p">:</span> <span class="nb">type</span><span class="p">,</span>
+                                  <span class="s">&quot;servers&quot;</span><span class="p">:</span> <span class="n">servers</span><span class="p">})</span>
+        <span class="k">return</span>
+</div>
+<div class="viewcode-block" id="cloudmesh.add"><a class="viewcode-back" href="../../../modules/cloudmesh.accounting.html#cloudmesh.accounting.metrics.cloudmesh.add">[docs]</a>    <span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="nb">type</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">clouds</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+            <span class="k">print</span> <span class="s">&quot;Error: Cloud </span><span class="si">%s</span><span class="s"> already exists&quot;</span> <span class="o">%</span> <span class="n">name</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="nb">type</span><span class="p">)</span>
+</div>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    def get_keys(self):</span>
+<span class="sd">        return self.keys</span>
+
+<span class="sd">    def refresh_keys(self):</span>
+<span class="sd">        self.keys = []</span>
+<span class="sd">        result = fgrep(tail(nova(&quot;keypair-list&quot;), &quot;-n&quot;, &quot;+4&quot;),&quot;-v&quot;,&quot;+&quot;)</span>
+<span class="sd">        for line in result:</span>
+<span class="sd">            (front, name, signature, back) = line.split(&quot;|&quot;)</span>
+<span class="sd">            self.keys.append(name.strip())</span>
+<span class="sd">        return self.keys</span>
+
+
+<span class="sd">    def refresh(self):</span>
+<span class="sd">        keys = self.refresh_keys()</span>
+<span class="sd">        for cloud in keys:</span>
+<span class="sd">            self.refresh(cloud)</span>
+
+<span class="sd">        # p = Pool(4)</span>
+<span class="sd">        # update = self.refresh</span>
+<span class="sd">        # output = p.map(update, keys)</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c">#</span>
+    <span class="c"># saves and reads the dict to and from a file</span>
+    <span class="c">#</span>
+<div class="viewcode-block" id="cloudmesh.save"><a class="viewcode-back" href="../../../modules/cloudmesh.accounting.html#cloudmesh.accounting.metrics.cloudmesh.save">[docs]</a>    <span class="k">def</span> <span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">tmp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sanitize</span><span class="p">()</span>
+        <span class="nb">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">datastore</span><span class="p">,</span> <span class="s">&#39;wb&#39;</span><span class="p">)</span>
+        <span class="c"># pickle.dump(self.keys, file)</span>
+        <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">tmp</span><span class="p">,</span> <span class="nb">file</span><span class="p">)</span>
+        <span class="nb">file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</div>
+<div class="viewcode-block" id="cloudmesh.load"><a class="viewcode-back" href="../../../modules/cloudmesh.accounting.html#cloudmesh.accounting.metrics.cloudmesh.load">[docs]</a>    <span class="k">def</span> <span class="nf">load</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">datastore</span><span class="p">,</span> <span class="s">&#39;rb&#39;</span><span class="p">)</span>
+        <span class="c"># self.keys = pickle.load(file)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">clouds</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">file</span><span class="p">)</span>
+        <span class="sd">&#39;&#39;&#39; above returns:</span>
+<span class="sd">        [u&#39;gvonlasz&#39;]</span>
+<span class="sd">         So, call pickle again to get more:</span>
+<span class="sd">            {&#39;india&#39;: {&#39;name&#39;: &#39;india&#39;,</span>
+<span class="sd">            &#39;servers&#39;: {u&#39;2731c421-d985-44ce-91bf-2a89ce4ba033&#39;: {&#39;cloud&#39;: &#39;india&#39;,</span>
+<span class="sd">            &#39;id&#39;: u&#39;2731c421-d985-44ce-91bf-2a89ce4ba033&#39;,</span>
+<span class="sd">            &#39;ip&#39;: u&#39;vlan102=10.1.2.85, 149.165.158.7&#39;,</span>
+<span class="sd">            &#39;name&#39;: u&#39;gvonlasz-001&#39;,</span>
+<span class="sd">            &#39;refresh&#39;: &#39;2013-02-11 20:30:04.472583&#39;,</span>
+<span class="sd">            &#39;status&#39;: u&#39;ACTIVE&#39;},</span>
+<span class="sd">            ...</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">clouds</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">file</span><span class="p">)</span>
+        <span class="nb">file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+    <span class="c">#</span>
+    <span class="c"># TODO: convenient +, += functions to add dicts with cm_type</span>
+    <span class="c">#</span>
+</div>
+    <span class="k">def</span> <span class="nf">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        type based add function c = cloudmesh(...); b = c + other</span>
+<span class="sd">        other can be a dict that contains information about the object</span>
+<span class="sd">        and it will be nicely inserted into the overall cloudmesh dict</span>
+<span class="sd">        the type will be identified via a cm_type attribute in the</span>
+<span class="sd">        dict Nn attribute cm_cloud identifies in which cloud the</span>
+<span class="sd">        element is stored.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">other</span><span class="o">.</span><span class="n">cm_type</span> <span class="o">==</span> <span class="s">&quot;image&quot;</span><span class="p">:</span>
+            <span class="k">print</span> <span class="s">&quot;TODO: not implemented yet&quot;</span>
+            <span class="k">return</span>
+        <span class="k">elif</span> <span class="n">other</span><span class="o">.</span><span class="n">cm_type</span> <span class="o">==</span> <span class="s">&quot;vm&quot;</span><span class="p">:</span>
+            <span class="k">print</span> <span class="s">&quot;TODO: not implemented yet&quot;</span>
+            <span class="k">return</span>
+        <span class="k">elif</span> <span class="n">other</span><span class="o">.</span><span class="n">cm_type</span> <span class="o">==</span> <span class="s">&quot;flavor&quot;</span><span class="p">:</span>
+            <span class="k">print</span> <span class="s">&quot;TODO: not implemented yet&quot;</span>
+            <span class="k">return</span>
+        <span class="k">elif</span> <span class="n">other</span><span class="o">.</span><span class="n">cm_type</span> <span class="o">==</span> <span class="s">&quot;cloudmesh&quot;</span><span class="p">:</span>
+            <span class="k">print</span> <span class="s">&quot;TODO: not implemented yet&quot;</span>
+            <span class="k">return</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">print</span> <span class="s">&quot;Error: </span><span class="si">%s</span><span class="s"> type does not exist&quot;</span><span class="p">,</span> <span class="n">cm_type</span>
+            <span class="k">print</span> <span class="s">&quot;Error: Ignoring add&quot;</span>
+            <span class="k">return</span>
+
+    <span class="k">def</span> <span class="nf">__iadd__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        type based add function c = cloudmesh(...); c += other other</span>
+<span class="sd">        can be a dict that contains information about the object and</span>
+<span class="sd">        it will be nicely inserted into the overall cloudmesh dict the</span>
+<span class="sd">        type will be identified via a cm_type attribute in the dict.</span>
+<span class="sd">        Nn attribute cm_cloud identifies in which cloud the element is</span>
+<span class="sd">        stored.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">other</span><span class="o">.</span><span class="n">cm_type</span> <span class="o">==</span> <span class="s">&quot;image&quot;</span><span class="p">:</span>
+            <span class="k">print</span> <span class="s">&quot;TODO: not implemented yet&quot;</span>
+            <span class="k">return</span>
+        <span class="k">elif</span> <span class="n">other</span><span class="o">.</span><span class="n">cm_type</span> <span class="o">==</span> <span class="s">&quot;vm&quot;</span><span class="p">:</span>
+            <span class="k">print</span> <span class="s">&quot;TODO: not implemented yet&quot;</span>
+            <span class="k">return</span>
+        <span class="k">elif</span> <span class="n">other</span><span class="o">.</span><span class="n">cm_type</span> <span class="o">==</span> <span class="s">&quot;flavor&quot;</span><span class="p">:</span>
+            <span class="k">print</span> <span class="s">&quot;TODO: not implemented yet&quot;</span>
+            <span class="k">return</span>
+        <span class="k">elif</span> <span class="n">other</span><span class="o">.</span><span class="n">cm_type</span> <span class="o">==</span> <span class="s">&quot;cloudmesh&quot;</span><span class="p">:</span>
+            <span class="k">print</span> <span class="s">&quot;TODO: not implemented yet&quot;</span>
+            <span class="k">return</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">print</span> <span class="s">&quot;Error: </span><span class="si">%s</span><span class="s"> type does not exist&quot;</span><span class="p">,</span> <span class="n">cm_type</span>
+            <span class="k">print</span> <span class="s">&quot;Error: Ignoring add&quot;</span>
+            <span class="k">return</span>
+
+<span class="c">#</span>
+<span class="c"># MAIN METHOD FOR TESTING</span>
+<span class="c">#</span>
+</div>
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&quot;__main__&quot;</span><span class="p">:</span>
+
+    <span class="n">c</span> <span class="o">=</span> <span class="n">cloudmesh</span><span class="p">()</span>
+    <span class="k">print</span> <span class="n">c</span><span class="o">.</span><span class="n">clouds</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    c.config()</span>
+
+<span class="sd">    c.dump()</span>
+
+
+<span class="sd">    c = cloud_mesh()</span>
+
+<span class="sd">    c.refresh()</span>
+<span class="sd">    c.add(&#39;india&#39;, &#39;openstack&#39;)</span>
+<span class="sd">    c.add(&#39;sierra&#39;, &#39;openstack&#39;)</span>
+<span class="sd">    c.refresh_keys()</span>
+<span class="sd">    c.dump()</span>
+<span class="sd">    c.save()</span>
+<span class="sd">    print 70 * &quot;-&quot;</span>
+<span class="sd">    c.clear()</span>
+<span class="sd">    c.dump()</span>
+<span class="sd">    print 70 * &quot;-&quot;</span>
+<span class="sd">    c.load()</span>
+<span class="sd">    c.dump()</span>
+<span class="sd">    print 70 * &quot;-&quot;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    india_os = {</span>
+<span class="sd">        &quot;OS_TENANT_NAME&quot; : &#39;&#39;,</span>
+<span class="sd">        &quot;OS_USERNAME&quot; : &#39;&#39;,</span>
+<span class="sd">        &quot;OS_PASSWORD&quot; : &#39;&#39;,</span>
+<span class="sd">        &quot;OS_AUTH_URL&quot; : &#39;&#39;,</span>
+<span class="sd">        }</span>
+
+
+<span class="sd">    (attribute, passwd) = fgrep(&quot;OS_PASSWORD&quot;,&quot;%s/.futuregrid/openstack/novarc&quot; % os.environ[&#39;HOME&#39;]).replace(&quot;\n&quot;,&quot;&quot;).split(&quot;=&quot;)</span>
+
+<span class="sd">    india_os[&#39;OS_PASSWORD&#39;] = passwd</span>
+
+
+
+<span class="sd">    username = india_os[&#39;OS_USERNAME&#39;]</span>
+<span class="sd">    password = india_os[&#39;OS_PASSWORD&#39;]</span>
+<span class="sd">    authurl = india_os[&#39;OS_AUTH_URL&#39;]</span>
+<span class="sd">    tenant = india_os[&#39;OS_TENANT_NAME&#39;]</span>
+
+<span class="sd">    print password</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+<span class="sd">    username = os.environ[&#39;OS_USERNAME&#39;]</span>
+<span class="sd">    password = os.environ[&#39;OS_PASSWORD&#39;]</span>
+<span class="sd">    authurl = os.environ[&#39;OS_AUTH_URL&#39;]</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+<span class="sd">    india = cloud_openstack(&quot;india&quot;, authurl, tenant, username, password)</span>
+
+<span class="sd">    india._vm_show(&quot;gvonlasz-001&quot;)</span>
+<span class="sd">    india.dump()</span>
+<span class="sd">    india._vm_show(&quot;gvonlasz-001&quot;)</span>
+<span class="sd">    india.dump()</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+</pre></div>
+
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2013, Gregor von Laszewski for  FutureGrid.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

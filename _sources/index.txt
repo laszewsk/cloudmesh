@@ -1,7 +1,11 @@
-.. Cloudmesh Plan documentation master file, created by
-   sphinx-quickstart on Wed Jun 12 14:38:11 2013.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
+.. raw:: html
+
+ <a href="https://github.com/cloudmesh/cloudmesh"
+     class="visible-desktop"><img
+    style="position: absolute; top: 40px; right: 0; border: 0;"
+    src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"
+    alt="Fork me on GitHub"></a>
+
 
 Cloudmesh 
 ==========================================
@@ -12,9 +16,35 @@ Cloudmesh
    :maxdepth: 2
   
    about
-   plan
-   design 
-   mock
-   cal   
+   todo
+
+   inventory/index.rst
+   inventory/assign
+   inventory/add
+   inventory/unassign
+   inventory/list
+   inventory/support
 
 
+   cm/intro.rst
+
+   plan/plan
+   plan/design 
+   plan/mock
+   plan/cal   
+
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
+
+Modules
+======================================================================
+
+.. toctree::
+   :maxdepth: -1
+
+  modules/modules
