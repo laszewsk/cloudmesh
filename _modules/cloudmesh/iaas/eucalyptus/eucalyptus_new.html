@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>cloudmesh.iaas.eucalyptus.eucalyptus_new &mdash; Cloudmesh 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="../../../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/bootstrap-2.3.2/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootswatch/2.3.2/cosmo/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/bootstrap-2.3.2/css/bootstrap-responsive.min.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../../',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../../../../_static/js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="../../../../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../../../../_static/bootstrap-2.3.2/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../../../_static/bootstrap-sphinx.js"></script>
+    <link rel="author" title="About these documents" href="../../../../about.html" />
+    <link rel="top" title="Cloudmesh 0.1 documentation" href="../../../../index.html" />
+    <link rel="up" title="Module code" href="../../../index.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body>
+
+  <div id="navbar" class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+
+        <a class="brand" href="../../../../index.html">Cloudmesh</a>
+        <span class="navbar-text pull-left"><b>0.1</b></span>
+
+        <div class="nav-collapse">
+          <ul class="nav">
+            <li class="divider-vertical"></li>
+            
+              <li class="dropdown globaltoc-container">
+  <a href="../../../../index.html"
+     class="dropdown-toggle"
+     data-toggle="dropdown">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+    ><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../about.html">1&nbsp;&nbsp;&nbsp;About this document</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../todo.html">Instalation Instructions for Ubuntu for Inventory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../inventory/index.html">Welcome to FutureGrid Cloud Inventory</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../inventory/index.html#cloud-inventory">Cloud Inventory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../inventory/index.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../inventory/index.html#status">Status</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../inventory/index.html#data-model">Data Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../inventory/index.html#quickstart-example">Quickstart Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../inventory/index.html#list-of-commands">List of Commands</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../inventory/assign.html">assign</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../inventory/assign.html#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../inventory/assign.html#description">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../inventory/assign.html#list-of-parameters">List of Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../inventory/assign.html#example">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../inventory/add.html">add</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../inventory/add.html#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../inventory/add.html#description">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../inventory/add.html#list-of-parameters">List of Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../inventory/add.html#example">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../inventory/unassign.html">unassign</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../inventory/unassign.html#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../inventory/unassign.html#description">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../inventory/unassign.html#list-of-parameters">List of Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../inventory/unassign.html#example">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../inventory/list.html">list</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../inventory/list.html#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../inventory/list.html#description">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../inventory/list.html#parameters">Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../inventory/list.html#example">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../inventory/support.html">Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../cm/intro.html">Cloud Mesh</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../cm/intro.html#commands">Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../plan/plan.html">2&nbsp;&nbsp;&nbsp;Plan: Cloudmesh Service Shift</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../plan/plan.html#project-objectives">2.1&nbsp;&nbsp;&nbsp;Project Objectives</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../plan/plan.html#development-objectives">2.1.1&nbsp;&nbsp;&nbsp;Development Objectives</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../plan/plan.html#production-objectives">2.1.2&nbsp;&nbsp;&nbsp;Production Objectives</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../plan/plan.html#project-deliverables">2.2&nbsp;&nbsp;&nbsp;Project Deliverables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../plan/plan.html#evolution-of-the-project">2.3&nbsp;&nbsp;&nbsp;Evolution of the Project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../plan/plan.html#refernce-materials">2.4&nbsp;&nbsp;&nbsp;Refernce Materials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../plan/plan.html#definitions-and-acronyms">2.5&nbsp;&nbsp;&nbsp;Definitions and Acronyms</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../plan/design.html">3&nbsp;&nbsp;&nbsp;Design: Blueprint</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../plan/design.html#features">3.1&nbsp;&nbsp;&nbsp;Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../plan/design.html#difference-to-other-efforts">3.2&nbsp;&nbsp;&nbsp;Difference to other efforts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../plan/design.html#component-view">3.3&nbsp;&nbsp;&nbsp;Component View</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../plan/design.html#component-user-management">3.4&nbsp;&nbsp;&nbsp;Component User Management</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../plan/design.html#user-management">3.4.1&nbsp;&nbsp;&nbsp;User Management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../plan/design.html#accounting-will-not-be-worked-on-much">3.4.2&nbsp;&nbsp;&nbsp;Accounting (Will not be worked on much)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../plan/design.html#component-resource-management-includes-cloudshifting-as-part-of-reservation">3.5&nbsp;&nbsp;&nbsp;Component Resource Management (includes cloudshifting as part of reservation)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../plan/design.html#resource-management">3.6&nbsp;&nbsp;&nbsp;Resource Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../plan/design.html#scheduler">3.7&nbsp;&nbsp;&nbsp;Scheduler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../plan/design.html#interfaces">3.8&nbsp;&nbsp;&nbsp;Interfaces</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../plan/mock.html">Mockup</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../plan/mock.html#create-user">create_user</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../plan/cal.html">Calendar</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../modules/modules.html">Modules and Classes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../modules/cloudmesh.html">cloudmesh Package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../modules/cloudmesh.html#id1"><tt class="docutils literal"><span class="pre">cloudmesh</span></tt> Package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../modules/cloudmesh.html#module-cloudmesh.cloudmesh"><tt class="docutils literal"><span class="pre">cloudmesh</span></tt> Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../modules/cloudmesh.html#cm-mongodb-module"><tt class="docutils literal"><span class="pre">cm_mongodb</span></tt> Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../modules/cloudmesh.html#gitinfo-module"><tt class="docutils literal"><span class="pre">gitinfo</span></tt> Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../modules/cloudmesh.html#mongodb-module"><tt class="docutils literal"><span class="pre">mongodb</span></tt> Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../modules/cloudmesh.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../modules/cloudmesh.accounting.html">accounting Package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../../modules/cloudmesh.accounting.html#gold-module"><tt class="docutils literal"><span class="pre">gold</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../modules/cloudmesh.accounting.html#module-cloudmesh.accounting.metrics"><tt class="docutils literal"><span class="pre">metrics</span></tt> Module</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../modules/cloudmesh.config.html">config Package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../../modules/cloudmesh.config.html#module-cloudmesh.config.cloudmesh_cloud"><tt class="docutils literal"><span class="pre">cloudmesh_cloud</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../modules/cloudmesh.config.html#module-cloudmesh.config.cloudmesh_cloud_handler"><tt class="docutils literal"><span class="pre">cloudmesh_cloud_handler</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../modules/cloudmesh.config.html#module-cloudmesh.config.cm_config"><tt class="docutils literal"><span class="pre">cm_config</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../modules/cloudmesh.config.html#module-cloudmesh.config.cm_keys"><tt class="docutils literal"><span class="pre">cm_keys</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../modules/cloudmesh.config.html#module-cloudmesh.config.cm_projects"><tt class="docutils literal"><span class="pre">cm_projects</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../modules/cloudmesh.config.html#module-cloudmesh.config.cm_rc"><tt class="docutils literal"><span class="pre">cm_rc</span></tt> Module</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="../../../../modules/cloudmesh.config.html#cm-manage-config">cm-manage config</a></li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../modules/cloudmesh.config.html#module-cloudmesh.config.ldap_user"><tt class="docutils literal"><span class="pre">ldap_user</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../modules/cloudmesh.config.html#module-cloudmesh.config.mock_cloud"><tt class="docutils literal"><span class="pre">mock_cloud</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../modules/cloudmesh.config.html#module-cloudmesh.config.mock_keystone"><tt class="docutils literal"><span class="pre">mock_keystone</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../modules/cloudmesh.config.html#module-cloudmesh.config.mock_user"><tt class="docutils literal"><span class="pre">mock_user</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../modules/cloudmesh.config.html#module-cloudmesh.config.openstack_essex_cloud"><tt class="docutils literal"><span class="pre">openstack_essex_cloud</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../modules/cloudmesh.config.html#module-cloudmesh.config.openstack_grizzly_cloud"><tt class="docutils literal"><span class="pre">openstack_grizzly_cloud</span></tt> Module</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../modules/cloudmesh.iaas.html">iaas Package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../../modules/cloudmesh.iaas.html#module-cloudmesh.iaas.ComputeBaseType"><tt class="docutils literal"><span class="pre">ComputeBaseType</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../modules/cloudmesh.iaas.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="../../../../modules/cloudmesh.iaas.azure.html">azure Package</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="../../../../modules/cloudmesh.iaas.azure.html#id1"><tt class="docutils literal"><span class="pre">azure</span></tt> Package</a></li>
+<li class="toctree-l7"><a class="reference internal" href="../../../../modules/cloudmesh.iaas.azure.html#module-cloudmesh.iaas.azure.cm_azure"><tt class="docutils literal"><span class="pre">cm_azure</span></tt> Module</a></li>
+<li class="toctree-l7"><a class="reference internal" href="../../../../modules/cloudmesh.iaas.azure.html#fabfile-module"><tt class="docutils literal"><span class="pre">fabfile</span></tt> Module</a></li>
+</ul>
+</li>
+<li class="toctree-l6"><a class="reference internal" href="../../../../modules/cloudmesh.iaas.eucalyptus.html">eucalyptus Package</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="../../../../modules/cloudmesh.iaas.eucalyptus.html#eucalyptus-module"><tt class="docutils literal"><span class="pre">eucalyptus</span></tt> Module</a></li>
+<li class="toctree-l7"><a class="reference internal" href="../../../../modules/cloudmesh.iaas.eucalyptus.html#eucalyptus-libcloud-module"><tt class="docutils literal"><span class="pre">eucalyptus_libcloud</span></tt> Module</a></li>
+<li class="toctree-l7"><a class="reference internal" href="../../../../modules/cloudmesh.iaas.eucalyptus.html#module-cloudmesh.iaas.eucalyptus.eucalyptus_new"><tt class="docutils literal"><span class="pre">eucalyptus_new</span></tt> Module</a></li>
+</ul>
+</li>
+<li class="toctree-l6"><a class="reference internal" href="../../../../modules/cloudmesh.iaas.openstack.html">openstack Package</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="../../../../modules/cloudmesh.iaas.openstack.html#id1"><tt class="docutils literal"><span class="pre">openstack</span></tt> Package</a></li>
+<li class="toctree-l7"><a class="reference internal" href="../../../../modules/cloudmesh.iaas.openstack.html#module-cloudmesh.iaas.openstack.cm_compute"><tt class="docutils literal"><span class="pre">cm_compute</span></tt> Module</a></li>
+<li class="toctree-l7"><a class="reference internal" href="../../../../modules/cloudmesh.iaas.openstack.html#module-cloudmesh.iaas.openstack.cm_table"><tt class="docutils literal"><span class="pre">cm_table</span></tt> Module</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../modules/cloudmesh.inventory.html">inventory Package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../../modules/cloudmesh.inventory.html#resources-module"><tt class="docutils literal"><span class="pre">resources</span></tt> Module</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../modules/cloudmesh.provisioner.html">provisioner Package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../../modules/cloudmesh.provisioner.html#module-cloudmesh.provisioner.provisioner"><tt class="docutils literal"><span class="pre">provisioner</span></tt> Module</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../modules/cloudmesh.shell.html">shell Package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../../modules/cloudmesh.shell.html#module-cloudmesh.shell.cm_shell"><tt class="docutils literal"><span class="pre">cm_shell</span></tt> Module</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="../../../../modules/cloudmesh.shell.html#cm-config">cm config</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../modules/cloudmesh.util.html">util Package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../../modules/cloudmesh.util.html#module-cloudmesh.util.logger"><tt class="docutils literal"><span class="pre">logger</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../modules/cloudmesh.util.html#module-cloudmesh.util.util"><tt class="docutils literal"><span class="pre">util</span></tt> Module</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              <li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"></ul>
+</li>
+            
+            
+              
+            
+            
+              <li></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-search pull-right" action="../../../../search.html" method="get">
+  <input type="text" name="q" class="search-query" placeholder="Search" />
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div class="container">
+  
+  <h1>Source code for cloudmesh.iaas.eucalyptus.eucalyptus_new</h1><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s">&#39;..&#39;</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">import</span> <span class="nn">pprint</span>
+<span class="n">pp</span> <span class="o">=</span> <span class="n">pprint</span><span class="o">.</span><span class="n">PrettyPrinter</span><span class="p">(</span><span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">random</span>
+
+
+<span class="kn">from</span> <span class="nn">libcloud.compute.types</span> <span class="kn">import</span> <span class="n">Provider</span>
+<span class="kn">from</span> <span class="nn">libcloud.compute.providers</span> <span class="kn">import</span> <span class="n">get_driver</span>
+<span class="kn">from</span> <span class="nn">libcloud.compute.types</span> <span class="kn">import</span> <span class="n">NodeState</span>
+
+<span class="kn">import</span> <span class="nn">libcloud.security</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">from</span> <span class="nn">sh</span> <span class="kn">import</span> <span class="n">fgrep</span>
+
+<span class="c"># from openstack.cm_table import table as cm_table</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.config.cm_config</span> <span class="kn">import</span> <span class="n">cm_config</span>
+
+
+<div class="viewcode-block" id="eucalyptus"><a class="viewcode-back" href="../../../../modules/cloudmesh.iaas.eucalyptus.html#cloudmesh.iaas.eucalyptus.eucalyptus_new.eucalyptus">[docs]</a><span class="k">class</span> <span class="nc">eucalyptus</span><span class="p">:</span>
+
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    requires a cloudmesh yaml file with the following structure:</span>
+
+<span class="sd">    default: sierra-openstack</span>
+
+<span class="sd">    cloudmesh:</span>
+
+<span class="sd">        india-eucalyptus:</span>
+<span class="sd">            BASEDIR: ~/.futuregrid/india/eucalyptus</span>
+<span class="sd">            host: 127.127.127.127</span>
+<span class="sd">            port: 8773</span>
+<span class="sd">            fg-82:</span>
+<span class="sd">                EC2_PRIVATE_KEY: euca2-user-05.....-pk.pem</span>
+<span class="sd">                EC2_CERT: euca2-user-0429....-cert.pem</span>
+<span class="sd">                EUCALYPTUS_CERT: cloud-cert.pem</span>
+<span class="sd">                EC2_ACCOUNT_NUMBER: &#39;709......&#39;</span>
+<span class="sd">                EC2_ACCESS_KEY: &#39;GF78F0E7......&#39;</span>
+<span class="sd">                EC2_SECRET_KEY: &#39;yf07e87fe.......&#39;</span>
+<span class="sd">                EC2_USER_ID: &#39;09876....&#39;</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="nb">type</span> <span class="o">=</span> <span class="s">&quot;eucalyptus&quot;</span>
+    <span class="n">sizes</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">images</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">nodes</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">cloud</span> <span class="o">=</span> <span class="bp">None</span>
+    <span class="n">label</span> <span class="o">=</span> <span class="bp">None</span>
+    <span class="n">credentials</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="n">filename</span> <span class="o">=</span> <span class="s">&quot;</span><span class="si">%(home)s</span><span class="s">/</span><span class="si">%(location)s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">{</span>
+        <span class="s">&quot;home&quot;</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s">&#39;HOME&#39;</span><span class="p">],</span>
+        <span class="s">&quot;location&quot;</span><span class="p">:</span> <span class="s">&quot;.futuregrid/cloudmesh.yaml&quot;</span>
+    <span class="p">}</span>
+
+<div class="viewcode-block" id="eucalyptus.vms"><a class="viewcode-back" href="../../../../modules/cloudmesh.iaas.eucalyptus.html#cloudmesh.iaas.eucalyptus.eucalyptus_new.eucalyptus.vms">[docs]</a>    <span class="k">def</span> <span class="nf">vms</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">nodes</span>
+</div>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span>
+                 <span class="n">project</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+                 <span class="n">accessKey</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+                 <span class="n">secretKey</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        initializes the openstack cloud from a defould novaRC file</span>
+<span class="sd">        locates at ~/.futuregrid.org/openstack. However if the</span>
+<span class="sd">        parameters are provided it will instead use them</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="n">project</span><span class="p">,</span> <span class="n">accessKey</span><span class="p">,</span> <span class="n">secretKey</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+
+<div class="viewcode-block" id="eucalyptus.clear"><a class="viewcode-back" href="../../../../modules/cloudmesh.iaas.eucalyptus.html#cloudmesh.iaas.eucalyptus.eucalyptus_new.eucalyptus.clear">[docs]</a>    <span class="k">def</span> <span class="nf">clear</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        clears the data of this openstack instance, a new connection</span>
+<span class="sd">        including reading the credentials and a refresh needs to be</span>
+<span class="sd">        called to obtain again data.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">type</span> <span class="o">=</span> <span class="s">&quot;eucalyptus&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sizes</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">images</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nodes</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">credentials</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cloud</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">user_id</span> <span class="o">=</span> <span class="bp">None</span>
+</div>
+<div class="viewcode-block" id="eucalyptus.connect"><a class="viewcode-back" href="../../../../modules/cloudmesh.iaas.eucalyptus.html#cloudmesh.iaas.eucalyptus.eucalyptus_new.eucalyptus.connect">[docs]</a>    <span class="k">def</span> <span class="nf">connect</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="n">Driver</span> <span class="o">=</span> <span class="n">get_driver</span><span class="p">(</span><span class="n">Provider</span><span class="o">.</span><span class="n">EUCALYPTUS</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cloud</span> <span class="o">=</span> <span class="n">Driver</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">credentials</span><span class="p">[</span><span class="s">&#39;accessKey&#39;</span><span class="p">],</span>
+                            <span class="bp">self</span><span class="o">.</span><span class="n">credentials</span><span class="p">[</span><span class="s">&#39;secretKey&#39;</span><span class="p">],</span>
+                            <span class="n">host</span><span class="o">=</span><span class="s">&quot;149.165.146.135&quot;</span><span class="p">,</span>
+                            <span class="n">secure</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">8773</span><span class="p">,</span>
+                            <span class="n">path</span><span class="o">=</span><span class="s">&quot;/services/Eucalyptus&quot;</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="eucalyptus.config"><a class="viewcode-back" href="../../../../modules/cloudmesh.iaas.eucalyptus.html#cloudmesh.iaas.eucalyptus.eucalyptus_new.eucalyptus.config">[docs]</a>    <span class="k">def</span> <span class="nf">config</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">project</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">accessKey</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">secretKey</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        reads in the configuration file if specified, and does some</span>
+<span class="sd">        internal configuration.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">label</span> <span class="ow">is</span> <span class="bp">None</span> <span class="ow">and</span> <span class="n">accessKey</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">label</span> <span class="o">=</span> <span class="s">&#39;india-eucalyptus&#39;</span>
+            <span class="n">project</span> <span class="o">=</span> <span class="s">&#39;fg-82&#39;</span>
+
+        <span class="k">if</span> <span class="n">accessKey</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">label</span> <span class="o">=</span> <span class="n">label</span>
+
+            <span class="n">config</span> <span class="o">=</span> <span class="n">cm_config</span><span class="p">()</span>
+            <span class="n">configuration</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
+
+            <span class="n">pp</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">configuration</span><span class="p">)</span>
+
+            <span class="n">basedir</span> <span class="o">=</span> <span class="n">configuration</span><span class="p">[</span><span class="s">&#39;BASEDIR&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">configuration</span><span class="p">[</span>
+                <span class="s">&#39;BASEDIR&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&#39;~&#39;</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s">&#39;HOME&#39;</span><span class="p">])</span>
+            <span class="n">configuration</span><span class="p">[</span><span class="n">project</span><span class="p">][</span><span class="s">&#39;EC2_PRIVATE_KEY&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&quot;</span><span class="si">%s</span><span class="s">/</span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span>
+                <span class="n">basedir</span><span class="p">,</span> <span class="n">configuration</span><span class="p">[</span><span class="n">project</span><span class="p">][</span><span class="s">&#39;EC2_PRIVATE_KEY&#39;</span><span class="p">])</span>
+            <span class="n">configuration</span><span class="p">[</span><span class="n">project</span><span class="p">][</span><span class="s">&#39;EUCALYPTUS_CERT&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&quot;</span><span class="si">%s</span><span class="s">/</span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span>
+                <span class="n">basedir</span><span class="p">,</span> <span class="n">configuration</span><span class="p">[</span><span class="n">project</span><span class="p">][</span><span class="s">&#39;EUCALYPTUS_CERT&#39;</span><span class="p">])</span>
+
+            <span class="n">pp</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">configuration</span><span class="p">)</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">credentials</span><span class="p">[</span><span class="s">&#39;accessKey&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">configuration</span><span class="p">[</span>
+                <span class="n">project</span><span class="p">][</span><span class="s">&#39;EC2_ACCESS_KEY&#39;</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">credentials</span><span class="p">[</span><span class="s">&#39;secretKey&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">configuration</span><span class="p">[</span>
+                <span class="n">project</span><span class="p">][</span><span class="s">&#39;EC2_SECRET_KEY&#39;</span><span class="p">]</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">credentials</span><span class="p">[</span><span class="s">&#39;accessKey&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">accessKey</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">credentials</span><span class="p">[</span><span class="s">&#39;secretkey&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">secretKey</span>
+</div>
+    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        print everything but the credentials that is known about this</span>
+<span class="sd">        cloud in json format.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">information</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s">&#39;label&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">label</span><span class="p">,</span>
+            <span class="s">&#39;sizes&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">sizes</span><span class="p">,</span>
+            <span class="s">&#39;servers&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">nodes</span><span class="p">,</span>
+            <span class="s">&#39;images&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">images</span><span class="p">}</span>
+        <span class="k">return</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">information</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="eucalyptus.refresh"><a class="viewcode-back" href="../../../../modules/cloudmesh.iaas.eucalyptus.html#cloudmesh.iaas.eucalyptus.eucalyptus_new.eucalyptus.refresh">[docs]</a>    <span class="k">def</span> <span class="nf">refresh</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+
+        <span class="n">time_stamp</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s">&#39;%Y-%m-</span><span class="si">%d</span><span class="s">T%H-%M-%SZ&#39;</span><span class="p">)</span>
+        <span class="n">selection</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">type</span><span class="p">:</span>
+            <span class="n">selection</span> <span class="o">=</span> <span class="nb">type</span><span class="o">.</span><span class="n">lower</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="nb">all</span> <span class="o">=</span> <span class="n">selection</span> <span class="o">==</span> <span class="s">&#39;a&#39;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">all</span> <span class="o">=</span> <span class="bp">True</span>
+
+        <span class="k">if</span> <span class="n">selection</span> <span class="o">==</span> <span class="s">&#39;i&#39;</span> <span class="ow">or</span> <span class="nb">all</span><span class="p">:</span>
+
+            <span class="nb">list</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cloud</span><span class="o">.</span><span class="n">list_images</span><span class="p">()</span>
+
+            <span class="k">for</span> <span class="n">information</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">:</span>
+                <span class="n">image</span> <span class="o">=</span> <span class="n">information</span><span class="o">.</span><span class="n">__dict__</span>
+                <span class="k">del</span> <span class="n">information</span><span class="o">.</span><span class="n">_uuid</span>
+                <span class="k">del</span> <span class="n">information</span><span class="o">.</span><span class="n">driver</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">images</span><span class="p">[</span><span class="n">information</span><span class="o">.</span><span class="n">id</span><span class="p">]</span> <span class="o">=</span> <span class="n">image</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">images</span><span class="p">[</span><span class="n">information</span><span class="o">.</span><span class="n">id</span><span class="p">][</span><span class="s">&#39;cm_refresh&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">time_stamp</span>
+
+        <span class="k">if</span> <span class="n">selection</span> <span class="o">==</span> <span class="s">&#39;n&#39;</span> <span class="ow">or</span> <span class="nb">all</span><span class="p">:</span>
+
+            <span class="nb">list</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cloud</span><span class="o">.</span><span class="n">list_nodes</span><span class="p">()</span>
+
+            <span class="k">for</span> <span class="n">information</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">:</span>
+                <span class="n">node</span> <span class="o">=</span> <span class="n">information</span><span class="o">.</span><span class="n">__dict__</span>
+                <span class="k">del</span> <span class="n">information</span><span class="o">.</span><span class="n">_uuid</span>
+                <span class="k">del</span> <span class="n">information</span><span class="o">.</span><span class="n">driver</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">nodes</span><span class="p">[</span><span class="n">information</span><span class="o">.</span><span class="n">id</span><span class="p">]</span> <span class="o">=</span> <span class="n">node</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">nodes</span><span class="p">[</span><span class="n">information</span><span class="o">.</span><span class="n">id</span><span class="p">][</span><span class="s">&#39;cm_refresh&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">time_stamp</span>
+        <span class="k">if</span> <span class="n">selection</span> <span class="o">==</span> <span class="s">&#39;s&#39;</span> <span class="ow">or</span> <span class="nb">all</span><span class="p">:</span>
+
+            <span class="nb">list</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cloud</span><span class="o">.</span><span class="n">list_sizes</span><span class="p">()</span>
+
+            <span class="k">for</span> <span class="n">information</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">:</span>
+                <span class="n">size</span> <span class="o">=</span> <span class="n">information</span><span class="o">.</span><span class="n">__dict__</span>
+                <span class="c"># del information.virtualizationtype</span>
+                <span class="k">del</span> <span class="n">information</span><span class="o">.</span><span class="n">driver</span>
+                <span class="k">del</span> <span class="n">information</span><span class="o">.</span><span class="n">_uuid</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">sizes</span><span class="p">[</span><span class="n">information</span><span class="o">.</span><span class="n">id</span><span class="p">]</span> <span class="o">=</span> <span class="n">size</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">sizes</span><span class="p">[</span><span class="n">information</span><span class="o">.</span><span class="n">id</span><span class="p">][</span><span class="s">&#39;cm_refresh&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">time_stamp</span>
+</div>
+<div class="viewcode-block" id="eucalyptus.getNodebyID"><a class="viewcode-back" href="../../../../modules/cloudmesh.iaas.eucalyptus.html#cloudmesh.iaas.eucalyptus.eucalyptus_new.eucalyptus.getNodebyID">[docs]</a>    <span class="k">def</span> <span class="nf">getNodebyID</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nodeid</span><span class="p">):</span>
+        <span class="n">nodes</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cloud</span><span class="o">.</span><span class="n">list_nodes</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">nodes</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">node</span><span class="o">.</span><span class="n">id</span> <span class="o">==</span> <span class="n">nodeid</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">node</span>
+</div>
+<div class="viewcode-block" id="eucalyptus.vm_delete"><a class="viewcode-back" href="../../../../modules/cloudmesh.iaas.eucalyptus.html#cloudmesh.iaas.eucalyptus.eucalyptus_new.eucalyptus.vm_delete">[docs]</a>    <span class="k">def</span> <span class="nf">vm_delete</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">):</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">destroy_node</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">)</span>
+            <span class="c"># add result to internal cache</span>
+        <span class="k">print</span> <span class="p">(</span><span class="s">&quot;vm Deleted&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">result</span>
+</div>
+<div class="viewcode-block" id="eucalyptus.restart"><a class="viewcode-back" href="../../../../modules/cloudmesh.iaas.eucalyptus.html#cloudmesh.iaas.eucalyptus.eucalyptus_new.eucalyptus.restart">[docs]</a>    <span class="k">def</span> <span class="nf">restart</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;restarts a vm with the given name&quot;&quot;&quot;</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">reboot_node</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">)</span>
+        <span class="c"># add result to internal cache</span>
+        <span class="k">print</span> <span class="n">result</span>
+</div>
+<div class="viewcode-block" id="eucalyptus.vm_create"><a class="viewcode-back" href="../../../../modules/cloudmesh.iaas.eucalyptus.html#cloudmesh.iaas.eucalyptus.eucalyptus_new.eucalyptus.vm_create">[docs]</a>    <span class="k">def</span> <span class="nf">vm_create</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">flavor_name</span><span class="p">,</span> <span class="n">image_id</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        create a vm</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">flavours</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cloud</span><span class="o">.</span><span class="n">list_sizes</span><span class="p">()</span>
+        <span class="n">vm_flavour</span> <span class="o">=</span> <span class="n">flavours</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">flavour</span> <span class="ow">in</span> <span class="n">flavours</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">flavour</span><span class="o">.</span><span class="n">id</span> <span class="o">==</span> <span class="s">&#39;m1.small&#39;</span><span class="p">:</span>
+                <span class="n">vm_flavour</span> <span class="o">=</span> <span class="n">flavour</span>
+
+        <span class="n">images</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cloud</span><span class="o">.</span><span class="n">list_images</span><span class="p">()</span>
+        <span class="n">vm_image</span> <span class="o">=</span> <span class="n">images</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">image</span> <span class="ow">in</span> <span class="n">images</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">image</span><span class="o">.</span><span class="n">id</span> <span class="o">==</span> <span class="s">&#39;ami-000000b4&#39;</span><span class="p">:</span>
+                <span class="n">vm_image</span> <span class="o">=</span> <span class="n">image</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="n">name</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">):</span>
+            <span class="n">vm_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_generate_vmname</span><span class="p">(</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1000</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">vm_name</span> <span class="o">=</span> <span class="n">name</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">vm</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cloud</span><span class="o">.</span><span class="n">create_node</span><span class="p">(</span>
+            <span class="n">name</span><span class="o">=</span><span class="n">vm_name</span><span class="p">,</span> <span class="n">image</span><span class="o">=</span><span class="n">vm_image</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">vm_flavour</span><span class="p">)</span>
+
+        <span class="k">while</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span>
+            <span class="n">updatedNode</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getNodebyID</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">updatedNode</span><span class="o">.</span><span class="n">state</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+                <span class="k">print</span> <span class="s">&quot;pending &quot;</span> <span class="o">+</span> <span class="n">updatedNode</span><span class="o">.</span><span class="n">id</span>
+            <span class="k">if</span> <span class="n">updatedNode</span><span class="o">.</span><span class="n">state</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">print</span><span class="p">(</span><span class="s">&quot;successful creation of vm&quot;</span><span class="p">)</span>
+                <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
+                <span class="k">break</span>
+            <span class="k">if</span> <span class="n">updatedNode</span><span class="o">.</span><span class="n">state</span> <span class="o">==</span> <span class="mi">4</span><span class="p">:</span>
+                <span class="k">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="s">&quot;Has Errored out&quot;</span><span class="p">)</span>
+                <span class="c"># TODO: BUG clearly wrong, as remove also does not exist for a dict if we change to self.</span>
+                <span class="n">nodes</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">vm</span><span class="p">)</span>
+                <span class="k">break</span>
+
+        <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">__dict__</span>
+        <span class="k">del</span> <span class="n">data</span><span class="p">[</span><span class="s">&#39;driver&#39;</span><span class="p">]</span>
+        <span class="n">pp</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">{}</span>
+</div>
+    <span class="k">def</span> <span class="nf">_generate_vmname</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">):</span>
+        <span class="n">number</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">index</span><span class="p">)</span><span class="o">.</span><span class="n">zfill</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="s">&#39;</span><span class="si">%s</span><span class="s">-</span><span class="si">%s</span><span class="s">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">credentials</span><span class="p">[</span><span class="s">&#39;username&#39;</span><span class="p">],</span> <span class="n">number</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">name</span>
+
+</div>
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&quot;__main__&quot;</span><span class="p">:</span>
+
+    <span class="n">credential_test</span> <span class="o">=</span> <span class="bp">False</span>
+    <span class="n">sizes_test</span> <span class="o">=</span> <span class="bp">False</span>
+    <span class="n">table_test</span> <span class="o">=</span> <span class="bp">False</span>
+    <span class="n">image_test</span> <span class="o">=</span> <span class="bp">False</span>
+    <span class="n">nodes_test</span> <span class="o">=</span> <span class="bp">False</span>
+    <span class="n">cloud_test</span> <span class="o">=</span> <span class="bp">True</span>
+
+    <span class="n">cloud</span> <span class="o">=</span> <span class="n">eucalyptus</span><span class="p">(</span><span class="s">&#39;india-eucalyptus&#39;</span><span class="p">,</span> <span class="s">&#39;fg-82&#39;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">image_test</span><span class="p">:</span>
+        <span class="n">cloud</span><span class="o">.</span><span class="n">refresh</span><span class="p">(</span><span class="s">&#39;images&#39;</span><span class="p">)</span>
+        <span class="k">print</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">cloud</span><span class="o">.</span><span class="n">images</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="c">#-      pp.pprint (cloud.images)</span>
+
+    <span class="k">if</span> <span class="n">nodes_test</span><span class="p">:</span>
+        <span class="n">cloud</span><span class="o">.</span><span class="n">refresh</span><span class="p">(</span><span class="s">&#39;nodes&#39;</span><span class="p">)</span>
+        <span class="k">print</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">cloud</span><span class="o">.</span><span class="n">nodes</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">sizes_test</span><span class="p">:</span>
+        <span class="n">cloud</span><span class="o">.</span><span class="n">refresh</span><span class="p">(</span><span class="s">&#39;sizes&#39;</span><span class="p">)</span>
+        <span class="k">print</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">cloud</span><span class="o">.</span><span class="n">sizes</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">cloud_test</span><span class="p">:</span>
+        <span class="n">cloud</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span>
+        <span class="k">print</span> <span class="n">cloud</span>
+</pre></div>
+
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2013, Gregor von Laszewski for  FutureGrid.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

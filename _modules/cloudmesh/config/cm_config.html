@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>cloudmesh.config.cm_config &mdash; Cloudmesh 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/bootstrap-2.3.2/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootswatch/2.3.2/cosmo/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/bootstrap-2.3.2/css/bootstrap-responsive.min.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../../../_static/js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="../../../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../../../_static/bootstrap-2.3.2/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../../_static/bootstrap-sphinx.js"></script>
+    <link rel="author" title="About these documents" href="../../../about.html" />
+    <link rel="top" title="Cloudmesh 0.1 documentation" href="../../../index.html" />
+    <link rel="up" title="Module code" href="../../index.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body>
+
+  <div id="navbar" class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+
+        <a class="brand" href="../../../index.html">Cloudmesh</a>
+        <span class="navbar-text pull-left"><b>0.1</b></span>
+
+        <div class="nav-collapse">
+          <ul class="nav">
+            <li class="divider-vertical"></li>
+            
+              <li class="dropdown globaltoc-container">
+  <a href="../../../index.html"
+     class="dropdown-toggle"
+     data-toggle="dropdown">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+    ><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../about.html">1&nbsp;&nbsp;&nbsp;About this document</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../todo.html">Instalation Instructions for Ubuntu for Inventory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../inventory/index.html">Welcome to FutureGrid Cloud Inventory</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../inventory/index.html#cloud-inventory">Cloud Inventory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../inventory/index.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../inventory/index.html#status">Status</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../inventory/index.html#data-model">Data Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../inventory/index.html#quickstart-example">Quickstart Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../inventory/index.html#list-of-commands">List of Commands</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../inventory/assign.html">assign</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../inventory/assign.html#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../inventory/assign.html#description">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../inventory/assign.html#list-of-parameters">List of Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../inventory/assign.html#example">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../inventory/add.html">add</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../inventory/add.html#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../inventory/add.html#description">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../inventory/add.html#list-of-parameters">List of Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../inventory/add.html#example">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../inventory/unassign.html">unassign</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../inventory/unassign.html#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../inventory/unassign.html#description">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../inventory/unassign.html#list-of-parameters">List of Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../inventory/unassign.html#example">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../inventory/list.html">list</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../inventory/list.html#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../inventory/list.html#description">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../inventory/list.html#parameters">Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../inventory/list.html#example">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../inventory/support.html">Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cm/intro.html">Cloud Mesh</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cm/intro.html#commands">Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../plan/plan.html">2&nbsp;&nbsp;&nbsp;Plan: Cloudmesh Service Shift</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../plan/plan.html#project-objectives">2.1&nbsp;&nbsp;&nbsp;Project Objectives</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../plan/plan.html#development-objectives">2.1.1&nbsp;&nbsp;&nbsp;Development Objectives</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plan/plan.html#production-objectives">2.1.2&nbsp;&nbsp;&nbsp;Production Objectives</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plan/plan.html#project-deliverables">2.2&nbsp;&nbsp;&nbsp;Project Deliverables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plan/plan.html#evolution-of-the-project">2.3&nbsp;&nbsp;&nbsp;Evolution of the Project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plan/plan.html#refernce-materials">2.4&nbsp;&nbsp;&nbsp;Refernce Materials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plan/plan.html#definitions-and-acronyms">2.5&nbsp;&nbsp;&nbsp;Definitions and Acronyms</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../plan/design.html">3&nbsp;&nbsp;&nbsp;Design: Blueprint</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../plan/design.html#features">3.1&nbsp;&nbsp;&nbsp;Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plan/design.html#difference-to-other-efforts">3.2&nbsp;&nbsp;&nbsp;Difference to other efforts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plan/design.html#component-view">3.3&nbsp;&nbsp;&nbsp;Component View</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plan/design.html#component-user-management">3.4&nbsp;&nbsp;&nbsp;Component User Management</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../plan/design.html#user-management">3.4.1&nbsp;&nbsp;&nbsp;User Management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plan/design.html#accounting-will-not-be-worked-on-much">3.4.2&nbsp;&nbsp;&nbsp;Accounting (Will not be worked on much)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plan/design.html#component-resource-management-includes-cloudshifting-as-part-of-reservation">3.5&nbsp;&nbsp;&nbsp;Component Resource Management (includes cloudshifting as part of reservation)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plan/design.html#resource-management">3.6&nbsp;&nbsp;&nbsp;Resource Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plan/design.html#scheduler">3.7&nbsp;&nbsp;&nbsp;Scheduler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plan/design.html#interfaces">3.8&nbsp;&nbsp;&nbsp;Interfaces</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../plan/mock.html">Mockup</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../plan/mock.html#create-user">create_user</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../plan/cal.html">Calendar</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules/modules.html">Modules and Classes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../modules/cloudmesh.html">cloudmesh Package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/cloudmesh.html#id1"><tt class="docutils literal"><span class="pre">cloudmesh</span></tt> Package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/cloudmesh.html#module-cloudmesh.cloudmesh"><tt class="docutils literal"><span class="pre">cloudmesh</span></tt> Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/cloudmesh.html#cm-mongodb-module"><tt class="docutils literal"><span class="pre">cm_mongodb</span></tt> Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/cloudmesh.html#gitinfo-module"><tt class="docutils literal"><span class="pre">gitinfo</span></tt> Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/cloudmesh.html#mongodb-module"><tt class="docutils literal"><span class="pre">mongodb</span></tt> Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/cloudmesh.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/cloudmesh.accounting.html">accounting Package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.accounting.html#gold-module"><tt class="docutils literal"><span class="pre">gold</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.accounting.html#module-cloudmesh.accounting.metrics"><tt class="docutils literal"><span class="pre">metrics</span></tt> Module</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/cloudmesh.config.html">config Package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#module-cloudmesh.config.cloudmesh_cloud"><tt class="docutils literal"><span class="pre">cloudmesh_cloud</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#module-cloudmesh.config.cloudmesh_cloud_handler"><tt class="docutils literal"><span class="pre">cloudmesh_cloud_handler</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#module-cloudmesh.config.cm_config"><tt class="docutils literal"><span class="pre">cm_config</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#module-cloudmesh.config.cm_keys"><tt class="docutils literal"><span class="pre">cm_keys</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#module-cloudmesh.config.cm_projects"><tt class="docutils literal"><span class="pre">cm_projects</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#module-cloudmesh.config.cm_rc"><tt class="docutils literal"><span class="pre">cm_rc</span></tt> Module</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="../../../modules/cloudmesh.config.html#cm-manage-config">cm-manage config</a></li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#module-cloudmesh.config.ldap_user"><tt class="docutils literal"><span class="pre">ldap_user</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#module-cloudmesh.config.mock_cloud"><tt class="docutils literal"><span class="pre">mock_cloud</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#module-cloudmesh.config.mock_keystone"><tt class="docutils literal"><span class="pre">mock_keystone</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#module-cloudmesh.config.mock_user"><tt class="docutils literal"><span class="pre">mock_user</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#module-cloudmesh.config.openstack_essex_cloud"><tt class="docutils literal"><span class="pre">openstack_essex_cloud</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#module-cloudmesh.config.openstack_grizzly_cloud"><tt class="docutils literal"><span class="pre">openstack_grizzly_cloud</span></tt> Module</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/cloudmesh.iaas.html">iaas Package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.iaas.html#module-cloudmesh.iaas.ComputeBaseType"><tt class="docutils literal"><span class="pre">ComputeBaseType</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.iaas.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="../../../modules/cloudmesh.iaas.azure.html">azure Package</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="../../../modules/cloudmesh.iaas.azure.html#id1"><tt class="docutils literal"><span class="pre">azure</span></tt> Package</a></li>
+<li class="toctree-l7"><a class="reference internal" href="../../../modules/cloudmesh.iaas.azure.html#module-cloudmesh.iaas.azure.cm_azure"><tt class="docutils literal"><span class="pre">cm_azure</span></tt> Module</a></li>
+<li class="toctree-l7"><a class="reference internal" href="../../../modules/cloudmesh.iaas.azure.html#fabfile-module"><tt class="docutils literal"><span class="pre">fabfile</span></tt> Module</a></li>
+</ul>
+</li>
+<li class="toctree-l6"><a class="reference internal" href="../../../modules/cloudmesh.iaas.eucalyptus.html">eucalyptus Package</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="../../../modules/cloudmesh.iaas.eucalyptus.html#eucalyptus-module"><tt class="docutils literal"><span class="pre">eucalyptus</span></tt> Module</a></li>
+<li class="toctree-l7"><a class="reference internal" href="../../../modules/cloudmesh.iaas.eucalyptus.html#eucalyptus-libcloud-module"><tt class="docutils literal"><span class="pre">eucalyptus_libcloud</span></tt> Module</a></li>
+<li class="toctree-l7"><a class="reference internal" href="../../../modules/cloudmesh.iaas.eucalyptus.html#module-cloudmesh.iaas.eucalyptus.eucalyptus_new"><tt class="docutils literal"><span class="pre">eucalyptus_new</span></tt> Module</a></li>
+</ul>
+</li>
+<li class="toctree-l6"><a class="reference internal" href="../../../modules/cloudmesh.iaas.openstack.html">openstack Package</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="../../../modules/cloudmesh.iaas.openstack.html#id1"><tt class="docutils literal"><span class="pre">openstack</span></tt> Package</a></li>
+<li class="toctree-l7"><a class="reference internal" href="../../../modules/cloudmesh.iaas.openstack.html#module-cloudmesh.iaas.openstack.cm_compute"><tt class="docutils literal"><span class="pre">cm_compute</span></tt> Module</a></li>
+<li class="toctree-l7"><a class="reference internal" href="../../../modules/cloudmesh.iaas.openstack.html#module-cloudmesh.iaas.openstack.cm_table"><tt class="docutils literal"><span class="pre">cm_table</span></tt> Module</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/cloudmesh.inventory.html">inventory Package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.inventory.html#resources-module"><tt class="docutils literal"><span class="pre">resources</span></tt> Module</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/cloudmesh.provisioner.html">provisioner Package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.provisioner.html#module-cloudmesh.provisioner.provisioner"><tt class="docutils literal"><span class="pre">provisioner</span></tt> Module</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/cloudmesh.shell.html">shell Package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.shell.html#module-cloudmesh.shell.cm_shell"><tt class="docutils literal"><span class="pre">cm_shell</span></tt> Module</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="../../../modules/cloudmesh.shell.html#cm-config">cm config</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/cloudmesh.util.html">util Package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.util.html#module-cloudmesh.util.logger"><tt class="docutils literal"><span class="pre">logger</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.util.html#module-cloudmesh.util.util"><tt class="docutils literal"><span class="pre">util</span></tt> Module</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              <li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"></ul>
+</li>
+            
+            
+              
+            
+            
+              <li></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-search pull-right" action="../../../search.html" method="get">
+  <input type="text" name="q" class="search-query" placeholder="Search" />
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div class="container">
+  
+  <h1>Source code for cloudmesh.config.cm_config</h1><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s">&#39;../..&#39;</span><span class="p">)</span>
+<span class="kn">import</span> <span class="nn">yaml</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">stat</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">collections</span>
+
+<span class="kn">from</span> <span class="nn">string</span> <span class="kn">import</span> <span class="n">Template</span>
+
+<span class="kn">from</span> <span class="nn">cloudmesh.util.util</span> <span class="kn">import</span> <span class="n">path_expand</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.util.logger</span> <span class="kn">import</span> <span class="n">LOGGER</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.util.util</span> <span class="kn">import</span> <span class="n">check_file_for_tabs</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.config.cloudmesh_cloud_handler</span> <span class="kn">import</span> <span class="n">cloudmesh_cloud_handler</span>
+
+<span class="c">##### For testing</span>
+<span class="c"># import mock_keystone</span>
+
+
+<span class="n">log</span> <span class="o">=</span> <span class="n">LOGGER</span><span class="p">(</span><span class="s">&quot;cm_config&quot;</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="cm_config"><a class="viewcode-back" href="../../../modules/cloudmesh.config.html#cloudmesh.config.cm_config.cm_config">[docs]</a><span class="k">class</span> <span class="nc">cm_config</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+
+    <span class="c"># ----------------------------------------------------------------------</span>
+    <span class="c"># global variables</span>
+    <span class="c"># ----------------------------------------------------------------------</span>
+
+    <span class="n">default_path</span> <span class="o">=</span> <span class="s">&#39;.futuregrid/cloudmesh.yaml&#39;</span>
+    <span class="n">yaml_template</span> <span class="o">=</span> <span class="s">&#39;</span><span class="si">%s</span><span class="s">/cloudmesh_template.yaml&#39;</span> <span class="o">%</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">__file__</span><span class="p">)</span>
+    <span class="n">clouddata_template</span> <span class="o">=</span> <span class="s">&#39;</span><span class="si">%s</span><span class="s">/cloudmesh_clouds.yaml&#39;</span> <span class="o">%</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">__file__</span><span class="p">)</span>
+
+    <span class="n">filename</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
+
+    <span class="n">data</span> <span class="o">=</span> <span class="n">collections</span><span class="o">.</span><span class="n">OrderedDict</span><span class="p">()</span>
+
+    <span class="c"># ----------------------------------------------------------------------</span>
+    <span class="c"># initialization methods</span>
+    <span class="c"># ----------------------------------------------------------------------</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">filename</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">home</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s">&#39;HOME&#39;</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">filename</span> <span class="o">=</span> <span class="s">&quot;</span><span class="si">%s</span><span class="s">/</span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">home</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">default_path</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">filename</span> <span class="o">=</span> <span class="n">filename</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">filename</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span><span class="p">,</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s">&quot;Can not find the file: {0}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">filename</span><span class="p">))</span>
+            <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_userdata_handler</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_clouddata</span> <span class="o">=</span> <span class="bp">None</span>
+
+        <span class="c"># test for tab in yaml file</span>
+        <span class="k">if</span> <span class="n">check_file_for_tabs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">filename</span><span class="p">):</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s">&quot;The file {0} contains tabs. yaml Files are not allowed to contain tabs&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">filename</span><span class="p">))</span>
+            <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
+        
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">userdata_handler</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Plug-in class that knows how to get all the user/project data&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_userdata_handler</span>
+
+    <span class="nd">@userdata_handler.setter</span>
+<div class="viewcode-block" id="cm_config.userdata_handler"><a class="viewcode-back" href="../../../modules/cloudmesh.config.html#cloudmesh.config.cm_config.cm_config.userdata_handler">[docs]</a>    <span class="k">def</span> <span class="nf">userdata_handler</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_userdata_handler</span> <span class="o">=</span> <span class="n">value</span>
+
+</div>
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="cm_config.clouddata"><a class="viewcode-back" href="../../../modules/cloudmesh.config.html#cloudmesh.config.cm_config.cm_config.clouddata">[docs]</a>    <span class="k">def</span> <span class="nf">clouddata</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_clouddata</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_clouddata</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">safe_load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">clouddata_template</span><span class="p">,</span> <span class="s">&quot;r&quot;</span><span class="p">))</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_clouddata</span>
+
+    <span class="c"># ----------------------------------------------------------------------</span>
+    <span class="c"># Methods to initialize (create) the config data</span>
+    <span class="c"># ----------------------------------------------------------------------</span></div>
+    <span class="k">def</span> <span class="nf">_initialize_user</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">username</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Loads user data, including profile, projects, and credentials&quot;&quot;&quot;</span>
+        <span class="n">user</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">userdata_handler</span><span class="p">(</span><span class="n">username</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s">&#39;cloudmesh&#39;</span><span class="p">][</span><span class="s">&#39;prefix&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">username</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s">&#39;cloudmesh&#39;</span><span class="p">][</span><span class="s">&#39;index&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&quot;001&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s">&#39;cloudmesh&#39;</span><span class="p">][</span><span class="s">&#39;profile&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s">&#39;username&#39;</span><span class="p">:</span> <span class="n">username</span><span class="p">,</span>
+            <span class="s">&#39;uid&#39;</span><span class="p">:</span> <span class="n">user</span><span class="o">.</span><span class="n">uid</span><span class="p">,</span>
+            <span class="s">&#39;gid&#39;</span><span class="p">:</span> <span class="n">user</span><span class="o">.</span><span class="n">gid</span><span class="p">,</span>
+            <span class="s">&#39;firstname&#39;</span><span class="p">:</span> <span class="n">user</span><span class="o">.</span><span class="n">firstname</span><span class="p">,</span>
+            <span class="s">&#39;lastname&#39;</span><span class="p">:</span> <span class="n">user</span><span class="o">.</span><span class="n">lastname</span><span class="p">,</span>
+            <span class="s">&#39;phone&#39;</span><span class="p">:</span> <span class="n">user</span><span class="o">.</span><span class="n">phone</span><span class="p">,</span>
+            <span class="s">&#39;e-mail&#39;</span><span class="p">:</span> <span class="n">user</span><span class="o">.</span><span class="n">email</span><span class="p">,</span>
+            <span class="s">&#39;address&#39;</span><span class="p">:</span> <span class="n">user</span><span class="o">.</span><span class="n">address</span>
+        <span class="p">}</span>
+
+        <span class="n">keys</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;default&#39;</span><span class="p">:</span> <span class="bp">None</span><span class="p">,</span> <span class="s">&#39;keylist&#39;</span><span class="p">:</span> <span class="p">{}}</span>
+        <span class="k">if</span> <span class="n">user</span><span class="o">.</span><span class="n">keys</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">user</span><span class="o">.</span><span class="n">keys</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                <span class="k">if</span> <span class="n">keys</span><span class="p">[</span><span class="s">&#39;default&#39;</span><span class="p">]</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+                    <span class="n">keys</span><span class="p">[</span><span class="s">&#39;default&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">key</span>
+                <span class="n">keys</span><span class="p">[</span><span class="s">&#39;keylist&#39;</span><span class="p">][</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">user</span><span class="o">.</span><span class="n">keys</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s">&#39;cloudmesh&#39;</span><span class="p">][</span><span class="s">&#39;keys&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">keys</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s">&#39;cloudmesh&#39;</span><span class="p">][</span><span class="s">&#39;projects&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s">&#39;active&#39;</span><span class="p">:</span> <span class="n">user</span><span class="o">.</span><span class="n">activeprojects</span><span class="p">,</span>
+            <span class="s">&#39;completed&#39;</span><span class="p">:</span> <span class="n">user</span><span class="o">.</span><span class="n">completedprojects</span><span class="p">,</span>
+            <span class="s">&#39;default&#39;</span><span class="p">:</span> <span class="n">user</span><span class="o">.</span><span class="n">defaultproject</span>
+        <span class="p">}</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s">&#39;cloudmesh&#39;</span><span class="p">][</span><span class="s">&#39;active&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">user</span><span class="o">.</span><span class="n">activeclouds</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s">&#39;cloudmesh&#39;</span><span class="p">][</span><span class="s">&#39;default&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">user</span><span class="o">.</span><span class="n">defaultcloud</span>
+
+    <span class="k">def</span> <span class="nf">_initialize_clouds</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Creates cloud credentials for the user&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s">&#39;cloudmesh&#39;</span><span class="p">][</span><span class="s">&#39;clouds&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">cloudlist</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">active</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">cloud</span> <span class="ow">in</span> <span class="n">cloudlist</span><span class="p">:</span>
+            <span class="n">cloudcreds_handler</span> <span class="o">=</span> <span class="n">cloudmesh_cloud_handler</span><span class="p">(</span><span class="n">cloud</span><span class="p">)</span>
+            <span class="n">cloudcreds</span> <span class="o">=</span> <span class="n">cloudcreds_handler</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">profile</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">projects</span><span class="p">(</span><span class="s">&#39;default&#39;</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">projects</span><span class="p">(</span><span class="s">&#39;active&#39;</span><span class="p">),</span> <span class="n">cloud</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">clouddata</span><span class="p">[</span><span class="n">cloud</span><span class="p">])</span>
+            <span class="c">########### for testing #############################################################</span>
+            <span class="c"># cloudcreds._client = mock_keystone.Client</span>
+            <span class="c"># cloudcreds._client.mockusername = self.data[&#39;cloudmesh&#39;][&#39;profile&#39;][&#39;username&#39;]</span>
+            <span class="c"># cloudcreds._client.mocktenants = [&#39;fg82&#39;,&#39;fg110&#39;,&#39;fg296&#39;]</span>
+            <span class="c">#####################################################################################</span>
+            <span class="n">cloudcreds</span><span class="o">.</span><span class="n">initialize_cloud_user</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s">&#39;cloudmesh&#39;</span><span class="p">][</span><span class="s">&#39;clouds&#39;</span><span class="p">][</span><span class="n">cloud</span><span class="p">]</span> <span class="o">=</span> <span class="n">cloudcreds</span><span class="o">.</span><span class="n">data</span>
+
+<div class="viewcode-block" id="cm_config.initialize"><a class="viewcode-back" href="../../../modules/cloudmesh.config.html#cloudmesh.config.cm_config.cm_config.initialize">[docs]</a>    <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">username</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Creates or resets the data for a user.  Note that the</span>
+<span class="sd">        userdata_handler property must be set with appropriate handler class.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">safe_load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">yaml_template</span><span class="p">,</span> <span class="s">&quot;r&quot;</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_initialize_user</span><span class="p">(</span><span class="n">username</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_initialize_clouds</span><span class="p">()</span>
+</div>
+<div class="viewcode-block" id="cm_config.change_own_password"><a class="viewcode-back" href="../../../modules/cloudmesh.config.html#cloudmesh.config.cm_config.cm_config.change_own_password">[docs]</a>    <span class="k">def</span> <span class="nf">change_own_password</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">oldpass</span><span class="p">,</span> <span class="n">newpass</span><span class="p">):</span>
+        <span class="n">cloudlist</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">active</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">cloud</span> <span class="ow">in</span> <span class="n">cloudlist</span><span class="p">:</span>
+            <span class="n">cloudcreds_handler</span> <span class="o">=</span> <span class="n">cloudmesh_cloud_handler</span><span class="p">(</span><span class="n">cloud</span><span class="p">)</span>
+            <span class="n">cloudcreds</span> <span class="o">=</span> <span class="n">cloudcreds_handler</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">profile</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">projects</span><span class="p">(</span><span class="s">&#39;default&#39;</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">projects</span><span class="p">(</span><span class="s">&#39;active&#39;</span><span class="p">),</span> <span class="n">cloud</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">clouddata</span><span class="p">[</span><span class="n">cloud</span><span class="p">])</span>
+            <span class="n">cloudcreds</span><span class="o">.</span><span class="n">change_password</span><span class="p">(</span><span class="n">oldpass</span><span class="p">,</span> <span class="n">newpass</span><span class="p">)</span>
+
+
+    <span class="c"># ----------------------------------------------------------------------</span>
+    <span class="c"># read and write methods</span>
+    <span class="c"># ----------------------------------------------------------------------</span>
+</div>
+<div class="viewcode-block" id="cm_config.read"><a class="viewcode-back" href="../../../modules/cloudmesh.config.html#cloudmesh.config.cm_config.cm_config.read">[docs]</a>    <span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">filename</span> <span class="o">=</span> <span class="n">filename</span>
+        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+            <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">filename</span><span class="p">,</span> <span class="s">&quot;r&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">safe_load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+            <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</div>
+<div class="viewcode-block" id="cm_config.write"><a class="viewcode-back" href="../../../modules/cloudmesh.config.html#cloudmesh.config.cm_config.cm_config.write">[docs]</a>    <span class="k">def</span> <span class="nf">write</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="c"># pyaml.dump(self.data, f, vspacing=[2, 1, 1])</span>
+        <span class="c"># text = yaml.dump(self.data, default_flow_style=False)</span>
+        <span class="n">content</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
+        <span class="n">content</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">safe_dump</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">default_flow_style</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+
+        <span class="n">fpath</span> <span class="o">=</span> <span class="n">filename</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">filename</span>
+        <span class="n">f</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">fpath</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">O_CREAT</span> <span class="o">|</span> <span class="n">os</span><span class="o">.</span><span class="n">O_TRUNC</span> <span class="o">|</span>
+                    <span class="n">os</span><span class="o">.</span><span class="n">O_WRONLY</span><span class="p">,</span> <span class="n">stat</span><span class="o">.</span><span class="n">S_IRUSR</span> <span class="o">|</span> <span class="n">stat</span><span class="o">.</span><span class="n">S_IWUSR</span><span class="p">)</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">content</span><span class="p">)</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+
+    <span class="c"># ----------------------------------------------------------------------</span>
+    <span class="c"># print methods</span>
+    <span class="c"># ----------------------------------------------------------------------</span></div>
+    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+
+<div class="viewcode-block" id="cm_config.export_line"><a class="viewcode-back" href="../../../modules/cloudmesh.config.html#cloudmesh.config.cm_config.cm_config.export_line">[docs]</a>    <span class="k">def</span> <span class="nf">export_line</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attribute</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">)):</span>
+            <span class="n">avalue</span> <span class="o">=</span> <span class="s">&#39;,&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">avalue</span> <span class="o">=</span> <span class="n">value</span>
+        <span class="k">return</span> <span class="s">&#39;export </span><span class="si">%s</span><span class="s">=&quot;</span><span class="si">%s</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">attribute</span><span class="p">,</span> <span class="n">avalue</span><span class="p">)</span>
+
+    <span class="c"># ----------------------------------------------------------------------</span>
+    <span class="c"># get methods</span>
+    <span class="c"># ----------------------------------------------------------------------</span>
+</div>
+<div class="viewcode-block" id="cm_config.incr"><a class="viewcode-back" href="../../../modules/cloudmesh.config.html#cloudmesh.config.cm_config.cm_config.incr">[docs]</a>    <span class="k">def</span> <span class="nf">incr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s">&#39;cloudmesh&#39;</span><span class="p">][</span><span class="s">&#39;index&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s">&#39;cloudmesh&#39;</span><span class="p">][</span><span class="s">&#39;index&#39;</span><span class="p">])</span> <span class="o">+</span> <span class="nb">int</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+        <span class="c"># self.write(self.filename)</span>
+</div>
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="cm_config.vmname"><a class="viewcode-back" href="../../../modules/cloudmesh.config.html#cloudmesh.config.cm_config.cm_config.vmname">[docs]</a>    <span class="k">def</span> <span class="nf">vmname</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s">&quot;</span><span class="si">%s</span><span class="s">-</span><span class="si">%04d</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s">&#39;cloudmesh&#39;</span><span class="p">][</span><span class="s">&#39;prefix&#39;</span><span class="p">],</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s">&#39;cloudmesh&#39;</span><span class="p">][</span><span class="s">&#39;index&#39;</span><span class="p">]))</span>
+
+    <span class="c">#</span>
+    <span class="c"># warning we can not name a method default</span>
+    <span class="c">#</span></div>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">default_cloud</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s">&#39;cloudmesh&#39;</span><span class="p">][</span><span class="s">&#39;default&#39;</span><span class="p">]</span>
+
+    <span class="nd">@default_cloud.setter</span>
+<div class="viewcode-block" id="cm_config.default_cloud"><a class="viewcode-back" href="../../../modules/cloudmesh.config.html#cloudmesh.config.cm_config.cm_config.default_cloud">[docs]</a>    <span class="k">def</span> <span class="nf">default_cloud</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s">&#39;cloudmesh&#39;</span><span class="p">][</span><span class="s">&#39;default&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="cm_config.active"><a class="viewcode-back" href="../../../modules/cloudmesh.config.html#cloudmesh.config.cm_config.cm_config.active">[docs]</a>    <span class="k">def</span> <span class="nf">active</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s">&#39;cloudmesh&#39;</span><span class="p">][</span><span class="s">&#39;active&#39;</span><span class="p">]</span>
+</div>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">prefix</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s">&#39;cloudmesh&#39;</span><span class="p">][</span><span class="s">&#39;prefix&#39;</span><span class="p">]</span>
+
+    <span class="nd">@prefix.setter</span>
+<div class="viewcode-block" id="cm_config.prefix"><a class="viewcode-back" href="../../../modules/cloudmesh.config.html#cloudmesh.config.cm_config.cm_config.prefix">[docs]</a>    <span class="k">def</span> <span class="nf">prefix</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s">&#39;cloudmesh&#39;</span><span class="p">][</span><span class="s">&#39;prefix&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+</div>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">index</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s">&#39;cloudmesh&#39;</span><span class="p">][</span><span class="s">&#39;index&#39;</span><span class="p">]</span>
+
+    <span class="nd">@index.setter</span>
+<div class="viewcode-block" id="cm_config.index"><a class="viewcode-back" href="../../../modules/cloudmesh.config.html#cloudmesh.config.cm_config.cm_config.index">[docs]</a>    <span class="k">def</span> <span class="nf">index</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s">&#39;cloudmesh&#39;</span><span class="p">][</span><span class="s">&#39;index&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+</div>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">firstname</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s">&#39;cloudmesh&#39;</span><span class="p">][</span><span class="s">&#39;profile&#39;</span><span class="p">][</span><span class="s">&#39;firstname&#39;</span><span class="p">]</span>
+
+    <span class="nd">@firstname.setter</span>
+<div class="viewcode-block" id="cm_config.firstname"><a class="viewcode-back" href="../../../modules/cloudmesh.config.html#cloudmesh.config.cm_config.cm_config.firstname">[docs]</a>    <span class="k">def</span> <span class="nf">firstname</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s">&#39;cloudmesh&#39;</span><span class="p">][</span><span class="s">&#39;profile&#39;</span><span class="p">][</span><span class="s">&#39;firstname&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+</div>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">lastname</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s">&#39;cloudmesh&#39;</span><span class="p">][</span><span class="s">&#39;profile&#39;</span><span class="p">][</span><span class="s">&#39;lastname&#39;</span><span class="p">]</span>
+
+    <span class="nd">@lastname.setter</span>
+<div class="viewcode-block" id="cm_config.lastname"><a class="viewcode-back" href="../../../modules/cloudmesh.config.html#cloudmesh.config.cm_config.cm_config.lastname">[docs]</a>    <span class="k">def</span> <span class="nf">lastname</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s">&#39;cloudmesh&#39;</span><span class="p">][</span><span class="s">&#39;profile&#39;</span><span class="p">][</span><span class="s">&#39;lastname&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+</div>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">phone</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s">&#39;cloudmesh&#39;</span><span class="p">][</span><span class="s">&#39;profile&#39;</span><span class="p">][</span><span class="s">&#39;phone&#39;</span><span class="p">]</span>
+
+    <span class="nd">@phone.setter</span>
+<div class="viewcode-block" id="cm_config.phone"><a class="viewcode-back" href="../../../modules/cloudmesh.config.html#cloudmesh.config.cm_config.cm_config.phone">[docs]</a>    <span class="k">def</span> <span class="nf">phone</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s">&#39;cloudmesh&#39;</span><span class="p">][</span><span class="s">&#39;profile&#39;</span><span class="p">][</span><span class="s">&#39;phone&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+</div>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">email</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s">&#39;cloudmesh&#39;</span><span class="p">][</span><span class="s">&#39;profile&#39;</span><span class="p">][</span><span class="s">&#39;e-mail&#39;</span><span class="p">]</span>
+
+    <span class="nd">@email.setter</span>
+<div class="viewcode-block" id="cm_config.email"><a class="viewcode-back" href="../../../modules/cloudmesh.config.html#cloudmesh.config.cm_config.cm_config.email">[docs]</a>    <span class="k">def</span> <span class="nf">email</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s">&#39;cloudmesh&#39;</span><span class="p">][</span><span class="s">&#39;profile&#39;</span><span class="p">][</span><span class="s">&#39;e-mail&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+</div>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">address</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s">&#39;cloudmesh&#39;</span><span class="p">][</span><span class="s">&#39;profile&#39;</span><span class="p">][</span><span class="s">&#39;address&#39;</span><span class="p">]</span>
+
+    <span class="nd">@address.setter</span>
+<div class="viewcode-block" id="cm_config.address"><a class="viewcode-back" href="../../../modules/cloudmesh.config.html#cloudmesh.config.cm_config.cm_config.address">[docs]</a>    <span class="k">def</span> <span class="nf">address</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s">&#39;cloudmesh&#39;</span><span class="p">][</span><span class="s">&#39;profile&#39;</span><span class="p">][</span><span class="s">&#39;address&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="cm_config.profile"><a class="viewcode-back" href="../../../modules/cloudmesh.config.html#cloudmesh.config.cm_config.cm_config.profile">[docs]</a>    <span class="k">def</span> <span class="nf">profile</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s">&#39;cloudmesh&#39;</span><span class="p">][</span><span class="s">&#39;profile&#39;</span><span class="p">]</span>
+</div>
+<div class="viewcode-block" id="cm_config.userkeys"><a class="viewcode-back" href="../../../modules/cloudmesh.config.html#cloudmesh.config.cm_config.cm_config.userkeys">[docs]</a>    <span class="k">def</span> <span class="nf">userkeys</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attribute</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">expand</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">attribute</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s">&#39;cloudmesh&#39;</span><span class="p">][</span><span class="s">&#39;keys&#39;</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">attribute</span> <span class="o">==</span> <span class="s">&#39;default&#39;</span><span class="p">:</span>
+                <span class="n">name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s">&#39;cloudmesh&#39;</span><span class="p">][</span><span class="s">&#39;keys&#39;</span><span class="p">][</span><span class="s">&#39;default&#39;</span><span class="p">]</span>
+                <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s">&#39;cloudmesh&#39;</span><span class="p">][</span><span class="s">&#39;keys&#39;</span><span class="p">][</span><span class="s">&#39;keylist&#39;</span><span class="p">][</span><span class="n">name</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s">&#39;cloudmesh&#39;</span><span class="p">][</span><span class="s">&#39;keys&#39;</span><span class="p">][</span><span class="s">&#39;keylist&#39;</span><span class="p">][</span><span class="n">attribute</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">expand</span><span class="p">:</span>
+                <span class="n">value</span> <span class="o">=</span> <span class="n">path_expand</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">value</span>
+</div>
+<div class="viewcode-block" id="cm_config.default"><a class="viewcode-back" href="../../../modules/cloudmesh.config.html#cloudmesh.config.cm_config.cm_config.default">[docs]</a>    <span class="k">def</span> <span class="nf">default</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cloudname</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s">&#39;cloudmesh&#39;</span><span class="p">][</span><span class="s">&#39;clouds&#39;</span><span class="p">][</span><span class="n">cloudname</span><span class="p">][</span><span class="s">&#39;default&#39;</span><span class="p">]</span>
+</div>
+<div class="viewcode-block" id="cm_config.projects"><a class="viewcode-back" href="../../../modules/cloudmesh.config.html#cloudmesh.config.cm_config.cm_config.projects">[docs]</a>    <span class="k">def</span> <span class="nf">projects</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">status</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s">&#39;cloudmesh&#39;</span><span class="p">][</span><span class="s">&#39;projects&#39;</span><span class="p">][</span><span class="n">status</span><span class="p">]</span>
+</div>
+<div class="viewcode-block" id="cm_config.clouds"><a class="viewcode-back" href="../../../modules/cloudmesh.config.html#cloudmesh.config.cm_config.cm_config.clouds">[docs]</a>    <span class="k">def</span> <span class="nf">clouds</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s">&#39;cloudmesh&#39;</span><span class="p">][</span><span class="s">&#39;clouds&#39;</span><span class="p">]</span>
+</div>
+<div class="viewcode-block" id="cm_config.cloud"><a class="viewcode-back" href="../../../modules/cloudmesh.config.html#cloudmesh.config.cm_config.cm_config.cloud">[docs]</a>    <span class="k">def</span> <span class="nf">cloud</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cloudname</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s">&#39;cloudmesh&#39;</span><span class="p">][</span><span class="s">&#39;clouds&#39;</span><span class="p">][</span><span class="n">cloudname</span><span class="p">]</span> <span class="k">if</span> <span class="n">cloudname</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s">&#39;cloudmesh&#39;</span><span class="p">][</span><span class="s">&#39;clouds&#39;</span><span class="p">]</span> <span class="k">else</span> <span class="bp">None</span>
+</div>
+<div class="viewcode-block" id="cm_config.cloud_default"><a class="viewcode-back" href="../../../modules/cloudmesh.config.html#cloudmesh.config.cm_config.cm_config.cloud_default">[docs]</a>    <span class="k">def</span> <span class="nf">cloud_default</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cloudname</span><span class="p">,</span> <span class="n">defname</span><span class="p">):</span>
+        <span class="n">cloud</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cloud</span><span class="p">(</span><span class="n">cloudname</span><span class="p">)</span>
+        <span class="n">defaults</span> <span class="o">=</span> <span class="n">cloud</span><span class="p">[</span><span class="s">&#39;default&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="s">&#39;default&#39;</span> <span class="ow">in</span> <span class="n">cloud</span> <span class="k">else</span> <span class="p">[]</span>
+        <span class="k">return</span> <span class="n">defaults</span><span class="p">[</span><span class="n">defname</span><span class="p">]</span> <span class="k">if</span> <span class="n">defname</span> <span class="ow">in</span> <span class="n">defaults</span> <span class="k">else</span> <span class="bp">None</span>
+</div>
+<div class="viewcode-block" id="cm_config.get"><a class="viewcode-back" href="../../../modules/cloudmesh.config.html#cloudmesh.config.cm_config.cm_config.get">[docs]</a>    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">expand</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">key</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s">&#39;cloudmesh&#39;</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">expand</span><span class="p">:</span>
+                <span class="n">d</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cloud</span><span class="p">(</span><span class="n">key</span><span class="p">)[</span><span class="s">&#39;credentials&#39;</span><span class="p">]</span>
+                <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">d</span><span class="p">:</span>
+                    <span class="n">d</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">path_expand</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
+                <span class="k">return</span> <span class="n">d</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">cloud</span><span class="p">(</span><span class="n">key</span><span class="p">)[</span><span class="s">&#39;credentials&#39;</span><span class="p">]</span>
+
+    <span class="c"># This method may not be exactly what I think it is, but based on usage it</span>
+    <span class="c"># appears as if it is supposed to get the keys of the clouds</span>
+</div>
+<div class="viewcode-block" id="cm_config.keys"><a class="viewcode-back" href="../../../modules/cloudmesh.config.html#cloudmesh.config.cm_config.cm_config.keys">[docs]</a>    <span class="k">def</span> <span class="nf">keys</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">clouds</span><span class="p">()</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+</div>
+<div class="viewcode-block" id="cm_config.rc"><a class="viewcode-back" href="../../../modules/cloudmesh.config.html#cloudmesh.config.cm_config.cm_config.rc">[docs]</a>    <span class="k">def</span> <span class="nf">rc</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+        <span class="n">lines</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">attribute</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">iter</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">iteritems</span><span class="p">())):</span>
+            <span class="n">lines</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">export_line</span><span class="p">(</span><span class="n">attribute</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">lines</span>
+</div>
+<div class="viewcode-block" id="cm_config.rc_euca"><a class="viewcode-back" href="../../../modules/cloudmesh.config.html#cloudmesh.config.cm_config.cm_config.rc_euca">[docs]</a>    <span class="k">def</span> <span class="nf">rc_euca</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">project</span><span class="p">):</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cloud</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+        <span class="n">eucakeydir</span> <span class="o">=</span> <span class="s">&#39;EUCA_KEY_DIR&#39;</span>
+        <span class="n">lines</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">export_line</span><span class="p">(</span><span class="n">eucakeydir</span><span class="p">,</span> <span class="n">result</span><span class="p">[</span><span class="n">eucakeydir</span><span class="p">])</span>
+
+        <span class="k">for</span> <span class="p">(</span><span class="n">attribute</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span> <span class="ow">in</span> <span class="n">result</span><span class="o">.</span><span class="n">iteritems</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">attribute</span> <span class="o">!=</span> <span class="n">eucakeydir</span><span class="p">:</span>
+                <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">dict</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">attribute</span> <span class="o">==</span> <span class="n">project</span><span class="p">:</span>
+                        <span class="k">for</span> <span class="p">(</span><span class="n">pattribute</span><span class="p">,</span> <span class="n">pvalue</span><span class="p">)</span> <span class="ow">in</span> <span class="n">value</span><span class="o">.</span><span class="n">iteritems</span><span class="p">():</span>
+                            <span class="n">lines</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">export_line</span><span class="p">(</span><span class="n">pattribute</span><span class="p">,</span> <span class="n">pvalue</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">lines</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">export_line</span><span class="p">(</span><span class="n">attribute</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">lines</span>
+</div>
+<div class="viewcode-block" id="cm_config.set_filter"><a class="viewcode-back" href="../../../modules/cloudmesh.config.html#cloudmesh.config.cm_config.cm_config.set_filter">[docs]</a>    <span class="k">def</span> <span class="nf">set_filter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cloudname</span><span class="p">,</span> <span class="nb">filter</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s">&#39;state&#39;</span><span class="p">):</span>
+        <span class="c"># try:</span>
+        <span class="c">#    test = self.data[&#39;cloudmesh&#39;][&#39;clouds&#39;][cloudname][&#39;default&#39;][&#39;filter&#39;]</span>
+        <span class="c"># except:</span>
+        <span class="c"># self.data[&#39;cloudmesh&#39;][&#39;clouds&#39;][cloudname][&#39;default&#39;][&#39;filter&#39;] = {}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s">&#39;cloudmesh&#39;</span><span class="p">][</span><span class="s">&#39;clouds&#39;</span><span class="p">][</span><span class="n">cloudname</span><span class="p">][</span>
+            <span class="s">&#39;default&#39;</span><span class="p">][</span><span class="s">&#39;filter&#39;</span><span class="p">][</span><span class="nb">type</span><span class="p">]</span> <span class="o">=</span> <span class="nb">filter</span>
+</div>
+<div class="viewcode-block" id="cm_config.get_filter"><a class="viewcode-back" href="../../../modules/cloudmesh.config.html#cloudmesh.config.cm_config.cm_config.get_filter">[docs]</a>    <span class="k">def</span> <span class="nf">get_filter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cloudname</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s">&#39;state&#39;</span><span class="p">):</span>
+        <span class="k">print</span> <span class="s">&quot;getting the filter for cloud&quot;</span><span class="p">,</span> <span class="n">cloudname</span>
+        <span class="c"># try:</span>
+        <span class="c">#    result = self.data[&#39;cloudmesh&#39;][&#39;clouds&#39;][cloudname][&#39;default&#39;][&#39;filter&#39;][type]</span>
+        <span class="c"># except:</span>
+        <span class="c">#    self.set_filter(cloudname, {}, type)</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s">&#39;cloudmesh&#39;</span><span class="p">][</span><span class="s">&#39;clouds&#39;</span><span class="p">][</span>
+            <span class="n">cloudname</span><span class="p">][</span><span class="s">&#39;default&#39;</span><span class="p">][</span><span class="s">&#39;filter&#39;</span><span class="p">][</span><span class="nb">type</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">result</span>
+</div>
+<div class="viewcode-block" id="cm_config.create_filter"><a class="viewcode-back" href="../../../modules/cloudmesh.config.html#cloudmesh.config.cm_config.cm_config.create_filter">[docs]</a>    <span class="k">def</span> <span class="nf">create_filter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cloudname</span><span class="p">,</span> <span class="n">states</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s">&#39;cloudmesh&#39;</span><span class="p">][</span><span class="s">&#39;clouds&#39;</span><span class="p">][</span><span class="n">cloudname</span><span class="p">][</span><span class="s">&#39;default&#39;</span><span class="p">][</span><span class="s">&#39;filter&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">state_flags</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">state</span> <span class="ow">in</span> <span class="n">states</span><span class="p">:</span>
+            <span class="n">state_flags</span><span class="p">[</span><span class="n">state</span><span class="p">]</span> <span class="o">=</span> <span class="bp">True</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">set_filter</span><span class="p">(</span><span class="n">cloudname</span><span class="p">,</span> <span class="n">state_flags</span><span class="p">,</span> <span class="s">&#39;state&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">set_filter</span><span class="p">(</span><span class="n">cloudname</span><span class="p">,</span> <span class="p">{</span><span class="s">&#39;me&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">},</span> <span class="s">&#39;select&#39;</span><span class="p">)</span>
+
+
+<span class="c"># ----------------------------------------------------------------------</span>
+<span class="c"># MAIN METHOD FOR TESTING</span>
+<span class="c"># ----------------------------------------------------------------------</span>
+</div></div>
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">config</span> <span class="o">=</span> <span class="n">cm_config</span><span class="p">()</span>
+
+    <span class="k">print</span> <span class="n">config</span>
+
+    <span class="k">print</span> <span class="s">&quot;=================&quot;</span>
+    <span class="k">print</span> <span class="n">config</span><span class="o">.</span><span class="n">projects</span><span class="p">(</span><span class="s">&#39;active&#39;</span><span class="p">)</span>
+    <span class="k">print</span> <span class="n">config</span><span class="o">.</span><span class="n">projects</span><span class="p">(</span><span class="s">&#39;completed&#39;</span><span class="p">)</span>
+    <span class="k">print</span> <span class="s">&quot;=================&quot;</span>
+    <span class="k">print</span> <span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;india-openstack&#39;</span><span class="p">)</span>
+    <span class="k">print</span> <span class="s">&quot;=================&quot;</span>
+    <span class="k">print</span> <span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+    <span class="k">print</span> <span class="s">&quot;=================&quot;</span>
+    <span class="k">print</span> <span class="n">config</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+    <span class="k">print</span> <span class="s">&quot;=================&quot;</span>
+    <span class="k">print</span> <span class="n">config</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s">&#39;india-openstack&#39;</span><span class="p">)</span>
+    <span class="k">print</span> <span class="s">&quot;=================&quot;</span>
+    <span class="k">print</span> <span class="n">config</span><span class="o">.</span><span class="n">default</span>
+    <span class="k">print</span> <span class="s">&quot;=================&quot;</span>
+    <span class="n">outfile</span> <span class="o">=</span> <span class="s">&quot;</span><span class="si">%s</span><span class="s">/</span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s">&#39;HOME&#39;</span><span class="p">],</span> <span class="s">&quot;.futuregrid/junk.yaml&quot;</span><span class="p">)</span>
+    <span class="k">print</span> <span class="n">config</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">outfile</span><span class="p">)</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s">&quot;cat &quot;</span> <span class="o">+</span> <span class="n">outfile</span><span class="p">)</span>
+    <span class="k">print</span> <span class="s">&quot;=================&quot;</span>
+    <span class="n">configuration</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;azure&#39;</span><span class="p">)</span>
+
+    <span class="k">print</span> <span class="n">configuration</span><span class="p">[</span><span class="s">&#39;username&#39;</span><span class="p">]</span>
+
+    <span class="k">print</span> <span class="s">&quot;=================&quot;</span>
+
+    <span class="n">configuration</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;india-eucalyptus&#39;</span><span class="p">)</span>
+    <span class="k">print</span> <span class="n">configuration</span>
+
+    <span class="k">print</span> <span class="n">configuration</span><span class="p">[</span><span class="s">&#39;host&#39;</span><span class="p">]</span>
+</pre></div>
+
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2013, Gregor von Laszewski for  FutureGrid.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>
