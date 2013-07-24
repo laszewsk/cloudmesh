@@ -64,6 +64,11 @@
      data-toggle="dropdown">Site <b class="caret"></b></a>
   <ul class="dropdown-menu globaltoc"
     ><ul>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install.html#developmnet-version">Developmnet Version</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="install.html#convenient-command-shortcuts">Convenient command shortcuts</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="about.html">1&nbsp;&nbsp;&nbsp;About this document</a></li>
 <li class="toctree-l1"><a class="reference internal" href="todo.html">Instalation Instructions for Ubuntu for Inventory</a></li>
 <li class="toctree-l1"><a class="reference internal" href="inventory/index.html">Welcome to FutureGrid Cloud Inventory</a><ul>
@@ -149,11 +154,13 @@
 <li class="toctree-l3"><a class="reference internal" href="modules/cloudmesh.html#mongodb-module"><tt class="docutils literal"><span class="pre">mongodb</span></tt> Module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="modules/cloudmesh.html#subpackages">Subpackages</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="modules/cloudmesh.accounting.html">accounting Package</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="modules/cloudmesh.accounting.html#gold-module"><tt class="docutils literal"><span class="pre">gold</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/cloudmesh.accounting.html#module-cloudmesh.accounting.AccountBaseClass"><tt class="docutils literal"><span class="pre">AccountBaseClass</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/cloudmesh.accounting.html#goldaccounting-module"><tt class="docutils literal"><span class="pre">GoldAccounting</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="modules/cloudmesh.accounting.html#module-cloudmesh.accounting.metrics"><tt class="docutils literal"><span class="pre">metrics</span></tt> Module</a></li>
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="modules/cloudmesh.config.html">config Package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="modules/cloudmesh.config.html#id1"><tt class="docutils literal"><span class="pre">config</span></tt> Package</a></li>
 <li class="toctree-l5"><a class="reference internal" href="modules/cloudmesh.config.html#module-cloudmesh.config.cloudmesh_cloud"><tt class="docutils literal"><span class="pre">cloudmesh_cloud</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="modules/cloudmesh.config.html#module-cloudmesh.config.cloudmesh_cloud_handler"><tt class="docutils literal"><span class="pre">cloudmesh_cloud_handler</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="modules/cloudmesh.config.html#module-cloudmesh.config.cm_config"><tt class="docutils literal"><span class="pre">cm_config</span></tt> Module</a></li>
@@ -172,6 +179,7 @@
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="modules/cloudmesh.iaas.html">iaas Package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="modules/cloudmesh.iaas.html#id1"><tt class="docutils literal"><span class="pre">iaas</span></tt> Package</a></li>
 <li class="toctree-l5"><a class="reference internal" href="modules/cloudmesh.iaas.html#module-cloudmesh.iaas.ComputeBaseType"><tt class="docutils literal"><span class="pre">ComputeBaseType</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="modules/cloudmesh.iaas.html#subpackages">Subpackages</a><ul>
 <li class="toctree-l6"><a class="reference internal" href="modules/cloudmesh.iaas.azure.html">azure Package</a><ul>
@@ -197,10 +205,12 @@
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="modules/cloudmesh.inventory.html">inventory Package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="modules/cloudmesh.inventory.html#id1"><tt class="docutils literal"><span class="pre">inventory</span></tt> Package</a></li>
 <li class="toctree-l5"><a class="reference internal" href="modules/cloudmesh.inventory.html#resources-module"><tt class="docutils literal"><span class="pre">resources</span></tt> Module</a></li>
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="modules/cloudmesh.provisioner.html">provisioner Package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="modules/cloudmesh.provisioner.html#id1"><tt class="docutils literal"><span class="pre">provisioner</span></tt> Package</a></li>
 <li class="toctree-l5"><a class="reference internal" href="modules/cloudmesh.provisioner.html#module-cloudmesh.provisioner.provisioner"><tt class="docutils literal"><span class="pre">provisioner</span></tt> Module</a></li>
 </ul>
 </li>
@@ -212,6 +222,7 @@
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="modules/cloudmesh.util.html">util Package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="modules/cloudmesh.util.html#id1"><tt class="docutils literal"><span class="pre">util</span></tt> Package</a></li>
 <li class="toctree-l5"><a class="reference internal" href="modules/cloudmesh.util.html#module-cloudmesh.util.logger"><tt class="docutils literal"><span class="pre">logger</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="modules/cloudmesh.util.html#module-cloudmesh.util.util"><tt class="docutils literal"><span class="pre">util</span></tt> Module</a></li>
 </ul>
@@ -288,7 +299,15 @@
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%" valign="top"><dl>
       
+  <dt><a href="modules/cloudmesh.accounting.html#cloudmesh.accounting.AccountBaseClass.AccountingBaseClass">AccountingBaseClass (class in cloudmesh.accounting.AccountBaseClass)</a>
+  </dt>
+
+      
   <dt><a href="modules/cloudmesh.iaas.azure.html#cloudmesh.iaas.azure.cm_azure.cm_azure.activate">activate() (cloudmesh.iaas.azure.cm_azure.cm_azure method)</a>
+  </dt>
+
+      
+  <dt><a href="modules/cloudmesh.accounting.html#cloudmesh.accounting.AccountBaseClass.AccountingBaseClass.activate_user_from_project">activate_user_from_project() (cloudmesh.accounting.AccountBaseClass.AccountingBaseClass method)</a>
   </dt>
 
       
@@ -340,13 +359,21 @@
   </dt>
 
       
-  <dt><a href="modules/cloudmesh.inventory.html#cloudmesh.inventory.resources.Inventory.add_service">add_service() (cloudmesh.inventory.resources.Inventory method)</a>
+  <dt><a href="modules/cloudmesh.accounting.html#cloudmesh.accounting.AccountBaseClass.AccountingBaseClass.add_project">add_project() (cloudmesh.accounting.AccountBaseClass.AccountingBaseClass method)</a>
   </dt>
 
   </dl></td>
   <td style="width: 33%" valign="top"><dl>
       
+  <dt><a href="modules/cloudmesh.accounting.html#cloudmesh.accounting.AccountBaseClass.AccountingBaseClass.add_user">add_user() (cloudmesh.accounting.AccountBaseClass.AccountingBaseClass method)</a>
+  </dt>
+
+      
   <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.mock_keystone.Client.mock_roles.add_user_role">add_user_role() (cloudmesh.config.mock_keystone.Client.mock_roles method)</a>
+  </dt>
+
+      
+  <dt><a href="modules/cloudmesh.accounting.html#cloudmesh.accounting.AccountBaseClass.AccountingBaseClass.add_user_to_project">add_user_to_project() (cloudmesh.accounting.AccountBaseClass.AccountingBaseClass method)</a>
   </dt>
 
       
@@ -402,20 +429,24 @@
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%" valign="top"><dl>
       
-  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.cm_config.cm_config.change_own_password">change_own_password() (cloudmesh.config.cm_config.cm_config method)</a>
-  </dt>
-
-      
-  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.cloudmesh_cloud.cloudmesh_cloud.change_password">change_password() (cloudmesh.config.cloudmesh_cloud.cloudmesh_cloud method)</a>
+  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.cloudmesh_cloud.cloudmesh_cloud.change_own_password">change_own_password() (cloudmesh.config.cloudmesh_cloud.cloudmesh_cloud method)</a>
   </dt>
 
       <dd><dl>
         
-  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.openstack_essex_cloud.openstack_essex_cloud.change_password">(cloudmesh.config.openstack_essex_cloud.openstack_essex_cloud method)</a>
+  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.cm_config.cm_config.change_own_password">(cloudmesh.config.cm_config.cm_config method)</a>
   </dt>
 
         
-  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.openstack_grizzly_cloud.openstack_grizzly_cloud.change_password">(cloudmesh.config.openstack_grizzly_cloud.openstack_grizzly_cloud method)</a>
+  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.mock_keystone.Client.mock_users.change_own_password">(cloudmesh.config.mock_keystone.Client.mock_users method)</a>
+  </dt>
+
+        
+  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.openstack_essex_cloud.openstack_essex_cloud.change_own_password">(cloudmesh.config.openstack_essex_cloud.openstack_essex_cloud method)</a>
+  </dt>
+
+        
+  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.openstack_grizzly_cloud.openstack_grizzly_cloud.change_own_password">(cloudmesh.config.openstack_grizzly_cloud.openstack_grizzly_cloud method)</a>
   </dt>
 
       </dl></dd>
@@ -429,10 +460,6 @@
 
       
   <dt><a href="modules/cloudmesh.iaas.openstack.html#cloudmesh.iaas.openstack.cm_compute.openstack.checkSecurityGroups">checkSecurityGroups() (cloudmesh.iaas.openstack.cm_compute.openstack method)</a>
-  </dt>
-
-      
-  <dt><a href="modules/cloudmesh.inventory.html#cloudmesh.inventory.resources.Inventory.clean">clean() (cloudmesh.inventory.resources.Inventory method)</a>
   </dt>
 
       
@@ -534,11 +561,19 @@
   </dt>
 
       
+  <dt><a href="modules/cloudmesh.accounting.html#module-cloudmesh.accounting.AccountBaseClass">cloudmesh.accounting.AccountBaseClass (module)</a>
+  </dt>
+
+      
   <dt><a href="modules/cloudmesh.accounting.html#module-cloudmesh.accounting.metrics">cloudmesh.accounting.metrics (module)</a>
   </dt>
 
       
   <dt><a href="modules/cloudmesh.html#module-cloudmesh.cloudmesh">cloudmesh.cloudmesh (module)</a>
+  </dt>
+
+      
+  <dt><a href="modules/cloudmesh.config.html#module-cloudmesh.config">cloudmesh.config (module)</a>
   </dt>
 
       
@@ -589,6 +624,10 @@
   <dt><a href="modules/cloudmesh.config.html#module-cloudmesh.config.openstack_grizzly_cloud">cloudmesh.config.openstack_grizzly_cloud (module)</a>
   </dt>
 
+      
+  <dt><a href="modules/cloudmesh.iaas.html#module-cloudmesh.iaas">cloudmesh.iaas (module)</a>
+  </dt>
+
   </dl></td>
   <td style="width: 33%" valign="top"><dl>
       
@@ -620,7 +659,11 @@
   </dt>
 
       
-  <dt><a href="modules/cloudmesh.inventory.html#module-cloudmesh.inventory.resources">cloudmesh.inventory.resources (module)</a>
+  <dt><a href="modules/cloudmesh.inventory.html#module-cloudmesh.inventory">cloudmesh.inventory (module)</a>
+  </dt>
+
+      
+  <dt><a href="modules/cloudmesh.provisioner.html#module-cloudmesh.provisioner">cloudmesh.provisioner (module)</a>
   </dt>
 
       
@@ -628,7 +671,19 @@
   </dt>
 
       
+  <dt><a href="modules/cloudmesh.provisioner.queue.html#module-cloudmesh.provisioner.queue.celery">cloudmesh.provisioner.queue.celery (module)</a>
+  </dt>
+
+      
+  <dt><a href="modules/cloudmesh.provisioner.queue.html#module-cloudmesh.provisioner.queue.tasks">cloudmesh.provisioner.queue.tasks (module)</a>
+  </dt>
+
+      
   <dt><a href="modules/cloudmesh.shell.html#module-cloudmesh.shell.cm_shell">cloudmesh.shell.cm_shell (module)</a>
+  </dt>
+
+      
+  <dt><a href="modules/cloudmesh.util.html#module-cloudmesh.util">cloudmesh.util (module)</a>
   </dt>
 
       
@@ -672,14 +727,6 @@
   </dt>
 
       
-  <dt><a href="modules/cloudmesh.inventory.html#cloudmesh.inventory.resources.FabricObject.cluster">cluster (cloudmesh.inventory.resources.FabricObject attribute)</a>
-  </dt>
-
-      
-  <dt><a href="modules/cloudmesh.inventory.html#cloudmesh.inventory.resources.Inventory.clusters">clusters (cloudmesh.inventory.resources.Inventory attribute)</a>
-  </dt>
-
-      
   <dt><a href="modules/cloudmesh.iaas.azure.html#cloudmesh.iaas.azure.cm_azure.cm_azure">cm_azure (class in cloudmesh.iaas.azure.cm_azure)</a>
   </dt>
 
@@ -705,10 +752,6 @@
   </dt>
 
       </dl></dd>
-      
-  <dt><a href="modules/cloudmesh.inventory.html#cloudmesh.inventory.resources.FabricCluster.compute_nodes">compute_nodes (cloudmesh.inventory.resources.FabricCluster attribute)</a>
-  </dt>
-
       
   <dt><a href="modules/cloudmesh.iaas.html#cloudmesh.iaas.ComputeBaseType.ComputeBaseType">ComputeBaseType (class in cloudmesh.iaas.ComputeBaseType)</a>
   </dt>
@@ -774,15 +817,7 @@
   <dt><a href="modules/cloudmesh.iaas.openstack.html#cloudmesh.iaas.openstack.cm_table.table.create">(cloudmesh.iaas.openstack.cm_table.table method)</a>
   </dt>
 
-        
-  <dt><a href="modules/cloudmesh.inventory.html#cloudmesh.inventory.resources.Inventory.create">(cloudmesh.inventory.resources.Inventory method)</a>
-  </dt>
-
       </dl></dd>
-      
-  <dt><a href="modules/cloudmesh.inventory.html#cloudmesh.inventory.resources.Inventory.create_cluster">create_cluster() (cloudmesh.inventory.resources.Inventory method)</a>
-  </dt>
-
       
   <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.cm_config.cm_config.create_filter">create_filter() (cloudmesh.config.cm_config.cm_config method)</a>
   </dt>
@@ -846,10 +881,6 @@
   <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.mock_user.mock_user.data">(cloudmesh.config.mock_user.mock_user attribute)</a>
   </dt>
 
-        
-  <dt><a href="modules/cloudmesh.inventory.html#cloudmesh.inventory.resources.FabricObject.data">(cloudmesh.inventory.resources.FabricObject attribute)</a>
-  </dt>
-
       </dl></dd>
       
   <dt><a href="modules/cloudmesh.accounting.html#cloudmesh.accounting.metrics.cloudmesh.datastore">datastore (cloudmesh.accounting.metrics.cloudmesh attribute)</a>
@@ -862,23 +893,11 @@
 
       </dl></dd>
       
-  <dt><a href="modules/cloudmesh.inventory.html#cloudmesh.inventory.resources.FabricObject.date_creation">date_creation (cloudmesh.inventory.resources.FabricObject attribute)</a>
+  <dt><a href="modules/cloudmesh.accounting.html#cloudmesh.accounting.AccountBaseClass.AccountingBaseClass.deactivate_project">deactivate_project() (cloudmesh.accounting.AccountBaseClass.AccountingBaseClass method)</a>
   </dt>
 
       
-  <dt><a href="modules/cloudmesh.inventory.html#cloudmesh.inventory.resources.FabricObject.date_modified">date_modified (cloudmesh.inventory.resources.FabricObject attribute)</a>
-  </dt>
-
-      
-  <dt><a href="modules/cloudmesh.inventory.html#cloudmesh.inventory.resources.FabricObject.date_start">date_start (cloudmesh.inventory.resources.FabricObject attribute)</a>
-  </dt>
-
-      
-  <dt><a href="modules/cloudmesh.inventory.html#cloudmesh.inventory.resources.FabricObject.date_stop">date_stop (cloudmesh.inventory.resources.FabricObject attribute)</a>
-  </dt>
-
-      
-  <dt><a href="modules/cloudmesh.inventory.html#cloudmesh.inventory.resources.FabricObject.date_update">date_update (cloudmesh.inventory.resources.FabricObject attribute)</a>
+  <dt><a href="modules/cloudmesh.accounting.html#cloudmesh.accounting.AccountBaseClass.AccountingBaseClass.deactivate_user_from_project">deactivate_user_from_project() (cloudmesh.accounting.AccountBaseClass.AccountingBaseClass method)</a>
   </dt>
 
       
@@ -911,8 +930,6 @@
   <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.cm_config.cm_config.default_path">default_path (cloudmesh.config.cm_config.cm_config attribute)</a>
   </dt>
 
-  </dl></td>
-  <td style="width: 33%" valign="top"><dl>
       
   <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.ldap_user.ldap_user.defaultcloud">defaultcloud (cloudmesh.config.ldap_user.ldap_user attribute)</a>
   </dt>
@@ -923,6 +940,8 @@
   </dt>
 
       </dl></dd>
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
       
   <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.cloudmesh_cloud.cloudmesh_cloud.defaultproject">defaultproject (cloudmesh.config.cloudmesh_cloud.cloudmesh_cloud attribute)</a>
   </dt>
@@ -961,10 +980,6 @@
       </dl></dd>
       
   <dt><a href="modules/cloudmesh.iaas.openstack.html#cloudmesh.iaas.openstack.cm_compute.openstack.delete_key">delete_key() (cloudmesh.iaas.openstack.cm_compute.openstack method)</a>
-  </dt>
-
-      
-  <dt><a href="modules/cloudmesh.inventory.html#cloudmesh.inventory.resources.Inventory.disconnect">disconnect() (cloudmesh.inventory.resources.Inventory method)</a>
   </dt>
 
       
@@ -1031,18 +1046,10 @@
   <dt><a href="modules/cloudmesh.iaas.eucalyptus.html#cloudmesh.iaas.eucalyptus.eucalyptus_new.eucalyptus">eucalyptus (class in cloudmesh.iaas.eucalyptus.eucalyptus_new)</a>
   </dt>
 
-      
-  <dt><a href="modules/cloudmesh.inventory.html#cloudmesh.inventory.resources.Inventory.exists">exists() (cloudmesh.inventory.resources.Inventory method)</a>
-  </dt>
-
   </dl></td>
   <td style="width: 33%" valign="top"><dl>
       
   <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.cm_config.cm_config.export_line">export_line() (cloudmesh.config.cm_config.cm_config method)</a>
-  </dt>
-
-      
-  <dt><a href="modules/cloudmesh.inventory.html#cloudmesh.inventory.resources.FabricImage.extension">extension (cloudmesh.inventory.resources.FabricImage attribute)</a>
   </dt>
 
   </dl></td>
@@ -1051,72 +1058,6 @@
 <h2 id="F">F</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%" valign="top"><dl>
-      
-  <dt><a href="modules/cloudmesh.inventory.html#cloudmesh.inventory.resources.FabricCluster">FabricCluster (class in cloudmesh.inventory.resources)</a>
-  </dt>
-
-      
-  <dt><a href="modules/cloudmesh.inventory.html#cloudmesh.inventory.resources.FabricCluster.DoesNotExist">FabricCluster.DoesNotExist</a>
-  </dt>
-
-      
-  <dt><a href="modules/cloudmesh.inventory.html#cloudmesh.inventory.resources.FabricCluster.MultipleObjectsReturned">FabricCluster.MultipleObjectsReturned</a>
-  </dt>
-
-      
-  <dt><a href="modules/cloudmesh.inventory.html#cloudmesh.inventory.resources.FabricImage">FabricImage (class in cloudmesh.inventory.resources)</a>
-  </dt>
-
-      
-  <dt><a href="modules/cloudmesh.inventory.html#cloudmesh.inventory.resources.FabricImage.DoesNotExist">FabricImage.DoesNotExist</a>
-  </dt>
-
-      
-  <dt><a href="modules/cloudmesh.inventory.html#cloudmesh.inventory.resources.FabricImage.MultipleObjectsReturned">FabricImage.MultipleObjectsReturned</a>
-  </dt>
-
-      
-  <dt><a href="modules/cloudmesh.inventory.html#cloudmesh.inventory.resources.FabricObject">FabricObject (class in cloudmesh.inventory.resources)</a>
-  </dt>
-
-      
-  <dt><a href="modules/cloudmesh.inventory.html#cloudmesh.inventory.resources.FabricObject.DoesNotExist">FabricObject.DoesNotExist</a>
-  </dt>
-
-      
-  <dt><a href="modules/cloudmesh.inventory.html#cloudmesh.inventory.resources.FabricObject.MultipleObjectsReturned">FabricObject.MultipleObjectsReturned</a>
-  </dt>
-
-      
-  <dt><a href="modules/cloudmesh.inventory.html#cloudmesh.inventory.resources.FabricServer">FabricServer (class in cloudmesh.inventory.resources)</a>
-  </dt>
-
-      
-  <dt><a href="modules/cloudmesh.inventory.html#cloudmesh.inventory.resources.FabricServer.DoesNotExist">FabricServer.DoesNotExist</a>
-  </dt>
-
-  </dl></td>
-  <td style="width: 33%" valign="top"><dl>
-      
-  <dt><a href="modules/cloudmesh.inventory.html#cloudmesh.inventory.resources.FabricServer.MultipleObjectsReturned">FabricServer.MultipleObjectsReturned</a>
-  </dt>
-
-      
-  <dt><a href="modules/cloudmesh.inventory.html#cloudmesh.inventory.resources.FabricService">FabricService (class in cloudmesh.inventory.resources)</a>
-  </dt>
-
-      
-  <dt><a href="modules/cloudmesh.inventory.html#cloudmesh.inventory.resources.FabricService.DoesNotExist">FabricService.DoesNotExist</a>
-  </dt>
-
-      
-  <dt><a href="modules/cloudmesh.inventory.html#cloudmesh.inventory.resources.FabricService.MultipleObjectsReturned">FabricService.MultipleObjectsReturned</a>
-  </dt>
-
-      
-  <dt><a href="modules/cloudmesh.inventory.html#cloudmesh.inventory.resources.Inventory.fabrictype">fabrictype() (cloudmesh.inventory.resources.Inventory method)</a>
-  </dt>
-
       
   <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.cm_config.cm_config.filename">filename (cloudmesh.config.cm_config.cm_config attribute)</a>
   </dt>
@@ -1144,10 +1085,6 @@
   <dt><a href="modules/cloudmesh.iaas.openstack.html#cloudmesh.iaas.openstack.cm_compute.openstack.find">(cloudmesh.iaas.openstack.cm_compute.openstack method)</a>
   </dt>
 
-        
-  <dt><a href="modules/cloudmesh.inventory.html#cloudmesh.inventory.resources.Inventory.find">(cloudmesh.inventory.resources.Inventory method)</a>
-  </dt>
-
       </dl></dd>
       
   <dt><a href="modules/cloudmesh.iaas.html#cloudmesh.iaas.ComputeBaseType.ComputeBaseType.find_user_id">find_user_id() (cloudmesh.iaas.ComputeBaseType.ComputeBaseType method)</a>
@@ -1159,6 +1096,8 @@
   </dt>
 
       </dl></dd>
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
       
   <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.cm_keys.cm_keys.fingerprint">fingerprint() (cloudmesh.config.cm_keys.cm_keys method)</a>
   </dt>
@@ -1218,10 +1157,6 @@
   <dt><a href="modules/cloudmesh.iaas.azure.html#cloudmesh.iaas.azure.cm_azure.cm_azure.get">(cloudmesh.iaas.azure.cm_azure.cm_azure method)</a>
   </dt>
 
-        
-  <dt><a href="modules/cloudmesh.inventory.html#cloudmesh.inventory.resources.Inventory.get">(cloudmesh.inventory.resources.Inventory method)</a>
-  </dt>
-
       </dl></dd>
       
   <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.cm_keys.cm_keys.get_default_key">get_default_key() (cloudmesh.config.cm_keys.cm_keys method)</a>
@@ -1244,9 +1179,25 @@
   </dt>
 
       
-  <dt><a href="modules/cloudmesh.inventory.html#cloudmesh.inventory.resources.Inventory.get_one">get_one() (cloudmesh.inventory.resources.Inventory method)</a>
+  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.cloudmesh_cloud.cloudmesh_cloud.get_own_password">get_own_password() (cloudmesh.config.cloudmesh_cloud.cloudmesh_cloud method)</a>
   </dt>
 
+      <dd><dl>
+        
+  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.openstack_essex_cloud.openstack_essex_cloud.get_own_password">(cloudmesh.config.openstack_essex_cloud.openstack_essex_cloud method)</a>
+  </dt>
+
+        
+  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.openstack_grizzly_cloud.openstack_grizzly_cloud.get_own_password">(cloudmesh.config.openstack_grizzly_cloud.openstack_grizzly_cloud method)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.cm_config.cm_config.get_own_passwords">get_own_passwords() (cloudmesh.config.cm_config.cm_config method)</a>
+  </dt>
+
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
       
   <dt><a href="modules/cloudmesh.iaas.openstack.html#cloudmesh.iaas.openstack.cm_compute.openstack.get_public_ip">get_public_ip() (cloudmesh.iaas.openstack.cm_compute.openstack method)</a>
   </dt>
@@ -1255,8 +1206,6 @@
   <dt><a href="modules/cloudmesh.accounting.html#cloudmesh.accounting.metrics.cloudmesh.get_realtime_metrics">get_realtime_metrics() (cloudmesh.accounting.metrics.cloudmesh method)</a>
   </dt>
 
-  </dl></td>
-  <td style="width: 33%" valign="top"><dl>
       
   <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.openstack_essex_cloud.openstack_essex_cloud.get_role_by_name">get_role_by_name() (cloudmesh.config.openstack_essex_cloud.openstack_essex_cloud method)</a>
   </dt>
@@ -1305,14 +1254,6 @@
   </dt>
 
       </dl></dd>
-      
-  <dt><a href="modules/cloudmesh.inventory.html#cloudmesh.inventory.resources.FabricObject.group">group (cloudmesh.inventory.resources.FabricObject attribute)</a>
-  </dt>
-
-      
-  <dt><a href="modules/cloudmesh.inventory.html#cloudmesh.inventory.resources.FabricImage.grub">grub (cloudmesh.inventory.resources.FabricImage attribute)</a>
-  </dt>
-
   </dl></td>
 </tr></table>
 
@@ -1336,10 +1277,6 @@
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%" valign="top"><dl>
       
-  <dt><a href="modules/cloudmesh.inventory.html#cloudmesh.inventory.resources.FabricObject.id">id (cloudmesh.inventory.resources.FabricObject attribute)</a>
-  </dt>
-
-      
   <dt><a href="modules/cloudmesh.iaas.azure.html#cloudmesh.iaas.azure.cm_azure.cm_azure.images">images (cloudmesh.iaas.azure.cm_azure.cm_azure attribute)</a>
   </dt>
 
@@ -1354,10 +1291,6 @@
 
         
   <dt><a href="modules/cloudmesh.iaas.openstack.html#cloudmesh.iaas.openstack.cm_compute.openstack.images">(cloudmesh.iaas.openstack.cm_compute.openstack attribute)</a>
-  </dt>
-
-        
-  <dt><a href="modules/cloudmesh.inventory.html#cloudmesh.inventory.resources.Inventory.images">(cloudmesh.inventory.resources.Inventory attribute)</a>
   </dt>
 
         
@@ -1377,6 +1310,8 @@
   <dt><a href="modules/cloudmesh.html#cloudmesh.cloudmesh.cloudmesh.index">index() (cloudmesh.cloudmesh.cloudmesh method)</a>
   </dt>
 
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
       
   <dt><a href="modules/cloudmesh.html#cloudmesh.cloudmesh.cloudmesh.info">info() (cloudmesh.cloudmesh.cloudmesh method)</a>
   </dt>
@@ -1391,8 +1326,6 @@
   <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.cm_config.cm_config.initialize">initialize() (cloudmesh.config.cm_config.cm_config method)</a>
   </dt>
 
-  </dl></td>
-  <td style="width: 33%" valign="top"><dl>
       
   <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.cloudmesh_cloud.cloudmesh_cloud.initialize_cloud_user">initialize_cloud_user() (cloudmesh.config.cloudmesh_cloud.cloudmesh_cloud method)</a>
   </dt>
@@ -1415,42 +1348,12 @@
   <dt><a href="modules/cloudmesh.iaas.openstack.html#cloudmesh.iaas.openstack.cm_compute.openstack.intro">intro() (cloudmesh.iaas.openstack.cm_compute.openstack method)</a>
   </dt>
 
-      
-  <dt><a href="modules/cloudmesh.inventory.html#cloudmesh.inventory.resources.Inventory">Inventory (class in cloudmesh.inventory.resources)</a>
-  </dt>
-
-      
-  <dt><a href="modules/cloudmesh.inventory.html#cloudmesh.inventory.resources.FabricServer.ip_address">ip_address (cloudmesh.inventory.resources.FabricServer attribute)</a>
-  </dt>
-
-      <dd><dl>
-        
-  <dt><a href="modules/cloudmesh.inventory.html#cloudmesh.inventory.resources.FabricService.ip_address">(cloudmesh.inventory.resources.FabricService attribute)</a>
-  </dt>
-
-      </dl></dd>
-      
-  <dt><a href="modules/cloudmesh.inventory.html#cloudmesh.inventory.resources.Inventory.ip_dict">ip_dict() (cloudmesh.inventory.resources.Inventory method)</a>
-  </dt>
-
-      
-  <dt><a href="modules/cloudmesh.inventory.html#cloudmesh.inventory.resources.Inventory.ip_name_dict">ip_name_dict() (cloudmesh.inventory.resources.Inventory method)</a>
-  </dt>
-
-      
-  <dt><a href="modules/cloudmesh.inventory.html#cloudmesh.inventory.resources.Inventory.ip_name_pair">ip_name_pair() (cloudmesh.inventory.resources.Inventory method)</a>
-  </dt>
-
   </dl></td>
 </tr></table>
 
 <h2 id="K">K</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%" valign="top"><dl>
-      
-  <dt><a href="modules/cloudmesh.inventory.html#cloudmesh.inventory.resources.FabricImage.kernel">kernel (cloudmesh.inventory.resources.FabricImage attribute)</a>
-  </dt>
-
       
   <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.cm_keys.key_fingerprint">key_fingerprint() (in module cloudmesh.config.cm_keys)</a>
   </dt>
@@ -1494,20 +1397,12 @@
 
       </dl></dd>
       
-  <dt><a href="modules/cloudmesh.inventory.html#cloudmesh.inventory.resources.FabricImage.kind">kind (cloudmesh.inventory.resources.FabricImage attribute)</a>
+  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.openstack_essex_cloud.openstack_essex_cloud.keystone_admin">keystone_admin (cloudmesh.config.openstack_essex_cloud.openstack_essex_cloud attribute)</a>
   </dt>
 
       <dd><dl>
         
-  <dt><a href="modules/cloudmesh.inventory.html#cloudmesh.inventory.resources.FabricObject.kind">(cloudmesh.inventory.resources.FabricObject attribute)</a>
-  </dt>
-
-        
-  <dt><a href="modules/cloudmesh.inventory.html#cloudmesh.inventory.resources.FabricServer.kind">(cloudmesh.inventory.resources.FabricServer attribute)</a>
-  </dt>
-
-        
-  <dt><a href="modules/cloudmesh.inventory.html#cloudmesh.inventory.resources.FabricService.kind">(cloudmesh.inventory.resources.FabricService attribute)</a>
+  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.openstack_grizzly_cloud.openstack_grizzly_cloud.keystone_admin">(cloudmesh.config.openstack_grizzly_cloud.openstack_grizzly_cloud attribute)</a>
   </dt>
 
       </dl></dd>
@@ -1532,10 +1427,6 @@
 
         
   <dt><a href="modules/cloudmesh.iaas.openstack.html#cloudmesh.iaas.openstack.cm_compute.openstack.label">(cloudmesh.iaas.openstack.cm_compute.openstack attribute)</a>
-  </dt>
-
-        
-  <dt><a href="modules/cloudmesh.inventory.html#cloudmesh.inventory.resources.FabricObject.label">(cloudmesh.inventory.resources.FabricObject attribute)</a>
   </dt>
 
       </dl></dd>
@@ -1565,12 +1456,12 @@
   <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.ldap_user.ldap_user.LDAP_PROJECTBASE">LDAP_PROJECTBASE (cloudmesh.config.ldap_user.ldap_user attribute)</a>
   </dt>
 
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
       
   <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.ldap_user.ldap_user">ldap_user (class in cloudmesh.config.ldap_user)</a>
   </dt>
 
-  </dl></td>
-  <td style="width: 33%" valign="top"><dl>
       
   <dt><a href="modules/cloudmesh.iaas.html#cloudmesh.iaas.ComputeBaseType.ComputeBaseType.limits">limits() (cloudmesh.iaas.ComputeBaseType.ComputeBaseType method)</a>
   </dt>
@@ -1600,10 +1491,6 @@
 
       </dl></dd>
       
-  <dt><a href="modules/cloudmesh.inventory.html#cloudmesh.inventory.resources.FabricServer.load">load (cloudmesh.inventory.resources.FabricServer attribute)</a>
-  </dt>
-
-      
   <dt><a href="modules/cloudmesh.accounting.html#cloudmesh.accounting.metrics.cloudmesh.load">load() (cloudmesh.accounting.metrics.cloudmesh method)</a>
   </dt>
 
@@ -1627,26 +1514,6 @@
   <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.cm_rc.main">main() (in module cloudmesh.config.cm_rc)</a>
   </dt>
 
-      <dd><dl>
-        
-  <dt><a href="modules/cloudmesh.inventory.html#cloudmesh.inventory.resources.main">(in module cloudmesh.inventory.resources)</a>
-  </dt>
-
-      </dl></dd>
-      
-  <dt><a href="modules/cloudmesh.inventory.html#cloudmesh.inventory.resources.FabricCluster.management_node">management_node (cloudmesh.inventory.resources.FabricCluster attribute)</a>
-  </dt>
-
-      
-  <dt><a href="modules/cloudmesh.inventory.html#cloudmesh.inventory.resources.FabricObject.metadata">metadata (cloudmesh.inventory.resources.FabricObject attribute)</a>
-  </dt>
-
-      
-  <dt><a href="modules/cloudmesh.inventory.html#cloudmesh.inventory.resources.FabricImage.method">method (cloudmesh.inventory.resources.FabricImage attribute)</a>
-  </dt>
-
-  </dl></td>
-  <td style="width: 33%" valign="top"><dl>
       
   <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.mock_cloud.mock_cloud">mock_cloud (class in cloudmesh.config.mock_cloud)</a>
   </dt>
@@ -1655,6 +1522,8 @@
   <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.mock_user.mock_user">mock_user (class in cloudmesh.config.mock_user)</a>
   </dt>
 
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
       
   <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.mock_keystone.Client.mocktenants">mocktenants (cloudmesh.config.mock_keystone.Client attribute)</a>
   </dt>
@@ -1663,16 +1532,16 @@
   <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.mock_keystone.Client.mockusername">mockusername (cloudmesh.config.mock_keystone.Client attribute)</a>
   </dt>
 
+      
+  <dt><a href="modules/cloudmesh.accounting.html#cloudmesh.accounting.AccountBaseClass.AccountingBaseClass.modify_user">modify_user() (cloudmesh.accounting.AccountBaseClass.AccountingBaseClass method)</a>
+  </dt>
+
   </dl></td>
 </tr></table>
 
 <h2 id="N">N</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%" valign="top"><dl>
-      
-  <dt><a href="modules/cloudmesh.inventory.html#cloudmesh.inventory.resources.FabricObject.name">name (cloudmesh.inventory.resources.FabricObject attribute)</a>
-  </dt>
-
       
   <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.cm_keys.cm_keys.names">names() (cloudmesh.config.cm_keys.cm_keys method)</a>
   </dt>
@@ -1687,12 +1556,12 @@
   <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.cloudmesh_cloud.cloudmesh_cloud.newpass">newpass() (cloudmesh.config.cloudmesh_cloud.cloudmesh_cloud method)</a>
   </dt>
 
-  </dl></td>
-  <td style="width: 33%" valign="top"><dl>
       
   <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.cm_keys.cm_keys.no_of_keys">no_of_keys() (cloudmesh.config.cm_keys.cm_keys method)</a>
   </dt>
 
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
       
   <dt><a href="modules/cloudmesh.iaas.eucalyptus.html#cloudmesh.iaas.eucalyptus.eucalyptus_new.eucalyptus.nodes">nodes (cloudmesh.iaas.eucalyptus.eucalyptus_new.eucalyptus attribute)</a>
   </dt>
@@ -1715,18 +1584,10 @@
   <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.openstack_essex_cloud.openstack_essex_cloud">openstack_essex_cloud (class in cloudmesh.config.openstack_essex_cloud)</a>
   </dt>
 
-      
-  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.openstack_grizzly_cloud.openstack_grizzly_cloud">openstack_grizzly_cloud (class in cloudmesh.config.openstack_grizzly_cloud)</a>
-  </dt>
-
   </dl></td>
   <td style="width: 33%" valign="top"><dl>
       
-  <dt><a href="modules/cloudmesh.inventory.html#cloudmesh.inventory.resources.FabricImage.os">os (cloudmesh.inventory.resources.FabricImage attribute)</a>
-  </dt>
-
-      
-  <dt><a href="modules/cloudmesh.inventory.html#cloudmesh.inventory.resources.FabricImage.osimage">osimage (cloudmesh.inventory.resources.FabricImage attribute)</a>
+  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.openstack_grizzly_cloud.openstack_grizzly_cloud">openstack_grizzly_cloud (class in cloudmesh.config.openstack_grizzly_cloud)</a>
   </dt>
 
   </dl></td>
@@ -1737,10 +1598,6 @@
   <td style="width: 33%" valign="top"><dl>
       
   <dt><a href="modules/cloudmesh.iaas.openstack.html#cloudmesh.iaas.openstack.cm_compute.openstack.parse_isotime">parse_isotime() (cloudmesh.iaas.openstack.cm_compute.openstack method)</a>
-  </dt>
-
-      
-  <dt><a href="modules/cloudmesh.inventory.html#cloudmesh.inventory.resources.FabricImage.partition_scheme">partition_scheme (cloudmesh.inventory.resources.FabricImage attribute)</a>
   </dt>
 
       
@@ -1762,16 +1619,6 @@
 
       </dl></dd>
       
-  <dt><a href="modules/cloudmesh.inventory.html#cloudmesh.inventory.resources.FabricObject.pprint">pprint() (cloudmesh.inventory.resources.FabricObject method)</a>
-  </dt>
-
-      <dd><dl>
-        
-  <dt><a href="modules/cloudmesh.inventory.html#cloudmesh.inventory.resources.Inventory.pprint">(cloudmesh.inventory.resources.Inventory method)</a>
-  </dt>
-
-      </dl></dd>
-      
   <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.cm_config.cm_config.prefix">prefix (cloudmesh.config.cm_config.cm_config attribute)</a>
   </dt>
 
@@ -1789,8 +1636,6 @@
   </dt>
 
       </dl></dd>
-  </dl></td>
-  <td style="width: 33%" valign="top"><dl>
       
   <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.cloudmesh_cloud.cloudmesh_cloud.projects">projects (cloudmesh.config.cloudmesh_cloud.cloudmesh_cloud attribute)</a>
   </dt>
@@ -1801,6 +1646,8 @@
   </dt>
 
       </dl></dd>
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
       
   <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.cm_config.cm_config.projects">projects() (cloudmesh.config.cm_config.cm_config method)</a>
   </dt>
@@ -1828,6 +1675,10 @@
 
       </dl></dd>
       
+  <dt><a href="modules/cloudmesh.provisioner.html#cloudmesh.provisioner.provisioner.ProvisionerSimulator.provision_image">provision_image() (cloudmesh.provisioner.provisioner.ProvisionerSimulator method)</a>
+  </dt>
+
+      
   <dt><a href="modules/cloudmesh.provisioner.html#cloudmesh.provisioner.provisioner.ProvisionerCobbler">ProvisionerCobbler (class in cloudmesh.provisioner.provisioner)</a>
   </dt>
 
@@ -1849,10 +1700,6 @@
 <h2 id="R">R</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%" valign="top"><dl>
-      
-  <dt><a href="modules/cloudmesh.inventory.html#cloudmesh.inventory.resources.FabricImage.ramdisk">ramdisk (cloudmesh.inventory.resources.FabricImage attribute)</a>
-  </dt>
-
       
   <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.cm_config.cm_config.rc">rc() (cloudmesh.config.cm_config.cm_config method)</a>
   </dt>
@@ -1925,10 +1772,6 @@
   <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.mock_keystone.Client.mock_roles.roles_for_user">roles_for_user() (cloudmesh.config.mock_keystone.Client.mock_roles method)</a>
   </dt>
 
-      
-  <dt><a href="modules/cloudmesh.inventory.html#cloudmesh.inventory.resources.FabricImage.rootpass">rootpass (cloudmesh.inventory.resources.FabricImage attribute)</a>
-  </dt>
-
   </dl></td>
 </tr></table>
 
@@ -1942,14 +1785,6 @@
       <dd><dl>
         
   <dt><a href="modules/cloudmesh.html#cloudmesh.cloudmesh.cloudmesh.save">(cloudmesh.cloudmesh.cloudmesh method)</a>
-  </dt>
-
-        
-  <dt><a href="modules/cloudmesh.inventory.html#cloudmesh.inventory.resources.FabricObject.save">(cloudmesh.inventory.resources.FabricObject method)</a>
-  </dt>
-
-        
-  <dt><a href="modules/cloudmesh.inventory.html#cloudmesh.inventory.resources.Inventory.save">(cloudmesh.inventory.resources.Inventory method)</a>
   </dt>
 
       </dl></dd>
@@ -1970,24 +1805,6 @@
   <dt><a href="modules/cloudmesh.iaas.openstack.html#cloudmesh.iaas.openstack.cm_compute.openstack.servers">(cloudmesh.iaas.openstack.cm_compute.openstack attribute)</a>
   </dt>
 
-        
-  <dt><a href="modules/cloudmesh.inventory.html#cloudmesh.inventory.resources.Inventory.servers">(cloudmesh.inventory.resources.Inventory attribute)</a>
-  </dt>
-
-      </dl></dd>
-      
-  <dt><a href="modules/cloudmesh.inventory.html#cloudmesh.inventory.resources.FabricCluster.service_choices">service_choices (cloudmesh.inventory.resources.FabricCluster attribute)</a>
-  </dt>
-
-      
-  <dt><a href="modules/cloudmesh.inventory.html#cloudmesh.inventory.resources.FabricServer.services">services (cloudmesh.inventory.resources.FabricServer attribute)</a>
-  </dt>
-
-      <dd><dl>
-        
-  <dt><a href="modules/cloudmesh.inventory.html#cloudmesh.inventory.resources.Inventory.services">(cloudmesh.inventory.resources.Inventory attribute)</a>
-  </dt>
-
       </dl></dd>
       
   <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.cm_keys.cm_keys.set">set() (cloudmesh.config.cm_keys.cm_keys method)</a>
@@ -2002,7 +1819,7 @@
   </dt>
 
       
-  <dt><a href="modules/cloudmesh.inventory.html#cloudmesh.inventory.resources.Inventory.set_service">set_service() (cloudmesh.inventory.resources.Inventory method)</a>
+  <dt><a href="modules/cloudmesh.provisioner.html#cloudmesh.provisioner.provisioner.ProvisionerSimulator.set_status">set_status() (cloudmesh.provisioner.provisioner.ProvisionerSimulator method)</a>
   </dt>
 
       
@@ -2027,12 +1844,6 @@
   <dt><a href="modules/cloudmesh.iaas.azure.html#cloudmesh.iaas.azure.cm_azure.cm_azure.start">start() (cloudmesh.iaas.azure.cm_azure.cm_azure method)</a>
   </dt>
 
-      <dd><dl>
-        
-  <dt><a href="modules/cloudmesh.inventory.html#cloudmesh.inventory.resources.FabricObject.start">(cloudmesh.inventory.resources.FabricObject method)</a>
-  </dt>
-
-      </dl></dd>
       
   <dt><a href="modules/cloudmesh.html#cloudmesh.cloudmesh.cloudmesh.state_filter">state_filter() (cloudmesh.cloudmesh.cloudmesh method)</a>
   </dt>
@@ -2046,10 +1857,6 @@
   </dt>
 
       
-  <dt><a href="modules/cloudmesh.inventory.html#cloudmesh.inventory.resources.FabricObject.status">status (cloudmesh.inventory.resources.FabricObject attribute)</a>
-  </dt>
-
-      
   <dt><a href="modules/cloudmesh.iaas.html#cloudmesh.iaas.ComputeBaseType.ComputeBaseType.status">status() (cloudmesh.iaas.ComputeBaseType.ComputeBaseType method)</a>
   </dt>
 
@@ -2057,24 +1864,6 @@
   <dt><a href="modules/cloudmesh.html#cloudmesh.cloudmesh.cloudmesh.status_color">status_color() (cloudmesh.cloudmesh.cloudmesh method)</a>
   </dt>
 
-      
-  <dt><a href="modules/cloudmesh.inventory.html#cloudmesh.inventory.resources.FabricObject.stop">stop() (cloudmesh.inventory.resources.FabricObject method)</a>
-  </dt>
-
-      
-  <dt><a href="modules/cloudmesh.inventory.html#cloudmesh.inventory.resources.FabricObject.subkind">subkind (cloudmesh.inventory.resources.FabricObject attribute)</a>
-  </dt>
-
-      <dd><dl>
-        
-  <dt><a href="modules/cloudmesh.inventory.html#cloudmesh.inventory.resources.FabricServer.subkind">(cloudmesh.inventory.resources.FabricServer attribute)</a>
-  </dt>
-
-        
-  <dt><a href="modules/cloudmesh.inventory.html#cloudmesh.inventory.resources.FabricService.subkind">(cloudmesh.inventory.resources.FabricService attribute)</a>
-  </dt>
-
-      </dl></dd>
   </dl></td>
 </tr></table>
 
@@ -2150,10 +1939,6 @@
   </dt>
 
       
-  <dt><a href="modules/cloudmesh.inventory.html#cloudmesh.inventory.resources.FabricObject.uptime">uptime (cloudmesh.inventory.resources.FabricObject attribute)</a>
-  </dt>
-
-      
   <dt><a href="modules/cloudmesh.iaas.html#cloudmesh.iaas.ComputeBaseType.ComputeBaseType.usage">usage() (cloudmesh.iaas.ComputeBaseType.ComputeBaseType method)</a>
   </dt>
 
@@ -2163,12 +1948,12 @@
   </dt>
 
       </dl></dd>
-  </dl></td>
-  <td style="width: 33%" valign="top"><dl>
       
   <dt><a href="modules/cloudmesh.accounting.html#cloudmesh.accounting.metrics.cloudmesh.user">user (cloudmesh.accounting.metrics.cloudmesh attribute)</a>
   </dt>
 
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
       
   <dt><a href="modules/cloudmesh.iaas.openstack.html#cloudmesh.iaas.openstack.cm_compute.openstack.user_id">user_id (cloudmesh.iaas.openstack.cm_compute.openstack attribute)</a>
   </dt>

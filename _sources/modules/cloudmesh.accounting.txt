@@ -1,10 +1,18 @@
 accounting Package
 ==================
 
-:mod:`gold` Module
-------------------
+:mod:`AccountBaseClass` Module
+------------------------------
 
-.. automodule:: cloudmesh.accounting.gold
+.. automodule:: cloudmesh.accounting.AccountBaseClass
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`GoldAccounting` Module
+----------------------------
+
+.. automodule:: cloudmesh.accounting.GoldAccounting
     :members:
     :undoc-members:
     :show-inheritance:

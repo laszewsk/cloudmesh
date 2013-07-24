@@ -1,6 +1,14 @@
 util Package
 ============
 
+:mod:`util` Package
+-------------------
+
+.. automodule:: cloudmesh.util
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
 :mod:`logger` Module
 --------------------
 

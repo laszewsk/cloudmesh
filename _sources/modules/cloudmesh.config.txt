@@ -1,6 +1,14 @@
 config Package
 ==============
 
+:mod:`config` Package
+---------------------
+
+.. automodule:: cloudmesh.config
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
 :mod:`cloudmesh_cloud` Module
 -----------------------------
 

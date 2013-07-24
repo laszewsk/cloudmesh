@@ -1,0 +1,12 @@
+Completing the citation data fetching from Google Scholar
+Streamlined process to update the data continuously
+Mining NSF award db for new XD users
+Adding newly uploaded publications from XD portal db
+Updating metrics for those impacted entities
+Metrics in other levels like Field of Study (fos)
+The impact metrics correlating with the input/cost (e.g. CPU Hours consumed in XD allocations; Supporting grant fund)
+Investigating other sources for citation data
+Estimating number of citations based on JIF if available (?)
+Accurate publications list (Author info incomplete or ambiguous)
+Collaborating with the XD portal to 1> Let the users verify and confirm the publications; 2> Identify XD related publications and association
+Make latest data available to be integrated into XDMOD framework
