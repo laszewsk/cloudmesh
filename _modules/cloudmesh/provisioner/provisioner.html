@@ -64,6 +64,11 @@
      data-toggle="dropdown">Site <b class="caret"></b></a>
   <ul class="dropdown-menu globaltoc"
     ><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../install.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../install.html#developmnet-version">Developmnet Version</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../install.html#convenient-command-shortcuts">Convenient command shortcuts</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../../../about.html">1&nbsp;&nbsp;&nbsp;About this document</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../todo.html">Instalation Instructions for Ubuntu for Inventory</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../inventory/index.html">Welcome to FutureGrid Cloud Inventory</a><ul>
@@ -149,11 +154,13 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../modules/cloudmesh.html#mongodb-module"><tt class="docutils literal"><span class="pre">mongodb</span></tt> Module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../modules/cloudmesh.html#subpackages">Subpackages</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../modules/cloudmesh.accounting.html">accounting Package</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.accounting.html#gold-module"><tt class="docutils literal"><span class="pre">gold</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.accounting.html#module-cloudmesh.accounting.AccountBaseClass"><tt class="docutils literal"><span class="pre">AccountBaseClass</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.accounting.html#goldaccounting-module"><tt class="docutils literal"><span class="pre">GoldAccounting</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.accounting.html#module-cloudmesh.accounting.metrics"><tt class="docutils literal"><span class="pre">metrics</span></tt> Module</a></li>
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="../../../modules/cloudmesh.config.html">config Package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#id1"><tt class="docutils literal"><span class="pre">config</span></tt> Package</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#module-cloudmesh.config.cloudmesh_cloud"><tt class="docutils literal"><span class="pre">cloudmesh_cloud</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#module-cloudmesh.config.cloudmesh_cloud_handler"><tt class="docutils literal"><span class="pre">cloudmesh_cloud_handler</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#module-cloudmesh.config.cm_config"><tt class="docutils literal"><span class="pre">cm_config</span></tt> Module</a></li>
@@ -172,6 +179,7 @@
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="../../../modules/cloudmesh.iaas.html">iaas Package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.iaas.html#id1"><tt class="docutils literal"><span class="pre">iaas</span></tt> Package</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.iaas.html#module-cloudmesh.iaas.ComputeBaseType"><tt class="docutils literal"><span class="pre">ComputeBaseType</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.iaas.html#subpackages">Subpackages</a><ul>
 <li class="toctree-l6"><a class="reference internal" href="../../../modules/cloudmesh.iaas.azure.html">azure Package</a><ul>
@@ -197,10 +205,12 @@
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="../../../modules/cloudmesh.inventory.html">inventory Package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.inventory.html#id1"><tt class="docutils literal"><span class="pre">inventory</span></tt> Package</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.inventory.html#resources-module"><tt class="docutils literal"><span class="pre">resources</span></tt> Module</a></li>
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="../../../modules/cloudmesh.provisioner.html">provisioner Package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.provisioner.html#id1"><tt class="docutils literal"><span class="pre">provisioner</span></tt> Package</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.provisioner.html#module-cloudmesh.provisioner.provisioner"><tt class="docutils literal"><span class="pre">provisioner</span></tt> Module</a></li>
 </ul>
 </li>
@@ -212,6 +222,7 @@
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="../../../modules/cloudmesh.util.html">util Package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.util.html#id1"><tt class="docutils literal"><span class="pre">util</span></tt> Package</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.util.html#module-cloudmesh.util.logger"><tt class="docutils literal"><span class="pre">logger</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.util.html#module-cloudmesh.util.util"><tt class="docutils literal"><span class="pre">util</span></tt> Module</a></li>
 </ul>
@@ -258,6 +269,10 @@
 <span class="kn">from</span> <span class="nn">multiprocessing</span> <span class="kn">import</span> <span class="n">Pool</span>
 <span class="kn">import</span> <span class="nn">logging</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.util.logger</span> <span class="kn">import</span> <span class="n">LOGGER</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">randrange</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.inventory.inventory</span> <span class="kn">import</span> <span class="n">FabricImage</span><span class="p">,</span> <span class="n">FabricServer</span><span class="p">,</span> \
+    <span class="n">FabricService</span><span class="p">,</span> <span class="n">Inventory</span>
 
 <span class="c">#</span>
 <span class="c"># SETTING UP A LOGGER</span>
@@ -265,6 +280,7 @@
 
 <span class="n">log</span> <span class="o">=</span> <span class="n">LOGGER</span><span class="p">(</span><span class="s">&#39;provision&#39;</span><span class="p">)</span>
 
+<span class="n">inventory</span> <span class="o">=</span> <span class="n">Inventory</span><span class="p">(</span><span class="s">&quot;nosetest&quot;</span><span class="p">)</span>
 
 <div class="viewcode-block" id="BaremetalProvisinerABC"><a class="viewcode-back" href="../../../modules/cloudmesh.provisioner.html#cloudmesh.provisioner.provisioner.BaremetalProvisinerABC">[docs]</a><span class="k">class</span> <span class="nc">BaremetalProvisinerABC</span><span class="p">:</span>
     <span class="n">__metaclass__</span> <span class="o">=</span> <span class="n">ABCMeta</span>
@@ -279,17 +295,52 @@
 <div class="viewcode-block" id="BaremetalProvisinerABC.provision"><a class="viewcode-back" href="../../../modules/cloudmesh.provisioner.html#cloudmesh.provisioner.provisioner.BaremetalProvisinerABC.provision">[docs]</a>    <span class="k">def</span> <span class="nf">provision</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">hosts</span><span class="p">,</span> <span class="n">image</span><span class="p">):</span>
         <span class="k">pass</span>
 
+
 </div></div>
-<span class="kn">import</span> <span class="nn">multiprocessing</span>
-<span class="kn">import</span> <span class="nn">subprocess</span>
-
-
 <div class="viewcode-block" id="ProvisionerSimulator"><a class="viewcode-back" href="../../../modules/cloudmesh.provisioner.html#cloudmesh.provisioner.provisioner.ProvisionerSimulator">[docs]</a><span class="k">class</span> <span class="nc">ProvisionerSimulator</span><span class="p">(</span><span class="n">BaremetalProvisinerABC</span><span class="p">):</span>
 
-<div class="viewcode-block" id="ProvisionerSimulator.provision"><a class="viewcode-back" href="../../../modules/cloudmesh.provisioner.html#cloudmesh.provisioner.provisioner.ProvisionerSimulator.provision">[docs]</a>    <span class="k">def</span> <span class="nf">provision</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">hosts</span><span class="p">,</span> <span class="n">image</span><span class="p">):</span>
+<div class="viewcode-block" id="ProvisionerSimulator.set_status"><a class="viewcode-back" href="../../../modules/cloudmesh.provisioner.html#cloudmesh.provisioner.provisioner.ProvisionerSimulator.set_status">[docs]</a>    <span class="k">def</span> <span class="nf">set_status</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">element</span><span class="p">,</span> <span class="n">status</span><span class="p">):</span>
+        <span class="n">element</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="n">status</span>
+        <span class="n">element</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">cascade</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+        </div>
+<div class="viewcode-block" id="ProvisionerSimulator.provision"><a class="viewcode-back" href="../../../modules/cloudmesh.provisioner.html#cloudmesh.provisioner.provisioner.ProvisionerSimulator.provision">[docs]</a>    <span class="k">def</span> <span class="nf">provision</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">hosts</span><span class="p">,</span> <span class="n">provisioned</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">host</span> <span class="ow">in</span> <span class="n">hosts</span><span class="p">:</span>
+            <span class="k">print</span> <span class="s">&quot;PROVISION&quot;</span><span class="p">,</span> <span class="n">host</span><span class="p">,</span> <span class="n">provisioned</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">&quot;Provision {0}&lt;-{1}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">host</span><span class="p">,</span> <span class="n">provisioned</span><span class="p">))</span>
+            <span class="n">server</span> <span class="o">=</span> <span class="n">inventory</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;server&quot;</span><span class="p">,</span><span class="n">host</span><span class="p">)</span>
+
+            <span class="n">server</span><span class="o">.</span><span class="n">provisioned</span> <span class="o">=</span> <span class="n">provisioned</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">set_status</span><span class="p">(</span><span class="n">server</span><span class="p">,</span> <span class="s">&quot;INITIATING&quot;</span><span class="p">)</span>
+            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">randrange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">set_status</span><span class="p">(</span><span class="n">server</span><span class="p">,</span> <span class="s">&quot;PREPARING_IMAGE&quot;</span><span class="p">)</span>
+            <span class="c"># image = inventory.get(&quot;server&quot;,host)</span>
+            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">randrange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">set_status</span><span class="p">(</span><span class="n">server</span><span class="p">,</span> <span class="s">&quot;BOOTING&quot;</span><span class="p">)</span>
+            <span class="c"># image = inventory.get(&quot;server&quot;,host)</span>
+            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">randrange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">set_status</span><span class="p">(</span><span class="n">server</span><span class="p">,</span> <span class="s">&quot;AVAILABLE&quot;</span><span class="p">)</span>
+            <span class="c"># image = inventory.get(&quot;server&quot;,host)</span>
+            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">randrange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">set_status</span><span class="p">(</span><span class="n">server</span><span class="p">,</span> <span class="s">&quot;SUCCESS&quot;</span><span class="p">)</span>
+            <span class="c"># image = inventory.get(&quot;server&quot;,host)</span>
+            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">randrange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+
+            
+
+        </div>
+<div class="viewcode-block" id="ProvisionerSimulator.provision_image"><a class="viewcode-back" href="../../../modules/cloudmesh.provisioner.html#cloudmesh.provisioner.provisioner.ProvisionerSimulator.provision_image">[docs]</a>    <span class="k">def</span> <span class="nf">provision_image</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">hosts</span><span class="p">,</span> <span class="n">image</span><span class="p">):</span>
+
         <span class="k">for</span> <span class="n">host</span> <span class="ow">in</span> <span class="n">hosts</span><span class="p">:</span>
             <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">&quot;Provision {0}-&gt;{1}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">host</span><span class="p">))</span>
-
+            <span class="n">server</span> <span class="o">=</span> <span class="n">inventory</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;server&quot;</span><span class="p">,</span><span class="n">host</span><span class="p">)</span>
+            <span class="c"># image = inventory.get(&quot;server&quot;,host)</span>
+            
+            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">randrange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
 </div></div>
 <div class="viewcode-block" id="ProvisionerTeefaa"><a class="viewcode-back" href="../../../modules/cloudmesh.provisioner.html#cloudmesh.provisioner.provisioner.ProvisionerTeefaa">[docs]</a><span class="k">class</span> <span class="nc">ProvisionerTeefaa</span><span class="p">(</span><span class="n">BaremetalProvisinerABC</span><span class="p">):</span>
 

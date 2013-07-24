@@ -66,6 +66,11 @@
      data-toggle="dropdown">Site <b class="caret"></b></a>
   <ul class="dropdown-menu globaltoc"
     ><ul>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install.html#developmnet-version">Developmnet Version</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../install.html#convenient-command-shortcuts">Convenient command shortcuts</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../about.html">1&nbsp;&nbsp;&nbsp;About this document</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../todo.html">Instalation Instructions for Ubuntu for Inventory</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../inventory/index.html">Welcome to FutureGrid Cloud Inventory</a><ul>
@@ -151,11 +156,13 @@
 <li class="toctree-l3"><a class="reference internal" href="cloudmesh.html#mongodb-module"><tt class="docutils literal"><span class="pre">mongodb</span></tt> Module</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="cloudmesh.html#subpackages">Subpackages</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="cloudmesh.accounting.html">accounting Package</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="cloudmesh.accounting.html#gold-module"><tt class="docutils literal"><span class="pre">gold</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="cloudmesh.accounting.html#module-cloudmesh.accounting.AccountBaseClass"><tt class="docutils literal"><span class="pre">AccountBaseClass</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="cloudmesh.accounting.html#goldaccounting-module"><tt class="docutils literal"><span class="pre">GoldAccounting</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="cloudmesh.accounting.html#module-cloudmesh.accounting.metrics"><tt class="docutils literal"><span class="pre">metrics</span></tt> Module</a></li>
 </ul>
 </li>
 <li class="toctree-l4 current"><a class="current reference internal" href="">config Package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#id1"><tt class="docutils literal"><span class="pre">config</span></tt> Package</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#module-cloudmesh.config.cloudmesh_cloud"><tt class="docutils literal"><span class="pre">cloudmesh_cloud</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#module-cloudmesh.config.cloudmesh_cloud_handler"><tt class="docutils literal"><span class="pre">cloudmesh_cloud_handler</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#module-cloudmesh.config.cm_config"><tt class="docutils literal"><span class="pre">cm_config</span></tt> Module</a></li>
@@ -174,6 +181,7 @@
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="cloudmesh.iaas.html">iaas Package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="cloudmesh.iaas.html#id1"><tt class="docutils literal"><span class="pre">iaas</span></tt> Package</a></li>
 <li class="toctree-l5"><a class="reference internal" href="cloudmesh.iaas.html#module-cloudmesh.iaas.ComputeBaseType"><tt class="docutils literal"><span class="pre">ComputeBaseType</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="cloudmesh.iaas.html#subpackages">Subpackages</a><ul>
 <li class="toctree-l6"><a class="reference internal" href="cloudmesh.iaas.azure.html">azure Package</a><ul>
@@ -199,10 +207,12 @@
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="cloudmesh.inventory.html">inventory Package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="cloudmesh.inventory.html#id1"><tt class="docutils literal"><span class="pre">inventory</span></tt> Package</a></li>
 <li class="toctree-l5"><a class="reference internal" href="cloudmesh.inventory.html#resources-module"><tt class="docutils literal"><span class="pre">resources</span></tt> Module</a></li>
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="cloudmesh.provisioner.html">provisioner Package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="cloudmesh.provisioner.html#id1"><tt class="docutils literal"><span class="pre">provisioner</span></tt> Package</a></li>
 <li class="toctree-l5"><a class="reference internal" href="cloudmesh.provisioner.html#module-cloudmesh.provisioner.provisioner"><tt class="docutils literal"><span class="pre">provisioner</span></tt> Module</a></li>
 </ul>
 </li>
@@ -214,6 +224,7 @@
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="cloudmesh.util.html">util Package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="cloudmesh.util.html#id1"><tt class="docutils literal"><span class="pre">util</span></tt> Package</a></li>
 <li class="toctree-l5"><a class="reference internal" href="cloudmesh.util.html#module-cloudmesh.util.logger"><tt class="docutils literal"><span class="pre">logger</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="cloudmesh.util.html#module-cloudmesh.util.util"><tt class="docutils literal"><span class="pre">util</span></tt> Module</a></li>
 </ul>
@@ -231,6 +242,7 @@
   <a href="#" class="dropdown-toggle" data-toggle="dropdown">Page <b class="caret"></b></a>
   <ul class="dropdown-menu localtoc"><ul>
 <li><a class="reference internal" href="#">config Package</a><ul>
+<li><a class="reference internal" href="#id1"><tt class="docutils literal"><span class="pre">config</span></tt> Package</a></li>
 <li><a class="reference internal" href="#module-cloudmesh.config.cloudmesh_cloud"><tt class="docutils literal"><span class="pre">cloudmesh_cloud</span></tt> Module</a></li>
 <li><a class="reference internal" href="#module-cloudmesh.config.cloudmesh_cloud_handler"><tt class="docutils literal"><span class="pre">cloudmesh_cloud_handler</span></tt> Module</a></li>
 <li><a class="reference internal" href="#module-cloudmesh.config.cm_config"><tt class="docutils literal"><span class="pre">cm_config</span></tt> Module</a></li>
@@ -283,6 +295,9 @@
   
   <div class="section" id="config-package">
 <h1>config Package<a class="headerlink" href="#config-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id1">
+<h2><tt class="xref py py-mod docutils literal"><span class="pre">config</span></tt> Package<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="module-cloudmesh.config"></span></div>
 <div class="section" id="module-cloudmesh.config.cloudmesh_cloud">
 <span id="cloudmesh-cloud-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">cloudmesh_cloud</span></tt> Module<a class="headerlink" href="#module-cloudmesh.config.cloudmesh_cloud" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
@@ -295,8 +310,8 @@
 <dd></dd></dl>
 
 <dl class="method">
-<dt id="cloudmesh.config.cloudmesh_cloud.cloudmesh_cloud.change_password">
-<tt class="descname">change_password</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/cloudmesh/config/cloudmesh_cloud.html#cloudmesh_cloud.change_password"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.cloudmesh_cloud.cloudmesh_cloud.change_password" title="Permalink to this definition">¶</a></dt>
+<dt id="cloudmesh.config.cloudmesh_cloud.cloudmesh_cloud.change_own_password">
+<tt class="descname">change_own_password</tt><big>(</big><em>oldpass</em>, <em>newpass</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/config/cloudmesh_cloud.html#cloudmesh_cloud.change_own_password"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.cloudmesh_cloud.cloudmesh_cloud.change_own_password" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -327,6 +342,11 @@
 <dl class="attribute">
 <dt id="cloudmesh.config.cloudmesh_cloud.cloudmesh_cloud.email">
 <tt class="descname">email</tt><a class="reference internal" href="../_modules/cloudmesh/config/cloudmesh_cloud.html#cloudmesh_cloud.email"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.cloudmesh_cloud.cloudmesh_cloud.email" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.config.cloudmesh_cloud.cloudmesh_cloud.get_own_password">
+<tt class="descname">get_own_password</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/cloudmesh/config/cloudmesh_cloud.html#cloudmesh_cloud.get_own_password"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.cloudmesh_cloud.cloudmesh_cloud.get_own_password" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -361,7 +381,7 @@
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
 <dl class="attribute">
 <dt id="cloudmesh.config.cloudmesh_cloud_handler.cloudmesh_cloud_handler.cloud_handlers">
-<tt class="descname">cloud_handlers</tt><em class="property"> = {('openstack', 'grizzly'): &lt;class cloudmesh.config.openstack_grizzly_cloud.openstack_grizzly_cloud at 0x103f68870&gt;, ('openstack', 'essex'): &lt;class cloudmesh.config.openstack_essex_cloud.openstack_essex_cloud at 0x103f682c0&gt;}</em><a class="headerlink" href="#cloudmesh.config.cloudmesh_cloud_handler.cloudmesh_cloud_handler.cloud_handlers" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">cloud_handlers</tt><em class="property"> = {('openstack', 'grizzly'): &lt;class cloudmesh.config.openstack_grizzly_cloud.openstack_grizzly_cloud at 0x10516ee88&gt;, ('openstack', 'essex'): &lt;class cloudmesh.config.openstack_essex_cloud.openstack_essex_cloud at 0x10516e6d0&gt;}</em><a class="headerlink" href="#cloudmesh.config.cloudmesh_cloud_handler.cloudmesh_cloud_handler.cloud_handlers" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -385,7 +405,7 @@
 
 <dl class="method">
 <dt id="cloudmesh.config.cm_config.cm_config.change_own_password">
-<tt class="descname">change_own_password</tt><big>(</big><em>oldpass</em>, <em>newpass</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/config/cm_config.html#cm_config.change_own_password"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.cm_config.cm_config.change_own_password" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">change_own_password</tt><big>(</big><em>cloudname</em>, <em>oldpass</em>, <em>newpass</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/config/cm_config.html#cm_config.change_own_password"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.cm_config.cm_config.change_own_password" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -466,6 +486,11 @@
 <dl class="method">
 <dt id="cloudmesh.config.cm_config.cm_config.get_filter">
 <tt class="descname">get_filter</tt><big>(</big><em>cloudname</em>, <em>type='state'</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/config/cm_config.html#cm_config.get_filter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.cm_config.cm_config.get_filter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.config.cm_config.cm_config.get_own_passwords">
+<tt class="descname">get_own_passwords</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/cloudmesh/config/cm_config.html#cm_config.get_own_passwords"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.cm_config.cm_config.get_own_passwords" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -710,7 +735,8 @@ cm-manage config [-f FILE] [-o OUT] [-p PROJECT] NAME [-]
 cm-manage config dump [&#8211;format=(yaml|dict)]
 cm-manage config init [-o OUT] [-u USER]
 cm-manage config list
-cm-manage config password
+cm-manage config password NAME
+cm-manage config show passwords
 cm-manage config fetch [-u USER] [-r HOST] 
 cm-manage &#8211;version
 cm-manage &#8211;help</dd>
@@ -776,7 +802,8 @@ file called ~/.futuregrid/novarc</p>
 <dl class="function">
 <dt id="cloudmesh.config.cm_rc.yn_choice">
 <tt class="descclassname">cloudmesh.config.cm_rc.</tt><tt class="descname">yn_choice</tt><big>(</big><em>message</em>, <em>default='y'</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/config/cm_rc.html#yn_choice"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.cm_rc.yn_choice" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p><a class="reference external" href="http://stackoverflow.com/questions/3041986/python-command-line-yes-no-input">http://stackoverflow.com/questions/3041986/python-command-line-yes-no-input</a></p>
+</dd></dl>
 
 </div>
 </div>
@@ -965,6 +992,11 @@ credential data that will come from cloud API</p>
 <em class="property">class </em><tt class="descclassname">Client.</tt><tt class="descname">mock_users</tt><big>(</big><em>users</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/config/mock_keystone.html#Client.mock_users"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.mock_keystone.Client.mock_users" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
 <dl class="method">
+<dt id="cloudmesh.config.mock_keystone.Client.mock_users.change_own_password">
+<tt class="descname">change_own_password</tt><big>(</big><em>oldpass</em>, <em>newpass</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/config/mock_keystone.html#Client.mock_users.change_own_password"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.mock_keystone.Client.mock_users.change_own_password" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
 <dt id="cloudmesh.config.mock_keystone.Client.mock_users.create">
 <tt class="descname">create</tt><big>(</big><em>name</em>, <em>password</em>, <em>email</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/config/mock_keystone.html#Client.mock_users.create"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.mock_keystone.Client.mock_users.create" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
@@ -1104,8 +1136,13 @@ data that will come from LDAP and/or Portal.</p>
 really support essex, it will need to be adjusted accordingly
 <strong>************************************************************</strong></p>
 <dl class="method">
-<dt id="cloudmesh.config.openstack_essex_cloud.openstack_essex_cloud.change_password">
-<tt class="descname">change_password</tt><big>(</big><em>oldpass</em>, <em>newpass</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/config/openstack_essex_cloud.html#openstack_essex_cloud.change_password"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.openstack_essex_cloud.openstack_essex_cloud.change_password" title="Permalink to this definition">¶</a></dt>
+<dt id="cloudmesh.config.openstack_essex_cloud.openstack_essex_cloud.change_own_password">
+<tt class="descname">change_own_password</tt><big>(</big><em>oldpass</em>, <em>newpass</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/config/openstack_essex_cloud.html#openstack_essex_cloud.change_own_password"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.openstack_essex_cloud.openstack_essex_cloud.change_own_password" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.config.openstack_essex_cloud.openstack_essex_cloud.get_own_password">
+<tt class="descname">get_own_password</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/cloudmesh/config/openstack_essex_cloud.html#openstack_essex_cloud.get_own_password"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.openstack_essex_cloud.openstack_essex_cloud.get_own_password" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -1133,6 +1170,11 @@ really support essex, it will need to be adjusted accordingly
 <tt class="descname">keystone</tt><a class="reference internal" href="../_modules/cloudmesh/config/openstack_essex_cloud.html#openstack_essex_cloud.keystone"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.openstack_essex_cloud.openstack_essex_cloud.keystone" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+<dl class="attribute">
+<dt id="cloudmesh.config.openstack_essex_cloud.openstack_essex_cloud.keystone_admin">
+<tt class="descname">keystone_admin</tt><a class="reference internal" href="../_modules/cloudmesh/config/openstack_essex_cloud.html#openstack_essex_cloud.keystone_admin"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.openstack_essex_cloud.openstack_essex_cloud.keystone_admin" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 </dd></dl>
 
 </div>
@@ -1143,8 +1185,13 @@ really support essex, it will need to be adjusted accordingly
 <em class="property">class </em><tt class="descclassname">cloudmesh.config.openstack_grizzly_cloud.</tt><tt class="descname">openstack_grizzly_cloud</tt><big>(</big><em>profiledata</em>, <em>defaultproj</em>, <em>projectlist</em>, <em>cloudname</em>, <em>clouddata</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/config/openstack_grizzly_cloud.html#openstack_grizzly_cloud"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.openstack_grizzly_cloud.openstack_grizzly_cloud" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#cloudmesh.config.cloudmesh_cloud.cloudmesh_cloud" title="cloudmesh.config.cloudmesh_cloud.cloudmesh_cloud"><tt class="xref py py-class docutils literal"><span class="pre">cloudmesh.config.cloudmesh_cloud.cloudmesh_cloud</span></tt></a></p>
 <dl class="method">
-<dt id="cloudmesh.config.openstack_grizzly_cloud.openstack_grizzly_cloud.change_password">
-<tt class="descname">change_password</tt><big>(</big><em>oldpass</em>, <em>newpass</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/config/openstack_grizzly_cloud.html#openstack_grizzly_cloud.change_password"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.openstack_grizzly_cloud.openstack_grizzly_cloud.change_password" title="Permalink to this definition">¶</a></dt>
+<dt id="cloudmesh.config.openstack_grizzly_cloud.openstack_grizzly_cloud.change_own_password">
+<tt class="descname">change_own_password</tt><big>(</big><em>oldpass</em>, <em>newpass</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/config/openstack_grizzly_cloud.html#openstack_grizzly_cloud.change_own_password"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.openstack_grizzly_cloud.openstack_grizzly_cloud.change_own_password" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.config.openstack_grizzly_cloud.openstack_grizzly_cloud.get_own_password">
+<tt class="descname">get_own_password</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/cloudmesh/config/openstack_grizzly_cloud.html#openstack_grizzly_cloud.get_own_password"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.openstack_grizzly_cloud.openstack_grizzly_cloud.get_own_password" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -1170,6 +1217,11 @@ really support essex, it will need to be adjusted accordingly
 <dl class="attribute">
 <dt id="cloudmesh.config.openstack_grizzly_cloud.openstack_grizzly_cloud.keystone">
 <tt class="descname">keystone</tt><a class="reference internal" href="../_modules/cloudmesh/config/openstack_grizzly_cloud.html#openstack_grizzly_cloud.keystone"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.openstack_grizzly_cloud.openstack_grizzly_cloud.keystone" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cloudmesh.config.openstack_grizzly_cloud.openstack_grizzly_cloud.keystone_admin">
+<tt class="descname">keystone_admin</tt><a class="reference internal" href="../_modules/cloudmesh/config/openstack_grizzly_cloud.html#openstack_grizzly_cloud.keystone_admin"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.openstack_grizzly_cloud.openstack_grizzly_cloud.keystone_admin" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>

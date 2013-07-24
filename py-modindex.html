@@ -66,6 +66,11 @@
      data-toggle="dropdown">Site <b class="caret"></b></a>
   <ul class="dropdown-menu globaltoc"
     ><ul>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install.html#developmnet-version">Developmnet Version</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="install.html#convenient-command-shortcuts">Convenient command shortcuts</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="about.html">1&nbsp;&nbsp;&nbsp;About this document</a></li>
 <li class="toctree-l1"><a class="reference internal" href="todo.html">Instalation Instructions for Ubuntu for Inventory</a></li>
 <li class="toctree-l1"><a class="reference internal" href="inventory/index.html">Welcome to FutureGrid Cloud Inventory</a><ul>
@@ -151,11 +156,13 @@
 <li class="toctree-l3"><a class="reference internal" href="modules/cloudmesh.html#mongodb-module"><tt class="docutils literal"><span class="pre">mongodb</span></tt> Module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="modules/cloudmesh.html#subpackages">Subpackages</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="modules/cloudmesh.accounting.html">accounting Package</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="modules/cloudmesh.accounting.html#gold-module"><tt class="docutils literal"><span class="pre">gold</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/cloudmesh.accounting.html#module-cloudmesh.accounting.AccountBaseClass"><tt class="docutils literal"><span class="pre">AccountBaseClass</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/cloudmesh.accounting.html#goldaccounting-module"><tt class="docutils literal"><span class="pre">GoldAccounting</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="modules/cloudmesh.accounting.html#module-cloudmesh.accounting.metrics"><tt class="docutils literal"><span class="pre">metrics</span></tt> Module</a></li>
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="modules/cloudmesh.config.html">config Package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="modules/cloudmesh.config.html#id1"><tt class="docutils literal"><span class="pre">config</span></tt> Package</a></li>
 <li class="toctree-l5"><a class="reference internal" href="modules/cloudmesh.config.html#module-cloudmesh.config.cloudmesh_cloud"><tt class="docutils literal"><span class="pre">cloudmesh_cloud</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="modules/cloudmesh.config.html#module-cloudmesh.config.cloudmesh_cloud_handler"><tt class="docutils literal"><span class="pre">cloudmesh_cloud_handler</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="modules/cloudmesh.config.html#module-cloudmesh.config.cm_config"><tt class="docutils literal"><span class="pre">cm_config</span></tt> Module</a></li>
@@ -174,6 +181,7 @@
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="modules/cloudmesh.iaas.html">iaas Package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="modules/cloudmesh.iaas.html#id1"><tt class="docutils literal"><span class="pre">iaas</span></tt> Package</a></li>
 <li class="toctree-l5"><a class="reference internal" href="modules/cloudmesh.iaas.html#module-cloudmesh.iaas.ComputeBaseType"><tt class="docutils literal"><span class="pre">ComputeBaseType</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="modules/cloudmesh.iaas.html#subpackages">Subpackages</a><ul>
 <li class="toctree-l6"><a class="reference internal" href="modules/cloudmesh.iaas.azure.html">azure Package</a><ul>
@@ -199,10 +207,12 @@
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="modules/cloudmesh.inventory.html">inventory Package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="modules/cloudmesh.inventory.html#id1"><tt class="docutils literal"><span class="pre">inventory</span></tt> Package</a></li>
 <li class="toctree-l5"><a class="reference internal" href="modules/cloudmesh.inventory.html#resources-module"><tt class="docutils literal"><span class="pre">resources</span></tt> Module</a></li>
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="modules/cloudmesh.provisioner.html">provisioner Package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="modules/cloudmesh.provisioner.html#id1"><tt class="docutils literal"><span class="pre">provisioner</span></tt> Package</a></li>
 <li class="toctree-l5"><a class="reference internal" href="modules/cloudmesh.provisioner.html#module-cloudmesh.provisioner.provisioner"><tt class="docutils literal"><span class="pre">provisioner</span></tt> Module</a></li>
 </ul>
 </li>
@@ -214,6 +224,7 @@
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="modules/cloudmesh.util.html">util Package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="modules/cloudmesh.util.html#id1"><tt class="docutils literal"><span class="pre">util</span></tt> Package</a></li>
 <li class="toctree-l5"><a class="reference internal" href="modules/cloudmesh.util.html#module-cloudmesh.util.logger"><tt class="docutils literal"><span class="pre">logger</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="modules/cloudmesh.util.html#module-cloudmesh.util.util"><tt class="docutils literal"><span class="pre">util</span></tt> Module</a></li>
 </ul>
@@ -280,12 +291,22 @@
      <tr class="cg-1">
        <td></td>
        <td>&nbsp;&nbsp;&nbsp;
+       <a href="modules/cloudmesh.accounting.html#module-cloudmesh.accounting.AccountBaseClass"><tt class="xref">cloudmesh.accounting.AccountBaseClass</tt></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&nbsp;&nbsp;&nbsp;
        <a href="modules/cloudmesh.accounting.html#module-cloudmesh.accounting.metrics"><tt class="xref">cloudmesh.accounting.metrics</tt></a></td><td>
        <em></em></td></tr>
      <tr class="cg-1">
        <td></td>
        <td>&nbsp;&nbsp;&nbsp;
        <a href="modules/cloudmesh.html#module-cloudmesh.cloudmesh"><tt class="xref">cloudmesh.cloudmesh</tt></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&nbsp;&nbsp;&nbsp;
+       <a href="modules/cloudmesh.config.html#module-cloudmesh.config"><tt class="xref">cloudmesh.config</tt></a></td><td>
        <em></em></td></tr>
      <tr class="cg-1">
        <td></td>
@@ -350,6 +371,11 @@
      <tr class="cg-1">
        <td></td>
        <td>&nbsp;&nbsp;&nbsp;
+       <a href="modules/cloudmesh.iaas.html#module-cloudmesh.iaas"><tt class="xref">cloudmesh.iaas</tt></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&nbsp;&nbsp;&nbsp;
        <a href="modules/cloudmesh.iaas.azure.html#module-cloudmesh.iaas.azure"><tt class="xref">cloudmesh.iaas.azure</tt></a></td><td>
        <em></em></td></tr>
      <tr class="cg-1">
@@ -385,7 +411,12 @@
      <tr class="cg-1">
        <td></td>
        <td>&nbsp;&nbsp;&nbsp;
-       <a href="modules/cloudmesh.inventory.html#module-cloudmesh.inventory.resources"><tt class="xref">cloudmesh.inventory.resources</tt></a></td><td>
+       <a href="modules/cloudmesh.inventory.html#module-cloudmesh.inventory"><tt class="xref">cloudmesh.inventory</tt></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&nbsp;&nbsp;&nbsp;
+       <a href="modules/cloudmesh.provisioner.html#module-cloudmesh.provisioner"><tt class="xref">cloudmesh.provisioner</tt></a></td><td>
        <em></em></td></tr>
      <tr class="cg-1">
        <td></td>
@@ -395,7 +426,22 @@
      <tr class="cg-1">
        <td></td>
        <td>&nbsp;&nbsp;&nbsp;
+       <a href="modules/cloudmesh.provisioner.queue.html#module-cloudmesh.provisioner.queue.celery"><tt class="xref">cloudmesh.provisioner.queue.celery</tt></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&nbsp;&nbsp;&nbsp;
+       <a href="modules/cloudmesh.provisioner.queue.html#module-cloudmesh.provisioner.queue.tasks"><tt class="xref">cloudmesh.provisioner.queue.tasks</tt></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&nbsp;&nbsp;&nbsp;
        <a href="modules/cloudmesh.shell.html#module-cloudmesh.shell.cm_shell"><tt class="xref">cloudmesh.shell.cm_shell</tt></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&nbsp;&nbsp;&nbsp;
+       <a href="modules/cloudmesh.util.html#module-cloudmesh.util"><tt class="xref">cloudmesh.util</tt></a></td><td>
        <em></em></td></tr>
      <tr class="cg-1">
        <td></td>

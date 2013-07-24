@@ -64,6 +64,11 @@
      data-toggle="dropdown">Site <b class="caret"></b></a>
   <ul class="dropdown-menu globaltoc"
     ><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../install.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../install.html#developmnet-version">Developmnet Version</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../install.html#convenient-command-shortcuts">Convenient command shortcuts</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../../../about.html">1&nbsp;&nbsp;&nbsp;About this document</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../todo.html">Instalation Instructions for Ubuntu for Inventory</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../inventory/index.html">Welcome to FutureGrid Cloud Inventory</a><ul>
@@ -149,11 +154,13 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../modules/cloudmesh.html#mongodb-module"><tt class="docutils literal"><span class="pre">mongodb</span></tt> Module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../modules/cloudmesh.html#subpackages">Subpackages</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../modules/cloudmesh.accounting.html">accounting Package</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.accounting.html#gold-module"><tt class="docutils literal"><span class="pre">gold</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.accounting.html#module-cloudmesh.accounting.AccountBaseClass"><tt class="docutils literal"><span class="pre">AccountBaseClass</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.accounting.html#goldaccounting-module"><tt class="docutils literal"><span class="pre">GoldAccounting</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.accounting.html#module-cloudmesh.accounting.metrics"><tt class="docutils literal"><span class="pre">metrics</span></tt> Module</a></li>
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="../../../modules/cloudmesh.config.html">config Package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#id1"><tt class="docutils literal"><span class="pre">config</span></tt> Package</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#module-cloudmesh.config.cloudmesh_cloud"><tt class="docutils literal"><span class="pre">cloudmesh_cloud</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#module-cloudmesh.config.cloudmesh_cloud_handler"><tt class="docutils literal"><span class="pre">cloudmesh_cloud_handler</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#module-cloudmesh.config.cm_config"><tt class="docutils literal"><span class="pre">cm_config</span></tt> Module</a></li>
@@ -172,6 +179,7 @@
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="../../../modules/cloudmesh.iaas.html">iaas Package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.iaas.html#id1"><tt class="docutils literal"><span class="pre">iaas</span></tt> Package</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.iaas.html#module-cloudmesh.iaas.ComputeBaseType"><tt class="docutils literal"><span class="pre">ComputeBaseType</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.iaas.html#subpackages">Subpackages</a><ul>
 <li class="toctree-l6"><a class="reference internal" href="../../../modules/cloudmesh.iaas.azure.html">azure Package</a><ul>
@@ -197,10 +205,12 @@
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="../../../modules/cloudmesh.inventory.html">inventory Package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.inventory.html#id1"><tt class="docutils literal"><span class="pre">inventory</span></tt> Package</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.inventory.html#resources-module"><tt class="docutils literal"><span class="pre">resources</span></tt> Module</a></li>
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="../../../modules/cloudmesh.provisioner.html">provisioner Package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.provisioner.html#id1"><tt class="docutils literal"><span class="pre">provisioner</span></tt> Package</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.provisioner.html#module-cloudmesh.provisioner.provisioner"><tt class="docutils literal"><span class="pre">provisioner</span></tt> Module</a></li>
 </ul>
 </li>
@@ -212,6 +222,7 @@
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="../../../modules/cloudmesh.util.html">util Package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.util.html#id1"><tt class="docutils literal"><span class="pre">util</span></tt> Package</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.util.html#module-cloudmesh.util.logger"><tt class="docutils literal"><span class="pre">logger</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.util.html#module-cloudmesh.util.util"><tt class="docutils literal"><span class="pre">util</span></tt> Module</a></li>
 </ul>
@@ -256,8 +267,10 @@
   <h1>Source code for cloudmesh.util.util</h1><div class="highlight"><pre>
 <span class="kn">from</span> <span class="nn">string</span> <span class="kn">import</span> <span class="n">Template</span>
 <span class="kn">import</span> <span class="nn">os</span>
-
-<span class="sd">&quot;&quot;&quot;Some simple utility functions&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">inspect</span>
+<span class="c">#import yaml</span>
+<span class="c">#from logger import LOGGER</span>
 
 <div class="viewcode-block" id="check_file_for_tabs"><a class="viewcode-back" href="../../../modules/cloudmesh.util.html#cloudmesh.util.util.check_file_for_tabs">[docs]</a><span class="k">def</span> <span class="nf">check_file_for_tabs</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;identifies if the file contains tabs and returns True if it</span>
@@ -284,7 +297,10 @@
     <span class="k">return</span> <span class="n">result</span>
 
 </div>
-<div class="viewcode-block" id="HEADING"><a class="viewcode-back" href="../../../modules/cloudmesh.util.html#cloudmesh.util.util.HEADING">[docs]</a><span class="k">def</span> <span class="nf">HEADING</span><span class="p">(</span><span class="n">txt</span><span class="p">):</span>
+<div class="viewcode-block" id="HEADING"><a class="viewcode-back" href="../../../modules/cloudmesh.util.html#cloudmesh.util.util.HEADING">[docs]</a><span class="k">def</span> <span class="nf">HEADING</span><span class="p">(</span><span class="n">txt</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">txt</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>        
+        <span class="n">txt</span> <span class="o">=</span> <span class="n">inspect</span><span class="o">.</span><span class="n">getouterframes</span><span class="p">(</span> <span class="n">inspect</span><span class="o">.</span><span class="n">currentframe</span><span class="p">()</span> <span class="p">)[</span><span class="mi">1</span><span class="p">][</span><span class="mi">3</span><span class="p">]</span>
+
     <span class="sd">&quot;&quot;&quot;Prints a message to stdout with #### surrounding it. This is useful for nosetests to better distinguish them.&quot;&quot;&quot;</span>
     <span class="k">print</span>
     <span class="k">print</span> <span class="s">&quot;#&quot;</span><span class="p">,</span> <span class="mi">70</span> <span class="o">*</span> <span class="s">&#39;#&#39;</span>
@@ -310,14 +326,14 @@
     <span class="k">elif</span> <span class="nb">type</span><span class="p">(</span><span class="n">the_dict</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">list</span><span class="p">:</span>
         <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">the_dict</span><span class="p">:</span>
             <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">element</span><span class="o">.</span><span class="n">iteritems</span><span class="p">():</span>
-                <span class="n">result</span> <span class="o">=</span> <span class="n">result</span> <span class="o">+</span>\
+                <span class="n">result</span> <span class="o">=</span> <span class="n">result</span> <span class="o">+</span> \
                     <span class="s">&#39;&lt;tr&gt;&lt;td&gt;{0}&lt;/td&gt;&lt;td&gt;{1}&lt;/td&gt;&lt;/tr&gt;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="o">.</span><span class="n">title</span><span class="p">(),</span>
                                                                <span class="nb">str</span><span class="p">(</span><span class="n">table_printer</span><span class="p">(</span><span class="n">value</span><span class="p">)))</span>
         <span class="n">result</span> <span class="o">=</span> <span class="s">&#39;&lt;table&gt;&#39;</span> <span class="o">+</span> <span class="n">result</span> <span class="o">+</span> <span class="s">&#39;&lt;/table&gt;&#39;</span>
         <span class="k">return</span> <span class="n">result</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">the_dict</span></div>
-</pre></div>
+        <span class="k">return</span> <span class="n">the_dict</span>
+</pre></div></div>
 
 </div>
 <footer class="footer">

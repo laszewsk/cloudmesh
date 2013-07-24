@@ -66,6 +66,11 @@
      data-toggle="dropdown">Site <b class="caret"></b></a>
   <ul class="dropdown-menu globaltoc"
     ><ul>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install.html#developmnet-version">Developmnet Version</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../install.html#convenient-command-shortcuts">Convenient command shortcuts</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../about.html">1&nbsp;&nbsp;&nbsp;About this document</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../todo.html">Instalation Instructions for Ubuntu for Inventory</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../inventory/index.html">Welcome to FutureGrid Cloud Inventory</a><ul>
@@ -151,11 +156,13 @@
 <li class="toctree-l3"><a class="reference internal" href="cloudmesh.html#mongodb-module"><tt class="docutils literal"><span class="pre">mongodb</span></tt> Module</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="cloudmesh.html#subpackages">Subpackages</a><ul class="current">
 <li class="toctree-l4 current"><a class="current reference internal" href="">accounting Package</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="#gold-module"><tt class="docutils literal"><span class="pre">gold</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#module-cloudmesh.accounting.AccountBaseClass"><tt class="docutils literal"><span class="pre">AccountBaseClass</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#goldaccounting-module"><tt class="docutils literal"><span class="pre">GoldAccounting</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#module-cloudmesh.accounting.metrics"><tt class="docutils literal"><span class="pre">metrics</span></tt> Module</a></li>
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="cloudmesh.config.html">config Package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="cloudmesh.config.html#id1"><tt class="docutils literal"><span class="pre">config</span></tt> Package</a></li>
 <li class="toctree-l5"><a class="reference internal" href="cloudmesh.config.html#module-cloudmesh.config.cloudmesh_cloud"><tt class="docutils literal"><span class="pre">cloudmesh_cloud</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="cloudmesh.config.html#module-cloudmesh.config.cloudmesh_cloud_handler"><tt class="docutils literal"><span class="pre">cloudmesh_cloud_handler</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="cloudmesh.config.html#module-cloudmesh.config.cm_config"><tt class="docutils literal"><span class="pre">cm_config</span></tt> Module</a></li>
@@ -174,6 +181,7 @@
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="cloudmesh.iaas.html">iaas Package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="cloudmesh.iaas.html#id1"><tt class="docutils literal"><span class="pre">iaas</span></tt> Package</a></li>
 <li class="toctree-l5"><a class="reference internal" href="cloudmesh.iaas.html#module-cloudmesh.iaas.ComputeBaseType"><tt class="docutils literal"><span class="pre">ComputeBaseType</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="cloudmesh.iaas.html#subpackages">Subpackages</a><ul>
 <li class="toctree-l6"><a class="reference internal" href="cloudmesh.iaas.azure.html">azure Package</a><ul>
@@ -199,10 +207,12 @@
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="cloudmesh.inventory.html">inventory Package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="cloudmesh.inventory.html#id1"><tt class="docutils literal"><span class="pre">inventory</span></tt> Package</a></li>
 <li class="toctree-l5"><a class="reference internal" href="cloudmesh.inventory.html#resources-module"><tt class="docutils literal"><span class="pre">resources</span></tt> Module</a></li>
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="cloudmesh.provisioner.html">provisioner Package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="cloudmesh.provisioner.html#id1"><tt class="docutils literal"><span class="pre">provisioner</span></tt> Package</a></li>
 <li class="toctree-l5"><a class="reference internal" href="cloudmesh.provisioner.html#module-cloudmesh.provisioner.provisioner"><tt class="docutils literal"><span class="pre">provisioner</span></tt> Module</a></li>
 </ul>
 </li>
@@ -214,6 +224,7 @@
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="cloudmesh.util.html">util Package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="cloudmesh.util.html#id1"><tt class="docutils literal"><span class="pre">util</span></tt> Package</a></li>
 <li class="toctree-l5"><a class="reference internal" href="cloudmesh.util.html#module-cloudmesh.util.logger"><tt class="docutils literal"><span class="pre">logger</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="cloudmesh.util.html#module-cloudmesh.util.util"><tt class="docutils literal"><span class="pre">util</span></tt> Module</a></li>
 </ul>
@@ -231,7 +242,8 @@
   <a href="#" class="dropdown-toggle" data-toggle="dropdown">Page <b class="caret"></b></a>
   <ul class="dropdown-menu localtoc"><ul>
 <li><a class="reference internal" href="#">accounting Package</a><ul>
-<li><a class="reference internal" href="#gold-module"><tt class="docutils literal"><span class="pre">gold</span></tt> Module</a></li>
+<li><a class="reference internal" href="#module-cloudmesh.accounting.AccountBaseClass"><tt class="docutils literal"><span class="pre">AccountBaseClass</span></tt> Module</a></li>
+<li><a class="reference internal" href="#goldaccounting-module"><tt class="docutils literal"><span class="pre">GoldAccounting</span></tt> Module</a></li>
 <li><a class="reference internal" href="#module-cloudmesh.accounting.metrics"><tt class="docutils literal"><span class="pre">metrics</span></tt> Module</a></li>
 </ul>
 </li>
@@ -270,8 +282,52 @@
   
   <div class="section" id="accounting-package">
 <h1>accounting Package<a class="headerlink" href="#accounting-package" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="gold-module">
-<h2><tt class="xref py py-mod docutils literal"><span class="pre">gold</span></tt> Module<a class="headerlink" href="#gold-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-cloudmesh.accounting.AccountBaseClass">
+<span id="accountbaseclass-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">AccountBaseClass</span></tt> Module<a class="headerlink" href="#module-cloudmesh.accounting.AccountBaseClass" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="cloudmesh.accounting.AccountBaseClass.AccountingBaseClass">
+<em class="property">class </em><tt class="descclassname">cloudmesh.accounting.AccountBaseClass.</tt><tt class="descname">AccountingBaseClass</tt><a class="reference internal" href="../_modules/cloudmesh/accounting/AccountBaseClass.html#AccountingBaseClass"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.accounting.AccountBaseClass.AccountingBaseClass" title="Permalink to this definition">¶</a></dt>
+<dd><p>all methods return some kind of id if possible or useful or the object</p>
+<dl class="method">
+<dt id="cloudmesh.accounting.AccountBaseClass.AccountingBaseClass.activate_user_from_project">
+<tt class="descname">activate_user_from_project</tt><big>(</big><em>project</em>, <em>userid</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/accounting/AccountBaseClass.html#AccountingBaseClass.activate_user_from_project"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.accounting.AccountBaseClass.AccountingBaseClass.activate_user_from_project" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.accounting.AccountBaseClass.AccountingBaseClass.add_project">
+<tt class="descname">add_project</tt><big>(</big><em>name</em>, <em>description</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/accounting/AccountBaseClass.html#AccountingBaseClass.add_project"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.accounting.AccountBaseClass.AccountingBaseClass.add_project" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.accounting.AccountBaseClass.AccountingBaseClass.add_user">
+<tt class="descname">add_user</tt><big>(</big><em>firstname</em>, <em>lastname</em>, <em>email</em>, <em>phone</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/accounting/AccountBaseClass.html#AccountingBaseClass.add_user"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.accounting.AccountBaseClass.AccountingBaseClass.add_user" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.accounting.AccountBaseClass.AccountingBaseClass.add_user_to_project">
+<tt class="descname">add_user_to_project</tt><big>(</big><em>project</em>, <em>userid</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/accounting/AccountBaseClass.html#AccountingBaseClass.add_user_to_project"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.accounting.AccountBaseClass.AccountingBaseClass.add_user_to_project" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.accounting.AccountBaseClass.AccountingBaseClass.deactivate_project">
+<tt class="descname">deactivate_project</tt><big>(</big><em>name</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/accounting/AccountBaseClass.html#AccountingBaseClass.deactivate_project"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.accounting.AccountBaseClass.AccountingBaseClass.deactivate_project" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.accounting.AccountBaseClass.AccountingBaseClass.deactivate_user_from_project">
+<tt class="descname">deactivate_user_from_project</tt><big>(</big><em>project</em>, <em>userid</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/accounting/AccountBaseClass.html#AccountingBaseClass.deactivate_user_from_project"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.accounting.AccountBaseClass.AccountingBaseClass.deactivate_user_from_project" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.accounting.AccountBaseClass.AccountingBaseClass.modify_user">
+<tt class="descname">modify_user</tt><big>(</big><em>userid</em>, <em>firstname</em>, <em>lastname</em>, <em>email</em>, <em>phone</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/accounting/AccountBaseClass.html#AccountingBaseClass.modify_user"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.accounting.AccountBaseClass.AccountingBaseClass.modify_user" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="goldaccounting-module">
+<h2><tt class="xref py py-mod docutils literal"><span class="pre">GoldAccounting</span></tt> Module<a class="headerlink" href="#goldaccounting-module" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="module-cloudmesh.accounting.metrics">
 <span id="metrics-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">metrics</span></tt> Module<a class="headerlink" href="#module-cloudmesh.accounting.metrics" title="Permalink to this headline">¶</a></h2>

@@ -64,6 +64,11 @@
      data-toggle="dropdown">Site <b class="caret"></b></a>
   <ul class="dropdown-menu globaltoc"
     ><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../install.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../install.html#developmnet-version">Developmnet Version</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../install.html#convenient-command-shortcuts">Convenient command shortcuts</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../../../about.html">1&nbsp;&nbsp;&nbsp;About this document</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../todo.html">Instalation Instructions for Ubuntu for Inventory</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../inventory/index.html">Welcome to FutureGrid Cloud Inventory</a><ul>
@@ -149,11 +154,13 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../modules/cloudmesh.html#mongodb-module"><tt class="docutils literal"><span class="pre">mongodb</span></tt> Module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../modules/cloudmesh.html#subpackages">Subpackages</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../modules/cloudmesh.accounting.html">accounting Package</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.accounting.html#gold-module"><tt class="docutils literal"><span class="pre">gold</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.accounting.html#module-cloudmesh.accounting.AccountBaseClass"><tt class="docutils literal"><span class="pre">AccountBaseClass</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.accounting.html#goldaccounting-module"><tt class="docutils literal"><span class="pre">GoldAccounting</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.accounting.html#module-cloudmesh.accounting.metrics"><tt class="docutils literal"><span class="pre">metrics</span></tt> Module</a></li>
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="../../../modules/cloudmesh.config.html">config Package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#id1"><tt class="docutils literal"><span class="pre">config</span></tt> Package</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#module-cloudmesh.config.cloudmesh_cloud"><tt class="docutils literal"><span class="pre">cloudmesh_cloud</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#module-cloudmesh.config.cloudmesh_cloud_handler"><tt class="docutils literal"><span class="pre">cloudmesh_cloud_handler</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#module-cloudmesh.config.cm_config"><tt class="docutils literal"><span class="pre">cm_config</span></tt> Module</a></li>
@@ -172,6 +179,7 @@
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="../../../modules/cloudmesh.iaas.html">iaas Package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.iaas.html#id1"><tt class="docutils literal"><span class="pre">iaas</span></tt> Package</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.iaas.html#module-cloudmesh.iaas.ComputeBaseType"><tt class="docutils literal"><span class="pre">ComputeBaseType</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.iaas.html#subpackages">Subpackages</a><ul>
 <li class="toctree-l6"><a class="reference internal" href="../../../modules/cloudmesh.iaas.azure.html">azure Package</a><ul>
@@ -197,10 +205,12 @@
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="../../../modules/cloudmesh.inventory.html">inventory Package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.inventory.html#id1"><tt class="docutils literal"><span class="pre">inventory</span></tt> Package</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.inventory.html#resources-module"><tt class="docutils literal"><span class="pre">resources</span></tt> Module</a></li>
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="../../../modules/cloudmesh.provisioner.html">provisioner Package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.provisioner.html#id1"><tt class="docutils literal"><span class="pre">provisioner</span></tt> Package</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.provisioner.html#module-cloudmesh.provisioner.provisioner"><tt class="docutils literal"><span class="pre">provisioner</span></tt> Module</a></li>
 </ul>
 </li>
@@ -212,6 +222,7 @@
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="../../../modules/cloudmesh.util.html">util Package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.util.html#id1"><tt class="docutils literal"><span class="pre">util</span></tt> Package</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.util.html#module-cloudmesh.util.logger"><tt class="docutils literal"><span class="pre">logger</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.util.html#module-cloudmesh.util.util"><tt class="docutils literal"><span class="pre">util</span></tt> Module</a></li>
 </ul>
@@ -274,37 +285,58 @@
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">profiledata</span><span class="p">,</span> <span class="n">defaultproj</span><span class="p">,</span> <span class="n">projectlist</span><span class="p">,</span> <span class="n">cloudname</span><span class="p">,</span> <span class="n">clouddata</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_credentials</span> <span class="o">=</span> <span class="bp">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_keystone</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_keystone_admin</span> <span class="o">=</span> <span class="bp">None</span> 
         <span class="n">cloudmesh_cloud</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">profiledata</span><span class="p">,</span> <span class="n">defaultproj</span><span class="p">,</span> <span class="n">projectlist</span><span class="p">,</span> <span class="n">cloudname</span><span class="p">,</span> <span class="n">clouddata</span><span class="p">)</span>
 
-
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="openstack_grizzly_cloud.keystone_admin"><a class="viewcode-back" href="../../../modules/cloudmesh.config.html#cloudmesh.config.openstack_grizzly_cloud.openstack_grizzly_cloud.keystone_admin">[docs]</a>    <span class="k">def</span> <span class="nf">keystone_admin</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_keystone_admin</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_keystone_admin</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_keystone_client</span><span class="p">(</span><span class="n">as_admin</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_keystone_admin</span>
+</div>
     <span class="nd">@property</span>
 <div class="viewcode-block" id="openstack_grizzly_cloud.keystone"><a class="viewcode-back" href="../../../modules/cloudmesh.config.html#cloudmesh.config.openstack_grizzly_cloud.openstack_grizzly_cloud.keystone">[docs]</a>    <span class="k">def</span> <span class="nf">keystone</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_keystone</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
-            <span class="c"># Create/connect to keystone</span>
-            <span class="n">cm_admin</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">admin_data</span><span class="p">[</span><span class="s">&#39;cm_admin&#39;</span><span class="p">]</span>
-            <span class="k">try</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">_keystone</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="p">(</span>
-                    <span class="n">username</span><span class="o">=</span><span class="n">cm_admin</span><span class="p">[</span><span class="s">&#39;OS_USERNAME&#39;</span><span class="p">],</span>
-                    <span class="n">password</span><span class="o">=</span><span class="n">cm_admin</span><span class="p">[</span><span class="s">&#39;OS_PASSWORD&#39;</span><span class="p">],</span>
-                    <span class="n">tenant_name</span><span class="o">=</span><span class="n">cm_admin</span><span class="p">[</span><span class="s">&#39;OS_TENANT_NAME&#39;</span><span class="p">],</span>
-                    <span class="n">auth_url</span><span class="o">=</span><span class="n">cm_admin</span><span class="p">[</span><span class="s">&#39;OS_AUTH_URL&#39;</span><span class="p">],</span>
-                    <span class="n">cacert</span><span class="o">=</span><span class="n">cm_admin</span><span class="p">[</span><span class="s">&#39;OS_CACERT&#39;</span><span class="p">]</span>
-                <span class="p">)</span>
-            <span class="k">except</span> <span class="n">client</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">AuthorizationFailure</span> <span class="k">as</span> <span class="n">authz_err</span><span class="p">:</span>
-                <span class="k">print</span> <span class="s">&quot;</span><span class="si">%s</span><span class="se">\n</span><span class="s">Hint: check configuration in </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">authz_err</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">CLOUD_DEFNS</span><span class="p">)</span>
-                <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_keystone</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_keystone_client</span><span class="p">(</span><span class="n">as_admin</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_keystone</span>
 </div>
+    <span class="k">def</span> <span class="nf">_keystone_client</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">as_admin</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_keystone</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">as_admin</span><span class="p">:</span>
+                <span class="c"># Create/connect to keystone as administrator</span>
+                <span class="n">cloud_creds</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">admin_data</span><span class="p">[</span><span class="s">&#39;cm_admin&#39;</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="c"># Create/connect to keystone as user</span>
+                <span class="n">cloud_creds</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">credentials</span>
+            <span class="n">client_creds</span> <span class="o">=</span> <span class="p">{</span> <span class="s">&#39;username&#39;</span><span class="p">:</span> <span class="n">cloud_creds</span><span class="p">[</span><span class="s">&#39;OS_USERNAME&#39;</span><span class="p">],</span>
+                             <span class="s">&#39;password&#39;</span><span class="p">:</span> <span class="n">cloud_creds</span><span class="p">[</span><span class="s">&#39;OS_PASSWORD&#39;</span><span class="p">],</span>
+                             <span class="s">&#39;tenant_name&#39;</span><span class="p">:</span> <span class="n">cloud_creds</span><span class="p">[</span><span class="s">&#39;OS_TENANT_NAME&#39;</span><span class="p">],</span>
+                             <span class="s">&#39;auth_url&#39;</span><span class="p">:</span> <span class="n">cloud_creds</span><span class="p">[</span><span class="s">&#39;OS_AUTH_URL&#39;</span><span class="p">],</span>
+                             <span class="s">&#39;cacert&#39;</span><span class="p">:</span> <span class="n">cloud_creds</span><span class="p">[</span><span class="s">&#39;OS_CACERT&#39;</span><span class="p">]</span> <span class="p">}</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_keystone</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="p">(</span><span class="o">**</span><span class="n">client_creds</span><span class="p">)</span>
+            <span class="k">except</span> <span class="p">(</span><span class="n">client</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">AuthorizationFailure</span><span class="p">,</span>
+                    <span class="n">client</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">Unauthorized</span><span class="p">)</span> <span class="k">as</span> <span class="n">authz_err</span><span class="p">:</span>
+                <span class="k">print</span> <span class="o">&gt;&gt;</span><span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="p">,</span> <span class="p">(</span><span class="s">&#39;</span><span class="se">\n</span><span class="s">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+                    <span class="p">[</span><span class="s">&quot;Error: </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">authz_err</span><span class="p">,</span>
+                     <span class="s">&quot;Hint: check cloud configuration data; problems can occur if you&quot;</span><span class="p">,</span>
+                     <span class="s">&quot;changed your password outside of cloudmesh.  If you need an&quot;</span><span class="p">,</span>
+                     <span class="s">&quot;administrative password reset, email help@futuregrid.org.&quot;</span><span class="p">]</span>
+                    <span class="p">)</span>
+                <span class="p">)</span>
+                <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_keystone</span>
+
 <div class="viewcode-block" id="openstack_grizzly_cloud.get_user_by_name"><a class="viewcode-back" href="../../../modules/cloudmesh.config.html#cloudmesh.config.openstack_grizzly_cloud.openstack_grizzly_cloud.get_user_by_name">[docs]</a>    <span class="k">def</span> <span class="nf">get_user_by_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
-        <span class="n">user</span> <span class="o">=</span> <span class="p">[</span><span class="n">u</span> <span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">keystone</span><span class="o">.</span><span class="n">users</span><span class="o">.</span><span class="n">list</span><span class="p">()</span> <span class="k">if</span> <span class="n">u</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="n">name</span><span class="p">]</span>
+        <span class="n">user</span> <span class="o">=</span> <span class="p">[</span><span class="n">u</span> <span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">keystone_admin</span><span class="o">.</span><span class="n">users</span><span class="o">.</span><span class="n">list</span><span class="p">()</span> <span class="k">if</span> <span class="n">u</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="n">name</span><span class="p">]</span>
         <span class="k">return</span> <span class="n">user</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">user</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">else</span> <span class="bp">None</span>
 </div>
 <div class="viewcode-block" id="openstack_grizzly_cloud.get_role_by_name"><a class="viewcode-back" href="../../../modules/cloudmesh.config.html#cloudmesh.config.openstack_grizzly_cloud.openstack_grizzly_cloud.get_role_by_name">[docs]</a>    <span class="k">def</span> <span class="nf">get_role_by_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
-        <span class="n">role</span> <span class="o">=</span> <span class="p">[</span><span class="n">r</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">keystone</span><span class="o">.</span><span class="n">roles</span><span class="o">.</span><span class="n">list</span><span class="p">()</span> <span class="k">if</span> <span class="n">r</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="n">name</span><span class="p">]</span>
+        <span class="n">role</span> <span class="o">=</span> <span class="p">[</span><span class="n">r</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">keystone_admin</span><span class="o">.</span><span class="n">roles</span><span class="o">.</span><span class="n">list</span><span class="p">()</span> <span class="k">if</span> <span class="n">r</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="n">name</span><span class="p">]</span>
         <span class="k">return</span> <span class="n">role</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">role</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">else</span> <span class="bp">None</span>
 </div>
 <div class="viewcode-block" id="openstack_grizzly_cloud.get_tenant_by_name"><a class="viewcode-back" href="../../../modules/cloudmesh.config.html#cloudmesh.config.openstack_grizzly_cloud.openstack_grizzly_cloud.get_tenant_by_name">[docs]</a>    <span class="k">def</span> <span class="nf">get_tenant_by_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
-        <span class="n">tenant</span> <span class="o">=</span> <span class="p">[</span><span class="n">t</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">keystone</span><span class="o">.</span><span class="n">tenants</span><span class="o">.</span><span class="n">list</span><span class="p">()</span> <span class="k">if</span> <span class="n">t</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="n">name</span><span class="p">]</span>
+        <span class="n">tenant</span> <span class="o">=</span> <span class="p">[</span><span class="n">t</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">keystone_admin</span><span class="o">.</span><span class="n">tenants</span><span class="o">.</span><span class="n">list</span><span class="p">()</span> <span class="k">if</span> <span class="n">t</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="n">name</span><span class="p">]</span>
         <span class="k">return</span> <span class="n">tenant</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">tenant</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">else</span> <span class="bp">None</span>
 </div>
 <div class="viewcode-block" id="openstack_grizzly_cloud.initialize_cloud_user"><a class="viewcode-back" href="../../../modules/cloudmesh.config.html#cloudmesh.config.openstack_grizzly_cloud.openstack_grizzly_cloud.initialize_cloud_user">[docs]</a>    <span class="k">def</span> <span class="nf">initialize_cloud_user</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -319,10 +351,10 @@
         <span class="c"># Create user or reset password (we cannot retrieve existing password)</span>
         <span class="n">user</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_user_by_name</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">username</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">user</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
-            <span class="n">user</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">keystone</span><span class="o">.</span><span class="n">users</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+            <span class="n">user</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">keystone_admin</span><span class="o">.</span><span class="n">users</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">email</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">keystone</span><span class="o">.</span><span class="n">users</span><span class="o">.</span><span class="n">update_password</span><span class="p">(</span><span class="n">user</span><span class="p">,</span> <span class="n">password</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">keystone_admin</span><span class="o">.</span><span class="n">users</span><span class="o">.</span><span class="n">update_password</span><span class="p">(</span><span class="n">user</span><span class="p">,</span> <span class="n">password</span><span class="p">)</span>
 
         <span class="c"># Create membership role for user in each tenant</span>
         <span class="n">member_role</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_role_by_name</span><span class="p">(</span><span class="s">&#39;_member_&#39;</span><span class="p">)</span>
@@ -330,17 +362,22 @@
         <span class="k">for</span> <span class="n">tname</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">projects</span><span class="p">:</span>
             <span class="n">tenant</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_tenant_by_name</span><span class="p">(</span><span class="n">tname</span><span class="p">)</span>
             <span class="k">if</span> <span class="n">tenant</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
-                <span class="n">tenant</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">keystone</span><span class="o">.</span><span class="n">tenants</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">tname</span><span class="p">)</span>
-            <span class="n">user_roles</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">keystone</span><span class="o">.</span><span class="n">roles</span><span class="o">.</span><span class="n">roles_for_user</span><span class="p">(</span><span class="n">user</span><span class="p">,</span> <span class="n">tenant</span><span class="p">)</span>
+                <span class="n">tenant</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">keystone_admin</span><span class="o">.</span><span class="n">tenants</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">tname</span><span class="p">)</span>
+            <span class="n">user_roles</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">keystone_admin</span><span class="o">.</span><span class="n">roles</span><span class="o">.</span><span class="n">roles_for_user</span><span class="p">(</span><span class="n">user</span><span class="p">,</span> <span class="n">tenant</span><span class="p">)</span>
             <span class="k">if</span> <span class="ow">not</span> <span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">r</span><span class="p">:</span> <span class="n">r</span><span class="o">.</span><span class="n">id</span> <span class="o">==</span> <span class="n">member_role</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">user_roles</span><span class="p">):</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">keystone</span><span class="o">.</span><span class="n">roles</span><span class="o">.</span><span class="n">add_user_role</span><span class="p">(</span><span class="n">user</span><span class="p">,</span> <span class="n">member_role</span><span class="p">,</span> <span class="n">tenant</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">keystone_admin</span><span class="o">.</span><span class="n">roles</span><span class="o">.</span><span class="n">add_user_role</span><span class="p">(</span><span class="n">user</span><span class="p">,</span> <span class="n">member_role</span><span class="p">,</span> <span class="n">tenant</span><span class="p">)</span>
             <span class="n">os_tenants</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tname</span><span class="p">)</span>
         <span class="n">creds</span><span class="p">[</span><span class="s">&#39;FG_OS_TENANTS&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;,&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os_tenants</span><span class="p">)</span>
         <span class="n">creds</span><span class="p">[</span><span class="s">&#39;OS_TENANT_NAME&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">defaultproject</span>
 </div>
-<div class="viewcode-block" id="openstack_grizzly_cloud.change_password"><a class="viewcode-back" href="../../../modules/cloudmesh.config.html#cloudmesh.config.openstack_grizzly_cloud.openstack_grizzly_cloud.change_password">[docs]</a>    <span class="k">def</span> <span class="nf">change_password</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">oldpass</span><span class="p">,</span> <span class="n">newpass</span><span class="p">):</span>
-        <span class="c"># TODO: Actually update the password</span>
-        <span class="n">cloudmesh_cloud</span><span class="o">.</span><span class="n">change_password</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></div></div>
+<div class="viewcode-block" id="openstack_grizzly_cloud.change_own_password"><a class="viewcode-back" href="../../../modules/cloudmesh.config.html#cloudmesh.config.openstack_grizzly_cloud.openstack_grizzly_cloud.change_own_password">[docs]</a>    <span class="k">def</span> <span class="nf">change_own_password</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">oldpass</span><span class="p">,</span> <span class="n">newpass</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">cloudmesh_cloud</span><span class="o">.</span><span class="n">change_own_password</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">oldpass</span><span class="p">,</span> <span class="n">newpass</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">keystone</span><span class="o">.</span><span class="n">users</span><span class="o">.</span><span class="n">update_own_password</span><span class="p">(</span><span class="n">oldpass</span><span class="p">,</span> <span class="n">newpass</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">credentials</span><span class="p">[</span><span class="s">&#39;OS_PASSWORD&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">newpass</span>
+                <span class="k">print</span> <span class="s">&quot;Changed password for user </span><span class="si">%s</span><span class="s"> in </span><span class="si">%s</span><span class="s">.&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">username</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">cloudname</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="openstack_grizzly_cloud.get_own_password"><a class="viewcode-back" href="../../../modules/cloudmesh.config.html#cloudmesh.config.openstack_grizzly_cloud.openstack_grizzly_cloud.get_own_password">[docs]</a>    <span class="k">def</span> <span class="nf">get_own_password</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">credentials</span><span class="p">[</span><span class="s">&#39;OS_PASSWORD&#39;</span><span class="p">]</span></div></div>
 </pre></div>
 
 </div>
