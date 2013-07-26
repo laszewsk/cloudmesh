@@ -1,6 +1,8 @@
 Documentation 
 ==============
 
+::
+
     $ hg clone http://bitbucket.org/birkenfeld/sphinx-contrib/
     $ cd sphinx-contrib/autorun
     $ python setup.py install
@@ -52,3 +54,60 @@ We are providing a number of useful command that will make your development effo
 .. runblock:: console
 
    $ fab -l 
+
+Creating the Documentation:
+---------------------------
+
+We assume you have autodoc installed for sphinx (see previously) it is
+not in the requirements file, As I could not finss it in pypi
+
+    mkdir /tmp/install-cloudmesh
+    hg clone http://bitbucket.org/birkenfeld/sphinx-contrib/
+    cd sphinx-contrib/autorun
+    python setup.py install
+
+    cd /tmp/install-cloudmesh
+
+    git@github.com:cloudmesh/cloudmesh.git
+    cd cloudmesh
+    pip install -r requirements.txt
+
+This will publish the documentation locally::
+
+    fab doc.html
+
+If you do::
+
+    fab doc.gh
+
+it will publish the page to gh-pages
+
+
+Starting and testing the Queue Service
+----------------------------------------------------------------------
+
+To start the queue service please use the command::
+
+    fab queue.start:True
+
+This will start the necessary background services, but also will shut
+down existing services. Essentially it will start a clean development
+environment. To start a service you can use::
+
+   fab server.start:/provision/summary/
+
+Which starts the server oand gos to the provision summay page
+
+There is also a program called t.py in the base dir, so if you say::
+
+    python t.py
+   
+and refresh quickly the /provision/summary page you will see some
+commands queed up. The commands hafe random state updates and aer very
+short as to allow for a quick debuging simulation. One could add the
+refresh of the web page automatically to other test programs.
+
+
+
+
+
