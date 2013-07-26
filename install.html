@@ -68,6 +68,8 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="">Documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="#developmnet-version">Developmnet Version</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#convenient-command-shortcuts">Convenient command shortcuts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#creating-the-documentation">Creating the Documentation:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#starting-and-testing-the-queue-service">Starting and testing the Queue Service</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="about.html">1&nbsp;&nbsp;&nbsp;About this document</a></li>
@@ -243,6 +245,8 @@
 <li><a class="reference internal" href="#">Documentation</a></li>
 <li><a class="reference internal" href="#developmnet-version">Developmnet Version</a><ul>
 <li><a class="reference internal" href="#convenient-command-shortcuts">Convenient command shortcuts</a></li>
+<li><a class="reference internal" href="#creating-the-documentation">Creating the Documentation:</a></li>
+<li><a class="reference internal" href="#starting-and-testing-the-queue-service">Starting and testing the Queue Service</a></li>
 </ul>
 </li>
 </ul>
@@ -280,10 +284,10 @@
   
   <div class="section" id="documentation">
 <h1>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h1>
-<blockquote>
-<div>$ hg clone <a class="reference external" href="http://bitbucket.org/birkenfeld/sphinx-contrib/">http://bitbucket.org/birkenfeld/sphinx-contrib/</a>
+<div class="highlight-python"><pre>$ hg clone http://bitbucket.org/birkenfeld/sphinx-contrib/
 $ cd sphinx-contrib/autorun
-$ python setup.py install</div></blockquote>
+$ python setup.py install</pre>
+</div>
 </div>
 <div class="section" id="developmnet-version">
 <h1>Developmnet Version<a class="headerlink" href="#developmnet-version" title="Permalink to this headline">¶</a></h1>
@@ -327,6 +331,7 @@ images: 2 -&gt; centos6, ubuntu</pre>
 <span class="go">    clean.dir          clean the dirs</span>
 <span class="go">    doc.gh             deploy the documentation on gh-pages</span>
 <span class="go">    doc.html           build the doc locally and view</span>
+<span class="go">    doc.view           view the documentation in a browser</span>
 <span class="go">    git.gregor         git config of name and email for gregor</span>
 <span class="go">    git.pull           git pull</span>
 <span class="go">    git.push           git push</span>
@@ -348,6 +353,7 @@ images: 2 -&gt; centos6, ubuntu</pre>
 <span class="go">    pypi.upload        upload the dist to pypi</span>
 <span class="go">    queue.clean        stop celery and clean up</span>
 <span class="go">    queue.gui          start the flower celery gui</span>
+<span class="go">    queue.kill</span>
 <span class="go">    queue.list         list the workers</span>
 <span class="go">    queue.monitor      provide some information about celery</span>
 <span class="go">    queue.start        start the celery server</span>
@@ -362,6 +368,47 @@ images: 2 -&gt; centos6, ubuntu</pre>
 <span class="go">    test.start         executes a test with a given partial filename and part...</span>
 </pre></div>
 </div>
+</div>
+<div class="section" id="creating-the-documentation">
+<h2>Creating the Documentation:<a class="headerlink" href="#creating-the-documentation" title="Permalink to this headline">¶</a></h2>
+<p>We assume you have autodoc installed for sphinx (see previously) it is
+not in the requirements file, As I could not finss it in pypi</p>
+<blockquote>
+<div><p>mkdir /tmp/install-cloudmesh
+hg clone <a class="reference external" href="http://bitbucket.org/birkenfeld/sphinx-contrib/">http://bitbucket.org/birkenfeld/sphinx-contrib/</a>
+cd sphinx-contrib/autorun
+python setup.py install</p>
+<p>cd /tmp/install-cloudmesh</p>
+<p><a class="reference external" href="mailto:git&#37;&#52;&#48;github&#46;com">git<span>&#64;</span>github<span>&#46;</span>com</a>:cloudmesh/cloudmesh.git
+cd cloudmesh
+pip install -r requirements.txt</p>
+</div></blockquote>
+<p>This will publish the documentation locally:</p>
+<div class="highlight-python"><pre>fab doc.html</pre>
+</div>
+<p>If you do:</p>
+<div class="highlight-python"><pre>fab doc.gh</pre>
+</div>
+<p>it will publish the page to gh-pages</p>
+</div>
+<div class="section" id="starting-and-testing-the-queue-service">
+<h2>Starting and testing the Queue Service<a class="headerlink" href="#starting-and-testing-the-queue-service" title="Permalink to this headline">¶</a></h2>
+<p>To start the queue service please use the command:</p>
+<div class="highlight-python"><pre>fab queue.start:True</pre>
+</div>
+<p>This will start the necessary background services, but also will shut
+down existing services. Essentially it will start a clean development
+environment. To start a service you can use:</p>
+<div class="highlight-python"><pre>fab server.start:/provision/summary/</pre>
+</div>
+<p>Which starts the server oand gos to the provision summay page</p>
+<p>There is also a program called t.py in the base dir, so if you say:</p>
+<div class="highlight-python"><pre>python t.py</pre>
+</div>
+<p>and refresh quickly the /provision/summary page you will see some
+commands queed up. The commands hafe random state updates and aer very
+short as to allow for a quick debuging simulation. One could add the
+refresh of the web page automatically to other test programs.</p>
 </div>
 </div>
 
