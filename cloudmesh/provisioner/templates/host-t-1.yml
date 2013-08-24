@@ -1,0 +1,29 @@
+hostname: {{ hostname }}
+network:
+    eth0:
+        bootproto: dhcp
+        onboot: yes
+        macaddr: {{ eth0.maccaddr }}
+    eth1:
+        ipaddr: {{ eth1.ipaddr }}
+        macaddr: {{ eth1.macaddr }}
+        bootproto: static
+        onboot: yes
+        netmask: {{ netmask }}
+        gateway: {{ gateway }}
+        nameserver: {{ nameserver }}
+delete_keypair: True
+update_authorized_keys: True
+authorized_keys: 
+    im1: 'ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEA99x6IYp0xXE0zK+BPWZHrOzWHik+fMzJNQ/8/Joy3mGHkDUnFEwFGzP5jPEZa9ut4iFeOjx7rDC820lmHYm+vVkRFYOyuMgSRymeSah30epMX+vPJjpYtRqoN7JdeC4Jyv3FX+sr8CfVMa1wv+Chp2nQZH81rdBVxkRzXTzmZRAq2bKoE4N2OSbiz5DH6xD2B9Z89wYNnLRJH5SuvG9wNu6ey7OM10EUZwgmcHQXf48q3ZE7Fd/4fAJ8SNKP8JuxnrbOQGjlEwsIhXqwK5PQYQWlrmksUUOxGNkgf+Fm0eYKtez5kyHIqbjJ8aqCb7wOlS9RBDomfv1etEYTa2CmfQ== root@im1'
+proxy:
+    host: {{ proxy.host }}
+    user: {{ proxy.user}}
+ipmi:
+    host: {{ bmcaddr }}
+    user: {{ ipmi.user }}
+    password: {{ ipmi.password }}
+pxe:
+    config: '/tftpboot/pxelinux.cfg'
+    host: {{ proxy.host }}
+    user: {{ pxe.user }}

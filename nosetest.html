@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Documentation &mdash; Cloudmesh 0.1 documentation</title>
+    <title>10   Nosetests &mdash; Cloudmesh 0.1 documentation</title>
     
     <link rel="stylesheet" href="_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -32,8 +32,8 @@
     <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
     <link rel="author" title="About these documents" href="about.html" />
     <link rel="top" title="Cloudmesh 0.1 documentation" href="index.html" />
-    <link rel="next" title="1   About this document" href="about.html" />
-    <link rel="prev" title="1   Cloudmesh" href="index.html" />
+    <link rel="next" title="10   Cloud Mesh" href="cm-shell.html" />
+    <link rel="prev" title="9   Testing" href="install/testing.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -64,66 +64,89 @@
      class="dropdown-toggle"
      data-toggle="dropdown">Site <b class="caret"></b></a>
   <ul class="dropdown-menu globaltoc"
-    ><ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="">Documentation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#developmnet-version">Developmnet Version</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#convenient-command-shortcuts">Convenient command shortcuts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#creating-the-documentation">Creating the Documentation:</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#starting-and-testing-the-queue-service">Starting and testing the Queue Service</a></li>
+    ><ul>
+<li class="toctree-l1"><a class="reference internal" href="about.html">About this document</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="about.html#ohloh">Ohloh</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="about.html">1&nbsp;&nbsp;&nbsp;About this document</a></li>
-<li class="toctree-l1"><a class="reference internal" href="todo.html">Instalation Instructions for Ubuntu for Inventory</a></li>
-<li class="toctree-l1"><a class="reference internal" href="inventory/index.html">Welcome to FutureGrid Cloud Inventory</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="inventory/index.html#cloud-inventory">Cloud Inventory</a></li>
-<li class="toctree-l2"><a class="reference internal" href="inventory/index.html#introduction">Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="inventory/index.html#status">Status</a></li>
-<li class="toctree-l2"><a class="reference internal" href="inventory/index.html#data-model">Data Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="inventory/index.html#quickstart-example">Quickstart Example</a></li>
-<li class="toctree-l2"><a class="reference internal" href="inventory/index.html#list-of-commands">List of Commands</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="install/deployment.html">Quick deployment</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="install/deployment.html#yaml-files">YAML files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install/deployment.html#mongo">Mongo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install/deployment.html#quick-configuration">Quick Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install/deployment.html#quick-test">Quick Test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install/deployment.html#what-is-if-this-does-not-work">What is if this does not work?</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="inventory/assign.html">assign</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="inventory/assign.html#usage">Usage</a></li>
-<li class="toctree-l2"><a class="reference internal" href="inventory/assign.html#description">Description</a></li>
-<li class="toctree-l2"><a class="reference internal" href="inventory/assign.html#list-of-parameters">List of Parameters</a></li>
-<li class="toctree-l2"><a class="reference internal" href="inventory/assign.html#example">Example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install/install.html">2&nbsp;&nbsp;&nbsp;Operating System Preparation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="install/install.html#osx">2.1&nbsp;&nbsp;&nbsp;OSX</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="install/install.html#install-mongo">2.1.1&nbsp;&nbsp;&nbsp;Install Mongo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="install/install.html#install-rabitmq">2.1.2&nbsp;&nbsp;&nbsp;Install RabitMQ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="install/install.html#sphinx-autorun">2.1.3&nbsp;&nbsp;&nbsp;Sphinx autorun</a></li>
+<li class="toctree-l3"><a class="reference internal" href="install/install.html#blockdiag-family">2.1.4&nbsp;&nbsp;&nbsp;Blockdiag family</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="inventory/add.html">add</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="inventory/add.html#usage">Usage</a></li>
-<li class="toctree-l2"><a class="reference internal" href="inventory/add.html#description">Description</a></li>
-<li class="toctree-l2"><a class="reference internal" href="inventory/add.html#list-of-parameters">List of Parameters</a></li>
-<li class="toctree-l2"><a class="reference internal" href="inventory/add.html#example">Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install/install.html#ubuntu">2.2&nbsp;&nbsp;&nbsp;Ubuntu</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="install/install.html#id1">2.2.1&nbsp;&nbsp;&nbsp;Install Mongo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="install/install.html#id2">2.2.2&nbsp;&nbsp;&nbsp;Install RabitMQ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="install/install.html#id3">2.2.3&nbsp;&nbsp;&nbsp;Sphinx autorun</a></li>
+<li class="toctree-l3"><a class="reference internal" href="install/install.html#id4">2.2.4&nbsp;&nbsp;&nbsp;Blockdiag family</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="inventory/unassign.html">unassign</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="inventory/unassign.html#usage">Usage</a></li>
-<li class="toctree-l2"><a class="reference internal" href="inventory/unassign.html#description">Description</a></li>
-<li class="toctree-l2"><a class="reference internal" href="inventory/unassign.html#list-of-parameters">List of Parameters</a></li>
-<li class="toctree-l2"><a class="reference internal" href="inventory/unassign.html#example">Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install/install.html#centos">2.3&nbsp;&nbsp;&nbsp;CentOS</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="install/install.html#install-python">2.3.1&nbsp;&nbsp;&nbsp;Install Python</a></li>
+<li class="toctree-l3"><a class="reference internal" href="install/install.html#install-python-virtualenv">2.3.2&nbsp;&nbsp;&nbsp;Install Python Virtualenv</a></li>
+<li class="toctree-l3"><a class="reference internal" href="install/install.html#id5">2.3.3&nbsp;&nbsp;&nbsp;Install Mongo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="install/install.html#id6">2.3.4&nbsp;&nbsp;&nbsp;Install RabitMQ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="install/install.html#id7">2.3.5&nbsp;&nbsp;&nbsp;Sphinx autorun</a></li>
+<li class="toctree-l3"><a class="reference internal" href="install/install.html#id8">2.3.6&nbsp;&nbsp;&nbsp;Blockdiag family</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="inventory/list.html">list</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="inventory/list.html#usage">Usage</a></li>
-<li class="toctree-l2"><a class="reference internal" href="inventory/list.html#description">Description</a></li>
-<li class="toctree-l2"><a class="reference internal" href="inventory/list.html#parameters">Parameters</a></li>
-<li class="toctree-l2"><a class="reference internal" href="inventory/list.html#example">Example</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="inventory/support.html">Support</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cm/intro.html">Cloud Mesh</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cm/intro.html#commands">Commands</a></li>
-<li class="toctree-l1"><a class="reference internal" href="plan/plan.html">2&nbsp;&nbsp;&nbsp;Plan: Cloudmesh Service Shift</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="plan/plan.html#project-objectives">2.1&nbsp;&nbsp;&nbsp;Project Objectives</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="plan/plan.html#development-objectives">2.1.1&nbsp;&nbsp;&nbsp;Development Objectives</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plan/plan.html#production-objectives">2.1.2&nbsp;&nbsp;&nbsp;Production Objectives</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install/install.html#installing-the-source-code">3&nbsp;&nbsp;&nbsp;Installing the source code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install/install.html#cleaning">4&nbsp;&nbsp;&nbsp;Cleaning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install/install.html#convenient-command-shortcuts">5&nbsp;&nbsp;&nbsp;Convenient command shortcuts</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="install/install.html#creating-the-documentation">5.1&nbsp;&nbsp;&nbsp;Creating the Documentation:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install/install.html#starting-and-testing-the-queue-service">5.2&nbsp;&nbsp;&nbsp;Starting and testing the Queue Service</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="plan/plan.html#project-deliverables">2.2&nbsp;&nbsp;&nbsp;Project Deliverables</a></li>
-<li class="toctree-l2"><a class="reference internal" href="plan/plan.html#evolution-of-the-project">2.3&nbsp;&nbsp;&nbsp;Evolution of the Project</a></li>
-<li class="toctree-l2"><a class="reference internal" href="plan/plan.html#refernce-materials">2.4&nbsp;&nbsp;&nbsp;Refernce Materials</a></li>
-<li class="toctree-l2"><a class="reference internal" href="plan/plan.html#definitions-and-acronyms">2.5&nbsp;&nbsp;&nbsp;Definitions and Acronyms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install/virtualenv.html">7&nbsp;&nbsp;&nbsp;Virtualenv</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="install/virtualenv.html#download-virtualenv">7.1&nbsp;&nbsp;&nbsp;Download virtualenv</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install/virtualenv.html#install-virtualenv">7.2&nbsp;&nbsp;&nbsp;Install virtualenv</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install/virtualenv.html#activate-virtualenv">7.3&nbsp;&nbsp;&nbsp;Activate virtualenv</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install/virtualenv.html#modify-your-rc-file-optional">7.4&nbsp;&nbsp;&nbsp;Modify your rc file (optional):</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="install/configuration.html">8&nbsp;&nbsp;&nbsp;Basic Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install/testing.html">9&nbsp;&nbsp;&nbsp;Testing</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="">10&nbsp;&nbsp;&nbsp;Nosetests</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#install">10.1&nbsp;&nbsp;&nbsp;Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#run">10.2&nbsp;&nbsp;&nbsp;Run</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#system">10.3&nbsp;&nbsp;&nbsp;System</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="cm-shell.html">10&nbsp;&nbsp;&nbsp;Cloud Mesh</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cm-shell.html#commands">11&nbsp;&nbsp;&nbsp;Commands</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="plan/plan.html">4&nbsp;&nbsp;&nbsp;Plan: Cloudmesh Service Shift</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="plan/plan.html#project-objectives">4.1&nbsp;&nbsp;&nbsp;Project Objectives</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="plan/plan.html#development-objectives">4.1.1&nbsp;&nbsp;&nbsp;Development Objectives</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plan/plan.html#production-objectives">4.1.2&nbsp;&nbsp;&nbsp;Production Objectives</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="plan/plan.html#project-deliverables">4.2&nbsp;&nbsp;&nbsp;Project Deliverables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plan/plan.html#evolution-of-the-project">4.3&nbsp;&nbsp;&nbsp;Evolution of the Project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plan/plan.html#refernce-materials">4.4&nbsp;&nbsp;&nbsp;Refernce Materials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plan/plan.html#definitions-and-acronyms">4.5&nbsp;&nbsp;&nbsp;Definitions and Acronyms</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="plan/design.html">3&nbsp;&nbsp;&nbsp;Design: Blueprint</a><ul>
@@ -159,7 +182,7 @@
 <li class="toctree-l4"><a class="reference internal" href="modules/cloudmesh.accounting.html">accounting Package</a><ul>
 <li class="toctree-l5"><a class="reference internal" href="modules/cloudmesh.accounting.html#module-cloudmesh.accounting.AccountBaseClass"><tt class="docutils literal"><span class="pre">AccountBaseClass</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="modules/cloudmesh.accounting.html#goldaccounting-module"><tt class="docutils literal"><span class="pre">GoldAccounting</span></tt> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="modules/cloudmesh.accounting.html#module-cloudmesh.accounting.metrics"><tt class="docutils literal"><span class="pre">metrics</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/cloudmesh.accounting.html#metrics-module"><tt class="docutils literal"><span class="pre">metrics</span></tt> Module</a></li>
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="modules/cloudmesh.config.html">config Package</a><ul>
@@ -192,9 +215,9 @@
 </ul>
 </li>
 <li class="toctree-l6"><a class="reference internal" href="modules/cloudmesh.iaas.eucalyptus.html">eucalyptus Package</a><ul>
-<li class="toctree-l7"><a class="reference internal" href="modules/cloudmesh.iaas.eucalyptus.html#eucalyptus-module"><tt class="docutils literal"><span class="pre">eucalyptus</span></tt> Module</a></li>
+<li class="toctree-l7"><a class="reference internal" href="modules/cloudmesh.iaas.eucalyptus.html#module-cloudmesh.iaas.eucalyptus.eucalyptus"><tt class="docutils literal"><span class="pre">eucalyptus</span></tt> Module</a></li>
 <li class="toctree-l7"><a class="reference internal" href="modules/cloudmesh.iaas.eucalyptus.html#eucalyptus-libcloud-module"><tt class="docutils literal"><span class="pre">eucalyptus_libcloud</span></tt> Module</a></li>
-<li class="toctree-l7"><a class="reference internal" href="modules/cloudmesh.iaas.eucalyptus.html#module-cloudmesh.iaas.eucalyptus.eucalyptus_new"><tt class="docutils literal"><span class="pre">eucalyptus_new</span></tt> Module</a></li>
+<li class="toctree-l7"><a class="reference internal" href="modules/cloudmesh.iaas.eucalyptus.html#eucalyptus-new-module"><tt class="docutils literal"><span class="pre">eucalyptus_new</span></tt> Module</a></li>
 </ul>
 </li>
 <li class="toctree-l6"><a class="reference internal" href="modules/cloudmesh.iaas.openstack.html">openstack Package</a><ul>
@@ -242,11 +265,10 @@
               <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown">Page <b class="caret"></b></a>
   <ul class="dropdown-menu localtoc"><ul>
-<li><a class="reference internal" href="#">Documentation</a></li>
-<li><a class="reference internal" href="#developmnet-version">Developmnet Version</a><ul>
-<li><a class="reference internal" href="#convenient-command-shortcuts">Convenient command shortcuts</a></li>
-<li><a class="reference internal" href="#creating-the-documentation">Creating the Documentation:</a></li>
-<li><a class="reference internal" href="#starting-and-testing-the-queue-service">Starting and testing the Queue Service</a></li>
+<li><a class="reference internal" href="#">10&nbsp;&nbsp;&nbsp;Nosetests</a><ul>
+<li><a class="reference internal" href="#install">10.1&nbsp;&nbsp;&nbsp;Install</a></li>
+<li><a class="reference internal" href="#run">10.2&nbsp;&nbsp;&nbsp;Run</a></li>
+<li><a class="reference internal" href="#system">10.3&nbsp;&nbsp;&nbsp;System</a></li>
 </ul>
 </li>
 </ul>
@@ -255,14 +277,14 @@
             
             
               
-  <li><a href="index.html"
-         title="previous chapter">&laquo; 1&nbsp;&nbsp;&nbsp;Cloudmesh</a></li>
-  <li><a href="about.html"
-         title="next chapter">1&nbsp;&nbsp;&nbsp;About this document &raquo;</a></li>
+  <li><a href="install/testing.html"
+         title="previous chapter">&laquo; 9&nbsp;&nbsp;&nbsp;Testing</a></li>
+  <li><a href="cm-shell.html"
+         title="next chapter">10&nbsp;&nbsp;&nbsp;Cloud Mesh &raquo;</a></li>
             
             
               <li>
-  <a href="_sources/install.txt"
+  <a href="_sources/nosetest.txt"
      rel="nofollow">Source</a></li>
             
           </ul>
@@ -282,133 +304,32 @@
 
 <div class="container">
   
-  <div class="section" id="documentation">
-<h1>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h1>
-<div class="highlight-python"><pre>$ hg clone http://bitbucket.org/birkenfeld/sphinx-contrib/
-$ cd sphinx-contrib/autorun
-$ python setup.py install</pre>
+  <a href="https://github.com/cloudmesh/cloudmesh"
+    class="visible-desktop"><img
+   style="position: absolute; top: 40px; right: 0; border: 0;"
+   src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"
+   alt="Fork me on GitHub"></a><div class="section" id="nosetests">
+<h1>10&nbsp;&nbsp;&nbsp;Nosetests<a class="headerlink" href="#nosetests" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="install">
+<h2>10.1&nbsp;&nbsp;&nbsp;Install<a class="headerlink" href="#install" title="Permalink to this headline">¶</a></h2>
+<p>Due to a bug in nose-json plugin, we install it via:</p>
+<div class="highlight-python"><pre>$ fab nose.json</pre>
 </div>
 </div>
-<div class="section" id="developmnet-version">
-<h1>Developmnet Version<a class="headerlink" href="#developmnet-version" title="Permalink to this headline">¶</a></h1>
-<p>Checkout the code from the repository:</p>
-<div class="highlight-python"><pre>git@github.com:cloudmesh/cloudmesh.git
-cd cloudmesh
-pip install -r requirements.txt</pre>
+<div class="section" id="run">
+<h2>10.2&nbsp;&nbsp;&nbsp;Run<a class="headerlink" href="#run" title="Permalink to this headline">¶</a></h2>
+<p>If there is a file in tests/test_keys.py for example, you can call the test as</p>
+<p><a class="reference external" href="http://127.0.0.1:5000/nose/keys">http://127.0.0.1:5000/nose/keys</a></p>
+<p>and it gets executed. you must be in the cludmesh dir.</p>
 </div>
-<p>Start mongod:</p>
-<div class="highlight-python"><pre>$ mongod</pre>
+<div class="section" id="system">
+<h2>10.3&nbsp;&nbsp;&nbsp;System<a class="headerlink" href="#system" title="Permalink to this headline">¶</a></h2>
+<p>In test_system.py we collect a number of system tests, such as if
+the machines are pingable, or LDAP works ... Enough to help debugging
+and seing if the nevironment works. Start it with</p>
+<div class="highlight-python"><pre>http://127.0.0.1:5000/nose/system</pre>
 </div>
-<p>Create a test cluster:</p>
-<div class="highlight-python"><pre>$ fab server.fg</pre>
-</div>
-<p>This will print something like (if everything is ok):</p>
-<div class="highlight-python"><pre>clusters: 5 -&gt; bravo, delta, gamma, india, sierra
-services: 0
-servers: 304
-images: 2 -&gt; centos6, ubuntu</pre>
-</div>
-<p>To start the service you can say:</p>
-<div class="highlight-python"><pre>$ fab server.start</pre>
-</div>
-<p>You can repeatedly issue that command and it will shut down the server. If you want to do thia by hand you can do this with:</p>
-<div class="highlight-python"><pre>$ fab server.stop</pre>
-</div>
-<p>Note that when you edit anything related to the Fabric datatypes, you will most likely hav to recreate the test cluster data. DO this agian with:</p>
-<div class="highlight-python"><pre>$ fab server.fg</pre>
-</div>
-<p>And than start the server as descripbed above.</p>
-<div class="section" id="convenient-command-shortcuts">
-<h2>Convenient command shortcuts<a class="headerlink" href="#convenient-command-shortcuts" title="Permalink to this headline">¶</a></h2>
-<p>We are providing a number of useful command that will make your development efforts easier.  These commands are build with fablies in the fabfile directory. in the cloudmesh directory, you will find a diretcory called fabfile that includes the agglomerated helper files. To access them you can use the name of the file, followed by a task that is defined within the file. Next we list the available commands:</p>
-<div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> fab -l
-<span class="go">Available commands:</span>
-
-<span class="go">    build.install      install cloudmesh</span>
-<span class="go">    build.req          install the requirements</span>
-<span class="go">    build.sdist        create the sdist</span>
-<span class="go">    clean.all          clean the dis and uninstall cloudmesh</span>
-<span class="go">    clean.dir          clean the dirs</span>
-<span class="go">    doc.gh             deploy the documentation on gh-pages</span>
-<span class="go">    doc.html           build the doc locally and view</span>
-<span class="go">    doc.view           view the documentation in a browser</span>
-<span class="go">    git.gregor         git config of name and email for gregor</span>
-<span class="go">    git.pull           git pull</span>
-<span class="go">    git.push           git push</span>
-<span class="go">    mq.allow           allow a user to access the host in rabitmq</span>
-<span class="go">    mq.check           check if the /etc/hosts file is properly configures</span>
-<span class="go">    mq.dns             restart the dns server</span>
-<span class="go">    mq.host            adding a host to rabitmq</span>
-<span class="go">    mq.info            print some essential information about the messaging s...</span>
-<span class="go">    mq.install         install the rabitmq</span>
-<span class="go">    mq.menu            open a menu to start some commands with an ascii menu</span>
-<span class="go">    mq.start           start the rabit mq server</span>
-<span class="go">    mq.status          print the status of rabbitmq</span>
-<span class="go">    mq.stop            stop the rabit mq server</span>
-<span class="go">    mq.user            create a user in rabit mq</span>
-<span class="go">    pep8.auto          run autopep8 on all python files</span>
-<span class="go">    pep8.install       install pep8, autopep8, pylint</span>
-<span class="go">    pep8.stat          create statistics for pep8</span>
-<span class="go">    pypi.register      register with pypi. Needs only to be done once.</span>
-<span class="go">    pypi.upload        upload the dist to pypi</span>
-<span class="go">    queue.clean        stop celery and clean up</span>
-<span class="go">    queue.gui          start the flower celery gui</span>
-<span class="go">    queue.kill</span>
-<span class="go">    queue.list         list the workers</span>
-<span class="go">    queue.monitor      provide some information about celery</span>
-<span class="go">    queue.start        start the celery server</span>
-<span class="go">    queue.stop         stop the workers</span>
-<span class="go">    server.clean       clean the directory</span>
-<span class="go">    server.cleanmongo  erase the database and kill the mongo processes</span>
-<span class="go">    server.fg          create a simple testbed</span>
-<span class="go">    server.kill        kills all server processes</span>
-<span class="go">    server.start       starts in dir webgui the program server.py and display...</span>
-<span class="go">    server.view        run the browser</span>
-<span class="go">    test.info          list all functions of file with the partial name f</span>
-<span class="go">    test.start         executes a test with a given partial filename and part...</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="creating-the-documentation">
-<h2>Creating the Documentation:<a class="headerlink" href="#creating-the-documentation" title="Permalink to this headline">¶</a></h2>
-<p>We assume you have autodoc installed for sphinx (see previously) it is
-not in the requirements file, As I could not finss it in pypi</p>
-<blockquote>
-<div><p>mkdir /tmp/install-cloudmesh
-hg clone <a class="reference external" href="http://bitbucket.org/birkenfeld/sphinx-contrib/">http://bitbucket.org/birkenfeld/sphinx-contrib/</a>
-cd sphinx-contrib/autorun
-python setup.py install</p>
-<p>cd /tmp/install-cloudmesh</p>
-<p><a class="reference external" href="mailto:git&#37;&#52;&#48;github&#46;com">git<span>&#64;</span>github<span>&#46;</span>com</a>:cloudmesh/cloudmesh.git
-cd cloudmesh
-pip install -r requirements.txt</p>
-</div></blockquote>
-<p>This will publish the documentation locally:</p>
-<div class="highlight-python"><pre>fab doc.html</pre>
-</div>
-<p>If you do:</p>
-<div class="highlight-python"><pre>fab doc.gh</pre>
-</div>
-<p>it will publish the page to gh-pages</p>
-</div>
-<div class="section" id="starting-and-testing-the-queue-service">
-<h2>Starting and testing the Queue Service<a class="headerlink" href="#starting-and-testing-the-queue-service" title="Permalink to this headline">¶</a></h2>
-<p>To start the queue service please use the command:</p>
-<div class="highlight-python"><pre>fab queue.start:True</pre>
-</div>
-<p>This will start the necessary background services, but also will shut
-down existing services. Essentially it will start a clean development
-environment. To start a service you can use:</p>
-<div class="highlight-python"><pre>fab server.start:/provision/summary/</pre>
-</div>
-<p>Which starts the server oand gos to the provision summay page</p>
-<p>There is also a program called t.py in the base dir, so if you say:</p>
-<div class="highlight-python"><pre>python t.py</pre>
-</div>
-<p>and refresh quickly the /provision/summary page you will see some
-commands queed up. The commands hafe random state updates and aer very
-short as to allow for a quick debuging simulation. One could add the
-refresh of the web page automatically to other test programs.</p>
+<p>in your browser</p>
 </div>
 </div>
 
