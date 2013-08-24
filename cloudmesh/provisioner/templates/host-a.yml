@@ -1,0 +1,52 @@
+# i1:
+hostname: 'i1'
+
+network:
+    eth0:
+        bootproto: "dhcp"
+        onboot: 'yes'
+        macaddr: 'E4:1F:13:22:C3:84'
+    eth1:
+        ipaddr: "149.165.146.1"
+        macaddr: "E4:1F:13:22:C3:85"
+        bootproto: "static"
+        onboot: "yes"
+        netmask: "255.255.255.0"
+        gateway: "149.165.146.254"
+        nameserver: "129.79.1.1"
+# what are these for
+delete_keypair: True
+update_authorized_keys: True
+# maybe it should be possible also to do 
+authorized_keys: ~/..../authorized_keys
+
+    im1: 'ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEA99x6IYp0xXE0zK+BPWZHrOzWHik+fMzJNQ/8/Joy3mGHkDUnFEwFGzP5jPEZa9ut4iFeOjx7rDC820lmHYm+vVkRFYOyuMgSRymeSah30epMX+vPJjpYtRqoN7JdeC4Jyv3FX+sr8CfVMa1wv+Chp2nQZH81rdBVxkRzXTzmZRAq2bKoE4N2OSbiz5DH6xD2B9Z89wYNnLRJH5SuvG9wNu6ey7OM10EUZwgmcHQXf48q3ZE7Fd/4fAJ8SNKP8JuxnrbOQGjlEwsIhXqwK5PQYQWlrmksUUOxGNkgf+Fm0eYKtez5kyHIqbjJ8aqCb7wOlS9RBDomfv1etEYTa2CmfQ== root@im1'
+#or as cloudmesh supports path fetching of keys
+     im1: ~/..../id_rsa.pub
+
+ipmi:
+    bmc_address: '172.29.201.1'
+    ipmi_user: 'XXXXXXX'
+    ipmi_pass: 'XXXXXXXXX'
+    ssh_server: '172.29.200.130'
+    ssh_user: 'imageman'
+pxe:
+    pxeconf_prefix: '/tftpboot/pxelinux.cfg'
+    ssh_server: '172.29.200.130'
+    ssh_user: 'imageman'
+
+
+why do we need ssh server twice, for pxe and ipmi, and its both times the same? Should it be
+
+ssh:
+    host: '172.29.200.130'
+    user: 'imageman'
+ipmi:
+    host/bmc_address: '172.29.201.1'
+    user: 'XXXXXXX'
+    pass: 'XXXXXXXXX'
+pxe:
+    # why just prefix, if prefix, where is rest of path
+    config: '/tftpboot/pxelinux.cfg'
+    host: '172.29.200.130'
+    user: 'imageman'

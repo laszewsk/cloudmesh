@@ -7,28 +7,61 @@
     alt="Fork me on GitHub"></a>
 
 
-Cloudmesh 
-==========================================
 
-.. sectnum::
+#################
+Cloudmesh 
+#################
+
+
+Introduction
+==============
+
+.. toctree::
+   :maxdepth: 2
+
+   about  
+
+
+Instalation
+==============
 
 .. toctree::
    :maxdepth: 2
   
-   install
-   about
-   todo
+   install/deployment
+   install/install
+   install/virtualenv
+   
+   
+Configuration
+==============
+.. toctree::
+   :maxdepth: 3
+  
+   install/configuration
+   install/testing
 
-   inventory/index.rst
-   inventory/assign
-   inventory/add
-   inventory/unassign
-   inventory/list
-   inventory/support
+Execution
+========
+.. toctree::
+   :maxdepth: 2
+  
+   nosetest
 
+TODO
+=====
 
-   cm/intro.rst
+.. toctree::
+   :maxdepth: 2
+  
+   cm-shell
 
+Plan
+======
+
+.. toctree::
+   :maxdepth: 2
+   
    plan/plan
    plan/design 
    plan/mock
