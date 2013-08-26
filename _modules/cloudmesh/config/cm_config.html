@@ -81,14 +81,14 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../install/install.html">2&nbsp;&nbsp;&nbsp;Operating System Preparation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../install/install.html#osx">2.1&nbsp;&nbsp;&nbsp;OSX</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../install/install.html#install-mongo">2.1.1&nbsp;&nbsp;&nbsp;Install Mongo</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../install/install.html#install-rabitmq">2.1.2&nbsp;&nbsp;&nbsp;Install RabitMQ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../install/install.html#install-rabbitmq">2.1.2&nbsp;&nbsp;&nbsp;Install RabbitMQ</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../install/install.html#sphinx-autorun">2.1.3&nbsp;&nbsp;&nbsp;Sphinx autorun</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../install/install.html#blockdiag-family">2.1.4&nbsp;&nbsp;&nbsp;Blockdiag family</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../install/install.html#ubuntu">2.2&nbsp;&nbsp;&nbsp;Ubuntu</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../install/install.html#id1">2.2.1&nbsp;&nbsp;&nbsp;Install Mongo</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../install/install.html#id2">2.2.2&nbsp;&nbsp;&nbsp;Install RabitMQ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../install/install.html#id2">2.2.2&nbsp;&nbsp;&nbsp;Install RabbitMQ</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../install/install.html#id3">2.2.3&nbsp;&nbsp;&nbsp;Sphinx autorun</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../install/install.html#id4">2.2.4&nbsp;&nbsp;&nbsp;Blockdiag family</a></li>
 </ul>
@@ -97,7 +97,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../install/install.html#install-python">2.3.1&nbsp;&nbsp;&nbsp;Install Python</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../install/install.html#install-python-virtualenv">2.3.2&nbsp;&nbsp;&nbsp;Install Python Virtualenv</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../install/install.html#id5">2.3.3&nbsp;&nbsp;&nbsp;Install Mongo</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../install/install.html#id6">2.3.4&nbsp;&nbsp;&nbsp;Install RabitMQ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../install/install.html#id6">2.3.4&nbsp;&nbsp;&nbsp;Install RabbitMQ</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../install/install.html#id7">2.3.5&nbsp;&nbsp;&nbsp;Sphinx autorun</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../install/install.html#id8">2.3.6&nbsp;&nbsp;&nbsp;Blockdiag family</a></li>
 </ul>
@@ -304,6 +304,8 @@
 <span class="kn">from</span> <span class="nn">cloudmesh.util.util</span> <span class="kn">import</span> <span class="n">check_file_for_tabs</span>
 <span class="kn">from</span> <span class="nn">cloudmesh_cloud_handler</span> <span class="kn">import</span> <span class="n">cloudmesh_cloud_handler</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.util.config</span> <span class="kn">import</span> <span class="n">read_yaml_config</span>
+<span class="kn">from</span> <span class="nn">pymongo</span> <span class="kn">import</span> <span class="n">MongoClient</span>
+<span class="kn">import</span> <span class="nn">yaml</span>
 
 <span class="c">##### For testing</span>
 <span class="c"># import mock_keystone</span>
@@ -311,6 +313,23 @@
 
 <span class="n">log</span> <span class="o">=</span> <span class="n">LOGGER</span><span class="p">(</span><span class="s">&quot;cm_config&quot;</span><span class="p">)</span>
 
+<div class="viewcode-block" id="get_mongo_db"><a class="viewcode-back" href="../../../modules/cloudmesh.config.html#cloudmesh.config.cm_config.get_mongo_db">[docs]</a><span class="k">def</span> <span class="nf">get_mongo_db</span><span class="p">(</span><span class="n">mongo_collection</span><span class="p">):</span>
+    <span class="c"># Read in the mongo db information from the cloudmesh_server.yaml</span>
+    <span class="n">location</span> <span class="o">=</span> <span class="n">path_expand</span><span class="p">(</span><span class="s">&quot;~/.futuregrid/cloudmesh_server.yaml&quot;</span><span class="p">)</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">location</span><span class="p">,</span> <span class="s">&#39;r&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+        
+    <span class="n">mongo_config</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">result</span><span class="p">)[</span><span class="s">&quot;mongo&quot;</span><span class="p">]</span>
+    <span class="n">mongo_host</span> <span class="o">=</span> <span class="n">mongo_config</span><span class="p">[</span><span class="s">&quot;host&quot;</span><span class="p">]</span>
+    <span class="n">mongo_port</span> <span class="o">=</span> <span class="n">mongo_config</span><span class="p">[</span><span class="s">&quot;port&quot;</span><span class="p">]</span>
+    
+    <span class="n">mongo_db_name</span> <span class="o">=</span> <span class="n">mongo_config</span><span class="p">[</span><span class="s">&quot;collections&quot;</span><span class="p">][</span><span class="n">mongo_collection</span><span class="p">][</span><span class="s">&#39;db&#39;</span><span class="p">]</span>
+        
+    <span class="n">client</span> <span class="o">=</span> <span class="n">MongoClient</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="n">mongo_host</span><span class="p">,</span>
+                              <span class="n">port</span><span class="o">=</span><span class="n">mongo_port</span><span class="p">)</span>  
+    <span class="n">db</span> <span class="o">=</span> <span class="n">client</span><span class="p">[</span><span class="n">mongo_db_name</span><span class="p">]</span>          
+    <span class="n">db_clouds</span> <span class="o">=</span> <span class="n">db</span><span class="p">[</span><span class="n">mongo_collection</span><span class="p">]</span> 
+    <span class="k">return</span> <span class="n">db_clouds</span>
+    </div>
 <div class="viewcode-block" id="cm_config_server"><a class="viewcode-back" href="../../../modules/cloudmesh.config.html#cloudmesh.config.cm_config.cm_config_server">[docs]</a><span class="k">class</span> <span class="nc">cm_config_server</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="n">filename</span> <span class="o">=</span> <span class="s">&quot;~/.futuregrid/cloudmesh_server.yaml&quot;</span>
     <span class="n">config</span> <span class="o">=</span> <span class="bp">None</span>
