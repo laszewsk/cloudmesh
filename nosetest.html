@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Support &mdash; Cloudmesh 0.1 documentation</title>
+    <title>10   Nosetests &mdash; Cloudmesh 0.1 documentation</title>
     
     <link rel="stylesheet" href="_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -32,6 +32,8 @@
     <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
     <link rel="author" title="About these documents" href="about.html" />
     <link rel="top" title="Cloudmesh 0.1 documentation" href="index.html" />
+    <link rel="next" title="10   Cloud Mesh" href="cm-shell.html" />
+    <link rel="prev" title="9   Testing" href="install/testing.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -122,11 +124,11 @@
 <li class="toctree-l1"><a class="reference internal" href="install/configuration.html">8&nbsp;&nbsp;&nbsp;Basic Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="install/testing.html">9&nbsp;&nbsp;&nbsp;Testing</a></li>
 </ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="nosetest.html">10&nbsp;&nbsp;&nbsp;Nosetests</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="nosetest.html#install">10.1&nbsp;&nbsp;&nbsp;Install</a></li>
-<li class="toctree-l2"><a class="reference internal" href="nosetest.html#run">10.2&nbsp;&nbsp;&nbsp;Run</a></li>
-<li class="toctree-l2"><a class="reference internal" href="nosetest.html#system">10.3&nbsp;&nbsp;&nbsp;System</a></li>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="">10&nbsp;&nbsp;&nbsp;Nosetests</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#install">10.1&nbsp;&nbsp;&nbsp;Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#run">10.2&nbsp;&nbsp;&nbsp;Run</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#system">10.3&nbsp;&nbsp;&nbsp;System</a></li>
 </ul>
 </li>
 </ul>
@@ -263,17 +265,26 @@
               <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown">Page <b class="caret"></b></a>
   <ul class="dropdown-menu localtoc"><ul>
-<li><a class="reference internal" href="#">Support</a></li>
+<li><a class="reference internal" href="#">10&nbsp;&nbsp;&nbsp;Nosetests</a><ul>
+<li><a class="reference internal" href="#install">10.1&nbsp;&nbsp;&nbsp;Install</a></li>
+<li><a class="reference internal" href="#run">10.2&nbsp;&nbsp;&nbsp;Run</a></li>
+<li><a class="reference internal" href="#system">10.3&nbsp;&nbsp;&nbsp;System</a></li>
+</ul>
+</li>
 </ul>
 </ul>
 </li>
             
             
               
+  <li><a href="install/testing.html"
+         title="previous chapter">&laquo; 9&nbsp;&nbsp;&nbsp;Testing</a></li>
+  <li><a href="cm-shell.html"
+         title="next chapter">10&nbsp;&nbsp;&nbsp;Cloud Mesh &raquo;</a></li>
             
             
               <li>
-  <a href="_sources/support.txt"
+  <a href="_sources/nosetest.txt"
      rel="nofollow">Source</a></li>
             
           </ul>
@@ -293,10 +304,33 @@
 
 <div class="container">
   
-  <div class="section" id="support">
-<h1>Support<a class="headerlink" href="#support" title="Permalink to this headline">¶</a></h1>
-<p>If you run into problems when using the  framework, please use our
-help form at <a class="reference external" href="https://portal.futuregrid.org/help">https://portal.futuregrid.org/help</a>.</p>
+  <a href="https://github.com/cloudmesh/cloudmesh"
+    class="visible-desktop"><img
+   style="position: absolute; top: 40px; right: 0; border: 0;"
+   src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"
+   alt="Fork me on GitHub"></a><div class="section" id="nosetests">
+<h1>10&nbsp;&nbsp;&nbsp;Nosetests<a class="headerlink" href="#nosetests" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="install">
+<h2>10.1&nbsp;&nbsp;&nbsp;Install<a class="headerlink" href="#install" title="Permalink to this headline">¶</a></h2>
+<p>Due to a bug in nose-json plugin, we install it via:</p>
+<div class="highlight-python"><pre>$ fab nose.json</pre>
+</div>
+</div>
+<div class="section" id="run">
+<h2>10.2&nbsp;&nbsp;&nbsp;Run<a class="headerlink" href="#run" title="Permalink to this headline">¶</a></h2>
+<p>If there is a file in tests/test_keys.py for example, you can call the test as</p>
+<p><a class="reference external" href="http://127.0.0.1:5000/nose/keys">http://127.0.0.1:5000/nose/keys</a></p>
+<p>and it gets executed. you must be in the cludmesh dir.</p>
+</div>
+<div class="section" id="system">
+<h2>10.3&nbsp;&nbsp;&nbsp;System<a class="headerlink" href="#system" title="Permalink to this headline">¶</a></h2>
+<p>In test_system.py we collect a number of system tests, such as if
+the machines are pingable, or LDAP works ... Enough to help debugging
+and seing if the nevironment works. Start it with</p>
+<div class="highlight-python"><pre>http://127.0.0.1:5000/nose/system</pre>
+</div>
+<p>in your browser</p>
+</div>
 </div>
 
 

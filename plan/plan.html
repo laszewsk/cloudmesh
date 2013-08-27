@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>4   Plan: Cloudmesh Service Shift &mdash; Cloudmesh 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-2.3.2/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-2.3.2/css/bootstrap-responsive.min.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-2.3.2/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="top" title="Cloudmesh 0.1 documentation" href="../index.html" />
+    <link rel="next" title="3   Design: Blueprint" href="design.html" />
+    <link rel="prev" title="10   Cloud Mesh" href="../cm-shell.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body>
+
+  <div id="navbar" class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+
+        <a class="brand" href="../index.html">Cloudmesh</a>
+        <span class="navbar-text pull-left"><b>0.1</b></span>
+
+        <div class="nav-collapse">
+          <ul class="nav">
+            <li class="divider-vertical"></li>
+            
+              <li class="dropdown globaltoc-container">
+  <a href="../index.html"
+     class="dropdown-toggle"
+     data-toggle="dropdown">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+    ><ul>
+<li class="toctree-l1"><a class="reference internal" href="../about.html">About this document</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../about.html#ohloh">Ohloh</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../install/deployment.html">Quick deployment</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../install/deployment.html#yaml-files">YAML files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../install/deployment.html#mongo">Mongo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../install/deployment.html#quick-configuration">Quick Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../install/deployment.html#quick-test">Quick Test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../install/deployment.html#what-is-if-this-does-not-work">What is if this does not work?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../install/install.html">2&nbsp;&nbsp;&nbsp;Operating System Preparation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../install/install.html#osx">2.1&nbsp;&nbsp;&nbsp;OSX</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../install/install.html#install-mongo">2.1.1&nbsp;&nbsp;&nbsp;Install Mongo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../install/install.html#install-rabbitmq">2.1.2&nbsp;&nbsp;&nbsp;Install RabbitMQ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../install/install.html#sphinx-autorun">2.1.3&nbsp;&nbsp;&nbsp;Sphinx autorun</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../install/install.html#blockdiag-family">2.1.4&nbsp;&nbsp;&nbsp;Blockdiag family</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../install/install.html#ubuntu">2.2&nbsp;&nbsp;&nbsp;Ubuntu</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../install/install.html#id1">2.2.1&nbsp;&nbsp;&nbsp;Install Mongo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../install/install.html#id2">2.2.2&nbsp;&nbsp;&nbsp;Install RabbitMQ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../install/install.html#id3">2.2.3&nbsp;&nbsp;&nbsp;Sphinx autorun</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../install/install.html#id4">2.2.4&nbsp;&nbsp;&nbsp;Blockdiag family</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../install/install.html#centos">2.3&nbsp;&nbsp;&nbsp;CentOS</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../install/install.html#install-python">2.3.1&nbsp;&nbsp;&nbsp;Install Python</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../install/install.html#install-python-virtualenv">2.3.2&nbsp;&nbsp;&nbsp;Install Python Virtualenv</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../install/install.html#id5">2.3.3&nbsp;&nbsp;&nbsp;Install Mongo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../install/install.html#id6">2.3.4&nbsp;&nbsp;&nbsp;Install RabbitMQ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../install/install.html#id7">2.3.5&nbsp;&nbsp;&nbsp;Sphinx autorun</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../install/install.html#id8">2.3.6&nbsp;&nbsp;&nbsp;Blockdiag family</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../install/install.html#installing-the-source-code">3&nbsp;&nbsp;&nbsp;Installing the source code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install/install.html#cleaning">4&nbsp;&nbsp;&nbsp;Cleaning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install/install.html#convenient-command-shortcuts">5&nbsp;&nbsp;&nbsp;Convenient command shortcuts</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../install/install.html#creating-the-documentation">5.1&nbsp;&nbsp;&nbsp;Creating the Documentation:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../install/install.html#starting-and-testing-the-queue-service">5.2&nbsp;&nbsp;&nbsp;Starting and testing the Queue Service</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../install/virtualenv.html">7&nbsp;&nbsp;&nbsp;Virtualenv</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../install/virtualenv.html#download-virtualenv">7.1&nbsp;&nbsp;&nbsp;Download virtualenv</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../install/virtualenv.html#install-virtualenv">7.2&nbsp;&nbsp;&nbsp;Install virtualenv</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../install/virtualenv.html#activate-virtualenv">7.3&nbsp;&nbsp;&nbsp;Activate virtualenv</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../install/virtualenv.html#modify-your-rc-file-optional">7.4&nbsp;&nbsp;&nbsp;Modify your rc file (optional):</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../install/configuration.html">8&nbsp;&nbsp;&nbsp;Basic Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install/testing.html">9&nbsp;&nbsp;&nbsp;Testing</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../nosetest.html">10&nbsp;&nbsp;&nbsp;Nosetests</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../nosetest.html#install">10.1&nbsp;&nbsp;&nbsp;Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nosetest.html#run">10.2&nbsp;&nbsp;&nbsp;Run</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nosetest.html#system">10.3&nbsp;&nbsp;&nbsp;System</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../cm-shell.html">10&nbsp;&nbsp;&nbsp;Cloud Mesh</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cm-shell.html#commands">11&nbsp;&nbsp;&nbsp;Commands</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="">4&nbsp;&nbsp;&nbsp;Plan: Cloudmesh Service Shift</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#project-objectives">4.1&nbsp;&nbsp;&nbsp;Project Objectives</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#development-objectives">4.1.1&nbsp;&nbsp;&nbsp;Development Objectives</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#production-objectives">4.1.2&nbsp;&nbsp;&nbsp;Production Objectives</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#project-deliverables">4.2&nbsp;&nbsp;&nbsp;Project Deliverables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#evolution-of-the-project">4.3&nbsp;&nbsp;&nbsp;Evolution of the Project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#refernce-materials">4.4&nbsp;&nbsp;&nbsp;Refernce Materials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#definitions-and-acronyms">4.5&nbsp;&nbsp;&nbsp;Definitions and Acronyms</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="design.html">3&nbsp;&nbsp;&nbsp;Design: Blueprint</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="design.html#features">3.1&nbsp;&nbsp;&nbsp;Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="design.html#difference-to-other-efforts">3.2&nbsp;&nbsp;&nbsp;Difference to other efforts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="design.html#component-view">3.3&nbsp;&nbsp;&nbsp;Component View</a></li>
+<li class="toctree-l2"><a class="reference internal" href="design.html#component-user-management">3.4&nbsp;&nbsp;&nbsp;Component User Management</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="design.html#user-management">3.4.1&nbsp;&nbsp;&nbsp;User Management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="design.html#accounting-will-not-be-worked-on-much">3.4.2&nbsp;&nbsp;&nbsp;Accounting (Will not be worked on much)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="design.html#component-resource-management-includes-cloudshifting-as-part-of-reservation">3.5&nbsp;&nbsp;&nbsp;Component Resource Management (includes cloudshifting as part of reservation)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="design.html#resource-management">3.6&nbsp;&nbsp;&nbsp;Resource Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="design.html#scheduler">3.7&nbsp;&nbsp;&nbsp;Scheduler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="design.html#interfaces">3.8&nbsp;&nbsp;&nbsp;Interfaces</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mock.html">Mockup</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mock.html#create-user">create_user</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cal.html">Calendar</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../modules/modules.html">Modules and Classes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../modules/cloudmesh.html">cloudmesh Package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../modules/cloudmesh.html#id1"><tt class="docutils literal"><span class="pre">cloudmesh</span></tt> Package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/cloudmesh.html#module-cloudmesh.cloudmesh"><tt class="docutils literal"><span class="pre">cloudmesh</span></tt> Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/cloudmesh.html#cm-mongodb-module"><tt class="docutils literal"><span class="pre">cm_mongodb</span></tt> Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/cloudmesh.html#gitinfo-module"><tt class="docutils literal"><span class="pre">gitinfo</span></tt> Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/cloudmesh.html#mongodb-module"><tt class="docutils literal"><span class="pre">mongodb</span></tt> Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/cloudmesh.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../modules/cloudmesh.accounting.html">accounting Package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../modules/cloudmesh.accounting.html#module-cloudmesh.accounting.AccountBaseClass"><tt class="docutils literal"><span class="pre">AccountBaseClass</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../modules/cloudmesh.accounting.html#goldaccounting-module"><tt class="docutils literal"><span class="pre">GoldAccounting</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../modules/cloudmesh.accounting.html#metrics-module"><tt class="docutils literal"><span class="pre">metrics</span></tt> Module</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../modules/cloudmesh.config.html">config Package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../modules/cloudmesh.config.html#id1"><tt class="docutils literal"><span class="pre">config</span></tt> Package</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../modules/cloudmesh.config.html#module-cloudmesh.config.cloudmesh_cloud"><tt class="docutils literal"><span class="pre">cloudmesh_cloud</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../modules/cloudmesh.config.html#module-cloudmesh.config.cloudmesh_cloud_handler"><tt class="docutils literal"><span class="pre">cloudmesh_cloud_handler</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../modules/cloudmesh.config.html#module-cloudmesh.config.cm_config"><tt class="docutils literal"><span class="pre">cm_config</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../modules/cloudmesh.config.html#module-cloudmesh.config.cm_keys"><tt class="docutils literal"><span class="pre">cm_keys</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../modules/cloudmesh.config.html#module-cloudmesh.config.cm_projects"><tt class="docutils literal"><span class="pre">cm_projects</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../modules/cloudmesh.config.html#module-cloudmesh.config.cm_rc"><tt class="docutils literal"><span class="pre">cm_rc</span></tt> Module</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="../modules/cloudmesh.config.html#cm-manage-config">cm-manage config</a></li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="../modules/cloudmesh.config.html#module-cloudmesh.config.ldap_user"><tt class="docutils literal"><span class="pre">ldap_user</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../modules/cloudmesh.config.html#module-cloudmesh.config.mock_cloud"><tt class="docutils literal"><span class="pre">mock_cloud</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../modules/cloudmesh.config.html#module-cloudmesh.config.mock_keystone"><tt class="docutils literal"><span class="pre">mock_keystone</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../modules/cloudmesh.config.html#module-cloudmesh.config.mock_user"><tt class="docutils literal"><span class="pre">mock_user</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../modules/cloudmesh.config.html#module-cloudmesh.config.openstack_essex_cloud"><tt class="docutils literal"><span class="pre">openstack_essex_cloud</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../modules/cloudmesh.config.html#module-cloudmesh.config.openstack_grizzly_cloud"><tt class="docutils literal"><span class="pre">openstack_grizzly_cloud</span></tt> Module</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../modules/cloudmesh.iaas.html">iaas Package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../modules/cloudmesh.iaas.html#id1"><tt class="docutils literal"><span class="pre">iaas</span></tt> Package</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../modules/cloudmesh.iaas.html#module-cloudmesh.iaas.ComputeBaseType"><tt class="docutils literal"><span class="pre">ComputeBaseType</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../modules/cloudmesh.iaas.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="../modules/cloudmesh.iaas.azure.html">azure Package</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="../modules/cloudmesh.iaas.azure.html#id1"><tt class="docutils literal"><span class="pre">azure</span></tt> Package</a></li>
+<li class="toctree-l7"><a class="reference internal" href="../modules/cloudmesh.iaas.azure.html#module-cloudmesh.iaas.azure.cm_azure"><tt class="docutils literal"><span class="pre">cm_azure</span></tt> Module</a></li>
+<li class="toctree-l7"><a class="reference internal" href="../modules/cloudmesh.iaas.azure.html#fabfile-module"><tt class="docutils literal"><span class="pre">fabfile</span></tt> Module</a></li>
+</ul>
+</li>
+<li class="toctree-l6"><a class="reference internal" href="../modules/cloudmesh.iaas.eucalyptus.html">eucalyptus Package</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="../modules/cloudmesh.iaas.eucalyptus.html#module-cloudmesh.iaas.eucalyptus.eucalyptus"><tt class="docutils literal"><span class="pre">eucalyptus</span></tt> Module</a></li>
+<li class="toctree-l7"><a class="reference internal" href="../modules/cloudmesh.iaas.eucalyptus.html#eucalyptus-libcloud-module"><tt class="docutils literal"><span class="pre">eucalyptus_libcloud</span></tt> Module</a></li>
+<li class="toctree-l7"><a class="reference internal" href="../modules/cloudmesh.iaas.eucalyptus.html#eucalyptus-new-module"><tt class="docutils literal"><span class="pre">eucalyptus_new</span></tt> Module</a></li>
+</ul>
+</li>
+<li class="toctree-l6"><a class="reference internal" href="../modules/cloudmesh.iaas.openstack.html">openstack Package</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="../modules/cloudmesh.iaas.openstack.html#id1"><tt class="docutils literal"><span class="pre">openstack</span></tt> Package</a></li>
+<li class="toctree-l7"><a class="reference internal" href="../modules/cloudmesh.iaas.openstack.html#module-cloudmesh.iaas.openstack.cm_compute"><tt class="docutils literal"><span class="pre">cm_compute</span></tt> Module</a></li>
+<li class="toctree-l7"><a class="reference internal" href="../modules/cloudmesh.iaas.openstack.html#module-cloudmesh.iaas.openstack.cm_table"><tt class="docutils literal"><span class="pre">cm_table</span></tt> Module</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../modules/cloudmesh.inventory.html">inventory Package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../modules/cloudmesh.inventory.html#id1"><tt class="docutils literal"><span class="pre">inventory</span></tt> Package</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../modules/cloudmesh.inventory.html#resources-module"><tt class="docutils literal"><span class="pre">resources</span></tt> Module</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../modules/cloudmesh.provisioner.html">provisioner Package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../modules/cloudmesh.provisioner.html#id1"><tt class="docutils literal"><span class="pre">provisioner</span></tt> Package</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../modules/cloudmesh.provisioner.html#module-cloudmesh.provisioner.provisioner"><tt class="docutils literal"><span class="pre">provisioner</span></tt> Module</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../modules/cloudmesh.shell.html">shell Package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../modules/cloudmesh.shell.html#module-cloudmesh.shell.cm_shell"><tt class="docutils literal"><span class="pre">cm_shell</span></tt> Module</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="../modules/cloudmesh.shell.html#cm-config">cm config</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../modules/cloudmesh.util.html">util Package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../modules/cloudmesh.util.html#id1"><tt class="docutils literal"><span class="pre">util</span></tt> Package</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../modules/cloudmesh.util.html#module-cloudmesh.util.logger"><tt class="docutils literal"><span class="pre">logger</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../modules/cloudmesh.util.html#module-cloudmesh.util.util"><tt class="docutils literal"><span class="pre">util</span></tt> Module</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              <li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"><ul>
+<li><a class="reference internal" href="#">4&nbsp;&nbsp;&nbsp;Plan: Cloudmesh Service Shift</a><ul>
+<li><a class="reference internal" href="#project-objectives">4.1&nbsp;&nbsp;&nbsp;Project Objectives</a><ul>
+<li><a class="reference internal" href="#development-objectives">4.1.1&nbsp;&nbsp;&nbsp;Development Objectives</a></li>
+<li><a class="reference internal" href="#production-objectives">4.1.2&nbsp;&nbsp;&nbsp;Production Objectives</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#project-deliverables">4.2&nbsp;&nbsp;&nbsp;Project Deliverables</a></li>
+<li><a class="reference internal" href="#evolution-of-the-project">4.3&nbsp;&nbsp;&nbsp;Evolution of the Project</a></li>
+<li><a class="reference internal" href="#refernce-materials">4.4&nbsp;&nbsp;&nbsp;Refernce Materials</a></li>
+<li><a class="reference internal" href="#definitions-and-acronyms">4.5&nbsp;&nbsp;&nbsp;Definitions and Acronyms</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+            
+            
+              
+  <li><a href="../cm-shell.html"
+         title="previous chapter">&laquo; 10&nbsp;&nbsp;&nbsp;Cloud Mesh</a></li>
+  <li><a href="design.html"
+         title="next chapter">3&nbsp;&nbsp;&nbsp;Design: Blueprint &raquo;</a></li>
+            
+            
+              <li>
+  <a href="../_sources/plan/plan.txt"
+     rel="nofollow">Source</a></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-search pull-right" action="../search.html" method="get">
+  <input type="text" name="q" class="search-query" placeholder="Search" />
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div class="container">
+  
+  <div class="section" id="plan-cloudmesh-service-shift">
+<h1><a class="toc-backref" href="#id5">4&nbsp;&nbsp;&nbsp;Plan: Cloudmesh Service Shift</a><a class="headerlink" href="#plan-cloudmesh-service-shift" title="Permalink to this headline">¶</a></h1>
+<div class="contents topic" id="table-of-content">
+<p class="topic-title first">Table of Content</p>
+<ul class="auto-toc simple">
+<li><a class="reference internal" href="#plan-cloudmesh-service-shift" id="id5">4&nbsp;&nbsp;&nbsp;Plan: Cloudmesh Service Shift</a><ul class="auto-toc">
+<li><a class="reference internal" href="#project-objectives" id="id6">4.1&nbsp;&nbsp;&nbsp;Project Objectives</a><ul class="auto-toc">
+<li><a class="reference internal" href="#development-objectives" id="id7">4.1.1&nbsp;&nbsp;&nbsp;Development Objectives</a></li>
+<li><a class="reference internal" href="#production-objectives" id="id8">4.1.2&nbsp;&nbsp;&nbsp;Production Objectives</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#project-deliverables" id="id9">4.2&nbsp;&nbsp;&nbsp;Project Deliverables</a></li>
+<li><a class="reference internal" href="#evolution-of-the-project" id="id10">4.3&nbsp;&nbsp;&nbsp;Evolution of the Project</a></li>
+<li><a class="reference internal" href="#refernce-materials" id="id11">4.4&nbsp;&nbsp;&nbsp;Refernce Materials</a></li>
+<li><a class="reference internal" href="#definitions-and-acronyms" id="id12">4.5&nbsp;&nbsp;&nbsp;Definitions and Acronyms</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="project-objectives">
+<h2><a class="toc-backref" href="#id6">4.1&nbsp;&nbsp;&nbsp;Project Objectives</a><a class="headerlink" href="#project-objectives" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://jira.futuregrid.org/browse/FG-1418">https://jira.futuregrid.org/browse/FG-1418</a></p>
+<p><a href="#id1"><span class="problematic" id="id2">|</span></a>JIRA|1418</p>
+<p><a href="#id3"><span class="problematic" id="id4">:issue:`{issue.title} (#{issue.id}) &lt;FG-1418&gt;`</span></a></p>
+<p>#FG-1418</p>
+<p>Currently the FG RAIN service contains a service shift mechanism. We
+like to further develop this mechnism by introducing an abstraction for bare
+metal provisioning so that teefaa as well as OpenStack bare metal
+provisioning can be used.  Services we target are Eucalyptus,
+OpenStack, and HPC via SLURM (or Moab).</p>
+<div class="section" id="development-objectives">
+<h3><a class="toc-backref" href="#id7">4.1.1&nbsp;&nbsp;&nbsp;Development Objectives</a><a class="headerlink" href="#development-objectives" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li>Develop a service that allows the reassignment of servers in a cluster to be used either as part of an HPC or  Cloud IaaS farmework.</li>
+<li>Make the service as much as possible independent through abstractions from services such as XCAT and Moab (which is currently not the case)</li>
+<li>provide a simple Web based GUI for administrators to the service shift functionality</li>
+</ol>
+</div>
+<div class="section" id="production-objectives">
+<h3><a class="toc-backref" href="#id8">4.1.2&nbsp;&nbsp;&nbsp;Production Objectives</a><a class="headerlink" href="#production-objectives" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li>Verify what is in production and what is not</li>
+<li>Continue the ongoing production of FG Move (it is unclear if it still in production)</li>
+<li>Clarify the position of Teefaa in the production software</li>
+<li>Introduce the new developments intop production</li>
+<li>Reuse DevOps as part of the development and production efforts</li>
+</ol>
+</div>
+</div>
+<div class="section" id="project-deliverables">
+<h2><a class="toc-backref" href="#id9">4.2&nbsp;&nbsp;&nbsp;Project Deliverables</a><a class="headerlink" href="#project-deliverables" title="Permalink to this headline">¶</a></h2>
+<p>Test</p>
+<p>Note this table will be adapted as part of our agile development
+methodology. Once we agree on tasks they will be filed in jira</p>
+<table border="1" class="docutils">
+<caption>Development Tasks</caption>
+<colgroup>
+<col width="4%" />
+<col width="4%" />
+<col width="18%" />
+<col width="5%" />
+<col width="9%" />
+<col width="55%" />
+<col width="5%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">No.</th>
+<th class="head">&lt;-</th>
+<th class="head">Task</th>
+<th class="head">Delivery</th>
+<th class="head">Staffing</th>
+<th class="head">Description</th>
+<th class="head">Jira</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>1</td>
+<td>1</td>
+<td>Plan and Task Completion</td>
+<td>ongoing</td>
+<td>All</td>
+<td>If you detect any
+issues with the plan we need to address them quickly and adapt in
+agile fashion as we have done previously.</td>
+<td>TBD</td>
+</tr>
+<tr class="row-odd"><td>2</td>
+<td>1</td>
+<td>Agile Project meeting</td>
+<td>daily</td>
+<td>All</td>
+<td>A daily meeting to assure
+we are on track with the project. 10 minutes max, on google
+hangout. Just status updates and correcting plans.</td>
+<td>TBD</td>
+</tr>
+<tr class="row-even"><td>3</td>
+<td>4</td>
+<td>OpenStack BareMetal Test</td>
+<td>06/30</td>
+<td>Tanaka</td>
+<td>Deliver a Grizzly
+OpenStack with bare metal provisioning on a test cluster with at
+least 4 servers. Ideally would be 8</td>
+<td>TBD</td>
+</tr>
+<tr class="row-odd"><td>5</td>
+<td>3</td>
+<td>OpenStack BareMetal Production</td>
+<td>07/20</td>
+<td>Tanaka</td>
+<td>Deliver a Grizzly
+OpenStack with bare metal provisioning on part of India with at
+least 16 servers so we can test this in production.</td>
+<td>TBD</td>
+</tr>
+<tr class="row-even"><td>6</td>
+<td>1</td>
+<td>Inventory</td>
+<td>06/30</td>
+<td>Streib, Laszewski</td>
+<td>Deliver the inventory service inclusing a first flask framework
+to display the content of the inventory and integration to CMD3.</td>
+<td>TBD</td>
+</tr>
+<tr class="row-odd"><td>7.1</td>
+<td>6</td>
+<td>Shift Openstack service nodes</td>
+<td>07/30</td>
+<td>Streib,
+Tanaka, Laszewski</td>
+<td>Deliver the shifting commandline abstraction that uses the
+OpenStack service nodes.</td>
+<td>TBD</td>
+</tr>
+<tr class="row-even"><td>7.2</td>
+<td>6</td>
+<td>Shift Eucalyptus service nodes</td>
+<td>07/30</td>
+<td>Streib,
+Tanaka, Laszewski</td>
+<td>Deliver the shifting commandline abstraction that uses the
+Eucalyptus service nodes.</td>
+<td>TBD</td>
+</tr>
+<tr class="row-odd"><td>7.3</td>
+<td>6</td>
+<td>Shift HPC service nodes</td>
+<td>07/30</td>
+<td>Streib,
+Tanaka, Laszewski</td>
+<td>Deliver the shifting commandline abstraction that uses the
+HPC service nodes.</td>
+<td>TBD</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils">
+<caption>Production Oriented Tasks</caption>
+<colgroup>
+<col width="4%" />
+<col width="4%" />
+<col width="18%" />
+<col width="5%" />
+<col width="9%" />
+<col width="55%" />
+<col width="5%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">No.</th>
+<th class="head">&lt;-</th>
+<th class="head">Task</th>
+<th class="head">Delivery</th>
+<th class="head">Staffing</th>
+<th class="head">Description</th>
+<th class="head">Jira</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>4</td>
+<td>1</td>
+<td>Teefaa Production</td>
+<td>06/20</td>
+<td>Tanaka</td>
+<td>Clarify the use of
+Teefaa in Production in regards to Teefaa used in FGMove and
+Teefaa without FGMove. Put in production and interact with the
+team.</td>
+<td>TBD</td>
+</tr>
+<tr class="row-odd"><td>8</td>
+<td>1</td>
+<td>RAIN Production</td>
+<td>06/30</td>
+<td>Wang, Tanaka</td>
+<td>Make sure the
+current RAin is in production.</td>
+<td>TBD</td>
+</tr>
+<tr class="row-even"><td>9</td>
+<td>8</td>
+<td>RAIN Move</td>
+<td>06/30</td>
+<td>Wang, Tanaka</td>
+<td>Identif the
+current state of FG Move and bring in production if we identify it
+to be useful.</td>
+<td>TBD</td>
+</tr>
+<tr class="row-odd"><td>10</td>
+<td>all</td>
+<td>Demonstration</td>
+<td>08/30</td>
+<td>All</td>
+<td>Demonstrate Cloud
+Shifting of HPC, Eucalyptus and OpenStack services</td>
+<td>TBD</td>
+</tr>
+<tr class="row-even"><td>11</td>
+<td>1</td>
+<td>RAIN Hardware Broken</td>
+<td>06/20</td>
+<td>Tanaka</td>
+<td>Fixing the hardware issues on the
+machines for RAIN</td>
+<td>TBD</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="evolution-of-the-project">
+<h2><a class="toc-backref" href="#id10">4.3&nbsp;&nbsp;&nbsp;Evolution of the Project</a><a class="headerlink" href="#evolution-of-the-project" title="Permalink to this headline">¶</a></h2>
+<p>The use of the outdated Moab and XCAT tools used in our production
+environment to support FG RAIN makes it necessary to generalize the
+approach to become independent from thes efforts. An important aspect
+of this is the bare metal provisioning. New tools and services have
+become recently available for example through OpenStack bare metal
+distributed in Grizzly that it is imperative to integrate such tools
+into our solution and pproduction strategy. As such tools could evolve
+we hope to provide a simple abstraction on top of bare metal
+provsiioning that makes it easier for us to integrate with future
+efforts. Furthermore, we hopw to leverage from existiong DevOps
+frameworks to simplify development and reduce the time for deployment.</p>
+</div>
+<div class="section" id="refernce-materials">
+<h2><a class="toc-backref" href="#id11">4.4&nbsp;&nbsp;&nbsp;Refernce Materials</a><a class="headerlink" href="#refernce-materials" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>FG Move:</dt>
+<dd><a class="reference external" href="http://futuregrid.github.io/rain-move/">http://futuregrid.github.io/rain-move/</a></dd>
+<dt>FG Rain:</dt>
+<dd><a class="reference external" href="http://futuregrid.github.io/rain/">http://futuregrid.github.io/rain/</a></dd>
+<dt>Teefaa:</dt>
+<dd><a class="reference external" href="http://futuregrid.github.io/teefaa/">http://futuregrid.github.io/teefaa/</a></dd>
+<dt>Inventory:</dt>
+<dd><a class="reference external" href="http://futuregrid.github.io/inventory">http://futuregrid.github.io/inventory</a>
+<a class="reference external" href="https://github.com/futuregrid/inventory">https://github.com/futuregrid/inventory</a></dd>
+<dt>Flask_cm:</dt>
+<dd><a class="reference external" href="http://futuregrid.github.io/flask_cm">http://futuregrid.github.io/flask_cm</a>
+<a class="reference external" href="https://github.com/futuregrid/flask_cm">https://github.com/futuregrid/flask_cm</a></dd>
+</dl>
+</div>
+<div class="section" id="definitions-and-acronyms">
+<h2><a class="toc-backref" href="#id12">4.5&nbsp;&nbsp;&nbsp;Definitions and Acronyms</a><a class="headerlink" href="#definitions-and-acronyms" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>FG Rain (in production?, Hardware Issues?):</dt>
+<dd>FutureGrid Rain is a tool that will allow users to place customized
+environments like virtual clusters or IaaS frameworks onto
+resources. The process of raining goes beyond the services offered
+by existing scheduling tools due to its higher-level toolset
+targeting virtualized and non-virtualized resources. Rain will be
+able to move resources from one infrastructure to another and
+compare the execution of an experiment in the different supported
+infrastructures.</dd>
+<dt>FG Move (in production?, Hardware issues?):</dt>
+<dd>is a service that enables physical resources re-allocation among
+infrastructures. By using a simple command line interface, this
+service is able to de-register a machine from a particular
+infrastructure and register it in another one. Internally, this
+service makes use of Teefaa to dynamically provision the selected
+machine with the OS and software needed for a successful
+registration in the new infrastructure. FG Move also maintains a
+database with information about the machines composing each one of
+the different infrastructures. The database can be consulted to
+obtain detailed information about a particular infrastructure.</dd>
+<dt>Teefaa:</dt>
+<dd>(to be verified) The definition of what teefaa is has been
+changing over time thus we need as part of this plan to identify
+more clearly what it is. We have a number of different versions of
+Teefaa that are currently used and/or developed.</dd>
+<dt>Teefaa 1 (in production, TBD?):</dt>
+<dd>In the first version of teefaa the focus was layed on bare metal
+provisioning of the OS while utilizing the scheduling system. As
+we wanted to be independent from XCAT and MOAB this was achieved
+by integrating it into TORQUE. Teefaa is used as part of FG Move.</dd>
+<dt>Teefaa 2 (status TBD):</dt>
+<dd>Teefaa was enhanced to integrate a mechnism for developing an
+image on a local laptop so that the image can than be snapshotted
+and placed onto a cluster so that bare metal provisioning can be
+achieved from this image. Based on previous conversation
+this verasin was or is installed in some fashion on India. A
+clarification is needed.</dd>
+<dt>Teefaa 3 (status TBD):</dt>
+<dd>Much of Teefaa 2 was developed mostly in shell, some aspects of
+it are developed better in python. Teefaa 3 provides an attempt
+to deliver a mostly python based implementation. It is unclear
+if this code has been used or is installed on india. This
+version of teefa uses a self written subprocess handler that
+exists already via others.</dd>
+<dt>Teefaa 4 (status TBD):</dt>
+<dd>Much of Teefaa 2 was developed mostly in shell, some aspects of
+it are developed better in python. Teefaa 4 provides an attempt
+to deliver a mostly python based implementation. It is unclear
+if this code has been used or is installed on india. Some
+bittorrent functionality to distribute images are included and
+the use of fabric which is heavily used by cloudmesh developers
+is introduced. Fabric as is may have some scaleblity problems,
+but we will not hit them with our small clusters.</dd>
+<dt>Cloudmesh Inventory:</dt>
+<dd>FG Move contains a simple inventory that is not suffcient to
+deal with all of our needs. Cloudmesh inventory separates the
+code base from FG move to make it independent and adds new
+features to it.</dd>
+<dt>Cloudmesh Service Shift:</dt>
+<dd>Currently the FG RAIN service contains a service shift
+mechanism. We like to redevelop this mechnism by introducing an
+abstraction for bare metal provisioning so that teefaa as well
+as OpenStack bare metal provisioning can be used.
+Services we target are Eucalyptus, OpenSTack, and HPC via SLURM
+(or Moab).</dd>
+</dl>
+</div>
+</div>
+
+
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2013, Gregor von Laszewski for  FutureGrid.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>
