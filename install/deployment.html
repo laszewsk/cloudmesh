@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Quick deployment &mdash; Cloudmesh 0.1 documentation</title>
+    <title>Quick deployment on ubuntu &mdash; Cloudmesh 0.1 documentation</title>
     
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -71,10 +71,9 @@
 </li>
 </ul>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="">Quick deployment</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Quick deployment on ubuntu</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#yaml-files">YAML files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#mongo">Mongo</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#quick-configuration">Quick Configuration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#quick-test">Quick Test</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#what-is-if-this-does-not-work">What is if this does not work?</a></li>
 </ul>
@@ -265,10 +264,9 @@
               <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown">Page <b class="caret"></b></a>
   <ul class="dropdown-menu localtoc"><ul>
-<li><a class="reference internal" href="#">Quick deployment</a><ul>
+<li><a class="reference internal" href="#">Quick deployment on ubuntu</a><ul>
 <li><a class="reference internal" href="#yaml-files">YAML files</a></li>
 <li><a class="reference internal" href="#mongo">Mongo</a></li>
-<li><a class="reference internal" href="#quick-configuration">Quick Configuration</a></li>
 <li><a class="reference internal" href="#quick-test">Quick Test</a></li>
 <li><a class="reference internal" href="#what-is-if-this-does-not-work">What is if this does not work?</a></li>
 </ul>
@@ -306,16 +304,15 @@
 
 <div class="container">
   
-  <div class="section" id="quick-deployment">
-<h1>Quick deployment<a class="headerlink" href="#quick-deployment" title="Permalink to this headline">¶</a></h1>
-<div class="highlight-python"><pre>git clone git@github.com:cloudmesh/cloudmesh.git
-cd cloudmesh
-cd install
-fab deploy
-
-sudo  mkdir -p /data/db/
-sudo  chgrp srrajago /data/db/
-sudo  chown srrajago /data/db/</pre>
+  <div class="section" id="quick-deployment-on-ubuntu">
+<h1>Quick deployment on ubuntu<a class="headerlink" href="#quick-deployment-on-ubuntu" title="Permalink to this headline">¶</a></h1>
+<p>This quick deployment is targeted for ubuntu. It can be achieved in several easy steps.
+First, obtain a avanilla ubuntu system. Make sure that git is installed, which is standard by now.
+Next execute the following commands</p>
+<div class="highlight-python"><pre>$ git clone git@github.com:cloudmesh/cloudmesh.git
+$ cd cloudmesh
+$ cd install
+$ fab deploy</pre>
 </div>
 <div class="section" id="yaml-files">
 <h2>YAML files<a class="headerlink" href="#yaml-files" title="Permalink to this headline">¶</a></h2>
@@ -326,16 +323,20 @@ directly with him on FutureGrid.</p>
 </div>
 <div class="section" id="mongo">
 <h2>Mongo<a class="headerlink" href="#mongo" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">mongod</span>
-</pre></div>
+<p>To managing mongo db it is important that you use our special fabric commands fro doing so
+To start mongod do:</p>
+<div class="highlight-python"><pre>fab mongod.start</pre>
 </div>
+<p>To stop mongod</p>
+<blockquote>
+<div>fab mongod.stop</div></blockquote>
+<p>To clean the entire data base (not just the data for cloudmesh, so be careful) say:</p>
+<div class="highlight-python"><pre>fab mongo.clean</pre>
 </div>
-<div class="section" id="quick-configuration">
-<h2>Quick Configuration<a class="headerlink" href="#quick-configuration" title="Permalink to this headline">¶</a></h2>
-<p>simple install without users</p>
+<p>To create a simple cluster without usernames, say:</p>
 <div class="highlight-python"><pre>fab mongo.simple</pre>
 </div>
-<p>install with users</p>
+<p>To create a cluster with user data base say:</p>
 <div class="highlight-python"><pre>fab mongo.cloud</pre>
 </div>
 <p>Now you have data in the mongo db and you can use and test it</p>
