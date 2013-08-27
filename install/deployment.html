@@ -305,7 +305,7 @@
   <div class="section" id="quick-deployment-on-ubuntu">
 <h1>Quick deployment on ubuntu<a class="headerlink" href="#quick-deployment-on-ubuntu" title="Permalink to this headline">¶</a></h1>
 <p>This quick deployment is targeted for ubuntu. It can be achieved in several easy steps.
-First, obtain a avanilla ubuntu system. Make sure that git is installed, which is standard by now.
+First, obtain a vanilla ubuntu system. Make sure that git is installed, which is standard by now.
 Next execute the following commands</p>
 <div class="highlight-python"><pre>$ git clone git@github.com:cloudmesh/cloudmesh.git
 $ cd cloudmesh
@@ -342,17 +342,15 @@ To start mongod do:</p>
 <div class="section" id="developer-tests">
 <h2>Developer Tests<a class="headerlink" href="#developer-tests" title="Permalink to this headline">¶</a></h2>
 <p>Python has a very good unit test framework called nosetests. As we have many different tests it is sometimes useful not to run all of them but to run a selected test. Running all of the tests would take simply to long during debugging. We are providing an easy to use test fabric command that can be used as follows. Assume that in your directory tests are located a number of tests. They can be listed with:</p>
-<div class="highlight-python"><pre>::</pre>
+<div class="highlight-python"><pre>$ fab test.info</pre>
 </div>
-<blockquote>
-<div>$ fab test.info</div></blockquote>
-<p>Thos will list the available test files/groups by name (the <a href="#id1"><span class="problematic" id="id2">test_</span></a> prefix is omitted). To list the individual tests in a file/grou, you can use it as a parameter to info. Thus:</p>
+<p>This will list the available test files/groups by name (the <a href="#id1"><span class="problematic" id="id2">test_</span></a> prefix is omitted). To list the individual tests in a file/grou, you can use it as a parameter to info. Thus:</p>
 <div class="highlight-python"><pre>fab test.info:compute</pre>
 </div>
 <p>will list the tests in the file test_compute.py. To call an individual test, you can use the name of the file and a unique prefix of the test you like to call via test.start. Thus:</p>
-<div class="highlight-python"><pre>fag test.start:compute,label</pre>
+<div class="highlight-python"><pre>fab test.start:compute,label</pre>
 </div>
-<p>will execute the thes which has label in its method name first</p>
+<p>will execute the test which has label in its method name first</p>
 </div>
 </div>
 
