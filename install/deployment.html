@@ -74,8 +74,7 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="">Quick deployment on ubuntu</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#yaml-files">YAML files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#mongo">Mongo</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#quick-test">Quick Test</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#what-is-if-this-does-not-work">What is if this does not work?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#developer-tests">Developer Tests</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="install.html">2&nbsp;&nbsp;&nbsp;Operating System Preparation</a><ul>
@@ -267,8 +266,7 @@
 <li><a class="reference internal" href="#">Quick deployment on ubuntu</a><ul>
 <li><a class="reference internal" href="#yaml-files">YAML files</a></li>
 <li><a class="reference internal" href="#mongo">Mongo</a></li>
-<li><a class="reference internal" href="#quick-test">Quick Test</a></li>
-<li><a class="reference internal" href="#what-is-if-this-does-not-work">What is if this does not work?</a></li>
+<li><a class="reference internal" href="#developer-tests">Developer Tests</a></li>
 </ul>
 </li>
 </ul>
@@ -327,9 +325,9 @@ directly with him on FutureGrid.</p>
 To start mongod do:</p>
 <div class="highlight-python"><pre>fab mongod.start</pre>
 </div>
-<p>To stop mongod</p>
-<blockquote>
-<div>fab mongod.stop</div></blockquote>
+<p>To stop mongod:</p>
+<div class="highlight-python"><pre>fab mongod.stop</pre>
+</div>
 <p>To clean the entire data base (not just the data for cloudmesh, so be careful) say:</p>
 <div class="highlight-python"><pre>fab mongo.clean</pre>
 </div>
@@ -341,15 +339,20 @@ To start mongod do:</p>
 </div>
 <p>Now you have data in the mongo db and you can use and test it</p>
 </div>
-<div class="section" id="quick-test">
-<h2>Quick Test<a class="headerlink" href="#quick-test" title="Permalink to this headline">¶</a></h2>
-<p>Inventory:</p>
-<div class="highlight-python"><pre>fab test.start:ninventory,host</pre>
+<div class="section" id="developer-tests">
+<h2>Developer Tests<a class="headerlink" href="#developer-tests" title="Permalink to this headline">¶</a></h2>
+<p>Python has a very good unit test framework called nosetests. As we have many different tests it is sometimes useful not to run all of them but to run a selected test. Running all of the tests would take simply to long during debugging. We are providing an easy to use test fabric command that can be used as follows. Assume that in your directory tests are located a number of tests. They can be listed with:</p>
+<div class="highlight-python"><pre>::</pre>
 </div>
+<blockquote>
+<div>$ fab test.info</div></blockquote>
+<p>Thos will list the available test files/groups by name (the <a href="#id1"><span class="problematic" id="id2">test_</span></a> prefix is omitted). To list the individual tests in a file/grou, you can use it as a parameter to info. Thus:</p>
+<div class="highlight-python"><pre>fab test.info:compute</pre>
 </div>
-<div class="section" id="what-is-if-this-does-not-work">
-<h2>What is if this does not work?<a class="headerlink" href="#what-is-if-this-does-not-work" title="Permalink to this headline">¶</a></h2>
-<p>Please get help from Allan. He is responsible for getting this deployment script properly done.</p>
+<p>will list the tests in the file test_compute.py. To call an individual test, you can use the name of the file and a unique prefix of the test you like to call via test.start. Thus:</p>
+<div class="highlight-python"><pre>fag test.start:compute,label</pre>
+</div>
+<p>will execute the thes which has label in its method name first</p>
 </div>
 </div>
 
