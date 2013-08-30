@@ -9,6 +9,14 @@ user Package
     :undoc-members:
     :show-inheritance:
 
+:mod:`cm_template` Module
+-------------------------
+
+.. automodule:: cloudmesh.user.cm_template
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
 :mod:`cm_user` Module
 ---------------------
 

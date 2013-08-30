@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Support &mdash; Cloudmesh 0.1 documentation</title>
+    <title>Issue Management &mdash; Cloudmesh 0.1 documentation</title>
     
     <link rel="stylesheet" href="_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -32,6 +32,8 @@
     <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
     <link rel="author" title="About these documents" href="about.html" />
     <link rel="top" title="Cloudmesh 0.1 documentation" href="index.html" />
+    <link rel="next" title="Development Documentation" href="install/deployment.html" />
+    <link rel="prev" title="About this document" href="about.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -62,13 +64,13 @@
      class="dropdown-toggle"
      data-toggle="dropdown">Site <b class="caret"></b></a>
   <ul class="dropdown-menu globaltoc"
-    ><ul>
+    ><ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="about.html">About this document</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tasks.html">Issue Management</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="tasks.html#labels">Labels</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tasks.html#priority">Priority</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tasks.html#inactivity">Inactivity</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tasks.html#shortcuts">Shortcuts</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Issue Management</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#labels">Labels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#priority">Priority</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#inactivity">Inactivity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#shortcuts">Shortcuts</a></li>
 </ul>
 </li>
 </ul>
@@ -269,17 +271,27 @@
               <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown">Page <b class="caret"></b></a>
   <ul class="dropdown-menu localtoc"><ul>
-<li><a class="reference internal" href="#">Support</a></li>
+<li><a class="reference internal" href="#">Issue Management</a><ul>
+<li><a class="reference internal" href="#labels">Labels</a></li>
+<li><a class="reference internal" href="#priority">Priority</a></li>
+<li><a class="reference internal" href="#inactivity">Inactivity</a></li>
+<li><a class="reference internal" href="#shortcuts">Shortcuts</a></li>
+</ul>
+</li>
 </ul>
 </ul>
 </li>
             
             
               
+  <li><a href="about.html"
+         title="previous chapter">&laquo; About this document</a></li>
+  <li><a href="install/deployment.html"
+         title="next chapter">Development Documentation &raquo;</a></li>
             
             
               <li>
-  <a href="_sources/support.txt"
+  <a href="_sources/tasks.txt"
      rel="nofollow">Source</a></li>
             
           </ul>
@@ -299,10 +311,43 @@
 
 <div class="container">
   
-  <div class="section" id="support">
-<h1>Support<a class="headerlink" href="#support" title="Permalink to this headline">¶</a></h1>
-<p>If you run into problems when using the  framework, please use our
-help form at <a class="reference external" href="https://portal.futuregrid.org/help">https://portal.futuregrid.org/help</a>.</p>
+  <div class="section" id="issue-management">
+<h1>Issue Management<a class="headerlink" href="#issue-management" title="Permalink to this headline">¶</a></h1>
+<p>We will be using git issue task list to manage assignments to projects. Previously we have used jira for this, but it is just easier to use the build in issue management system. Unfortunately, the issue management system has a couple of limitations that we try to overcome by intoroducing additional labes.</p>
+<div class="section" id="labels">
+<h2>Labels<a class="headerlink" href="#labels" title="Permalink to this headline">¶</a></h2>
+<p><strong>z-user</strong>:</p>
+<blockquote>
+<div>although githug has assignees, its not easily possible to see to whom the issue is assigned as we could not figure out how to use usernames instead of the gravatar image. Additionally, sometimes an issue requires that two people work on it and with name labels we can do so.</div></blockquote>
+<p><strong>active</strong>:</p>
+<blockquote>
+<div>the active label is to be set when we work on an issue</div></blockquote>
+<p><strong>help</strong>:</p>
+<blockquote>
+<div>sometimes you may need help on an issue, if you do, you can use his lable and put in the comment what you need help with. This is useful in case we are not all in the same building and need to move forward quickly</div></blockquote>
+<p><strong>bug</strong>:</p>
+<blockquote>
+<div>a simple bug that we know is wrong and needs fixing</div></blockquote>
+<p><strong>review</strong>:</p>
+<blockquote>
+<div>sometimes a task needs a review before it is completed. This label will notify Gregor to conduct a review. It is less urgent than the <strong>help</strong> label.</div></blockquote>
+</div>
+<div class="section" id="priority">
+<h2>Priority<a class="headerlink" href="#priority" title="Permalink to this headline">¶</a></h2>
+<p>So fare priorities are manged by milestone, but in future we may introduce priority categories form 1-5 which are just numbers. THis way we can see on what we should spend our time.</p>
+</div>
+<div class="section" id="inactivity">
+<h2>Inactivity<a class="headerlink" href="#inactivity" title="Permalink to this headline">¶</a></h2>
+<p>It is important that everyone engages in taking tasks and solving them and if we get stuck get other involved. It is not helpful if you were to just passively wait for tasks. when you are done come and pick up the next task.</p>
+</div>
+<div class="section" id="shortcuts">
+<h2>Shortcuts<a class="headerlink" href="#shortcuts" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>list of open issues: <a class="reference external" href="https://github.com/cloudmesh/cloudmesh/issues?direction=desc&amp;sort=updated&amp;state=open">https://github.com/cloudmesh/cloudmesh/issues?direction=desc&amp;sort=updated&amp;state=open</a></li>
+<li>milestones: <a class="reference external" href="https://github.com/cloudmesh/cloudmesh/issues/milestones">https://github.com/cloudmesh/cloudmesh/issues/milestones</a></li>
+<li>oholo: <a class="reference external" href="https://www.ohloh.net/p/cloudmesh-rain">https://www.ohloh.net/p/cloudmesh-rain</a></li>
+</ul>
+</div>
 </div>
 
 
