@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>cloudmesh.pbs.pbs &mdash; Cloudmesh 0.1 documentation</title>
+    <title>cloudmesh.user.cm_user &mdash; Cloudmesh 0.1 documentation</title>
     
     <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
@@ -302,110 +302,48 @@
 
 <div class="container">
   
-  <h1>Source code for cloudmesh.pbs.pbs</h1><div class="highlight"><pre>
-<span class="c">#with open (&quot;pbs_nodes_data.txt&quot;, &quot;r&quot;) as myfile:</span>
-<span class="c">#    pbs_nodes_data=myfile.readlines()</span>
+  <h1>Source code for cloudmesh.user.cm_user</h1><div class="highlight"><pre>
+<span class="kn">from</span> <span class="nn">cloudmesh.config.cm_config</span> <span class="kn">import</span> <span class="n">cm_config_server</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.util.logger</span> <span class="kn">import</span> <span class="n">LOGGER</span>
 
-<span class="kn">from</span> <span class="nn">xml.dom</span> <span class="kn">import</span> <span class="n">minidom</span>
-<span class="kn">from</span> <span class="nn">sh</span> <span class="kn">import</span> <span class="n">ssh</span>
-<span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
-<span class="kn">from</span> <span class="nn">ast</span> <span class="kn">import</span> <span class="n">literal_eval</span>
-<span class="kn">from</span> <span class="nn">hostlist</span> <span class="kn">import</span> <span class="n">expand_hostlist</span>
+<span class="kn">from</span> <span class="nn">pymongo</span> <span class="kn">import</span> <span class="n">MongoClient</span>
 
+<span class="c"># ----------------------------------------------------------------------</span>
+<span class="c"># SETTING UP A LOGGER</span>
+<span class="c"># ----------------------------------------------------------------------</span>
 
-<div class="viewcode-block" id="PBS"><a class="viewcode-back" href="../../../modules/cloudmesh.pbs.html#cloudmesh.pbs.pbs.PBS">[docs]</a><span class="k">class</span> <span class="nc">PBS</span><span class="p">:</span>
+<span class="n">log</span> <span class="o">=</span> <span class="n">LOGGER</span><span class="p">(</span><span class="s">&#39;cm_user&#39;</span><span class="p">)</span>
 
-    <span class="n">user</span> <span class="o">=</span> <span class="bp">None</span>
-    <span class="n">host</span> <span class="o">=</span> <span class="bp">None</span>
-    <span class="n">pbs_qstat_data</span> <span class="o">=</span> <span class="bp">None</span>
-    <span class="n">pbs_nodes_data</span> <span class="o">=</span> <span class="bp">None</span>
+<div class="viewcode-block" id="cm_user"><a class="viewcode-back" href="../../../modules/cloudmesh.user.html#cloudmesh.user.cm_user.cm_user">[docs]</a><span class="k">class</span> <span class="nc">cm_user</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">user</span><span class="p">,</span> <span class="n">host</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">user</span> <span class="o">=</span> <span class="n">user</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">host</span> <span class="o">=</span> <span class="n">host</span>
-
-<div class="viewcode-block" id="PBS.pbsnodes"><a class="viewcode-back" href="../../../modules/cloudmesh.pbs.html#cloudmesh.pbs.pbs.PBS.pbsnodes">[docs]</a>    <span class="k">def</span> <span class="nf">pbsnodes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">refresh</span><span class="o">=</span><span class="s">&quot;True&quot;</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;returns the pbs node infor from an pbs_nodes_raw_data is a string see above for example&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">db_name</span> <span class="o">=</span> <span class="n">cm_config_server</span><span class="p">()</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s">&quot;mongo&quot;</span><span class="p">][</span><span class="s">&quot;db&quot;</span><span class="p">]</span>
+        <span class="n">client</span> <span class="o">=</span> <span class="n">MongoClient</span><span class="p">()</span>
+        <span class="n">db</span> <span class="o">=</span> <span class="n">client</span><span class="p">[</span><span class="n">db_name</span><span class="p">]</span>
+        <span class="n">ldapcollection</span> <span class="o">=</span> <span class="s">&#39;user&#39;</span>
+        <span class="n">cloudcollection</span> <span class="o">=</span> <span class="s">&#39;cloudmesh&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">db_clouds</span> <span class="o">=</span> <span class="n">db</span><span class="p">[</span><span class="n">cloudcollection</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">db_users</span> <span class="o">=</span> <span class="n">db</span><span class="p">[</span><span class="n">ldapcollection</span><span class="p">]</span>
         
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">pbs_nodes_data</span> <span class="ow">is</span> <span class="bp">None</span> <span class="ow">or</span> <span class="n">refresh</span><span class="p">:</span>
-            <span class="k">try</span><span class="p">:</span>
-                <span class="n">result</span> <span class="o">=</span> <span class="n">ssh</span><span class="p">(</span><span class="s">&quot;{0}@{1}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">user</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">host</span><span class="p">),</span> <span class="s">&quot;pbsnodes&quot;</span><span class="p">,</span> <span class="s">&quot;-a&quot;</span><span class="p">)</span>
-            <span class="k">except</span><span class="p">:</span>
-                <span class="k">print</span> <span class="s">&quot;ERROR can not execute pbs nodes&quot;</span>
-            <span class="n">pbsinfo</span> <span class="o">=</span> <span class="p">{}</span>        
-            <span class="n">nodes</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n\n</span><span class="s">&quot;</span><span class="p">)</span>
-            <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">nodes</span><span class="p">:</span>
-                <span class="n">pbs_data</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
-                <span class="n">pbs_data</span> <span class="o">=</span> <span class="p">[</span><span class="n">e</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>  <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">pbs_data</span><span class="p">]</span>
-                <span class="n">name</span> <span class="o">=</span> <span class="n">pbs_data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-                <span class="k">if</span> <span class="n">name</span> <span class="o">!=</span> <span class="s">&quot;&quot;</span><span class="p">:</span>
-                    <span class="n">pbsinfo</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s">u&#39;name&#39;</span><span class="p">:</span> <span class="n">name</span><span class="p">}</span>
-                    <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">pbs_data</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
-                        <span class="k">try</span><span class="p">:</span>
-                            <span class="p">(</span><span class="n">attribute</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span> <span class="o">=</span> <span class="n">element</span><span class="o">.</span><span class="n">split</span> <span class="p">(</span><span class="s">&quot; = &quot;</span><span class="p">)</span>
-                            <span class="k">if</span> <span class="n">attribute</span> <span class="o">==</span> <span class="s">&#39;status&#39;</span><span class="p">:</span>
-                                <span class="n">status_elements</span> <span class="o">=</span> <span class="n">value</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&quot;,&quot;</span><span class="p">)</span>
-                                <span class="n">pbsinfo</span><span class="p">[</span><span class="n">name</span><span class="p">][</span><span class="n">attribute</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
-                                <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">status_elements</span><span class="p">:</span>
-                                    <span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">v</span><span class="p">)</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&quot;=&quot;</span><span class="p">)</span>
-                                    <span class="n">pbsinfo</span><span class="p">[</span><span class="n">name</span><span class="p">][</span><span class="n">attribute</span><span class="p">][</span><span class="n">a</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span>
-                            <span class="k">elif</span> <span class="n">attribute</span> <span class="o">==</span> <span class="s">&#39;jobs&#39;</span><span class="p">:</span>
-                                <span class="n">pbsinfo</span><span class="p">[</span><span class="n">name</span><span class="p">][</span><span class="n">attribute</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&#39;,&#39;</span><span class="p">)</span>
-                            <span class="k">elif</span> <span class="n">attribute</span> <span class="o">==</span> <span class="s">&#39;note&#39;</span><span class="p">:</span>
-                                <span class="n">pbsinfo</span><span class="p">[</span><span class="n">name</span><span class="p">][</span><span class="n">attribute</span><span class="p">]</span> <span class="o">=</span> <span class="n">literal_eval</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
-                            <span class="k">else</span><span class="p">:</span>
-                                <span class="n">pbsinfo</span><span class="p">[</span><span class="n">name</span><span class="p">][</span><span class="n">attribute</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
-                        <span class="k">except</span><span class="p">:</span>
-                            <span class="k">pass</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">pbs_nodes_data</span> <span class="o">=</span> <span class="n">pbsinfo</span>
-        
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">pbs_nodes_data</span>
-</div>
-<div class="viewcode-block" id="PBS.exists"><a class="viewcode-back" href="../../../modules/cloudmesh.pbs.html#cloudmesh.pbs.pbs.PBS.exists">[docs]</a>    <span class="k">def</span> <span class="nf">exists</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">host</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; prints true if the host is in the node list &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="n">host</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">pbs_nodes_data</span>
-</div>
-<div class="viewcode-block" id="PBS.set"><a class="viewcode-back" href="../../../modules/cloudmesh.pbs.html#cloudmesh.pbs.pbs.PBS.set">[docs]</a>    <span class="k">def</span> <span class="nf">set</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">spec</span><span class="p">,</span> <span class="n">attribute</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;add an attribute for the specified hosts in the format</span>
-<span class="sd">        i[1-20]. which would set the attribute for all hosts in i1 to</span>
-<span class="sd">        i20&quot;&quot;&quot;</span>
-        <span class="n">hosts</span> <span class="o">=</span> <span class="n">expand_hostlist</span><span class="p">(</span><span class="n">spec</span><span class="p">)</span>    
-        <span class="k">for</span> <span class="n">host</span> <span class="ow">in</span> <span class="n">hosts</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_set</span><span class="p">(</span><span class="n">host</span><span class="p">,</span> <span class="n">attribute</span><span class="p">)</span>
-            </div>
-    <span class="k">def</span> <span class="nf">_set</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">host</span><span class="p">,</span> <span class="n">attribute</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;add an attribute for the specified hosts&quot;&quot;&quot;</span>
-        <span class="k">print</span> <span class="s">&quot;TODO: ALLAN&quot;</span>
-            
-
-<div class="viewcode-block" id="PBS.qstat"><a class="viewcode-back" href="../../../modules/cloudmesh.pbs.html#cloudmesh.pbs.pbs.PBS.qstat">[docs]</a>    <span class="k">def</span> <span class="nf">qstat</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">refresh</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">pbs_qstat_data</span> <span class="ow">is</span> <span class="bp">None</span> <span class="ow">or</span> <span class="n">refresh</span><span class="p">:</span>
-            <span class="k">try</span><span class="p">:</span>
-                <span class="n">xmldata</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">ssh</span><span class="p">(</span><span class="s">&quot;{0}@{1}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">user</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">host</span><span class="p">),</span> <span class="s">&quot;qstat&quot;</span><span class="p">,</span> <span class="s">&quot;-x&quot;</span><span class="p">))</span>
-            <span class="k">except</span><span class="p">:</span>
-                <span class="k">print</span> <span class="s">&quot;ERROR can not extecute qstat&quot;</span>
-            <span class="n">info</span> <span class="o">=</span> <span class="p">{}</span>
-            
-            <span class="k">try</span><span class="p">:</span>
-                <span class="n">xmldoc</span> <span class="o">=</span> <span class="n">minidom</span><span class="o">.</span><span class="n">parseString</span><span class="p">(</span><span class="n">xmldata</span><span class="p">)</span>
-                
-                <span class="n">itemlist</span> <span class="o">=</span> <span class="n">xmldoc</span><span class="o">.</span><span class="n">getElementsByTagName</span><span class="p">(</span><span class="s">&#39;Job&#39;</span><span class="p">)</span> 
-                <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">itemlist</span><span class="p">:</span>
-                    <span class="n">job</span> <span class="o">=</span> <span class="p">{}</span>
-                    <span class="k">for</span> <span class="n">attribute</span> <span class="ow">in</span> <span class="n">item</span><span class="o">.</span><span class="n">childNodes</span><span class="p">:</span>
-                        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">attribute</span><span class="o">.</span><span class="n">childNodes</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-                            <span class="n">job</span><span class="p">[</span><span class="n">attribute</span><span class="o">.</span><span class="n">nodeName</span><span class="p">]</span> <span class="o">=</span> <span class="n">attribute</span><span class="o">.</span><span class="n">firstChild</span><span class="o">.</span><span class="n">nodeValue</span>
-                        <span class="k">else</span><span class="p">:</span>
-                            <span class="n">job</span><span class="p">[</span><span class="n">attribute</span><span class="o">.</span><span class="n">nodeName</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>                    
-                            <span class="k">for</span> <span class="n">subchild</span> <span class="ow">in</span> <span class="n">attribute</span><span class="o">.</span><span class="n">childNodes</span><span class="p">:</span>
-                                <span class="n">job</span><span class="p">[</span><span class="n">attribute</span><span class="o">.</span><span class="n">nodeName</span><span class="p">][</span><span class="n">subchild</span><span class="o">.</span><span class="n">nodeName</span><span class="p">]</span> <span class="o">=</span> <span class="n">subchild</span><span class="o">.</span><span class="n">firstChild</span><span class="o">.</span><span class="n">nodeValue</span>
-        
-                    <span class="n">info</span><span class="p">[</span><span class="n">job</span><span class="p">[</span><span class="s">&#39;Job_Id&#39;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">job</span>
-            <span class="k">except</span><span class="p">:</span>
-                <span class="k">pass</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">pbs_qstat_data</span> <span class="o">=</span> <span class="n">info</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">pbs_qstat_data</span></div></div>
-</pre></div>
+<div class="viewcode-block" id="cm_user.info"><a class="viewcode-back" href="../../../modules/cloudmesh.user.html#cloudmesh.user.cm_user.cm_user.info">[docs]</a>    <span class="k">def</span> <span class="nf">info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">portalname</span><span class="p">,</span> <span class="n">cloudnames</span> <span class="o">=</span> <span class="p">[]):</span>
+        <span class="n">ldapret</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">db_users</span><span class="o">.</span><span class="n">find</span><span class="p">({</span><span class="s">&quot;cm_user_id&quot;</span><span class="p">:</span> <span class="n">portalname</span><span class="p">})</span>
+        <span class="n">cloudret</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">db_clouds</span><span class="o">.</span><span class="n">find</span><span class="p">({</span><span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="n">portalname</span><span class="p">,</span> <span class="s">&quot;cm_kind&quot;</span><span class="p">:</span> <span class="s">&quot;users&quot;</span><span class="p">})</span>
+        <span class="n">userinfo</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="c"># username is unique in ldap</span>
+        <span class="k">if</span> <span class="n">ldapret</span><span class="o">.</span><span class="n">count</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">ldapuser</span> <span class="o">=</span> <span class="n">ldapret</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="k">del</span> <span class="n">ldapuser</span><span class="p">[</span><span class="s">&#39;_id&#39;</span><span class="p">]</span>
+            <span class="n">userinfo</span> <span class="o">=</span> <span class="n">ldapuser</span>
+        <span class="n">userinfo</span><span class="p">[</span><span class="s">&#39;cloud_ids&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">arec</span> <span class="ow">in</span> <span class="n">cloudret</span><span class="p">:</span>
+            <span class="k">del</span> <span class="n">arec</span><span class="p">[</span><span class="s">&#39;_id&#39;</span><span class="p">]</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">cloudnames</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">arec</span><span class="p">[</span><span class="s">&#39;cm_cloud&#39;</span><span class="p">]</span> <span class="ow">in</span> <span class="n">cloudnames</span><span class="p">:</span>
+                    <span class="n">userinfo</span><span class="p">[</span><span class="s">&#39;cloud_ids&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">arec</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">userinfo</span><span class="p">[</span><span class="s">&#39;cloud_ids&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">arec</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">userinfo</span>
+</pre></div></div></div>
 
 </div>
 <footer class="footer">
