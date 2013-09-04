@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Issue Management &mdash; Cloudmesh 0.1 documentation</title>
+    <title>2   Issue Management &mdash; Cloudmesh 0.1 documentation</title>
     
     <link rel="stylesheet" href="_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -32,8 +32,8 @@
     <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
     <link rel="author" title="About these documents" href="about.html" />
     <link rel="top" title="Cloudmesh 0.1 documentation" href="index.html" />
-    <link rel="next" title="Installation" href="developer.html" />
-    <link rel="prev" title="Generating the documentation" href="about.html" />
+    <link rel="next" title="3   Quickstart for a deployed version of cloudmesh" href="developer.html" />
+    <link rel="prev" title="1   Documentation Management" href="about.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -65,101 +65,91 @@
      data-toggle="dropdown">Site <b class="caret"></b></a>
   <ul class="dropdown-menu globaltoc"
     ><ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="about.html">Generating the documentation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="about.html#installation-requirements-for-the-documentation-generation">Installation requirements for the Documentation Generation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="about.html#document-creation">Document creation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">1&nbsp;&nbsp;&nbsp;Documentation Management</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="about.html#installation-requirements-for-the-documentation-generation">1.1&nbsp;&nbsp;&nbsp;Installation Requirements for the Documentation Generation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="about.html#document-generation">1.2&nbsp;&nbsp;&nbsp;Document Generation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="about.html#publishing-the-documentation">1.3&nbsp;&nbsp;&nbsp;Publishing the Documentation</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Issue Management</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#labels">Labels</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#priority">Priority</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#inactivity">Inactivity</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#shortcuts">Shortcuts</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">2&nbsp;&nbsp;&nbsp;Issue Management</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#labels">2.1&nbsp;&nbsp;&nbsp;Labels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#priority">2.2&nbsp;&nbsp;&nbsp;Priority</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#inactivity">2.3&nbsp;&nbsp;&nbsp;Inactivity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#shortcuts">2.4&nbsp;&nbsp;&nbsp;Shortcuts</a></li>
 </ul>
 </li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="developer.html">Installation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="developer.html#pip">Pip</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer.html#virtualenv">Virtualenv</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="developer.html#download-virtualenv">Download virtualenv</a></li>
-<li class="toctree-l3"><a class="reference internal" href="developer.html#install-virtualenv">Install virtualenv</a></li>
-<li class="toctree-l3"><a class="reference internal" href="developer.html#activate-virtualenv">Activate virtualenv</a></li>
-<li class="toctree-l3"><a class="reference internal" href="developer.html#modify-your-rc-file-optional">Modify your rc file (optional):</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer.html">3&nbsp;&nbsp;&nbsp;Quickstart for a deployed version of cloudmesh</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer.html#installation">4&nbsp;&nbsp;&nbsp;Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="developer.html#pip">4.1&nbsp;&nbsp;&nbsp;Pip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer.html#virtualenv">4.2&nbsp;&nbsp;&nbsp;Virtualenv</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="developer.html#download-virtualenv">4.2.1&nbsp;&nbsp;&nbsp;Download virtualenv</a></li>
+<li class="toctree-l3"><a class="reference internal" href="developer.html#install-virtualenv">4.2.2&nbsp;&nbsp;&nbsp;Install virtualenv</a></li>
+<li class="toctree-l3"><a class="reference internal" href="developer.html#activate-virtualenv">4.2.3&nbsp;&nbsp;&nbsp;Activate virtualenv</a></li>
+<li class="toctree-l3"><a class="reference internal" href="developer.html#modify-your-rc-file-optional">4.2.4&nbsp;&nbsp;&nbsp;Modify your rc file (optional):</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="developer.html#install-fabric">Install fabric</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer.html#github">Github</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="developer.html#github-ssh-keys">GIthub ssh keys</a></li>
-<li class="toctree-l3"><a class="reference internal" href="developer.html#git-username-and-e-mail">Git username and e-mail</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer.html#install-fabric">4.3&nbsp;&nbsp;&nbsp;Install fabric</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer.html#github">4.4&nbsp;&nbsp;&nbsp;Github</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="developer.html#github-ssh-keys">4.4.1&nbsp;&nbsp;&nbsp;GIthub ssh keys</a></li>
+<li class="toctree-l3"><a class="reference internal" href="developer.html#git-username-and-e-mail">4.4.2&nbsp;&nbsp;&nbsp;Git username and e-mail</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="developer.html#quick-deployment-on-ubuntu">Quick deployment on ubuntu</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="developer.html#yaml-files">YAML files</a></li>
-<li class="toctree-l3"><a class="reference internal" href="developer.html#mongo">Mongo</a></li>
-<li class="toctree-l3"><a class="reference internal" href="developer.html#developer-tests">Developer Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer.html#quick-deployment-on-ubuntu">4.5&nbsp;&nbsp;&nbsp;Quick deployment on ubuntu</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="developer.html#requirements">4.5.1&nbsp;&nbsp;&nbsp;Requirements</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="developer.html#working-with-cloudmesh-on-a-remote-server">Working with Cloudmesh on a remote server</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer.html#unordered-notes">Unordered notes</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="developer.html#sphinx-autorun">Sphinx autorun</a></li>
-<li class="toctree-l3"><a class="reference internal" href="developer.html#blockdiag-family">Blockdiag family</a></li>
-<li class="toctree-l3"><a class="reference internal" href="developer.html#ubuntu">Ubuntu</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="developer.html#manual-installation">Manual installation</a></li>
-<li class="toctree-l4"><a class="reference internal" href="developer.html#install-mongo">Install Mongo</a></li>
-<li class="toctree-l4"><a class="reference internal" href="developer.html#install-rabbitmq">Install RabbitMQ</a></li>
-<li class="toctree-l4"><a class="reference internal" href="developer.html#id1">Sphinx autorun</a></li>
-<li class="toctree-l4"><a class="reference internal" href="developer.html#id2">Blockdiag family</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer.html#additional-installation-for-documentation-generation">4.6&nbsp;&nbsp;&nbsp;Additional Installation for Documentation Generation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="developer.html#blockdiag-family">4.6.1&nbsp;&nbsp;&nbsp;Blockdiag family</a></li>
+<li class="toctree-l3"><a class="reference internal" href="developer.html#yaml-files">4.6.2&nbsp;&nbsp;&nbsp;YAML files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="developer.html#mongo">4.6.3&nbsp;&nbsp;&nbsp;Mongo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="developer.html#rabbitmq">4.6.4&nbsp;&nbsp;&nbsp;RabbitMQ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="developer.html#developer-tests">4.6.5&nbsp;&nbsp;&nbsp;Developer Tests</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="developer.html#centos">CentOS</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="developer.html#id3">Manual installation</a></li>
-<li class="toctree-l4"><a class="reference internal" href="developer.html#install-python">Install Python</a></li>
-<li class="toctree-l4"><a class="reference internal" href="developer.html#install-python-virtualenv">Install Python Virtualenv</a></li>
-<li class="toctree-l4"><a class="reference internal" href="developer.html#id4">Install Mongo</a></li>
-<li class="toctree-l4"><a class="reference internal" href="developer.html#id5">Install RabbitMQ</a></li>
-<li class="toctree-l4"><a class="reference internal" href="developer.html#id6">Sphinx autorun</a></li>
-<li class="toctree-l4"><a class="reference internal" href="developer.html#id7">Blockdiag family</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer.html#working-with-cloudmesh-on-a-remote-server">4.7&nbsp;&nbsp;&nbsp;Working with Cloudmesh on a remote server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer.html#centos">4.8&nbsp;&nbsp;&nbsp;CentOS</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="developer.html#install-python">4.8.1&nbsp;&nbsp;&nbsp;Install Python</a></li>
+<li class="toctree-l3"><a class="reference internal" href="developer.html#starting-the-rabbitmq-service">4.8.2&nbsp;&nbsp;&nbsp;Starting the  RabbitMQ service</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="developer.html#aptana-studio">4.9&nbsp;&nbsp;&nbsp;Aptana Studio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer.html#cleaning">4.10&nbsp;&nbsp;&nbsp;Cleaning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer.html#convenient-command-shortcuts">4.11&nbsp;&nbsp;&nbsp;Convenient command shortcuts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="developer.html#starting-and-testing-the-queue-service">4.11.1&nbsp;&nbsp;&nbsp;Starting and testing the Queue Service</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="developer.html#installing-the-source-code">Installing the source code</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer.html#cleaning">Cleaning</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer.html#convenient-command-shortcuts">Convenient command shortcuts</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="developer.html#starting-and-testing-the-queue-service">Starting and testing the Queue Service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer.html#making-the-documentation">4.12&nbsp;&nbsp;&nbsp;Making the documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="developer.html#basic-configuration">4.12.1&nbsp;&nbsp;&nbsp;Basic Configuration</a></li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="install/configuration.html">8&nbsp;&nbsp;&nbsp;Basic Configuration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="install/testing.html">9&nbsp;&nbsp;&nbsp;Testing</a></li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="nosetest.html">10&nbsp;&nbsp;&nbsp;Nosetests</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="nosetest.html#install">10.1&nbsp;&nbsp;&nbsp;Install</a></li>
-<li class="toctree-l2"><a class="reference internal" href="nosetest.html#run">10.2&nbsp;&nbsp;&nbsp;Run</a></li>
-<li class="toctree-l2"><a class="reference internal" href="nosetest.html#system">10.3&nbsp;&nbsp;&nbsp;System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nosetest.html">4&nbsp;&nbsp;&nbsp;Nosetests</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nosetest.html#install">4.1&nbsp;&nbsp;&nbsp;Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nosetest.html#run">4.2&nbsp;&nbsp;&nbsp;Run</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nosetest.html#system">4.3&nbsp;&nbsp;&nbsp;System</a></li>
 </ul>
 </li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="cm-shell.html">10&nbsp;&nbsp;&nbsp;Cloud Mesh</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cm-shell.html#commands">11&nbsp;&nbsp;&nbsp;Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cm-shell.html">5&nbsp;&nbsp;&nbsp;Cloud Mesh</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cm-shell.html#commands">6&nbsp;&nbsp;&nbsp;Commands</a></li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="plan/plan.html">4&nbsp;&nbsp;&nbsp;Plan: Cloudmesh Service Shift</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="plan/plan.html#project-objectives">4.1&nbsp;&nbsp;&nbsp;Project Objectives</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="plan/plan.html#development-objectives">4.1.1&nbsp;&nbsp;&nbsp;Development Objectives</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plan/plan.html#production-objectives">4.1.2&nbsp;&nbsp;&nbsp;Production Objectives</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plan/plan.html">7&nbsp;&nbsp;&nbsp;Plan: Cloudmesh Service Shift</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="plan/plan.html#project-objectives">7.1&nbsp;&nbsp;&nbsp;Project Objectives</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="plan/plan.html#development-objectives">7.1.1&nbsp;&nbsp;&nbsp;Development Objectives</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plan/plan.html#production-objectives">7.1.2&nbsp;&nbsp;&nbsp;Production Objectives</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="plan/plan.html#project-deliverables">4.2&nbsp;&nbsp;&nbsp;Project Deliverables</a></li>
-<li class="toctree-l2"><a class="reference internal" href="plan/plan.html#evolution-of-the-project">4.3&nbsp;&nbsp;&nbsp;Evolution of the Project</a></li>
-<li class="toctree-l2"><a class="reference internal" href="plan/plan.html#refernce-materials">4.4&nbsp;&nbsp;&nbsp;Refernce Materials</a></li>
-<li class="toctree-l2"><a class="reference internal" href="plan/plan.html#definitions-and-acronyms">4.5&nbsp;&nbsp;&nbsp;Definitions and Acronyms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plan/plan.html#project-deliverables">7.2&nbsp;&nbsp;&nbsp;Project Deliverables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plan/plan.html#evolution-of-the-project">7.3&nbsp;&nbsp;&nbsp;Evolution of the Project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plan/plan.html#refernce-materials">7.4&nbsp;&nbsp;&nbsp;Refernce Materials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plan/plan.html#definitions-and-acronyms">7.5&nbsp;&nbsp;&nbsp;Definitions and Acronyms</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="plan/design.html">3&nbsp;&nbsp;&nbsp;Design: Blueprint</a><ul>
@@ -177,17 +167,12 @@
 <li class="toctree-l2"><a class="reference internal" href="plan/design.html#interfaces">3.8&nbsp;&nbsp;&nbsp;Interfaces</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="plan/mock.html">Mockup</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="plan/mock.html#create-user">create_user</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="plan/cal.html">Calendar</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="modules/modules.html">Modules and Classes</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="modules/cloudmesh.html">cloudmesh Package</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="modules/cloudmesh.html#id1"><tt class="docutils literal"><span class="pre">cloudmesh</span></tt> Package</a></li>
-<li class="toctree-l3"><a class="reference internal" href="modules/cloudmesh.html#module-cloudmesh.cloudmesh"><tt class="docutils literal"><span class="pre">cloudmesh</span></tt> Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/cloudmesh.html#cloudmesh-module"><tt class="docutils literal"><span class="pre">cloudmesh</span></tt> Module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="modules/cloudmesh.html#cm-mongodb-module"><tt class="docutils literal"><span class="pre">cm_mongodb</span></tt> Module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="modules/cloudmesh.html#gitinfo-module"><tt class="docutils literal"><span class="pre">gitinfo</span></tt> Module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="modules/cloudmesh.html#mongodb-module"><tt class="docutils literal"><span class="pre">mongodb</span></tt> Module</a></li>
@@ -278,11 +263,11 @@
               <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown">Page <b class="caret"></b></a>
   <ul class="dropdown-menu localtoc"><ul>
-<li><a class="reference internal" href="#">Issue Management</a><ul>
-<li><a class="reference internal" href="#labels">Labels</a></li>
-<li><a class="reference internal" href="#priority">Priority</a></li>
-<li><a class="reference internal" href="#inactivity">Inactivity</a></li>
-<li><a class="reference internal" href="#shortcuts">Shortcuts</a></li>
+<li><a class="reference internal" href="#">2&nbsp;&nbsp;&nbsp;Issue Management</a><ul>
+<li><a class="reference internal" href="#labels">2.1&nbsp;&nbsp;&nbsp;Labels</a></li>
+<li><a class="reference internal" href="#priority">2.2&nbsp;&nbsp;&nbsp;Priority</a></li>
+<li><a class="reference internal" href="#inactivity">2.3&nbsp;&nbsp;&nbsp;Inactivity</a></li>
+<li><a class="reference internal" href="#shortcuts">2.4&nbsp;&nbsp;&nbsp;Shortcuts</a></li>
 </ul>
 </li>
 </ul>
@@ -292,9 +277,9 @@
             
               
   <li><a href="about.html"
-         title="previous chapter">&laquo; Generating the documentation</a></li>
+         title="previous chapter">&laquo; 1&nbsp;&nbsp;&nbsp;Documentation Management</a></li>
   <li><a href="developer.html"
-         title="next chapter">Installation &raquo;</a></li>
+         title="next chapter">3&nbsp;&nbsp;&nbsp;Quickstart for a deployed version of cloudmesh &raquo;</a></li>
             
             
               <li>
@@ -319,10 +304,10 @@
 <div class="container">
   
   <div class="section" id="issue-management">
-<h1>Issue Management<a class="headerlink" href="#issue-management" title="Permalink to this headline">¶</a></h1>
+<h1>2&nbsp;&nbsp;&nbsp;Issue Management<a class="headerlink" href="#issue-management" title="Permalink to this headline">¶</a></h1>
 <p>We will be using git issue task list to manage assignments to projects. Previously we have used jira for this, but it is just easier to use the build in issue management system. Unfortunately, the issue management system has a couple of limitations that we try to overcome by introducing additional labels.</p>
 <div class="section" id="labels">
-<h2>Labels<a class="headerlink" href="#labels" title="Permalink to this headline">¶</a></h2>
+<h2>2.1&nbsp;&nbsp;&nbsp;Labels<a class="headerlink" href="#labels" title="Permalink to this headline">¶</a></h2>
 <p><strong>z-user</strong>:</p>
 <blockquote>
 <div>although github has assignees, its not easily possible to see to whom the issue is assigned as we could not figure out how to use usernames instead of the gravatar image. Additionally, sometimes an issue requires that two people work on it and with name labels we can do so.</div></blockquote>
@@ -340,15 +325,15 @@
 <div>sometimes a task needs a review before it is completed. This label will notify Gregor to conduct a review. It is less urgent than the <strong>help</strong> label.</div></blockquote>
 </div>
 <div class="section" id="priority">
-<h2>Priority<a class="headerlink" href="#priority" title="Permalink to this headline">¶</a></h2>
+<h2>2.2&nbsp;&nbsp;&nbsp;Priority<a class="headerlink" href="#priority" title="Permalink to this headline">¶</a></h2>
 <p>So fare priorities are managed by milestone, but in future we may introduce priority categories form 1-5 which are just numbers. THis way we can see on what we should spend our time.</p>
 </div>
 <div class="section" id="inactivity">
-<h2>Inactivity<a class="headerlink" href="#inactivity" title="Permalink to this headline">¶</a></h2>
+<h2>2.3&nbsp;&nbsp;&nbsp;Inactivity<a class="headerlink" href="#inactivity" title="Permalink to this headline">¶</a></h2>
 <p>It is important that everyone engages in taking tasks and solving them and if we get stuck get other involved. It is not helpful if you were to just passively wait for tasks. when you are done come and pick up the next task.</p>
 </div>
 <div class="section" id="shortcuts">
-<h2>Shortcuts<a class="headerlink" href="#shortcuts" title="Permalink to this headline">¶</a></h2>
+<h2>2.4&nbsp;&nbsp;&nbsp;Shortcuts<a class="headerlink" href="#shortcuts" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/cloudmesh/cloudmesh/issues?direction=desc&amp;sort=updated&amp;state=open">List of open issues</a></li>
 <li><a class="reference external" href="https://github.com/cloudmesh/cloudmesh/issues/milestones">Milestones</a></li>

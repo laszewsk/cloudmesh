@@ -26,18 +26,10 @@ Developers Documentation
 ====================
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: -1
   
    developer
    
-Configuration
-==============
-.. toctree::
-   :maxdepth: 3
-  
-   install/configuration
-   install/testing
-
 Execution
 ========
 .. toctree::
@@ -61,6 +53,9 @@ Plan
    
    plan/plan
    plan/design 
+
+Test
+=======
    plan/mock
    plan/cal   
 
