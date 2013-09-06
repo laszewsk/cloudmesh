@@ -1,0 +1,1059 @@
+
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>old_inventory Package &mdash; Cloudmesh 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-2.3.2/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-2.3.2/css/bootstrap-responsive.min.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-2.3.2/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="top" title="Cloudmesh 0.1 documentation" href="../index.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body>
+
+  <div id="navbar" class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+
+        <a class="brand" href="../index.html">Cloudmesh</a>
+        <span class="navbar-text pull-left"><b>0.1</b></span>
+
+        <div class="nav-collapse">
+          <ul class="nav">
+            <li class="divider-vertical"></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a href="../index.html"
+     class="dropdown-toggle"
+     data-toggle="dropdown">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+    ><ul>
+<li class="toctree-l1"><a class="reference internal" href="../about.html">1&nbsp;&nbsp;&nbsp;Documentation Management</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../about.html#installation-requirements-for-the-documentation-generation">1.1&nbsp;&nbsp;&nbsp;Installation Requirements for the Documentation Generation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../about.html#document-generation">1.2&nbsp;&nbsp;&nbsp;Document Generation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../about.html#publishing-the-documentation">1.3&nbsp;&nbsp;&nbsp;Publishing the Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tasks.html">2&nbsp;&nbsp;&nbsp;Issue Management</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tasks.html#labels">2.1&nbsp;&nbsp;&nbsp;Labels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks.html#priority">2.2&nbsp;&nbsp;&nbsp;Priority</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks.html#inactivity">2.3&nbsp;&nbsp;&nbsp;Inactivity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks.html#shortcuts">2.4&nbsp;&nbsp;&nbsp;Shortcuts</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../developer.html">3&nbsp;&nbsp;&nbsp;Usage Quickstart for a Deployed Version of cloudmesh</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../developer.html#with-access-to-ldap">3.1&nbsp;&nbsp;&nbsp;With access to LDAP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer.html#without-access-to-ldap">3.2&nbsp;&nbsp;&nbsp;Without access to LDAP</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../developer.html#installation">4&nbsp;&nbsp;&nbsp;Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../developer.html#pip">4.1&nbsp;&nbsp;&nbsp;Pip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer.html#virtualenv">4.2&nbsp;&nbsp;&nbsp;Virtualenv</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../developer.html#install-virtualenv">4.2.1&nbsp;&nbsp;&nbsp;Install virtualenv</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer.html#activate-virtualenv">4.2.2&nbsp;&nbsp;&nbsp;Activate virtualenv</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer.html#modify-your-rc-file-optional">4.2.3&nbsp;&nbsp;&nbsp;Modify your rc file (optional):</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../developer.html#install-fabric">4.3&nbsp;&nbsp;&nbsp;Install fabric</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer.html#github">4.4&nbsp;&nbsp;&nbsp;Github</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../developer.html#github-ssh-keys">4.4.1&nbsp;&nbsp;&nbsp;GIthub ssh keys</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer.html#git-username-and-e-mail">4.4.2&nbsp;&nbsp;&nbsp;Git username and e-mail</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../developer.html#quick-deployment">4.5&nbsp;&nbsp;&nbsp;Quick deployment</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../developer.html#aptana-studio">4.5.1&nbsp;&nbsp;&nbsp;Aptana Studio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer.html#requirements">4.5.2&nbsp;&nbsp;&nbsp;Requirements</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../developer.html#additional-installation-for-documentation-generation">4.6&nbsp;&nbsp;&nbsp;Additional Installation for Documentation Generation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../developer.html#blockdiag-family">4.6.1&nbsp;&nbsp;&nbsp;Blockdiag family</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer.html#yaml-files">4.6.2&nbsp;&nbsp;&nbsp;YAML files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer.html#mongo">4.6.3&nbsp;&nbsp;&nbsp;Mongo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer.html#starting-and-testing-the-queue-service">4.6.4&nbsp;&nbsp;&nbsp;Starting and testing the Queue Service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer.html#starting-the-web-service">4.6.5&nbsp;&nbsp;&nbsp;Starting the Web Service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer.html#the-t-py-program">4.6.6&nbsp;&nbsp;&nbsp;The t.py program</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer.html#developer-tests">4.6.7&nbsp;&nbsp;&nbsp;Developer Tests</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../developer.html#cleaning">4.7&nbsp;&nbsp;&nbsp;Cleaning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer.html#convenient-command-shortcuts">4.8&nbsp;&nbsp;&nbsp;Convenient command shortcuts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer.html#working-with-cloudmesh-on-a-remote-server">4.9&nbsp;&nbsp;&nbsp;Working with Cloudmesh on a remote server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer.html#special-notes-for-centos">4.10&nbsp;&nbsp;&nbsp;Special notes for CentOS</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../developer.html#install-python">4.10.1&nbsp;&nbsp;&nbsp;Install Python</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer.html#starting-the-rabbitmq-service">4.10.2&nbsp;&nbsp;&nbsp;Starting the  RabbitMQ service</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../developer.html#making-the-documentation">4.11&nbsp;&nbsp;&nbsp;Making the documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../developer.html#example-start-the-gui-for-development">4.11.1&nbsp;&nbsp;&nbsp;Example: Start the GUI for development</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../nosetest.html">4&nbsp;&nbsp;&nbsp;Nosetests</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../nosetest.html#install">4.1&nbsp;&nbsp;&nbsp;Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nosetest.html#run">4.2&nbsp;&nbsp;&nbsp;Run</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nosetest.html#system">4.3&nbsp;&nbsp;&nbsp;System</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../cm-shell.html">5&nbsp;&nbsp;&nbsp;Cloud Mesh</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cm-shell.html#commands">6&nbsp;&nbsp;&nbsp;Commands</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../plan/plan.html">7&nbsp;&nbsp;&nbsp;Plan: Cloudmesh Service Shift</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../plan/plan.html#project-objectives">7.1&nbsp;&nbsp;&nbsp;Project Objectives</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plan/plan.html#development-objectives">7.1.1&nbsp;&nbsp;&nbsp;Development Objectives</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plan/plan.html#production-objectives">7.1.2&nbsp;&nbsp;&nbsp;Production Objectives</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../plan/plan.html#project-deliverables">7.2&nbsp;&nbsp;&nbsp;Project Deliverables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plan/plan.html#evolution-of-the-project">7.3&nbsp;&nbsp;&nbsp;Evolution of the Project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plan/plan.html#refernce-materials">7.4&nbsp;&nbsp;&nbsp;Refernce Materials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plan/plan.html#definitions-and-acronyms">7.5&nbsp;&nbsp;&nbsp;Definitions and Acronyms</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../plan/design.html">3&nbsp;&nbsp;&nbsp;Design: Blueprint</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../plan/design.html#features">3.1&nbsp;&nbsp;&nbsp;Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plan/design.html#difference-to-other-efforts">3.2&nbsp;&nbsp;&nbsp;Difference to other efforts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plan/design.html#component-view">3.3&nbsp;&nbsp;&nbsp;Component View</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plan/design.html#component-user-management">3.4&nbsp;&nbsp;&nbsp;Component User Management</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plan/design.html#user-management">3.4.1&nbsp;&nbsp;&nbsp;User Management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plan/design.html#accounting-will-not-be-worked-on-much">3.4.2&nbsp;&nbsp;&nbsp;Accounting (Will not be worked on much)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../plan/design.html#component-resource-management-includes-cloudshifting-as-part-of-reservation">3.5&nbsp;&nbsp;&nbsp;Component Resource Management (includes cloudshifting as part of reservation)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plan/design.html#resource-management">3.6&nbsp;&nbsp;&nbsp;Resource Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plan/design.html#scheduler">3.7&nbsp;&nbsp;&nbsp;Scheduler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plan/design.html#interfaces">3.8&nbsp;&nbsp;&nbsp;Interfaces</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">Modules and Classes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.html">cloudmesh Package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cloudmesh.html#id1"><tt class="docutils literal"><span class="pre">cloudmesh</span></tt> Package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cloudmesh.html#cloudmesh-module"><tt class="docutils literal"><span class="pre">cloudmesh</span></tt> Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cloudmesh.html#cm-mongodb-module"><tt class="docutils literal"><span class="pre">cm_mongodb</span></tt> Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cloudmesh.html#gitinfo-module"><tt class="docutils literal"><span class="pre">gitinfo</span></tt> Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cloudmesh.html#mongodb-module"><tt class="docutils literal"><span class="pre">mongodb</span></tt> Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cloudmesh.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudmesh.accounting.html">accounting Package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="cloudmesh.accounting.html#module-cloudmesh.accounting.AccountBaseClass"><tt class="docutils literal"><span class="pre">AccountBaseClass</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="cloudmesh.accounting.html#goldaccounting-module"><tt class="docutils literal"><span class="pre">GoldAccounting</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="cloudmesh.accounting.html#metrics-module"><tt class="docutils literal"><span class="pre">metrics</span></tt> Module</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="cloudmesh.config.html">config Package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="cloudmesh.config.html#id1"><tt class="docutils literal"><span class="pre">config</span></tt> Package</a></li>
+<li class="toctree-l5"><a class="reference internal" href="cloudmesh.config.html#module-cloudmesh.config.cloudmesh_cloud"><tt class="docutils literal"><span class="pre">cloudmesh_cloud</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="cloudmesh.config.html#module-cloudmesh.config.cloudmesh_cloud_handler"><tt class="docutils literal"><span class="pre">cloudmesh_cloud_handler</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="cloudmesh.config.html#module-cloudmesh.config.cm_config"><tt class="docutils literal"><span class="pre">cm_config</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="cloudmesh.config.html#module-cloudmesh.config.cm_keys"><tt class="docutils literal"><span class="pre">cm_keys</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="cloudmesh.config.html#module-cloudmesh.config.cm_projects"><tt class="docutils literal"><span class="pre">cm_projects</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="cloudmesh.config.html#module-cloudmesh.config.cm_rc"><tt class="docutils literal"><span class="pre">cm_rc</span></tt> Module</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="cloudmesh.config.html#cm-manage-config">cm-manage config</a></li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="cloudmesh.config.html#module-cloudmesh.config.ldap_user"><tt class="docutils literal"><span class="pre">ldap_user</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="cloudmesh.config.html#module-cloudmesh.config.mock_cloud"><tt class="docutils literal"><span class="pre">mock_cloud</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="cloudmesh.config.html#module-cloudmesh.config.mock_keystone"><tt class="docutils literal"><span class="pre">mock_keystone</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="cloudmesh.config.html#module-cloudmesh.config.mock_user"><tt class="docutils literal"><span class="pre">mock_user</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="cloudmesh.config.html#module-cloudmesh.config.openstack_essex_cloud"><tt class="docutils literal"><span class="pre">openstack_essex_cloud</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="cloudmesh.config.html#module-cloudmesh.config.openstack_grizzly_cloud"><tt class="docutils literal"><span class="pre">openstack_grizzly_cloud</span></tt> Module</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="cloudmesh.iaas.html">iaas Package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="cloudmesh.iaas.html#id1"><tt class="docutils literal"><span class="pre">iaas</span></tt> Package</a></li>
+<li class="toctree-l5"><a class="reference internal" href="cloudmesh.iaas.html#module-cloudmesh.iaas.ComputeBaseType"><tt class="docutils literal"><span class="pre">ComputeBaseType</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="cloudmesh.iaas.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="cloudmesh.iaas.azure.html">azure Package</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="cloudmesh.iaas.azure.html#id1"><tt class="docutils literal"><span class="pre">azure</span></tt> Package</a></li>
+<li class="toctree-l7"><a class="reference internal" href="cloudmesh.iaas.azure.html#module-cloudmesh.iaas.azure.cm_azure"><tt class="docutils literal"><span class="pre">cm_azure</span></tt> Module</a></li>
+<li class="toctree-l7"><a class="reference internal" href="cloudmesh.iaas.azure.html#fabfile-module"><tt class="docutils literal"><span class="pre">fabfile</span></tt> Module</a></li>
+</ul>
+</li>
+<li class="toctree-l6"><a class="reference internal" href="cloudmesh.iaas.eucalyptus.html">eucalyptus Package</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="cloudmesh.iaas.eucalyptus.html#module-cloudmesh.iaas.eucalyptus.eucalyptus"><tt class="docutils literal"><span class="pre">eucalyptus</span></tt> Module</a></li>
+<li class="toctree-l7"><a class="reference internal" href="cloudmesh.iaas.eucalyptus.html#eucalyptus-libcloud-module"><tt class="docutils literal"><span class="pre">eucalyptus_libcloud</span></tt> Module</a></li>
+<li class="toctree-l7"><a class="reference internal" href="cloudmesh.iaas.eucalyptus.html#eucalyptus-new-module"><tt class="docutils literal"><span class="pre">eucalyptus_new</span></tt> Module</a></li>
+</ul>
+</li>
+<li class="toctree-l6"><a class="reference internal" href="cloudmesh.iaas.openstack.html">openstack Package</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="cloudmesh.iaas.openstack.html#id1"><tt class="docutils literal"><span class="pre">openstack</span></tt> Package</a></li>
+<li class="toctree-l7"><a class="reference internal" href="cloudmesh.iaas.openstack.html#module-cloudmesh.iaas.openstack.cm_compute"><tt class="docutils literal"><span class="pre">cm_compute</span></tt> Module</a></li>
+<li class="toctree-l7"><a class="reference internal" href="cloudmesh.iaas.openstack.html#cm-table-module"><tt class="docutils literal"><span class="pre">cm_table</span></tt> Module</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="cloudmesh.inventory.html">inventory Package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="cloudmesh.inventory.html#id1"><tt class="docutils literal"><span class="pre">inventory</span></tt> Package</a></li>
+<li class="toctree-l5"><a class="reference internal" href="cloudmesh.inventory.html#resources-module"><tt class="docutils literal"><span class="pre">resources</span></tt> Module</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="cloudmesh.provisioner.html">provisioner Package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="cloudmesh.provisioner.html#id1"><tt class="docutils literal"><span class="pre">provisioner</span></tt> Package</a></li>
+<li class="toctree-l5"><a class="reference internal" href="cloudmesh.provisioner.html#module-cloudmesh.provisioner.provisioner"><tt class="docutils literal"><span class="pre">provisioner</span></tt> Module</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="cloudmesh.shell.html">shell Package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="cloudmesh.shell.html#module-cloudmesh.shell.cm_shell"><tt class="docutils literal"><span class="pre">cm_shell</span></tt> Module</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="cloudmesh.shell.html#cm-config">cm config</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="cloudmesh.util.html">util Package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="cloudmesh.util.html#id1"><tt class="docutils literal"><span class="pre">util</span></tt> Package</a></li>
+<li class="toctree-l5"><a class="reference internal" href="cloudmesh.util.html#module-cloudmesh.util.logger"><tt class="docutils literal"><span class="pre">logger</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="cloudmesh.util.html#module-cloudmesh.util.util"><tt class="docutils literal"><span class="pre">util</span></tt> Module</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"><ul>
+<li><a class="reference internal" href="#">old_inventory Package</a><ul>
+<li><a class="reference internal" href="#id1"><tt class="docutils literal"><span class="pre">old_inventory</span></tt> Package</a></li>
+<li><a class="reference internal" href="#module-cloudmesh.old_inventory.heatmap"><tt class="docutils literal"><span class="pre">heatmap</span></tt> Module</a></li>
+<li><a class="reference internal" href="#inventory-module"><tt class="docutils literal"><span class="pre">inventory</span></tt> Module</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+              
+            
+            
+              <li>
+  <a href="../_sources/modules/cloudmesh.old_inventory.txt"
+     rel="nofollow">Source</a></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-search pull-right" action="../search.html" method="get">
+  <input type="text" name="q" class="search-query" placeholder="Search" />
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="span12">
+      
+  <div class="section" id="old-inventory-package">
+<h1>old_inventory Package<a class="headerlink" href="#old-inventory-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id1">
+<h2><tt class="xref py py-mod docutils literal"><span class="pre">old_inventory</span></tt> Package<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="module-cloudmesh.old_inventory"></span></div>
+<div class="section" id="module-cloudmesh.old_inventory.heatmap">
+<span id="heatmap-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">heatmap</span></tt> Module<a class="headerlink" href="#module-cloudmesh.old_inventory.heatmap" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="cloudmesh.old_inventory.heatmap.MyTempMap">
+<em class="property">class </em><tt class="descclassname">cloudmesh.old_inventory.heatmap.</tt><tt class="descname">MyTempMap</tt><big>(</big><em>filename</em>, <em>type</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/old_inventory/heatmap.html#MyTempMap"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.old_inventory.heatmap.MyTempMap" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="cloudmesh.old_inventory.heatmap.MyTempMap.addRackListServer">
+<tt class="descname">addRackListServer</tt><big>(</big><em>rackIndex</em>, <em>numIndex</em>, <em>sname</em>, <em>scolor</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/old_inventory/heatmap.html#MyTempMap.addRackListServer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.old_inventory.heatmap.MyTempMap.addRackListServer" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.old_inventory.heatmap.MyTempMap.addRackServer">
+<tt class="descname">addRackServer</tt><big>(</big><em>numIndex</em>, <em>sname</em>, <em>scolor</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/old_inventory/heatmap.html#MyTempMap.addRackServer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.old_inventory.heatmap.MyTempMap.addRackServer" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.old_inventory.heatmap.MyTempMap.append_server_color">
+<tt class="descname">append_server_color</tt><big>(</big><em>scode</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/old_inventory/heatmap.html#MyTempMap.append_server_color"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.old_inventory.heatmap.MyTempMap.append_server_color" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cloudmesh.old_inventory.heatmap.MyTempMap.arr_servers">
+<tt class="descname">arr_servers</tt><em class="property"> = []</em><a class="headerlink" href="#cloudmesh.old_inventory.heatmap.MyTempMap.arr_servers" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.old_inventory.heatmap.MyTempMap.convertNumToRGB">
+<tt class="descname">convertNumToRGB</tt><big>(</big><em>value</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/old_inventory/heatmap.html#MyTempMap.convertNumToRGB"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.old_inventory.heatmap.MyTempMap.convertNumToRGB" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.old_inventory.heatmap.MyTempMap.convertNumToRGB_2">
+<tt class="descname">convertNumToRGB_2</tt><big>(</big><em>value</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/old_inventory/heatmap.html#MyTempMap.convertNumToRGB_2"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.old_inventory.heatmap.MyTempMap.convertNumToRGB_2" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cloudmesh.old_inventory.heatmap.MyTempMap.diag_content">
+<tt class="descname">diag_content</tt><em class="property"> = ''</em><a class="headerlink" href="#cloudmesh.old_inventory.heatmap.MyTempMap.diag_content" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cloudmesh.old_inventory.heatmap.MyTempMap.diag_filename">
+<tt class="descname">diag_filename</tt><em class="property"> = ''</em><a class="headerlink" href="#cloudmesh.old_inventory.heatmap.MyTempMap.diag_filename" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cloudmesh.old_inventory.heatmap.MyTempMap.diag_temp_filename">
+<tt class="descname">diag_temp_filename</tt><em class="property"> = ''</em><a class="headerlink" href="#cloudmesh.old_inventory.heatmap.MyTempMap.diag_temp_filename" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cloudmesh.old_inventory.heatmap.MyTempMap.dict_colors">
+<tt class="descname">dict_colors</tt><em class="property"> = {}</em><a class="headerlink" href="#cloudmesh.old_inventory.heatmap.MyTempMap.dict_colors" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.old_inventory.heatmap.MyTempMap.gen_rack_image">
+<tt class="descname">gen_rack_image</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/cloudmesh/old_inventory/heatmap.html#MyTempMap.gen_rack_image"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.old_inventory.heatmap.MyTempMap.gen_rack_image" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.old_inventory.heatmap.MyTempMap.gen_random_temperature">
+<tt class="descname">gen_random_temperature</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/cloudmesh/old_inventory/heatmap.html#MyTempMap.gen_random_temperature"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.old_inventory.heatmap.MyTempMap.gen_random_temperature" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.old_inventory.heatmap.MyTempMap.get_random">
+<tt class="descname">get_random</tt><big>(</big><em>bResetSeed=True</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/old_inventory/heatmap.html#MyTempMap.get_random"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.old_inventory.heatmap.MyTempMap.get_random" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cloudmesh.old_inventory.heatmap.MyTempMap.image_filename">
+<tt class="descname">image_filename</tt><em class="property"> = ''</em><a class="headerlink" href="#cloudmesh.old_inventory.heatmap.MyTempMap.image_filename" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cloudmesh.old_inventory.heatmap.MyTempMap.image_type">
+<tt class="descname">image_type</tt><em class="property"> = 'svg'</em><a class="headerlink" href="#cloudmesh.old_inventory.heatmap.MyTempMap.image_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cloudmesh.old_inventory.heatmap.MyTempMap.patt_desc">
+<tt class="descname">patt_desc</tt><em class="property"> = &lt;_sre.SRE_Pattern object at 0x104471d50&gt;</em><a class="headerlink" href="#cloudmesh.old_inventory.heatmap.MyTempMap.patt_desc" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cloudmesh.old_inventory.heatmap.MyTempMap.patt_rack">
+<tt class="descname">patt_rack</tt><em class="property"> = &lt;_sre.SRE_Pattern object at 0x10446d810&gt;</em><a class="headerlink" href="#cloudmesh.old_inventory.heatmap.MyTempMap.patt_rack" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cloudmesh.old_inventory.heatmap.MyTempMap.patt_racklist">
+<tt class="descname">patt_racklist</tt><em class="property"> = &lt;_sre.SRE_Pattern object at 0x105715c10&gt;</em><a class="headerlink" href="#cloudmesh.old_inventory.heatmap.MyTempMap.patt_racklist" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cloudmesh.old_inventory.heatmap.MyTempMap.patt_server_normal">
+<tt class="descname">patt_server_normal</tt><em class="property"> = &lt;_sre.SRE_Pattern object at 0x7f9f12e657c0&gt;</em><a class="headerlink" href="#cloudmesh.old_inventory.heatmap.MyTempMap.patt_server_normal" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cloudmesh.old_inventory.heatmap.MyTempMap.patt_server_render">
+<tt class="descname">patt_server_render</tt><em class="property"> = &lt;_sre.SRE_Pattern object at 0x7f9f12e59f80&gt;</em><a class="headerlink" href="#cloudmesh.old_inventory.heatmap.MyTempMap.patt_server_render" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cloudmesh.old_inventory.heatmap.MyTempMap.patt_total_u">
+<tt class="descname">patt_total_u</tt><em class="property"> = &lt;_sre.SRE_Pattern object at 0x104492a30&gt;</em><a class="headerlink" href="#cloudmesh.old_inventory.heatmap.MyTempMap.patt_total_u" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.old_inventory.heatmap.MyTempMap.plot_rackdiag">
+<tt class="descname">plot_rackdiag</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/cloudmesh/old_inventory/heatmap.html#MyTempMap.plot_rackdiag"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.old_inventory.heatmap.MyTempMap.plot_rackdiag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.old_inventory.heatmap.MyTempMap.readDiagInfo">
+<tt class="descname">readDiagInfo</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/cloudmesh/old_inventory/heatmap.html#MyTempMap.readDiagInfo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.old_inventory.heatmap.MyTempMap.readDiagInfo" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.old_inventory.heatmap.MyTempMap.set_image_format">
+<tt class="descname">set_image_format</tt><big>(</big><em>type</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/old_inventory/heatmap.html#MyTempMap.set_image_format"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.old_inventory.heatmap.MyTempMap.set_image_format" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.old_inventory.heatmap.MyTempMap.set_server_temperature">
+<tt class="descname">set_server_temperature</tt><big>(</big><em>scode</em>, <em>stemp</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/old_inventory/heatmap.html#MyTempMap.set_server_temperature"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.old_inventory.heatmap.MyTempMap.set_server_temperature" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.old_inventory.heatmap.MyTempMap.update_server_color">
+<tt class="descname">update_server_color</tt><big>(</big><em>scode</em>, <em>scolor</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/old_inventory/heatmap.html#MyTempMap.update_server_color"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.old_inventory.heatmap.MyTempMap.update_server_color" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.old_inventory.heatmap.MyTempMap.writeTempDiagInfo">
+<tt class="descname">writeTempDiagInfo</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/cloudmesh/old_inventory/heatmap.html#MyTempMap.writeTempDiagInfo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.old_inventory.heatmap.MyTempMap.writeTempDiagInfo" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="inventory-module">
+<h2><tt class="xref py py-mod docutils literal"><span class="pre">inventory</span></tt> Module<a class="headerlink" href="#inventory-module" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="module-cloudmesh.old_inventory.inventory"></span><dl class="data">
+<dt id="cloudmesh.old_inventory.inventory.FABRIC_TYPES">
+<tt class="descclassname">cloudmesh.old_inventory.inventory.</tt><tt class="descname">FABRIC_TYPES</tt><em class="property"> = ['cluster', 'server', 'service', 'iamge']</em><a class="headerlink" href="#cloudmesh.old_inventory.inventory.FABRIC_TYPES" title="Permalink to this definition">¶</a></dt>
+<dd><p>The types a fabric server can have</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="cloudmesh.old_inventory.inventory.FabricCluster">
+<em class="property">class </em><tt class="descclassname">cloudmesh.old_inventory.inventory.</tt><tt class="descname">FabricCluster</tt><big>(</big><em>*args</em>, <em>**values</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/old_inventory/inventory.html#FabricCluster"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.old_inventory.inventory.FabricCluster" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#cloudmesh.old_inventory.inventory.FabricObject" title="cloudmesh.old_inventory.inventory.FabricObject"><tt class="xref py py-class docutils literal"><span class="pre">cloudmesh.old_inventory.inventory.FabricObject</span></tt></a></p>
+<p>an object to hold fabric clusters and their meta data</p>
+<dl class="exception">
+<dt id="cloudmesh.old_inventory.inventory.FabricCluster.DoesNotExist">
+<em class="property">exception </em><tt class="descname">DoesNotExist</tt><a class="headerlink" href="#cloudmesh.old_inventory.inventory.FabricCluster.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">cloudmesh.old_inventory.inventory.DoesNotExist</span></tt></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="cloudmesh.old_inventory.inventory.FabricCluster.MultipleObjectsReturned">
+<em class="property">exception </em><tt class="descclassname">FabricCluster.</tt><tt class="descname">MultipleObjectsReturned</tt><a class="headerlink" href="#cloudmesh.old_inventory.inventory.FabricCluster.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">cloudmesh.old_inventory.inventory.MultipleObjectsReturned</span></tt></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cloudmesh.old_inventory.inventory.FabricCluster.definition">
+<tt class="descclassname">FabricCluster.</tt><tt class="descname">definition</tt><a class="headerlink" href="#cloudmesh.old_inventory.inventory.FabricCluster.definition" title="Permalink to this definition">¶</a></dt>
+<dd><p>A unicode string field.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cloudmesh.old_inventory.inventory.FabricCluster.images">
+<tt class="descclassname">FabricCluster.</tt><tt class="descname">images</tt><a class="headerlink" href="#cloudmesh.old_inventory.inventory.FabricCluster.images" title="Permalink to this definition">¶</a></dt>
+<dd><p>A list field that wraps a standard field, allowing multiple instances
+of the field to be used as a list in the database.</p>
+<p>If using with ReferenceFields see: <em class="xref std std-ref">one-to-many-with-listfields</em></p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Required means it cannot be empty - as the default for ListFields is []</p>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cloudmesh.old_inventory.inventory.FabricCluster.kind">
+<tt class="descclassname">FabricCluster.</tt><tt class="descname">kind</tt><a class="headerlink" href="#cloudmesh.old_inventory.inventory.FabricCluster.kind" title="Permalink to this definition">¶</a></dt>
+<dd><p>A unicode string field.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cloudmesh.old_inventory.inventory.FabricCluster.provision_choices">
+<tt class="descclassname">FabricCluster.</tt><tt class="descname">provision_choices</tt><a class="headerlink" href="#cloudmesh.old_inventory.inventory.FabricCluster.provision_choices" title="Permalink to this definition">¶</a></dt>
+<dd><p>A list field that wraps a standard field, allowing multiple instances
+of the field to be used as a list in the database.</p>
+<p>If using with ReferenceFields see: <em class="xref std std-ref">one-to-many-with-listfields</em></p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Required means it cannot be empty - as the default for ListFields is []</p>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cloudmesh.old_inventory.inventory.FabricCluster.servers">
+<tt class="descclassname">FabricCluster.</tt><tt class="descname">servers</tt><a class="headerlink" href="#cloudmesh.old_inventory.inventory.FabricCluster.servers" title="Permalink to this definition">¶</a></dt>
+<dd><p>A list field that wraps a standard field, allowing multiple instances
+of the field to be used as a list in the database.</p>
+<p>If using with ReferenceFields see: <em class="xref std std-ref">one-to-many-with-listfields</em></p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Required means it cannot be empty - as the default for ListFields is []</p>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="cloudmesh.old_inventory.inventory.FabricImage">
+<em class="property">class </em><tt class="descclassname">cloudmesh.old_inventory.inventory.</tt><tt class="descname">FabricImage</tt><big>(</big><em>*args</em>, <em>**values</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/old_inventory/inventory.html#FabricImage"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.old_inventory.inventory.FabricImage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#cloudmesh.old_inventory.inventory.FabricObject" title="cloudmesh.old_inventory.inventory.FabricObject"><tt class="xref py py-class docutils literal"><span class="pre">cloudmesh.old_inventory.inventory.FabricObject</span></tt></a></p>
+<p>an object to hold fabric images and their metadata for image provisioning</p>
+<dl class="exception">
+<dt id="cloudmesh.old_inventory.inventory.FabricImage.DoesNotExist">
+<em class="property">exception </em><tt class="descname">DoesNotExist</tt><a class="headerlink" href="#cloudmesh.old_inventory.inventory.FabricImage.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">cloudmesh.old_inventory.inventory.DoesNotExist</span></tt></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="cloudmesh.old_inventory.inventory.FabricImage.MultipleObjectsReturned">
+<em class="property">exception </em><tt class="descclassname">FabricImage.</tt><tt class="descname">MultipleObjectsReturned</tt><a class="headerlink" href="#cloudmesh.old_inventory.inventory.FabricImage.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">cloudmesh.old_inventory.inventory.MultipleObjectsReturned</span></tt></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cloudmesh.old_inventory.inventory.FabricImage.kind">
+<tt class="descclassname">FabricImage.</tt><tt class="descname">kind</tt><a class="headerlink" href="#cloudmesh.old_inventory.inventory.FabricImage.kind" title="Permalink to this definition">¶</a></dt>
+<dd><p>A unicode string field.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="cloudmesh.old_inventory.inventory.FabricObject">
+<em class="property">class </em><tt class="descclassname">cloudmesh.old_inventory.inventory.</tt><tt class="descname">FabricObject</tt><big>(</big><em>*args</em>, <em>**values</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/old_inventory/inventory.html#FabricObject"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.old_inventory.inventory.FabricObject" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">mongoengine.document.DynamicDocument</span></tt></p>
+<p>the base class that can be inherited to define a fabric object. this object
+shoul dnot be directly used, but only inherited from.</p>
+<dl class="exception">
+<dt id="cloudmesh.old_inventory.inventory.FabricObject.DoesNotExist">
+<em class="property">exception </em><tt class="descname">DoesNotExist</tt><a class="headerlink" href="#cloudmesh.old_inventory.inventory.FabricObject.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">mongoengine.errors.DoesNotExist</span></tt></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="cloudmesh.old_inventory.inventory.FabricObject.MultipleObjectsReturned">
+<em class="property">exception </em><tt class="descclassname">FabricObject.</tt><tt class="descname">MultipleObjectsReturned</tt><a class="headerlink" href="#cloudmesh.old_inventory.inventory.FabricObject.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">mongoengine.errors.MultipleObjectsReturned</span></tt></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cloudmesh.old_inventory.inventory.FabricObject.cluster">
+<tt class="descclassname">FabricObject.</tt><tt class="descname">cluster</tt><a class="headerlink" href="#cloudmesh.old_inventory.inventory.FabricObject.cluster" title="Permalink to this definition">¶</a></dt>
+<dd><p>A unicode string field.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cloudmesh.old_inventory.inventory.FabricObject.date_creation">
+<tt class="descclassname">FabricObject.</tt><tt class="descname">date_creation</tt><a class="headerlink" href="#cloudmesh.old_inventory.inventory.FabricObject.date_creation" title="Permalink to this definition">¶</a></dt>
+<dd><p>A datetime field.</p>
+<p>Uses the python-dateutil library if available alternatively use time.strptime
+to parse the dates.  Note: python-dateutil&#8217;s parser is fully featured and when
+installed you can utilise it to convert varing types of date formats into valid
+python datetime objects.</p>
+<dl class="docutils">
+<dt>Note: Microseconds are rounded to the nearest millisecond.</dt>
+<dd>Pre UTC microsecond support is effecively broken.
+Use <tt class="xref py py-class docutils literal"><span class="pre">ComplexDateTimeField</span></tt> if you
+need accurate microsecond support.</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cloudmesh.old_inventory.inventory.FabricObject.date_modified">
+<tt class="descclassname">FabricObject.</tt><tt class="descname">date_modified</tt><a class="headerlink" href="#cloudmesh.old_inventory.inventory.FabricObject.date_modified" title="Permalink to this definition">¶</a></dt>
+<dd><p>A datetime field.</p>
+<p>Uses the python-dateutil library if available alternatively use time.strptime
+to parse the dates.  Note: python-dateutil&#8217;s parser is fully featured and when
+installed you can utilise it to convert varing types of date formats into valid
+python datetime objects.</p>
+<dl class="docutils">
+<dt>Note: Microseconds are rounded to the nearest millisecond.</dt>
+<dd>Pre UTC microsecond support is effecively broken.
+Use <tt class="xref py py-class docutils literal"><span class="pre">ComplexDateTimeField</span></tt> if you
+need accurate microsecond support.</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cloudmesh.old_inventory.inventory.FabricObject.date_start">
+<tt class="descclassname">FabricObject.</tt><tt class="descname">date_start</tt><a class="headerlink" href="#cloudmesh.old_inventory.inventory.FabricObject.date_start" title="Permalink to this definition">¶</a></dt>
+<dd><p>A datetime field.</p>
+<p>Uses the python-dateutil library if available alternatively use time.strptime
+to parse the dates.  Note: python-dateutil&#8217;s parser is fully featured and when
+installed you can utilise it to convert varing types of date formats into valid
+python datetime objects.</p>
+<dl class="docutils">
+<dt>Note: Microseconds are rounded to the nearest millisecond.</dt>
+<dd>Pre UTC microsecond support is effecively broken.
+Use <tt class="xref py py-class docutils literal"><span class="pre">ComplexDateTimeField</span></tt> if you
+need accurate microsecond support.</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cloudmesh.old_inventory.inventory.FabricObject.date_stop">
+<tt class="descclassname">FabricObject.</tt><tt class="descname">date_stop</tt><a class="headerlink" href="#cloudmesh.old_inventory.inventory.FabricObject.date_stop" title="Permalink to this definition">¶</a></dt>
+<dd><p>A datetime field.</p>
+<p>Uses the python-dateutil library if available alternatively use time.strptime
+to parse the dates.  Note: python-dateutil&#8217;s parser is fully featured and when
+installed you can utilise it to convert varing types of date formats into valid
+python datetime objects.</p>
+<dl class="docutils">
+<dt>Note: Microseconds are rounded to the nearest millisecond.</dt>
+<dd>Pre UTC microsecond support is effecively broken.
+Use <tt class="xref py py-class docutils literal"><span class="pre">ComplexDateTimeField</span></tt> if you
+need accurate microsecond support.</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cloudmesh.old_inventory.inventory.FabricObject.date_update">
+<tt class="descclassname">FabricObject.</tt><tt class="descname">date_update</tt><a class="headerlink" href="#cloudmesh.old_inventory.inventory.FabricObject.date_update" title="Permalink to this definition">¶</a></dt>
+<dd><p>A datetime field.</p>
+<p>Uses the python-dateutil library if available alternatively use time.strptime
+to parse the dates.  Note: python-dateutil&#8217;s parser is fully featured and when
+installed you can utilise it to convert varing types of date formats into valid
+python datetime objects.</p>
+<dl class="docutils">
+<dt>Note: Microseconds are rounded to the nearest millisecond.</dt>
+<dd>Pre UTC microsecond support is effecively broken.
+Use <tt class="xref py py-class docutils literal"><span class="pre">ComplexDateTimeField</span></tt> if you
+need accurate microsecond support.</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cloudmesh.old_inventory.inventory.FabricObject.groups">
+<tt class="descclassname">FabricObject.</tt><tt class="descname">groups</tt><a class="headerlink" href="#cloudmesh.old_inventory.inventory.FabricObject.groups" title="Permalink to this definition">¶</a></dt>
+<dd><p>A list field that wraps a standard field, allowing multiple instances
+of the field to be used as a list in the database.</p>
+<p>If using with ReferenceFields see: <em class="xref std std-ref">one-to-many-with-listfields</em></p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Required means it cannot be empty - as the default for ListFields is []</p>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cloudmesh.old_inventory.inventory.FabricObject.id">
+<tt class="descclassname">FabricObject.</tt><tt class="descname">id</tt><a class="headerlink" href="#cloudmesh.old_inventory.inventory.FabricObject.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>A field wrapper around MongoDB&#8217;s ObjectIds.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cloudmesh.old_inventory.inventory.FabricObject.kind">
+<tt class="descclassname">FabricObject.</tt><tt class="descname">kind</tt><a class="headerlink" href="#cloudmesh.old_inventory.inventory.FabricObject.kind" title="Permalink to this definition">¶</a></dt>
+<dd><p>A unicode string field.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cloudmesh.old_inventory.inventory.FabricObject.labels">
+<tt class="descclassname">FabricObject.</tt><tt class="descname">labels</tt><a class="headerlink" href="#cloudmesh.old_inventory.inventory.FabricObject.labels" title="Permalink to this definition">¶</a></dt>
+<dd><p>A list field that wraps a standard field, allowing multiple instances
+of the field to be used as a list in the database.</p>
+<p>If using with ReferenceFields see: <em class="xref std std-ref">one-to-many-with-listfields</em></p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Required means it cannot be empty - as the default for ListFields is []</p>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cloudmesh.old_inventory.inventory.FabricObject.name">
+<tt class="descclassname">FabricObject.</tt><tt class="descname">name</tt><a class="headerlink" href="#cloudmesh.old_inventory.inventory.FabricObject.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>A unicode string field.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.old_inventory.inventory.FabricObject.save">
+<tt class="descclassname">FabricObject.</tt><tt class="descname">save</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/old_inventory/inventory.html#FabricObject.save"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.old_inventory.inventory.FabricObject.save" title="Permalink to this definition">¶</a></dt>
+<dd><p>saves the inventory objects</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.old_inventory.inventory.FabricObject.stamp">
+<tt class="descclassname">FabricObject.</tt><tt class="descname">stamp</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/cloudmesh/old_inventory/inventory.html#FabricObject.stamp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.old_inventory.inventory.FabricObject.stamp" title="Permalink to this definition">¶</a></dt>
+<dd><p>an internal method to provide a time stap for a global modification data
+in inventory. Calling of the inventory or any other save will create a
+new time stamp</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.old_inventory.inventory.FabricObject.start">
+<tt class="descclassname">FabricObject.</tt><tt class="descname">start</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/cloudmesh/old_inventory/inventory.html#FabricObject.start"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.old_inventory.inventory.FabricObject.start" title="Permalink to this definition">¶</a></dt>
+<dd><p>cecods the starting time</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cloudmesh.old_inventory.inventory.FabricObject.status">
+<tt class="descclassname">FabricObject.</tt><tt class="descname">status</tt><a class="headerlink" href="#cloudmesh.old_inventory.inventory.FabricObject.status" title="Permalink to this definition">¶</a></dt>
+<dd><p>A unicode string field.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.old_inventory.inventory.FabricObject.stop">
+<tt class="descclassname">FabricObject.</tt><tt class="descname">stop</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/cloudmesh/old_inventory/inventory.html#FabricObject.stop"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.old_inventory.inventory.FabricObject.stop" title="Permalink to this definition">¶</a></dt>
+<dd><p>records the stop time</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cloudmesh.old_inventory.inventory.FabricObject.tags">
+<tt class="descclassname">FabricObject.</tt><tt class="descname">tags</tt><a class="headerlink" href="#cloudmesh.old_inventory.inventory.FabricObject.tags" title="Permalink to this definition">¶</a></dt>
+<dd><p>A list field that wraps a standard field, allowing multiple instances
+of the field to be used as a list in the database.</p>
+<p>If using with ReferenceFields see: <em class="xref std std-ref">one-to-many-with-listfields</em></p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Required means it cannot be empty - as the default for ListFields is []</p>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cloudmesh.old_inventory.inventory.FabricObject.uptime">
+<tt class="descclassname">FabricObject.</tt><tt class="descname">uptime</tt><a class="headerlink" href="#cloudmesh.old_inventory.inventory.FabricObject.uptime" title="Permalink to this definition">¶</a></dt>
+<dd><p>An 64-bit integer field.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="cloudmesh.old_inventory.inventory.FabricServer">
+<em class="property">class </em><tt class="descclassname">cloudmesh.old_inventory.inventory.</tt><tt class="descname">FabricServer</tt><big>(</big><em>*args</em>, <em>**values</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/old_inventory/inventory.html#FabricServer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.old_inventory.inventory.FabricServer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#cloudmesh.old_inventory.inventory.FabricObject" title="cloudmesh.old_inventory.inventory.FabricObject"><tt class="xref py py-class docutils literal"><span class="pre">cloudmesh.old_inventory.inventory.FabricObject</span></tt></a></p>
+<p>an object to hold fabric servers and their meta data</p>
+<dl class="exception">
+<dt id="cloudmesh.old_inventory.inventory.FabricServer.DoesNotExist">
+<em class="property">exception </em><tt class="descname">DoesNotExist</tt><a class="headerlink" href="#cloudmesh.old_inventory.inventory.FabricServer.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">cloudmesh.old_inventory.inventory.DoesNotExist</span></tt></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="cloudmesh.old_inventory.inventory.FabricServer.MultipleObjectsReturned">
+<em class="property">exception </em><tt class="descclassname">FabricServer.</tt><tt class="descname">MultipleObjectsReturned</tt><a class="headerlink" href="#cloudmesh.old_inventory.inventory.FabricServer.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">cloudmesh.old_inventory.inventory.MultipleObjectsReturned</span></tt></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.old_inventory.inventory.FabricServer.append">
+<tt class="descclassname">FabricServer.</tt><tt class="descname">append</tt><big>(</big><em>service</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/old_inventory/inventory.html#FabricServer.append"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.old_inventory.inventory.FabricServer.append" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cloudmesh.old_inventory.inventory.FabricServer.ip">
+<tt class="descclassname">FabricServer.</tt><tt class="descname">ip</tt><a class="headerlink" href="#cloudmesh.old_inventory.inventory.FabricServer.ip" title="Permalink to this definition">¶</a></dt>
+<dd><p>A unicode string field.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cloudmesh.old_inventory.inventory.FabricServer.kind">
+<tt class="descclassname">FabricServer.</tt><tt class="descname">kind</tt><a class="headerlink" href="#cloudmesh.old_inventory.inventory.FabricServer.kind" title="Permalink to this definition">¶</a></dt>
+<dd><p>A unicode string field.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cloudmesh.old_inventory.inventory.FabricServer.load_users">
+<tt class="descclassname">FabricServer.</tt><tt class="descname">load_users</tt><a class="reference internal" href="../_modules/cloudmesh/old_inventory/inventory.html#FabricServer.load_users"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.old_inventory.inventory.FabricServer.load_users" title="Permalink to this definition">¶</a></dt>
+<dd><p>Simulated load on the server</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cloudmesh.old_inventory.inventory.FabricServer.load_vms">
+<tt class="descclassname">FabricServer.</tt><tt class="descname">load_vms</tt><a class="reference internal" href="../_modules/cloudmesh/old_inventory/inventory.html#FabricServer.load_vms"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.old_inventory.inventory.FabricServer.load_vms" title="Permalink to this definition">¶</a></dt>
+<dd><p>Simulated load on the server</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cloudmesh.old_inventory.inventory.FabricServer.provisioned">
+<tt class="descclassname">FabricServer.</tt><tt class="descname">provisioned</tt><a class="headerlink" href="#cloudmesh.old_inventory.inventory.FabricServer.provisioned" title="Permalink to this definition">¶</a></dt>
+<dd><p>A unicode string field.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cloudmesh.old_inventory.inventory.FabricServer.services">
+<tt class="descclassname">FabricServer.</tt><tt class="descname">services</tt><a class="headerlink" href="#cloudmesh.old_inventory.inventory.FabricServer.services" title="Permalink to this definition">¶</a></dt>
+<dd><p>A list field that wraps a standard field, allowing multiple instances
+of the field to be used as a list in the database.</p>
+<p>If using with ReferenceFields see: <em class="xref std std-ref">one-to-many-with-listfields</em></p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Required means it cannot be empty - as the default for ListFields is []</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.old_inventory.inventory.FabricServer.set">
+<tt class="descclassname">FabricServer.</tt><tt class="descname">set</tt><big>(</big><em>services</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/old_inventory/inventory.html#FabricServer.set"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.old_inventory.inventory.FabricServer.set" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="cloudmesh.old_inventory.inventory.FabricService">
+<em class="property">class </em><tt class="descclassname">cloudmesh.old_inventory.inventory.</tt><tt class="descname">FabricService</tt><big>(</big><em>*args</em>, <em>**values</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/old_inventory/inventory.html#FabricService"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.old_inventory.inventory.FabricService" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#cloudmesh.old_inventory.inventory.FabricObject" title="cloudmesh.old_inventory.inventory.FabricObject"><tt class="xref py py-class docutils literal"><span class="pre">cloudmesh.old_inventory.inventory.FabricObject</span></tt></a></p>
+<p>an object to hold fabric services and their meta data</p>
+<dl class="exception">
+<dt id="cloudmesh.old_inventory.inventory.FabricService.DoesNotExist">
+<em class="property">exception </em><tt class="descname">DoesNotExist</tt><a class="headerlink" href="#cloudmesh.old_inventory.inventory.FabricService.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">cloudmesh.old_inventory.inventory.DoesNotExist</span></tt></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="cloudmesh.old_inventory.inventory.FabricService.MultipleObjectsReturned">
+<em class="property">exception </em><tt class="descclassname">FabricService.</tt><tt class="descname">MultipleObjectsReturned</tt><a class="headerlink" href="#cloudmesh.old_inventory.inventory.FabricService.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">cloudmesh.old_inventory.inventory.MultipleObjectsReturned</span></tt></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cloudmesh.old_inventory.inventory.FabricService.kind">
+<tt class="descclassname">FabricService.</tt><tt class="descname">kind</tt><a class="headerlink" href="#cloudmesh.old_inventory.inventory.FabricService.kind" title="Permalink to this definition">¶</a></dt>
+<dd><p>A unicode string field.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cloudmesh.old_inventory.inventory.FabricService.utility">
+<tt class="descclassname">FabricService.</tt><tt class="descname">utility</tt><a class="headerlink" href="#cloudmesh.old_inventory.inventory.FabricService.utility" title="Permalink to this definition">¶</a></dt>
+<dd><p>A unicode string field.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="cloudmesh.old_inventory.inventory.Inventory">
+<em class="property">class </em><tt class="descclassname">cloudmesh.old_inventory.inventory.</tt><tt class="descname">Inventory</tt><big>(</big><em>filename=None</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/old_inventory/inventory.html#Inventory"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.old_inventory.inventory.Inventory" title="Permalink to this definition">¶</a></dt>
+<dd><p>holds a simple &lt;ory of a data center</p>
+<dl class="method">
+<dt id="cloudmesh.old_inventory.inventory.Inventory.clean">
+<tt class="descname">clean</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/cloudmesh/old_inventory/inventory.html#Inventory.clean"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.old_inventory.inventory.Inventory.clean" title="Permalink to this definition">¶</a></dt>
+<dd><p>cleans the database.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.old_inventory.inventory.Inventory.config">
+<tt class="descname">config</tt><big>(</big><em>filename=None</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/old_inventory/inventory.html#Inventory.config"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.old_inventory.inventory.Inventory.config" title="Permalink to this definition">¶</a></dt>
+<dd><p>reads from the specified yaml file the server configuration
+:param filename: name of the yaml file</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.old_inventory.inventory.Inventory.create">
+<tt class="descname">create</tt><big>(</big><em>kind</em>, <em>namespec</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/old_inventory/inventory.html#Inventory.create"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.old_inventory.inventory.Inventory.create" title="Permalink to this definition">¶</a></dt>
+<dd><p>creates fabric objects of the specified kind and matching the name specification
+:param kind: the kind . see FABRIC_TYPES
+:param namespec: the specifacation for a name list. &#8216;i[001-003]&#8217;. creates the objects with names i001, i002, i003</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.old_inventory.inventory.Inventory.create_cluster">
+<tt class="descname">create_cluster</tt><big>(</big><em>name</em>, <em>names</em>, <em>ips</em>, <em>management</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/old_inventory/inventory.html#Inventory.create_cluster"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.old_inventory.inventory.Inventory.create_cluster" title="Permalink to this definition">¶</a></dt>
+<dd><p>creates a cluster with the given name specification ip specifications, and the identification of management node.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>name</strong> &#8211; name of the cluster</li>
+<li><strong>names</strong> &#8211; the names of the cluster servers. &#8216;i[001-003]&#8217;. creates the objects with names i001, i002, i003</li>
+<li><strong>ips</strong> &#8211; the names of the ips for the servers. &#8216;i[001-003].futuregrid.org&#8217; creates the ips for the previously defined names</li>
+<li><strong>management</strong> &#8211; the names of the management nodes. &#8216;i[001-002]&#8217; sets the nodes i001 and i002 to management nodes. The rest will be set to compute nodes automatically.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.old_inventory.inventory.Inventory.get">
+<tt class="descname">get</tt><big>(</big><em>kind</em>, <em>name=None</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/old_inventory/inventory.html#Inventory.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.old_inventory.inventory.Inventory.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the object with the specified kind and name</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>kind</strong> &#8211; the kind . see FABRIC_TYPES</li>
+<li><strong>name</strong> &#8211; the name of the object</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.old_inventory.inventory.Inventory.names">
+<tt class="descname">names</tt><big>(</big><em>kind</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/old_inventory/inventory.html#Inventory.names"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.old_inventory.inventory.Inventory.names" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the names of object with the specified kind and name</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.old_inventory.inventory.Inventory.print_cluster">
+<tt class="descname">print_cluster</tt><big>(</big><em>name</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/old_inventory/inventory.html#Inventory.print_cluster"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.old_inventory.inventory.Inventory.print_cluster" title="Permalink to this definition">¶</a></dt>
+<dd><p>print some elementary, but not all information of the cluster.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> &#8211; name of the cluster</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.old_inventory.inventory.Inventory.print_info">
+<tt class="descname">print_info</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/cloudmesh/old_inventory/inventory.html#Inventory.print_info"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.old_inventory.inventory.Inventory.print_info" title="Permalink to this definition">¶</a></dt>
+<dd><p>print some elementary overview information</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.old_inventory.inventory.Inventory.print_kind">
+<tt class="descname">print_kind</tt><big>(</big><em>kind</em>, <em>name=None</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/old_inventory/inventory.html#Inventory.print_kind"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.old_inventory.inventory.Inventory.print_kind" title="Permalink to this definition">¶</a></dt>
+<dd><p>prints the attributes contained in the object with the given type.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>kind</strong> &#8211; the kind of the fabric object</li>
+<li><strong>name</strong> &#8211; the name of the fabric object</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.old_inventory.inventory.Inventory.refresh">
+<tt class="descname">refresh</tt><big>(</big><em>kind=None</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/old_inventory/inventory.html#Inventory.refresh"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.old_inventory.inventory.Inventory.refresh" title="Permalink to this definition">¶</a></dt>
+<dd><p>the inventory object contains a number of lists to conveniently access all fabric objects by kind. After refresh you can access them through</p>
+<blockquote>
+<div><p>inventory = Inventory()
+inventory.refresh()</p>
+<p>inventory.servers
+inventory.services
+inventory.clusters
+inventory.images</p>
+</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>kind</strong> &#8211; </td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.old_inventory.inventory.Inventory.set">
+<tt class="descname">set</tt><big>(</big><em>elements</em>, <em>attribute</em>, <em>value</em>, <em>namespec=None</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/old_inventory/inventory.html#Inventory.set"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.old_inventory.inventory.Inventory.set" title="Permalink to this definition">¶</a></dt>
+<dd><p>sets an attribute of one or multiple matching objects defined by namespec to value.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>elements</strong> &#8211; a list of fabric objects</li>
+<li><strong>attribute</strong> &#8211; the attribute to be changed</li>
+<li><strong>value</strong> &#8211; the value to set the attribute to</li>
+<li><strong>namespec</strong> &#8211; the matching condition for the name of the object. &#8216;i[001-003]&#8217;. matches the objects with names i001, i002, i003</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.old_inventory.inventory.Inventory.stamp">
+<tt class="descname">stamp</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/cloudmesh/old_inventory/inventory.html#Inventory.stamp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.old_inventory.inventory.Inventory.stamp" title="Permalink to this definition">¶</a></dt>
+<dd><p>an internal method to provide a time stap for a global modification data
+in inventory. Calling of the inventory or any other save will create a
+new time stamp</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="data">
+<dt id="cloudmesh.old_inventory.inventory.PROVISIONING_CHOICES">
+<tt class="descclassname">cloudmesh.old_inventory.inventory.</tt><tt class="descname">PROVISIONING_CHOICES</tt><em class="property"> = ['openstack', 'eucalyptus', 'hpc']</em><a class="headerlink" href="#cloudmesh.old_inventory.inventory.PROVISIONING_CHOICES" title="Permalink to this definition">¶</a></dt>
+<dd><p>the provisioning choices for a fabric server</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="cloudmesh.old_inventory.inventory.SERVER_CHOICES">
+<tt class="descclassname">cloudmesh.old_inventory.inventory.</tt><tt class="descname">SERVER_CHOICES</tt><em class="property"> = ('dynamic', 'static')</em><a class="headerlink" href="#cloudmesh.old_inventory.inventory.SERVER_CHOICES" title="Permalink to this definition">¶</a></dt>
+<dd><p>the server choices we have</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="cloudmesh.old_inventory.inventory.SERVICE_CHOICES">
+<tt class="descclassname">cloudmesh.old_inventory.inventory.</tt><tt class="descname">SERVICE_CHOICES</tt><em class="property"> = ('ganglia', 'nagios')</em><a class="headerlink" href="#cloudmesh.old_inventory.inventory.SERVICE_CHOICES" title="Permalink to this definition">¶</a></dt>
+<dd><p>the service choices for a service</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="cloudmesh.old_inventory.inventory.main">
+<tt class="descclassname">cloudmesh.old_inventory.inventory.</tt><tt class="descname">main</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/cloudmesh/old_inventory/inventory.html#main"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.old_inventory.inventory.main" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2013, Gregor von Laszewski for  FutureGrid.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

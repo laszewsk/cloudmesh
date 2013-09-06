@@ -1,0 +1,878 @@
+
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>cloudmesh.old_inventory.heatmap &mdash; Cloudmesh 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/bootstrap-2.3.2/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/bootstrap-2.3.2/css/bootstrap-responsive.min.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../../../_static/js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="../../../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../../../_static/bootstrap-2.3.2/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../../_static/bootstrap-sphinx.js"></script>
+    <link rel="author" title="About these documents" href="../../../about.html" />
+    <link rel="top" title="Cloudmesh 0.1 documentation" href="../../../index.html" />
+    <link rel="up" title="Module code" href="../../index.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body>
+
+  <div id="navbar" class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+
+        <a class="brand" href="../../../index.html">Cloudmesh</a>
+        <span class="navbar-text pull-left"><b>0.1</b></span>
+
+        <div class="nav-collapse">
+          <ul class="nav">
+            <li class="divider-vertical"></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a href="../../../index.html"
+     class="dropdown-toggle"
+     data-toggle="dropdown">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+    ><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../about.html">1&nbsp;&nbsp;&nbsp;Documentation Management</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../about.html#installation-requirements-for-the-documentation-generation">1.1&nbsp;&nbsp;&nbsp;Installation Requirements for the Documentation Generation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../about.html#document-generation">1.2&nbsp;&nbsp;&nbsp;Document Generation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../about.html#publishing-the-documentation">1.3&nbsp;&nbsp;&nbsp;Publishing the Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tasks.html">2&nbsp;&nbsp;&nbsp;Issue Management</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../tasks.html#labels">2.1&nbsp;&nbsp;&nbsp;Labels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tasks.html#priority">2.2&nbsp;&nbsp;&nbsp;Priority</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tasks.html#inactivity">2.3&nbsp;&nbsp;&nbsp;Inactivity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tasks.html#shortcuts">2.4&nbsp;&nbsp;&nbsp;Shortcuts</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer.html">3&nbsp;&nbsp;&nbsp;Usage Quickstart for a Deployed Version of cloudmesh</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../developer.html#with-access-to-ldap">3.1&nbsp;&nbsp;&nbsp;With access to LDAP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developer.html#without-access-to-ldap">3.2&nbsp;&nbsp;&nbsp;Without access to LDAP</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer.html#installation">4&nbsp;&nbsp;&nbsp;Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../developer.html#pip">4.1&nbsp;&nbsp;&nbsp;Pip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developer.html#virtualenv">4.2&nbsp;&nbsp;&nbsp;Virtualenv</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../developer.html#install-virtualenv">4.2.1&nbsp;&nbsp;&nbsp;Install virtualenv</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../developer.html#activate-virtualenv">4.2.2&nbsp;&nbsp;&nbsp;Activate virtualenv</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../developer.html#modify-your-rc-file-optional">4.2.3&nbsp;&nbsp;&nbsp;Modify your rc file (optional):</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developer.html#install-fabric">4.3&nbsp;&nbsp;&nbsp;Install fabric</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developer.html#github">4.4&nbsp;&nbsp;&nbsp;Github</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../developer.html#github-ssh-keys">4.4.1&nbsp;&nbsp;&nbsp;GIthub ssh keys</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../developer.html#git-username-and-e-mail">4.4.2&nbsp;&nbsp;&nbsp;Git username and e-mail</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developer.html#quick-deployment">4.5&nbsp;&nbsp;&nbsp;Quick deployment</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../developer.html#aptana-studio">4.5.1&nbsp;&nbsp;&nbsp;Aptana Studio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../developer.html#requirements">4.5.2&nbsp;&nbsp;&nbsp;Requirements</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developer.html#additional-installation-for-documentation-generation">4.6&nbsp;&nbsp;&nbsp;Additional Installation for Documentation Generation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../developer.html#blockdiag-family">4.6.1&nbsp;&nbsp;&nbsp;Blockdiag family</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../developer.html#yaml-files">4.6.2&nbsp;&nbsp;&nbsp;YAML files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../developer.html#mongo">4.6.3&nbsp;&nbsp;&nbsp;Mongo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../developer.html#starting-and-testing-the-queue-service">4.6.4&nbsp;&nbsp;&nbsp;Starting and testing the Queue Service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../developer.html#starting-the-web-service">4.6.5&nbsp;&nbsp;&nbsp;Starting the Web Service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../developer.html#the-t-py-program">4.6.6&nbsp;&nbsp;&nbsp;The t.py program</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../developer.html#developer-tests">4.6.7&nbsp;&nbsp;&nbsp;Developer Tests</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developer.html#cleaning">4.7&nbsp;&nbsp;&nbsp;Cleaning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developer.html#convenient-command-shortcuts">4.8&nbsp;&nbsp;&nbsp;Convenient command shortcuts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developer.html#working-with-cloudmesh-on-a-remote-server">4.9&nbsp;&nbsp;&nbsp;Working with Cloudmesh on a remote server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developer.html#special-notes-for-centos">4.10&nbsp;&nbsp;&nbsp;Special notes for CentOS</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../developer.html#install-python">4.10.1&nbsp;&nbsp;&nbsp;Install Python</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../developer.html#starting-the-rabbitmq-service">4.10.2&nbsp;&nbsp;&nbsp;Starting the  RabbitMQ service</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developer.html#making-the-documentation">4.11&nbsp;&nbsp;&nbsp;Making the documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../developer.html#example-start-the-gui-for-development">4.11.1&nbsp;&nbsp;&nbsp;Example: Start the GUI for development</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../nosetest.html">4&nbsp;&nbsp;&nbsp;Nosetests</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../nosetest.html#install">4.1&nbsp;&nbsp;&nbsp;Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../nosetest.html#run">4.2&nbsp;&nbsp;&nbsp;Run</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../nosetest.html#system">4.3&nbsp;&nbsp;&nbsp;System</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../cm-shell.html">5&nbsp;&nbsp;&nbsp;Cloud Mesh</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cm-shell.html#commands">6&nbsp;&nbsp;&nbsp;Commands</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../plan/plan.html">7&nbsp;&nbsp;&nbsp;Plan: Cloudmesh Service Shift</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../plan/plan.html#project-objectives">7.1&nbsp;&nbsp;&nbsp;Project Objectives</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../plan/plan.html#development-objectives">7.1.1&nbsp;&nbsp;&nbsp;Development Objectives</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plan/plan.html#production-objectives">7.1.2&nbsp;&nbsp;&nbsp;Production Objectives</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plan/plan.html#project-deliverables">7.2&nbsp;&nbsp;&nbsp;Project Deliverables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plan/plan.html#evolution-of-the-project">7.3&nbsp;&nbsp;&nbsp;Evolution of the Project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plan/plan.html#refernce-materials">7.4&nbsp;&nbsp;&nbsp;Refernce Materials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plan/plan.html#definitions-and-acronyms">7.5&nbsp;&nbsp;&nbsp;Definitions and Acronyms</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../plan/design.html">3&nbsp;&nbsp;&nbsp;Design: Blueprint</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../plan/design.html#features">3.1&nbsp;&nbsp;&nbsp;Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plan/design.html#difference-to-other-efforts">3.2&nbsp;&nbsp;&nbsp;Difference to other efforts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plan/design.html#component-view">3.3&nbsp;&nbsp;&nbsp;Component View</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plan/design.html#component-user-management">3.4&nbsp;&nbsp;&nbsp;Component User Management</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../plan/design.html#user-management">3.4.1&nbsp;&nbsp;&nbsp;User Management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plan/design.html#accounting-will-not-be-worked-on-much">3.4.2&nbsp;&nbsp;&nbsp;Accounting (Will not be worked on much)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plan/design.html#component-resource-management-includes-cloudshifting-as-part-of-reservation">3.5&nbsp;&nbsp;&nbsp;Component Resource Management (includes cloudshifting as part of reservation)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plan/design.html#resource-management">3.6&nbsp;&nbsp;&nbsp;Resource Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plan/design.html#scheduler">3.7&nbsp;&nbsp;&nbsp;Scheduler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plan/design.html#interfaces">3.8&nbsp;&nbsp;&nbsp;Interfaces</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules/modules.html">Modules and Classes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../modules/cloudmesh.html">cloudmesh Package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/cloudmesh.html#id1"><tt class="docutils literal"><span class="pre">cloudmesh</span></tt> Package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/cloudmesh.html#cloudmesh-module"><tt class="docutils literal"><span class="pre">cloudmesh</span></tt> Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/cloudmesh.html#cm-mongodb-module"><tt class="docutils literal"><span class="pre">cm_mongodb</span></tt> Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/cloudmesh.html#gitinfo-module"><tt class="docutils literal"><span class="pre">gitinfo</span></tt> Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/cloudmesh.html#mongodb-module"><tt class="docutils literal"><span class="pre">mongodb</span></tt> Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/cloudmesh.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/cloudmesh.accounting.html">accounting Package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.accounting.html#module-cloudmesh.accounting.AccountBaseClass"><tt class="docutils literal"><span class="pre">AccountBaseClass</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.accounting.html#goldaccounting-module"><tt class="docutils literal"><span class="pre">GoldAccounting</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.accounting.html#metrics-module"><tt class="docutils literal"><span class="pre">metrics</span></tt> Module</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/cloudmesh.config.html">config Package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#id1"><tt class="docutils literal"><span class="pre">config</span></tt> Package</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#module-cloudmesh.config.cloudmesh_cloud"><tt class="docutils literal"><span class="pre">cloudmesh_cloud</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#module-cloudmesh.config.cloudmesh_cloud_handler"><tt class="docutils literal"><span class="pre">cloudmesh_cloud_handler</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#module-cloudmesh.config.cm_config"><tt class="docutils literal"><span class="pre">cm_config</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#module-cloudmesh.config.cm_keys"><tt class="docutils literal"><span class="pre">cm_keys</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#module-cloudmesh.config.cm_projects"><tt class="docutils literal"><span class="pre">cm_projects</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#module-cloudmesh.config.cm_rc"><tt class="docutils literal"><span class="pre">cm_rc</span></tt> Module</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="../../../modules/cloudmesh.config.html#cm-manage-config">cm-manage config</a></li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#module-cloudmesh.config.ldap_user"><tt class="docutils literal"><span class="pre">ldap_user</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#module-cloudmesh.config.mock_cloud"><tt class="docutils literal"><span class="pre">mock_cloud</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#module-cloudmesh.config.mock_keystone"><tt class="docutils literal"><span class="pre">mock_keystone</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#module-cloudmesh.config.mock_user"><tt class="docutils literal"><span class="pre">mock_user</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#module-cloudmesh.config.openstack_essex_cloud"><tt class="docutils literal"><span class="pre">openstack_essex_cloud</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#module-cloudmesh.config.openstack_grizzly_cloud"><tt class="docutils literal"><span class="pre">openstack_grizzly_cloud</span></tt> Module</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/cloudmesh.iaas.html">iaas Package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.iaas.html#id1"><tt class="docutils literal"><span class="pre">iaas</span></tt> Package</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.iaas.html#module-cloudmesh.iaas.ComputeBaseType"><tt class="docutils literal"><span class="pre">ComputeBaseType</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.iaas.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="../../../modules/cloudmesh.iaas.azure.html">azure Package</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="../../../modules/cloudmesh.iaas.azure.html#id1"><tt class="docutils literal"><span class="pre">azure</span></tt> Package</a></li>
+<li class="toctree-l7"><a class="reference internal" href="../../../modules/cloudmesh.iaas.azure.html#module-cloudmesh.iaas.azure.cm_azure"><tt class="docutils literal"><span class="pre">cm_azure</span></tt> Module</a></li>
+<li class="toctree-l7"><a class="reference internal" href="../../../modules/cloudmesh.iaas.azure.html#fabfile-module"><tt class="docutils literal"><span class="pre">fabfile</span></tt> Module</a></li>
+</ul>
+</li>
+<li class="toctree-l6"><a class="reference internal" href="../../../modules/cloudmesh.iaas.eucalyptus.html">eucalyptus Package</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="../../../modules/cloudmesh.iaas.eucalyptus.html#module-cloudmesh.iaas.eucalyptus.eucalyptus"><tt class="docutils literal"><span class="pre">eucalyptus</span></tt> Module</a></li>
+<li class="toctree-l7"><a class="reference internal" href="../../../modules/cloudmesh.iaas.eucalyptus.html#eucalyptus-libcloud-module"><tt class="docutils literal"><span class="pre">eucalyptus_libcloud</span></tt> Module</a></li>
+<li class="toctree-l7"><a class="reference internal" href="../../../modules/cloudmesh.iaas.eucalyptus.html#eucalyptus-new-module"><tt class="docutils literal"><span class="pre">eucalyptus_new</span></tt> Module</a></li>
+</ul>
+</li>
+<li class="toctree-l6"><a class="reference internal" href="../../../modules/cloudmesh.iaas.openstack.html">openstack Package</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="../../../modules/cloudmesh.iaas.openstack.html#id1"><tt class="docutils literal"><span class="pre">openstack</span></tt> Package</a></li>
+<li class="toctree-l7"><a class="reference internal" href="../../../modules/cloudmesh.iaas.openstack.html#module-cloudmesh.iaas.openstack.cm_compute"><tt class="docutils literal"><span class="pre">cm_compute</span></tt> Module</a></li>
+<li class="toctree-l7"><a class="reference internal" href="../../../modules/cloudmesh.iaas.openstack.html#cm-table-module"><tt class="docutils literal"><span class="pre">cm_table</span></tt> Module</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/cloudmesh.inventory.html">inventory Package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.inventory.html#id1"><tt class="docutils literal"><span class="pre">inventory</span></tt> Package</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.inventory.html#resources-module"><tt class="docutils literal"><span class="pre">resources</span></tt> Module</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/cloudmesh.provisioner.html">provisioner Package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.provisioner.html#id1"><tt class="docutils literal"><span class="pre">provisioner</span></tt> Package</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.provisioner.html#module-cloudmesh.provisioner.provisioner"><tt class="docutils literal"><span class="pre">provisioner</span></tt> Module</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/cloudmesh.shell.html">shell Package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.shell.html#module-cloudmesh.shell.cm_shell"><tt class="docutils literal"><span class="pre">cm_shell</span></tt> Module</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="../../../modules/cloudmesh.shell.html#cm-config">cm config</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/cloudmesh.util.html">util Package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.util.html#id1"><tt class="docutils literal"><span class="pre">util</span></tt> Package</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.util.html#module-cloudmesh.util.logger"><tt class="docutils literal"><span class="pre">logger</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.util.html#module-cloudmesh.util.util"><tt class="docutils literal"><span class="pre">util</span></tt> Module</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"></ul>
+</li>
+              
+            
+            
+              
+                
+              
+            
+            
+              <li></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-search pull-right" action="../../../search.html" method="get">
+  <input type="text" name="q" class="search-query" placeholder="Search" />
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="span12">
+      
+  <h1>Source code for cloudmesh.old_inventory.heatmap</h1><div class="highlight"><pre>
+<span class="kn">from</span> <span class="nn">jinja2</span> <span class="kn">import</span> <span class="n">Template</span>
+<span class="kn">from</span> <span class="nn">sh</span> <span class="kn">import</span> <span class="n">rackdiag</span>
+<span class="kn">from</span> <span class="nn">hostlist</span> <span class="kn">import</span> <span class="n">expand_hostlist</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">path</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">re</span>
+
+
+<div class="viewcode-block" id="MyTempMap"><a class="viewcode-back" href="../../../modules/cloudmesh.old_inventory.html#cloudmesh.old_inventory.heatmap.MyTempMap">[docs]</a><span class="k">class</span> <span class="nc">MyTempMap</span><span class="p">:</span>
+
+
+    <span class="c">#</span>
+    <span class="c"># Filename of server.diag</span>
+    <span class="c">#</span>
+    <span class="n">diag_filename</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
+    
+    <span class="c">#</span>
+    <span class="c"># type of image</span>
+    <span class="c">#</span>
+    <span class="n">image_type</span> <span class="o">=</span> <span class="s">&quot;svg&quot;</span>
+    
+    <span class="c">#</span>
+    <span class="c"># filename of image</span>
+    <span class="c">#</span>
+    <span class="n">image_filename</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
+    
+    <span class="c"># content of diag file</span>
+    <span class="n">diag_content</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
+    
+    <span class="c"># temporary diag file</span>
+    <span class="n">diag_temp_filename</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
+    
+    <span class="c">#</span>
+    <span class="c"># Array of sever names</span>
+    <span class="c"># This array is always a double array</span>
+    <span class="c"># the 1st array is related to a rack</span>
+    <span class="c"># the 2nd items is a server in the specific rack</span>
+    <span class="c"># the 3rd is the data of the corresponding server (name, code of template)</span>
+    <span class="c"># </span>
+    <span class="n">arr_servers</span> <span class="o">=</span> <span class="p">[]</span>
+    
+    <span class="c">#</span>
+    <span class="c"># color substitute dict </span>
+    <span class="c">#</span>
+    <span class="n">dict_colors</span> <span class="o">=</span> <span class="p">{}</span>
+    
+    
+    <span class="c">#</span>
+    <span class="c"># static regex pattern for parsing rackXXX.diag file</span>
+    <span class="c">#</span>
+    
+    <span class="c"># racklist, a group of rack</span>
+    <span class="n">patt_racklist</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">&quot;rackdiag\s*?\{&quot;</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">I</span><span class="p">)</span>
+    
+    <span class="c"># rack, a group of server</span>
+    <span class="n">patt_rack</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">&quot;rack\s*?\{&quot;</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">I</span><span class="p">)</span>
+    
+    <span class="c"># description // .... </span>
+    <span class="n">patt_desc</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">&quot;^//&quot;</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">I</span><span class="p">)</span>
+    
+    <span class="c"># total server units, e.g., 48U</span>
+    <span class="n">patt_total_u</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">&quot;^\d+?u&quot;</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">I</span><span class="p">)</span>
+    
+    <span class="c"># a record of normal server </span>
+    <span class="c"># 5: gravel01 [2U] {{gravel01}}</span>
+    <span class="c"># 5: gravel01 {{gravel01}}</span>
+    <span class="c"># 5: {{gravel01}}</span>
+    <span class="n">patt_server_normal</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">&quot;(^\d+?):((?:\s*?\w+?)?(?:\s*?\[\w+?\])?)\s*?\{\{(\w+?)\}\}&quot;</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">I</span><span class="p">)</span>
+    
+    <span class="c"># already rendered record of server</span>
+    <span class="c">#  5: gravel01 [2U] [color=XXXX]</span>
+    <span class="c">#  5: gravel01 [color=XXXX]</span>
+    <span class="c">#  5: [color=XXXX]</span>
+    <span class="n">patt_server_render</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">&quot;(^\d+?):((?:\s*?\w+?)?(?:\s*?\[\w+?\])?)\s*?\[color\s*?=\s*?(\w+?)\]&quot;</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">I</span><span class="p">)</span>
+    
+        
+    <span class="c">#</span>
+    <span class="c"># the image file locates in the same directory with the input filename</span>
+    <span class="c"># param: filename is the input filename of a rackXXX.diag</span>
+    <span class="c"># </span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="nb">type</span><span class="p">):</span>
+    	<span class="n">fullname</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+    	<span class="bp">self</span><span class="o">.</span><span class="n">diag_filename</span> <span class="o">=</span> <span class="n">fullname</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+    	
+    	<span class="n">basename</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">diag_filename</span><span class="p">)</span>
+    	<span class="n">dirname</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">diag_filename</span><span class="p">)</span>
+    	
+    	<span class="c"># check extension of input filename</span>
+    	<span class="k">if</span> <span class="ow">not</span> <span class="n">basename</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s">&quot;.diag&quot;</span><span class="p">):</span>
+    		<span class="k">print</span> <span class="s">&quot;Warning: ONLY .diag file is supported. Exit immediately!&quot;</span>
+    		<span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    	
+    	<span class="c"># set diag temporary filename</span>
+    	<span class="bp">self</span><span class="o">.</span><span class="n">diag_temp_filename</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">diag_filename</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">5</span><span class="p">]</span> <span class="o">+</span> <span class="s">&quot;-temp.diag&quot;</span>
+    	
+    	<span class="c"># set image file to the default svg format</span>
+    	<span class="bp">self</span><span class="o">.</span><span class="n">set_image_format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">image_type</span><span class="p">)</span>
+    	    	
+    
+    <span class="c"># set image type</span>
+    <span class="c"># change the extension of image filename</span>
+<div class="viewcode-block" id="MyTempMap.set_image_format"><a class="viewcode-back" href="../../../modules/cloudmesh.old_inventory.html#cloudmesh.old_inventory.heatmap.MyTempMap.set_image_format">[docs]</a>    <span class="k">def</span> <span class="nf">set_image_format</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">type</span><span class="p">):</span>
+    	<span class="k">if</span> <span class="ow">not</span> <span class="nb">type</span><span class="p">:</span>
+    		<span class="k">print</span> <span class="s">&quot;You must set a non-empty type.&quot;</span>
+    		<span class="nb">exit</span>
+    	
+    	<span class="c"># lower string of type</span>
+    	<span class="n">ltype</span> <span class="o">=</span> <span class="nb">type</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+    	<span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">image_filename</span><span class="p">:</span>
+    		<span class="n">stype</span> <span class="o">=</span> <span class="s">&quot;.&quot;</span> <span class="o">+</span> <span class="n">ltype</span>
+    		<span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">image_filename</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="n">stype</span><span class="p">):</span>
+    			<span class="k">print</span> <span class="s">&quot;The default or previous image type already is {0}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">type</span><span class="p">)</span>
+    			<span class="k">return</span>
+    	<span class="k">if</span> <span class="n">ltype</span> <span class="ow">in</span> <span class="p">[</span><span class="s">&quot;svg&quot;</span><span class="p">,</span> <span class="s">&quot;png&quot;</span><span class="p">]:</span>
+    		<span class="bp">self</span><span class="o">.</span><span class="n">image_type</span> <span class="o">=</span> <span class="n">ltype</span>
+    	<span class="k">else</span><span class="p">:</span>
+    		<span class="k">print</span> <span class="s">&quot;Image type {0} is NOT supported currently!&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">type</span><span class="p">)</span>
+    		<span class="k">print</span> <span class="s">&quot;Use svg to replace .&quot;</span>
+    		<span class="bp">self</span><span class="o">.</span><span class="n">image_type</span> <span class="o">=</span> <span class="s">&quot;svg&quot;</span>
+    	
+    	<span class="c"># filename, diag filename ends with &quot;.diag&quot;</span>
+    	<span class="c"># image filename ends with &quot;.&quot; + a valid lower image type </span>
+    	<span class="bp">self</span><span class="o">.</span><span class="n">image_filename</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">diag_filename</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">4</span><span class="p">]</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">image_type</span>
+
+
+        <span class="c"># bug use    (name, ending) = self.image_filename.split(&quot;.&quot;,-1) </span>
+        <span class="c"># http://stackoverflow.com/questions/541390/extracting-extension-from-filename-in-python</span>
+    	<span class="k">print</span> <span class="s">&quot;image filename is: &quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">image_filename</span>
+
+    
+	<span class="c"># update server color code to a real color in RGB space</span></div>
+<div class="viewcode-block" id="MyTempMap.update_server_color"><a class="viewcode-back" href="../../../modules/cloudmesh.old_inventory.html#cloudmesh.old_inventory.heatmap.MyTempMap.update_server_color">[docs]</a>    <span class="k">def</span> <span class="nf">update_server_color</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scode</span><span class="p">,</span> <span class="n">scolor</span><span class="p">):</span>
+    	<span class="k">if</span> <span class="n">scode</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">dict_colors</span><span class="p">:</span>
+    		<span class="k">print</span> <span class="s">&quot;update dict_colors with [{0}, {1}]&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">scode</span><span class="p">,</span> <span class="n">scolor</span><span class="p">)</span>
+    		<span class="bp">self</span><span class="o">.</span><span class="n">dict_colors</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">scode</span><span class="p">:</span> <span class="n">scolor</span><span class="p">})</span>
+    	<span class="k">else</span><span class="p">:</span>
+    		<span class="k">print</span> <span class="s">&quot;[Error] code {0} does NOT exist in dict_colors.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">scode</span><span class="p">)</span> 
+    
+    
+    <span class="c"># add color to color_dict</span></div>
+<div class="viewcode-block" id="MyTempMap.append_server_color"><a class="viewcode-back" href="../../../modules/cloudmesh.old_inventory.html#cloudmesh.old_inventory.heatmap.MyTempMap.append_server_color">[docs]</a>    <span class="k">def</span> <span class="nf">append_server_color</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scode</span><span class="p">):</span>
+		<span class="k">if</span> <span class="n">scode</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">dict_colors</span><span class="p">:</span>
+			<span class="k">print</span> <span class="s">&quot;Find a same color code among different server. </span><span class="se">\n</span><span class="s"> Please check the origial rackXXX.diag file.&quot;</span>
+		<span class="k">else</span><span class="p">:</span>
+			<span class="bp">self</span><span class="o">.</span><span class="n">dict_colors</span><span class="p">[</span><span class="n">scode</span><span class="p">]</span> <span class="o">=</span> <span class="n">scode</span>
+    
+    
+    <span class="c">#</span>
+    <span class="c"># ONLY used when a rack embed in the racklist</span>
+    <span class="c"># IF there is only one rack, this function should NOT be called</span>
+    <span class="c"># </span>
+    <span class="c"># add one server record into 3-dimension array data structure</span>
+    <span class="c"># 	</span></div>
+<div class="viewcode-block" id="MyTempMap.addRackListServer"><a class="viewcode-back" href="../../../modules/cloudmesh.old_inventory.html#cloudmesh.old_inventory.heatmap.MyTempMap.addRackListServer">[docs]</a>    <span class="k">def</span> <span class="nf">addRackListServer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rackIndex</span><span class="p">,</span> <span class="n">numIndex</span><span class="p">,</span> <span class="n">sname</span><span class="p">,</span> <span class="n">scolor</span><span class="p">):</span>
+    	<span class="k">print</span> <span class="s">&quot;into add server info ...&quot;</span>
+    	
+    	<span class="n">arr_record</span> <span class="o">=</span> <span class="p">(</span><span class="n">numIndex</span><span class="p">,</span> <span class="n">sname</span><span class="p">,</span> <span class="n">scolor</span><span class="p">)</span>
+    	<span class="k">print</span> <span class="n">arr_record</span>
+    	
+    	<span class="bp">self</span><span class="o">.</span><span class="n">arr_servers</span><span class="p">[</span><span class="n">rackIndex</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">arr_record</span><span class="p">)</span>
+    	
+    	<span class="c"># add color to color_dict</span>
+    	<span class="bp">self</span><span class="o">.</span><span class="n">append_server_color</span><span class="p">(</span><span class="n">scolor</span><span class="p">)</span>
+    	
+    	
+    	
+    <span class="c"># ONLY has a rack in rackXXX.diag file</span>
+    <span class="c"># It will be a 2-dimension array, containing ONLY one rack</span></div>
+<div class="viewcode-block" id="MyTempMap.addRackServer"><a class="viewcode-back" href="../../../modules/cloudmesh.old_inventory.html#cloudmesh.old_inventory.heatmap.MyTempMap.addRackServer">[docs]</a>    <span class="k">def</span> <span class="nf">addRackServer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">numIndex</span><span class="p">,</span> <span class="n">sname</span><span class="p">,</span> <span class="n">scolor</span><span class="p">):</span>
+    	<span class="k">print</span> <span class="s">&quot;into add server info [rack] ...&quot;</span>
+    	
+    	<span class="n">arr_record</span> <span class="o">=</span> <span class="p">(</span><span class="n">numIndex</span><span class="p">,</span> <span class="n">sname</span><span class="p">,</span> <span class="n">scolor</span><span class="p">)</span>
+    	<span class="k">print</span> <span class="n">arr_record</span>
+    	
+    	<span class="bp">self</span><span class="o">.</span><span class="n">arr_servers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">arr_record</span><span class="p">)</span>
+    	
+    	<span class="c"># add color to color_dict</span>
+    	<span class="bp">self</span><span class="o">.</span><span class="n">append_server_color</span><span class="p">(</span><span class="n">scolor</span><span class="p">)</span>
+    
+    
+
+    <span class="c">#</span>
+    <span class="c"># read information from the diag file</span>
+    <span class="c">#</span></div>
+<div class="viewcode-block" id="MyTempMap.readDiagInfo"><a class="viewcode-back" href="../../../modules/cloudmesh.old_inventory.html#cloudmesh.old_inventory.heatmap.MyTempMap.readDiagInfo">[docs]</a>    <span class="k">def</span> <span class="nf">readDiagInfo</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    	<span class="k">print</span> <span class="s">&quot;Ready to read DIAG info from {0} ...&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">diag_filename</span><span class="p">)</span>
+        <span class="n">rf</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">diag_filename</span><span class="p">,</span> <span class="s">&quot;r&quot;</span><span class="p">)</span>
+        
+        <span class="k">print</span> <span class="n">rf</span>
+        
+        <span class="n">rackindex</span> <span class="o">=</span> <span class="o">-</span><span class="mi">2</span><span class="p">;</span>
+        <span class="k">for</span> <span class="n">aline</span> <span class="ow">in</span> <span class="n">rf</span><span class="p">:</span>
+        	<span class="k">print</span> <span class="n">aline</span>
+        	
+        	<span class="c"># keep the file content in memory</span>
+        	<span class="c"># add line string to diag_content</span>
+        	<span class="bp">self</span><span class="o">.</span><span class="n">diag_content</span> <span class="o">+=</span> <span class="n">aline</span>
+        	<span class="bp">self</span><span class="o">.</span><span class="n">diag_content</span> <span class="o">+=</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span>
+        	
+        	<span class="n">line</span> <span class="o">=</span> <span class="n">aline</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+        	<span class="c"># normal server</span>
+        	<span class="n">m</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">patt_server_normal</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+        	<span class="k">if</span> <span class="n">m</span><span class="p">:</span>
+        		<span class="k">print</span> <span class="s">&quot;find normal server...&quot;</span>
+        		<span class="n">sindex</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+        		<span class="n">sname</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+        		<span class="n">scolor</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+        		<span class="k">if</span> <span class="n">rackindex</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        			<span class="k">print</span> <span class="s">&quot;ONLY a SINGLE rack exist...&quot;</span>
+        			<span class="bp">self</span><span class="o">.</span><span class="n">addRackServer</span><span class="p">(</span><span class="n">sindex</span><span class="p">,</span> <span class="n">sname</span><span class="p">,</span> <span class="n">scolor</span><span class="p">)</span>
+        		<span class="k">else</span><span class="p">:</span>
+        			<span class="bp">self</span><span class="o">.</span><span class="n">addRackListServer</span><span class="p">(</span><span class="n">rackindex</span><span class="p">,</span> <span class="n">sindex</span><span class="p">,</span> <span class="n">sname</span><span class="p">,</span> <span class="n">scolor</span><span class="p">)</span>
+        		
+        		<span class="k">continue</span>
+        	
+        	<span class="c"># rendered server</span>
+        	<span class="n">m</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">patt_server_render</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+        	<span class="k">if</span> <span class="n">m</span><span class="p">:</span>
+        		<span class="k">print</span> <span class="s">&quot;find rendered server...&quot;</span>
+        		<span class="n">sindex</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+        		<span class="n">sname</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+        		<span class="n">scolor</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+        		<span class="k">if</span> <span class="n">rackindex</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        			<span class="k">print</span> <span class="s">&quot;ONLY a SINGLE rack exist...&quot;</span>
+        		
+        		<span class="k">print</span> <span class="s">&quot;RENDERED Info: index={0}, name={1}, color={2}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sindex</span><span class="p">,</span> <span class="n">sname</span><span class="p">,</span> <span class="n">scolor</span><span class="p">)</span>
+        		<span class="k">continue</span>
+        	
+        	<span class="c"># description</span>
+        	<span class="n">m</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">patt_desc</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+        	<span class="k">if</span> <span class="n">m</span><span class="p">:</span>
+        		<span class="k">print</span> <span class="s">&quot;find description...&quot;</span>
+        		<span class="k">continue</span>
+        		
+        	<span class="c"># rack</span>
+        	<span class="n">m</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">patt_rack</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+        	<span class="k">if</span> <span class="n">m</span><span class="p">:</span>
+        		<span class="k">print</span> <span class="s">&quot;find rack...&quot;</span>
+        		<span class="bp">self</span><span class="o">.</span><span class="n">arr_servers</span><span class="o">.</span><span class="n">append</span><span class="p">([]);</span>
+        		<span class="n">rackindex</span> <span class="o">+=</span> <span class="mi">1</span>
+        		<span class="k">continue</span>
+        	
+        	<span class="c"># total U</span>
+        	<span class="n">m</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">patt_total_u</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+        	<span class="k">if</span> <span class="n">m</span><span class="p">:</span>
+        		<span class="k">print</span> <span class="s">&quot;find total u..&quot;</span>
+        		<span class="k">continue</span>
+        	
+        	<span class="c"># racklist</span>
+        	<span class="n">m</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">patt_racklist</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+        	<span class="k">if</span> <span class="n">m</span><span class="p">:</span>
+        		<span class="k">print</span> <span class="s">&quot;find racklist..&quot;</span>
+        		<span class="n">rackindex</span> <span class="o">+=</span> <span class="mi">1</span>
+        		<span class="k">continue</span>
+        	
+        	<span class="c"># currently, ignore all unmatched items/lines</span>
+        	<span class="c"># To do...	</span>
+        	
+        <span class="c"># Finally, close file</span>
+        <span class="n">rf</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    
+    <span class="c">#</span>
+    <span class="c"># generate a new diag file with random temperature or color</span>
+    <span class="c"># </span></div>
+<div class="viewcode-block" id="MyTempMap.writeTempDiagInfo"><a class="viewcode-back" href="../../../modules/cloudmesh.old_inventory.html#cloudmesh.old_inventory.heatmap.MyTempMap.writeTempDiagInfo">[docs]</a>    <span class="k">def</span> <span class="nf">writeTempDiagInfo</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    	<span class="n">arr</span> <span class="o">=</span> <span class="p">{}</span>
+    	<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">dict_colors</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    		<span class="n">vcolor</span> <span class="o">=</span> <span class="s">&#39;[color=&quot;{0}&quot;];&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dict_colors</span><span class="p">[</span><span class="n">k</span><span class="p">])</span>
+    		<span class="n">arr</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">vcolor</span>
+    		
+    	<span class="n">wf</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">diag_temp_filename</span><span class="p">,</span> <span class="s">&quot;w&quot;</span><span class="p">)</span>
+    	<span class="n">template</span> <span class="o">=</span> <span class="n">Template</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">diag_content</span><span class="p">)</span>
+    	<span class="n">scontent</span> <span class="o">=</span> <span class="n">template</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+    	<span class="n">wf</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">scontent</span><span class="p">)</span>
+    	<span class="n">wf</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    	
+    
+    <span class="c">#</span>
+    <span class="c"># generate an image with the tool of rackdiag</span>
+    <span class="c">#</span></div>
+<div class="viewcode-block" id="MyTempMap.gen_rack_image"><a class="viewcode-back" href="../../../modules/cloudmesh.old_inventory.html#cloudmesh.old_inventory.heatmap.MyTempMap.gen_rack_image">[docs]</a>    <span class="k">def</span> <span class="nf">gen_rack_image</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    	<span class="c"># step 1. write temporary diag file to disk</span>
+    	<span class="bp">self</span><span class="o">.</span><span class="n">writeTempDiagInfo</span><span class="p">()</span>
+    	
+    	<span class="c"># step 2. call rackdiag to make a image</span>
+    	<span class="bp">self</span><span class="o">.</span><span class="n">plot_rackdiag</span><span class="p">()</span>
+        
+    
+    </div>
+<div class="viewcode-block" id="MyTempMap.convertNumToRGB_2"><a class="viewcode-back" href="../../../modules/cloudmesh.old_inventory.html#cloudmesh.old_inventory.heatmap.MyTempMap.convertNumToRGB_2">[docs]</a>    <span class="k">def</span> <span class="nf">convertNumToRGB_2</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="n">h</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">255</span><span class="p">),</span>
+            <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">255</span><span class="p">),</span>
+            <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">255</span><span class="p">),</span>
+            <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">255</span><span class="p">),</span>
+            <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">255</span><span class="p">),</span>
+            <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">255</span><span class="p">),</span>
+            <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">255</span><span class="p">),</span>
+            <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">255</span><span class="p">),</span>
+            <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">255</span><span class="p">),</span>
+            <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">255</span><span class="p">),</span>
+            <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">18</span><span class="p">,</span><span class="mi">253</span><span class="p">),</span>
+            <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">21</span><span class="p">,</span><span class="mi">251</span><span class="p">),</span>
+            <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">24</span><span class="p">,</span><span class="mi">250</span><span class="p">),</span>
+            <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">27</span><span class="p">,</span><span class="mi">248</span><span class="p">),</span>
+            <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">245</span><span class="p">),</span>
+            <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">34</span><span class="p">,</span><span class="mi">243</span><span class="p">),</span>
+            <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">37</span><span class="p">,</span><span class="mi">240</span><span class="p">),</span>
+            <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">41</span><span class="p">,</span><span class="mi">237</span><span class="p">),</span>
+            <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">45</span><span class="p">,</span><span class="mi">234</span><span class="p">),</span>
+            <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">49</span><span class="p">,</span><span class="mi">230</span><span class="p">),</span>
+            <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">53</span><span class="p">,</span><span class="mi">226</span><span class="p">),</span>
+            <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">57</span><span class="p">,</span><span class="mi">222</span><span class="p">),</span>
+            <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">62</span><span class="p">,</span><span class="mi">218</span><span class="p">),</span>
+            <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">67</span><span class="p">,</span><span class="mi">214</span><span class="p">),</span>
+            <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">71</span><span class="p">,</span><span class="mi">209</span><span class="p">),</span>
+            <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">76</span><span class="p">,</span><span class="mi">204</span><span class="p">),</span>
+            <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">82</span><span class="p">,</span><span class="mi">199</span><span class="p">),</span>
+            <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">87</span><span class="p">,</span><span class="mi">193</span><span class="p">),</span>
+            <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">93</span><span class="p">,</span><span class="mi">188</span><span class="p">),</span>
+            <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">98</span><span class="p">,</span><span class="mi">182</span><span class="p">),</span>
+            <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">104</span><span class="p">,</span><span class="mi">175</span><span class="p">),</span>
+            <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">110</span><span class="p">,</span><span class="mi">169</span><span class="p">),</span>
+            <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">116</span><span class="p">,</span><span class="mi">162</span><span class="p">),</span>
+            <span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">123</span><span class="p">,</span><span class="mi">155</span><span class="p">),</span>
+            <span class="p">(</span><span class="mi">21</span><span class="p">,</span><span class="mi">129</span><span class="p">,</span><span class="mi">148</span><span class="p">),</span>
+            <span class="p">(</span><span class="mi">34</span><span class="p">,</span><span class="mi">136</span><span class="p">,</span><span class="mi">141</span><span class="p">),</span>
+            <span class="p">(</span><span class="mi">47</span><span class="p">,</span><span class="mi">142</span><span class="p">,</span><span class="mi">133</span><span class="p">),</span>
+            <span class="p">(</span><span class="mi">60</span><span class="p">,</span><span class="mi">149</span><span class="p">,</span><span class="mi">125</span><span class="p">),</span>
+            <span class="p">(</span><span class="mi">71</span><span class="p">,</span><span class="mi">157</span><span class="p">,</span><span class="mi">117</span><span class="p">),</span>
+            <span class="p">(</span><span class="mi">83</span><span class="p">,</span><span class="mi">164</span><span class="p">,</span><span class="mi">109</span><span class="p">),</span>
+            <span class="p">(</span><span class="mi">93</span><span class="p">,</span><span class="mi">171</span><span class="p">,</span><span class="mi">100</span><span class="p">),</span>
+            <span class="p">(</span><span class="mi">104</span><span class="p">,</span><span class="mi">179</span><span class="p">,</span><span class="mi">91</span><span class="p">),</span>
+            <span class="p">(</span><span class="mi">113</span><span class="p">,</span><span class="mi">187</span><span class="p">,</span><span class="mi">92</span><span class="p">),</span>
+            <span class="p">(</span><span class="mi">123</span><span class="p">,</span><span class="mi">195</span><span class="p">,</span><span class="mi">73</span><span class="p">),</span>
+            <span class="p">(</span><span class="mi">132</span><span class="p">,</span><span class="mi">203</span><span class="p">,</span><span class="mi">63</span><span class="p">),</span>
+            <span class="p">(</span><span class="mi">140</span><span class="p">,</span><span class="mi">211</span><span class="p">,</span><span class="mi">53</span><span class="p">),</span>
+            <span class="p">(</span><span class="mi">148</span><span class="p">,</span><span class="mi">220</span><span class="p">,</span><span class="mi">43</span><span class="p">),</span>
+            <span class="p">(</span><span class="mi">156</span><span class="p">,</span><span class="mi">228</span><span class="p">,</span><span class="mi">33</span><span class="p">),</span>
+            <span class="p">(</span><span class="mi">163</span><span class="p">,</span><span class="mi">237</span><span class="p">,</span><span class="mi">22</span><span class="p">),</span>
+            <span class="p">(</span><span class="mi">170</span><span class="p">,</span><span class="mi">246</span><span class="p">,</span><span class="mi">11</span><span class="p">),</span>
+            <span class="p">(</span><span class="mi">176</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span>
+            <span class="p">(</span><span class="mi">183</span><span class="p">,</span><span class="mi">248</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span>
+            <span class="p">(</span><span class="mi">188</span><span class="p">,</span><span class="mi">241</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span>
+            <span class="p">(</span><span class="mi">194</span><span class="p">,</span><span class="mi">234</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span>
+            <span class="p">(</span><span class="mi">199</span><span class="p">,</span><span class="mi">227</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span>
+            <span class="p">(</span><span class="mi">204</span><span class="p">,</span><span class="mi">220</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span>
+            <span class="p">(</span><span class="mi">209</span><span class="p">,</span><span class="mi">214</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span>
+            <span class="p">(</span><span class="mi">213</span><span class="p">,</span><span class="mi">207</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span>
+            <span class="p">(</span><span class="mi">217</span><span class="p">,</span><span class="mi">200</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span>
+            <span class="p">(</span><span class="mi">221</span><span class="p">,</span><span class="mi">194</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span>
+            <span class="p">(</span><span class="mi">224</span><span class="p">,</span><span class="mi">188</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span>
+            <span class="p">(</span><span class="mi">227</span><span class="p">,</span><span class="mi">181</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span>
+            <span class="p">(</span><span class="mi">230</span><span class="p">,</span><span class="mi">175</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span>
+            <span class="p">(</span><span class="mi">233</span><span class="p">,</span><span class="mi">169</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span>
+            <span class="p">(</span><span class="mi">236</span><span class="p">,</span><span class="mi">163</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span>
+            <span class="p">(</span><span class="mi">238</span><span class="p">,</span><span class="mi">157</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span>
+            <span class="p">(</span><span class="mi">240</span><span class="p">,</span><span class="mi">151</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span>
+            <span class="p">(</span><span class="mi">243</span><span class="p">,</span><span class="mi">145</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span>
+            <span class="p">(</span><span class="mi">244</span><span class="p">,</span><span class="mi">140</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span>
+            <span class="p">(</span><span class="mi">246</span><span class="p">,</span><span class="mi">134</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span>
+            <span class="p">(</span><span class="mi">248</span><span class="p">,</span><span class="mi">129</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span>
+            <span class="p">(</span><span class="mi">249</span><span class="p">,</span><span class="mi">123</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span>
+            <span class="p">(</span><span class="mi">250</span><span class="p">,</span><span class="mi">118</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span>
+            <span class="p">(</span><span class="mi">251</span><span class="p">,</span><span class="mi">112</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span>
+            <span class="p">(</span><span class="mi">252</span><span class="p">,</span><span class="mi">107</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span>
+            <span class="p">(</span><span class="mi">253</span><span class="p">,</span><span class="mi">102</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span>
+            <span class="p">(</span><span class="mi">254</span><span class="p">,</span><span class="mi">97</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span>
+            <span class="p">(</span><span class="mi">255</span><span class="p">,</span><span class="mi">92</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span>
+            <span class="p">(</span><span class="mi">255</span><span class="p">,</span><span class="mi">87</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span>
+            <span class="p">(</span><span class="mi">255</span><span class="p">,</span><span class="mi">82</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span>
+            <span class="p">(</span><span class="mi">255</span><span class="p">,</span><span class="mi">78</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span>
+            <span class="p">(</span><span class="mi">255</span><span class="p">,</span><span class="mi">73</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span>
+            <span class="p">(</span><span class="mi">255</span><span class="p">,</span><span class="mi">68</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span>
+            <span class="p">(</span><span class="mi">255</span><span class="p">,</span><span class="mi">64</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span>
+            <span class="p">(</span><span class="mi">255</span><span class="p">,</span><span class="mi">59</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span>
+            <span class="p">(</span><span class="mi">255</span><span class="p">,</span><span class="mi">55</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span>
+            <span class="p">(</span><span class="mi">255</span><span class="p">,</span><span class="mi">51</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span>
+            <span class="p">(</span><span class="mi">255</span><span class="p">,</span><span class="mi">47</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span>
+            <span class="p">(</span><span class="mi">255</span><span class="p">,</span><span class="mi">43</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span>
+            <span class="p">(</span><span class="mi">255</span><span class="p">,</span><span class="mi">39</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span>
+            <span class="p">(</span><span class="mi">255</span><span class="p">,</span><span class="mi">35</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span>
+            <span class="p">(</span><span class="mi">255</span><span class="p">,</span><span class="mi">31</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span>
+            <span class="p">(</span><span class="mi">255</span><span class="p">,</span><span class="mi">27</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span>
+            <span class="p">(</span><span class="mi">255</span><span class="p">,</span><span class="mi">23</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span>
+            <span class="p">(</span><span class="mi">255</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span>
+            <span class="p">(</span><span class="mi">255</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span>
+            <span class="p">(</span><span class="mi">255</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span>
+            <span class="p">(</span><span class="mi">255</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span>
+            <span class="p">(</span><span class="mi">255</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> 
+            <span class="p">(</span><span class="mi">255</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">)]</span>
+        
+        <span class="n">i</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">value</span> <span class="o">*</span> <span class="mi">100</span><span class="p">)</span>
+
+
+        <span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="n">g</span><span class="p">,</span><span class="n">b</span><span class="p">)</span> <span class="o">=</span> <span class="n">h</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="k">print</span> <span class="s">&quot;INDEX&quot;</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">b</span>
+
+        <span class="k">return</span> <span class="s">&quot;#{0:02X}{1:02X}{2:02X}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="n">g</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
+
+
+    <span class="c"># </span>
+    <span class="c"># convert a number between 0.00 and 1.00 to a RGB value represented by Hex value</span>
+    <span class="c">#</span></div>
+<div class="viewcode-block" id="MyTempMap.convertNumToRGB"><a class="viewcode-back" href="../../../modules/cloudmesh.old_inventory.html#cloudmesh.old_inventory.heatmap.MyTempMap.convertNumToRGB">[docs]</a>    <span class="k">def</span> <span class="nf">convertNumToRGB</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+    	<span class="c"># y = mx + b</span>
+        <span class="c"># m = 4</span>
+        <span class="c"># x = value</span>
+        <span class="c"># y = RGB__</span>
+        <span class="k">if</span> <span class="p">(</span><span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">value</span> <span class="ow">and</span> <span class="n">value</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="o">/</span><span class="mi">8</span><span class="p">)</span> <span class="p">:</span>
+            <span class="n">RGB_R</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="n">RGB_G</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="n">RGB_B</span> <span class="o">=</span> <span class="mi">4</span><span class="o">*</span><span class="n">value</span> <span class="o">+</span> <span class="o">.</span><span class="mi">5</span> <span class="c"># .5 - 1 # b = 1/2</span>
+        <span class="k">elif</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">8</span> <span class="o">&lt;</span> <span class="n">value</span> <span class="ow">and</span> <span class="n">value</span> <span class="o">&lt;=</span> <span class="mi">3</span><span class="o">/</span><span class="mi">8</span><span class="p">)</span> <span class="p">:</span>
+            <span class="n">RGB_R</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="n">RGB_G</span> <span class="o">=</span> <span class="mi">4</span><span class="o">*</span><span class="n">value</span> <span class="o">-</span> <span class="o">.</span><span class="mi">5</span> <span class="c"># 0 - 1 # b = - 1/2</span>
+            <span class="n">RGB_B</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">elif</span> <span class="p">(</span><span class="mi">3</span><span class="o">/</span><span class="mi">8</span> <span class="o">&lt;</span> <span class="n">value</span> <span class="ow">and</span> <span class="n">value</span> <span class="o">&lt;=</span> <span class="mi">5</span><span class="o">/</span><span class="mi">8</span><span class="p">)</span> <span class="p">:</span>
+            <span class="n">RGB_R</span> <span class="o">=</span> <span class="mi">4</span><span class="o">*</span><span class="n">value</span> <span class="o">-</span> <span class="mf">1.5</span> <span class="c"># 0 - 1 # b = - 3/2</span>
+            <span class="n">RGB_G</span> <span class="o">=</span> <span class="mi">1</span>
+            <span class="n">RGB_B</span> <span class="o">=</span> <span class="o">-</span><span class="mi">4</span><span class="o">*</span><span class="n">value</span> <span class="o">+</span> <span class="mf">2.5</span> <span class="c"># 1 - 0 # b = 5/2</span>
+        <span class="k">elif</span> <span class="p">(</span><span class="mi">5</span><span class="o">/</span><span class="mi">8</span> <span class="o">&lt;</span> <span class="n">value</span> <span class="ow">and</span> <span class="n">value</span> <span class="o">&lt;=</span> <span class="mi">7</span><span class="o">/</span><span class="mi">8</span><span class="p">)</span> <span class="p">:</span>
+            <span class="n">RGB_R</span> <span class="o">=</span> <span class="mi">1</span>
+            <span class="n">RGB_G</span> <span class="o">=</span> <span class="o">-</span><span class="mi">4</span><span class="o">*</span><span class="n">value</span> <span class="o">+</span> <span class="mf">3.5</span> <span class="c"># 1 - 0 # b = 7/2</span>
+            <span class="n">RGB_B</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">elif</span> <span class="p">(</span><span class="mi">7</span><span class="o">/</span><span class="mi">8</span> <span class="o">&lt;</span> <span class="n">value</span> <span class="ow">and</span> <span class="n">value</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">)</span> <span class="p">:</span>
+            <span class="n">RGB_R</span> <span class="o">=</span> <span class="o">-</span><span class="mi">4</span><span class="o">*</span><span class="n">value</span> <span class="o">+</span> <span class="mf">4.5</span> <span class="c"># 1 - .5 # b = 9/2</span>
+            <span class="n">RGB_G</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="n">RGB_B</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">else</span> <span class="p">:</span>    <span class="c"># should never happen - value &gt; 1</span>
+            <span class="n">RGB_R</span> <span class="o">=</span> <span class="o">.</span><span class="mi">5</span>
+            <span class="n">RGB_G</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="n">RGB_B</span> <span class="o">=</span> <span class="mi">0</span>
+
+
+        <span class="c"># scale for hex conversion</span>
+        <span class="n">RGB_R</span> <span class="o">*=</span> <span class="mi">15</span>
+        <span class="n">RGB_G</span> <span class="o">*=</span> <span class="mi">15</span>
+        <span class="n">RGB_B</span> <span class="o">*=</span> <span class="mi">15</span>
+
+        <span class="n">shexRGB</span> <span class="o">=</span> <span class="s">&quot;#{0:02X}{1:02X}{2:02X}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">RGB_R</span><span class="p">)),</span><span class="nb">int</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">RGB_G</span><span class="p">)),</span><span class="nb">int</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">RGB_B</span><span class="p">)))</span>
+
+        <span class="k">return</span> <span class="n">shexRGB</span>
+    
+
+    
+    <span class="c"># generate random temperature for all possilbe server with color code</span>
+    <span class="c"># just do this in dict_colors data structure</span></div>
+<div class="viewcode-block" id="MyTempMap.gen_random_temperature"><a class="viewcode-back" href="../../../modules/cloudmesh.old_inventory.html#cloudmesh.old_inventory.heatmap.MyTempMap.gen_random_temperature">[docs]</a>    <span class="k">def</span> <span class="nf">gen_random_temperature</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    	<span class="bp">self</span><span class="o">.</span><span class="n">get_random</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
+    	<span class="k">for</span> <span class="n">scode</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">dict_colors</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    		<span class="n">rtemp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_random</span><span class="p">(</span><span class="bp">False</span><span class="p">);</span>
+    		<span class="n">rcolor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">convertNumToRGB_2</span><span class="p">(</span><span class="n">rtemp</span><span class="p">)</span>
+    		<span class="bp">self</span><span class="o">.</span><span class="n">update_server_color</span><span class="p">(</span><span class="n">scode</span><span class="p">,</span> <span class="n">rcolor</span><span class="p">)</span>
+    
+    <span class="c"># set a specific temperature for a server</span>
+    <span class="c"># this method MUST call after gen_random_temperature</span></div>
+<div class="viewcode-block" id="MyTempMap.set_server_temperature"><a class="viewcode-back" href="../../../modules/cloudmesh.old_inventory.html#cloudmesh.old_inventory.heatmap.MyTempMap.set_server_temperature">[docs]</a>    <span class="k">def</span> <span class="nf">set_server_temperature</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scode</span><span class="p">,</span> <span class="n">stemp</span><span class="p">):</span>
+    	<span class="k">if</span> <span class="n">stemp</span> <span class="o">&lt;</span> <span class="mf">0.0</span> <span class="ow">or</span> <span class="n">stemp</span> <span class="o">&gt;</span> <span class="mf">1.0</span><span class="p">:</span>
+    		<span class="k">print</span> <span class="s">&quot;[Error]Temperature MUST in range 0.0 -- 1.0, &quot;</span>
+    		<span class="k">return</span>
+    	
+    	<span class="k">if</span> <span class="n">scode</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">dict_colors</span><span class="p">:</span>
+    		<span class="k">print</span> <span class="s">&quot;Find server {0}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">scode</span><span class="p">)</span>
+    		<span class="n">rtemp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">convertNumToRGB_2</span><span class="p">(</span><span class="n">stemp</span><span class="p">)</span>
+    		<span class="bp">self</span><span class="o">.</span><span class="n">dict_colors</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">scode</span><span class="p">:</span><span class="n">rtemp</span><span class="p">})</span>
+    	<span class="k">else</span><span class="p">:</span>
+    		<span class="k">print</span> <span class="s">&quot;Cannot find server {0} in server list&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">scode</span><span class="p">)</span>
+    
+    
+    <span class="c"># get random number</span>
+    <span class="c"># range is 0.00 ~ 0.99</span>
+    <span class="c"># params:</span>
+    <span class="c">#   bResetSeed, a Boolean value. True means the seed of Random will be set,</span>
+    <span class="c">#                Flase, do not touch the seed of Random</span></div>
+<div class="viewcode-block" id="MyTempMap.get_random"><a class="viewcode-back" href="../../../modules/cloudmesh.old_inventory.html#cloudmesh.old_inventory.heatmap.MyTempMap.get_random">[docs]</a>    <span class="k">def</span> <span class="nf">get_random</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bResetSeed</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">bResetSeed</span><span class="p">:</span>
+            <span class="n">rseed</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+            <span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+        
+        <span class="n">rand</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>
+        <span class="c">#ivalue = int(rand * 100)</span>
+        <span class="c">#fvalue = float(ivalue / 100.0)</span>
+        <span class="k">return</span> <span class="n">rand</span>
+    
+    <span class="c">#</span>
+    <span class="c"># call rackdiag to make a image</span>
+    <span class="c">#</span></div>
+<div class="viewcode-block" id="MyTempMap.plot_rackdiag"><a class="viewcode-back" href="../../../modules/cloudmesh.old_inventory.html#cloudmesh.old_inventory.heatmap.MyTempMap.plot_rackdiag">[docs]</a>    <span class="k">def</span> <span class="nf">plot_rackdiag</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    	<span class="c"># write temporary diag file to disk</span>
+    	<span class="bp">self</span><span class="o">.</span><span class="n">writeTempDiagInfo</span><span class="p">()</span>
+    	
+    	<span class="c"># call rackdiag to plot</span>
+    	<span class="n">r</span> <span class="o">=</span> <span class="n">rackdiag</span><span class="p">(</span><span class="s">&quot;-T{0}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">image_type</span><span class="p">),</span> 
+                    <span class="s">&quot;-o&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">image_filename</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">diag_temp_filename</span><span class="p">)</span>
+        
+    <span class="c">#plot_rackdiag(type, input_filename, output_filename)</span>
+    
+    <span class="c"># only for testing ....</span>
+    <span class="c">#t = get_random_temperature()</span>
+    <span class="c">#print t</span>
+
+<span class="c"># main</span></div></div>
+<span class="k">if</span>  <span class="n">__name__</span> <span class="o">==</span><span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+
+    <span class="n">arg_len</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
+    <span class="k">print</span> <span class="s">&quot;Number of arguments: &quot;</span><span class="p">,</span> <span class="n">arg_len</span><span class="p">,</span> <span class="s">&quot; .&quot;</span>
+    <span class="k">if</span> <span class="n">arg_len</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="c"># usage</span>
+        <span class="c"># python chmap [type] diag_filename</span>
+        <span class="k">print</span> <span class="s">&quot;Usage:&quot;</span>
+        <span class="k">print</span> <span class="s">&quot;</span><span class="se">\t</span><span class="s"> python chmap [image_type] diag_filename&quot;</span>
+        <span class="k">print</span> <span class="s">&quot;</span><span class="se">\t\t</span><span class="s"> image_type ONLY support &#39;svg&#39; and &#39;png&#39; currently.&quot;</span>
+        <span class="k">print</span> <span class="s">&quot;&quot;</span>
+        <span class="k">print</span> <span class="s">&quot;Example:&quot;</span>
+        <span class="k">print</span> <span class="s">&quot;</span><span class="se">\t</span><span class="s"> python chmap svg india-color.diag&quot;</span>
+        <span class="k">print</span> <span class="s">&quot;</span><span class="se">\t</span><span class="s"> or&quot;</span>
+        <span class="k">print</span> <span class="s">&quot;</span><span class="se">\t</span><span class="s"> python chmap india-color.diag&quot;</span>
+        <span class="k">print</span> <span class="s">&quot;&quot;</span>    
+        <span class="nb">exit</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="n">diag_file</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="n">arg_len</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">print</span> <span class="s">&quot;input filename is &quot;</span><span class="p">,</span> <span class="n">diag_file</span> 
+    <span class="n">t</span> <span class="o">=</span> <span class="n">MyTempMap</span><span class="p">(</span><span class="n">diag_file</span><span class="p">,</span> <span class="s">&quot;svg&quot;</span><span class="p">)</span>
+    <span class="n">t</span><span class="o">.</span><span class="n">readDiagInfo</span><span class="p">()</span>
+    
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    print &quot;server info...&quot;</span>
+<span class="sd">    print t.arr_servers</span>
+<span class="sd">    print &quot;dict colors...&quot;</span>
+<span class="sd">    print t.dict_colors</span>
+<span class="sd">    t.gen_random_temperature()</span>
+<span class="sd">    print &quot;updated colors&quot;</span>
+<span class="sd">    print t.dict_colors</span>
+<span class="sd">    t.set_server_temperature(&quot;india001&quot;, 2)</span>
+<span class="sd">    print &quot;call set server temperature, 2 &quot;</span>
+<span class="sd">    print t.dict_colors</span>
+<span class="sd">    t.set_server_temperature(&quot;india001&quot;, -2)</span>
+<span class="sd">    print &quot;call set server temperature, -2&quot;</span>
+<span class="sd">    print t.dict_colors</span>
+<span class="sd">    t.set_server_temperature(&quot;india001&quot;, 0.5)</span>
+<span class="sd">    print &quot;call set server temperature, 0.5&quot;</span>
+<span class="sd">    print t.dict_colors</span>
+<span class="sd">    print &quot;plot...&quot;</span>
+<span class="sd">    t.plot_rackdiag()</span>
+<span class="sd">    print &quot;plot ok&quot;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+
+    <span class="n">d</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">temp</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">get_random</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">spec</span> <span class="ow">in</span> <span class="p">[</span><span class="s">&#39;echo[01-16]&#39;</span><span class="p">,</span> <span class="s">&#39;india[001-136]&#39;</span><span class="p">,</span> <span class="s">&#39;delta[01-16]&#39;</span><span class="p">]:</span>
+        <span class="n">servers</span> <span class="o">=</span> <span class="n">expand_hostlist</span><span class="p">(</span><span class="n">spec</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">server</span> <span class="ow">in</span> <span class="n">servers</span><span class="p">:</span>
+            <span class="n">temp</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">get_random</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
+            <span class="n">t</span><span class="o">.</span><span class="n">set_server_temperature</span><span class="p">(</span><span class="n">server</span><span class="p">,</span> <span class="n">temp</span><span class="p">)</span>
+    <span class="n">t</span><span class="o">.</span><span class="n">plot_rackdiag</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2013, Gregor von Laszewski for  FutureGrid.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

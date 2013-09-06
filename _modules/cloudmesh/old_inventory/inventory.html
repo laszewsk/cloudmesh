@@ -1,0 +1,805 @@
+
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>cloudmesh.old_inventory.inventory &mdash; Cloudmesh 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/bootstrap-2.3.2/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/bootstrap-2.3.2/css/bootstrap-responsive.min.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../../../_static/js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="../../../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../../../_static/bootstrap-2.3.2/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../../_static/bootstrap-sphinx.js"></script>
+    <link rel="author" title="About these documents" href="../../../about.html" />
+    <link rel="top" title="Cloudmesh 0.1 documentation" href="../../../index.html" />
+    <link rel="up" title="Module code" href="../../index.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body>
+
+  <div id="navbar" class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+
+        <a class="brand" href="../../../index.html">Cloudmesh</a>
+        <span class="navbar-text pull-left"><b>0.1</b></span>
+
+        <div class="nav-collapse">
+          <ul class="nav">
+            <li class="divider-vertical"></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a href="../../../index.html"
+     class="dropdown-toggle"
+     data-toggle="dropdown">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+    ><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../about.html">1&nbsp;&nbsp;&nbsp;Documentation Management</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../about.html#installation-requirements-for-the-documentation-generation">1.1&nbsp;&nbsp;&nbsp;Installation Requirements for the Documentation Generation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../about.html#document-generation">1.2&nbsp;&nbsp;&nbsp;Document Generation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../about.html#publishing-the-documentation">1.3&nbsp;&nbsp;&nbsp;Publishing the Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tasks.html">2&nbsp;&nbsp;&nbsp;Issue Management</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../tasks.html#labels">2.1&nbsp;&nbsp;&nbsp;Labels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tasks.html#priority">2.2&nbsp;&nbsp;&nbsp;Priority</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tasks.html#inactivity">2.3&nbsp;&nbsp;&nbsp;Inactivity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tasks.html#shortcuts">2.4&nbsp;&nbsp;&nbsp;Shortcuts</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer.html">3&nbsp;&nbsp;&nbsp;Usage Quickstart for a Deployed Version of cloudmesh</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../developer.html#with-access-to-ldap">3.1&nbsp;&nbsp;&nbsp;With access to LDAP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developer.html#without-access-to-ldap">3.2&nbsp;&nbsp;&nbsp;Without access to LDAP</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer.html#installation">4&nbsp;&nbsp;&nbsp;Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../developer.html#pip">4.1&nbsp;&nbsp;&nbsp;Pip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developer.html#virtualenv">4.2&nbsp;&nbsp;&nbsp;Virtualenv</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../developer.html#install-virtualenv">4.2.1&nbsp;&nbsp;&nbsp;Install virtualenv</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../developer.html#activate-virtualenv">4.2.2&nbsp;&nbsp;&nbsp;Activate virtualenv</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../developer.html#modify-your-rc-file-optional">4.2.3&nbsp;&nbsp;&nbsp;Modify your rc file (optional):</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developer.html#install-fabric">4.3&nbsp;&nbsp;&nbsp;Install fabric</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developer.html#github">4.4&nbsp;&nbsp;&nbsp;Github</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../developer.html#github-ssh-keys">4.4.1&nbsp;&nbsp;&nbsp;GIthub ssh keys</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../developer.html#git-username-and-e-mail">4.4.2&nbsp;&nbsp;&nbsp;Git username and e-mail</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developer.html#quick-deployment">4.5&nbsp;&nbsp;&nbsp;Quick deployment</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../developer.html#aptana-studio">4.5.1&nbsp;&nbsp;&nbsp;Aptana Studio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../developer.html#requirements">4.5.2&nbsp;&nbsp;&nbsp;Requirements</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developer.html#additional-installation-for-documentation-generation">4.6&nbsp;&nbsp;&nbsp;Additional Installation for Documentation Generation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../developer.html#blockdiag-family">4.6.1&nbsp;&nbsp;&nbsp;Blockdiag family</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../developer.html#yaml-files">4.6.2&nbsp;&nbsp;&nbsp;YAML files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../developer.html#mongo">4.6.3&nbsp;&nbsp;&nbsp;Mongo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../developer.html#starting-and-testing-the-queue-service">4.6.4&nbsp;&nbsp;&nbsp;Starting and testing the Queue Service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../developer.html#starting-the-web-service">4.6.5&nbsp;&nbsp;&nbsp;Starting the Web Service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../developer.html#the-t-py-program">4.6.6&nbsp;&nbsp;&nbsp;The t.py program</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../developer.html#developer-tests">4.6.7&nbsp;&nbsp;&nbsp;Developer Tests</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developer.html#cleaning">4.7&nbsp;&nbsp;&nbsp;Cleaning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developer.html#convenient-command-shortcuts">4.8&nbsp;&nbsp;&nbsp;Convenient command shortcuts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developer.html#working-with-cloudmesh-on-a-remote-server">4.9&nbsp;&nbsp;&nbsp;Working with Cloudmesh on a remote server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developer.html#special-notes-for-centos">4.10&nbsp;&nbsp;&nbsp;Special notes for CentOS</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../developer.html#install-python">4.10.1&nbsp;&nbsp;&nbsp;Install Python</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../developer.html#starting-the-rabbitmq-service">4.10.2&nbsp;&nbsp;&nbsp;Starting the  RabbitMQ service</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developer.html#making-the-documentation">4.11&nbsp;&nbsp;&nbsp;Making the documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../developer.html#example-start-the-gui-for-development">4.11.1&nbsp;&nbsp;&nbsp;Example: Start the GUI for development</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../nosetest.html">4&nbsp;&nbsp;&nbsp;Nosetests</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../nosetest.html#install">4.1&nbsp;&nbsp;&nbsp;Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../nosetest.html#run">4.2&nbsp;&nbsp;&nbsp;Run</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../nosetest.html#system">4.3&nbsp;&nbsp;&nbsp;System</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../cm-shell.html">5&nbsp;&nbsp;&nbsp;Cloud Mesh</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cm-shell.html#commands">6&nbsp;&nbsp;&nbsp;Commands</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../plan/plan.html">7&nbsp;&nbsp;&nbsp;Plan: Cloudmesh Service Shift</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../plan/plan.html#project-objectives">7.1&nbsp;&nbsp;&nbsp;Project Objectives</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../plan/plan.html#development-objectives">7.1.1&nbsp;&nbsp;&nbsp;Development Objectives</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plan/plan.html#production-objectives">7.1.2&nbsp;&nbsp;&nbsp;Production Objectives</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plan/plan.html#project-deliverables">7.2&nbsp;&nbsp;&nbsp;Project Deliverables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plan/plan.html#evolution-of-the-project">7.3&nbsp;&nbsp;&nbsp;Evolution of the Project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plan/plan.html#refernce-materials">7.4&nbsp;&nbsp;&nbsp;Refernce Materials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plan/plan.html#definitions-and-acronyms">7.5&nbsp;&nbsp;&nbsp;Definitions and Acronyms</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../plan/design.html">3&nbsp;&nbsp;&nbsp;Design: Blueprint</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../plan/design.html#features">3.1&nbsp;&nbsp;&nbsp;Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plan/design.html#difference-to-other-efforts">3.2&nbsp;&nbsp;&nbsp;Difference to other efforts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plan/design.html#component-view">3.3&nbsp;&nbsp;&nbsp;Component View</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plan/design.html#component-user-management">3.4&nbsp;&nbsp;&nbsp;Component User Management</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../plan/design.html#user-management">3.4.1&nbsp;&nbsp;&nbsp;User Management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plan/design.html#accounting-will-not-be-worked-on-much">3.4.2&nbsp;&nbsp;&nbsp;Accounting (Will not be worked on much)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plan/design.html#component-resource-management-includes-cloudshifting-as-part-of-reservation">3.5&nbsp;&nbsp;&nbsp;Component Resource Management (includes cloudshifting as part of reservation)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plan/design.html#resource-management">3.6&nbsp;&nbsp;&nbsp;Resource Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plan/design.html#scheduler">3.7&nbsp;&nbsp;&nbsp;Scheduler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plan/design.html#interfaces">3.8&nbsp;&nbsp;&nbsp;Interfaces</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules/modules.html">Modules and Classes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../modules/cloudmesh.html">cloudmesh Package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/cloudmesh.html#id1"><tt class="docutils literal"><span class="pre">cloudmesh</span></tt> Package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/cloudmesh.html#cloudmesh-module"><tt class="docutils literal"><span class="pre">cloudmesh</span></tt> Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/cloudmesh.html#cm-mongodb-module"><tt class="docutils literal"><span class="pre">cm_mongodb</span></tt> Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/cloudmesh.html#gitinfo-module"><tt class="docutils literal"><span class="pre">gitinfo</span></tt> Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/cloudmesh.html#mongodb-module"><tt class="docutils literal"><span class="pre">mongodb</span></tt> Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/cloudmesh.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/cloudmesh.accounting.html">accounting Package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.accounting.html#module-cloudmesh.accounting.AccountBaseClass"><tt class="docutils literal"><span class="pre">AccountBaseClass</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.accounting.html#goldaccounting-module"><tt class="docutils literal"><span class="pre">GoldAccounting</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.accounting.html#metrics-module"><tt class="docutils literal"><span class="pre">metrics</span></tt> Module</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/cloudmesh.config.html">config Package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#id1"><tt class="docutils literal"><span class="pre">config</span></tt> Package</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#module-cloudmesh.config.cloudmesh_cloud"><tt class="docutils literal"><span class="pre">cloudmesh_cloud</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#module-cloudmesh.config.cloudmesh_cloud_handler"><tt class="docutils literal"><span class="pre">cloudmesh_cloud_handler</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#module-cloudmesh.config.cm_config"><tt class="docutils literal"><span class="pre">cm_config</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#module-cloudmesh.config.cm_keys"><tt class="docutils literal"><span class="pre">cm_keys</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#module-cloudmesh.config.cm_projects"><tt class="docutils literal"><span class="pre">cm_projects</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#module-cloudmesh.config.cm_rc"><tt class="docutils literal"><span class="pre">cm_rc</span></tt> Module</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="../../../modules/cloudmesh.config.html#cm-manage-config">cm-manage config</a></li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#module-cloudmesh.config.ldap_user"><tt class="docutils literal"><span class="pre">ldap_user</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#module-cloudmesh.config.mock_cloud"><tt class="docutils literal"><span class="pre">mock_cloud</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#module-cloudmesh.config.mock_keystone"><tt class="docutils literal"><span class="pre">mock_keystone</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#module-cloudmesh.config.mock_user"><tt class="docutils literal"><span class="pre">mock_user</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#module-cloudmesh.config.openstack_essex_cloud"><tt class="docutils literal"><span class="pre">openstack_essex_cloud</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#module-cloudmesh.config.openstack_grizzly_cloud"><tt class="docutils literal"><span class="pre">openstack_grizzly_cloud</span></tt> Module</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/cloudmesh.iaas.html">iaas Package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.iaas.html#id1"><tt class="docutils literal"><span class="pre">iaas</span></tt> Package</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.iaas.html#module-cloudmesh.iaas.ComputeBaseType"><tt class="docutils literal"><span class="pre">ComputeBaseType</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.iaas.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="../../../modules/cloudmesh.iaas.azure.html">azure Package</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="../../../modules/cloudmesh.iaas.azure.html#id1"><tt class="docutils literal"><span class="pre">azure</span></tt> Package</a></li>
+<li class="toctree-l7"><a class="reference internal" href="../../../modules/cloudmesh.iaas.azure.html#module-cloudmesh.iaas.azure.cm_azure"><tt class="docutils literal"><span class="pre">cm_azure</span></tt> Module</a></li>
+<li class="toctree-l7"><a class="reference internal" href="../../../modules/cloudmesh.iaas.azure.html#fabfile-module"><tt class="docutils literal"><span class="pre">fabfile</span></tt> Module</a></li>
+</ul>
+</li>
+<li class="toctree-l6"><a class="reference internal" href="../../../modules/cloudmesh.iaas.eucalyptus.html">eucalyptus Package</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="../../../modules/cloudmesh.iaas.eucalyptus.html#module-cloudmesh.iaas.eucalyptus.eucalyptus"><tt class="docutils literal"><span class="pre">eucalyptus</span></tt> Module</a></li>
+<li class="toctree-l7"><a class="reference internal" href="../../../modules/cloudmesh.iaas.eucalyptus.html#eucalyptus-libcloud-module"><tt class="docutils literal"><span class="pre">eucalyptus_libcloud</span></tt> Module</a></li>
+<li class="toctree-l7"><a class="reference internal" href="../../../modules/cloudmesh.iaas.eucalyptus.html#eucalyptus-new-module"><tt class="docutils literal"><span class="pre">eucalyptus_new</span></tt> Module</a></li>
+</ul>
+</li>
+<li class="toctree-l6"><a class="reference internal" href="../../../modules/cloudmesh.iaas.openstack.html">openstack Package</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="../../../modules/cloudmesh.iaas.openstack.html#id1"><tt class="docutils literal"><span class="pre">openstack</span></tt> Package</a></li>
+<li class="toctree-l7"><a class="reference internal" href="../../../modules/cloudmesh.iaas.openstack.html#module-cloudmesh.iaas.openstack.cm_compute"><tt class="docutils literal"><span class="pre">cm_compute</span></tt> Module</a></li>
+<li class="toctree-l7"><a class="reference internal" href="../../../modules/cloudmesh.iaas.openstack.html#cm-table-module"><tt class="docutils literal"><span class="pre">cm_table</span></tt> Module</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/cloudmesh.inventory.html">inventory Package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.inventory.html#id1"><tt class="docutils literal"><span class="pre">inventory</span></tt> Package</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.inventory.html#resources-module"><tt class="docutils literal"><span class="pre">resources</span></tt> Module</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/cloudmesh.provisioner.html">provisioner Package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.provisioner.html#id1"><tt class="docutils literal"><span class="pre">provisioner</span></tt> Package</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.provisioner.html#module-cloudmesh.provisioner.provisioner"><tt class="docutils literal"><span class="pre">provisioner</span></tt> Module</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/cloudmesh.shell.html">shell Package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.shell.html#module-cloudmesh.shell.cm_shell"><tt class="docutils literal"><span class="pre">cm_shell</span></tt> Module</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="../../../modules/cloudmesh.shell.html#cm-config">cm config</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/cloudmesh.util.html">util Package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.util.html#id1"><tt class="docutils literal"><span class="pre">util</span></tt> Package</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.util.html#module-cloudmesh.util.logger"><tt class="docutils literal"><span class="pre">logger</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.util.html#module-cloudmesh.util.util"><tt class="docutils literal"><span class="pre">util</span></tt> Module</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"></ul>
+</li>
+              
+            
+            
+              
+                
+              
+            
+            
+              <li></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-search pull-right" action="../../../search.html" method="get">
+  <input type="text" name="q" class="search-query" placeholder="Search" />
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="span12">
+      
+  <h1>Source code for cloudmesh.old_inventory.inventory</h1><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">from</span> <span class="nn">hostlist</span> <span class="kn">import</span> <span class="n">expand_hostlist</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">from</span> <span class="nn">mongoengine</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.util.logger</span> <span class="kn">import</span> <span class="n">LOGGER</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.util.util</span> <span class="kn">import</span> <span class="n">check_file_for_tabs</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.util.util</span> <span class="kn">import</span> <span class="n">path_expand</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.util.config</span> <span class="kn">import</span> <span class="n">read_yaml_config</span>
+
+
+<span class="n">log</span> <span class="o">=</span> <span class="n">LOGGER</span><span class="p">(</span><span class="s">&#39;inventory&#39;</span><span class="p">)</span>
+
+<span class="n">inventory_config_filename</span> <span class="o">=</span> <span class="s">&quot;~/.futuregrid/cloudmesh-db.yaml&quot;</span>
+
+
+
+<span class="n">FABRIC_TYPES</span> <span class="o">=</span> <span class="p">[</span><span class="s">&quot;cluster&quot;</span><span class="p">,</span> <span class="s">&quot;server&quot;</span><span class="p">,</span> <span class="s">&quot;service&quot;</span><span class="p">,</span> <span class="s">&quot;iamge&quot;</span><span class="p">]</span>
+<span class="sd">&quot;&quot;&quot;The types a fabric server can have&quot;&quot;&quot;</span>
+
+<span class="n">PROVISIONING_CHOICES</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;openstack&#39;</span><span class="p">,</span>
+                        <span class="s">&#39;eucalyptus&#39;</span><span class="p">,</span>
+                        <span class="s">&#39;hpc&#39;</span><span class="p">]</span>
+<span class="sd">&quot;&quot;&quot;the provisioning choices for a fabric server&quot;&quot;&quot;</span>
+
+<span class="n">SERVICE_CHOICES</span> <span class="o">=</span> <span class="p">(</span><span class="s">&#39;ganglia&#39;</span><span class="p">,</span>
+                   <span class="s">&#39;nagios&#39;</span><span class="p">)</span>
+<span class="sd">&quot;&quot;&quot;the service choices for a service&quot;&quot;&quot;</span>
+
+<span class="n">SERVER_CHOICES</span> <span class="o">=</span> <span class="p">(</span><span class="s">&#39;dynamic&#39;</span><span class="p">,</span> <span class="s">&#39;static&#39;</span><span class="p">)</span>
+<span class="sd">&quot;&quot;&quot;the server choices we have&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="FabricObject"><a class="viewcode-back" href="../../../modules/cloudmesh.old_inventory.html#cloudmesh.old_inventory.inventory.FabricObject">[docs]</a><span class="k">class</span> <span class="nc">FabricObject</span><span class="p">(</span><span class="n">DynamicDocument</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    the base class that can be inherited to define a fabric object. this object</span>
+<span class="sd">    shoul dnot be directly used, but only inherited from.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="n">kind</span> <span class="o">=</span> <span class="n">StringField</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="s">&quot;basic&quot;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">StringField</span><span class="p">(</span><span class="n">required</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">unique</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="n">labels</span> <span class="o">=</span> <span class="n">ListField</span><span class="p">(</span><span class="n">StringField</span><span class="p">(),</span> <span class="n">default</span><span class="o">=</span><span class="nb">list</span><span class="p">)</span>
+    <span class="n">tags</span> <span class="o">=</span> <span class="n">ListField</span><span class="p">(</span><span class="n">StringField</span><span class="p">(),</span> <span class="n">default</span><span class="o">=</span><span class="nb">list</span><span class="p">)</span>
+    <span class="n">groups</span> <span class="o">=</span> <span class="n">ListField</span><span class="p">(</span><span class="n">StringField</span><span class="p">(),</span> <span class="n">default</span><span class="o">=</span><span class="nb">list</span><span class="p">)</span>
+    <span class="n">cluster</span> <span class="o">=</span> <span class="n">StringField</span><span class="p">()</span>
+    <span class="n">status</span> <span class="o">=</span> <span class="n">StringField</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="s">&quot;defined&quot;</span><span class="p">)</span>    
+    <span class="n">date_start</span> <span class="o">=</span> <span class="n">DateTimeField</span><span class="p">()</span>
+    <span class="n">date_stop</span> <span class="o">=</span> <span class="n">DateTimeField</span><span class="p">()</span>
+    <span class="n">date_update</span> <span class="o">=</span> <span class="n">DateTimeField</span><span class="p">()</span>
+
+    <span class="n">date_creation</span> <span class="o">=</span> <span class="n">DateTimeField</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">())</span>
+    <span class="n">date_modified</span> <span class="o">=</span> <span class="n">DateTimeField</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">())</span>
+
+    <span class="n">uptime</span> <span class="o">=</span> <span class="n">LongField</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+    
+<div class="viewcode-block" id="FabricObject.stamp"><a class="viewcode-back" href="../../../modules/cloudmesh.old_inventory.html#cloudmesh.old_inventory.inventory.FabricObject.stamp">[docs]</a>    <span class="k">def</span> <span class="nf">stamp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        an internal method to provide a time stap for a global modification data</span>
+<span class="sd">        in inventory. Calling of the inventory or any other save will create a</span>
+<span class="sd">        new time stamp</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">date_creation</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">date_creation</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">date_modified</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+
+</div>
+<div class="viewcode-block" id="FabricObject.save"><a class="viewcode-back" href="../../../modules/cloudmesh.old_inventory.html#cloudmesh.old_inventory.inventory.FabricObject.save">[docs]</a>    <span class="k">def</span> <span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        saves the inventory objects</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">stamp</span><span class="p">()</span>
+        <span class="k">return</span> <span class="nb">super</span><span class="p">(</span><span class="n">FabricObject</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        </div>
+<div class="viewcode-block" id="FabricObject.start"><a class="viewcode-back" href="../../../modules/cloudmesh.old_inventory.html#cloudmesh.old_inventory.inventory.FabricObject.start">[docs]</a>    <span class="k">def</span> <span class="nf">start</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        cecods the starting time</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">status</span> <span class="o">==</span> <span class="s">&quot;start&quot;</span><span class="p">:</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
+                <span class="s">&quot;{0} is already started at {1}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">date_start</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="s">&quot;start&quot;</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">date_start</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">date_stop</span> <span class="o">=</span> <span class="bp">None</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">stamp</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">cascade</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">&quot;START: {0} {1}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">date_start</span><span class="p">))</span>
+</div>
+<div class="viewcode-block" id="FabricObject.stop"><a class="viewcode-back" href="../../../modules/cloudmesh.old_inventory.html#cloudmesh.old_inventory.inventory.FabricObject.stop">[docs]</a>    <span class="k">def</span> <span class="nf">stop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        records the stop time</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">status</span> <span class="o">==</span> <span class="s">&quot;stop&quot;</span><span class="p">:</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
+                <span class="s">&quot;{0} is already started at {1}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">date_start</span><span class="p">))</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">status</span> <span class="o">==</span> <span class="s">&quot;start&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="s">&quot;stop&quot;</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">date_stop</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">&quot;STOP: {0} {1}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">date_start</span><span class="p">))</span>
+            <span class="c"># calculate the time difference and add to uptime</span>
+            <span class="n">delta</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">date_stop</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">date_start</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">uptime</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">uptime</span> <span class="o">+</span> <span class="n">delta</span><span class="o">.</span><span class="n">seconds</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">date_start</span> <span class="o">=</span> <span class="bp">None</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">stamp</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">cascade</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
+                <span class="s">&quot;{0} is not running to be stopped {1}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">date_start</span><span class="p">))</span>
+</div>
+    <span class="n">meta</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s">&#39;allow_inheritance&#39;</span><span class="p">:</span> <span class="bp">True</span>
+    <span class="p">}</span>
+
+    </div>
+<div class="viewcode-block" id="FabricImage"><a class="viewcode-back" href="../../../modules/cloudmesh.old_inventory.html#cloudmesh.old_inventory.inventory.FabricImage">[docs]</a><span class="k">class</span> <span class="nc">FabricImage</span><span class="p">(</span><span class="n">FabricObject</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    an object to hold fabric images and their metadata for image provisioning</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">kind</span> <span class="o">=</span> <span class="n">StringField</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="s">&quot;image&quot;</span><span class="p">)</span>
+    </div>
+<div class="viewcode-block" id="FabricService"><a class="viewcode-back" href="../../../modules/cloudmesh.old_inventory.html#cloudmesh.old_inventory.inventory.FabricService">[docs]</a><span class="k">class</span> <span class="nc">FabricService</span><span class="p">(</span><span class="n">FabricObject</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    an object to hold fabric services and their meta data</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">kind</span> <span class="o">=</span> <span class="n">StringField</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="s">&quot;service&quot;</span><span class="p">)</span>
+    <span class="n">utility</span> <span class="o">=</span> <span class="n">StringField</span><span class="p">()</span>
+    </div>
+<div class="viewcode-block" id="FabricServer"><a class="viewcode-back" href="../../../modules/cloudmesh.old_inventory.html#cloudmesh.old_inventory.inventory.FabricServer">[docs]</a><span class="k">class</span> <span class="nc">FabricServer</span><span class="p">(</span><span class="n">FabricObject</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    an object to hold fabric servers and their meta data</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">kind</span> <span class="o">=</span> <span class="n">StringField</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="s">&quot;server&quot;</span><span class="p">)</span>
+    <span class="n">ip</span> <span class="o">=</span> <span class="n">StringField</span><span class="p">()</span>
+    <span class="n">provisioned</span> <span class="o">=</span> <span class="n">StringField</span><span class="p">(</span><span class="n">choices</span><span class="o">=</span><span class="n">PROVISIONING_CHOICES</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s">&quot;hpc&quot;</span><span class="p">)</span>
+    <span class="n">services</span> <span class="o">=</span> <span class="n">ListField</span><span class="p">(</span><span class="n">ReferenceField</span><span class="p">(</span>
+        <span class="n">FabricService</span><span class="p">,</span>
+        <span class="n">reverse_delete_rule</span><span class="o">=</span><span class="n">CASCADE</span><span class="p">))</span>
+
+<div class="viewcode-block" id="FabricServer.append"><a class="viewcode-back" href="../../../modules/cloudmesh.old_inventory.html#cloudmesh.old_inventory.inventory.FabricServer.append">[docs]</a>    <span class="k">def</span> <span class="nf">append</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">service</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">services</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">service</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="FabricServer.set"><a class="viewcode-back" href="../../../modules/cloudmesh.old_inventory.html#cloudmesh.old_inventory.inventory.FabricServer.set">[docs]</a>    <span class="k">def</span> <span class="nf">set</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">services</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">services</span> <span class="o">=</span> <span class="n">services</span>
+</div>
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="FabricServer.load_vms"><a class="viewcode-back" href="../../../modules/cloudmesh.old_inventory.html#cloudmesh.old_inventory.inventory.FabricServer.load_vms">[docs]</a>    <span class="k">def</span> <span class="nf">load_vms</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39; Simulated load on the server &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">r</span><span class="p">:</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span> <span class="o">*</span> <span class="mi">24</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">25</span><span class="p">))</span>
+</div>
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="FabricServer.load_users"><a class="viewcode-back" href="../../../modules/cloudmesh.old_inventory.html#cloudmesh.old_inventory.inventory.FabricServer.load_users">[docs]</a>    <span class="k">def</span> <span class="nf">load_users</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39; Simulated load on the server &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">r</span><span class="p">:</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span> <span class="o">*</span> <span class="mi">10</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">25</span><span class="p">))</span>
+
+        </div></div>
+<div class="viewcode-block" id="FabricCluster"><a class="viewcode-back" href="../../../modules/cloudmesh.old_inventory.html#cloudmesh.old_inventory.inventory.FabricCluster">[docs]</a><span class="k">class</span> <span class="nc">FabricCluster</span><span class="p">(</span><span class="n">FabricObject</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    an object to hold fabric clusters and their meta data</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">definition</span> <span class="o">=</span> <span class="n">StringField</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+    <span class="n">kind</span> <span class="o">=</span> <span class="n">StringField</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="s">&quot;cluster&quot;</span><span class="p">)</span>
+    <span class="n">provision_choices</span> <span class="o">=</span> <span class="n">ListField</span><span class="p">(</span><span class="n">StringField</span><span class="p">(),</span><span class="n">default</span><span class="o">=</span><span class="n">PROVISIONING_CHOICES</span><span class="p">)</span>
+
+    <span class="n">servers</span> <span class="o">=</span> <span class="n">ListField</span><span class="p">(</span><span class="n">ReferenceField</span><span class="p">(</span>
+        <span class="n">FabricServer</span><span class="p">,</span>
+        <span class="n">reverse_delete_rule</span><span class="o">=</span><span class="n">CASCADE</span><span class="p">))</span>
+    <span class="n">images</span> <span class="o">=</span> <span class="n">ListField</span><span class="p">(</span><span class="n">ReferenceField</span><span class="p">(</span>
+        <span class="n">FabricImage</span><span class="p">,</span>
+        <span class="n">reverse_delete_rule</span><span class="o">=</span><span class="n">CASCADE</span><span class="p">))</span>
+</div>
+<div class="viewcode-block" id="Inventory"><a class="viewcode-back" href="../../../modules/cloudmesh.old_inventory.html#cloudmesh.old_inventory.inventory.Inventory">[docs]</a><span class="k">class</span> <span class="nc">Inventory</span><span class="p">:</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    holds a simple &lt;ory of a data center</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="k">def</span> <span class="nf">clean</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;removes all services and servers&quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">kind</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">fabrictype</span><span class="p">(</span><span class="s">&quot;all&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">&quot;Deleting all {0}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">kind</span><span class="p">))</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fabrictype</span><span class="p">(</span><span class="n">kind</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+                <span class="n">element</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
+
+<div class="viewcode-block" id="Inventory.stamp"><a class="viewcode-back" href="../../../modules/cloudmesh.old_inventory.html#cloudmesh.old_inventory.inventory.Inventory.stamp">[docs]</a>    <span class="k">def</span> <span class="nf">stamp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        an internal method to provide a time stap for a global modification data</span>
+<span class="sd">        in inventory. Calling of the inventory or any other save will create a</span>
+<span class="sd">        new time stamp</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">date_modified</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+</div>
+<div class="viewcode-block" id="Inventory.clean"><a class="viewcode-back" href="../../../modules/cloudmesh.old_inventory.html#cloudmesh.old_inventory.inventory.Inventory.clean">[docs]</a>    <span class="k">def</span> <span class="nf">clean</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        cleans the database. </span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">configuration</span><span class="p">[</span><span class="s">&#39;dbname&#39;</span><span class="p">]</span>
+        <span class="k">print</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">db</span><span class="o">.</span><span class="n">drop_database</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+        
+        <span class="c">#database = FabricCluster._get_db()</span>
+        <span class="c">#pprint (database.__dict__)</span>
+        <span class="c">#name = FabricCluster._get_collection_name()</span>
+        <span class="c">#print &quot;NAME&quot;, name</span>
+        <span class="c">#database.drop_collection(name)</span>
+        </div>
+<div class="viewcode-block" id="Inventory.config"><a class="viewcode-back" href="../../../modules/cloudmesh.old_inventory.html#cloudmesh.old_inventory.inventory.Inventory.config">[docs]</a>    <span class="k">def</span> <span class="nf">config</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        reads from the specified yaml file the server configuration</span>
+<span class="sd">        :param filename: name of the yaml file</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">configuration</span> <span class="o">=</span> <span class="n">read_yaml_config</span><span class="p">(</span><span class="n">inventory_config_filename</span><span class="p">,</span> <span class="n">check</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">configuration</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+           <span class="bp">self</span><span class="o">.</span><span class="n">configuration</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;dbname&#39;</span><span class="p">:</span> <span class="s">&quot;inventory&quot;</span><span class="p">}</span> 
+            </div>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        initializes the inventory</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">date_creation</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+        
+        <span class="c">#</span>
+        <span class="c"># TODO: need to pass host, port and other stuff from config file dict to this</span>
+        <span class="c">#</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">db</span> <span class="o">=</span> <span class="n">connect</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">configuration</span><span class="p">[</span><span class="s">&#39;dbname&#39;</span><span class="p">])</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">clusters</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">servers</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">services</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">images</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">stamp</span><span class="p">()</span>
+        <span class="k">pass</span>
+
+<div class="viewcode-block" id="Inventory.set"><a class="viewcode-back" href="../../../modules/cloudmesh.old_inventory.html#cloudmesh.old_inventory.inventory.Inventory.set">[docs]</a>    <span class="k">def</span> <span class="nf">set</span> <span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">elements</span><span class="p">,</span> <span class="n">attribute</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">namespec</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        sets an attribute of one or multiple matching objects defined by namespec to value.</span>
+<span class="sd">        </span>
+<span class="sd">        :param elements: a list of fabric objects</span>
+<span class="sd">        :param attribute: the attribute to be changed</span>
+<span class="sd">        :param value: the value to set the attribute to</span>
+<span class="sd">        :param namespec: the matching condition for the name of the object. &#39;i[001-003]&#39;. matches the objects with names i001, i002, i003</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">if</span> <span class="n">namespec</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">elements</span><span class="p">:</span>
+                <span class="n">element</span><span class="p">[</span><span class="n">attribute</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">stamp</span><span class="p">()</span>
+                <span class="n">element</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">cascade</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">name_list</span> <span class="o">=</span> <span class="n">expand_hostlist</span><span class="p">(</span><span class="n">namespec</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">elements</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">element</span><span class="o">.</span><span class="n">name</span> <span class="ow">in</span> <span class="n">name_list</span><span class="p">:</span>
+                    <span class="n">element</span><span class="p">[</span><span class="n">attribute</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">stamp</span><span class="p">()</span>
+                    <span class="n">element</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">cascade</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+    </div>
+<div class="viewcode-block" id="Inventory.create"><a class="viewcode-back" href="../../../modules/cloudmesh.old_inventory.html#cloudmesh.old_inventory.inventory.Inventory.create">[docs]</a>    <span class="k">def</span> <span class="nf">create</span> <span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">kind</span><span class="p">,</span> <span class="n">namespec</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        creates fabric objects of the specified kind and matching the name specification</span>
+<span class="sd">        :param kind: the kind . see FABRIC_TYPES</span>
+<span class="sd">        :param namespec: the specifacation for a name list. &#39;i[001-003]&#39;. creates the objects with names i001, i002, i003</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="n">elements</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">names</span> <span class="o">=</span> <span class="n">expand_hostlist</span><span class="p">(</span><span class="n">namespec</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">names</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">kind</span> <span class="o">==</span> <span class="s">&quot;server&quot;</span><span class="p">:</span>
+                <span class="n">element</span> <span class="o">=</span> <span class="n">FabricServer</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="n">kind</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="s">&quot;service&quot;</span><span class="p">:</span>
+                <span class="n">element</span> <span class="o">=</span> <span class="n">FabricService</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="n">kind</span><span class="p">)</span>
+                <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">&quot;creating {0} {1}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">kind</span><span class="p">))</span>
+            <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="s">&quot;cluster&quot;</span><span class="p">:</span>
+                <span class="n">element</span> <span class="o">=</span> <span class="n">FabricCluster</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="n">kind</span><span class="p">)</span>
+                <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">&quot;creating {0} {1}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">kind</span><span class="p">))</span>
+            <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="s">&quot;image&quot;</span><span class="p">:</span>
+                <span class="n">element</span> <span class="o">=</span> <span class="n">FabricImage</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="n">kind</span><span class="p">)</span>
+                <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">&quot;creating {0} {1}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">kind</span><span class="p">))</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">log</span><span class="o">.</span><span class="n">error</span><span class="p">(</span>
+                    <span class="s">&quot;kind is not defined, creation of objects failed, kind, nameregex&quot;</span><span class="p">)</span>
+                <span class="k">return</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">stamp</span><span class="p">()</span>
+            <span class="n">element</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">cascade</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+            <span class="n">elements</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">object</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">elements</span>
+    </div>
+<div class="viewcode-block" id="Inventory.create_cluster"><a class="viewcode-back" href="../../../modules/cloudmesh.old_inventory.html#cloudmesh.old_inventory.inventory.Inventory.create_cluster">[docs]</a>    <span class="k">def</span> <span class="nf">create_cluster</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                       <span class="n">name</span><span class="p">,</span>
+                       <span class="n">names</span><span class="p">,</span>
+                       <span class="n">ips</span><span class="p">,</span>
+                       <span class="n">management</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        creates a cluster with the given name specification ip specifications, and the identification of management node.</span>
+<span class="sd">        </span>
+<span class="sd">        :param name: name of the cluster</span>
+<span class="sd">        :param names: the names of the cluster servers. &#39;i[001-003]&#39;. creates the objects with names i001, i002, i003</span>
+<span class="sd">        :param ips: the names of the ips for the servers. &#39;i[001-003].futuregrid.org&#39; creates the ips for the previously defined names</span>
+<span class="sd">        :param management: the names of the management nodes. &#39;i[001-002]&#39; sets the nodes i001 and i002 to management nodes. The rest will be set to compute nodes automatically.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="n">name_list</span> <span class="o">=</span> <span class="n">expand_hostlist</span><span class="p">(</span><span class="n">names</span><span class="p">)</span>
+        <span class="n">ip_list</span> <span class="o">=</span> <span class="n">expand_hostlist</span><span class="p">(</span><span class="n">ips</span><span class="p">)</span>
+        <span class="n">management_list</span> <span class="o">=</span> <span class="n">expand_hostlist</span><span class="p">(</span><span class="n">management</span><span class="p">)</span>
+        <span class="n">server_list</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="n">name_list</span><span class="p">,</span> <span class="n">ip_list</span><span class="p">)</span>
+        <span class="n">servers</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">server_name</span><span class="p">,</span> <span class="n">server_ip</span><span class="p">)</span> <span class="ow">in</span> <span class="n">server_list</span><span class="p">:</span>
+            <span class="n">server</span> <span class="o">=</span> <span class="n">FabricServer</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">server_name</span><span class="p">,</span>
+                                  <span class="n">cluster</span><span class="o">=</span><span class="n">name</span><span class="p">,</span>
+                                  <span class="n">ip</span><span class="o">=</span><span class="n">server_ip</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">server_name</span> <span class="ow">in</span> <span class="n">management_list</span><span class="p">:</span>
+                <span class="n">server</span><span class="o">.</span><span class="n">tags</span> <span class="o">=</span> <span class="p">[</span><span class="s">&quot;manage&quot;</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">server</span><span class="o">.</span><span class="n">tags</span> <span class="o">=</span> <span class="p">[</span><span class="s">&quot;compute&quot;</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">stamp</span><span class="p">()</span>
+            <span class="n">server</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">cascade</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+            <span class="n">servers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">server</span><span class="p">)</span>
+        <span class="n">cluster</span> <span class="o">=</span> <span class="n">FabricCluster</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> 
+                                <span class="n">cluster</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> 
+                                <span class="n">definition</span><span class="o">=</span><span class="n">names</span><span class="p">)</span>
+        <span class="n">cluster</span><span class="o">.</span><span class="n">servers</span> <span class="o">=</span> <span class="n">servers</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">stamp</span><span class="p">()</span>
+        <span class="n">cluster</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">cascade</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+            
+        <span class="k">pass</span>
+</div>
+<div class="viewcode-block" id="Inventory.get"><a class="viewcode-back" href="../../../modules/cloudmesh.old_inventory.html#cloudmesh.old_inventory.inventory.Inventory.get">[docs]</a>    <span class="k">def</span> <span class="nf">get</span> <span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">kind</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        returns the object with the specified kind and name</span>
+<span class="sd">        </span>
+<span class="sd">        :param kind: the kind . see FABRIC_TYPES</span>
+<span class="sd">        :param name: the name of the object</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">kind</span> <span class="o">==</span> <span class="s">&quot;cluster&quot;</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">FabricCluster</span><span class="o">.</span><span class="n">objects</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="s">&quot;server&quot;</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">FabricServer</span><span class="o">.</span><span class="n">objects</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="s">&quot;service&quot;</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">FabricService</span><span class="o">.</span><span class="n">objects</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="s">&quot;images&quot;</span><span class="p">:</span>
+                <span class="k">print</span> <span class="s">&quot;PASSED&quot;</span><span class="p">,</span> <span class="n">name</span>
+                <span class="k">return</span> <span class="n">FabricImage</span><span class="o">.</span><span class="n">objects</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">log</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s">&quot;ERROR&quot;</span><span class="p">)</span>
+                <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">kind</span> <span class="o">==</span> <span class="s">&quot;cluster&quot;</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">FabricCluster</span><span class="o">.</span><span class="n">objects</span>
+            <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="s">&quot;server&quot;</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">FabricServer</span><span class="o">.</span><span class="n">objects</span>
+            <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="s">&quot;service&quot;</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">FabricService</span><span class="o">.</span><span class="n">objects</span>
+            <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="s">&quot;images&quot;</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">FabricImage</span><span class="o">.</span><span class="n">objects</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">log</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s">&quot;ERROR&quot;</span><span class="p">)</span>
+                <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
+</div>
+<div class="viewcode-block" id="Inventory.names"><a class="viewcode-back" href="../../../modules/cloudmesh.old_inventory.html#cloudmesh.old_inventory.inventory.Inventory.names">[docs]</a>    <span class="k">def</span> <span class="nf">names</span> <span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">kind</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        returns the names of object with the specified kind and name</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="n">elements</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="n">kind</span><span class="p">)</span>
+        <span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="n">element</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">elements</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">names</span>
+</div>
+<div class="viewcode-block" id="Inventory.print_cluster"><a class="viewcode-back" href="../../../modules/cloudmesh.old_inventory.html#cloudmesh.old_inventory.inventory.Inventory.print_cluster">[docs]</a>    <span class="k">def</span> <span class="nf">print_cluster</span> <span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        print some elementary, but not all information of the cluster.</span>
+<span class="sd">        </span>
+<span class="sd">        :param name: name of the cluster</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span>
+        <span class="n">cluster</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;cluster&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">)</span>
+        <span class="k">print</span> <span class="s">&quot;</span><span class="si">%15s</span><span class="s">:&quot;</span> <span class="o">%</span> <span class="s">&quot;cluster&quot;</span><span class="p">,</span> <span class="n">name</span>
+        <span class="k">print</span> <span class="s">&quot;</span><span class="si">%15s</span><span class="s">:&quot;</span> <span class="o">%</span> <span class="s">&quot;modified&quot;</span><span class="p">,</span> <span class="n">cluster</span><span class="o">.</span><span class="n">date_modified</span>
+        <span class="c">#        print &quot;%15s:&quot; % &quot;dbname&quot;, self.inventory_name</span>
+        <span class="k">print</span> <span class="s">&quot;</span><span class="si">%15s</span><span class="s">:&quot;</span> <span class="o">%</span> <span class="s">&quot;cluster&quot;</span><span class="p">,</span> <span class="n">name</span>
+        <span class="k">print</span> <span class="s">&quot;</span><span class="si">%15s</span><span class="s">:&quot;</span> <span class="o">%</span> <span class="s">&quot;images&quot;</span><span class="p">,</span> <span class="n">cluster</span><span class="o">.</span><span class="n">images</span>
+        <span class="k">print</span>
+
+        <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">cluster</span><span class="o">.</span><span class="n">servers</span><span class="p">:</span>
+            <span class="k">if</span> <span class="s">&quot;manage&quot;</span> <span class="ow">in</span> <span class="n">s</span><span class="o">.</span><span class="n">tags</span><span class="p">:</span>
+                <span class="n">c</span> <span class="o">=</span> <span class="s">&quot;m&quot;</span>
+            <span class="k">elif</span> <span class="s">&quot;compute&quot;</span> <span class="ow">in</span> <span class="n">s</span><span class="o">.</span><span class="n">tags</span><span class="p">:</span>
+                <span class="n">c</span> <span class="o">=</span> <span class="s">&quot;c&quot;</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">c</span> <span class="o">=</span> <span class="s">&quot; &quot;</span>
+
+            <span class="n">line</span> <span class="o">=</span> <span class="s">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s">&quot;</span><span class="si">%15s</span><span class="s">:&quot;</span> <span class="o">%</span> <span class="n">s</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="s">&quot;</span><span class="si">%-8s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">s</span><span class="o">.</span><span class="n">status</span><span class="p">,</span> <span class="s">&quot;</span><span class="si">%-15s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">s</span><span class="o">.</span><span class="n">ip</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">s</span><span class="o">.</span><span class="n">provisioned</span> <span class="p">,</span> <span class="s">&quot;&quot;</span><span class="p">])</span>
+            <span class="n">service_line</span> <span class="o">=</span> <span class="s">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="nb">str</span><span class="p">(</span><span class="n">service</span><span class="o">.</span><span class="n">subkind</span><span class="p">)</span> <span class="k">for</span> <span class="n">service</span> <span class="ow">in</span> <span class="n">s</span><span class="p">[</span><span class="s">&quot;services&quot;</span><span class="p">]])</span>
+            <span class="n">service_line</span> <span class="o">=</span> <span class="n">service_line</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&quot;openstack&quot;</span><span class="p">,</span> <span class="s">&quot;o&quot;</span><span class="p">)</span>
+            <span class="n">line</span> <span class="o">+=</span> <span class="n">service_line</span>
+            <span class="k">print</span> <span class="n">line</span>
+        <span class="k">print</span>
+
+        <span class="k">print</span> <span class="s">&quot;</span><span class="si">%15s</span><span class="s">:&quot;</span> <span class="o">%</span> <span class="s">&quot;Legend&quot;</span>
+        <span class="k">print</span> <span class="s">&quot;</span><span class="si">%15s</span><span class="s"> =&quot;</span> <span class="o">%</span> <span class="s">&quot;M&quot;</span><span class="p">,</span> <span class="s">&quot;Management&quot;</span>
+        <span class="k">print</span> <span class="s">&quot;</span><span class="si">%15s</span><span class="s"> =&quot;</span> <span class="o">%</span> <span class="s">&quot;S&quot;</span><span class="p">,</span> <span class="s">&quot;Server&quot;</span>
+        <span class="k">print</span> <span class="s">&quot;</span><span class="si">%15s</span><span class="s"> =&quot;</span> <span class="o">%</span> <span class="s">&quot;o&quot;</span><span class="p">,</span> <span class="s">&quot;OpenStack&quot;</span>
+        <span class="k">print</span> <span class="s">&quot;</span><span class="si">%15s</span><span class="s"> =&quot;</span> <span class="o">%</span> <span class="s">&quot;e&quot;</span><span class="p">,</span> <span class="s">&quot;OpenStack&quot;</span>
+        <span class="k">print</span> <span class="s">&quot;</span><span class="si">%15s</span><span class="s"> =&quot;</span> <span class="o">%</span> <span class="s">&quot;h&quot;</span><span class="p">,</span> <span class="s">&quot;HPC&quot;</span>
+</div>
+<div class="viewcode-block" id="Inventory.print_kind"><a class="viewcode-back" href="../../../modules/cloudmesh.old_inventory.html#cloudmesh.old_inventory.inventory.Inventory.print_kind">[docs]</a>    <span class="k">def</span> <span class="nf">print_kind</span> <span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">kind</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        prints the attributes contained in the object with the given type.</span>
+<span class="sd">        </span>
+<span class="sd">        :param kind: the kind of the fabric object</span>
+<span class="sd">        :param name: the name of the fabric object</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">if</span> <span class="n">kind</span> <span class="ow">in</span> <span class="n">FABRIC_TYPES</span> <span class="ow">or</span> <span class="n">name</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">element</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">kind</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>   
+            <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">element</span><span class="p">:</span>
+                <span class="k">print</span> <span class="s">&quot;</span><span class="si">%15s</span><span class="s"> =&quot;</span> <span class="o">%</span> <span class="n">key</span><span class="p">,</span> <span class="n">element</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+            </div>
+<div class="viewcode-block" id="Inventory.refresh"><a class="viewcode-back" href="../../../modules/cloudmesh.old_inventory.html#cloudmesh.old_inventory.inventory.Inventory.refresh">[docs]</a>    <span class="k">def</span> <span class="nf">refresh</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        the inventory object contains a number of lists to conveniently access all fabric objects by kind. After refresh you can access them through </span>
+<span class="sd">        </span>
+<span class="sd">           inventory = Inventory()</span>
+<span class="sd">           inventory.refresh()</span>
+<span class="sd">           </span>
+<span class="sd">           inventory.servers</span>
+<span class="sd">           inventory.services</span>
+<span class="sd">           inventory.clusters</span>
+<span class="sd">           inventory.images</span>
+<span class="sd">           </span>
+<span class="sd">        :param kind:</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">if</span> <span class="n">kind</span> <span class="ow">in</span> <span class="n">FABRIC_TYPES</span> <span class="ow">or</span> <span class="n">kind</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">kind</span> <span class="o">==</span> <span class="s">&quot;cluster&quot;</span> <span class="ow">or</span> <span class="n">kind</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">clusters</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;cluster&quot;</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">kind</span> <span class="o">==</span> <span class="s">&quot;server&quot;</span> <span class="ow">or</span> <span class="n">kind</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">servers</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;server&quot;</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">kind</span> <span class="o">==</span> <span class="s">&quot;service&quot;</span> <span class="ow">or</span> <span class="n">kind</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">services</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;service&quot;</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">kind</span> <span class="o">==</span> <span class="s">&quot;images&quot;</span> <span class="ow">or</span> <span class="n">kind</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">images</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;images&quot;</span><span class="p">)</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s">&quot;ERROR: can not find kind: &#39;{0}&#39;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">kind</span><span class="p">))</span>
+            <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
+
+</div>
+<div class="viewcode-block" id="Inventory.print_info"><a class="viewcode-back" href="../../../modules/cloudmesh.old_inventory.html#cloudmesh.old_inventory.inventory.Inventory.print_info">[docs]</a>    <span class="k">def</span> <span class="nf">print_info</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        print some elementary overview information </span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span>
+        <span class="c"># print &quot;%15s:&quot; % &quot;dbname&quot;, self.inventory_name</span>
+        <span class="k">print</span> <span class="s">&quot;</span><span class="si">%15s</span><span class="s">:&quot;</span> <span class="o">%</span> <span class="s">&quot;clusters&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">clusters</span><span class="p">),</span> <span class="s">&quot;-&gt;&quot;</span><span class="p">,</span> <span class="s">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">c</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">clusters</span><span class="p">])</span>
+        <span class="k">print</span> <span class="s">&quot;</span><span class="si">%15s</span><span class="s">:&quot;</span> <span class="o">%</span> <span class="s">&quot;services&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">services</span><span class="p">)</span>
+        <span class="k">print</span> <span class="s">&quot;</span><span class="si">%15s</span><span class="s">:&quot;</span> <span class="o">%</span> <span class="s">&quot;servers&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">servers</span><span class="p">)</span>
+        <span class="k">print</span> <span class="s">&quot;</span><span class="si">%15s</span><span class="s">:&quot;</span> <span class="o">%</span> <span class="s">&quot;images&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">images</span><span class="p">)</span> <span class="p">,</span> <span class="s">&quot;-&gt;&quot;</span><span class="p">,</span> <span class="s">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">c</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">images</span><span class="p">])</span>
+        <span class="k">print</span>
+</div></div>
+<div class="viewcode-block" id="main"><a class="viewcode-back" href="../../../modules/cloudmesh.old_inventory.html#cloudmesh.old_inventory.inventory.main">[docs]</a><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="c"># this example will not work if you have not done a python setup.py install</span>
+    <span class="c"># server = FabricServer(name=&quot;i&quot;)</span>
+
+    <span class="c"># server.tags = [&quot;hallo&quot;]</span>
+    <span class="c"># server.save()</span>
+
+    <span class="c"># pprint (server.__dict__)</span>
+
+    <span class="n">inventory</span> <span class="o">=</span> <span class="n">Inventory</span><span class="p">()</span>
+
+    <span class="n">inventory</span><span class="o">.</span><span class="n">create_cluster</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">&quot;xindia&quot;</span><span class="p">,</span>
+                             <span class="n">names</span><span class="o">=</span><span class="s">&quot;xi[003-010]&quot;</span><span class="p">,</span>
+                             <span class="n">ips</span><span class="o">=</span><span class="s">&quot;india[003-010].futuregrid.org&quot;</span><span class="p">,</span>
+                             <span class="n">management</span><span class="o">=</span><span class="s">&quot;xi[003,004]&quot;</span><span class="p">)</span>
+
+    <span class="n">servers</span> <span class="o">=</span> <span class="n">FabricServer</span><span class="o">.</span><span class="n">objects</span>
+    <span class="n">inventory</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">servers</span><span class="p">,</span> <span class="s">&quot;status&quot;</span><span class="p">,</span> <span class="s">&quot;running&quot;</span><span class="p">,</span> <span class="s">&quot;xi[003-010]&quot;</span><span class="p">)</span>
+    <span class="n">inventory</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">servers</span><span class="p">,</span> <span class="s">&quot;status&quot;</span><span class="p">,</span> <span class="s">&quot;done&quot;</span><span class="p">,</span> <span class="s">&quot;xi[005-007]&quot;</span><span class="p">)</span>
+
+    <span class="n">inventory</span><span class="o">.</span><span class="n">print_cluster</span> <span class="p">(</span><span class="s">&quot;india&quot;</span><span class="p">)</span>
+
+
+    <span class="n">inventory</span><span class="o">.</span><span class="n">print_info</span><span class="p">()</span>
+</div>
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2013, Gregor von Laszewski for  FutureGrid.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>
