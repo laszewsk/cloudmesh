@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>3   Usage Quickstart for a Deployed Version of cloudmesh &mdash; Cloudmesh 0.1 documentation</title>
+    <title>3   Usage Quickstart &mdash; Cloudmesh 0.1 documentation</title>
     
     <link rel="stylesheet" href="_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -82,7 +82,7 @@
 </li>
 </ul>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="">3&nbsp;&nbsp;&nbsp;Usage Quickstart for a Deployed Version of cloudmesh</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="">3&nbsp;&nbsp;&nbsp;Usage Quickstart</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#with-access-to-ldap">3.1&nbsp;&nbsp;&nbsp;With access to LDAP</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#without-access-to-ldap">3.2&nbsp;&nbsp;&nbsp;Without access to LDAP</a></li>
 </ul>
@@ -268,7 +268,7 @@
                 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown">Page <b class="caret"></b></a>
   <ul class="dropdown-menu localtoc"><ul>
-<li><a class="reference internal" href="#">3&nbsp;&nbsp;&nbsp;Usage Quickstart for a Deployed Version of cloudmesh</a><ul>
+<li><a class="reference internal" href="#">3&nbsp;&nbsp;&nbsp;Usage Quickstart</a><ul>
 <li><a class="reference internal" href="#with-access-to-ldap">3.1&nbsp;&nbsp;&nbsp;With access to LDAP</a></li>
 <li><a class="reference internal" href="#without-access-to-ldap">3.2&nbsp;&nbsp;&nbsp;Without access to LDAP</a></li>
 </ul>
@@ -354,8 +354,8 @@
   <div class="row">
     <div class="span12">
       
-  <div class="section" id="usage-quickstart-for-a-deployed-version-of-cloudmesh">
-<h1>3&nbsp;&nbsp;&nbsp;Usage Quickstart for a Deployed Version of cloudmesh<a class="headerlink" href="#usage-quickstart-for-a-deployed-version-of-cloudmesh" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="usage-quickstart">
+<h1>3&nbsp;&nbsp;&nbsp;Usage Quickstart<a class="headerlink" href="#usage-quickstart" title="Permalink to this headline">¶</a></h1>
 <p>The following are the current steps to bring all services for
 cloudmesh up and running. After you have Installed the software (see
 ). Naturally we could have included them in the Section <cite>ref:s-instalation</cite>
@@ -668,6 +668,7 @@ refresh of the web page automatically to other test programs.</p>
 <span class="go">    build.install       install cloudmesh</span>
 <span class="go">    build.req           install the requirements</span>
 <span class="go">    build.sdist         create the sdist</span>
+<span class="go">    build.sphinx</span>
 <span class="go">    clean.all           clean the dis and uninstall cloudmesh</span>
 <span class="go">    clean.dir           clean the dirs</span>
 <span class="go">    doc.gh              deploy the documentation on gh-pages</span>
@@ -778,8 +779,15 @@ values.</p>
 </div>
 <div class="section" id="making-the-documentation">
 <h2>4.11&nbsp;&nbsp;&nbsp;Making the documentation<a class="headerlink" href="#making-the-documentation" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-python"><pre>fab doc.html
-fab doc.view</pre>
+<p>The documentation requiresa couple of add ons that are not included in
+the requirements.txt file. However, they can be installed with:</p>
+<div class="highlight-python"><pre>$ fab build.sphinx</pre>
+</div>
+<p>After that you can create the newest documentation with:</p>
+<div class="highlight-python"><pre>$ fab doc.html</pre>
+</div>
+<p>To view it just say:</p>
+<div class="highlight-python"><pre>$ fab doc.view</pre>
 </div>
 <div class="section" id="example-start-the-gui-for-development">
 <h3>4.11.1&nbsp;&nbsp;&nbsp;Example: Start the GUI for development<a class="headerlink" href="#example-start-the-gui-for-development" title="Permalink to this headline">¶</a></h3>
