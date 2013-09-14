@@ -1,6 +1,14 @@
 
 
 
+
+  
+ 
+  
+  
+ 
+
+
 <!DOCTYPE html>
 
 
@@ -12,9 +20,9 @@
     
     <link rel="stylesheet" href="_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/bootstrap-2.3.2/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-3.0.0/css/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
-    <link rel="stylesheet" href="_static/bootstrap-2.3.2/css/bootstrap-responsive.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-3.0.0/css/bootstrap-theme.min.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
@@ -31,7 +39,7 @@
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/javascript" src="_static/js/jquery-1.9.1.min.js"></script>
     <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
-    <script type="text/javascript" src="_static/bootstrap-2.3.2/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.0.0/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
     <link rel="author" title="About these documents" href="about.html" />
     <link rel="top" title="Cloudmesh 0.1 documentation" href="index.html" />
@@ -43,21 +51,21 @@
   </head>
   <body>
 
-  <div id="navbar" class="navbar navbar-inverse navbar-fixed-top">
-    <div class="navbar-inner">
-      <div class="container">
+  <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
         <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
-        <button class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
+        <a class="navbar-brand" href="index.html">Cloudmesh</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.1</b></span>
+      </div>
 
-        <a class="brand" href="index.html">Cloudmesh</a>
-        <span class="navbar-text pull-left"><b>0.1</b></span>
-
-        <div class="nav-collapse">
-          <ul class="nav">
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
             <li class="divider-vertical"></li>
             
             
@@ -126,6 +134,16 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="developer.html#making-the-documentation">4.11&nbsp;&nbsp;&nbsp;Making the documentation</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="developer.html#example-start-the-gui-for-development">4.11.1&nbsp;&nbsp;&nbsp;Example: Start the GUI for development</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="developer.html#example-hpc-queue-server">4.12&nbsp;&nbsp;&nbsp;Example: HPC queue server</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="celery.html">5&nbsp;&nbsp;&nbsp;Celery Setup</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="celery.html#starting-and-stopping-celery">5.1&nbsp;&nbsp;&nbsp;Starting and Stopping Celery</a></li>
+<li class="toctree-l2"><a class="reference internal" href="celery.html#log-and-pid-files">5.2&nbsp;&nbsp;&nbsp;Log and Pid Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="celery.html#current-celery-based-tasks">5.3&nbsp;&nbsp;&nbsp;Current Celery Based Tasks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="celery.html#launcher-simulation">5.3.1&nbsp;&nbsp;&nbsp;Launcher (Simulation)</a></li>
 </ul>
 </li>
 </ul>
@@ -198,11 +216,11 @@
 <li class="toctree-l6"><a class="reference internal" href="modules/cloudmesh.config.html#cm-manage-config">cm-manage config</a></li>
 </ul>
 </li>
-<li class="toctree-l5"><a class="reference internal" href="modules/cloudmesh.config.html#module-cloudmesh.config.ldap_user"><tt class="docutils literal"><span class="pre">ldap_user</span></tt> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="modules/cloudmesh.config.html#module-cloudmesh.config.mock_cloud"><tt class="docutils literal"><span class="pre">mock_cloud</span></tt> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="modules/cloudmesh.config.html#module-cloudmesh.config.mock_keystone"><tt class="docutils literal"><span class="pre">mock_keystone</span></tt> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="modules/cloudmesh.config.html#module-cloudmesh.config.mock_user"><tt class="docutils literal"><span class="pre">mock_user</span></tt> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="modules/cloudmesh.config.html#module-cloudmesh.config.openstack_essex_cloud"><tt class="docutils literal"><span class="pre">openstack_essex_cloud</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/cloudmesh.config.html#ldap-user-module"><tt class="docutils literal"><span class="pre">ldap_user</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/cloudmesh.config.html#mock-cloud-module"><tt class="docutils literal"><span class="pre">mock_cloud</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/cloudmesh.config.html#mock-keystone-module"><tt class="docutils literal"><span class="pre">mock_keystone</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/cloudmesh.config.html#mock-user-module"><tt class="docutils literal"><span class="pre">mock_user</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/cloudmesh.config.html#openstack-essex-cloud-module"><tt class="docutils literal"><span class="pre">openstack_essex_cloud</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="modules/cloudmesh.config.html#module-cloudmesh.config.openstack_grizzly_cloud"><tt class="docutils literal"><span class="pre">openstack_grizzly_cloud</span></tt> Module</a></li>
 </ul>
 </li>
@@ -273,11 +291,10 @@
             
             
               
-
-   
                 
               
-
+            
+            
             
             
               <li></li>
@@ -286,14 +303,15 @@
 
           
             
-<form class="navbar-search pull-right" action="search.html" method="get">
-  <input type="text" name="q" class="search-query" placeholder="Search" />
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
   <input type="hidden" name="check_keywords" value="yes" />
   <input type="hidden" name="area" value="default" />
 </form>
           
         </div>
-      </div>
     </div>
   </div>
 
@@ -364,26 +382,6 @@
   </dt>
 
       
-  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.ldap_user.ldap_user.activeclouds">activeclouds (cloudmesh.config.ldap_user.ldap_user attribute)</a>
-  </dt>
-
-      <dd><dl>
-        
-  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.mock_user.mock_user.activeclouds">(cloudmesh.config.mock_user.mock_user attribute)</a>
-  </dt>
-
-      </dl></dd>
-      
-  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.ldap_user.ldap_user.activeprojects">activeprojects (cloudmesh.config.ldap_user.ldap_user attribute)</a>
-  </dt>
-
-      <dd><dl>
-        
-  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.mock_user.mock_user.activeprojects">(cloudmesh.config.mock_user.mock_user attribute)</a>
-  </dt>
-
-      </dl></dd>
-      
   <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.cm_projects.cm_projects.add">add() (cloudmesh.config.cm_projects.cm_projects method)</a>
   </dt>
 
@@ -405,12 +403,6 @@
   <dt><a href="modules/cloudmesh.accounting.html#cloudmesh.accounting.AccountBaseClass.AccountingBaseClass.add_user">add_user() (cloudmesh.accounting.AccountBaseClass.AccountingBaseClass method)</a>
   </dt>
 
-  </dl></td>
-  <td style="width: 33%" valign="top"><dl>
-      
-  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.mock_keystone.Client.mock_roles.add_user_role">add_user_role() (cloudmesh.config.mock_keystone.Client.mock_roles method)</a>
-  </dt>
-
       
   <dt><a href="modules/cloudmesh.accounting.html#cloudmesh.accounting.AccountBaseClass.AccountingBaseClass.add_user_to_project">add_user_to_project() (cloudmesh.accounting.AccountBaseClass.AccountingBaseClass method)</a>
   </dt>
@@ -419,6 +411,8 @@
   <dt><a href="modules/cloudmesh.old_inventory.html#cloudmesh.old_inventory.heatmap.MyTempMap.addRackListServer">addRackListServer() (cloudmesh.old_inventory.heatmap.MyTempMap method)</a>
   </dt>
 
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
       
   <dt><a href="modules/cloudmesh.old_inventory.html#cloudmesh.old_inventory.heatmap.MyTempMap.addRackServer">addRackServer() (cloudmesh.old_inventory.heatmap.MyTempMap method)</a>
   </dt>
@@ -427,18 +421,16 @@
   <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.cm_config.cm_config.address">address (cloudmesh.config.cm_config.cm_config attribute)</a>
   </dt>
 
-      <dd><dl>
-        
-  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.ldap_user.ldap_user.address">(cloudmesh.config.ldap_user.ldap_user attribute)</a>
-  </dt>
-
-        
-  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.mock_user.mock_user.address">(cloudmesh.config.mock_user.mock_user attribute)</a>
-  </dt>
-
-      </dl></dd>
       
   <dt><a href="modules/cloudmesh.util.html#cloudmesh.util.util.address_string">address_string() (in module cloudmesh.util.util)</a>
+  </dt>
+
+      
+  <dt><a href="modules/cloudmesh.iaas.openstack.html#cloudmesh.iaas.openstack.cm_compute.openstack.admin_credential">admin_credential (cloudmesh.iaas.openstack.cm_compute.openstack attribute)</a>
+  </dt>
+
+      
+  <dt><a href="modules/cloudmesh.iaas.openstack.html#cloudmesh.iaas.openstack.cm_compute.openstack.admin_token">admin_token (cloudmesh.iaas.openstack.cm_compute.openstack attribute)</a>
   </dt>
 
       
@@ -476,6 +468,12 @@
   </dt>
 
   </dl></td>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="modules/cloudmesh.launcher.html#cloudmesh.launcher.cm_launcher.BaseClassLauncher">BaseClassLauncher (class in cloudmesh.launcher.cm_launcher)</a>
+  </dt>
+
+  </dl></td>
 </tr></table>
 
 <h2 id="C">C</h2>
@@ -495,20 +493,16 @@
   </dt>
 
         
-  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.mock_keystone.Client.mock_users.change_own_password">(cloudmesh.config.mock_keystone.Client.mock_users method)</a>
-  </dt>
-
-        
-  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.openstack_essex_cloud.openstack_essex_cloud.change_own_password">(cloudmesh.config.openstack_essex_cloud.openstack_essex_cloud method)</a>
-  </dt>
-
-        
   <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.openstack_grizzly_cloud.openstack_grizzly_cloud.change_own_password">(cloudmesh.config.openstack_grizzly_cloud.openstack_grizzly_cloud method)</a>
   </dt>
 
       </dl></dd>
       
   <dt><a href="modules/cloudmesh.util.html#cloudmesh.util.util.check_file_for_tabs">check_file_for_tabs() (in module cloudmesh.util.util)</a>
+  </dt>
+
+      
+  <dt><a href="modules/cloudmesh.launcher.html#cloudmesh.launcher.cm_launcher.ChefLauncher">ChefLauncher (class in cloudmesh.launcher.cm_launcher)</a>
   </dt>
 
       
@@ -533,6 +527,10 @@
   </dt>
 
         
+  <dt><a href="modules/cloudmesh.launcher.html#cloudmesh.launcher.cm_launcher_db.cm_launcher_db.clear">(cloudmesh.launcher.cm_launcher_db.cm_launcher_db method)</a>
+  </dt>
+
+        
   <dt><a href="modules/cloudmesh.metric.openstack.html#cloudmesh.metric.openstack.cm_metric_openstack.cm_metric_openstack.clear">(cloudmesh.metric.openstack.cm_metric_openstack.cm_metric_openstack method)</a>
   </dt>
 
@@ -550,10 +548,6 @@
 
       </dl></dd>
       
-  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.mock_keystone.Client">Client (class in cloudmesh.config.mock_keystone)</a>
-  </dt>
-
-      
   <dt><a href="modules/cloudmesh.pbs.html#cloudmesh.pbs.pbs_mongo.pbs_mongo.client">client (cloudmesh.pbs.pbs_mongo.pbs_mongo attribute)</a>
   </dt>
 
@@ -563,22 +557,6 @@
   </dt>
 
       </dl></dd>
-      
-  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.mock_keystone.Client.mock_object">Client.mock_object (class in cloudmesh.config.mock_keystone)</a>
-  </dt>
-
-      
-  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.mock_keystone.Client.mock_roles">Client.mock_roles (class in cloudmesh.config.mock_keystone)</a>
-  </dt>
-
-      
-  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.mock_keystone.Client.mock_tenants">Client.mock_tenants (class in cloudmesh.config.mock_keystone)</a>
-  </dt>
-
-      
-  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.mock_keystone.Client.mock_users">Client.mock_users (class in cloudmesh.config.mock_keystone)</a>
-  </dt>
-
       
   <dt><a href="modules/cloudmesh.iaas.azure.html#cloudmesh.iaas.azure.cm_azure.cm_azure.cloud">cloud (cloudmesh.iaas.azure.cm_azure.cm_azure attribute)</a>
   </dt>
@@ -642,26 +620,6 @@
   </dt>
 
       
-  <dt><a href="modules/cloudmesh.config.html#module-cloudmesh.config.ldap_user">cloudmesh.config.ldap_user (module)</a>
-  </dt>
-
-      
-  <dt><a href="modules/cloudmesh.config.html#module-cloudmesh.config.mock_cloud">cloudmesh.config.mock_cloud (module)</a>
-  </dt>
-
-      
-  <dt><a href="modules/cloudmesh.config.html#module-cloudmesh.config.mock_keystone">cloudmesh.config.mock_keystone (module)</a>
-  </dt>
-
-      
-  <dt><a href="modules/cloudmesh.config.html#module-cloudmesh.config.mock_user">cloudmesh.config.mock_user (module)</a>
-  </dt>
-
-      
-  <dt><a href="modules/cloudmesh.config.html#module-cloudmesh.config.openstack_essex_cloud">cloudmesh.config.openstack_essex_cloud (module)</a>
-  </dt>
-
-      
   <dt><a href="modules/cloudmesh.config.html#module-cloudmesh.config.openstack_grizzly_cloud">cloudmesh.config.openstack_grizzly_cloud (module)</a>
   </dt>
 
@@ -695,6 +653,22 @@
 
       
   <dt><a href="modules/cloudmesh.inventory.html#module-cloudmesh.inventory">cloudmesh.inventory (module)</a>
+  </dt>
+
+      
+  <dt><a href="modules/cloudmesh.launcher.html#module-cloudmesh.launcher">cloudmesh.launcher (module)</a>
+  </dt>
+
+      
+  <dt><a href="modules/cloudmesh.launcher.html#module-cloudmesh.launcher.cm_launcher">cloudmesh.launcher.cm_launcher (module)</a>
+  </dt>
+
+      
+  <dt><a href="modules/cloudmesh.launcher.html#module-cloudmesh.launcher.cm_launcher_db">cloudmesh.launcher.cm_launcher_db (module)</a>
+  </dt>
+
+      
+  <dt><a href="modules/cloudmesh.launcher.queue.html#module-cloudmesh.launcher.queue.celery">cloudmesh.launcher.queue.celery (module)</a>
   </dt>
 
       
@@ -737,20 +711,16 @@
   <dt><a href="modules/cloudmesh.provisioner.html#module-cloudmesh.provisioner.provisioner">cloudmesh.provisioner.provisioner (module)</a>
   </dt>
 
-  </dl></td>
-  <td style="width: 33%" valign="top"><dl>
       
   <dt><a href="modules/cloudmesh.provisioner.queue.html#module-cloudmesh.provisioner.queue.celery">cloudmesh.provisioner.queue.celery (module)</a>
-  </dt>
-
-      
-  <dt><a href="modules/cloudmesh.provisioner.queue.html#module-cloudmesh.provisioner.queue.tasks">cloudmesh.provisioner.queue.tasks (module)</a>
   </dt>
 
       
   <dt><a href="modules/cloudmesh.shell.html#module-cloudmesh.shell.cm_shell">cloudmesh.shell.cm_shell (module)</a>
   </dt>
 
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
       
   <dt><a href="modules/cloudmesh.user.html#module-cloudmesh.user.cm_template">cloudmesh.user.cm_template (module)</a>
   </dt>
@@ -799,12 +769,6 @@
   <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.cloudmesh_cloud.cloudmesh_cloud.cloudname">cloudname (cloudmesh.config.cloudmesh_cloud.cloudmesh_cloud attribute)</a>
   </dt>
 
-      <dd><dl>
-        
-  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.mock_cloud.mock_cloud.cloudname">(cloudmesh.config.mock_cloud.mock_cloud attribute)</a>
-  </dt>
-
-      </dl></dd>
       
   <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.cm_config.cm_config.clouds">clouds() (cloudmesh.config.cm_config.cm_config method)</a>
   </dt>
@@ -826,10 +790,6 @@
   </dt>
 
       
-  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.cm_config.cm_config_file">cm_config_file (class in cloudmesh.config.cm_config)</a>
-  </dt>
-
-      
   <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.cm_config.cm_config_launcher">cm_config_launcher (class in cloudmesh.config.cm_config)</a>
   </dt>
 
@@ -847,6 +807,10 @@
 
       
   <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.cm_keys.cm_keys">cm_keys (class in cloudmesh.config.cm_keys)</a>
+  </dt>
+
+      
+  <dt><a href="modules/cloudmesh.launcher.html#cloudmesh.launcher.cm_launcher_db.cm_launcher_db">cm_launcher_db (class in cloudmesh.launcher.cm_launcher_db)</a>
   </dt>
 
       
@@ -878,16 +842,6 @@
   </dt>
 
       
-  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.ldap_user.ldap_user.completedprojects">completedprojects (cloudmesh.config.ldap_user.ldap_user attribute)</a>
-  </dt>
-
-      <dd><dl>
-        
-  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.mock_user.mock_user.completedprojects">(cloudmesh.config.mock_user.mock_user attribute)</a>
-  </dt>
-
-      </dl></dd>
-      
   <dt><a href="modules/cloudmesh.iaas.html#cloudmesh.iaas.ComputeBaseType.ComputeBaseType">ComputeBaseType (class in cloudmesh.iaas.ComputeBaseType)</a>
   </dt>
 
@@ -896,26 +850,10 @@
   </dt>
 
       
-  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.cm_config.cm_config.config">config (cloudmesh.config.cm_config.cm_config attribute)</a>
+  <dt><a href="modules/cloudmesh.iaas.eucalyptus.html#cloudmesh.iaas.eucalyptus.eucalyptus.eucalyptus.config">config (cloudmesh.iaas.eucalyptus.eucalyptus.eucalyptus attribute)</a>
   </dt>
 
       <dd><dl>
-        
-  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.cm_config.cm_config_file.config">(cloudmesh.config.cm_config.cm_config_file attribute)</a>
-  </dt>
-
-        
-  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.cm_config.cm_config_launcher.config">(cloudmesh.config.cm_config.cm_config_launcher attribute)</a>
-  </dt>
-
-        
-  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.cm_config.cm_config_server.config">(cloudmesh.config.cm_config.cm_config_server attribute)</a>
-  </dt>
-
-        
-  <dt><a href="modules/cloudmesh.iaas.eucalyptus.html#cloudmesh.iaas.eucalyptus.eucalyptus.eucalyptus.config">(cloudmesh.iaas.eucalyptus.eucalyptus.eucalyptus attribute)</a>
-  </dt>
-
         
   <dt><a href="modules/cloudmesh.pbs.html#cloudmesh.pbs.pbs_mongo.pbs_mongo.config">(cloudmesh.pbs.pbs_mongo.pbs_mongo attribute)</a>
   </dt>
@@ -928,10 +866,6 @@
       <dd><dl>
         
   <dt><a href="modules/cloudmesh.iaas.html#cloudmesh.iaas.ComputeBaseType.ComputeBaseType.config">(cloudmesh.iaas.ComputeBaseType.ComputeBaseType method)</a>
-  </dt>
-
-        
-  <dt><a href="modules/cloudmesh.iaas.openstack.html#cloudmesh.iaas.openstack.cm_compute.openstack.config">(cloudmesh.iaas.openstack.cm_compute.openstack method)</a>
   </dt>
 
         
@@ -958,6 +892,10 @@
 
       </dl></dd>
       
+  <dt><a href="modules/cloudmesh.user.html#cloudmesh.user.cm_user.cm_user.connect_db">connect_db() (cloudmesh.user.cm_user.cm_user method)</a>
+  </dt>
+
+      
   <dt><a href="modules/cloudmesh.old_inventory.html#cloudmesh.old_inventory.heatmap.MyTempMap.convertNumToRGB">convertNumToRGB() (cloudmesh.old_inventory.heatmap.MyTempMap method)</a>
   </dt>
 
@@ -966,25 +904,11 @@
   </dt>
 
       
-  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.mock_keystone.Client.mock_tenants.create">create() (cloudmesh.config.mock_keystone.Client.mock_tenants method)</a>
+  <dt><a href="modules/cloudmesh.old_inventory.html#cloudmesh.old_inventory.inventory.Inventory.create">create() (cloudmesh.old_inventory.inventory.Inventory method)</a>
   </dt>
 
-      <dd><dl>
-        
-  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.mock_keystone.Client.mock_users.create">(cloudmesh.config.mock_keystone.Client.mock_users method)</a>
-  </dt>
-
-        
-  <dt><a href="modules/cloudmesh.old_inventory.html#cloudmesh.old_inventory.inventory.Inventory.create">(cloudmesh.old_inventory.inventory.Inventory method)</a>
-  </dt>
-
-      </dl></dd>
       
   <dt><a href="modules/cloudmesh.old_inventory.html#cloudmesh.old_inventory.inventory.Inventory.create_cluster">create_cluster() (cloudmesh.old_inventory.inventory.Inventory method)</a>
-  </dt>
-
-      
-  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.cm_config.cm_config.create_filter">create_filter() (cloudmesh.config.cm_config.cm_config method)</a>
   </dt>
 
       
@@ -995,12 +919,6 @@
   <dt><a href="modules/cloudmesh.iaas.html#cloudmesh.iaas.ComputeBaseType.ComputeBaseType.credential">credential (cloudmesh.iaas.ComputeBaseType.ComputeBaseType attribute)</a>
   </dt>
 
-      <dd><dl>
-        
-  <dt><a href="modules/cloudmesh.iaas.openstack.html#cloudmesh.iaas.openstack.cm_compute.openstack.credential">(cloudmesh.iaas.openstack.cm_compute.openstack attribute)</a>
-  </dt>
-
-      </dl></dd>
       
   <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.cm_config.cm_config.credential">credential() (cloudmesh.config.cm_config.cm_config method)</a>
   </dt>
@@ -1029,20 +947,6 @@
   <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.cloudmesh_cloud.cloudmesh_cloud.data">data (cloudmesh.config.cloudmesh_cloud.cloudmesh_cloud attribute)</a>
   </dt>
 
-      <dd><dl>
-        
-  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.ldap_user.ldap_user.data">(cloudmesh.config.ldap_user.ldap_user attribute)</a>
-  </dt>
-
-        
-  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.mock_cloud.mock_cloud.data">(cloudmesh.config.mock_cloud.mock_cloud attribute)</a>
-  </dt>
-
-        
-  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.mock_user.mock_user.data">(cloudmesh.config.mock_user.mock_user attribute)</a>
-  </dt>
-
-      </dl></dd>
       
   <dt><a href="modules/cloudmesh.old_inventory.html#cloudmesh.old_inventory.inventory.FabricObject.date_creation">date_creation (cloudmesh.old_inventory.inventory.FabricObject attribute)</a>
   </dt>
@@ -1105,36 +1009,12 @@
   <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.cm_config.cm_config.default_cloud">default_cloud (cloudmesh.config.cm_config.cm_config attribute)</a>
   </dt>
 
-      
-  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.cm_config.cm_config.default_path">default_path (cloudmesh.config.cm_config.cm_config attribute)</a>
-  </dt>
-
   </dl></td>
   <td style="width: 33%" valign="top"><dl>
-      
-  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.ldap_user.ldap_user.defaultcloud">defaultcloud (cloudmesh.config.ldap_user.ldap_user attribute)</a>
-  </dt>
-
-      <dd><dl>
-        
-  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.mock_user.mock_user.defaultcloud">(cloudmesh.config.mock_user.mock_user attribute)</a>
-  </dt>
-
-      </dl></dd>
       
   <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.cloudmesh_cloud.cloudmesh_cloud.defaultproject">defaultproject (cloudmesh.config.cloudmesh_cloud.cloudmesh_cloud attribute)</a>
   </dt>
 
-      <dd><dl>
-        
-  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.ldap_user.ldap_user.defaultproject">(cloudmesh.config.ldap_user.ldap_user attribute)</a>
-  </dt>
-
-        
-  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.mock_user.mock_user.defaultproject">(cloudmesh.config.mock_user.mock_user attribute)</a>
-  </dt>
-
-      </dl></dd>
       
   <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.cm_keys.cm_keys.defined">defined() (cloudmesh.config.cm_keys.cm_keys method)</a>
   </dt>
@@ -1224,12 +1104,14 @@
   <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.cm_config.cm_config.email">(cloudmesh.config.cm_config.cm_config attribute)</a>
   </dt>
 
-        
-  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.ldap_user.ldap_user.email">(cloudmesh.config.ldap_user.ldap_user attribute)</a>
+      </dl></dd>
+      
+  <dt><a href="modules/cloudmesh.launcher.html#cloudmesh.launcher.cm_launcher.BaseClassLauncher.error">error (cloudmesh.launcher.cm_launcher.BaseClassLauncher attribute)</a>
   </dt>
 
+      <dd><dl>
         
-  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.mock_user.mock_user.email">(cloudmesh.config.mock_user.mock_user attribute)</a>
+  <dt><a href="modules/cloudmesh.launcher.html#cloudmesh.launcher.cm_launcher.SimulatorLauncher.error">(cloudmesh.launcher.cm_launcher.SimulatorLauncher attribute)</a>
   </dt>
 
       </dl></dd>
@@ -1237,12 +1119,12 @@
   <dt><a href="modules/cloudmesh.iaas.eucalyptus.html#cloudmesh.iaas.eucalyptus.eucalyptus.eucalyptus">eucalyptus (class in cloudmesh.iaas.eucalyptus.eucalyptus)</a>
   </dt>
 
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
       
   <dt><a href="modules/cloudmesh.pbs.html#cloudmesh.pbs.pbs.PBS.exists">exists() (cloudmesh.pbs.pbs.PBS method)</a>
   </dt>
 
-  </dl></td>
-  <td style="width: 33%" valign="top"><dl>
       
   <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.cm_config.cm_config.export_line">export_line() (cloudmesh.config.cm_config.cm_config method)</a>
   </dt>
@@ -1329,10 +1211,6 @@
 
       <dd><dl>
         
-  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.cm_config.cm_config_file.filename">(cloudmesh.config.cm_config.cm_config_file attribute)</a>
-  </dt>
-
-        
   <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.cm_config.cm_config_launcher.filename">(cloudmesh.config.cm_config.cm_config_launcher attribute)</a>
   </dt>
 
@@ -1363,6 +1241,10 @@
   </dt>
 
         
+  <dt><a href="modules/cloudmesh.launcher.html#cloudmesh.launcher.cm_launcher_db.cm_launcher_db.find">(cloudmesh.launcher.cm_launcher_db.cm_launcher_db method)</a>
+  </dt>
+
+        
   <dt><a href="modules/cloudmesh.metric.openstack.html#cloudmesh.metric.openstack.cm_metric_openstack.cm_metric_openstack.find">(cloudmesh.metric.openstack.cm_metric_openstack.cm_metric_openstack method)</a>
   </dt>
 
@@ -1376,6 +1258,10 @@
   </dt>
 
       <dd><dl>
+        
+  <dt><a href="modules/cloudmesh.launcher.html#cloudmesh.launcher.cm_launcher_db.cm_launcher_db.find_one">(cloudmesh.launcher.cm_launcher_db.cm_launcher_db method)</a>
+  </dt>
+
         
   <dt><a href="modules/cloudmesh.metric.openstack.html#cloudmesh.metric.openstack.cm_metric_openstack.cm_metric_openstack.find_one">(cloudmesh.metric.openstack.cm_metric_openstack.cm_metric_openstack method)</a>
   </dt>
@@ -1403,16 +1289,6 @@
   <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.cm_config.cm_config.firstname">firstname (cloudmesh.config.cm_config.cm_config attribute)</a>
   </dt>
 
-      <dd><dl>
-        
-  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.ldap_user.ldap_user.firstname">(cloudmesh.config.ldap_user.ldap_user attribute)</a>
-  </dt>
-
-        
-  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.mock_user.mock_user.firstname">(cloudmesh.config.mock_user.mock_user attribute)</a>
-  </dt>
-
-      </dl></dd>
       
   <dt><a href="modules/cloudmesh.iaas.azure.html#cloudmesh.iaas.azure.cm_azure.cm_azure.flavors">flavors (cloudmesh.iaas.azure.cm_azure.cm_azure attribute)</a>
   </dt>
@@ -1450,20 +1326,12 @@
   </dt>
 
       
-  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.cm_config.cm_config.get">get() (cloudmesh.config.cm_config.cm_config method)</a>
+  <dt><a href="modules/cloudmesh.iaas.azure.html#cloudmesh.iaas.azure.cm_azure.cm_azure.get">get() (cloudmesh.iaas.azure.cm_azure.cm_azure method)</a>
   </dt>
 
       <dd><dl>
         
-  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.cm_config.cm_config_file.get">(cloudmesh.config.cm_config.cm_config_file method)</a>
-  </dt>
-
-        
   <dt><a href="modules/cloudmesh.iaas.html#cloudmesh.iaas.ComputeBaseType.ComputeBaseType.get">(cloudmesh.iaas.ComputeBaseType.ComputeBaseType method)</a>
-  </dt>
-
-        
-  <dt><a href="modules/cloudmesh.iaas.azure.html#cloudmesh.iaas.azure.cm_azure.cm_azure.get">(cloudmesh.iaas.azure.cm_azure.cm_azure method)</a>
   </dt>
 
         
@@ -1506,15 +1374,15 @@
 
       </dl></dd>
       
+  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.cm_config.cm_config.get_data">get_data() (cloudmesh.config.cm_config.cm_config method)</a>
+  </dt>
+
+      
   <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.cm_keys.cm_keys.get_default_key">get_default_key() (cloudmesh.config.cm_keys.cm_keys method)</a>
   </dt>
 
       
   <dt><a href="modules/cloudmesh.iaas.openstack.html#cloudmesh.iaas.openstack.cm_compute.openstack.get_extensions">get_extensions() (cloudmesh.iaas.openstack.cm_compute.openstack method)</a>
-  </dt>
-
-      
-  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.cm_config.cm_config.get_filter">get_filter() (cloudmesh.config.cm_config.cm_config method)</a>
   </dt>
 
       
@@ -1538,21 +1406,21 @@
   </dt>
 
       
+  <dt><a href="modules/cloudmesh.user.html#cloudmesh.user.cm_user.cm_user.get_name">get_name() (cloudmesh.user.cm_user.cm_user method)</a>
+  </dt>
+
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
+      
   <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.cloudmesh_cloud.cloudmesh_cloud.get_own_password">get_own_password() (cloudmesh.config.cloudmesh_cloud.cloudmesh_cloud method)</a>
   </dt>
 
       <dd><dl>
         
-  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.openstack_essex_cloud.openstack_essex_cloud.get_own_password">(cloudmesh.config.openstack_essex_cloud.openstack_essex_cloud method)</a>
-  </dt>
-
-        
   <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.openstack_grizzly_cloud.openstack_grizzly_cloud.get_own_password">(cloudmesh.config.openstack_grizzly_cloud.openstack_grizzly_cloud method)</a>
   </dt>
 
       </dl></dd>
-  </dl></td>
-  <td style="width: 33%" valign="top"><dl>
       
   <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.cm_config.cm_config.get_own_passwords">get_own_passwords() (cloudmesh.config.cm_config.cm_config method)</a>
   </dt>
@@ -1574,15 +1442,9 @@
   </dt>
 
       
-  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.openstack_essex_cloud.openstack_essex_cloud.get_role_by_name">get_role_by_name() (cloudmesh.config.openstack_essex_cloud.openstack_essex_cloud method)</a>
+  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.openstack_grizzly_cloud.openstack_grizzly_cloud.get_role_by_name">get_role_by_name() (cloudmesh.config.openstack_grizzly_cloud.openstack_grizzly_cloud method)</a>
   </dt>
 
-      <dd><dl>
-        
-  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.openstack_grizzly_cloud.openstack_grizzly_cloud.get_role_by_name">(cloudmesh.config.openstack_grizzly_cloud.openstack_grizzly_cloud method)</a>
-  </dt>
-
-      </dl></dd>
       
   <dt><a href="modules/cloudmesh.user.html#cloudmesh.user.roles.Roles.get_roles">get_roles() (cloudmesh.user.roles.Roles method)</a>
   </dt>
@@ -1596,15 +1458,9 @@
   </dt>
 
       
-  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.openstack_essex_cloud.openstack_essex_cloud.get_tenant_by_name">get_tenant_by_name() (cloudmesh.config.openstack_essex_cloud.openstack_essex_cloud method)</a>
+  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.openstack_grizzly_cloud.openstack_grizzly_cloud.get_tenant_by_name">get_tenant_by_name() (cloudmesh.config.openstack_grizzly_cloud.openstack_grizzly_cloud method)</a>
   </dt>
 
-      <dd><dl>
-        
-  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.openstack_grizzly_cloud.openstack_grizzly_cloud.get_tenant_by_name">(cloudmesh.config.openstack_grizzly_cloud.openstack_grizzly_cloud method)</a>
-  </dt>
-
-      </dl></dd>
       
   <dt><a href="modules/cloudmesh.iaas.openstack.html#cloudmesh.iaas.openstack.cm_compute.openstack.get_tenants">get_tenants() (cloudmesh.iaas.openstack.cm_compute.openstack method)</a>
   </dt>
@@ -1614,29 +1470,13 @@
   </dt>
 
       
-  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.openstack_essex_cloud.openstack_essex_cloud.get_user_by_name">get_user_by_name() (cloudmesh.config.openstack_essex_cloud.openstack_essex_cloud method)</a>
+  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.openstack_grizzly_cloud.openstack_grizzly_cloud.get_user_by_name">get_user_by_name() (cloudmesh.config.openstack_grizzly_cloud.openstack_grizzly_cloud method)</a>
   </dt>
 
-      <dd><dl>
-        
-  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.openstack_grizzly_cloud.openstack_grizzly_cloud.get_user_by_name">(cloudmesh.config.openstack_grizzly_cloud.openstack_grizzly_cloud method)</a>
-  </dt>
-
-      </dl></dd>
       
   <dt><a href="modules/cloudmesh.iaas.openstack.html#cloudmesh.iaas.openstack.cm_compute.openstack.get_users">get_users() (cloudmesh.iaas.openstack.cm_compute.openstack method)</a>
   </dt>
 
-      
-  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.ldap_user.ldap_user.gid">gid (cloudmesh.config.ldap_user.ldap_user attribute)</a>
-  </dt>
-
-      <dd><dl>
-        
-  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.mock_user.mock_user.gid">(cloudmesh.config.mock_user.mock_user attribute)</a>
-  </dt>
-
-      </dl></dd>
       
   <dt><a href="modules/cloudmesh.old_inventory.html#cloudmesh.old_inventory.inventory.FabricObject.groups">groups (cloudmesh.old_inventory.inventory.FabricObject attribute)</a>
   </dt>
@@ -1763,14 +1603,6 @@
 
       <dd><dl>
         
-  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.mock_cloud.mock_cloud.initialize_cloud_user">(cloudmesh.config.mock_cloud.mock_cloud method)</a>
-  </dt>
-
-        
-  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.openstack_essex_cloud.openstack_essex_cloud.initialize_cloud_user">(cloudmesh.config.openstack_essex_cloud.openstack_essex_cloud method)</a>
-  </dt>
-
-        
   <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.openstack_grizzly_cloud.openstack_grizzly_cloud.initialize_cloud_user">(cloudmesh.config.openstack_grizzly_cloud.openstack_grizzly_cloud method)</a>
   </dt>
 
@@ -1781,14 +1613,14 @@
 
       <dd><dl>
         
+  <dt><a href="modules/cloudmesh.launcher.html#cloudmesh.launcher.cm_launcher_db.cm_launcher_db.insert">(cloudmesh.launcher.cm_launcher_db.cm_launcher_db method)</a>
+  </dt>
+
+        
   <dt><a href="modules/cloudmesh.metric.openstack.html#cloudmesh.metric.openstack.cm_metric_openstack.cm_metric_openstack.insert">(cloudmesh.metric.openstack.cm_metric_openstack.cm_metric_openstack method)</a>
   </dt>
 
       </dl></dd>
-      
-  <dt><a href="modules/cloudmesh.iaas.openstack.html#cloudmesh.iaas.openstack.cm_compute.openstack.intro">intro() (cloudmesh.iaas.openstack.cm_compute.openstack method)</a>
-  </dt>
-
       
   <dt><a href="modules/cloudmesh.inventory.html#cloudmesh.inventory.Inventory">Inventory (class in cloudmesh.inventory)</a>
   </dt>
@@ -1822,51 +1654,23 @@
   </dt>
 
       
-  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.ldap_user.ldap_user.keys">keys (cloudmesh.config.ldap_user.ldap_user attribute)</a>
-  </dt>
-
-      <dd><dl>
-        
-  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.mock_user.mock_user.keys">(cloudmesh.config.mock_user.mock_user attribute)</a>
-  </dt>
-
-      </dl></dd>
-      
   <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.cm_config.cm_config.keys">keys() (cloudmesh.config.cm_config.cm_config method)</a>
   </dt>
 
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
       
-  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.openstack_essex_cloud.openstack_essex_cloud.keystone">keystone (cloudmesh.config.openstack_essex_cloud.openstack_essex_cloud attribute)</a>
+  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.openstack_grizzly_cloud.openstack_grizzly_cloud.keystone">keystone (cloudmesh.config.openstack_grizzly_cloud.openstack_grizzly_cloud attribute)</a>
   </dt>
 
       <dd><dl>
-        
-  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.openstack_grizzly_cloud.openstack_grizzly_cloud.keystone">(cloudmesh.config.openstack_grizzly_cloud.openstack_grizzly_cloud attribute)</a>
-  </dt>
-
         
   <dt><a href="modules/cloudmesh.iaas.openstack.html#cloudmesh.iaas.openstack.cm_compute.openstack.keystone">(cloudmesh.iaas.openstack.cm_compute.openstack attribute)</a>
   </dt>
 
       </dl></dd>
-  </dl></td>
-  <td style="width: 33%" valign="top"><dl>
       
-  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.openstack_essex_cloud.openstack_essex_cloud.keystone_admin">keystone_admin (cloudmesh.config.openstack_essex_cloud.openstack_essex_cloud attribute)</a>
-  </dt>
-
-      <dd><dl>
-        
-  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.openstack_grizzly_cloud.openstack_grizzly_cloud.keystone_admin">(cloudmesh.config.openstack_grizzly_cloud.openstack_grizzly_cloud attribute)</a>
-  </dt>
-
-      </dl></dd>
-      
-  <dt><a href="modules/cloudmesh.iaas.openstack.html#cloudmesh.iaas.openstack.cm_compute.openstack.keystone_credential">keystone_credential (cloudmesh.iaas.openstack.cm_compute.openstack attribute)</a>
-  </dt>
-
-      
-  <dt><a href="modules/cloudmesh.iaas.openstack.html#cloudmesh.iaas.openstack.cm_compute.openstack.keystone_token">keystone_token (cloudmesh.iaas.openstack.cm_compute.openstack attribute)</a>
+  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.openstack_grizzly_cloud.openstack_grizzly_cloud.keystone_admin">keystone_admin (cloudmesh.config.openstack_grizzly_cloud.openstack_grizzly_cloud attribute)</a>
   </dt>
 
       
@@ -1919,60 +1723,28 @@
   <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.cm_config.cm_config.lastname">lastname (cloudmesh.config.cm_config.cm_config attribute)</a>
   </dt>
 
-      <dd><dl>
-        
-  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.ldap_user.ldap_user.lastname">(cloudmesh.config.ldap_user.ldap_user attribute)</a>
-  </dt>
-
-        
-  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.mock_user.mock_user.lastname">(cloudmesh.config.mock_user.mock_user attribute)</a>
-  </dt>
-
-      </dl></dd>
-      
-  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.ldap_user.ldap_user.LDAP_HOST">LDAP_HOST (cloudmesh.config.ldap_user.ldap_user attribute)</a>
-  </dt>
-
-      
-  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.ldap_user.ldap_user.LDAP_PERSONBASE">LDAP_PERSONBASE (cloudmesh.config.ldap_user.ldap_user attribute)</a>
-  </dt>
-
-      
-  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.ldap_user.ldap_user.LDAP_PROJECTBASE">LDAP_PROJECTBASE (cloudmesh.config.ldap_user.ldap_user attribute)</a>
-  </dt>
-
-      
-  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.ldap_user.ldap_user">ldap_user (class in cloudmesh.config.ldap_user)</a>
-  </dt>
-
-  </dl></td>
-  <td style="width: 33%" valign="top"><dl>
       
   <dt><a href="modules/cloudmesh.iaas.html#cloudmesh.iaas.ComputeBaseType.ComputeBaseType.limits">limits() (cloudmesh.iaas.ComputeBaseType.ComputeBaseType method)</a>
   </dt>
 
+      <dd><dl>
+        
+  <dt><a href="modules/cloudmesh.iaas.openstack.html#cloudmesh.iaas.openstack.cm_compute.openstack.limits">(cloudmesh.iaas.openstack.cm_compute.openstack method)</a>
+  </dt>
+
+      </dl></dd>
       
-  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.mock_keystone.Client.mock_roles.list">list() (cloudmesh.config.mock_keystone.Client.mock_roles method)</a>
+  <dt><a href="modules/cloudmesh.iaas.azure.html#cloudmesh.iaas.azure.cm_azure.cm_azure.list">list() (cloudmesh.iaas.azure.cm_azure.cm_azure method)</a>
   </dt>
 
       <dd><dl>
-        
-  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.mock_keystone.Client.mock_tenants.list">(cloudmesh.config.mock_keystone.Client.mock_tenants method)</a>
-  </dt>
-
-        
-  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.mock_keystone.Client.mock_users.list">(cloudmesh.config.mock_keystone.Client.mock_users method)</a>
-  </dt>
-
-        
-  <dt><a href="modules/cloudmesh.iaas.azure.html#cloudmesh.iaas.azure.cm_azure.cm_azure.list">(cloudmesh.iaas.azure.cm_azure.cm_azure method)</a>
-  </dt>
-
         
   <dt><a href="modules/cloudmesh.user.html#cloudmesh.user.cm_userLDAP.cm_userLDAP.list">(cloudmesh.user.cm_userLDAP.cm_userLDAP method)</a>
   </dt>
 
       </dl></dd>
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
       
   <dt><a href="modules/cloudmesh.iaas.openstack.html#cloudmesh.iaas.openstack.cm_compute.openstack.list_allocated_ips">list_allocated_ips() (cloudmesh.iaas.openstack.cm_compute.openstack method)</a>
   </dt>
@@ -2026,27 +1798,9 @@
   </dt>
 
       
-  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.mock_cloud.mock_cloud">mock_cloud (class in cloudmesh.config.mock_cloud)</a>
-  </dt>
-
-      
-  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.mock_user.mock_user">mock_user (class in cloudmesh.config.mock_user)</a>
-  </dt>
-
-      
-  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.mock_keystone.Client.mocktenants">mocktenants (cloudmesh.config.mock_keystone.Client attribute)</a>
-  </dt>
-
-      
-  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.mock_keystone.Client.mockusername">mockusername (cloudmesh.config.mock_keystone.Client attribute)</a>
-  </dt>
-
-      
   <dt><a href="modules/cloudmesh.accounting.html#cloudmesh.accounting.AccountBaseClass.AccountingBaseClass.modify_user">modify_user() (cloudmesh.accounting.AccountBaseClass.AccountingBaseClass method)</a>
   </dt>
 
-  </dl></td>
-  <td style="width: 33%" valign="top"><dl>
       
   <dt><a href="modules/cloudmesh.user.html#cloudmesh.user.roles.Roles.mongo_collection">mongo_collection (cloudmesh.user.roles.Roles attribute)</a>
   </dt>
@@ -2055,6 +1809,8 @@
   <dt><a href="modules/cloudmesh.user.html#cloudmesh.user.roles.Roles.mongo_db_name">mongo_db_name (cloudmesh.user.roles.Roles attribute)</a>
   </dt>
 
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
       
   <dt><a href="modules/cloudmesh.user.html#cloudmesh.user.roles.Roles.mongo_host">mongo_host (cloudmesh.user.roles.Roles attribute)</a>
   </dt>
@@ -2099,22 +1855,18 @@
   <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.cloudmesh_cloud.cloudmesh_cloud.newpass">newpass() (cloudmesh.config.cloudmesh_cloud.cloudmesh_cloud method)</a>
   </dt>
 
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
       
   <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.cm_keys.cm_keys.no_of_keys">no_of_keys() (cloudmesh.config.cm_keys.cm_keys method)</a>
   </dt>
 
-  </dl></td>
-  <td style="width: 33%" valign="top"><dl>
       
   <dt><a href="modules/cloudmesh.iaas.eucalyptus.html#cloudmesh.iaas.eucalyptus.eucalyptus.eucalyptus.nodes">nodes (cloudmesh.iaas.eucalyptus.eucalyptus.eucalyptus attribute)</a>
   </dt>
 
       
   <dt><a href="modules/cloudmesh.metric.eucalyptus.html#cloudmesh.metric.eucalyptus.cm_metric_eucalyptus.cm_metric_eucalyptus.notimplemented">notimplemented() (cloudmesh.metric.eucalyptus.cm_metric_eucalyptus.cm_metric_eucalyptus method)</a>
-  </dt>
-
-      
-  <dt><a href="modules/cloudmesh.iaas.openstack.html#cloudmesh.iaas.openstack.cm_compute.openstack.nova_token">nova_token (cloudmesh.iaas.openstack.cm_compute.openstack attribute)</a>
   </dt>
 
   </dl></td>
@@ -2125,10 +1877,6 @@
   <td style="width: 33%" valign="top"><dl>
       
   <dt><a href="modules/cloudmesh.iaas.openstack.html#cloudmesh.iaas.openstack.cm_compute.openstack">openstack (class in cloudmesh.iaas.openstack.cm_compute)</a>
-  </dt>
-
-      
-  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.openstack_essex_cloud.openstack_essex_cloud">openstack_essex_cloud (class in cloudmesh.config.openstack_essex_cloud)</a>
   </dt>
 
   </dl></td>
@@ -2203,16 +1951,6 @@
   <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.cm_config.cm_config.phone">phone (cloudmesh.config.cm_config.cm_config attribute)</a>
   </dt>
 
-      <dd><dl>
-        
-  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.ldap_user.ldap_user.phone">(cloudmesh.config.ldap_user.ldap_user attribute)</a>
-  </dt>
-
-        
-  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.mock_user.mock_user.phone">(cloudmesh.config.mock_user.mock_user attribute)</a>
-  </dt>
-
-      </dl></dd>
       
   <dt><a href="modules/cloudmesh.old_inventory.html#cloudmesh.old_inventory.heatmap.MyTempMap.plot_rackdiag">plot_rackdiag() (cloudmesh.old_inventory.heatmap.MyTempMap method)</a>
   </dt>
@@ -2247,12 +1985,6 @@
   <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.cloudmesh_cloud.cloudmesh_cloud.projects">projects (cloudmesh.config.cloudmesh_cloud.cloudmesh_cloud attribute)</a>
   </dt>
 
-      <dd><dl>
-        
-  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.mock_user.mock_user.projects">(cloudmesh.config.mock_user.mock_user attribute)</a>
-  </dt>
-
-      </dl></dd>
       
   <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.cm_config.cm_config.projects">projects() (cloudmesh.config.cm_config.cm_config method)</a>
   </dt>
@@ -2338,10 +2070,6 @@
   </dt>
 
       
-  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.cm_config.cm_config.read">read() (cloudmesh.config.cm_config.cm_config method)</a>
-  </dt>
-
-      
   <dt><a href="modules/cloudmesh.old_inventory.html#cloudmesh.old_inventory.heatmap.MyTempMap.readDiagInfo">readDiagInfo() (cloudmesh.old_inventory.heatmap.MyTempMap method)</a>
   </dt>
 
@@ -2380,9 +2108,15 @@
   </dt>
 
       
-  <dt><a href="modules/cloudmesh.user.html#cloudmesh.user.CMUserProviderBaseType.CMUserProviderBaseType.register">register() (cloudmesh.user.CMUserProviderBaseType.CMUserProviderBaseType method)</a>
+  <dt><a href="modules/cloudmesh.launcher.html#cloudmesh.launcher.cm_launcher.ChefLauncher.register">register() (cloudmesh.launcher.cm_launcher.ChefLauncher method)</a>
   </dt>
 
+      <dd><dl>
+        
+  <dt><a href="modules/cloudmesh.user.html#cloudmesh.user.CMUserProviderBaseType.CMUserProviderBaseType.register">(cloudmesh.user.CMUserProviderBaseType.CMUserProviderBaseType method)</a>
+  </dt>
+
+      </dl></dd>
   </dl></td>
   <td style="width: 33%" valign="top"><dl>
       
@@ -2410,13 +2144,15 @@
   </dt>
 
       
-  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.mock_keystone.Client.roles">roles (cloudmesh.config.mock_keystone.Client attribute)</a>
+  <dt><a href="modules/cloudmesh.launcher.html#cloudmesh.launcher.cm_launcher.BaseClassLauncher.run">run() (cloudmesh.launcher.cm_launcher.BaseClassLauncher method)</a>
   </dt>
 
-      
-  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.mock_keystone.Client.mock_roles.roles_for_user">roles_for_user() (cloudmesh.config.mock_keystone.Client.mock_roles method)</a>
+      <dd><dl>
+        
+  <dt><a href="modules/cloudmesh.launcher.html#cloudmesh.launcher.cm_launcher.SimulatorLauncher.run">(cloudmesh.launcher.cm_launcher.SimulatorLauncher method)</a>
   </dt>
 
+      </dl></dd>
   </dl></td>
 </tr></table>
 
@@ -2479,6 +2215,14 @@
 
       <dd><dl>
         
+  <dt><a href="modules/cloudmesh.launcher.html#cloudmesh.launcher.cm_launcher.SimulatorLauncher.set">(cloudmesh.launcher.cm_launcher.SimulatorLauncher method)</a>
+  </dt>
+
+        
+  <dt><a href="modules/cloudmesh.launcher.html#cloudmesh.launcher.cm_launcher_db.cm_launcher_db.set">(cloudmesh.launcher.cm_launcher_db.cm_launcher_db method)</a>
+  </dt>
+
+        
   <dt><a href="modules/cloudmesh.old_inventory.html#cloudmesh.old_inventory.inventory.FabricServer.set">(cloudmesh.old_inventory.inventory.FabricServer method)</a>
   </dt>
 
@@ -2500,17 +2244,7 @@
   </dt>
 
       
-  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.cm_config.cm_config.set_filter">set_filter() (cloudmesh.config.cm_config.cm_config method)</a>
-  </dt>
-
-      
   <dt><a href="modules/cloudmesh.old_inventory.html#cloudmesh.old_inventory.heatmap.MyTempMap.set_image_format">set_image_format() (cloudmesh.old_inventory.heatmap.MyTempMap method)</a>
-  </dt>
-
-  </dl></td>
-  <td style="width: 33%" valign="top"><dl>
-      
-  <dt><a href="modules/cloudmesh.iaas.openstack.html#cloudmesh.iaas.openstack.cm_compute.openstack.set_keystone_credential">set_keystone_credential() (cloudmesh.iaas.openstack.cm_compute.openstack method)</a>
   </dt>
 
       
@@ -2521,6 +2255,8 @@
   <dt><a href="modules/cloudmesh.old_inventory.html#cloudmesh.old_inventory.heatmap.MyTempMap.set_server_temperature">set_server_temperature() (cloudmesh.old_inventory.heatmap.MyTempMap method)</a>
   </dt>
 
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
       
   <dt><a href="modules/cloudmesh.provisioner.html#cloudmesh.provisioner.provisioner.BaremetalProvisinerABC.set_status">set_status() (cloudmesh.provisioner.provisioner.BaremetalProvisinerABC method)</a>
   </dt>
@@ -2535,6 +2271,10 @@
 
       
   <dt><a href="modules/cloudmesh.iaas.azure.html#cloudmesh.iaas.azure.cm_azure.cm_azure.shutdown">shutdown() (cloudmesh.iaas.azure.cm_azure.cm_azure method)</a>
+  </dt>
+
+      
+  <dt><a href="modules/cloudmesh.launcher.html#cloudmesh.launcher.cm_launcher.SimulatorLauncher">SimulatorLauncher (class in cloudmesh.launcher.cm_launcher)</a>
   </dt>
 
       
@@ -2562,9 +2302,33 @@
 
       </dl></dd>
       
-  <dt><a href="modules/cloudmesh.old_inventory.html#cloudmesh.old_inventory.inventory.FabricObject.status">status (cloudmesh.old_inventory.inventory.FabricObject attribute)</a>
+  <dt><a href="modules/cloudmesh.launcher.html#cloudmesh.launcher.cm_launcher.BaseClassLauncher.states">states() (cloudmesh.launcher.cm_launcher.BaseClassLauncher method)</a>
   </dt>
 
+      <dd><dl>
+        
+  <dt><a href="modules/cloudmesh.launcher.html#cloudmesh.launcher.cm_launcher.SimulatorLauncher.states">(cloudmesh.launcher.cm_launcher.SimulatorLauncher method)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="modules/cloudmesh.launcher.html#cloudmesh.launcher.cm_launcher.BaseClassLauncher.states_list">states_list (cloudmesh.launcher.cm_launcher.BaseClassLauncher attribute)</a>
+  </dt>
+
+      
+  <dt><a href="modules/cloudmesh.launcher.html#cloudmesh.launcher.cm_launcher.BaseClassLauncher.status">status (cloudmesh.launcher.cm_launcher.BaseClassLauncher attribute)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="modules/cloudmesh.launcher.html#cloudmesh.launcher.cm_launcher.SimulatorLauncher.status">(cloudmesh.launcher.cm_launcher.SimulatorLauncher attribute)</a>
+  </dt>
+
+        
+  <dt><a href="modules/cloudmesh.old_inventory.html#cloudmesh.old_inventory.inventory.FabricObject.status">(cloudmesh.old_inventory.inventory.FabricObject attribute)</a>
+  </dt>
+
+      </dl></dd>
       
   <dt><a href="modules/cloudmesh.iaas.html#cloudmesh.iaas.ComputeBaseType.ComputeBaseType.status">status() (cloudmesh.iaas.ComputeBaseType.ComputeBaseType method)</a>
   </dt>
@@ -2602,12 +2366,16 @@
   </dl></td>
   <td style="width: 33%" valign="top"><dl>
       
-  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.mock_keystone.Client.tenants">tenants (cloudmesh.config.mock_keystone.Client attribute)</a>
+  <dt><a href="modules/cloudmesh.iaas.html#cloudmesh.iaas.ComputeBaseType.ComputeBaseType.tenants">tenants (cloudmesh.iaas.ComputeBaseType.ComputeBaseType attribute)</a>
+  </dt>
+
+      
+  <dt><a href="modules/cloudmesh.launcher.html#cloudmesh.launcher.cm_launcher.BaseClassLauncher.traceback">traceback (cloudmesh.launcher.cm_launcher.BaseClassLauncher attribute)</a>
   </dt>
 
       <dd><dl>
         
-  <dt><a href="modules/cloudmesh.iaas.html#cloudmesh.iaas.ComputeBaseType.ComputeBaseType.tenants">(cloudmesh.iaas.ComputeBaseType.ComputeBaseType attribute)</a>
+  <dt><a href="modules/cloudmesh.launcher.html#cloudmesh.launcher.cm_launcher.SimulatorLauncher.traceback">(cloudmesh.launcher.cm_launcher.SimulatorLauncher attribute)</a>
   </dt>
 
       </dl></dd>
@@ -2636,29 +2404,19 @@
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%" valign="top"><dl>
       
-  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.ldap_user.ldap_user.uid">uid (cloudmesh.config.ldap_user.ldap_user attribute)</a>
-  </dt>
-
-      <dd><dl>
-        
-  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.mock_user.mock_user.uid">(cloudmesh.config.mock_user.mock_user attribute)</a>
-  </dt>
-
-      </dl></dd>
-      
   <dt><a href="modules/cloudmesh.inventory.html#cloudmesh.inventory.Inventory.update">update() (cloudmesh.inventory.Inventory method)</a>
   </dt>
 
       <dd><dl>
         
+  <dt><a href="modules/cloudmesh.launcher.html#cloudmesh.launcher.cm_launcher_db.cm_launcher_db.update">(cloudmesh.launcher.cm_launcher_db.cm_launcher_db method)</a>
+  </dt>
+
+        
   <dt><a href="modules/cloudmesh.metric.openstack.html#cloudmesh.metric.openstack.cm_metric_openstack.cm_metric_openstack.update">(cloudmesh.metric.openstack.cm_metric_openstack.cm_metric_openstack method)</a>
   </dt>
 
       </dl></dd>
-      
-  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.mock_keystone.Client.mock_users.update_password">update_password() (cloudmesh.config.mock_keystone.Client.mock_users method)</a>
-  </dt>
-
       
   <dt><a href="modules/cloudmesh.old_inventory.html#cloudmesh.old_inventory.heatmap.MyTempMap.update_server_color">update_server_color() (cloudmesh.old_inventory.heatmap.MyTempMap method)</a>
   </dt>
@@ -2685,10 +2443,18 @@
   <dt><a href="modules/cloudmesh.pbs.html#cloudmesh.pbs.pbs.PBS.user">user (cloudmesh.pbs.pbs.PBS attribute)</a>
   </dt>
 
+      
+  <dt><a href="modules/cloudmesh.iaas.openstack.html#cloudmesh.iaas.openstack.cm_compute.openstack.user_credential">user_credential (cloudmesh.iaas.openstack.cm_compute.openstack attribute)</a>
+  </dt>
+
+      
+  <dt><a href="modules/cloudmesh.iaas.openstack.html#cloudmesh.iaas.openstack.cm_compute.openstack.user_id">user_id (cloudmesh.iaas.openstack.cm_compute.openstack attribute)</a>
+  </dt>
+
   </dl></td>
   <td style="width: 33%" valign="top"><dl>
       
-  <dt><a href="modules/cloudmesh.iaas.openstack.html#cloudmesh.iaas.openstack.cm_compute.openstack.user_id">user_id (cloudmesh.iaas.openstack.cm_compute.openstack attribute)</a>
+  <dt><a href="modules/cloudmesh.iaas.openstack.html#cloudmesh.iaas.openstack.cm_compute.openstack.user_token">user_token (cloudmesh.iaas.openstack.cm_compute.openstack attribute)</a>
   </dt>
 
       
@@ -2703,21 +2469,11 @@
   <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.cloudmesh_cloud.cloudmesh_cloud.username">username (cloudmesh.config.cloudmesh_cloud.cloudmesh_cloud attribute)</a>
   </dt>
 
-      <dd><dl>
-        
-  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.ldap_user.ldap_user.username">(cloudmesh.config.ldap_user.ldap_user attribute)</a>
-  </dt>
-
-      </dl></dd>
       
-  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.mock_keystone.Client.users">users (cloudmesh.config.mock_keystone.Client attribute)</a>
+  <dt><a href="modules/cloudmesh.iaas.html#cloudmesh.iaas.ComputeBaseType.ComputeBaseType.users">users (cloudmesh.iaas.ComputeBaseType.ComputeBaseType attribute)</a>
   </dt>
 
       <dd><dl>
-        
-  <dt><a href="modules/cloudmesh.iaas.html#cloudmesh.iaas.ComputeBaseType.ComputeBaseType.users">(cloudmesh.iaas.ComputeBaseType.ComputeBaseType attribute)</a>
-  </dt>
-
         
   <dt><a href="modules/cloudmesh.iaas.openstack.html#cloudmesh.iaas.openstack.cm_compute.openstack.users">(cloudmesh.iaas.openstack.cm_compute.openstack attribute)</a>
   </dt>
@@ -2828,14 +2584,10 @@
   </dt>
 
       
-  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.cm_config.cm_config.write">write() (cloudmesh.config.cm_config.cm_config method)</a>
+  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.cm_keys.cm_keys.write">write() (cloudmesh.config.cm_keys.cm_keys method)</a>
   </dt>
 
       <dd><dl>
-        
-  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.cm_keys.cm_keys.write">(cloudmesh.config.cm_keys.cm_keys method)</a>
-  </dt>
-
         
   <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.cm_projects.cm_projects.write">(cloudmesh.config.cm_projects.cm_projects method)</a>
   </dt>
@@ -2852,12 +2604,6 @@
 
 <h2 id="Y">Y</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%" valign="top"><dl>
-      
-  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.cm_config.cm_config.yaml_template_path">yaml_template_path (cloudmesh.config.cm_config.cm_config attribute)</a>
-  </dt>
-
-  </dl></td>
   <td style="width: 33%" valign="top"><dl>
       
   <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.cm_rc.yn_choice">yn_choice() (in module cloudmesh.config.cm_rc)</a>

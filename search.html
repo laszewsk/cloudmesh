@@ -1,3 +1,11 @@
+
+  
+ 
+  
+  
+ 
+
+
 <!DOCTYPE html>
 
 
@@ -9,9 +17,9 @@
     
     <link rel="stylesheet" href="_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/bootstrap-2.3.2/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-3.0.0/css/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
-    <link rel="stylesheet" href="_static/bootstrap-2.3.2/css/bootstrap-responsive.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-3.0.0/css/bootstrap-theme.min.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
@@ -29,7 +37,7 @@
     <script type="text/javascript" src="_static/searchtools.js"></script>
     <script type="text/javascript" src="_static/js/jquery-1.9.1.min.js"></script>
     <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
-    <script type="text/javascript" src="_static/bootstrap-2.3.2/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.0.0/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
     <link rel="author" title="About these documents" href="about.html" />
     <link rel="top" title="Cloudmesh 0.1 documentation" href="index.html" />
@@ -46,21 +54,21 @@
   </head>
   <body>
 
-  <div id="navbar" class="navbar navbar-inverse navbar-fixed-top">
-    <div class="navbar-inner">
-      <div class="container">
+  <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
         <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
-        <button class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
+        <a class="navbar-brand" href="index.html">Cloudmesh</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.1</b></span>
+      </div>
 
-        <a class="brand" href="index.html">Cloudmesh</a>
-        <span class="navbar-text pull-left"><b>0.1</b></span>
-
-        <div class="nav-collapse">
-          <ul class="nav">
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
             <li class="divider-vertical"></li>
             
             
@@ -129,6 +137,16 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="developer.html#making-the-documentation">4.11&nbsp;&nbsp;&nbsp;Making the documentation</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="developer.html#example-start-the-gui-for-development">4.11.1&nbsp;&nbsp;&nbsp;Example: Start the GUI for development</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="developer.html#example-hpc-queue-server">4.12&nbsp;&nbsp;&nbsp;Example: HPC queue server</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="celery.html">5&nbsp;&nbsp;&nbsp;Celery Setup</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="celery.html#starting-and-stopping-celery">5.1&nbsp;&nbsp;&nbsp;Starting and Stopping Celery</a></li>
+<li class="toctree-l2"><a class="reference internal" href="celery.html#log-and-pid-files">5.2&nbsp;&nbsp;&nbsp;Log and Pid Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="celery.html#current-celery-based-tasks">5.3&nbsp;&nbsp;&nbsp;Current Celery Based Tasks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="celery.html#launcher-simulation">5.3.1&nbsp;&nbsp;&nbsp;Launcher (Simulation)</a></li>
 </ul>
 </li>
 </ul>
@@ -201,11 +219,11 @@
 <li class="toctree-l6"><a class="reference internal" href="modules/cloudmesh.config.html#cm-manage-config">cm-manage config</a></li>
 </ul>
 </li>
-<li class="toctree-l5"><a class="reference internal" href="modules/cloudmesh.config.html#module-cloudmesh.config.ldap_user"><tt class="docutils literal"><span class="pre">ldap_user</span></tt> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="modules/cloudmesh.config.html#module-cloudmesh.config.mock_cloud"><tt class="docutils literal"><span class="pre">mock_cloud</span></tt> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="modules/cloudmesh.config.html#module-cloudmesh.config.mock_keystone"><tt class="docutils literal"><span class="pre">mock_keystone</span></tt> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="modules/cloudmesh.config.html#module-cloudmesh.config.mock_user"><tt class="docutils literal"><span class="pre">mock_user</span></tt> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="modules/cloudmesh.config.html#module-cloudmesh.config.openstack_essex_cloud"><tt class="docutils literal"><span class="pre">openstack_essex_cloud</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/cloudmesh.config.html#ldap-user-module"><tt class="docutils literal"><span class="pre">ldap_user</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/cloudmesh.config.html#mock-cloud-module"><tt class="docutils literal"><span class="pre">mock_cloud</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/cloudmesh.config.html#mock-keystone-module"><tt class="docutils literal"><span class="pre">mock_keystone</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/cloudmesh.config.html#mock-user-module"><tt class="docutils literal"><span class="pre">mock_user</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/cloudmesh.config.html#openstack-essex-cloud-module"><tt class="docutils literal"><span class="pre">openstack_essex_cloud</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="modules/cloudmesh.config.html#module-cloudmesh.config.openstack_grizzly_cloud"><tt class="docutils literal"><span class="pre">openstack_grizzly_cloud</span></tt> Module</a></li>
 </ul>
 </li>
@@ -280,6 +298,8 @@
               
             
             
+            
+            
               <li></li>
             
           </ul>
@@ -288,7 +308,6 @@
             
           
         </div>
-      </div>
     </div>
   </div>
 

@@ -1,4 +1,12 @@
 
+
+  
+ 
+  
+  
+ 
+
+
 <!DOCTYPE html>
 
 
@@ -10,9 +18,9 @@
     
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/bootstrap-2.3.2/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-3.0.0/css/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/bootstrap-2.3.2/css/bootstrap-responsive.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-3.0.0/css/bootstrap-theme.min.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
@@ -29,7 +37,7 @@
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/javascript" src="../_static/js/jquery-1.9.1.min.js"></script>
     <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
-    <script type="text/javascript" src="../_static/bootstrap-2.3.2/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.0.0/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
     <link rel="author" title="About these documents" href="../about.html" />
     <link rel="top" title="Cloudmesh 0.1 documentation" href="../index.html" />
@@ -44,21 +52,21 @@
   </head>
   <body>
 
-  <div id="navbar" class="navbar navbar-inverse navbar-fixed-top">
-    <div class="navbar-inner">
-      <div class="container">
+  <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
         <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
-        <button class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
+        <a class="navbar-brand" href="../index.html">Cloudmesh</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.1</b></span>
+      </div>
 
-        <a class="brand" href="../index.html">Cloudmesh</a>
-        <span class="navbar-text pull-left"><b>0.1</b></span>
-
-        <div class="nav-collapse">
-          <ul class="nav">
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
             <li class="divider-vertical"></li>
             
             
@@ -127,6 +135,16 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../developer.html#making-the-documentation">4.11&nbsp;&nbsp;&nbsp;Making the documentation</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../developer.html#example-start-the-gui-for-development">4.11.1&nbsp;&nbsp;&nbsp;Example: Start the GUI for development</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../developer.html#example-hpc-queue-server">4.12&nbsp;&nbsp;&nbsp;Example: HPC queue server</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../celery.html">5&nbsp;&nbsp;&nbsp;Celery Setup</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../celery.html#starting-and-stopping-celery">5.1&nbsp;&nbsp;&nbsp;Starting and Stopping Celery</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../celery.html#log-and-pid-files">5.2&nbsp;&nbsp;&nbsp;Log and Pid Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../celery.html#current-celery-based-tasks">5.3&nbsp;&nbsp;&nbsp;Current Celery Based Tasks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../celery.html#launcher-simulation">5.3.1&nbsp;&nbsp;&nbsp;Launcher (Simulation)</a></li>
 </ul>
 </li>
 </ul>
@@ -199,11 +217,11 @@
 <li class="toctree-l6"><a class="reference internal" href="#cm-manage-config">cm-manage config</a></li>
 </ul>
 </li>
-<li class="toctree-l5"><a class="reference internal" href="#module-cloudmesh.config.ldap_user"><tt class="docutils literal"><span class="pre">ldap_user</span></tt> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#module-cloudmesh.config.mock_cloud"><tt class="docutils literal"><span class="pre">mock_cloud</span></tt> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#module-cloudmesh.config.mock_keystone"><tt class="docutils literal"><span class="pre">mock_keystone</span></tt> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#module-cloudmesh.config.mock_user"><tt class="docutils literal"><span class="pre">mock_user</span></tt> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#module-cloudmesh.config.openstack_essex_cloud"><tt class="docutils literal"><span class="pre">openstack_essex_cloud</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#ldap-user-module"><tt class="docutils literal"><span class="pre">ldap_user</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#mock-cloud-module"><tt class="docutils literal"><span class="pre">mock_cloud</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#mock-keystone-module"><tt class="docutils literal"><span class="pre">mock_keystone</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#mock-user-module"><tt class="docutils literal"><span class="pre">mock_user</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#openstack-essex-cloud-module"><tt class="docutils literal"><span class="pre">openstack_essex_cloud</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#module-cloudmesh.config.openstack_grizzly_cloud"><tt class="docutils literal"><span class="pre">openstack_grizzly_cloud</span></tt> Module</a></li>
 </ul>
 </li>
@@ -280,11 +298,11 @@
 <li><a class="reference internal" href="#cm-manage-config">cm-manage config</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#module-cloudmesh.config.ldap_user"><tt class="docutils literal"><span class="pre">ldap_user</span></tt> Module</a></li>
-<li><a class="reference internal" href="#module-cloudmesh.config.mock_cloud"><tt class="docutils literal"><span class="pre">mock_cloud</span></tt> Module</a></li>
-<li><a class="reference internal" href="#module-cloudmesh.config.mock_keystone"><tt class="docutils literal"><span class="pre">mock_keystone</span></tt> Module</a></li>
-<li><a class="reference internal" href="#module-cloudmesh.config.mock_user"><tt class="docutils literal"><span class="pre">mock_user</span></tt> Module</a></li>
-<li><a class="reference internal" href="#module-cloudmesh.config.openstack_essex_cloud"><tt class="docutils literal"><span class="pre">openstack_essex_cloud</span></tt> Module</a></li>
+<li><a class="reference internal" href="#ldap-user-module"><tt class="docutils literal"><span class="pre">ldap_user</span></tt> Module</a></li>
+<li><a class="reference internal" href="#mock-cloud-module"><tt class="docutils literal"><span class="pre">mock_cloud</span></tt> Module</a></li>
+<li><a class="reference internal" href="#mock-keystone-module"><tt class="docutils literal"><span class="pre">mock_keystone</span></tt> Module</a></li>
+<li><a class="reference internal" href="#mock-user-module"><tt class="docutils literal"><span class="pre">mock_user</span></tt> Module</a></li>
+<li><a class="reference internal" href="#openstack-essex-cloud-module"><tt class="docutils literal"><span class="pre">openstack_essex_cloud</span></tt> Module</a></li>
 <li><a class="reference internal" href="#module-cloudmesh.config.openstack_grizzly_cloud"><tt class="docutils literal"><span class="pre">openstack_grizzly_cloud</span></tt> Module</a></li>
 </ul>
 </li>
@@ -303,6 +321,8 @@
               
             
             
+            
+            
               <li>
   <a href="../_sources/modules/cloudmesh.config.txt"
      rel="nofollow">Source</a></li>
@@ -311,14 +331,15 @@
 
           
             
-<form class="navbar-search pull-right" action="../search.html" method="get">
-  <input type="text" name="q" class="search-query" placeholder="Search" />
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
   <input type="hidden" name="check_keywords" value="yes" />
   <input type="hidden" name="area" value="default" />
 </form>
           
         </div>
-      </div>
     </div>
   </div>
 
@@ -337,11 +358,7 @@
 &#8216;cm_keys.py&#8217;,
 &#8216;cm_projects.py&#8217;,
 &#8216;cm_rc.py&#8217;,
-&#8216;ldap_user.py&#8217;,
-&#8216;mock_cloud.py&#8217;,
-&#8216;mock_keystone.py&#8217;,
-&#8216;mock_user.py&#8217;,
-&#8216;openstack_essex_cloud.py&#8217;,
+&#8216;cloudmesh_user.py&#8217;,
 &#8216;openstack_grizzly_cloud.py&#8217;]</dd>
 </dl>
 </div>
@@ -418,7 +435,7 @@
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
 <dl class="attribute">
 <dt id="cloudmesh.config.cloudmesh_cloud_handler.cloudmesh_cloud_handler.cloud_handlers">
-<tt class="descname">cloud_handlers</tt><em class="property"> = {('openstack', 'grizzly'): &lt;class cloudmesh.config.openstack_grizzly_cloud.openstack_grizzly_cloud at 0x10c4eeb48&gt;, ('openstack', 'essex'): &lt;class cloudmesh.config.openstack_essex_cloud.openstack_essex_cloud at 0x10c4ee390&gt;}</em><a class="headerlink" href="#cloudmesh.config.cloudmesh_cloud_handler.cloudmesh_cloud_handler.cloud_handlers" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">cloud_handlers</tt><em class="property"> = {('openstack', 'grizzly'): &lt;class cloudmesh.config.openstack_grizzly_cloud.openstack_grizzly_cloud at 0x10b306390&gt;}</em><a class="headerlink" href="#cloudmesh.config.cloudmesh_cloud_handler.cloudmesh_cloud_handler.cloud_handlers" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -429,7 +446,7 @@
 <dl class="class">
 <dt id="cloudmesh.config.cm_config.cm_config">
 <em class="property">class </em><tt class="descclassname">cloudmesh.config.cm_config.</tt><tt class="descname">cm_config</tt><big>(</big><em>filename=None</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/config/cm_config.html#cm_config"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.cm_config.cm_config" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">cloudmesh.config.ConfigDict.ConfigDict</span></tt></p>
 <dl class="method">
 <dt id="cloudmesh.config.cm_config.cm_config.active">
 <tt class="descname">active</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/cloudmesh/config/cm_config.html#cm_config.active"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.cm_config.cm_config.active" title="Permalink to this definition">¶</a></dt>
@@ -465,16 +482,6 @@
 <tt class="descname">clouds</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/cloudmesh/config/cm_config.html#cm_config.clouds"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.cm_config.cm_config.clouds" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="attribute">
-<dt id="cloudmesh.config.cm_config.cm_config.config">
-<tt class="descname">config</tt><em class="property"> = OrderedDict()</em><a class="headerlink" href="#cloudmesh.config.cm_config.cm_config.config" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="cloudmesh.config.cm_config.cm_config.create_filter">
-<tt class="descname">create_filter</tt><big>(</big><em>cloudname</em>, <em>states</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/config/cm_config.html#cm_config.create_filter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.cm_config.cm_config.create_filter" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
 <dl class="method">
 <dt id="cloudmesh.config.cm_config.cm_config.credential">
 <tt class="descname">credential</tt><big>(</big><em>name</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/config/cm_config.html#cm_config.credential"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.cm_config.cm_config.credential" title="Permalink to this definition">¶</a></dt>
@@ -491,11 +498,6 @@
 <dd></dd></dl>
 
 <dl class="attribute">
-<dt id="cloudmesh.config.cm_config.cm_config.default_path">
-<tt class="descname">default_path</tt><em class="property"> = '.futuregrid/cloudmesh.yaml'</em><a class="headerlink" href="#cloudmesh.config.cm_config.cm_config.default_path" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
 <dt id="cloudmesh.config.cm_config.cm_config.email">
 <tt class="descname">email</tt><a class="reference internal" href="../_modules/cloudmesh/config/cm_config.html#cm_config.email"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.cm_config.cm_config.email" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
@@ -507,7 +509,7 @@
 
 <dl class="attribute">
 <dt id="cloudmesh.config.cm_config.cm_config.filename">
-<tt class="descname">filename</tt><em class="property"> = ''</em><a class="headerlink" href="#cloudmesh.config.cm_config.cm_config.filename" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">filename</tt><em class="property"> = '/Users/neu/.futuregrid/cloudmesh.yaml'</em><a class="headerlink" href="#cloudmesh.config.cm_config.cm_config.filename" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -516,13 +518,8 @@
 <dd></dd></dl>
 
 <dl class="method">
-<dt id="cloudmesh.config.cm_config.cm_config.get">
-<tt class="descname">get</tt><big>(</big><em>key=None</em>, <em>expand=False</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/config/cm_config.html#cm_config.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.cm_config.cm_config.get" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="cloudmesh.config.cm_config.cm_config.get_filter">
-<tt class="descname">get_filter</tt><big>(</big><em>cloudname</em>, <em>type='state'</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/config/cm_config.html#cm_config.get_filter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.cm_config.cm_config.get_filter" title="Permalink to this definition">¶</a></dt>
+<dt id="cloudmesh.config.cm_config.cm_config.get_data">
+<tt class="descname">get_data</tt><big>(</big><em>key=None</em>, <em>expand=False</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/config/cm_config.html#cm_config.get_data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.cm_config.cm_config.get_data" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -587,25 +584,9 @@ userdata_handler property must be set with appropriate handler class.</p>
 <tt class="descname">rc_euca</tt><big>(</big><em>name</em>, <em>project</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/config/cm_config.html#cm_config.rc_euca"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.cm_config.cm_config.rc_euca" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
-<dt id="cloudmesh.config.cm_config.cm_config.read">
-<tt class="descname">read</tt><big>(</big><em>filename</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/config/cm_config.html#cm_config.read"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.cm_config.cm_config.read" title="Permalink to this definition">¶</a></dt>
-<dd><p>self.filename = filename
-if os.path.exists(filename):</p>
-<blockquote>
-<div>f = open(self.filename, &#8220;r&#8221;)
-self.config = yaml.safe_load(f)
-f.close()</div></blockquote>
-</dd></dl>
-
 <dl class="attribute">
 <dt id="cloudmesh.config.cm_config.cm_config.serverdata">
 <tt class="descname">serverdata</tt><a class="reference internal" href="../_modules/cloudmesh/config/cm_config.html#cm_config.serverdata"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.cm_config.cm_config.serverdata" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="cloudmesh.config.cm_config.cm_config.set_filter">
-<tt class="descname">set_filter</tt><big>(</big><em>cloudname</em>, <em>filter</em>, <em>type='state'</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/config/cm_config.html#cm_config.set_filter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.cm_config.cm_config.set_filter" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -624,60 +605,17 @@ f.close()</div></blockquote>
 <tt class="descname">vmname</tt><a class="reference internal" href="../_modules/cloudmesh/config/cm_config.html#cm_config.vmname"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.cm_config.cm_config.vmname" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
-<dt id="cloudmesh.config.cm_config.cm_config.write">
-<tt class="descname">write</tt><big>(</big><em>filename=None</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/config/cm_config.html#cm_config.write"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.cm_config.cm_config.write" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="cloudmesh.config.cm_config.cm_config.yaml_template_path">
-<tt class="descname">yaml_template_path</tt><em class="property"> = '/private/tmp/cloudmesh/etc/cloudmesh.yaml'</em><a class="headerlink" href="#cloudmesh.config.cm_config.cm_config.yaml_template_path" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="class">
-<dt id="cloudmesh.config.cm_config.cm_config_file">
-<em class="property">class </em><tt class="descclassname">cloudmesh.config.cm_config.</tt><tt class="descname">cm_config_file</tt><big>(</big><em>filename=None</em>, <em>kind='server'</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/config/cm_config.html#cm_config_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.cm_config.cm_config_file" title="Permalink to this definition">¶</a></dt>
-<dd><p>reads the information contained in the file
-~/.futuregrid/cloudmesh_server.yaml</p>
-<dl class="attribute">
-<dt id="cloudmesh.config.cm_config.cm_config_file.config">
-<tt class="descname">config</tt><em class="property"> = None</em><a class="headerlink" href="#cloudmesh.config.cm_config.cm_config_file.config" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="cloudmesh.config.cm_config.cm_config_file.filename">
-<tt class="descname">filename</tt><em class="property"> = '/Users/neu/.futuregrid/cloudmesh_server.yaml'</em><a class="headerlink" href="#cloudmesh.config.cm_config.cm_config_file.filename" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="cloudmesh.config.cm_config.cm_config_file.get">
-<tt class="descname">get</tt><big>(</big><em>*keys</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/config/cm_config.html#cm_config_file.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.cm_config.cm_config_file.get" title="Permalink to this definition">¶</a></dt>
-<dd><p>returns the dict of the information as read from the yaml file. To
-access the file safely, you can use the keys in the order of the access.
-Example: get(&#8220;provisiner&#8221;,&#8221;policy&#8221;) will return the value of
-config[&#8220;provisiner&#8221;][&#8220;policy&#8221;] from the yaml file if it does not exists
-an error will be printing that the value does not exists and we exit.
-Alternatively you can use the . notation e.g. get(&#8220;provisiner.policy&#8221;)</p>
-</dd></dl>
-
 </dd></dl>
 
 <dl class="class">
 <dt id="cloudmesh.config.cm_config.cm_config_launcher">
 <em class="property">class </em><tt class="descclassname">cloudmesh.config.cm_config.</tt><tt class="descname">cm_config_launcher</tt><big>(</big><em>filename=None</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/config/cm_config.html#cm_config_launcher"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.cm_config.cm_config_launcher" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#cloudmesh.config.cm_config.cm_config_file" title="cloudmesh.config.cm_config.cm_config_file"><tt class="xref py py-class docutils literal"><span class="pre">cloudmesh.config.cm_config.cm_config_file</span></tt></a></p>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">cloudmesh.config.ConfigDict.ConfigDict</span></tt></p>
 <p>reads the information contained in the file
 ~/.futuregrid/cloudmesh_server.yaml</p>
 <dl class="attribute">
-<dt id="cloudmesh.config.cm_config.cm_config_launcher.config">
-<tt class="descname">config</tt><em class="property"> = None</em><a class="headerlink" href="#cloudmesh.config.cm_config.cm_config_launcher.config" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
 <dt id="cloudmesh.config.cm_config.cm_config_launcher.filename">
-<tt class="descname">filename</tt><em class="property"> = '~/.futuregrid/cloudmesh_launcher.yaml'</em><a class="headerlink" href="#cloudmesh.config.cm_config.cm_config_launcher.filename" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">filename</tt><em class="property"> = '/Users/neu/.futuregrid/cloudmesh_launcher.yaml'</em><a class="headerlink" href="#cloudmesh.config.cm_config.cm_config_launcher.filename" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -685,17 +623,12 @@ Alternatively you can use the . notation e.g. get(&#8220;provisiner.policy&#8221
 <dl class="class">
 <dt id="cloudmesh.config.cm_config.cm_config_server">
 <em class="property">class </em><tt class="descclassname">cloudmesh.config.cm_config.</tt><tt class="descname">cm_config_server</tt><big>(</big><em>filename=None</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/config/cm_config.html#cm_config_server"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.cm_config.cm_config_server" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#cloudmesh.config.cm_config.cm_config_file" title="cloudmesh.config.cm_config.cm_config_file"><tt class="xref py py-class docutils literal"><span class="pre">cloudmesh.config.cm_config.cm_config_file</span></tt></a></p>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">cloudmesh.config.ConfigDict.ConfigDict</span></tt></p>
 <p>reads the information contained in the file
 ~/.futuregrid/cloudmesh_server.yaml</p>
 <dl class="attribute">
-<dt id="cloudmesh.config.cm_config.cm_config_server.config">
-<tt class="descname">config</tt><em class="property"> = None</em><a class="headerlink" href="#cloudmesh.config.cm_config.cm_config_server.config" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
 <dt id="cloudmesh.config.cm_config.cm_config_server.filename">
-<tt class="descname">filename</tt><em class="property"> = '~/.futuregrid/cloudmesh_server.yaml'</em><a class="headerlink" href="#cloudmesh.config.cm_config.cm_config_server.filename" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">filename</tt><em class="property"> = '/Users/neu/.futuregrid/cloudmesh_server.yaml'</em><a class="headerlink" href="#cloudmesh.config.cm_config.cm_config_server.filename" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -925,376 +858,20 @@ file called ~/.futuregrid/novarc</p>
 
 </div>
 </div>
-<div class="section" id="module-cloudmesh.config.ldap_user">
-<span id="ldap-user-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">ldap_user</span></tt> Module<a class="headerlink" href="#module-cloudmesh.config.ldap_user" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
-<dt id="cloudmesh.config.ldap_user.ldap_user">
-<em class="property">class </em><tt class="descclassname">cloudmesh.config.ldap_user.</tt><tt class="descname">ldap_user</tt><big>(</big><em>username</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/config/ldap_user.html#ldap_user"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.ldap_user.ldap_user" title="Permalink to this definition">¶</a></dt>
-<dd><p>Provides a class for getting the user/project
-data that will come from LDAP.</p>
-<dl class="attribute">
-<dt id="cloudmesh.config.ldap_user.ldap_user.LDAP_HOST">
-<tt class="descname">LDAP_HOST</tt><em class="property"> = 'im3r.idp.iu.futuregrid.org'</em><a class="headerlink" href="#cloudmesh.config.ldap_user.ldap_user.LDAP_HOST" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="cloudmesh.config.ldap_user.ldap_user.LDAP_PERSONBASE">
-<tt class="descname">LDAP_PERSONBASE</tt><em class="property"> = 'ou=People,dc=futuregrid,dc=org'</em><a class="headerlink" href="#cloudmesh.config.ldap_user.ldap_user.LDAP_PERSONBASE" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="cloudmesh.config.ldap_user.ldap_user.LDAP_PROJECTBASE">
-<tt class="descname">LDAP_PROJECTBASE</tt><em class="property"> = 'ou=Groups,dc=futuregrid,dc=org'</em><a class="headerlink" href="#cloudmesh.config.ldap_user.ldap_user.LDAP_PROJECTBASE" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="cloudmesh.config.ldap_user.ldap_user.activeclouds">
-<tt class="descname">activeclouds</tt><a class="reference internal" href="../_modules/cloudmesh/config/ldap_user.html#ldap_user.activeclouds"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.ldap_user.ldap_user.activeclouds" title="Permalink to this definition">¶</a></dt>
-<dd><p>Not yet implemented</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cloudmesh.config.ldap_user.ldap_user.activeprojects">
-<tt class="descname">activeprojects</tt><a class="reference internal" href="../_modules/cloudmesh/config/ldap_user.html#ldap_user.activeprojects"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.ldap_user.ldap_user.activeprojects" title="Permalink to this definition">¶</a></dt>
-<dd><p>List of active projects</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cloudmesh.config.ldap_user.ldap_user.address">
-<tt class="descname">address</tt><a class="reference internal" href="../_modules/cloudmesh/config/ldap_user.html#ldap_user.address"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.ldap_user.ldap_user.address" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="cloudmesh.config.ldap_user.ldap_user.completedprojects">
-<tt class="descname">completedprojects</tt><a class="reference internal" href="../_modules/cloudmesh/config/ldap_user.html#ldap_user.completedprojects"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.ldap_user.ldap_user.completedprojects" title="Permalink to this definition">¶</a></dt>
-<dd><p>Not yet implemented</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cloudmesh.config.ldap_user.ldap_user.data">
-<tt class="descname">data</tt><a class="reference internal" href="../_modules/cloudmesh/config/ldap_user.html#ldap_user.data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.ldap_user.ldap_user.data" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="cloudmesh.config.ldap_user.ldap_user.defaultcloud">
-<tt class="descname">defaultcloud</tt><a class="reference internal" href="../_modules/cloudmesh/config/ldap_user.html#ldap_user.defaultcloud"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.ldap_user.ldap_user.defaultcloud" title="Permalink to this definition">¶</a></dt>
-<dd><p>Not yet implemented</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cloudmesh.config.ldap_user.ldap_user.defaultproject">
-<tt class="descname">defaultproject</tt><a class="reference internal" href="../_modules/cloudmesh/config/ldap_user.html#ldap_user.defaultproject"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.ldap_user.ldap_user.defaultproject" title="Permalink to this definition">¶</a></dt>
-<dd><p>The user&#8217;s default project (currently just the first active project)</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cloudmesh.config.ldap_user.ldap_user.email">
-<tt class="descname">email</tt><a class="reference internal" href="../_modules/cloudmesh/config/ldap_user.html#ldap_user.email"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.ldap_user.ldap_user.email" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="cloudmesh.config.ldap_user.ldap_user.firstname">
-<tt class="descname">firstname</tt><a class="reference internal" href="../_modules/cloudmesh/config/ldap_user.html#ldap_user.firstname"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.ldap_user.ldap_user.firstname" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="cloudmesh.config.ldap_user.ldap_user.gid">
-<tt class="descname">gid</tt><a class="reference internal" href="../_modules/cloudmesh/config/ldap_user.html#ldap_user.gid"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.ldap_user.ldap_user.gid" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="cloudmesh.config.ldap_user.ldap_user.keys">
-<tt class="descname">keys</tt><a class="reference internal" href="../_modules/cloudmesh/config/ldap_user.html#ldap_user.keys"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.ldap_user.ldap_user.keys" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="cloudmesh.config.ldap_user.ldap_user.lastname">
-<tt class="descname">lastname</tt><a class="reference internal" href="../_modules/cloudmesh/config/ldap_user.html#ldap_user.lastname"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.ldap_user.ldap_user.lastname" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="cloudmesh.config.ldap_user.ldap_user.phone">
-<tt class="descname">phone</tt><a class="reference internal" href="../_modules/cloudmesh/config/ldap_user.html#ldap_user.phone"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.ldap_user.ldap_user.phone" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="cloudmesh.config.ldap_user.ldap_user.uid">
-<tt class="descname">uid</tt><a class="reference internal" href="../_modules/cloudmesh/config/ldap_user.html#ldap_user.uid"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.ldap_user.ldap_user.uid" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="cloudmesh.config.ldap_user.ldap_user.username">
-<tt class="descname">username</tt><a class="reference internal" href="../_modules/cloudmesh/config/ldap_user.html#ldap_user.username"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.ldap_user.ldap_user.username" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
+<div class="section" id="ldap-user-module">
+<h2><tt class="xref py py-mod docutils literal"><span class="pre">ldap_user</span></tt> Module<a class="headerlink" href="#ldap-user-module" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="module-cloudmesh.config.mock_cloud">
-<span id="mock-cloud-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">mock_cloud</span></tt> Module<a class="headerlink" href="#module-cloudmesh.config.mock_cloud" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
-<dt id="cloudmesh.config.mock_cloud.mock_cloud">
-<em class="property">class </em><tt class="descclassname">cloudmesh.config.mock_cloud.</tt><tt class="descname">mock_cloud</tt><big>(</big><em>profiledata</em>, <em>defaultproj</em>, <em>projectlist</em>, <em>cloudname</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/config/mock_cloud.html#mock_cloud"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.mock_cloud.mock_cloud" title="Permalink to this definition">¶</a></dt>
-<dd><p>Provides a mock class for testing.  Represents the cloud
-credential data that will come from cloud API</p>
-<dl class="attribute">
-<dt id="cloudmesh.config.mock_cloud.mock_cloud.cloudname">
-<tt class="descname">cloudname</tt><a class="reference internal" href="../_modules/cloudmesh/config/mock_cloud.html#mock_cloud.cloudname"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.mock_cloud.mock_cloud.cloudname" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="cloudmesh.config.mock_cloud.mock_cloud.data">
-<tt class="descname">data</tt><a class="reference internal" href="../_modules/cloudmesh/config/mock_cloud.html#mock_cloud.data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.mock_cloud.mock_cloud.data" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="cloudmesh.config.mock_cloud.mock_cloud.initialize_cloud_user">
-<tt class="descname">initialize_cloud_user</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/cloudmesh/config/mock_cloud.html#mock_cloud.initialize_cloud_user"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.mock_cloud.mock_cloud.initialize_cloud_user" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
+<div class="section" id="mock-cloud-module">
+<h2><tt class="xref py py-mod docutils literal"><span class="pre">mock_cloud</span></tt> Module<a class="headerlink" href="#mock-cloud-module" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="module-cloudmesh.config.mock_keystone">
-<span id="mock-keystone-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">mock_keystone</span></tt> Module<a class="headerlink" href="#module-cloudmesh.config.mock_keystone" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
-<dt id="cloudmesh.config.mock_keystone.Client">
-<em class="property">class </em><tt class="descclassname">cloudmesh.config.mock_keystone.</tt><tt class="descname">Client</tt><big>(</big><em>username</em>, <em>password</em>, <em>tenant_name</em>, <em>auth_url</em>, <em>cacert</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/config/mock_keystone.html#Client"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.mock_keystone.Client" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
-<p>Provides a mock class for testing.  Represents the keystone client.</p>
-<dl class="class">
-<dt id="cloudmesh.config.mock_keystone.Client.mock_object">
-<em class="property">class </em><tt class="descname">mock_object</tt><big>(</big><em>**kwds</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/config/mock_keystone.html#Client.mock_object"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.mock_keystone.Client.mock_object" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
-</dd></dl>
-
-<dl class="class">
-<dt id="cloudmesh.config.mock_keystone.Client.mock_roles">
-<em class="property">class </em><tt class="descclassname">Client.</tt><tt class="descname">mock_roles</tt><big>(</big><em>roles</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/config/mock_keystone.html#Client.mock_roles"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.mock_keystone.Client.mock_roles" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
-<dl class="method">
-<dt id="cloudmesh.config.mock_keystone.Client.mock_roles.add_user_role">
-<tt class="descname">add_user_role</tt><big>(</big><em>user</em>, <em>role</em>, <em>tenant</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/config/mock_keystone.html#Client.mock_roles.add_user_role"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.mock_keystone.Client.mock_roles.add_user_role" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="cloudmesh.config.mock_keystone.Client.mock_roles.list">
-<tt class="descname">list</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/cloudmesh/config/mock_keystone.html#Client.mock_roles.list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.mock_keystone.Client.mock_roles.list" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="cloudmesh.config.mock_keystone.Client.mock_roles.roles_for_user">
-<tt class="descname">roles_for_user</tt><big>(</big><em>user</em>, <em>tenant</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/config/mock_keystone.html#Client.mock_roles.roles_for_user"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.mock_keystone.Client.mock_roles.roles_for_user" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="class">
-<dt id="cloudmesh.config.mock_keystone.Client.mock_tenants">
-<em class="property">class </em><tt class="descclassname">Client.</tt><tt class="descname">mock_tenants</tt><big>(</big><em>tenants</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/config/mock_keystone.html#Client.mock_tenants"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.mock_keystone.Client.mock_tenants" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
-<dl class="method">
-<dt id="cloudmesh.config.mock_keystone.Client.mock_tenants.create">
-<tt class="descname">create</tt><big>(</big><em>tname</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/config/mock_keystone.html#Client.mock_tenants.create"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.mock_keystone.Client.mock_tenants.create" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="cloudmesh.config.mock_keystone.Client.mock_tenants.list">
-<tt class="descname">list</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/cloudmesh/config/mock_keystone.html#Client.mock_tenants.list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.mock_keystone.Client.mock_tenants.list" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="class">
-<dt id="cloudmesh.config.mock_keystone.Client.mock_users">
-<em class="property">class </em><tt class="descclassname">Client.</tt><tt class="descname">mock_users</tt><big>(</big><em>users</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/config/mock_keystone.html#Client.mock_users"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.mock_keystone.Client.mock_users" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
-<dl class="method">
-<dt id="cloudmesh.config.mock_keystone.Client.mock_users.change_own_password">
-<tt class="descname">change_own_password</tt><big>(</big><em>oldpass</em>, <em>newpass</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/config/mock_keystone.html#Client.mock_users.change_own_password"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.mock_keystone.Client.mock_users.change_own_password" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="cloudmesh.config.mock_keystone.Client.mock_users.create">
-<tt class="descname">create</tt><big>(</big><em>name</em>, <em>password</em>, <em>email</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/config/mock_keystone.html#Client.mock_users.create"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.mock_keystone.Client.mock_users.create" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="cloudmesh.config.mock_keystone.Client.mock_users.list">
-<tt class="descname">list</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/cloudmesh/config/mock_keystone.html#Client.mock_users.list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.mock_keystone.Client.mock_users.list" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="cloudmesh.config.mock_keystone.Client.mock_users.update_password">
-<tt class="descname">update_password</tt><big>(</big><em>user</em>, <em>password</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/config/mock_keystone.html#Client.mock_users.update_password"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.mock_keystone.Client.mock_users.update_password" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cloudmesh.config.mock_keystone.Client.mocktenants">
-<tt class="descclassname">Client.</tt><tt class="descname">mocktenants</tt><em class="property"> = ['foo']</em><a class="headerlink" href="#cloudmesh.config.mock_keystone.Client.mocktenants" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="cloudmesh.config.mock_keystone.Client.mockusername">
-<tt class="descclassname">Client.</tt><tt class="descname">mockusername</tt><em class="property"> = 'foo'</em><a class="headerlink" href="#cloudmesh.config.mock_keystone.Client.mockusername" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="cloudmesh.config.mock_keystone.Client.roles">
-<tt class="descclassname">Client.</tt><tt class="descname">roles</tt><a class="reference internal" href="../_modules/cloudmesh/config/mock_keystone.html#Client.roles"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.mock_keystone.Client.roles" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="cloudmesh.config.mock_keystone.Client.tenants">
-<tt class="descclassname">Client.</tt><tt class="descname">tenants</tt><a class="reference internal" href="../_modules/cloudmesh/config/mock_keystone.html#Client.tenants"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.mock_keystone.Client.tenants" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="cloudmesh.config.mock_keystone.Client.users">
-<tt class="descclassname">Client.</tt><tt class="descname">users</tt><a class="reference internal" href="../_modules/cloudmesh/config/mock_keystone.html#Client.users"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.mock_keystone.Client.users" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
+<div class="section" id="mock-keystone-module">
+<h2><tt class="xref py py-mod docutils literal"><span class="pre">mock_keystone</span></tt> Module<a class="headerlink" href="#mock-keystone-module" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="module-cloudmesh.config.mock_user">
-<span id="mock-user-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">mock_user</span></tt> Module<a class="headerlink" href="#module-cloudmesh.config.mock_user" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
-<dt id="cloudmesh.config.mock_user.mock_user">
-<em class="property">class </em><tt class="descclassname">cloudmesh.config.mock_user.</tt><tt class="descname">mock_user</tt><big>(</big><em>username</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/config/mock_user.html#mock_user"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.mock_user.mock_user" title="Permalink to this definition">¶</a></dt>
-<dd><p>Provides a mock class for testing. Represents the user/project
-data that will come from LDAP and/or Portal.</p>
-<dl class="attribute">
-<dt id="cloudmesh.config.mock_user.mock_user.activeclouds">
-<tt class="descname">activeclouds</tt><a class="reference internal" href="../_modules/cloudmesh/config/mock_user.html#mock_user.activeclouds"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.mock_user.mock_user.activeclouds" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="cloudmesh.config.mock_user.mock_user.activeprojects">
-<tt class="descname">activeprojects</tt><a class="reference internal" href="../_modules/cloudmesh/config/mock_user.html#mock_user.activeprojects"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.mock_user.mock_user.activeprojects" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="cloudmesh.config.mock_user.mock_user.address">
-<tt class="descname">address</tt><a class="reference internal" href="../_modules/cloudmesh/config/mock_user.html#mock_user.address"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.mock_user.mock_user.address" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="cloudmesh.config.mock_user.mock_user.completedprojects">
-<tt class="descname">completedprojects</tt><a class="reference internal" href="../_modules/cloudmesh/config/mock_user.html#mock_user.completedprojects"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.mock_user.mock_user.completedprojects" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="cloudmesh.config.mock_user.mock_user.data">
-<tt class="descname">data</tt><a class="reference internal" href="../_modules/cloudmesh/config/mock_user.html#mock_user.data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.mock_user.mock_user.data" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="cloudmesh.config.mock_user.mock_user.defaultcloud">
-<tt class="descname">defaultcloud</tt><a class="reference internal" href="../_modules/cloudmesh/config/mock_user.html#mock_user.defaultcloud"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.mock_user.mock_user.defaultcloud" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="cloudmesh.config.mock_user.mock_user.defaultproject">
-<tt class="descname">defaultproject</tt><a class="reference internal" href="../_modules/cloudmesh/config/mock_user.html#mock_user.defaultproject"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.mock_user.mock_user.defaultproject" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="cloudmesh.config.mock_user.mock_user.email">
-<tt class="descname">email</tt><a class="reference internal" href="../_modules/cloudmesh/config/mock_user.html#mock_user.email"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.mock_user.mock_user.email" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="cloudmesh.config.mock_user.mock_user.firstname">
-<tt class="descname">firstname</tt><a class="reference internal" href="../_modules/cloudmesh/config/mock_user.html#mock_user.firstname"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.mock_user.mock_user.firstname" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="cloudmesh.config.mock_user.mock_user.gid">
-<tt class="descname">gid</tt><a class="reference internal" href="../_modules/cloudmesh/config/mock_user.html#mock_user.gid"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.mock_user.mock_user.gid" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="cloudmesh.config.mock_user.mock_user.keys">
-<tt class="descname">keys</tt><a class="reference internal" href="../_modules/cloudmesh/config/mock_user.html#mock_user.keys"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.mock_user.mock_user.keys" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="cloudmesh.config.mock_user.mock_user.lastname">
-<tt class="descname">lastname</tt><a class="reference internal" href="../_modules/cloudmesh/config/mock_user.html#mock_user.lastname"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.mock_user.mock_user.lastname" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="cloudmesh.config.mock_user.mock_user.phone">
-<tt class="descname">phone</tt><a class="reference internal" href="../_modules/cloudmesh/config/mock_user.html#mock_user.phone"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.mock_user.mock_user.phone" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="cloudmesh.config.mock_user.mock_user.projects">
-<tt class="descname">projects</tt><a class="reference internal" href="../_modules/cloudmesh/config/mock_user.html#mock_user.projects"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.mock_user.mock_user.projects" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="cloudmesh.config.mock_user.mock_user.uid">
-<tt class="descname">uid</tt><a class="reference internal" href="../_modules/cloudmesh/config/mock_user.html#mock_user.uid"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.mock_user.mock_user.uid" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
+<div class="section" id="mock-user-module">
+<h2><tt class="xref py py-mod docutils literal"><span class="pre">mock_user</span></tt> Module<a class="headerlink" href="#mock-user-module" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="module-cloudmesh.config.openstack_essex_cloud">
-<span id="openstack-essex-cloud-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">openstack_essex_cloud</span></tt> Module<a class="headerlink" href="#module-cloudmesh.config.openstack_essex_cloud" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
-<dt id="cloudmesh.config.openstack_essex_cloud.openstack_essex_cloud">
-<em class="property">class </em><tt class="descclassname">cloudmesh.config.openstack_essex_cloud.</tt><tt class="descname">openstack_essex_cloud</tt><big>(</big><em>profiledata</em>, <em>defaultproj</em>, <em>projectlist</em>, <em>cloudname</em>, <em>clouddata</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/config/openstack_essex_cloud.html#openstack_essex_cloud"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.openstack_essex_cloud.openstack_essex_cloud" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#cloudmesh.config.cloudmesh_cloud.cloudmesh_cloud" title="cloudmesh.config.cloudmesh_cloud.cloudmesh_cloud"><tt class="xref py py-class docutils literal"><span class="pre">cloudmesh.config.cloudmesh_cloud.cloudmesh_cloud</span></tt></a></p>
-<p>This is just a copy of the grizzly handler class.  If we want to
-really support essex, it will need to be adjusted accordingly
-<strong>************************************************************</strong></p>
-<dl class="method">
-<dt id="cloudmesh.config.openstack_essex_cloud.openstack_essex_cloud.change_own_password">
-<tt class="descname">change_own_password</tt><big>(</big><em>oldpass</em>, <em>newpass</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/config/openstack_essex_cloud.html#openstack_essex_cloud.change_own_password"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.openstack_essex_cloud.openstack_essex_cloud.change_own_password" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="cloudmesh.config.openstack_essex_cloud.openstack_essex_cloud.get_own_password">
-<tt class="descname">get_own_password</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/cloudmesh/config/openstack_essex_cloud.html#openstack_essex_cloud.get_own_password"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.openstack_essex_cloud.openstack_essex_cloud.get_own_password" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="cloudmesh.config.openstack_essex_cloud.openstack_essex_cloud.get_role_by_name">
-<tt class="descname">get_role_by_name</tt><big>(</big><em>name</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/config/openstack_essex_cloud.html#openstack_essex_cloud.get_role_by_name"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.openstack_essex_cloud.openstack_essex_cloud.get_role_by_name" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="cloudmesh.config.openstack_essex_cloud.openstack_essex_cloud.get_tenant_by_name">
-<tt class="descname">get_tenant_by_name</tt><big>(</big><em>name</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/config/openstack_essex_cloud.html#openstack_essex_cloud.get_tenant_by_name"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.openstack_essex_cloud.openstack_essex_cloud.get_tenant_by_name" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="cloudmesh.config.openstack_essex_cloud.openstack_essex_cloud.get_user_by_name">
-<tt class="descname">get_user_by_name</tt><big>(</big><em>name</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/config/openstack_essex_cloud.html#openstack_essex_cloud.get_user_by_name"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.openstack_essex_cloud.openstack_essex_cloud.get_user_by_name" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="cloudmesh.config.openstack_essex_cloud.openstack_essex_cloud.initialize_cloud_user">
-<tt class="descname">initialize_cloud_user</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/cloudmesh/config/openstack_essex_cloud.html#openstack_essex_cloud.initialize_cloud_user"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.openstack_essex_cloud.openstack_essex_cloud.initialize_cloud_user" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="cloudmesh.config.openstack_essex_cloud.openstack_essex_cloud.keystone">
-<tt class="descname">keystone</tt><a class="reference internal" href="../_modules/cloudmesh/config/openstack_essex_cloud.html#openstack_essex_cloud.keystone"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.openstack_essex_cloud.openstack_essex_cloud.keystone" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="cloudmesh.config.openstack_essex_cloud.openstack_essex_cloud.keystone_admin">
-<tt class="descname">keystone_admin</tt><a class="reference internal" href="../_modules/cloudmesh/config/openstack_essex_cloud.html#openstack_essex_cloud.keystone_admin"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.openstack_essex_cloud.openstack_essex_cloud.keystone_admin" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
+<div class="section" id="openstack-essex-cloud-module">
+<h2><tt class="xref py py-mod docutils literal"><span class="pre">openstack_essex_cloud</span></tt> Module<a class="headerlink" href="#openstack-essex-cloud-module" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="module-cloudmesh.config.openstack_grizzly_cloud">
 <span id="openstack-grizzly-cloud-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">openstack_grizzly_cloud</span></tt> Module<a class="headerlink" href="#module-cloudmesh.config.openstack_grizzly_cloud" title="Permalink to this headline">¶</a></h2>

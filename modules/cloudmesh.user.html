@@ -1,4 +1,12 @@
 
+
+  
+ 
+  
+  
+ 
+
+
 <!DOCTYPE html>
 
 
@@ -10,9 +18,9 @@
     
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/bootstrap-2.3.2/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-3.0.0/css/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/bootstrap-2.3.2/css/bootstrap-responsive.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-3.0.0/css/bootstrap-theme.min.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
@@ -29,7 +37,7 @@
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/javascript" src="../_static/js/jquery-1.9.1.min.js"></script>
     <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
-    <script type="text/javascript" src="../_static/bootstrap-2.3.2/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.0.0/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
     <link rel="author" title="About these documents" href="../about.html" />
     <link rel="top" title="Cloudmesh 0.1 documentation" href="../index.html" />
@@ -41,21 +49,21 @@
   </head>
   <body>
 
-  <div id="navbar" class="navbar navbar-inverse navbar-fixed-top">
-    <div class="navbar-inner">
-      <div class="container">
+  <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
         <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
-        <button class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
+        <a class="navbar-brand" href="../index.html">Cloudmesh</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.1</b></span>
+      </div>
 
-        <a class="brand" href="../index.html">Cloudmesh</a>
-        <span class="navbar-text pull-left"><b>0.1</b></span>
-
-        <div class="nav-collapse">
-          <ul class="nav">
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
             <li class="divider-vertical"></li>
             
             
@@ -124,6 +132,16 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../developer.html#making-the-documentation">4.11&nbsp;&nbsp;&nbsp;Making the documentation</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../developer.html#example-start-the-gui-for-development">4.11.1&nbsp;&nbsp;&nbsp;Example: Start the GUI for development</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../developer.html#example-hpc-queue-server">4.12&nbsp;&nbsp;&nbsp;Example: HPC queue server</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../celery.html">5&nbsp;&nbsp;&nbsp;Celery Setup</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../celery.html#starting-and-stopping-celery">5.1&nbsp;&nbsp;&nbsp;Starting and Stopping Celery</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../celery.html#log-and-pid-files">5.2&nbsp;&nbsp;&nbsp;Log and Pid Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../celery.html#current-celery-based-tasks">5.3&nbsp;&nbsp;&nbsp;Current Celery Based Tasks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../celery.html#launcher-simulation">5.3.1&nbsp;&nbsp;&nbsp;Launcher (Simulation)</a></li>
 </ul>
 </li>
 </ul>
@@ -196,11 +214,11 @@
 <li class="toctree-l6"><a class="reference internal" href="cloudmesh.config.html#cm-manage-config">cm-manage config</a></li>
 </ul>
 </li>
-<li class="toctree-l5"><a class="reference internal" href="cloudmesh.config.html#module-cloudmesh.config.ldap_user"><tt class="docutils literal"><span class="pre">ldap_user</span></tt> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="cloudmesh.config.html#module-cloudmesh.config.mock_cloud"><tt class="docutils literal"><span class="pre">mock_cloud</span></tt> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="cloudmesh.config.html#module-cloudmesh.config.mock_keystone"><tt class="docutils literal"><span class="pre">mock_keystone</span></tt> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="cloudmesh.config.html#module-cloudmesh.config.mock_user"><tt class="docutils literal"><span class="pre">mock_user</span></tt> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="cloudmesh.config.html#module-cloudmesh.config.openstack_essex_cloud"><tt class="docutils literal"><span class="pre">openstack_essex_cloud</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="cloudmesh.config.html#ldap-user-module"><tt class="docutils literal"><span class="pre">ldap_user</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="cloudmesh.config.html#mock-cloud-module"><tt class="docutils literal"><span class="pre">mock_cloud</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="cloudmesh.config.html#mock-keystone-module"><tt class="docutils literal"><span class="pre">mock_keystone</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="cloudmesh.config.html#mock-user-module"><tt class="docutils literal"><span class="pre">mock_user</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="cloudmesh.config.html#openstack-essex-cloud-module"><tt class="docutils literal"><span class="pre">openstack_essex_cloud</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="cloudmesh.config.html#module-cloudmesh.config.openstack_grizzly_cloud"><tt class="docutils literal"><span class="pre">openstack_grizzly_cloud</span></tt> Module</a></li>
 </ul>
 </li>
@@ -269,7 +287,10 @@
 <li><a class="reference internal" href="#">user Package</a><ul>
 <li><a class="reference internal" href="#module-cloudmesh.user.CMUserProviderBaseType"><tt class="docutils literal"><span class="pre">CMUserProviderBaseType</span></tt> Module</a></li>
 <li><a class="reference internal" href="#module-cloudmesh.user.cm_template"><tt class="docutils literal"><span class="pre">cm_template</span></tt> Module</a></li>
-<li><a class="reference internal" href="#module-cloudmesh.user.cm_user"><tt class="docutils literal"><span class="pre">cm_user</span></tt> Module</a></li>
+<li><a class="reference internal" href="#module-cloudmesh.user.cm_user"><tt class="docutils literal"><span class="pre">cm_user</span></tt> Module</a><ul>
+<li><a class="reference internal" href="#cloudmesh-user-cm-user">cloudmesh.user.cm_user</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#module-cloudmesh.user.cm_userLDAP"><tt class="docutils literal"><span class="pre">cm_userLDAP</span></tt> Module</a></li>
 <li><a class="reference internal" href="#module-cloudmesh.user.roles"><tt class="docutils literal"><span class="pre">roles</span></tt> Module</a></li>
 </ul>
@@ -285,6 +306,8 @@
               
             
             
+            
+            
               <li>
   <a href="../_sources/modules/cloudmesh.user.txt"
      rel="nofollow">Source</a></li>
@@ -293,14 +316,15 @@
 
           
             
-<form class="navbar-search pull-right" action="../search.html" method="get">
-  <input type="text" name="q" class="search-query" placeholder="Search" />
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
   <input type="hidden" name="check_keywords" value="yes" />
   <input type="hidden" name="area" value="default" />
 </form>
           
         </div>
-      </div>
     </div>
   </div>
 
@@ -436,7 +460,7 @@
 <em class="property">class </em><tt class="descclassname">cloudmesh.user.cm_template.</tt><tt class="descname">cm_template</tt><big>(</big><em>filename</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/user/cm_template.html#cm_template"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.user.cm_template.cm_template" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="method">
 <dt id="cloudmesh.user.cm_template.cm_template.replace">
-<tt class="descname">replace</tt><big>(</big><em>d</em>, <em>format='text'</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/user/cm_template.html#cm_template.replace"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.user.cm_template.cm_template.replace" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">replace</tt><big>(</big><em>format='text'</em>, <em>**d</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/user/cm_template.html#cm_template.replace"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.user.cm_template.cm_template.replace" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -449,17 +473,68 @@
 </div>
 <div class="section" id="module-cloudmesh.user.cm_user">
 <span id="cm-user-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">cm_user</span></tt> Module<a class="headerlink" href="#module-cloudmesh.user.cm_user" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="cloudmesh-user-cm-user">
+<h3>cloudmesh.user.cm_user<a class="headerlink" href="#cloudmesh-user-cm-user" title="Permalink to this headline">¶</a></h3>
+<p>cm_user provides user information from the ldap and the cloud like openstack
+through mongodb. fab mongo.cloud command initialize mongo database and pour
+the information into the mongodb. Once the mongodb for cloudmesh has the
+user information, cm_user retrieves the user data from the mongodb
+instead of directly accessing the ldap and OpenStack Keystone. cm_user_id is
+the unique identification in ldap and cloud.</p>
 <dl class="class">
 <dt id="cloudmesh.user.cm_user.cm_user">
 <em class="property">class </em><tt class="descclassname">cloudmesh.user.cm_user.</tt><tt class="descname">cm_user</tt><a class="reference internal" href="../_modules/cloudmesh/user/cm_user.html#cm_user"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.user.cm_user.cm_user" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>cm_user provides user information including the ldap&#8217;s and the clouds&#8217;.
+The ldap has a user profile such as a first name, last name and active
+project ids. In OpenStack Keystone, it has cloud-related information such as
+a tenant id, user id, cloud version, cloud type and location.</p>
+<dl class="method">
+<dt id="cloudmesh.user.cm_user.cm_user.connect_db">
+<tt class="descname">connect_db</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/cloudmesh/user/cm_user.html#cm_user.connect_db"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.user.cm_user.cm_user.connect_db" title="Permalink to this definition">¶</a></dt>
+<dd><p>Connect to the mongo db.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.user.cm_user.cm_user.get_name">
+<tt class="descname">get_name</tt><big>(</big><em>portal_id</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/user/cm_user.html#cm_user.get_name"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.user.cm_user.cm_user.get_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a user name in a tuple. (firstname, lastname)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>portal_id</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; the unique portal id</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">tuple</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 <dl class="method">
 <dt id="cloudmesh.user.cm_user.cm_user.info">
-<tt class="descname">info</tt><big>(</big><em>portalname</em>, <em>cloudnames=</em><span class="optional">[</span><span class="optional">]</span><big>)</big><a class="reference internal" href="../_modules/cloudmesh/user/cm_user.html#cm_user.info"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.user.cm_user.cm_user.info" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<tt class="descname">info</tt><big>(</big><em>portal_id</em>, <em>cloud_names=</em><span class="optional">[</span><span class="optional">]</span><big>)</big><a class="reference internal" href="../_modules/cloudmesh/user/cm_user.html#cm_user.info"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.user.cm_user.cm_user.info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the user information with a given portal id.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>portal_id</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; the unique portal id to retrieve</li>
+<li><strong>cloud_names</strong> &#8211; the list of cloud names to search, e.g.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>sierra_openstack_grizzly
+:type cloud_names: list
+:returns: dict</p>
+</dd></dl>
 
 </dd></dl>
 
+</div>
 </div>
 <div class="section" id="module-cloudmesh.user.cm_userLDAP">
 <span id="cm-userldap-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">cm_userLDAP</span></tt> Module<a class="headerlink" href="#module-cloudmesh.user.cm_userLDAP" title="Permalink to this headline">¶</a></h2>
@@ -480,7 +555,7 @@
 <dl class="method">
 <dt id="cloudmesh.user.cm_userLDAP.cm_userLDAP.connect">
 <tt class="descname">connect</tt><big>(</big><em>name</em>, <em>type</em>, <em>**kwargs</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/user/cm_userLDAP.html#cm_userLDAP.connect"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.user.cm_userLDAP.cm_userLDAP.connect" title="Permalink to this definition">¶</a></dt>
-<dd><p>registers a provider with som parameters specified in the dict params</p>
+<dd><p>Register a provider with som parameters specified in the dict params</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -504,7 +579,7 @@
 <dl class="method">
 <dt id="cloudmesh.user.cm_userLDAP.cm_userLDAP.get">
 <tt class="descname">get</tt><big>(</big><em>username</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/user/cm_userLDAP.html#cm_userLDAP.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.user.cm_userLDAP.cm_userLDAP.get" title="Permalink to this definition">¶</a></dt>
-<dd><p>returns the dict associated with the username
+<dd><p>Return the dict associated with the username
 :param username:</p>
 </dd></dl>
 
@@ -521,7 +596,7 @@
 <dl class="method">
 <dt id="cloudmesh.user.cm_userLDAP.cm_userLDAP.list">
 <tt class="descname">list</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/cloudmesh/user/cm_userLDAP.html#cm_userLDAP.list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.user.cm_userLDAP.cm_userLDAP.list" title="Permalink to this definition">¶</a></dt>
-<dd><p>returns a list with all usernames</p>
+<dd><p>Return a list with all usernames</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -532,7 +607,7 @@
 <dl class="method">
 <dt id="cloudmesh.user.cm_userLDAP.cm_userLDAP.refresh">
 <tt class="descname">refresh</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/cloudmesh/user/cm_userLDAP.html#cm_userLDAP.refresh"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.user.cm_userLDAP.cm_userLDAP.refresh" title="Permalink to this definition">¶</a></dt>
-<dd><p>refreshes the userdatabase from the user provider</p>
+<dd><p>Refresh the user database from the user provider</p>
 </dd></dl>
 
 </dd></dl>

@@ -1,4 +1,12 @@
 
+
+  
+ 
+  
+  
+ 
+
+
 <!DOCTYPE html>
 
 
@@ -10,9 +18,9 @@
     
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/bootstrap-2.3.2/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-3.0.0/css/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/bootstrap-2.3.2/css/bootstrap-responsive.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-3.0.0/css/bootstrap-theme.min.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
@@ -29,7 +37,7 @@
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/javascript" src="../_static/js/jquery-1.9.1.min.js"></script>
     <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
-    <script type="text/javascript" src="../_static/bootstrap-2.3.2/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.0.0/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
     <link rel="author" title="About these documents" href="../about.html" />
     <link rel="top" title="Cloudmesh 0.1 documentation" href="../index.html" />
@@ -44,21 +52,21 @@
   </head>
   <body>
 
-  <div id="navbar" class="navbar navbar-inverse navbar-fixed-top">
-    <div class="navbar-inner">
-      <div class="container">
+  <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
         <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
-        <button class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
+        <a class="navbar-brand" href="../index.html">Cloudmesh</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.1</b></span>
+      </div>
 
-        <a class="brand" href="../index.html">Cloudmesh</a>
-        <span class="navbar-text pull-left"><b>0.1</b></span>
-
-        <div class="nav-collapse">
-          <ul class="nav">
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
             <li class="divider-vertical"></li>
             
             
@@ -127,6 +135,16 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../developer.html#making-the-documentation">4.11&nbsp;&nbsp;&nbsp;Making the documentation</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../developer.html#example-start-the-gui-for-development">4.11.1&nbsp;&nbsp;&nbsp;Example: Start the GUI for development</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../developer.html#example-hpc-queue-server">4.12&nbsp;&nbsp;&nbsp;Example: HPC queue server</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../celery.html">5&nbsp;&nbsp;&nbsp;Celery Setup</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../celery.html#starting-and-stopping-celery">5.1&nbsp;&nbsp;&nbsp;Starting and Stopping Celery</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../celery.html#log-and-pid-files">5.2&nbsp;&nbsp;&nbsp;Log and Pid Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../celery.html#current-celery-based-tasks">5.3&nbsp;&nbsp;&nbsp;Current Celery Based Tasks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../celery.html#launcher-simulation">5.3.1&nbsp;&nbsp;&nbsp;Launcher (Simulation)</a></li>
 </ul>
 </li>
 </ul>
@@ -199,11 +217,11 @@
 <li class="toctree-l6"><a class="reference internal" href="cloudmesh.config.html#cm-manage-config">cm-manage config</a></li>
 </ul>
 </li>
-<li class="toctree-l5"><a class="reference internal" href="cloudmesh.config.html#module-cloudmesh.config.ldap_user"><tt class="docutils literal"><span class="pre">ldap_user</span></tt> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="cloudmesh.config.html#module-cloudmesh.config.mock_cloud"><tt class="docutils literal"><span class="pre">mock_cloud</span></tt> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="cloudmesh.config.html#module-cloudmesh.config.mock_keystone"><tt class="docutils literal"><span class="pre">mock_keystone</span></tt> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="cloudmesh.config.html#module-cloudmesh.config.mock_user"><tt class="docutils literal"><span class="pre">mock_user</span></tt> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="cloudmesh.config.html#module-cloudmesh.config.openstack_essex_cloud"><tt class="docutils literal"><span class="pre">openstack_essex_cloud</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="cloudmesh.config.html#ldap-user-module"><tt class="docutils literal"><span class="pre">ldap_user</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="cloudmesh.config.html#mock-cloud-module"><tt class="docutils literal"><span class="pre">mock_cloud</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="cloudmesh.config.html#mock-keystone-module"><tt class="docutils literal"><span class="pre">mock_keystone</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="cloudmesh.config.html#mock-user-module"><tt class="docutils literal"><span class="pre">mock_user</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="cloudmesh.config.html#openstack-essex-cloud-module"><tt class="docutils literal"><span class="pre">openstack_essex_cloud</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="cloudmesh.config.html#module-cloudmesh.config.openstack_grizzly_cloud"><tt class="docutils literal"><span class="pre">openstack_grizzly_cloud</span></tt> Module</a></li>
 </ul>
 </li>
@@ -290,6 +308,8 @@
               
             
             
+            
+            
               <li>
   <a href="../_sources/modules/cloudmesh.iaas.openstack.txt"
      rel="nofollow">Source</a></li>
@@ -298,14 +318,15 @@
 
           
             
-<form class="navbar-search pull-right" action="../search.html" method="get">
-  <input type="text" name="q" class="search-query" placeholder="Search" />
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
   <input type="hidden" name="check_keywords" value="yes" />
   <input type="hidden" name="area" value="default" />
 </form>
           
         </div>
-      </div>
     </div>
   </div>
 
@@ -327,8 +348,18 @@
 
 <dl class="class">
 <dt id="cloudmesh.iaas.openstack.cm_compute.openstack">
-<em class="property">class </em><tt class="descclassname">cloudmesh.iaas.openstack.cm_compute.</tt><tt class="descname">openstack</tt><big>(</big><em>label</em>, <em>credential=None</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/iaas/openstack/cm_compute.html#openstack"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.iaas.openstack.cm_compute.openstack" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">cloudmesh.iaas.openstack.cm_compute.</tt><tt class="descname">openstack</tt><big>(</big><em>label</em>, <em>credential=None</em>, <em>admin_credential=None</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/iaas/openstack/cm_compute.html#openstack"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.iaas.openstack.cm_compute.openstack" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="cloudmesh.iaas.html#cloudmesh.iaas.ComputeBaseType.ComputeBaseType" title="cloudmesh.iaas.ComputeBaseType.ComputeBaseType"><tt class="xref py py-class docutils literal"><span class="pre">cloudmesh.iaas.ComputeBaseType.ComputeBaseType</span></tt></a></p>
+<dl class="attribute">
+<dt id="cloudmesh.iaas.openstack.cm_compute.openstack.admin_credential">
+<tt class="descname">admin_credential</tt><em class="property"> = None</em><a class="headerlink" href="#cloudmesh.iaas.openstack.cm_compute.openstack.admin_credential" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cloudmesh.iaas.openstack.cm_compute.openstack.admin_token">
+<tt class="descname">admin_token</tt><em class="property"> = None</em><a class="headerlink" href="#cloudmesh.iaas.openstack.cm_compute.openstack.admin_token" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 <dl class="method">
 <dt id="cloudmesh.iaas.openstack.cm_compute.openstack.assign_public_ip">
 <tt class="descname">assign_public_ip</tt><big>(</big><em>serverid</em>, <em>ip</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/iaas/openstack/cm_compute.html#openstack.assign_public_ip"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.iaas.openstack.cm_compute.openstack.assign_public_ip" title="Permalink to this definition">¶</a></dt>
@@ -346,28 +377,12 @@ called to obtain again data.</p>
 <dl class="attribute">
 <dt id="cloudmesh.iaas.openstack.cm_compute.openstack.cloud">
 <tt class="descname">cloud</tt><em class="property"> = None</em><a class="headerlink" href="#cloudmesh.iaas.openstack.cm_compute.openstack.cloud" title="Permalink to this definition">¶</a></dt>
-<dd><p>This is the cloud, should be internal though with _</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="cloudmesh.iaas.openstack.cm_compute.openstack.config">
-<tt class="descname">config</tt><big>(</big><em>label</em>, <em>dict=None</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/iaas/openstack/cm_compute.html#openstack.config"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.iaas.openstack.cm_compute.openstack.config" title="Permalink to this definition">¶</a></dt>
-<dd><p>reads in the configuration file if specified, and does some
-internal configuration.</p>
-</dd></dl>
+<dd></dd></dl>
 
 <dl class="method">
 <dt id="cloudmesh.iaas.openstack.cm_compute.openstack.connect">
 <tt class="descname">connect</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/cloudmesh/iaas/openstack/cm_compute.html#openstack.connect"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.iaas.openstack.cm_compute.openstack.connect" title="Permalink to this definition">¶</a></dt>
-<dd><p>establishes a connection to the OpenStack cloud,
-e.g. initializes the needed components to conduct subsequent
-queries.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cloudmesh.iaas.openstack.cm_compute.openstack.credential">
-<tt class="descname">credential</tt><em class="property"> = None</em><a class="headerlink" href="#cloudmesh.iaas.openstack.cm_compute.openstack.credential" title="Permalink to this definition">¶</a></dt>
-<dd><p>a dict containing the credentionls read with cm_config</p>
+<dd><p>creates tokens for a connection</p>
 </dd></dl>
 
 <dl class="method">
@@ -448,14 +463,7 @@ queries.</p>
 <dl class="attribute">
 <dt id="cloudmesh.iaas.openstack.cm_compute.openstack.images">
 <tt class="descname">images</tt><em class="property"> = {}</em><a class="headerlink" href="#cloudmesh.iaas.openstack.cm_compute.openstack.images" title="Permalink to this definition">¶</a></dt>
-<dd><p>a dict with the images</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="cloudmesh.iaas.openstack.cm_compute.openstack.intro">
-<tt class="descname">intro</tt><big>(</big><em>what</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/iaas/openstack/cm_compute.html#openstack.intro"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.iaas.openstack.cm_compute.openstack.intro" title="Permalink to this definition">¶</a></dt>
-<dd><p>used to find some methods form novaclient</p>
-</dd></dl>
+<dd></dd></dl>
 
 <dl class="attribute">
 <dt id="cloudmesh.iaas.openstack.cm_compute.openstack.keystone">
@@ -463,19 +471,14 @@ queries.</p>
 <dd></dd></dl>
 
 <dl class="attribute">
-<dt id="cloudmesh.iaas.openstack.cm_compute.openstack.keystone_credential">
-<tt class="descname">keystone_credential</tt><em class="property"> = None</em><a class="headerlink" href="#cloudmesh.iaas.openstack.cm_compute.openstack.keystone_credential" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="cloudmesh.iaas.openstack.cm_compute.openstack.keystone_token">
-<tt class="descname">keystone_token</tt><em class="property"> = None</em><a class="headerlink" href="#cloudmesh.iaas.openstack.cm_compute.openstack.keystone_token" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
 <dt id="cloudmesh.iaas.openstack.cm_compute.openstack.label">
 <tt class="descname">label</tt><em class="property"> = None</em><a class="headerlink" href="#cloudmesh.iaas.openstack.cm_compute.openstack.label" title="Permalink to this definition">¶</a></dt>
-<dd><p>a unique label for the clous</p>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.iaas.openstack.cm_compute.openstack.limits">
+<tt class="descname">limits</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/cloudmesh/iaas/openstack/cm_compute.html#openstack.limits"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.iaas.openstack.cm_compute.openstack.limits" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the usage information of the tennant</p>
 </dd></dl>
 
 <dl class="method">
@@ -483,11 +486,6 @@ queries.</p>
 <tt class="descname">list_allocated_ips</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/cloudmesh/iaas/openstack/cm_compute.html#openstack.list_allocated_ips"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.iaas.openstack.cm_compute.openstack.list_allocated_ips" title="Permalink to this definition">¶</a></dt>
 <dd><p>return list of ips allocated to current account</p>
 </dd></dl>
-
-<dl class="attribute">
-<dt id="cloudmesh.iaas.openstack.cm_compute.openstack.nova_token">
-<tt class="descname">nova_token</tt><em class="property"> = None</em><a class="headerlink" href="#cloudmesh.iaas.openstack.cm_compute.openstack.nova_token" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
 
 <dl class="method">
 <dt id="cloudmesh.iaas.openstack.cm_compute.openstack.parse_isotime">
@@ -503,12 +501,6 @@ queries.</p>
 <dl class="attribute">
 <dt id="cloudmesh.iaas.openstack.cm_compute.openstack.servers">
 <tt class="descname">servers</tt><em class="property"> = {}</em><a class="headerlink" href="#cloudmesh.iaas.openstack.cm_compute.openstack.servers" title="Permalink to this definition">¶</a></dt>
-<dd><p>a dict with the servers</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="cloudmesh.iaas.openstack.cm_compute.openstack.set_keystone_credential">
-<tt class="descname">set_keystone_credential</tt><big>(</big><em>credential=None</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/iaas/openstack/cm_compute.html#openstack.set_keystone_credential"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.iaas.openstack.cm_compute.openstack.set_keystone_credential" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -534,8 +526,7 @@ dict. otherwise it returns an array</p>
 <dl class="attribute">
 <dt id="cloudmesh.iaas.openstack.cm_compute.openstack.type">
 <tt class="descname">type</tt><em class="property"> = 'openstack'</em><a class="headerlink" href="#cloudmesh.iaas.openstack.cm_compute.openstack.type" title="Permalink to this definition">¶</a></dt>
-<dd><p>the type of the cloud. It is &#8220;openstack&#8221;</p>
-</dd></dl>
+<dd></dd></dl>
 
 <dl class="method">
 <dt id="cloudmesh.iaas.openstack.cm_compute.openstack.usage">
@@ -544,20 +535,28 @@ dict. otherwise it returns an array</p>
 </dd></dl>
 
 <dl class="attribute">
+<dt id="cloudmesh.iaas.openstack.cm_compute.openstack.user_credential">
+<tt class="descname">user_credential</tt><em class="property"> = None</em><a class="headerlink" href="#cloudmesh.iaas.openstack.cm_compute.openstack.user_credential" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
 <dt id="cloudmesh.iaas.openstack.cm_compute.openstack.user_id">
 <tt class="descname">user_id</tt><em class="property"> = None</em><a class="headerlink" href="#cloudmesh.iaas.openstack.cm_compute.openstack.user_id" title="Permalink to this definition">¶</a></dt>
-<dd><p>The user id</p>
-</dd></dl>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cloudmesh.iaas.openstack.cm_compute.openstack.user_token">
+<tt class="descname">user_token</tt><em class="property"> = None</em><a class="headerlink" href="#cloudmesh.iaas.openstack.cm_compute.openstack.user_token" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="attribute">
 <dt id="cloudmesh.iaas.openstack.cm_compute.openstack.users">
 <tt class="descname">users</tt><em class="property"> = {}</em><a class="headerlink" href="#cloudmesh.iaas.openstack.cm_compute.openstack.users" title="Permalink to this definition">¶</a></dt>
-<dd><p>a dict with the users</p>
-</dd></dl>
+<dd></dd></dl>
 
 <dl class="method">
 <dt id="cloudmesh.iaas.openstack.cm_compute.openstack.vm_create">
-<tt class="descname">vm_create</tt><big>(</big><em>name=None</em>, <em>flavor_name=None</em>, <em>image_id=None</em>, <em>security_groups=None</em>, <em>key_name=None</em>, <em>meta={}</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/iaas/openstack/cm_compute.html#openstack.vm_create"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.iaas.openstack.cm_compute.openstack.vm_create" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">vm_create</tt><big>(</big><em>name=None</em>, <em>flavor_name=None</em>, <em>image_id=None</em>, <em>security_groups=None</em>, <em>key_name=None</em>, <em>meta={}</em>, <em>userdata=None</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/iaas/openstack/cm_compute.html#openstack.vm_create"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.iaas.openstack.cm_compute.openstack.vm_create" title="Permalink to this definition">¶</a></dt>
 <dd><p>start a vm via rest api call</p>
 </dd></dl>
 

@@ -1,4 +1,12 @@
 
+
+  
+ 
+  
+  
+ 
+
+
 <!DOCTYPE html>
 
 
@@ -10,9 +18,9 @@
     
     <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../../_static/bootstrap-2.3.2/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/bootstrap-3.0.0/css/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/bootstrap-sphinx.css" type="text/css" />
-    <link rel="stylesheet" href="../../../_static/bootstrap-2.3.2/css/bootstrap-responsive.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/bootstrap-3.0.0/css/bootstrap-theme.min.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
@@ -29,7 +37,7 @@
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/javascript" src="../../../_static/js/jquery-1.9.1.min.js"></script>
     <script type="text/javascript" src="../../../_static/js/jquery-fix.js"></script>
-    <script type="text/javascript" src="../../../_static/bootstrap-2.3.2/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../../_static/bootstrap-3.0.0/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../../../_static/bootstrap-sphinx.js"></script>
     <link rel="author" title="About these documents" href="../../../about.html" />
     <link rel="top" title="Cloudmesh 0.1 documentation" href="../../../index.html" />
@@ -42,21 +50,21 @@
   </head>
   <body>
 
-  <div id="navbar" class="navbar navbar-inverse navbar-fixed-top">
-    <div class="navbar-inner">
-      <div class="container">
+  <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
         <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
-        <button class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
+        <a class="navbar-brand" href="../../../index.html">Cloudmesh</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.1</b></span>
+      </div>
 
-        <a class="brand" href="../../../index.html">Cloudmesh</a>
-        <span class="navbar-text pull-left"><b>0.1</b></span>
-
-        <div class="nav-collapse">
-          <ul class="nav">
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
             <li class="divider-vertical"></li>
             
             
@@ -125,6 +133,16 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developer.html#making-the-documentation">4.11&nbsp;&nbsp;&nbsp;Making the documentation</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../developer.html#example-start-the-gui-for-development">4.11.1&nbsp;&nbsp;&nbsp;Example: Start the GUI for development</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developer.html#example-hpc-queue-server">4.12&nbsp;&nbsp;&nbsp;Example: HPC queue server</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../celery.html">5&nbsp;&nbsp;&nbsp;Celery Setup</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../celery.html#starting-and-stopping-celery">5.1&nbsp;&nbsp;&nbsp;Starting and Stopping Celery</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../celery.html#log-and-pid-files">5.2&nbsp;&nbsp;&nbsp;Log and Pid Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../celery.html#current-celery-based-tasks">5.3&nbsp;&nbsp;&nbsp;Current Celery Based Tasks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../celery.html#launcher-simulation">5.3.1&nbsp;&nbsp;&nbsp;Launcher (Simulation)</a></li>
 </ul>
 </li>
 </ul>
@@ -197,11 +215,11 @@
 <li class="toctree-l6"><a class="reference internal" href="../../../modules/cloudmesh.config.html#cm-manage-config">cm-manage config</a></li>
 </ul>
 </li>
-<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#module-cloudmesh.config.ldap_user"><tt class="docutils literal"><span class="pre">ldap_user</span></tt> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#module-cloudmesh.config.mock_cloud"><tt class="docutils literal"><span class="pre">mock_cloud</span></tt> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#module-cloudmesh.config.mock_keystone"><tt class="docutils literal"><span class="pre">mock_keystone</span></tt> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#module-cloudmesh.config.mock_user"><tt class="docutils literal"><span class="pre">mock_user</span></tt> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#module-cloudmesh.config.openstack_essex_cloud"><tt class="docutils literal"><span class="pre">openstack_essex_cloud</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#ldap-user-module"><tt class="docutils literal"><span class="pre">ldap_user</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#mock-cloud-module"><tt class="docutils literal"><span class="pre">mock_cloud</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#mock-keystone-module"><tt class="docutils literal"><span class="pre">mock_keystone</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#mock-user-module"><tt class="docutils literal"><span class="pre">mock_user</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#openstack-essex-cloud-module"><tt class="docutils literal"><span class="pre">openstack_essex_cloud</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#module-cloudmesh.config.openstack_grizzly_cloud"><tt class="docutils literal"><span class="pre">openstack_grizzly_cloud</span></tt> Module</a></li>
 </ul>
 </li>
@@ -276,20 +294,23 @@
               
             
             
+            
+            
               <li></li>
             
           </ul>
 
           
             
-<form class="navbar-search pull-right" action="../../../search.html" method="get">
-  <input type="text" name="q" class="search-query" placeholder="Search" />
+<form class="navbar-form navbar-right" action="../../../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
   <input type="hidden" name="check_keywords" value="yes" />
   <input type="hidden" name="area" value="default" />
 </form>
           
         </div>
-      </div>
     </div>
   </div>
 
@@ -308,7 +329,7 @@
 <span class="c"># SETTING UP A LOGGER</span>
 <span class="c"># ----------------------------------------------------------------------</span>
 
-<span class="n">log</span> <span class="o">=</span> <span class="n">LOGGER</span><span class="p">(</span><span class="s">&#39;cm_user&#39;</span><span class="p">)</span>
+<span class="n">log</span> <span class="o">=</span> <span class="n">LOGGER</span><span class="p">(</span><span class="n">__file__</span><span class="p">)</span>
 
 
 
@@ -320,10 +341,10 @@
     
 <div class="viewcode-block" id="cm_userLDAP.get_config"><a class="viewcode-back" href="../../../modules/cloudmesh.user.html#cloudmesh.user.cm_userLDAP.cm_userLDAP.get_config">[docs]</a>    <span class="k">def</span> <span class="nf">get_config</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">has_key</span><span class="p">(</span><span class="s">&#39;host&#39;</span><span class="p">):</span><span class="c">#if kwargs[&#39;host&#39;] is None:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">has_key</span><span class="p">(</span><span class="s">&#39;host&#39;</span><span class="p">):</span>  <span class="c"># if kwargs[&#39;host&#39;] is None:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">host</span> <span class="o">=</span> <span class="n">cm_config_server</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;ldap.hostname&quot;</span><span class="p">)</span>
     
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">has_key</span><span class="p">(</span><span class="s">&#39;ldapcert&#39;</span><span class="p">):</span><span class="c">#if kwargs[&#39;ldapcert&#39;] is None:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">has_key</span><span class="p">(</span><span class="s">&#39;ldapcert&#39;</span><span class="p">):</span>  <span class="c"># if kwargs[&#39;ldapcert&#39;] is None:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">cert</span> <span class="o">=</span> <span class="n">cm_config_server</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;ldap.cert&quot;</span><span class="p">)</span>
             
             </div>
@@ -336,9 +357,10 @@
         
         <span class="c"># print &quot;&#39;&quot; + userId + &quot;&#39;:&#39;&quot; + authProvider + &quot;&#39;:&#39;&quot; + authCred + &quot;&#39;&quot;</span>
         
-        <span class="c">#print adminuser, adminpass</span>
-        <span class="n">userdn</span> <span class="o">=</span> <span class="s">&quot;uid=&quot;</span> <span class="o">+</span> <span class="n">userId</span> <span class="o">+</span> <span class="s">&quot;,ou=People,dc=futuregrid,dc=org&quot;</span>
-        <span class="c">#print userdn</span>
+        <span class="c"># print adminuser, adminpass</span>
+        <span class="n">basedn</span> <span class="o">=</span> <span class="s">&quot;ou=People,dc=futuregrid,dc=org&quot;</span>
+        <span class="n">userdn</span> <span class="o">=</span> <span class="s">&quot;uid={0},{1}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">userId</span><span class="p">,</span><span class="n">basedn</span><span class="p">)</span>
+        <span class="c"># print userdn</span>
         <span class="n">ldapconn</span> <span class="o">=</span> <span class="n">ldap</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span><span class="s">&quot;ldap://{0}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">host</span><span class="p">))</span>
         <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">&quot;Initializing the LDAP connection to server: &quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">host</span><span class="p">)</span>
         <span class="k">try</span><span class="p">:</span>
@@ -350,22 +372,22 @@
             <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">&quot;Your username or password is incorrect. Cannot bind.&quot;</span><span class="p">)</span>
             <span class="n">ret</span> <span class="o">=</span> <span class="bp">False</span>
         <span class="k">except</span> <span class="n">ldap</span><span class="o">.</span><span class="n">LDAPError</span><span class="p">:</span>
-            <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">&quot;User &#39;&quot;</span> <span class="o">+</span> <span class="n">userId</span> <span class="o">+</span> <span class="s">&quot;&#39; failed to authenticate due to LDAP error. The user may not exist.&quot;</span><span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">exc_info</span><span class="p">()))</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">&quot;User &#39;&quot;</span> <span class="o">+</span> <span class="n">userId</span> <span class="o">+</span> <span class="s">&quot;&#39; failed to authenticate due to LDAP error. The user may not exist.&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">exc_info</span><span class="p">()))</span>
             <span class="n">ret</span> <span class="o">=</span> <span class="bp">False</span>
         <span class="k">except</span><span class="p">:</span>
             <span class="n">ret</span> <span class="o">=</span> <span class="bp">False</span>
-            <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">&quot;User &#39;&quot;</span> <span class="o">+</span> <span class="n">userId</span> <span class="o">+</span> <span class="s">&quot;&#39; failed to authenticate due to possible password encryption error.&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">exc_info</span><span class="p">()))</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">&quot;User &#39;&quot;</span> <span class="o">+</span> <span class="n">userId</span> <span class="o">+</span> <span class="s">&quot;&#39; failed to authenticate due to possible password encryption error.&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">exc_info</span><span class="p">()))</span>
         <span class="k">finally</span><span class="p">:</span>
             <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">&quot;Unbinding from the LDAP.&quot;</span><span class="p">)</span>
             <span class="n">ldapconn</span><span class="o">.</span><span class="n">unbind</span><span class="p">()</span>
         <span class="k">return</span> <span class="n">ret</span>
     </div>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">collection</span><span class="o">=</span><span class="s">&quot;user&quot;</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">(</span> <span class="n">cm_userLDAP</span><span class="p">,</span> <span class="bp">self</span> <span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">()</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">cm_userLDAP</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">()</span>
 
 <div class="viewcode-block" id="cm_userLDAP.refresh"><a class="viewcode-back" href="../../../modules/cloudmesh.user.html#cloudmesh.user.cm_userLDAP.cm_userLDAP.refresh">[docs]</a>    <span class="k">def</span> <span class="nf">refresh</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">        refreshes the userdatabase from the user provider</span>
+<span class="sd">        Refresh the user database from the user provider</span>
 <span class="sd">        &#39;&#39;&#39;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_refresh</span><span class="p">()</span>
         <span class="n">users</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">list</span><span class="p">()</span>
@@ -375,25 +397,29 @@
 </div>
 <div class="viewcode-block" id="cm_userLDAP.connect"><a class="viewcode-back" href="../../../modules/cloudmesh.user.html#cloudmesh.user.cm_userLDAP.cm_userLDAP.connect">[docs]</a>    <span class="k">def</span> <span class="nf">connect</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="nb">type</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">        registers a provider with som parameters specified in the dict params</span>
+<span class="sd">        Register a provider with som parameters specified in the dict params</span>
 <span class="sd">        </span>
 <span class="sd">        :param name: the name of the provider</span>
 <span class="sd">        :param type: the type of the provider, overwrites a possibly given type in params</span>
 <span class="sd">        :param params: a dictionary describing wht needs to be poassed to the service that provides user information</span>
 <span class="sd">        &#39;&#39;&#39;</span>
-        <span class="c">#kwargs host=None, ldapcert=None)</span>
-        <span class="n">provider</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;type&#39;</span><span class="p">:</span> <span class="nb">type</span><span class="p">,</span> 
+        <span class="c"># kwargs host=None, ldapcert=None)</span>
+        <span class="n">provider</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;type&#39;</span><span class="p">:</span> <span class="nb">type</span><span class="p">,</span>
                     <span class="s">&#39;name&#39;</span><span class="p">:</span> <span class="n">name</span><span class="p">}</span>
-        <span class="k">for</span> <span class="n">k</span><span class="p">,</span><span class="n">v</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">iteritems</span><span class="p">():</span>
+        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">iteritems</span><span class="p">():</span>
             <span class="n">provider</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span>
         
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">has_key</span><span class="p">(</span><span class="s">&#39;host&#39;</span><span class="p">):</span><span class="c">#if kwargs[&#39;host&#39;] is None:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">has_key</span><span class="p">(</span><span class="s">&#39;host&#39;</span><span class="p">):</span>  <span class="c"># if kwargs[&#39;host&#39;] is None:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">host</span> <span class="o">=</span> <span class="n">cm_config_server</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;ldap.hostname&quot;</span><span class="p">)</span>
     
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">has_key</span><span class="p">(</span><span class="s">&#39;ldapcert&#39;</span><span class="p">):</span><span class="c">#if kwargs[&#39;ldapcert&#39;] is None:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">has_key</span><span class="p">(</span><span class="s">&#39;ldapcert&#39;</span><span class="p">):</span>  <span class="c"># if kwargs[&#39;ldapcert&#39;] is None:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">cert</span> <span class="o">=</span> <span class="n">cm_config_server</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;ldap.cert&quot;</span><span class="p">)</span>
-            
+         
+           
         <span class="n">ldap</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="n">ldap</span><span class="o">.</span><span class="n">OPT_X_TLS_CACERTFILE</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">cert</span><span class="p">)</span>
+        <span class="c"># BUG IN FINAL VERSION MAKE SURE WE CHECK</span>
+        <span class="n">ldap</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="n">ldap</span><span class="o">.</span><span class="n">OPT_X_TLS_REQUIRE_CERT</span><span class="p">,</span><span class="n">ldap</span><span class="o">.</span><span class="n">OPT_X_TLS_NEVER</span><span class="p">)</span>
+         
         <span class="bp">self</span><span class="o">.</span><span class="n">ldapconn</span> <span class="o">=</span> <span class="n">ldap</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span><span class="s">&quot;ldap://&quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">host</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">ldapconn</span><span class="o">.</span><span class="n">start_tls_s</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">ldapconn</span><span class="o">.</span><span class="n">bind_s</span><span class="p">(</span><span class="s">&#39;&#39;</span><span class="p">,</span> <span class="s">&#39;&#39;</span><span class="p">)</span>
@@ -406,16 +432,16 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">disconnect</span><span class="p">()</span>
 
         
-<div class="viewcode-block" id="cm_userLDAP.get"><a class="viewcode-back" href="../../../modules/cloudmesh.user.html#cloudmesh.user.cm_userLDAP.cm_userLDAP.get">[docs]</a>    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">username</span><span class="p">):</span>
+<div class="viewcode-block" id="cm_userLDAP.get"><a class="viewcode-back" href="../../../modules/cloudmesh.user.html#cloudmesh.user.cm_userLDAP.cm_userLDAP.get">[docs]</a>    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">username</span><span class="p">):</span>
         <span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">        returns the dict associated with the username</span>
+<span class="sd">        Return the dict associated with the username</span>
 <span class="sd">        :param username:</span>
 <span class="sd">        &#39;&#39;&#39;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">users</span><span class="p">[</span><span class="n">username</span><span class="p">]</span>
                 </div>
 <div class="viewcode-block" id="cm_userLDAP.list"><a class="viewcode-back" href="../../../modules/cloudmesh.user.html#cloudmesh.user.cm_userLDAP.cm_userLDAP.list">[docs]</a>    <span class="k">def</span> <span class="nf">list</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">        returns a list with all usernames</span>
+<span class="sd">        Return a list with all usernames</span>
 <span class="sd">        &#39;&#39;&#39;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">users</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
 </div>
@@ -425,26 +451,55 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">users</span>
             
     <span class="k">def</span> <span class="nf">_getUsers</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="c">#print &quot;LDAP query...&quot;</span>
+        <span class="c"># print &quot;LDAP query...&quot;</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="c"># ldap constant</span>
             <span class="n">ldapbasedn</span> <span class="o">=</span> <span class="s">&quot;dc=futuregrid,dc=org&quot;</span>
             <span class="n">ldapscope</span> <span class="o">=</span> <span class="n">ldap</span><span class="o">.</span><span class="n">SCOPE_SUBTREE</span>
             <span class="n">ldapfilter</span> <span class="o">=</span> <span class="s">&quot;(objectclass=inetorgperson)&quot;</span>
             <span class="c"># info to be retrieved from ldap</span>
-            <span class="n">ldapattribs</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;uid&#39;</span><span class="p">,</span> <span class="s">&#39;uidNumber&#39;</span><span class="p">,</span> <span class="s">&#39;mail&#39;</span><span class="p">,</span> <span class="s">&#39;givenName&#39;</span><span class="p">,</span> <span class="s">&#39;sn&#39;</span><span class="p">]</span>
+            <span class="n">ldapattribs</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;uid&#39;</span><span class="p">,</span>
+                           <span class="s">&#39;uidNumber&#39;</span><span class="p">,</span>
+                           <span class="s">&#39;gidNumber&#39;</span><span class="p">,</span>
+                           <span class="s">&#39;mail&#39;</span><span class="p">,</span>
+                           <span class="s">&#39;givenName&#39;</span><span class="p">,</span>
+                           <span class="s">&#39;sn&#39;</span><span class="p">,</span>
+                           <span class="s">&#39;telephoneNumber&#39;</span><span class="p">,</span>
+                           <span class="s">&#39;address&#39;</span><span class="p">,</span>
+                           <span class="s">&#39;sshPublicKey&#39;</span><span class="p">]</span>
 
             <span class="c"># retrieve all ldap users</span>
             <span class="n">ldapresults</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ldapconn</span><span class="o">.</span><span class="n">search_s</span><span class="p">(</span><span class="n">ldapbasedn</span><span class="p">,</span> <span class="n">ldapscope</span><span class="p">,</span> <span class="n">ldapfilter</span><span class="p">,</span> <span class="n">ldapattribs</span><span class="p">))</span>
             <span class="k">for</span> <span class="n">ldapresult</span> <span class="ow">in</span> <span class="n">ldapresults</span><span class="p">:</span>
-                <span class="c">#print ldapresult[1]</span>
+                <span class="c"># print ldapresult[1]</span>
                 <span class="c"># a result may not have &#39;mail&#39; attribute, but valid account must have</span>
                 <span class="k">if</span> <span class="n">ldapresult</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">has_key</span><span class="p">(</span><span class="s">&#39;mail&#39;</span><span class="p">):</span>
                     <span class="n">ldapmail</span> <span class="o">=</span> <span class="n">ldapresult</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="s">&#39;mail&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
                     <span class="n">ldapuid</span> <span class="o">=</span> <span class="n">ldapresult</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="s">&#39;uid&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+                    <span class="n">ldapuidNumber</span> <span class="o">=</span> <span class="n">ldapresult</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="s">&#39;uidNumber&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+                    <span class="n">ldapgidNumber</span> <span class="o">=</span> <span class="n">ldapresult</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="s">&#39;gidNumber&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
                     <span class="n">firstname</span> <span class="o">=</span> <span class="n">ldapresult</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="s">&#39;givenName&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
                     <span class="n">lastname</span> <span class="o">=</span> <span class="n">ldapresult</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="s">&#39;sn&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">users</span><span class="p">[</span><span class="n">ldapuid</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s">&quot;firstname&quot;</span><span class="p">:</span><span class="n">firstname</span><span class="p">,</span> <span class="s">&quot;lastname&quot;</span><span class="p">:</span><span class="n">lastname</span><span class="p">,</span> <span class="s">&quot;projects&quot;</span><span class="p">:{</span><span class="s">&quot;active&quot;</span><span class="p">:[]}</span> <span class="p">}</span>
+                    <span class="n">phone</span> <span class="o">=</span> <span class="n">ldapresult</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="s">&#39;telephoneNumber&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="k">if</span> <span class="s">&#39;telephoneNumber&#39;</span> <span class="ow">in</span> <span class="n">ldapresult</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">else</span> <span class="bp">None</span>
+                    <span class="n">address</span> <span class="o">=</span> <span class="s">&#39;TBD&#39;</span> <span class="c"># not currently in LDAP</span>
+
+                    <span class="n">keys</span> <span class="o">=</span> <span class="p">{}</span>
+                    <span class="k">if</span> <span class="n">ldapresult</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">has_key</span><span class="p">(</span><span class="s">&#39;sshPublicKey&#39;</span><span class="p">):</span>
+                        <span class="k">for</span> <span class="n">sshkey</span> <span class="ow">in</span> <span class="n">ldapresult</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="s">&#39;sshPublicKey&#39;</span><span class="p">]:</span>
+                            <span class="k">if</span> <span class="n">sshkey</span><span class="o">.</span><span class="n">strip</span><span class="p">():</span>
+                                <span class="p">(</span><span class="n">keytype</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">nickname</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span>
+                                    <span class="n">sshkey</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="bp">None</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="p">[</span><span class="s">&#39;&#39;</span><span class="p">])[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
+                                <span class="n">keys</span><span class="p">[</span><span class="n">nickname</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="bp">None</span><span class="p">,</span> <span class="s">&#39;.$&#39;</span><span class="p">)]</span> <span class="o">=</span> <span class="s">&quot;key </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">sshkey</span>
+
+                    <span class="bp">self</span><span class="o">.</span><span class="n">users</span><span class="p">[</span><span class="n">ldapuid</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s">&quot;firstname&quot;</span><span class="p">:</span><span class="n">firstname</span><span class="p">,</span>
+                                           <span class="s">&quot;lastname&quot;</span><span class="p">:</span><span class="n">lastname</span><span class="p">,</span>
+                                           <span class="s">&quot;uidNumber&quot;</span><span class="p">:</span><span class="n">ldapuidNumber</span><span class="p">,</span>
+                                           <span class="s">&quot;gidNumber&quot;</span><span class="p">:</span><span class="n">ldapgidNumber</span><span class="p">,</span>
+                                           <span class="s">&quot;phone&quot;</span><span class="p">:</span><span class="n">phone</span><span class="p">,</span>
+                                           <span class="s">&quot;email&quot;</span><span class="p">:</span><span class="n">ldapmail</span><span class="p">,</span>
+                                           <span class="s">&quot;address&quot;</span><span class="p">:</span><span class="n">address</span><span class="p">,</span>
+                                           <span class="s">&quot;projects&quot;</span><span class="p">:{</span><span class="s">&quot;active&quot;</span><span class="p">:[]},</span>
+                                           <span class="s">&quot;keys&quot;</span><span class="p">:</span><span class="n">keys</span> <span class="p">}</span>
         <span class="k">except</span><span class="p">:</span>
             <span class="k">print</span> <span class="s">&quot;WRONG&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">exc_info</span><span class="p">())</span>
 
@@ -473,7 +528,7 @@
 </div>
 <div class="viewcode-block" id="main"><a class="viewcode-back" href="../../../modules/cloudmesh.user.html#cloudmesh.user.cm_userLDAP.main">[docs]</a><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
     <span class="n">idp</span> <span class="o">=</span> <span class="n">cm_userLDAP</span> <span class="p">(</span><span class="n">CMUserProviderBaseType</span><span class="p">)</span>
-    <span class="n">idp</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s">&quot;fg-ldap&quot;</span><span class="p">,</span><span class="s">&quot;ldap&quot;</span><span class="p">)</span>
+    <span class="n">idp</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s">&quot;fg-ldap&quot;</span><span class="p">,</span> <span class="s">&quot;ldap&quot;</span><span class="p">)</span>
     <span class="n">idp</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span>
     <span class="n">users</span> <span class="o">=</span> <span class="n">idp</span><span class="o">.</span><span class="n">list</span><span class="p">()</span>
 
@@ -487,13 +542,6 @@
 </div>
 <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&quot;__main__&quot;</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>
-        
-        
-            
-        
-        
-        
-        
 </pre></div>
 
     </div>
