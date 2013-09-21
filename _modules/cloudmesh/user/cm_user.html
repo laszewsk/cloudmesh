@@ -1,6 +1,7 @@
 
 
   
+  
  
   
   
@@ -19,8 +20,8 @@
     <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/bootstrap-3.0.0/css/bootstrap.min.css" type="text/css" />
-    <link rel="stylesheet" href="../../../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/bootstrap-3.0.0/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/bootstrap-sphinx.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
@@ -115,7 +116,10 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developer.html#additional-installation-for-documentation-generation">4.6&nbsp;&nbsp;&nbsp;Additional Installation for Documentation Generation</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../developer.html#blockdiag-family">4.6.1&nbsp;&nbsp;&nbsp;Blockdiag family</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../developer.html#yaml-files">4.6.2&nbsp;&nbsp;&nbsp;YAML files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../developer.html#yaml-files">4.6.2&nbsp;&nbsp;&nbsp;YAML files</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../developer.html#generating-a-cloudmesh-yaml-file">4.6.2.1&nbsp;&nbsp;&nbsp;Generating a cloudmesh.yaml file</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="../../../developer.html#mongo">4.6.3&nbsp;&nbsp;&nbsp;Mongo</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../developer.html#starting-and-testing-the-queue-service">4.6.4&nbsp;&nbsp;&nbsp;Starting and testing the Queue Service</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../developer.html#starting-the-web-service">4.6.5&nbsp;&nbsp;&nbsp;Starting the Web Service</a></li>
@@ -316,7 +320,7 @@
 
 <div class="container">
   <div class="row">
-    <div class="span12">
+    <div class="col-md-12">
       
   <h1>Source code for cloudmesh.user.cm_user</h1><div class="highlight"><pre>
 <span class="c"># -*- coding: utf-8 -*-</span>
@@ -348,9 +352,10 @@
 <span class="sd">    project ids. In OpenStack Keystone, it has cloud-related information such as</span>
 <span class="sd">    a tenant id, user id, cloud version, cloud type and location.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    
+
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">connect_db</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">connect_userdb</span><span class="p">()</span>
 
 <div class="viewcode-block" id="cm_user.connect_db"><a class="viewcode-back" href="../../../modules/cloudmesh.user.html#cloudmesh.user.cm_user.cm_user.connect_db">[docs]</a>    <span class="k">def</span> <span class="nf">connect_db</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Connect to the mongo db.&quot;&quot;&quot;</span>
@@ -361,8 +366,42 @@
         <span class="n">cloud_collection</span> <span class="o">=</span> <span class="s">&#39;cloudmesh&#39;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">db_clouds</span> <span class="o">=</span> <span class="n">db</span><span class="p">[</span><span class="n">cloud_collection</span><span class="p">]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">db_users</span> <span class="o">=</span> <span class="n">db</span><span class="p">[</span><span class="n">ldap_collection</span><span class="p">]</span>
-        </div>
-<div class="viewcode-block" id="cm_user.info"><a class="viewcode-back" href="../../../modules/cloudmesh.user.html#cloudmesh.user.cm_user.cm_user.info">[docs]</a>    <span class="k">def</span> <span class="nf">info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">portal_id</span><span class="p">,</span> <span class="n">cloud_names</span> <span class="o">=</span> <span class="p">[]):</span>
+</div>
+<div class="viewcode-block" id="cm_user.connect_userdb"><a class="viewcode-back" href="../../../modules/cloudmesh.user.html#cloudmesh.user.cm_user.cm_user.connect_userdb">[docs]</a>    <span class="k">def</span> <span class="nf">connect_userdb</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_connect_userdb</span><span class="p">()</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="k">print</span>
+            <span class="k">print</span> <span class="s">&quot;The below lines should be existed in cloudmesh_server.yaml&quot;</span>
+            <span class="k">print</span> <span class="s">&quot;----------------------&quot;</span>
+            <span class="k">print</span> <span class="s">&quot;mongo_user:</span><span class="se">\n</span><span class="s">&quot;</span> <span class="o">+</span> \
+                    <span class="s">&quot;    db: cm_user</span><span class="se">\n</span><span class="s">&quot;</span> <span class="o">+</span> \
+                    <span class="s">&quot;    host: hostname</span><span class="se">\n</span><span class="s">&quot;</span> <span class="o">+</span> \
+                    <span class="s">&quot;    port: portnumber</span><span class="se">\n</span><span class="s">&quot;</span> <span class="o">+</span> \
+                    <span class="s">&quot;    username: admin</span><span class="se">\n</span><span class="s">&quot;</span> <span class="o">+</span> \
+                    <span class="s">&quot;    password: passwd</span><span class="se">\n</span><span class="s">&quot;</span> <span class="o">+</span> \
+                    <span class="s">&quot;    path: ~/.futuregrid/mongodb_user</span><span class="se">\n</span><span class="s">&quot;</span> <span class="o">+</span> \
+                    <span class="s">&quot;    collections:</span><span class="se">\n</span><span class="s">&quot;</span> <span class="o">+</span> \
+                    <span class="s">&quot;        cm_password:</span><span class="se">\n</span><span class="s">&quot;</span> <span class="o">+</span> \
+                    <span class="s">&quot;            db: cm_user&quot;</span>
+            <span class="k">print</span> <span class="s">&quot;---------------------&quot;</span>
+
+</div>
+    <span class="k">def</span> <span class="nf">_connect_userdb</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Connect to the mongo user db.&quot;&quot;&quot;</span>
+        <span class="c"># This will be enabled with ssl</span>
+        <span class="n">db_name</span> <span class="o">=</span> <span class="n">cm_config_server</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;mongo_user.db&quot;</span><span class="p">)</span>
+        <span class="n">host</span> <span class="o">=</span> <span class="n">cm_config_server</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;mongo_user.host&quot;</span><span class="p">)</span>
+        <span class="n">port</span> <span class="o">=</span> <span class="n">cm_config_server</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;mongo_user.port&quot;</span><span class="p">)</span>
+        <span class="n">username</span> <span class="o">=</span> <span class="n">cm_config_server</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;mongo_user.username&quot;</span><span class="p">)</span>
+        <span class="n">password</span> <span class="o">=</span> <span class="n">cm_config_server</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;mongo_user.password&quot;</span><span class="p">)</span>
+        <span class="n">client</span> <span class="o">=</span> <span class="n">MongoClient</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="n">host</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="n">port</span><span class="p">)</span>
+        <span class="n">db</span> <span class="o">=</span> <span class="n">client</span><span class="p">[</span><span class="n">db_name</span><span class="p">]</span>
+        <span class="n">passwd_collection</span> <span class="o">=</span> <span class="s">&#39;cm_password&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">userdb_passwd</span> <span class="o">=</span> <span class="n">db</span><span class="p">[</span><span class="n">passwd_collection</span><span class="p">]</span>
+        <span class="n">db</span><span class="o">.</span><span class="n">authenticate</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">)</span>
+
+<div class="viewcode-block" id="cm_user.info"><a class="viewcode-back" href="../../../modules/cloudmesh.user.html#cloudmesh.user.cm_user.cm_user.info">[docs]</a>    <span class="k">def</span> <span class="nf">info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">portal_id</span><span class="p">,</span> <span class="n">cloud_names</span><span class="o">=</span><span class="p">[]):</span>
         <span class="sd">&quot;&quot;&quot;Return the user information with a given portal id.</span>
 
 <span class="sd">        :param portal_id: the unique portal id to retrieve</span>
@@ -391,7 +430,7 @@
                 <span class="n">userinfo</span><span class="p">[</span><span class="s">&#39;clouds&#39;</span><span class="p">][</span><span class="n">arec</span><span class="p">[</span><span class="s">&#39;cm_cloud&#39;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">arec</span>
         <span class="k">return</span> <span class="n">userinfo</span>
 </div>
-    <span class="k">def</span> <span class="nf">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">key</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
 
 <div class="viewcode-block" id="cm_user.get_name"><a class="viewcode-back" href="../../../modules/cloudmesh.user.html#cloudmesh.user.cm_user.cm_user.get_name">[docs]</a>    <span class="k">def</span> <span class="nf">get_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">portal_id</span><span class="p">):</span>
@@ -402,11 +441,42 @@
 <span class="sd">        :returns: tuple</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">ldap_info</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">db_users</span><span class="o">.</span><span class="n">find</span><span class="p">({</span><span class="s">&quot;cm_user_id&quot;</span><span class="p">:</span> <span class="n">portal_id</span><span class="p">})</span>
-        <span class="p">(</span><span class="n">first_name</span><span class="p">,</span> <span class="n">last_name</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="n">ldapret</span><span class="p">[</span><span class="s">&#39;firstname&#39;</span><span class="p">],</span> <span class="n">ldapret</span><span class="p">[</span><span class="s">&#39;lastname&#39;</span><span class="p">])</span>
+        <span class="n">ldap_data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">db_users</span><span class="o">.</span><span class="n">find</span><span class="p">({</span><span class="s">&quot;cm_user_id&quot;</span><span class="p">:</span> <span class="n">portal_id</span><span class="p">})</span>
+        <span class="k">if</span> <span class="n">ldap_data</span><span class="o">.</span><span class="n">count</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">ldap_info</span> <span class="o">=</span> <span class="n">ldap_data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="p">(</span><span class="n">first_name</span><span class="p">,</span> <span class="n">last_name</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="n">ldap_info</span><span class="p">[</span><span class="s">&#39;firstname&#39;</span><span class="p">],</span> <span class="n">ldap_info</span><span class="p">[</span><span class="s">&#39;lastname&#39;</span><span class="p">])</span>
 
-        <span class="k">return</span> <span class="p">(</span><span class="n">first_name</span><span class="p">,</span> <span class="n">last_name</span><span class="p">)</span>
-</pre></div></div></div>
+            <span class="k">return</span> <span class="p">(</span><span class="n">first_name</span><span class="p">,</span> <span class="n">last_name</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="cm_user.set_password"><a class="viewcode-back" href="../../../modules/cloudmesh.user.html#cloudmesh.user.cm_user.cm_user.set_password">[docs]</a>    <span class="k">def</span> <span class="nf">set_password</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span> <span class="n">cloud</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Store a user password for the cloud</span>
+
+<span class="sd">        :param username: OS_USERNAME or cm_user_id</span>
+<span class="sd">        :type username: str</span>
+<span class="sd">        :param password: OS_PASSWORD</span>
+<span class="sd">        :type password: str</span>
+<span class="sd">        :param cloud: the cloud name e.g. sierra_openstack_grizzly</span>
+<span class="sd">        :type cloud: str</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">userdb_passwd</span><span class="o">.</span><span class="n">insert</span><span class="p">({</span><span class="s">&quot;username&quot;</span><span class="p">:</span><span class="n">username</span><span class="p">,</span> <span class="s">&quot;password&quot;</span><span class="p">:</span><span class="n">password</span><span class="p">,</span>
+                                   <span class="s">&quot;cloud&quot;</span><span class="p">:</span> <span class="n">cloud</span><span class="p">})</span>
+</div>
+<div class="viewcode-block" id="cm_user.get_password"><a class="viewcode-back" href="../../../modules/cloudmesh.user.html#cloudmesh.user.cm_user.cm_user.get_password">[docs]</a>    <span class="k">def</span> <span class="nf">get_password</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">cloud</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return a user password for the cloud</span>
+
+<span class="sd">        :param username: OS_USERNAME</span>
+<span class="sd">        :type username: str</span>
+<span class="sd">        :param cloud: the cloud name e.g. sierra_openstack_grizzly</span>
+<span class="sd">        :type cloud:str</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">passwd</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">userdb_passwd</span><span class="o">.</span><span class="n">find</span><span class="p">({</span><span class="s">&quot;username&quot;</span><span class="p">:</span> <span class="n">username</span><span class="p">,</span> <span class="s">&quot;cloud&quot;</span><span class="p">:</span><span class="n">cloud</span><span class="p">})</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">passwd</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">None</span></div></div>
+</pre></div>
 
     </div>
       

@@ -3,6 +3,7 @@
 
 
   
+  
  
   
   
@@ -21,8 +22,8 @@
     <link rel="stylesheet" href="_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="_static/bootstrap-3.0.0/css/bootstrap.min.css" type="text/css" />
-    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="_static/bootstrap-3.0.0/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
@@ -116,7 +117,10 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="developer.html#additional-installation-for-documentation-generation">4.6&nbsp;&nbsp;&nbsp;Additional Installation for Documentation Generation</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="developer.html#blockdiag-family">4.6.1&nbsp;&nbsp;&nbsp;Blockdiag family</a></li>
-<li class="toctree-l3"><a class="reference internal" href="developer.html#yaml-files">4.6.2&nbsp;&nbsp;&nbsp;YAML files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="developer.html#yaml-files">4.6.2&nbsp;&nbsp;&nbsp;YAML files</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="developer.html#generating-a-cloudmesh-yaml-file">4.6.2.1&nbsp;&nbsp;&nbsp;Generating a cloudmesh.yaml file</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="developer.html#mongo">4.6.3&nbsp;&nbsp;&nbsp;Mongo</a></li>
 <li class="toctree-l3"><a class="reference internal" href="developer.html#starting-and-testing-the-queue-service">4.6.4&nbsp;&nbsp;&nbsp;Starting and testing the Queue Service</a></li>
 <li class="toctree-l3"><a class="reference internal" href="developer.html#starting-the-web-service">4.6.5&nbsp;&nbsp;&nbsp;Starting the Web Service</a></li>
@@ -317,7 +321,7 @@
 
 <div class="container">
   <div class="row">
-    <div class="span12">
+    <div class="col-md-12">
       
 
 <h1 id="index">Index</h1>
@@ -400,6 +404,10 @@
   </dt>
 
       
+  <dt><a href="modules/cloudmesh.iaas.openstack.html#cloudmesh.iaas.openstack.cm_compute.openstack.add_security_group_rules">add_security_group_rules() (cloudmesh.iaas.openstack.cm_compute.openstack method)</a>
+  </dt>
+
+      
   <dt><a href="modules/cloudmesh.accounting.html#cloudmesh.accounting.AccountBaseClass.AccountingBaseClass.add_user">add_user() (cloudmesh.accounting.AccountBaseClass.AccountingBaseClass method)</a>
   </dt>
 
@@ -427,6 +435,10 @@
 
       
   <dt><a href="modules/cloudmesh.iaas.openstack.html#cloudmesh.iaas.openstack.cm_compute.openstack.admin_credential">admin_credential (cloudmesh.iaas.openstack.cm_compute.openstack attribute)</a>
+  </dt>
+
+      
+  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.cloudmesh_cloud.cloudmesh_cloud.admin_credentials">admin_credentials (cloudmesh.config.cloudmesh_cloud.cloudmesh_cloud attribute)</a>
   </dt>
 
       
@@ -464,13 +476,25 @@
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%" valign="top"><dl>
       
+  <dt><a href="modules/cloudmesh.util.html#cloudmesh.util.util.banner">banner() (in module cloudmesh.util.util)</a>
+  </dt>
+
+      
   <dt><a href="modules/cloudmesh.provisioner.html#cloudmesh.provisioner.provisioner.BaremetalProvisinerABC">BaremetalProvisinerABC (class in cloudmesh.provisioner.provisioner)</a>
+  </dt>
+
+      
+  <dt><a href="modules/cloudmesh.launcher.html#cloudmesh.launcher.cm_launcher.BaseClassLauncher">BaseClassLauncher (class in cloudmesh.launcher.cm_launcher)</a>
   </dt>
 
   </dl></td>
   <td style="width: 33%" valign="top"><dl>
       
-  <dt><a href="modules/cloudmesh.launcher.html#cloudmesh.launcher.cm_launcher.BaseClassLauncher">BaseClassLauncher (class in cloudmesh.launcher.cm_launcher)</a>
+  <dt><a href="modules/cloudmesh.rack.html#cloudmesh.rack.base_cluster_map.BaseClusterMap">BaseClusterMap (class in cloudmesh.rack.base_cluster_map)</a>
+  </dt>
+
+      
+  <dt><a href="modules/cloudmesh.inventory.html#cloudmesh.inventory.Inventory.BOOTSPEC_FILE">BOOTSPEC_FILE (cloudmesh.inventory.Inventory attribute)</a>
   </dt>
 
   </dl></td>
@@ -524,10 +548,6 @@
 
         
   <dt><a href="modules/cloudmesh.inventory.html#cloudmesh.inventory.Inventory.clear">(cloudmesh.inventory.Inventory method)</a>
-  </dt>
-
-        
-  <dt><a href="modules/cloudmesh.launcher.html#cloudmesh.launcher.cm_launcher_db.cm_launcher_db.clear">(cloudmesh.launcher.cm_launcher_db.cm_launcher_db method)</a>
   </dt>
 
         
@@ -672,6 +692,10 @@
   </dt>
 
       
+  <dt><a href="modules/cloudmesh.launcher.queue.html#module-cloudmesh.launcher.queue.tasks">cloudmesh.launcher.queue.tasks (module)</a>
+  </dt>
+
+      
   <dt><a href="modules/cloudmesh.metric.eucalyptus.html#module-cloudmesh.metric.eucalyptus.cm_metric_eucalyptus">cloudmesh.metric.eucalyptus.cm_metric_eucalyptus (module)</a>
   </dt>
 
@@ -716,15 +740,31 @@
   </dt>
 
       
+  <dt><a href="modules/cloudmesh.provisioner.queue.html#module-cloudmesh.provisioner.queue.tasks">cloudmesh.provisioner.queue.tasks (module)</a>
+  </dt>
+
+      
+  <dt><a href="modules/cloudmesh.rack.html#module-cloudmesh.rack.base_cluster_map">cloudmesh.rack.base_cluster_map (module)</a>
+  </dt>
+
+      
+  <dt><a href="modules/cloudmesh.rack.html#module-cloudmesh.rack.cluster_map_heat">cloudmesh.rack.cluster_map_heat (module)</a>
+  </dt>
+
+      
+  <dt><a href="modules/cloudmesh.rack.html#module-cloudmesh.rack.cluster_map_service">cloudmesh.rack.cluster_map_service (module)</a>
+  </dt>
+
+      
   <dt><a href="modules/cloudmesh.shell.html#module-cloudmesh.shell.cm_shell">cloudmesh.shell.cm_shell (module)</a>
   </dt>
 
-  </dl></td>
-  <td style="width: 33%" valign="top"><dl>
       
   <dt><a href="modules/cloudmesh.user.html#module-cloudmesh.user.cm_template">cloudmesh.user.cm_template (module)</a>
   </dt>
 
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
       
   <dt><a href="modules/cloudmesh.user.html#module-cloudmesh.user.cm_user">cloudmesh.user.cm_user (module)</a>
   </dt>
@@ -779,6 +819,22 @@
 
       
   <dt><a href="modules/cloudmesh.inventory.html#cloudmesh.inventory.Inventory.cluster">cluster() (cloudmesh.inventory.Inventory method)</a>
+  </dt>
+
+      
+  <dt><a href="modules/cloudmesh.rack.html#cloudmesh.rack.base_cluster_map.BaseClusterMap.cluster_name">cluster_name (cloudmesh.rack.base_cluster_map.BaseClusterMap attribute)</a>
+  </dt>
+
+      
+  <dt><a href="modules/cloudmesh.rack.html#cloudmesh.rack.base_cluster_map.BaseClusterMap.cluster_name_all">cluster_name_all (cloudmesh.rack.base_cluster_map.BaseClusterMap attribute)</a>
+  </dt>
+
+      
+  <dt><a href="modules/cloudmesh.rack.html#cloudmesh.rack.base_cluster_map.BaseClusterMap.cluster_name_list">cluster_name_list (cloudmesh.rack.base_cluster_map.BaseClusterMap attribute)</a>
+  </dt>
+
+      
+  <dt><a href="modules/cloudmesh.rack.html#cloudmesh.rack.base_cluster_map.BaseClusterMap.cluster_name_unknown">cluster_name_unknown (cloudmesh.rack.base_cluster_map.BaseClusterMap attribute)</a>
   </dt>
 
       
@@ -874,6 +930,10 @@
 
       </dl></dd>
       
+  <dt><a href="modules/cloudmesh.inventory.html#cloudmesh.inventory.Inventory.CONFIG_FILE">CONFIG_FILE (cloudmesh.inventory.Inventory attribute)</a>
+  </dt>
+
+      
   <dt><a href="modules/cloudmesh.iaas.html#cloudmesh.iaas.ComputeBaseType.ComputeBaseType.connect">connect() (cloudmesh.iaas.ComputeBaseType.ComputeBaseType method)</a>
   </dt>
 
@@ -896,6 +956,10 @@
   </dt>
 
       
+  <dt><a href="modules/cloudmesh.user.html#cloudmesh.user.cm_user.cm_user.connect_userdb">connect_userdb() (cloudmesh.user.cm_user.cm_user method)</a>
+  </dt>
+
+      
   <dt><a href="modules/cloudmesh.old_inventory.html#cloudmesh.old_inventory.heatmap.MyTempMap.convertNumToRGB">convertNumToRGB() (cloudmesh.old_inventory.heatmap.MyTempMap method)</a>
   </dt>
 
@@ -913,6 +977,10 @@
 
       
   <dt><a href="modules/cloudmesh.metric.openstack.html#cloudmesh.metric.openstack.cm_metric_openstack.cm_metric_openstack.create_id">create_id() (cloudmesh.metric.openstack.cm_metric_openstack.cm_metric_openstack method)</a>
+  </dt>
+
+      
+  <dt><a href="modules/cloudmesh.iaas.openstack.html#cloudmesh.iaas.openstack.cm_compute.openstack.create_security_group">create_security_group() (cloudmesh.iaas.openstack.cm_compute.openstack method)</a>
   </dt>
 
       
@@ -943,10 +1011,6 @@
 <h2 id="D">D</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%" valign="top"><dl>
-      
-  <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.cloudmesh_cloud.cloudmesh_cloud.data">data (cloudmesh.config.cloudmesh_cloud.cloudmesh_cloud attribute)</a>
-  </dt>
-
       
   <dt><a href="modules/cloudmesh.old_inventory.html#cloudmesh.old_inventory.inventory.FabricObject.date_creation">date_creation (cloudmesh.old_inventory.inventory.FabricObject attribute)</a>
   </dt>
@@ -1009,8 +1073,18 @@
   <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.cm_config.cm_config.default_cloud">default_cloud (cloudmesh.config.cm_config.cm_config attribute)</a>
   </dt>
 
-  </dl></td>
-  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="modules/cloudmesh.rack.html#cloudmesh.rack.base_cluster_map.BaseClusterMap.default_clusters_yaml">default_clusters_yaml (cloudmesh.rack.base_cluster_map.BaseClusterMap attribute)</a>
+  </dt>
+
+      
+  <dt><a href="modules/cloudmesh.rack.html#cloudmesh.rack.base_cluster_map.BaseClusterMap.default_image_type">default_image_type (cloudmesh.rack.base_cluster_map.BaseClusterMap attribute)</a>
+  </dt>
+
+      
+  <dt><a href="modules/cloudmesh.rack.html#cloudmesh.rack.base_cluster_map.BaseClusterMap.default_rack_yaml">default_rack_yaml (cloudmesh.rack.base_cluster_map.BaseClusterMap attribute)</a>
+  </dt>
+
       
   <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.cloudmesh_cloud.cloudmesh_cloud.defaultproject">defaultproject (cloudmesh.config.cloudmesh_cloud.cloudmesh_cloud attribute)</a>
   </dt>
@@ -1019,6 +1093,8 @@
   <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.cm_keys.cm_keys.defined">defined() (cloudmesh.config.cm_keys.cm_keys method)</a>
   </dt>
 
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
       
   <dt><a href="modules/cloudmesh.old_inventory.html#cloudmesh.old_inventory.inventory.FabricCluster.definition">definition (cloudmesh.old_inventory.inventory.FabricCluster attribute)</a>
   </dt>
@@ -1058,7 +1134,33 @@
   </dt>
 
       
+  <dt><a href="modules/cloudmesh.rack.html#cloudmesh.rack.base_cluster_map.BaseClusterMap.dict_clusters_config">dict_clusters_config (cloudmesh.rack.base_cluster_map.BaseClusterMap attribute)</a>
+  </dt>
+
+      
   <dt><a href="modules/cloudmesh.old_inventory.html#cloudmesh.old_inventory.heatmap.MyTempMap.dict_colors">dict_colors (cloudmesh.old_inventory.heatmap.MyTempMap attribute)</a>
+  </dt>
+
+      
+  <dt><a href="modules/cloudmesh.rack.html#cloudmesh.rack.cluster_map_heat.HeatClusterMap.dict_mapping">dict_mapping (cloudmesh.rack.cluster_map_heat.HeatClusterMap attribute)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="modules/cloudmesh.rack.html#cloudmesh.rack.cluster_map_service.ServiceClusterMap.dict_mapping">(cloudmesh.rack.cluster_map_service.ServiceClusterMap attribute)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="modules/cloudmesh.rack.html#cloudmesh.rack.base_cluster_map.BaseClusterMap.dict_rack_config">dict_rack_config (cloudmesh.rack.base_cluster_map.BaseClusterMap attribute)</a>
+  </dt>
+
+      
+  <dt><a href="modules/cloudmesh.rack.html#cloudmesh.rack.base_cluster_map.BaseClusterMap.dict_servers">dict_servers (cloudmesh.rack.base_cluster_map.BaseClusterMap attribute)</a>
+  </dt>
+
+      
+  <dt><a href="modules/cloudmesh.rack.html#cloudmesh.rack.cluster_map_service.ServiceClusterMap.dict_services">dict_services (cloudmesh.rack.cluster_map_service.ServiceClusterMap attribute)</a>
   </dt>
 
       
@@ -1076,6 +1178,16 @@
       <dd><dl>
         
   <dt><a href="modules/cloudmesh.iaas.openstack.html#cloudmesh.iaas.openstack.cm_compute.donotchange">(in module cloudmesh.iaas.openstack.cm_compute)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="modules/cloudmesh.rack.html#cloudmesh.rack.cluster_map_heat.HeatClusterMap.drawLegendContent">drawLegendContent() (cloudmesh.rack.cluster_map_heat.HeatClusterMap method)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="modules/cloudmesh.rack.html#cloudmesh.rack.cluster_map_service.ServiceClusterMap.drawLegendContent">(cloudmesh.rack.cluster_map_service.ServiceClusterMap method)</a>
   </dt>
 
       </dl></dd>
@@ -1187,8 +1299,6 @@
   <dt><a href="modules/cloudmesh.old_inventory.html#cloudmesh.old_inventory.inventory.FabricServer.DoesNotExist">FabricServer.DoesNotExist</a>
   </dt>
 
-  </dl></td>
-  <td style="width: 33%" valign="top"><dl>
       
   <dt><a href="modules/cloudmesh.old_inventory.html#cloudmesh.old_inventory.inventory.FabricServer.MultipleObjectsReturned">FabricServer.MultipleObjectsReturned</a>
   </dt>
@@ -1205,6 +1315,8 @@
   <dt><a href="modules/cloudmesh.old_inventory.html#cloudmesh.old_inventory.inventory.FabricService.MultipleObjectsReturned">FabricService.MultipleObjectsReturned</a>
   </dt>
 
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
       
   <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.cm_config.cm_config.filename">filename (cloudmesh.config.cm_config.cm_config attribute)</a>
   </dt>
@@ -1232,16 +1344,32 @@
 
       </dl></dd>
       
+  <dt><a href="modules/cloudmesh.rack.html#cloudmesh.rack.base_cluster_map.BaseClusterMap.filename_diag">filename_diag (cloudmesh.rack.base_cluster_map.BaseClusterMap attribute)</a>
+  </dt>
+
+      
+  <dt><a href="modules/cloudmesh.rack.html#cloudmesh.rack.base_cluster_map.BaseClusterMap.filename_diag_temp">filename_diag_temp (cloudmesh.rack.base_cluster_map.BaseClusterMap attribute)</a>
+  </dt>
+
+      
+  <dt><a href="modules/cloudmesh.rack.html#cloudmesh.rack.base_cluster_map.BaseClusterMap.filename_rack_image">filename_rack_image (cloudmesh.rack.base_cluster_map.BaseClusterMap attribute)</a>
+  </dt>
+
+      
+  <dt><a href="modules/cloudmesh.rack.html#cloudmesh.rack.base_cluster_map.BaseClusterMap.filename_rack_legend">filename_rack_legend (cloudmesh.rack.base_cluster_map.BaseClusterMap attribute)</a>
+  </dt>
+
+      
+  <dt><a href="modules/cloudmesh.rack.html#cloudmesh.rack.base_cluster_map.BaseClusterMap.filename_rack_yaml">filename_rack_yaml (cloudmesh.rack.base_cluster_map.BaseClusterMap attribute)</a>
+  </dt>
+
+      
   <dt><a href="modules/cloudmesh.iaas.openstack.html#cloudmesh.iaas.openstack.cm_compute.openstack.find">find() (cloudmesh.iaas.openstack.cm_compute.openstack method)</a>
   </dt>
 
       <dd><dl>
         
   <dt><a href="modules/cloudmesh.inventory.html#cloudmesh.inventory.Inventory.find">(cloudmesh.inventory.Inventory method)</a>
-  </dt>
-
-        
-  <dt><a href="modules/cloudmesh.launcher.html#cloudmesh.launcher.cm_launcher_db.cm_launcher_db.find">(cloudmesh.launcher.cm_launcher_db.cm_launcher_db method)</a>
   </dt>
 
         
@@ -1259,10 +1387,6 @@
 
       <dd><dl>
         
-  <dt><a href="modules/cloudmesh.launcher.html#cloudmesh.launcher.cm_launcher_db.cm_launcher_db.find_one">(cloudmesh.launcher.cm_launcher_db.cm_launcher_db method)</a>
-  </dt>
-
-        
   <dt><a href="modules/cloudmesh.metric.openstack.html#cloudmesh.metric.openstack.cm_metric_openstack.cm_metric_openstack.find_one">(cloudmesh.metric.openstack.cm_metric_openstack.cm_metric_openstack method)</a>
   </dt>
 
@@ -1271,6 +1395,10 @@
   </dt>
 
       </dl></dd>
+      
+  <dt><a href="modules/cloudmesh.iaas.openstack.html#cloudmesh.iaas.openstack.cm_compute.openstack.find_security_groupid_by_name">find_security_groupid_by_name() (cloudmesh.iaas.openstack.cm_compute.openstack method)</a>
+  </dt>
+
       
   <dt><a href="modules/cloudmesh.iaas.html#cloudmesh.iaas.ComputeBaseType.ComputeBaseType.find_user_id">find_user_id() (cloudmesh.iaas.ComputeBaseType.ComputeBaseType method)</a>
   </dt>
@@ -1287,6 +1415,14 @@
 
       
   <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.cm_config.cm_config.firstname">firstname (cloudmesh.config.cm_config.cm_config attribute)</a>
+  </dt>
+
+      
+  <dt><a href="modules/cloudmesh.rack.html#cloudmesh.rack.base_cluster_map.BaseClusterMap.flag_debug">flag_debug (cloudmesh.rack.base_cluster_map.BaseClusterMap attribute)</a>
+  </dt>
+
+      
+  <dt><a href="modules/cloudmesh.rack.html#cloudmesh.rack.base_cluster_map.BaseClusterMap.flag_delete_diag_temp">flag_delete_diag_temp (cloudmesh.rack.base_cluster_map.BaseClusterMap attribute)</a>
   </dt>
 
       
@@ -1323,6 +1459,22 @@
 
       
   <dt><a href="modules/cloudmesh.inventory.html#cloudmesh.inventory.Inventory.generate_bootspec">generate_bootspec() (cloudmesh.inventory.Inventory method)</a>
+  </dt>
+
+      
+  <dt><a href="modules/cloudmesh.rack.html#cloudmesh.rack.cluster_map_service.ServiceClusterMap.generateContinousService">generateContinousService() (cloudmesh.rack.cluster_map_service.ServiceClusterMap method)</a>
+  </dt>
+
+      
+  <dt><a href="modules/cloudmesh.rack.html#cloudmesh.rack.cluster_map_heat.HeatClusterMap.generateContinousTemperature">generateContinousTemperature() (cloudmesh.rack.cluster_map_heat.HeatClusterMap method)</a>
+  </dt>
+
+      
+  <dt><a href="modules/cloudmesh.rack.html#cloudmesh.rack.cluster_map_service.ServiceClusterMap.generateRandomService">generateRandomService() (cloudmesh.rack.cluster_map_service.ServiceClusterMap method)</a>
+  </dt>
+
+      
+  <dt><a href="modules/cloudmesh.rack.html#cloudmesh.rack.cluster_map_heat.HeatClusterMap.generateRandomTemperature">generateRandomTemperature() (cloudmesh.rack.cluster_map_heat.HeatClusterMap method)</a>
   </dt>
 
       
@@ -1409,8 +1561,6 @@
   <dt><a href="modules/cloudmesh.user.html#cloudmesh.user.cm_user.cm_user.get_name">get_name() (cloudmesh.user.cm_user.cm_user method)</a>
   </dt>
 
-  </dl></td>
-  <td style="width: 33%" valign="top"><dl>
       
   <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.cloudmesh_cloud.cloudmesh_cloud.get_own_password">get_own_password() (cloudmesh.config.cloudmesh_cloud.cloudmesh_cloud method)</a>
   </dt>
@@ -1423,6 +1573,12 @@
       </dl></dd>
       
   <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.cm_config.cm_config.get_own_passwords">get_own_passwords() (cloudmesh.config.cm_config.cm_config method)</a>
+  </dt>
+
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="modules/cloudmesh.user.html#cloudmesh.user.cm_user.cm_user.get_password">get_password() (cloudmesh.user.cm_user.cm_user method)</a>
   </dt>
 
       
@@ -1450,6 +1606,10 @@
   </dt>
 
       
+  <dt><a href="modules/cloudmesh.iaas.openstack.html#cloudmesh.iaas.openstack.cm_compute.openstack.get_server_usage">get_server_usage() (cloudmesh.iaas.openstack.cm_compute.openstack method)</a>
+  </dt>
+
+      
   <dt><a href="modules/cloudmesh.iaas.openstack.html#cloudmesh.iaas.openstack.cm_compute.openstack.get_servers">get_servers() (cloudmesh.iaas.openstack.cm_compute.openstack method)</a>
   </dt>
 
@@ -1470,6 +1630,10 @@
   </dt>
 
       
+  <dt><a href="modules/cloudmesh.util.html#cloudmesh.util.util.get_unique_name">get_unique_name() (in module cloudmesh.util.util)</a>
+  </dt>
+
+      
   <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.openstack_grizzly_cloud.openstack_grizzly_cloud.get_user_by_name">get_user_by_name() (cloudmesh.config.openstack_grizzly_cloud.openstack_grizzly_cloud method)</a>
   </dt>
 
@@ -1477,6 +1641,48 @@
   <dt><a href="modules/cloudmesh.iaas.openstack.html#cloudmesh.iaas.openstack.cm_compute.openstack.get_users">get_users() (cloudmesh.iaas.openstack.cm_compute.openstack method)</a>
   </dt>
 
+      
+  <dt><a href="modules/cloudmesh.rack.html#cloudmesh.rack.cluster_map_service.ServiceClusterMap.getDefaultService">getDefaultService() (cloudmesh.rack.cluster_map_service.ServiceClusterMap method)</a>
+  </dt>
+
+      
+  <dt><a href="modules/cloudmesh.rack.html#cloudmesh.rack.cluster_map_heat.HeatClusterMap.getDefaultTemperature">getDefaultTemperature() (cloudmesh.rack.cluster_map_heat.HeatClusterMap method)</a>
+  </dt>
+
+      
+  <dt><a href="modules/cloudmesh.rack.html#cloudmesh.rack.cluster_map_heat.HeatClusterMap.getMappingDict">getMappingDict() (cloudmesh.rack.cluster_map_heat.HeatClusterMap method)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="modules/cloudmesh.rack.html#cloudmesh.rack.cluster_map_service.ServiceClusterMap.getMappingDict">(cloudmesh.rack.cluster_map_service.ServiceClusterMap method)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="modules/cloudmesh.rack.html#cloudmesh.rack.cluster_map_heat.HeatClusterMap.getProperTemperature">getProperTemperature() (cloudmesh.rack.cluster_map_heat.HeatClusterMap method)</a>
+  </dt>
+
+      
+  <dt><a href="modules/cloudmesh.rack.html#cloudmesh.rack.cluster_map_heat.HeatClusterMap.getRGB">getRGB() (cloudmesh.rack.cluster_map_heat.HeatClusterMap method)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="modules/cloudmesh.rack.html#cloudmesh.rack.cluster_map_service.ServiceClusterMap.getRGB">(cloudmesh.rack.cluster_map_service.ServiceClusterMap method)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="modules/cloudmesh.rack.html#cloudmesh.rack.cluster_map_heat.HeatClusterMap.getServersDefaultValue">getServersDefaultValue() (cloudmesh.rack.cluster_map_heat.HeatClusterMap method)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="modules/cloudmesh.rack.html#cloudmesh.rack.cluster_map_service.ServiceClusterMap.getServersDefaultValue">(cloudmesh.rack.cluster_map_service.ServiceClusterMap method)</a>
+  </dt>
+
+      </dl></dd>
       
   <dt><a href="modules/cloudmesh.old_inventory.html#cloudmesh.old_inventory.inventory.FabricObject.groups">groups (cloudmesh.old_inventory.inventory.FabricObject attribute)</a>
   </dt>
@@ -1488,7 +1694,21 @@
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%" valign="top"><dl>
       
+  <dt><a href="modules/cloudmesh.rack.html#cloudmesh.rack.cluster_map_heat.HeatClusterMap.h_max">h_max (cloudmesh.rack.cluster_map_heat.HeatClusterMap attribute)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="modules/cloudmesh.rack.html#cloudmesh.rack.cluster_map_service.ServiceClusterMap.h_max">(cloudmesh.rack.cluster_map_service.ServiceClusterMap attribute)</a>
+  </dt>
+
+      </dl></dd>
+      
   <dt><a href="modules/cloudmesh.util.html#cloudmesh.util.util.HEADING">HEADING() (in module cloudmesh.util.util)</a>
+  </dt>
+
+      
+  <dt><a href="modules/cloudmesh.rack.html#cloudmesh.rack.cluster_map_heat.HeatClusterMap">HeatClusterMap (class in cloudmesh.rack.cluster_map_heat)</a>
   </dt>
 
       
@@ -1501,12 +1721,12 @@
   </dt>
 
       </dl></dd>
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
       
   <dt><a href="modules/cloudmesh.inventory.html#cloudmesh.inventory.Inventory.host">host() (cloudmesh.inventory.Inventory method)</a>
   </dt>
 
-  </dl></td>
-  <td style="width: 33%" valign="top"><dl>
       
   <dt><a href="modules/cloudmesh.inventory.html#cloudmesh.inventory.Inventory.hostlist">hostlist() (cloudmesh.inventory.Inventory method)</a>
   </dt>
@@ -1541,6 +1761,16 @@
 
       
   <dt><a href="modules/cloudmesh.old_inventory.html#cloudmesh.old_inventory.heatmap.MyTempMap.image_type">image_type (cloudmesh.old_inventory.heatmap.MyTempMap attribute)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="modules/cloudmesh.rack.html#cloudmesh.rack.base_cluster_map.BaseClusterMap.image_type">(cloudmesh.rack.base_cluster_map.BaseClusterMap attribute)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="modules/cloudmesh.rack.html#cloudmesh.rack.base_cluster_map.BaseClusterMap.image_type_list">image_type_list (cloudmesh.rack.base_cluster_map.BaseClusterMap attribute)</a>
   </dt>
 
       
@@ -1608,14 +1838,14 @@
 
       </dl></dd>
       
+  <dt><a href="modules/cloudmesh.rack.html#cloudmesh.rack.cluster_map_service.ServiceClusterMap.initMappingDict">initMappingDict() (cloudmesh.rack.cluster_map_service.ServiceClusterMap method)</a>
+  </dt>
+
+      
   <dt><a href="modules/cloudmesh.inventory.html#cloudmesh.inventory.Inventory.insert">insert() (cloudmesh.inventory.Inventory method)</a>
   </dt>
 
       <dd><dl>
-        
-  <dt><a href="modules/cloudmesh.launcher.html#cloudmesh.launcher.cm_launcher_db.cm_launcher_db.insert">(cloudmesh.launcher.cm_launcher_db.cm_launcher_db method)</a>
-  </dt>
-
         
   <dt><a href="modules/cloudmesh.metric.openstack.html#cloudmesh.metric.openstack.cm_metric_openstack.cm_metric_openstack.insert">(cloudmesh.metric.openstack.cm_metric_openstack.cm_metric_openstack method)</a>
   </dt>
@@ -1657,8 +1887,6 @@
   <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.cm_config.cm_config.keys">keys() (cloudmesh.config.cm_config.cm_config method)</a>
   </dt>
 
-  </dl></td>
-  <td style="width: 33%" valign="top"><dl>
       
   <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.openstack_grizzly_cloud.openstack_grizzly_cloud.keystone">keystone (cloudmesh.config.openstack_grizzly_cloud.openstack_grizzly_cloud attribute)</a>
   </dt>
@@ -1669,6 +1897,8 @@
   </dt>
 
       </dl></dd>
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
       
   <dt><a href="modules/cloudmesh.config.html#cloudmesh.config.openstack_grizzly_cloud.openstack_grizzly_cloud.keystone_admin">keystone_admin (cloudmesh.config.openstack_grizzly_cloud.openstack_grizzly_cloud attribute)</a>
   </dt>
@@ -1695,6 +1925,10 @@
   </dt>
 
       </dl></dd>
+      
+  <dt><a href="modules/cloudmesh.iaas.openstack.html#cloudmesh.iaas.openstack.cm_compute.openstack.ks_get_extensions">ks_get_extensions() (cloudmesh.iaas.openstack.cm_compute.openstack method)</a>
+  </dt>
+
   </dl></td>
 </tr></table>
 
@@ -1743,10 +1977,18 @@
   </dt>
 
       </dl></dd>
+      
+  <dt><a href="modules/cloudmesh.iaas.openstack.html#cloudmesh.iaas.openstack.cm_compute.openstack.list_allocated_ips">list_allocated_ips() (cloudmesh.iaas.openstack.cm_compute.openstack method)</a>
+  </dt>
+
   </dl></td>
   <td style="width: 33%" valign="top"><dl>
       
-  <dt><a href="modules/cloudmesh.iaas.openstack.html#cloudmesh.iaas.openstack.cm_compute.openstack.list_allocated_ips">list_allocated_ips() (cloudmesh.iaas.openstack.cm_compute.openstack method)</a>
+  <dt><a href="modules/cloudmesh.iaas.openstack.html#cloudmesh.iaas.openstack.cm_compute.openstack.list_security_groups">list_security_groups() (cloudmesh.iaas.openstack.cm_compute.openstack method)</a>
+  </dt>
+
+      
+  <dt><a href="modules/cloudmesh.rack.html#cloudmesh.rack.cluster_map_service.ServiceClusterMap.list_services">list_services (cloudmesh.rack.cluster_map_service.ServiceClusterMap attribute)</a>
   </dt>
 
       
@@ -2206,6 +2448,14 @@
   </dt>
 
       
+  <dt><a href="modules/cloudmesh.rack.html#cloudmesh.rack.cluster_map_service.ServiceClusterMap.service_section_name">service_section_name (cloudmesh.rack.cluster_map_service.ServiceClusterMap attribute)</a>
+  </dt>
+
+      
+  <dt><a href="modules/cloudmesh.rack.html#cloudmesh.rack.cluster_map_service.ServiceClusterMap">ServiceClusterMap (class in cloudmesh.rack.cluster_map_service)</a>
+  </dt>
+
+      
   <dt><a href="modules/cloudmesh.old_inventory.html#cloudmesh.old_inventory.inventory.FabricServer.services">services (cloudmesh.old_inventory.inventory.FabricServer attribute)</a>
   </dt>
 
@@ -2216,10 +2466,6 @@
       <dd><dl>
         
   <dt><a href="modules/cloudmesh.launcher.html#cloudmesh.launcher.cm_launcher.SimulatorLauncher.set">(cloudmesh.launcher.cm_launcher.SimulatorLauncher method)</a>
-  </dt>
-
-        
-  <dt><a href="modules/cloudmesh.launcher.html#cloudmesh.launcher.cm_launcher_db.cm_launcher_db.set">(cloudmesh.launcher.cm_launcher_db.cm_launcher_db method)</a>
   </dt>
 
         
@@ -2251,12 +2497,16 @@
   <dt><a href="modules/cloudmesh.iaas.openstack.html#cloudmesh.iaas.openstack.cm_compute.openstack.set_meta">set_meta() (cloudmesh.iaas.openstack.cm_compute.openstack method)</a>
   </dt>
 
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="modules/cloudmesh.user.html#cloudmesh.user.cm_user.cm_user.set_password">set_password() (cloudmesh.user.cm_user.cm_user method)</a>
+  </dt>
+
       
   <dt><a href="modules/cloudmesh.old_inventory.html#cloudmesh.old_inventory.heatmap.MyTempMap.set_server_temperature">set_server_temperature() (cloudmesh.old_inventory.heatmap.MyTempMap method)</a>
   </dt>
 
-  </dl></td>
-  <td style="width: 33%" valign="top"><dl>
       
   <dt><a href="modules/cloudmesh.provisioner.html#cloudmesh.provisioner.provisioner.BaremetalProvisinerABC.set_status">set_status() (cloudmesh.provisioner.provisioner.BaremetalProvisinerABC method)</a>
   </dt>
@@ -2363,8 +2613,16 @@
   <dt><a href="modules/cloudmesh.old_inventory.html#cloudmesh.old_inventory.inventory.FabricObject.tags">tags (cloudmesh.old_inventory.inventory.FabricObject attribute)</a>
   </dt>
 
+      
+  <dt><a href="modules/cloudmesh.rack.html#cloudmesh.rack.cluster_map_heat.HeatClusterMap.temperature_max">temperature_max (cloudmesh.rack.cluster_map_heat.HeatClusterMap attribute)</a>
+  </dt>
+
   </dl></td>
   <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="modules/cloudmesh.rack.html#cloudmesh.rack.cluster_map_heat.HeatClusterMap.temperature_min">temperature_min (cloudmesh.rack.cluster_map_heat.HeatClusterMap attribute)</a>
+  </dt>
+
       
   <dt><a href="modules/cloudmesh.iaas.html#cloudmesh.iaas.ComputeBaseType.ComputeBaseType.tenants">tenants (cloudmesh.iaas.ComputeBaseType.ComputeBaseType attribute)</a>
   </dt>
@@ -2409,11 +2667,15 @@
 
       <dd><dl>
         
-  <dt><a href="modules/cloudmesh.launcher.html#cloudmesh.launcher.cm_launcher_db.cm_launcher_db.update">(cloudmesh.launcher.cm_launcher_db.cm_launcher_db method)</a>
+  <dt><a href="modules/cloudmesh.metric.openstack.html#cloudmesh.metric.openstack.cm_metric_openstack.cm_metric_openstack.update">(cloudmesh.metric.openstack.cm_metric_openstack.cm_metric_openstack method)</a>
   </dt>
 
         
-  <dt><a href="modules/cloudmesh.metric.openstack.html#cloudmesh.metric.openstack.cm_metric_openstack.cm_metric_openstack.update">(cloudmesh.metric.openstack.cm_metric_openstack.cm_metric_openstack method)</a>
+  <dt><a href="modules/cloudmesh.rack.html#cloudmesh.rack.cluster_map_heat.HeatClusterMap.update">(cloudmesh.rack.cluster_map_heat.HeatClusterMap method)</a>
+  </dt>
+
+        
+  <dt><a href="modules/cloudmesh.rack.html#cloudmesh.rack.cluster_map_service.ServiceClusterMap.update">(cloudmesh.rack.cluster_map_service.ServiceClusterMap method)</a>
   </dt>
 
       </dl></dd>

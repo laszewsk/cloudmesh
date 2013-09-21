@@ -1,6 +1,7 @@
 
 
   
+  
  
   
   
@@ -19,8 +20,8 @@
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/bootstrap-3.0.0/css/bootstrap.min.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/bootstrap-3.0.0/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
@@ -114,7 +115,10 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../developer.html#additional-installation-for-documentation-generation">4.6&nbsp;&nbsp;&nbsp;Additional Installation for Documentation Generation</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../developer.html#blockdiag-family">4.6.1&nbsp;&nbsp;&nbsp;Blockdiag family</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../developer.html#yaml-files">4.6.2&nbsp;&nbsp;&nbsp;YAML files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer.html#yaml-files">4.6.2&nbsp;&nbsp;&nbsp;YAML files</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../developer.html#generating-a-cloudmesh-yaml-file">4.6.2.1&nbsp;&nbsp;&nbsp;Generating a cloudmesh.yaml file</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="../developer.html#mongo">4.6.3&nbsp;&nbsp;&nbsp;Mongo</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../developer.html#starting-and-testing-the-queue-service">4.6.4&nbsp;&nbsp;&nbsp;Starting and testing the Queue Service</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../developer.html#starting-the-web-service">4.6.5&nbsp;&nbsp;&nbsp;Starting the Web Service</a></li>
@@ -307,8 +311,10 @@
             
             
               <li>
+<div id="sourcelink">
   <a href="../_sources/modules/cloudmesh.launcher.txt"
-     rel="nofollow">Source</a></li>
+     rel="nofollow">Source</a>
+</div></li>
             
           </ul>
 
@@ -328,7 +334,7 @@
 
 <div class="container">
   <div class="row">
-    <div class="span12">
+    <div class="col-md-12">
       
   <div class="section" id="launcher-package">
 <h1>launcher Package<a class="headerlink" href="#launcher-package" title="Permalink to this headline">¶</a></h1>
@@ -433,43 +439,7 @@ cm_config_server (If I am not mistaken )</p>
 <dl class="class">
 <dt id="cloudmesh.launcher.cm_launcher_db.cm_launcher_db">
 <em class="property">class </em><tt class="descclassname">cloudmesh.launcher.cm_launcher_db.</tt><tt class="descname">cm_launcher_db</tt><a class="reference internal" href="../_modules/cloudmesh/launcher/cm_launcher_db.html#cm_launcher_db"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.launcher.cm_launcher_db.cm_launcher_db" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
-<dl class="method">
-<dt id="cloudmesh.launcher.cm_launcher_db.cm_launcher_db.clear">
-<tt class="descname">clear</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/cloudmesh/launcher/cm_launcher_db.html#cm_launcher_db.clear"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.launcher.cm_launcher_db.cm_launcher_db.clear" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="cloudmesh.launcher.cm_launcher_db.cm_launcher_db.find">
-<tt class="descname">find</tt><big>(</big><em>query=None</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/launcher/cm_launcher_db.html#cm_launcher_db.find"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.launcher.cm_launcher_db.cm_launcher_db.find" title="Permalink to this definition">¶</a></dt>
-<dd><p>executes a query and returns the results from mongo db.
-:param query:</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="cloudmesh.launcher.cm_launcher_db.cm_launcher_db.find_one">
-<tt class="descname">find_one</tt><big>(</big><em>query</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/launcher/cm_launcher_db.html#cm_launcher_db.find_one"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.launcher.cm_launcher_db.cm_launcher_db.find_one" title="Permalink to this definition">¶</a></dt>
-<dd><p>executes a query and returns the results from mongo db.
-:param query:</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="cloudmesh.launcher.cm_launcher_db.cm_launcher_db.insert">
-<tt class="descname">insert</tt><big>(</big><em>element</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/launcher/cm_launcher_db.html#cm_launcher_db.insert"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.launcher.cm_launcher_db.cm_launcher_db.insert" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="cloudmesh.launcher.cm_launcher_db.cm_launcher_db.set">
-<tt class="descname">set</tt><big>(</big><em>username</em>, <em>d</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/launcher/cm_launcher_db.html#cm_launcher_db.set"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.launcher.cm_launcher_db.cm_launcher_db.set" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="cloudmesh.launcher.cm_launcher_db.cm_launcher_db.update">
-<tt class="descname">update</tt><big>(</big><em>query</em>, <em>values=None</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/launcher/cm_launcher_db.html#cm_launcher_db.update"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.launcher.cm_launcher_db.cm_launcher_db.update" title="Permalink to this definition">¶</a></dt>
-<dd><p>executes a query and updates the results from mongo db.
-:param query:</p>
-</dd></dl>
-
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">cloudmesh.cm_mongo.cm_MongoBase</span></tt></p>
 </dd></dl>
 
 </div>
@@ -479,7 +449,7 @@ cm_config_server (If I am not mistaken )</p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="cloudmesh.launcher.queue.html">queue Package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.launcher.queue.html#module-cloudmesh.launcher.queue.celery"><tt class="docutils literal"><span class="pre">celery</span></tt> Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cloudmesh.launcher.queue.html#tasks-module"><tt class="docutils literal"><span class="pre">tasks</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.launcher.queue.html#module-cloudmesh.launcher.queue.tasks"><tt class="docutils literal"><span class="pre">tasks</span></tt> Module</a></li>
 </ul>
 </li>
 </ul>

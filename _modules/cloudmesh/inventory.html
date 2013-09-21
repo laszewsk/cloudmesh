@@ -1,6 +1,7 @@
 
 
   
+  
  
   
   
@@ -19,8 +20,8 @@
     <link rel="stylesheet" href="../../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/bootstrap-3.0.0/css/bootstrap.min.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/bootstrap-3.0.0/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
@@ -115,7 +116,10 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../developer.html#additional-installation-for-documentation-generation">4.6&nbsp;&nbsp;&nbsp;Additional Installation for Documentation Generation</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../developer.html#blockdiag-family">4.6.1&nbsp;&nbsp;&nbsp;Blockdiag family</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../developer.html#yaml-files">4.6.2&nbsp;&nbsp;&nbsp;YAML files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../developer.html#yaml-files">4.6.2&nbsp;&nbsp;&nbsp;YAML files</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../developer.html#generating-a-cloudmesh-yaml-file">4.6.2.1&nbsp;&nbsp;&nbsp;Generating a cloudmesh.yaml file</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="../../developer.html#mongo">4.6.3&nbsp;&nbsp;&nbsp;Mongo</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../developer.html#starting-and-testing-the-queue-service">4.6.4&nbsp;&nbsp;&nbsp;Starting and testing the Queue Service</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../developer.html#starting-the-web-service">4.6.5&nbsp;&nbsp;&nbsp;Starting the Web Service</a></li>
@@ -316,7 +320,7 @@
 
 <div class="container">
   <div class="row">
-    <div class="span12">
+    <div class="col-md-12">
       
   <h1>Source code for cloudmesh.inventory</h1><div class="highlight"><pre>
 <span class="kn">from</span> <span class="nn">cloudmesh.config.cm_config</span> <span class="kn">import</span> <span class="n">cm_config_server</span>
@@ -324,13 +328,9 @@
 <span class="kn">from</span> <span class="nn">cloudmesh.util.logger</span> <span class="kn">import</span> <span class="n">LOGGER</span>
 <span class="kn">from</span> <span class="nn">hostlist</span> <span class="kn">import</span> <span class="n">expand_hostlist</span>
 <span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
-<span class="kn">from</span> <span class="nn">pymongo</span> <span class="kn">import</span> <span class="n">MongoClient</span>
-<span class="kn">from</span> <span class="nn">jinja2</span> <span class="kn">import</span> <span class="n">Template</span>
 <span class="kn">import</span> <span class="nn">sys</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.util.util</span> <span class="kn">import</span> <span class="n">path_expand</span> <span class="k">as</span> <span class="n">cm_path_expand</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.config.cm_config</span> <span class="kn">import</span> <span class="n">cm_config_server</span>
-<span class="kn">import</span> <span class="nn">yaml</span>
-<span class="kn">import</span> <span class="nn">json</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.config.cm_config</span> <span class="kn">import</span> <span class="n">get_mongo_db</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.config.ConfigDict</span> <span class="kn">import</span> <span class="n">ConfigDict</span>
 <span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
@@ -341,33 +341,32 @@
 
 <span class="n">log</span> <span class="o">=</span> <span class="n">LOGGER</span><span class="p">(</span><span class="n">__file__</span><span class="p">)</span>
 
- 
+
 <div class="viewcode-block" id="Inventory"><a class="viewcode-back" href="../../modules/cloudmesh.inventory.html#cloudmesh.inventory.Inventory">[docs]</a><span class="k">class</span> <span class="nc">Inventory</span><span class="p">:</span>
-            
+
     <span class="n">server_config</span> <span class="o">=</span> <span class="bp">None</span>
-    
-    
-    
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>         
+
+    <span class="n">CONFIG_FILE</span> <span class="o">=</span> <span class="s">&quot;~/.futuregrid/cloudmesh_cluster.yaml&quot;</span>
+    <span class="n">BOOTSPEC_FILE</span> <span class="o">=</span> <span class="s">&quot;~/.futuregrid/cloudmesh_bootspec.yaml&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="c"># read the host file definition from cloudmesh_cludter.yaml</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">server_config</span> <span class="o">=</span> <span class="n">cm_config_server</span><span class="p">()</span>
-        
-        <span class="bp">self</span><span class="o">.</span><span class="n">config</span> <span class="o">=</span> <span class="n">ConfigDict</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s">&quot;~/.futuregrid/cloudmesh_cluster.yaml&quot;</span><span class="p">)</span>
-        
-        <span class="bp">self</span><span class="o">.</span><span class="n">bootspec_config</span> <span class="o">=</span> <span class="n">ConfigDict</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s">&quot;~/.futuregrid/cloudmesh_bootspec.yaml&quot;</span><span class="p">)</span>
-        
-        
-        <span class="n">collection</span> <span class="o">=</span> <span class="s">&quot;inventory&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">db_inventory</span> <span class="o">=</span> <span class="n">get_mongo_db</span><span class="p">(</span><span class="n">collection</span><span class="p">)</span>        
 
-   
-        
-        
-        
+        <span class="bp">self</span><span class="o">.</span><span class="n">config</span> <span class="o">=</span> <span class="n">ConfigDict</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">CONFIG_FILE</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">bootspec_config</span> <span class="o">=</span> <span class="n">ConfigDict</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">BOOTSPEC_FILE</span><span class="p">)</span>
+
+
+        <span class="n">collection</span> <span class="o">=</span> <span class="s">&quot;inventory&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">db_inventory</span> <span class="o">=</span> <span class="n">get_mongo_db</span><span class="p">(</span><span class="n">collection</span><span class="p">)</span>
+
 <div class="viewcode-block" id="Inventory.get_attribute"><a class="viewcode-back" href="../../modules/cloudmesh.inventory.html#cloudmesh.inventory.Inventory.get_attribute">[docs]</a>    <span class="k">def</span> <span class="nf">get_attribute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">host_label</span><span class="p">,</span> <span class="n">attribute</span><span class="p">):</span>
 
         <span class="k">try</span><span class="p">:</span>
-            <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">find</span> <span class="p">({</span><span class="s">&quot;cm_id&quot;</span> <span class="p">:</span> <span class="n">host_label</span><span class="p">,</span> <span class="s">&#39;cm_attribute&#39;</span> <span class="p">:</span> <span class="s">&#39;variable&#39;</span><span class="p">,</span> <span class="s">&#39;cm_key&#39;</span> <span class="p">:</span> <span class="n">attribute</span><span class="p">})[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">find</span> <span class="p">({</span><span class="s">&quot;cm_id&quot;</span> <span class="p">:</span> <span class="n">host_label</span><span class="p">,</span>
+                                <span class="s">&#39;cm_attribute&#39;</span> <span class="p">:</span> <span class="s">&#39;variable&#39;</span><span class="p">,</span>
+                                <span class="s">&#39;cm_key&#39;</span> <span class="p">:</span> <span class="n">attribute</span><span class="p">})[</span><span class="mi">0</span><span class="p">]</span>
         <span class="k">except</span><span class="p">:</span>
             <span class="n">value</span> <span class="o">=</span> <span class="bp">None</span>
         <span class="k">return</span> <span class="n">value</span>
@@ -384,29 +383,31 @@
                                   <span class="s">&#39;cm_key&#39;</span><span class="p">:</span> <span class="s">&#39;server&#39;</span><span class="p">,</span>
                                   <span class="s">&#39;cm_kind&#39;</span><span class="p">:</span> <span class="n">cm_kind</span><span class="p">,</span>
                                   <span class="s">&#39;label&#39;</span><span class="p">:</span> <span class="n">name</span><span class="p">})</span>
-            
+
         <span class="k">else</span><span class="p">:</span>
             <span class="k">print</span> <span class="s">&quot;ERROR Wrong type&quot;</span>
             <span class="k">print</span> <span class="n">cm_kind</span><span class="p">,</span> <span class="n">id_kind</span><span class="p">,</span> <span class="n">name</span>
             <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
         <span class="k">return</span> <span class="n">host</span>
-
-            </div>
+</div>
 <div class="viewcode-block" id="Inventory.set_attribute"><a class="viewcode-back" href="../../modules/cloudmesh.inventory.html#cloudmesh.inventory.Inventory.set_attribute">[docs]</a>    <span class="k">def</span> <span class="nf">set_attribute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">host_label</span><span class="p">,</span> <span class="n">attribute</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">time</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
         <span class="k">print</span> <span class="s">&quot;SETTING&quot;</span><span class="p">,</span> <span class="n">host_label</span><span class="p">,</span> <span class="n">attribute</span><span class="p">,</span> <span class="n">value</span>
 
         <span class="k">if</span> <span class="n">time</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
             <span class="n">time</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
-        
+
         <span class="c"># get the cluster from the host_label</span>
         <span class="k">try</span><span class="p">:</span>
-            <span class="n">host</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">find_one</span><span class="p">({</span><span class="s">&quot;cm_id&quot;</span><span class="p">:</span> <span class="n">host_label</span><span class="p">,</span> <span class="s">&quot;cm_attribute&quot;</span><span class="p">:</span> <span class="s">&quot;network&quot;</span><span class="p">})[</span><span class="s">&quot;cm_cluster&quot;</span><span class="p">]</span>
+            <span class="n">host</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">find_one</span><span class="p">({</span><span class="s">&quot;cm_id&quot;</span><span class="p">:</span> <span class="n">host_label</span><span class="p">,</span>
+                                  <span class="s">&quot;cm_attribute&quot;</span><span class="p">:</span> <span class="s">&quot;network&quot;</span><span class="p">})[</span><span class="s">&quot;cm_cluster&quot;</span><span class="p">]</span>
         <span class="k">except</span><span class="p">:</span>
             <span class="k">print</span> <span class="s">&quot;could not find host with the label&quot;</span><span class="p">,</span> <span class="n">host_label</span>
             <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
-            
-        
-        <span class="n">cursor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">update</span> <span class="p">({</span><span class="s">&quot;cm_id&quot;</span> <span class="p">:</span> <span class="n">host_label</span><span class="p">,</span> <span class="s">&#39;cm_attribute&#39;</span> <span class="p">:</span> <span class="s">&#39;variable&#39;</span><span class="p">,</span> <span class="s">&#39;cm_key&#39;</span> <span class="p">:</span> <span class="n">attribute</span><span class="p">},</span>
+
+
+        <span class="n">cursor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">update</span> <span class="p">({</span><span class="s">&quot;cm_id&quot;</span> <span class="p">:</span> <span class="n">host_label</span><span class="p">,</span>
+                               <span class="s">&#39;cm_attribute&#39;</span> <span class="p">:</span> <span class="s">&#39;variable&#39;</span><span class="p">,</span>
+                               <span class="s">&#39;cm_key&#39;</span> <span class="p">:</span> <span class="n">attribute</span><span class="p">},</span>
                                   <span class="p">{</span> <span class="s">&quot;$set&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="n">attribute</span><span class="p">:</span> <span class="n">value</span><span class="p">,</span>
                                              <span class="s">&#39;cm_cluster&#39;</span><span class="p">:</span> <span class="n">host</span><span class="p">,</span>
                                              <span class="s">&#39;cm_type&#39;</span><span class="p">:</span> <span class="s">&quot;inventory&quot;</span><span class="p">,</span>
@@ -424,41 +425,39 @@
 <span class="sd">        :param query:</span>
 <span class="sd">        &#39;&#39;&#39;</span>
         <span class="k">if</span> <span class="n">values</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
-            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">db_inventory</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">upsert</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span> 
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">db_inventory</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">upsert</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">print</span> <span class="n">query</span>
             <span class="k">print</span> <span class="n">values</span>
-            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">db_inventory</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">values</span><span class="p">,</span> <span class="n">upsert</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span> 
-
-    </div>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">db_inventory</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">values</span><span class="p">,</span> <span class="n">upsert</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</div>
 <div class="viewcode-block" id="Inventory.insert"><a class="viewcode-back" href="../../modules/cloudmesh.inventory.html#cloudmesh.inventory.Inventory.insert">[docs]</a>    <span class="k">def</span> <span class="nf">insert</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">element</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">db_inventory</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
 </div>
 <div class="viewcode-block" id="Inventory.clear"><a class="viewcode-back" href="../../modules/cloudmesh.inventory.html#cloudmesh.inventory.Inventory.clear">[docs]</a>    <span class="k">def</span> <span class="nf">clear</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">db_inventory</span><span class="o">.</span><span class="n">remove</span><span class="p">({</span><span class="s">&quot;cm_type&quot;</span> <span class="p">:</span> <span class="s">&quot;inventory&quot;</span><span class="p">})</span>
-        </div>
+</div>
 <div class="viewcode-block" id="Inventory.find"><a class="viewcode-back" href="../../modules/cloudmesh.inventory.html#cloudmesh.inventory.Inventory.find">[docs]</a>    <span class="k">def</span> <span class="nf">find</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">query</span><span class="p">):</span>
         <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">        executes a query and returns the results from mongo db.</span>
 <span class="sd">        :param query:</span>
 <span class="sd">        &#39;&#39;&#39;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">db_inventory</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">query</span><span class="p">)</span> 
-    </div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">db_inventory</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+</div>
 <div class="viewcode-block" id="Inventory.find_one"><a class="viewcode-back" href="../../modules/cloudmesh.inventory.html#cloudmesh.inventory.Inventory.find_one">[docs]</a>    <span class="k">def</span> <span class="nf">find_one</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">query</span><span class="p">):</span>
         <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">        executes a query and returns the results from mongo db.</span>
 <span class="sd">        :param query:</span>
 <span class="sd">        &#39;&#39;&#39;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">db_inventory</span><span class="o">.</span><span class="n">find_one</span><span class="p">(</span><span class="n">query</span><span class="p">)</span> 
-    
-       </div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">db_inventory</span><span class="o">.</span><span class="n">find_one</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+</div>
     <span class="k">def</span> <span class="nf">_generate_globals</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        
+
         <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s">&quot;clusters&quot;</span><span class="p">]:</span>
 
             <span class="n">cluster</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s">&quot;clusters&quot;</span><span class="p">][</span><span class="n">name</span><span class="p">]</span>
             <span class="n">keys</span> <span class="o">=</span> <span class="n">cluster</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
-            
+
             <span class="n">element</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">({</span><span class="s">&#39;cm_cluster&#39;</span><span class="p">:</span> <span class="n">name</span><span class="p">,</span>
                             <span class="s">&#39;cm_id&#39;</span><span class="p">:</span> <span class="n">name</span><span class="p">,</span>
                             <span class="s">&#39;cm_type&#39;</span><span class="p">:</span> <span class="s">&quot;inventory&quot;</span><span class="p">,</span>
@@ -469,9 +468,10 @@
                             <span class="s">&#39;cm_attribute&#39;</span><span class="p">:</span> <span class="s">&#39;variable&#39;</span>
                              <span class="p">})</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
-            
-            <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">keys</span><span class="p">:</span> 
-                <span class="k">if</span> <span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">cluster</span><span class="p">[</span><span class="n">key</span><span class="p">])</span> <span class="ow">is</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="ow">not</span> <span class="n">key</span> <span class="ow">in</span> <span class="p">[</span><span class="s">&quot;id&quot;</span><span class="p">,</span> <span class="s">&quot;network&quot;</span><span class="p">]):</span>
+
+            <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">keys</span><span class="p">:</span>
+                <span class="k">if</span> <span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">cluster</span><span class="p">[</span><span class="n">key</span><span class="p">])</span> <span class="ow">is</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">and</span> \
+                    <span class="p">(</span><span class="ow">not</span> <span class="n">key</span> <span class="ow">in</span> <span class="p">[</span><span class="s">&quot;id&quot;</span><span class="p">,</span> <span class="s">&quot;network&quot;</span><span class="p">]):</span>
                     <span class="n">element</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">({</span><span class="s">&#39;cm_cluster&#39;</span><span class="p">:</span> <span class="n">name</span><span class="p">,</span>
                                     <span class="s">&#39;cm_id&#39;</span><span class="p">:</span> <span class="n">name</span><span class="p">,</span>
                                     <span class="s">&#39;cm_type&#39;</span><span class="p">:</span> <span class="s">&quot;inventory&quot;</span><span class="p">,</span>
@@ -495,26 +495,25 @@
                                         <span class="p">})</span>
                         <span class="bp">self</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
 
-        
-<div class="viewcode-block" id="Inventory.generate"><a class="viewcode-back" href="../../modules/cloudmesh.inventory.html#cloudmesh.inventory.Inventory.generate">[docs]</a>    <span class="k">def</span> <span class="nf">generate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>    
+<div class="viewcode-block" id="Inventory.generate"><a class="viewcode-back" href="../../modules/cloudmesh.inventory.html#cloudmesh.inventory.Inventory.generate">[docs]</a>    <span class="k">def</span> <span class="nf">generate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">generate_bootspec</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_generate_globals</span><span class="p">()</span>
-        
-        
-        
+
+
+
         <span class="n">clusters</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s">&quot;clusters&quot;</span><span class="p">]</span>
-        
+
         <span class="k">for</span> <span class="n">cluster_name</span> <span class="ow">in</span> <span class="n">clusters</span><span class="p">:</span>
             <span class="n">cluster</span> <span class="o">=</span> <span class="n">clusters</span><span class="p">[</span><span class="n">cluster_name</span><span class="p">]</span>
             <span class="n">names</span> <span class="o">=</span> <span class="n">expand_hostlist</span><span class="p">(</span><span class="n">cluster</span><span class="p">[</span><span class="s">&quot;id&quot;</span><span class="p">])</span>
-            <span class="n">net_id</span> <span class="o">=</span> <span class="mi">0</span>    
+            <span class="n">net_id</span> <span class="o">=</span> <span class="mi">0</span>
             <span class="k">for</span> <span class="n">network</span> <span class="ow">in</span> <span class="n">cluster</span><span class="p">[</span><span class="s">&quot;network&quot;</span><span class="p">]:</span>
-                
+
                 <span class="n">n_index</span> <span class="o">=</span> <span class="n">expand_hostlist</span><span class="p">(</span><span class="n">network</span><span class="p">[</span><span class="s">&quot;id&quot;</span><span class="p">])</span>
                 <span class="n">n_label</span> <span class="o">=</span> <span class="n">expand_hostlist</span><span class="p">(</span><span class="n">network</span><span class="p">[</span><span class="s">&quot;label&quot;</span><span class="p">])</span>
                 <span class="n">n_range</span> <span class="o">=</span> <span class="n">expand_hostlist</span><span class="p">(</span><span class="n">network</span><span class="p">[</span><span class="s">&quot;range&quot;</span><span class="p">])</span>
                 <span class="n">n_name</span> <span class="o">=</span> <span class="n">network</span><span class="p">[</span><span class="s">&quot;name&quot;</span><span class="p">]</span>
-                
+
                 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">names</span><span class="p">)):</span>
                     <span class="n">name</span> <span class="o">=</span> <span class="n">n_index</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
                     <span class="n">element</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">network</span><span class="p">)</span>
@@ -533,130 +532,123 @@
                     <span class="p">)</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
                 <span class="n">net_id</span> <span class="o">+=</span> <span class="mi">1</span>
-
-        
-        </div>
-<div class="viewcode-block" id="Inventory.cluster"><a class="viewcode-back" href="../../modules/cloudmesh.inventory.html#cloudmesh.inventory.Inventory.cluster">[docs]</a>    <span class="k">def</span> <span class="nf">cluster</span> <span class="p">(</span><span class="n">selfself</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+</div>
+<div class="viewcode-block" id="Inventory.cluster"><a class="viewcode-back" href="../../modules/cloudmesh.inventory.html#cloudmesh.inventory.Inventory.cluster">[docs]</a>    <span class="k">def</span> <span class="nf">cluster</span> <span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;returns cluster data in dict&quot;&quot;&quot;</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;NOT IMPLEMENTED&quot;</span>
         <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s">&quot;Not Implemented&quot;</span><span class="p">)</span>
-                 
 </div>
 <div class="viewcode-block" id="Inventory.info"><a class="viewcode-back" href="../../modules/cloudmesh.inventory.html#cloudmesh.inventory.Inventory.info">[docs]</a>    <span class="k">def</span> <span class="nf">info</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">        print some elementary overview information </span>
 <span class="sd">        &#39;&#39;&#39;</span>
-       
-        <span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">            element = dict({&#39;cm_cluster&#39;: name,</span>
-<span class="sd">                            &#39;cm_id&#39;: name,</span>
-<span class="sd">                            &#39;cm_type&#39;: &quot;inventory&quot;,</span>
-<span class="sd">                            &#39;cm_kind&#39;: &#39;server&#39;,</span>
-<span class="sd">                            &#39;cm_key&#39;: &#39;range&#39;,</span>
-<span class="sd">                            &#39;cm_value&#39;: expand_hostlist(cluster[&quot;id&quot;]),</span>
-<span class="sd">                            &#39;cm_attribute&#39;: &#39;variable&#39;</span>
-<span class="sd">                             })</span>
-<span class="sd">        &#39;&#39;&#39;</span>
-        <span class="n">clusters</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">find</span><span class="p">({</span><span class="s">&#39;cm_type&#39;</span> <span class="p">:</span> <span class="s">&#39;inventory&#39;</span><span class="p">,</span> <span class="s">&#39;cm_key&#39;</span> <span class="p">:</span> <span class="s">&#39;range&#39;</span><span class="p">,</span> <span class="s">&#39;cm_kind&#39;</span> <span class="p">:</span> <span class="s">&#39;server&#39;</span><span class="p">})</span>
-        <span class="n">servers</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">find</span><span class="p">({</span><span class="s">&#39;cm_type&#39;</span> <span class="p">:</span> <span class="s">&#39;inventory&#39;</span><span class="p">,</span> <span class="s">&#39;cm_key&#39;</span> <span class="p">:</span> <span class="s">&#39;server&#39;</span><span class="p">,</span> <span class="s">&#39;cm_kind&#39;</span> <span class="p">:</span> <span class="s">&#39;server&#39;</span><span class="p">})</span>   
-        <span class="n">services</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">find</span><span class="p">({</span><span class="s">&#39;cm_type&#39;</span> <span class="p">:</span> <span class="s">&#39;inventory&#39;</span><span class="p">,</span> <span class="s">&#39;cm_key&#39;</span> <span class="p">:</span> <span class="s">&#39;image&#39;</span><span class="p">,</span> <span class="s">&#39;cm_kind&#39;</span> <span class="p">:</span> <span class="s">&#39;image&#39;</span><span class="p">})</span>   
-        <span class="n">images</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">find</span><span class="p">({</span><span class="s">&#39;cm_key&#39;</span> <span class="p">:</span> <span class="s">&#39;bootspec&#39;</span><span class="p">})</span>   
-        <span class="k">print</span> <span class="s">&quot;IIII&quot;</span><span class="p">,</span> <span class="n">images</span><span class="o">.</span><span class="n">count</span><span class="p">()</span> 
- 
- 
+        <span class="n">clusters</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">find</span><span class="p">({</span><span class="s">&#39;cm_type&#39;</span> <span class="p">:</span> <span class="s">&#39;inventory&#39;</span><span class="p">,</span>
+                              <span class="s">&#39;cm_key&#39;</span> <span class="p">:</span> <span class="s">&#39;range&#39;</span><span class="p">,</span>
+                              <span class="s">&#39;cm_kind&#39;</span> <span class="p">:</span> <span class="s">&#39;server&#39;</span><span class="p">})</span>
+        <span class="n">servers</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">find</span><span class="p">({</span><span class="s">&#39;cm_type&#39;</span> <span class="p">:</span> <span class="s">&#39;inventory&#39;</span><span class="p">,</span>
+                             <span class="s">&#39;cm_key&#39;</span> <span class="p">:</span> <span class="s">&#39;server&#39;</span><span class="p">,</span>
+                             <span class="s">&#39;cm_kind&#39;</span> <span class="p">:</span> <span class="s">&#39;server&#39;</span><span class="p">})</span>
+        <span class="n">services</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">find</span><span class="p">({</span><span class="s">&#39;cm_type&#39;</span> <span class="p">:</span> <span class="s">&#39;inventory&#39;</span><span class="p">,</span>
+                              <span class="s">&#39;cm_key&#39;</span> <span class="p">:</span> <span class="s">&#39;image&#39;</span><span class="p">,</span>
+                              <span class="s">&#39;cm_kind&#39;</span> <span class="p">:</span> <span class="s">&#39;image&#39;</span><span class="p">})</span>
+        <span class="n">images</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">find</span><span class="p">({</span><span class="s">&#39;cm_key&#39;</span> <span class="p">:</span> <span class="s">&#39;bootspec&#39;</span><span class="p">})</span>
+        <span class="k">print</span> <span class="s">&quot;IIII&quot;</span><span class="p">,</span> <span class="n">images</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+
+
         <span class="c"># print &quot;%15s:&quot; % &quot;dbname&quot;, self.inventory_name</span>
         <span class="k">print</span> <span class="s">&quot;</span><span class="si">%15s</span><span class="s">:&quot;</span> <span class="o">%</span> <span class="s">&quot;clusters&quot;</span><span class="p">,</span> <span class="n">clusters</span><span class="o">.</span><span class="n">count</span><span class="p">(),</span> <span class="s">&quot;-&gt;&quot;</span><span class="p">,</span> <span class="s">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">c</span><span class="p">[</span><span class="s">&#39;cm_cluster&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">clusters</span><span class="p">])</span>
         <span class="k">print</span> <span class="s">&quot;</span><span class="si">%15s</span><span class="s">:&quot;</span> <span class="o">%</span> <span class="s">&quot;services&quot;</span><span class="p">,</span> <span class="n">services</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
         <span class="k">print</span> <span class="s">&quot;</span><span class="si">%15s</span><span class="s">:&quot;</span> <span class="o">%</span> <span class="s">&quot;servers&quot;</span><span class="p">,</span> <span class="n">servers</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
         <span class="k">print</span> <span class="s">&quot;</span><span class="si">%15s</span><span class="s">:&quot;</span> <span class="o">%</span> <span class="s">&quot;images&quot;</span><span class="p">,</span> <span class="n">images</span><span class="o">.</span><span class="n">count</span><span class="p">()</span> <span class="p">,</span> <span class="s">&quot;-&gt;&quot;</span><span class="p">,</span> <span class="s">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">c</span><span class="p">[</span><span class="s">&#39;cm_label&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">images</span><span class="p">])</span>
         <span class="k">print</span>
-       
+
         <span class="k">print</span> <span class="n">clusters</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
-        
+
         <span class="k">print</span> <span class="s">&quot;Clusters&quot;</span>
         <span class="k">print</span> <span class="mi">30</span> <span class="o">*</span> <span class="s">&quot;=&quot;</span>
         <span class="k">for</span> <span class="n">host</span> <span class="ow">in</span> <span class="n">clusters</span><span class="p">:</span>
             <span class="k">print</span> <span class="s">&quot;    &quot;</span><span class="p">,</span> <span class="n">host</span><span class="p">[</span><span class="s">&#39;cm_cluster&#39;</span><span class="p">],</span> <span class="s">&quot;-&gt;&quot;</span><span class="p">,</span> <span class="n">host</span><span class="p">[</span><span class="s">&#39;cm_hostlist&#39;</span><span class="p">]</span>
 
-        <span class="k">print</span> 
-        
-
-        </div>
+        <span class="k">print</span>
+</div>
 <div class="viewcode-block" id="Inventory.hostlist"><a class="viewcode-back" href="../../modules/cloudmesh.inventory.html#cloudmesh.inventory.Inventory.hostlist">[docs]</a>    <span class="k">def</span> <span class="nf">hostlist</span> <span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
         <span class="k">print</span> <span class="s">&quot;NAME&quot;</span><span class="p">,</span> <span class="n">name</span>
         <span class="n">hosts</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">find</span> <span class="p">({</span><span class="s">&quot;cm_cluster&quot;</span><span class="p">:</span> <span class="n">name</span><span class="p">,</span> <span class="s">&#39;cm_key&#39;</span><span class="p">:</span> <span class="s">&#39;range&#39;</span> <span class="p">})[</span><span class="mi">0</span><span class="p">][</span><span class="s">&#39;cm_value&#39;</span><span class="p">]</span>
-        <span class="k">return</span> <span class="n">hosts</span>    
-                         
-    </div>
+        <span class="c">#print &quot;===================&quot;, self.find_one({&quot;cm_cluster&quot;: name, &#39;cm_key&#39;: &#39;range&#39; })</span>
+        <span class="k">return</span> <span class="n">hosts</span>
+</div>
 <div class="viewcode-block" id="Inventory.host"><a class="viewcode-back" href="../../modules/cloudmesh.inventory.html#cloudmesh.inventory.Inventory.host">[docs]</a>    <span class="k">def</span> <span class="nf">host</span> <span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">auth</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
-        <span class="n">cursor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">find</span> <span class="p">({</span><span class="s">&quot;cm_id&quot;</span> <span class="p">:</span> <span class="n">index</span><span class="p">,</span> <span class="s">&#39;cm_attribute&#39;</span> <span class="p">:</span> <span class="s">&#39;network&#39;</span><span class="p">})</span>
-        
+        <span class="n">cursor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">find</span> <span class="p">({</span><span class="s">&quot;cm_id&quot;</span> <span class="p">:</span> <span class="n">index</span><span class="p">,</span>
+                             <span class="s">&#39;cm_attribute&#39;</span> <span class="p">:</span> <span class="s">&#39;network&#39;</span><span class="p">})</span>
+
         <span class="k">print</span> <span class="s">&quot;CCCC&quot;</span><span class="p">,</span> <span class="n">cursor</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-        
-        
+
+
         <span class="n">data</span> <span class="o">=</span> <span class="p">{}</span>
-                
+
         <span class="n">data</span><span class="p">[</span><span class="s">&#39;cm_cluster&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cursor</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s">&#39;cm_cluster&#39;</span><span class="p">]</span>
-        <span class="n">data</span><span class="p">[</span><span class="s">&#39;cm_type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cursor</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s">&#39;cm_type&#39;</span><span class="p">]</span>  
-        <span class="n">data</span><span class="p">[</span><span class="s">&#39;cm_id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cursor</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s">&#39;cm_id&#39;</span><span class="p">]</span>  
-                
+        <span class="n">data</span><span class="p">[</span><span class="s">&#39;cm_type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cursor</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s">&#39;cm_type&#39;</span><span class="p">]</span>
+        <span class="n">data</span><span class="p">[</span><span class="s">&#39;cm_id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cursor</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s">&#39;cm_id&#39;</span><span class="p">]</span>
+
         <span class="n">pprint</span> <span class="p">(</span><span class="n">cursor</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s">&#39;cm_cluster&#39;</span><span class="p">])</span>
-        
+
         <span class="n">c2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">find</span><span class="p">({</span><span class="s">&quot;cm_attribute&quot;</span><span class="p">:</span> <span class="s">&#39;variable&#39;</span><span class="p">})</span>
-        
+
         <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">c2</span><span class="p">:</span>
             <span class="k">print</span> <span class="s">&quot;EEE&quot;</span><span class="p">,</span> <span class="n">e</span>
             <span class="k">print</span>
-        
+
         <span class="n">cursor_attributes</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">find</span> <span class="p">({</span><span class="s">&quot;cm_id&quot;</span> <span class="p">:</span> <span class="n">index</span><span class="p">,</span> <span class="s">&#39;cm_attribute&#39;</span> <span class="p">:</span> <span class="s">&#39;variable&#39;</span><span class="p">})</span>
         <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">cursor_attributes</span><span class="p">:</span>
             <span class="n">data</span><span class="p">[</span><span class="n">element</span><span class="p">[</span><span class="s">&#39;cm_key&#39;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">element</span><span class="p">[</span><span class="s">&#39;cm_value&#39;</span><span class="p">]</span>
-        
-        
+
+
         <span class="n">data</span><span class="p">[</span><span class="s">&#39;network&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
         <span class="k">for</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">cursor</span><span class="p">:</span>
             <span class="k">print</span> <span class="mi">70</span> <span class="o">*</span> <span class="s">&quot;R&quot;</span>
             <span class="n">pprint</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
             <span class="k">print</span> <span class="mi">70</span> <span class="o">*</span> <span class="s">&quot;S&quot;</span>
-            
+
             <span class="n">n_id</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="s">&quot;cm_network_id&quot;</span><span class="p">]</span>
             <span class="n">n_name</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="s">&quot;network_name&quot;</span><span class="p">]</span>
             <span class="n">n_ipaddr</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="s">&quot;ipaddr&quot;</span><span class="p">]</span>
             <span class="n">data</span><span class="p">[</span><span class="s">&#39;network&#39;</span><span class="p">][</span><span class="n">n_name</span><span class="p">]</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
             <span class="c"># del data[&quot;network&quot;][name][&quot;_id&quot;]</span>
 
-        
+
         <span class="n">cluster_name</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s">&#39;cm_cluster&#39;</span><span class="p">]</span>
         <span class="n">cluster_auth</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">server_config</span><span class="p">[</span><span class="s">&quot;clusters&quot;</span><span class="p">][</span><span class="n">cluster_name</span><span class="p">]</span>
-        
+
         <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">cluster_auth</span><span class="p">:</span>
             <span class="n">network</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s">&quot;network&quot;</span><span class="p">][</span><span class="n">name</span><span class="p">]</span>
             <span class="n">d</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">cluster_auth</span><span class="p">[</span><span class="n">name</span><span class="p">])</span>
             <span class="n">network</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
-            
+
         <span class="n">excludes</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;user&#39;</span><span class="p">,</span> <span class="s">&#39;password&#39;</span><span class="p">]</span>
-        
+
         <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="s">&quot;network&quot;</span><span class="p">]:</span>
             <span class="k">del</span> <span class="n">data</span><span class="p">[</span><span class="s">&quot;network&quot;</span><span class="p">][</span><span class="n">name</span><span class="p">][</span><span class="s">&quot;_id&quot;</span><span class="p">]</span>
             <span class="k">if</span> <span class="ow">not</span> <span class="n">auth</span><span class="p">:</span>
                 <span class="k">for</span> <span class="n">exclude</span> <span class="ow">in</span> <span class="n">excludes</span><span class="p">:</span>
                     <span class="k">if</span> <span class="n">exclude</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="s">&quot;network&quot;</span><span class="p">][</span><span class="n">name</span><span class="p">]:</span>
                         <span class="k">del</span> <span class="n">data</span><span class="p">[</span><span class="s">&quot;network&quot;</span><span class="p">][</span><span class="n">name</span><span class="p">][</span><span class="n">exclude</span><span class="p">]</span>
-                        
+
         <span class="k">return</span> <span class="n">data</span>
-                </div>
-<div class="viewcode-block" id="Inventory.ipadr"><a class="viewcode-back" href="../../modules/cloudmesh.inventory.html#cloudmesh.inventory.Inventory.ipadr">[docs]</a>    <span class="k">def</span> <span class="nf">ipadr</span> <span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="nb">type</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">find</span> <span class="p">({</span><span class="s">&quot;cm_id&quot;</span><span class="p">:</span> <span class="n">index</span><span class="p">,</span> <span class="s">&quot;type&quot;</span><span class="p">:</span> <span class="nb">type</span><span class="p">})[</span><span class="mi">0</span><span class="p">][</span><span class="s">&#39;ipaddr&#39;</span><span class="p">]</span>
-            </div>
+</div>
+<div class="viewcode-block" id="Inventory.ipadr"><a class="viewcode-back" href="../../modules/cloudmesh.inventory.html#cloudmesh.inventory.Inventory.ipadr">[docs]</a>    <span class="k">def</span> <span class="nf">ipadr</span> <span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">iptype</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">find</span> <span class="p">({</span><span class="s">&quot;cm_id&quot;</span><span class="p">:</span> <span class="n">index</span><span class="p">,</span>
+                           <span class="s">&quot;type&quot;</span><span class="p">:</span> <span class="n">iptype</span><span class="p">})[</span><span class="mi">0</span><span class="p">][</span><span class="s">&#39;ipaddr&#39;</span><span class="p">]</span>
+</div>
 <div class="viewcode-block" id="Inventory.generate_bootspec"><a class="viewcode-back" href="../../modules/cloudmesh.inventory.html#cloudmesh.inventory.Inventory.generate_bootspec">[docs]</a>    <span class="k">def</span> <span class="nf">generate_bootspec</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">print</span> <span class="bp">self</span><span class="o">.</span><span class="n">bootspec_config</span>
-        
+
         <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">bootspec_config</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s">&#39;filename&#39;</span><span class="p">,</span><span class="s">&#39;location&#39;</span><span class="p">]:</span>  
+            <span class="k">if</span> <span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s">&#39;filename&#39;</span><span class="p">,</span> <span class="s">&#39;location&#39;</span><span class="p">]:</span>
                 <span class="k">print</span> <span class="s">&quot;Adding to inventory bootspec&quot;</span><span class="p">,</span> <span class="n">name</span>
                 <span class="n">description</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">bootspec_config</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
                 <span class="k">print</span> <span class="s">&quot;DDD&quot;</span><span class="p">,</span> <span class="n">description</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">add_bootspec</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">description</span><span class="p">)</span>
-                        </div>
+</div>
 <div class="viewcode-block" id="Inventory.add_bootspec"><a class="viewcode-back" href="../../modules/cloudmesh.inventory.html#cloudmesh.inventory.Inventory.add_bootspec">[docs]</a>    <span class="k">def</span> <span class="nf">add_bootspec</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">description</span><span class="p">):</span>
         <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">        cm_type: inventory</span>
@@ -704,16 +696,16 @@
                         <span class="s">&#39;id&#39;</span><span class="p">:</span> <span class="n">name</span><span class="p">,</span>
                         <span class="s">&#39;label&#39;</span> <span class="p">:</span> <span class="n">name</span><span class="p">,</span>
                         <span class="s">&#39;cm_refresh&#39;</span><span class="p">:</span> <span class="n">time</span><span class="p">})</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s">&#39;cm_key&#39;</span><span class="p">:</span> <span class="s">&#39;bootspec&#39;</span><span class="p">,</span> <span class="s">&#39;id&#39;</span><span class="p">:</span> <span class="n">name</span><span class="p">},</span> <span class="n">element</span><span class="p">)</span>            
-        </div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s">&#39;cm_key&#39;</span><span class="p">:</span> <span class="s">&#39;bootspec&#39;</span><span class="p">,</span> <span class="s">&#39;id&#39;</span><span class="p">:</span> <span class="n">name</span><span class="p">},</span> <span class="n">element</span><span class="p">)</span>
+</div>
 <div class="viewcode-block" id="Inventory.get_bootspec"><a class="viewcode-back" href="../../modules/cloudmesh.inventory.html#cloudmesh.inventory.Inventory.get_bootspec">[docs]</a>    <span class="k">def</span> <span class="nf">get_bootspec</span> <span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
         <span class="n">spec</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">find_one</span> <span class="p">({</span><span class="s">&#39;cm_type&#39;</span><span class="p">:</span> <span class="s">&quot;inventory&quot;</span><span class="p">,</span>
                                <span class="s">&#39;cm_key&#39;</span><span class="p">:</span> <span class="s">&#39;bootspec&#39;</span><span class="p">,</span>
                                <span class="s">&#39;cm_kind&#39;</span><span class="p">:</span> <span class="s">&#39;bootspec&#39;</span><span class="p">,</span>
                                <span class="s">&#39;cm_id&#39;</span><span class="p">:</span> <span class="n">name</span><span class="p">})</span>
         <span class="k">return</span> <span class="n">spec</span>
-        
-        </div></div>
+
+</div></div>
 <div class="viewcode-block" id="main"><a class="viewcode-back" href="../../modules/cloudmesh.inventory.html#cloudmesh.inventory.main">[docs]</a><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
     <span class="n">inventory</span> <span class="o">=</span> <span class="n">Inventory</span><span class="p">()</span>
 
@@ -727,14 +719,13 @@
     <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;b010&quot;</span>
     <span class="n">data</span> <span class="o">=</span> <span class="n">inventory</span><span class="o">.</span><span class="n">host</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
     <span class="n">pprint</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-    
+
     <span class="k">print</span> <span class="n">inventory</span><span class="o">.</span><span class="n">ipadr</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="s">&quot;public&quot;</span><span class="p">)</span>
     <span class="k">print</span> <span class="n">inventory</span><span class="o">.</span><span class="n">ipadr</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="s">&quot;internal&quot;</span><span class="p">)</span>
 
-    </div>
+</div>
 <span class="k">if</span>  <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>
- 
 </pre></div>
 
     </div>

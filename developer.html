@@ -1,6 +1,7 @@
 
 
   
+  
  
   
   
@@ -19,8 +20,8 @@
     <link rel="stylesheet" href="_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="_static/bootstrap-3.0.0/css/bootstrap.min.css" type="text/css" />
-    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="_static/bootstrap-3.0.0/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
@@ -116,7 +117,10 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#additional-installation-for-documentation-generation">4.6&nbsp;&nbsp;&nbsp;Additional Installation for Documentation Generation</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#blockdiag-family">4.6.1&nbsp;&nbsp;&nbsp;Blockdiag family</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#yaml-files">4.6.2&nbsp;&nbsp;&nbsp;YAML files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#yaml-files">4.6.2&nbsp;&nbsp;&nbsp;YAML files</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#generating-a-cloudmesh-yaml-file">4.6.2.1&nbsp;&nbsp;&nbsp;Generating a cloudmesh.yaml file</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#mongo">4.6.3&nbsp;&nbsp;&nbsp;Mongo</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#starting-and-testing-the-queue-service">4.6.4&nbsp;&nbsp;&nbsp;Starting and testing the Queue Service</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#starting-the-web-service">4.6.5&nbsp;&nbsp;&nbsp;Starting the Web Service</a></li>
@@ -312,7 +316,10 @@
 </li>
 <li><a class="reference internal" href="#additional-installation-for-documentation-generation">4.6&nbsp;&nbsp;&nbsp;Additional Installation for Documentation Generation</a><ul>
 <li><a class="reference internal" href="#blockdiag-family">4.6.1&nbsp;&nbsp;&nbsp;Blockdiag family</a></li>
-<li><a class="reference internal" href="#yaml-files">4.6.2&nbsp;&nbsp;&nbsp;YAML files</a></li>
+<li><a class="reference internal" href="#yaml-files">4.6.2&nbsp;&nbsp;&nbsp;YAML files</a><ul>
+<li><a class="reference internal" href="#generating-a-cloudmesh-yaml-file">4.6.2.1&nbsp;&nbsp;&nbsp;Generating a cloudmesh.yaml file</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#mongo">4.6.3&nbsp;&nbsp;&nbsp;Mongo</a></li>
 <li><a class="reference internal" href="#starting-and-testing-the-queue-service">4.6.4&nbsp;&nbsp;&nbsp;Starting and testing the Queue Service</a></li>
 <li><a class="reference internal" href="#starting-the-web-service">4.6.5&nbsp;&nbsp;&nbsp;Starting the Web Service</a></li>
@@ -353,8 +360,10 @@
             
             
               <li>
+<div id="sourcelink">
   <a href="_sources/developer.txt"
-     rel="nofollow">Source</a></li>
+     rel="nofollow">Source</a>
+</div></li>
             
           </ul>
 
@@ -374,7 +383,7 @@
 
 <div class="container">
   <div class="row">
-    <div class="span12">
+    <div class="col-md-12">
       
   <div class="sidebar">
 <p class="first sidebar-title">Page Contents</p>
@@ -406,27 +415,30 @@
 </li>
 <li><a class="reference internal" href="#additional-installation-for-documentation-generation" id="id19">4.6&nbsp;&nbsp;&nbsp;Additional Installation for Documentation Generation</a><ul class="auto-toc">
 <li><a class="reference internal" href="#blockdiag-family" id="id20">4.6.1&nbsp;&nbsp;&nbsp;Blockdiag family</a></li>
-<li><a class="reference internal" href="#yaml-files" id="id21">4.6.2&nbsp;&nbsp;&nbsp;YAML files</a></li>
-<li><a class="reference internal" href="#mongo" id="id22">4.6.3&nbsp;&nbsp;&nbsp;Mongo</a></li>
-<li><a class="reference internal" href="#starting-and-testing-the-queue-service" id="id23">4.6.4&nbsp;&nbsp;&nbsp;Starting and testing the Queue Service</a></li>
-<li><a class="reference internal" href="#starting-the-web-service" id="id24">4.6.5&nbsp;&nbsp;&nbsp;Starting the Web Service</a></li>
-<li><a class="reference internal" href="#the-t-py-program" id="id25">4.6.6&nbsp;&nbsp;&nbsp;The t.py program</a></li>
-<li><a class="reference internal" href="#developer-tests" id="id26">4.6.7&nbsp;&nbsp;&nbsp;Developer Tests</a></li>
+<li><a class="reference internal" href="#yaml-files" id="id21">4.6.2&nbsp;&nbsp;&nbsp;YAML files</a><ul class="auto-toc">
+<li><a class="reference internal" href="#generating-a-cloudmesh-yaml-file" id="id22">4.6.2.1&nbsp;&nbsp;&nbsp;Generating a cloudmesh.yaml file</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#cleaning" id="id27">4.7&nbsp;&nbsp;&nbsp;Cleaning</a></li>
-<li><a class="reference internal" href="#convenient-command-shortcuts" id="id28">4.8&nbsp;&nbsp;&nbsp;Convenient command shortcuts</a></li>
-<li><a class="reference internal" href="#working-with-cloudmesh-on-a-remote-server" id="id29">4.9&nbsp;&nbsp;&nbsp;Working with Cloudmesh on a remote server</a></li>
-<li><a class="reference internal" href="#special-notes-for-centos" id="id30">4.10&nbsp;&nbsp;&nbsp;Special notes for CentOS</a><ul class="auto-toc">
-<li><a class="reference internal" href="#install-python" id="id31">4.10.1&nbsp;&nbsp;&nbsp;Install Python</a></li>
-<li><a class="reference internal" href="#starting-the-rabbitmq-service" id="id32">4.10.2&nbsp;&nbsp;&nbsp;Starting the  RabbitMQ service</a></li>
+<li><a class="reference internal" href="#mongo" id="id23">4.6.3&nbsp;&nbsp;&nbsp;Mongo</a></li>
+<li><a class="reference internal" href="#starting-and-testing-the-queue-service" id="id24">4.6.4&nbsp;&nbsp;&nbsp;Starting and testing the Queue Service</a></li>
+<li><a class="reference internal" href="#starting-the-web-service" id="id25">4.6.5&nbsp;&nbsp;&nbsp;Starting the Web Service</a></li>
+<li><a class="reference internal" href="#the-t-py-program" id="id26">4.6.6&nbsp;&nbsp;&nbsp;The t.py program</a></li>
+<li><a class="reference internal" href="#developer-tests" id="id27">4.6.7&nbsp;&nbsp;&nbsp;Developer Tests</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#making-the-documentation" id="id33">4.11&nbsp;&nbsp;&nbsp;Making the documentation</a><ul class="auto-toc">
-<li><a class="reference internal" href="#example-start-the-gui-for-development" id="id34">4.11.1&nbsp;&nbsp;&nbsp;Example: Start the GUI for development</a></li>
+<li><a class="reference internal" href="#cleaning" id="id28">4.7&nbsp;&nbsp;&nbsp;Cleaning</a></li>
+<li><a class="reference internal" href="#convenient-command-shortcuts" id="id29">4.8&nbsp;&nbsp;&nbsp;Convenient command shortcuts</a></li>
+<li><a class="reference internal" href="#working-with-cloudmesh-on-a-remote-server" id="id30">4.9&nbsp;&nbsp;&nbsp;Working with Cloudmesh on a remote server</a></li>
+<li><a class="reference internal" href="#special-notes-for-centos" id="id31">4.10&nbsp;&nbsp;&nbsp;Special notes for CentOS</a><ul class="auto-toc">
+<li><a class="reference internal" href="#install-python" id="id32">4.10.1&nbsp;&nbsp;&nbsp;Install Python</a></li>
+<li><a class="reference internal" href="#starting-the-rabbitmq-service" id="id33">4.10.2&nbsp;&nbsp;&nbsp;Starting the  RabbitMQ service</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#example-hpc-queue-server" id="id35">4.12&nbsp;&nbsp;&nbsp;Example: HPC queue server</a></li>
+<li><a class="reference internal" href="#making-the-documentation" id="id34">4.11&nbsp;&nbsp;&nbsp;Making the documentation</a><ul class="auto-toc">
+<li><a class="reference internal" href="#example-start-the-gui-for-development" id="id35">4.11.1&nbsp;&nbsp;&nbsp;Example: Start the GUI for development</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#example-hpc-queue-server" id="id36">4.12&nbsp;&nbsp;&nbsp;Example: HPC queue server</a></li>
 </ul>
 </li>
 </ul>
@@ -655,9 +667,52 @@ develpers when a change occured so you can update yours:</p>
 <li><a class="reference external" href="https://github.com/cloudmesh/cloudmesh/blob/master/etc/cloudmesh_launcher.yaml">cloumesh_launcher.yaml</a></li>
 <li><a class="reference external" href="https://github.com/cloudmesh/cloudmesh/blob/master/etc/cloudmesh_bootspec.yaml">cloumesh_bootspec.yaml</a></li>
 </ul>
+<div class="section" id="generating-a-cloudmesh-yaml-file">
+<h4><a class="toc-backref" href="#id22">4.6.2.1&nbsp;&nbsp;&nbsp;Generating a cloudmesh.yaml file</a><a class="headerlink" href="#generating-a-cloudmesh-yaml-file" title="Permalink to this headline">¶</a></h4>
+<p>To generate a simple cloudmesh.yaml file, you may want to use place
+the following contents (with modifications applying to you), in a file
+called me.yaml:</p>
+<div class="highlight-python"><pre>portalname: albert
+
+profile:
+    firstname: Gregor
+    lastname: von Laszewski
+    e-mail: elfstein@gmail.com
+
+password:
+  sierra_openstack_grizzly: 1234abcde
+
+projects:
+  default: fg82
+  active:
+  - fg82
+  - fg101
+  completed:
+  - fg130
+keys:
+  mykey1: ssh-rsa lkhjasdlkjhaskjhdaslkjdshsalk mykey1
+  mykey2: ssh-rsa jhadkjsahdkjsahdkjsahlkjdhlak mykey2</pre>
+</div>
+<p>Than you can print the contents of the yaml file that this input
+generets to the stdout with:</p>
+<div class="highlight-python"><pre>fab user.yaml</pre>
+</div>
+<p>ERROR: not that this prints a Done. msg at the end so if you redirect
+it to ~/.futuregrid/cloudmesh.yaml you need to correct this.</p>
+<p>WARNING: If you have a working yaml file, than I suggest you copy this
+first into a backup before overwriting somthing that worked befor ;-)</p>
+<p>In future we will have:</p>
+<div class="highlight-python"><pre>fab user.yaml,safe</pre>
+</div>
+<p>which safes this into ~/.futuregrid/cloudmesh.yaml and</p>
+<blockquote>
+<div>fab user.verify</div></blockquote>
+<p>which will verify if you can log into the clouds with your credentials</p>
+<p>WARNING: fab user.verify, and    fab user.yaml,safe are not yet implemented</p>
+</div>
 </div>
 <div class="section" id="mongo">
-<h3><a class="toc-backref" href="#id22">4.6.3&nbsp;&nbsp;&nbsp;Mongo</a><a class="headerlink" href="#mongo" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id23">4.6.3&nbsp;&nbsp;&nbsp;Mongo</a><a class="headerlink" href="#mongo" title="Permalink to this headline">¶</a></h3>
 <p>Cloudmesh uses mongo for serving information to the different
 services.  To managing mongo db it is important that you use our
 special fabric commands in order to make sure that the database is
@@ -680,7 +735,7 @@ properly initialized and managed. We make this real simple:</p>
 <p>Now you have data in the mongo db and you can use and test it</p>
 </div>
 <div class="section" id="starting-and-testing-the-queue-service">
-<h3><a class="toc-backref" href="#id23">4.6.4&nbsp;&nbsp;&nbsp;Starting and testing the Queue Service</a><a class="headerlink" href="#starting-and-testing-the-queue-service" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id24">4.6.4&nbsp;&nbsp;&nbsp;Starting and testing the Queue Service</a><a class="headerlink" href="#starting-and-testing-the-queue-service" title="Permalink to this headline">¶</a></h3>
 <p>Our framework uses rabbitMQ and Celery for managing asynchronous
 processes. They require that additional services are running. This is
 only important if you conduct development for dynamic provisioning and
@@ -698,7 +753,7 @@ down existing services. Essentially it will start a clean development
 environment.</p>
 </div>
 <div class="section" id="starting-the-web-service">
-<h3><a class="toc-backref" href="#id24">4.6.5&nbsp;&nbsp;&nbsp;Starting the Web Service</a><a class="headerlink" href="#starting-the-web-service" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id25">4.6.5&nbsp;&nbsp;&nbsp;Starting the Web Service</a><a class="headerlink" href="#starting-the-web-service" title="Permalink to this headline">¶</a></h3>
 <p>To start a service you can use:</p>
 <div class="highlight-python"><pre>fab server.start:/provision/summary/</pre>
 </div>
@@ -709,7 +764,7 @@ just use:</p>
 <p>It will be just starting at the home page.</p>
 </div>
 <div class="section" id="the-t-py-program">
-<h3><a class="toc-backref" href="#id25">4.6.6&nbsp;&nbsp;&nbsp;The t.py program</a><a class="headerlink" href="#the-t-py-program" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id26">4.6.6&nbsp;&nbsp;&nbsp;The t.py program</a><a class="headerlink" href="#the-t-py-program" title="Permalink to this headline">¶</a></h3>
 <p>(May not work)</p>
 <p>There is also a program called t.py in the base dir, so if you say:</p>
 <div class="highlight-python"><pre>python t.py</pre>
@@ -720,11 +775,11 @@ short as to allow for a quick debugging simulation. One could add the
 refresh of the web page automatically to other test programs.</p>
 </div>
 <div class="section" id="developer-tests">
-<h3><a class="toc-backref" href="#id26">4.6.7&nbsp;&nbsp;&nbsp;Developer Tests</a><a class="headerlink" href="#developer-tests" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id27">4.6.7&nbsp;&nbsp;&nbsp;Developer Tests</a><a class="headerlink" href="#developer-tests" title="Permalink to this headline">¶</a></h3>
 <p>Python has a very good unit test framework called nosetests. As we have many different tests it is sometimes useful not to run all of them but to run a selected test. Running all of the tests would take simply to long during debugging. We are providing an easy to use test fabric command that can be used as follows. Assume that in your directory tests are located a number of tests. They can be listed with:</p>
 <div class="highlight-python"><pre>$ fab test.info</pre>
 </div>
-<p>This will list the available test files/groups by name (the <a href="#id36"><span class="problematic" id="id37">test_</span></a> prefix is omitted). To list the individual tests in a file/grou, you can use it as a parameter to info. Thus:</p>
+<p>This will list the available test files/groups by name (the <a href="#id37"><span class="problematic" id="id38">test_</span></a> prefix is omitted). To list the individual tests in a file/grou, you can use it as a parameter to info. Thus:</p>
 <div class="highlight-python"><pre>fab test.info:compute</pre>
 </div>
 <p>will list the tests in the file test_compute.py. To call an individual test, you can use the name of the file and a unique prefix of the test you like to call via test.start. Thus:</p>
@@ -734,7 +789,7 @@ refresh of the web page automatically to other test programs.</p>
 </div>
 </div>
 <div class="section" id="cleaning">
-<h2><a class="toc-backref" href="#id27">4.7&nbsp;&nbsp;&nbsp;Cleaning</a><a class="headerlink" href="#cleaning" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id28">4.7&nbsp;&nbsp;&nbsp;Cleaning</a><a class="headerlink" href="#cleaning" title="Permalink to this headline">¶</a></h2>
 <p>sometimes it is important to clean things and start new. This can be done by</p>
 <div class="highlight-python"><pre>fab clean.all</pre>
 </div>
@@ -742,10 +797,9 @@ refresh of the web page automatically to other test programs.</p>
 <tt class="docutils literal"><span class="pre">fab</span> <span class="pre">server.start</span></tt> automatically does such an install for you.</p>
 </div>
 <div class="section" id="convenient-command-shortcuts">
-<h2><a class="toc-backref" href="#id28">4.8&nbsp;&nbsp;&nbsp;Convenient command shortcuts</a><a class="headerlink" href="#convenient-command-shortcuts" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id29">4.8&nbsp;&nbsp;&nbsp;Convenient command shortcuts</a><a class="headerlink" href="#convenient-command-shortcuts" title="Permalink to this headline">¶</a></h2>
 <p>We are providing a number of useful command that will make your development efforts easier.  These commands are build with fabfiles in the fabfile directory. in the cloudmesh directory, you will find a directory called fabfile that includes the agglomerated helper files. To access them you can use the name of the file, followed by a task that is defined within the file. Next we list the available commands:</p>
 <div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> fab -l
-<span class="go">Version 0.5</span>
 <span class="go">Available commands:</span>
 
 <span class="go">    build.install       install cloudmesh</span>
@@ -768,12 +822,13 @@ refresh of the web page automatically to other test programs.</p>
 <span class="go">    mongo.errormetric   puts an example of a log file into the mongodb logfil...</span>
 <span class="go">    mongo.info</span>
 <span class="go">    mongo.inventory</span>
-<span class="go">    mongo.ldap          festches a user list from ldap and displayes them</span>
+<span class="go">    mongo.ldap          fetches a user list from ldap and displays it</span>
 <span class="go">    mongo.metric        puts an example of a log file into the mongodb logfil...</span>
 <span class="go">    mongo.pbs</span>
 <span class="go">    mongo.simple        puts a snapshot of servers, images, and flavors into ...</span>
 <span class="go">    mongo.start         start the mongod service in the location as specified...</span>
 <span class="go">    mongo.stop          stops the currently running mongod</span>
+<span class="go">    mongo.user          creates a user from tempalte and a simplified version...</span>
 <span class="go">    mongo.users         puts a snapshot of the users into mongo</span>
 <span class="go">    mongo.vms_find</span>
 <span class="go">    mq.allow            allow a user to access the host in rabitmq</span>
@@ -806,17 +861,19 @@ refresh of the web page automatically to other test programs.</p>
 <span class="go">    server.clean        clean the directory</span>
 <span class="go">    server.kill         kills all server processes</span>
 <span class="go">    server.start        starts in dir webgui the program server.py and displa...</span>
+<span class="go">    server.stop         sma e as the kill command</span>
 <span class="go">    server.view         run the browser</span>
 <span class="go">    test.info           list all functions of file with the partial name f</span>
 <span class="go">    test.start          executes a test with a given partial filename and par...</span>
 <span class="go">    tunnel.flask</span>
 <span class="go">    tunnel.ldap</span>
 <span class="go">    tunnel.open         clean the dirs</span>
+<span class="go">    user.yaml           creates a user from tempalte and a simplified version...</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="working-with-cloudmesh-on-a-remote-server">
-<h2><a class="toc-backref" href="#id29">4.9&nbsp;&nbsp;&nbsp;Working with Cloudmesh on a remote server</a><a class="headerlink" href="#working-with-cloudmesh-on-a-remote-server" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id30">4.9&nbsp;&nbsp;&nbsp;Working with Cloudmesh on a remote server</a><a class="headerlink" href="#working-with-cloudmesh-on-a-remote-server" title="Permalink to this headline">¶</a></h2>
 <p>Sometimes it is desirable to work on cloudmesh on a remote server and use your laptop to connect to that server. This can be done for example via port forwarding. Let us assume you are running a cloudmesh server on the machine my.org. Than you can establish a port forwarding from port 5000 to 5001 as follows, where 5001 is the locally used port:</p>
 <div class="highlight-python"><pre>ssh -L 5001:localhost:5000 user@machine.edu</pre>
 </div>
@@ -832,13 +889,13 @@ $ ssh-add</pre>
 </div>
 </div>
 <div class="section" id="special-notes-for-centos">
-<h2><a class="toc-backref" href="#id30">4.10&nbsp;&nbsp;&nbsp;Special notes for CentOS</a><a class="headerlink" href="#special-notes-for-centos" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id31">4.10&nbsp;&nbsp;&nbsp;Special notes for CentOS</a><a class="headerlink" href="#special-notes-for-centos" title="Permalink to this headline">¶</a></h2>
 <p>Minimal initial requirements, git, python2.7, and virtualenv
 installed.  If you don&#8217;t have python2.7, see the manual installation
 steps below.  The system will also need to be configure to use the
 EPEL repo (for mongodb and rabbitmq).</p>
 <div class="section" id="install-python">
-<h3><a class="toc-backref" href="#id31">4.10.1&nbsp;&nbsp;&nbsp;Install Python</a><a class="headerlink" href="#install-python" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id32">4.10.1&nbsp;&nbsp;&nbsp;Install Python</a><a class="headerlink" href="#install-python" title="Permalink to this headline">¶</a></h3>
 <p>Cloudmesh requires python 2.7, and CentOS comes with Python 2.6.
 However we cannot replace the system python as yum and other tools
 depend on it, so we will configure it to install in /opt/python:</p>
@@ -854,7 +911,7 @@ $ sudo make install</pre>
 PATH, then log out and back in.</p>
 </div>
 <div class="section" id="starting-the-rabbitmq-service">
-<h3><a class="toc-backref" href="#id32">4.10.2&nbsp;&nbsp;&nbsp;Starting the  RabbitMQ service</a><a class="headerlink" href="#starting-the-rabbitmq-service" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id33">4.10.2&nbsp;&nbsp;&nbsp;Starting the  RabbitMQ service</a><a class="headerlink" href="#starting-the-rabbitmq-service" title="Permalink to this headline">¶</a></h3>
 <p>On centos rabbit mq can be started as a service with as follows:</p>
 <div class="highlight-python"><pre>$ sudo service rabbitmq-server start</pre>
 </div>
@@ -864,7 +921,7 @@ values.</p>
 </div>
 </div>
 <div class="section" id="making-the-documentation">
-<h2><a class="toc-backref" href="#id33">4.11&nbsp;&nbsp;&nbsp;Making the documentation</a><a class="headerlink" href="#making-the-documentation" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id34">4.11&nbsp;&nbsp;&nbsp;Making the documentation</a><a class="headerlink" href="#making-the-documentation" title="Permalink to this headline">¶</a></h2>
 <p>The documentation requiresa couple of add ons that are not included in
 the requirements.txt file. However, they can be installed with:</p>
 <div class="highlight-python"><pre>$ fab build.sphinx</pre>
@@ -876,7 +933,7 @@ the requirements.txt file. However, they can be installed with:</p>
 <div class="highlight-python"><pre>$ fab doc.view</pre>
 </div>
 <div class="section" id="example-start-the-gui-for-development">
-<h3><a class="toc-backref" href="#id34">4.11.1&nbsp;&nbsp;&nbsp;Example: Start the GUI for development</a><a class="headerlink" href="#example-start-the-gui-for-development" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id35">4.11.1&nbsp;&nbsp;&nbsp;Example: Start the GUI for development</a><a class="headerlink" href="#example-start-the-gui-for-development" title="Permalink to this headline">¶</a></h3>
 <p>Open a new terminal and type in:</p>
 <div class="highlight-python"><pre>fab mongo.start</pre>
 </div>
@@ -918,7 +975,7 @@ If you want to do thia by hand you can do this with:</p>
 </div>
 </div>
 <div class="section" id="example-hpc-queue-server">
-<h2><a class="toc-backref" href="#id35">4.12&nbsp;&nbsp;&nbsp;Example: HPC queue server</a><a class="headerlink" href="#example-hpc-queue-server" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id36">4.12&nbsp;&nbsp;&nbsp;Example: HPC queue server</a><a class="headerlink" href="#example-hpc-queue-server" title="Permalink to this headline">¶</a></h2>
 <p>In case you do not need to work with a cloud, you can also use our hpc
 queue server. That inspects certain queues. This can be done by
 specifing a specific server at startup called hpc:</p>

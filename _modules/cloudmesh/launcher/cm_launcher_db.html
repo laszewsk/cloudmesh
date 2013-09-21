@@ -1,6 +1,7 @@
 
 
   
+  
  
   
   
@@ -19,8 +20,8 @@
     <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/bootstrap-3.0.0/css/bootstrap.min.css" type="text/css" />
-    <link rel="stylesheet" href="../../../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/bootstrap-3.0.0/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/bootstrap-sphinx.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
@@ -115,7 +116,10 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developer.html#additional-installation-for-documentation-generation">4.6&nbsp;&nbsp;&nbsp;Additional Installation for Documentation Generation</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../developer.html#blockdiag-family">4.6.1&nbsp;&nbsp;&nbsp;Blockdiag family</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../developer.html#yaml-files">4.6.2&nbsp;&nbsp;&nbsp;YAML files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../developer.html#yaml-files">4.6.2&nbsp;&nbsp;&nbsp;YAML files</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../developer.html#generating-a-cloudmesh-yaml-file">4.6.2.1&nbsp;&nbsp;&nbsp;Generating a cloudmesh.yaml file</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="../../../developer.html#mongo">4.6.3&nbsp;&nbsp;&nbsp;Mongo</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../developer.html#starting-and-testing-the-queue-service">4.6.4&nbsp;&nbsp;&nbsp;Starting and testing the Queue Service</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../developer.html#starting-the-web-service">4.6.5&nbsp;&nbsp;&nbsp;Starting the Web Service</a></li>
@@ -316,16 +320,11 @@
 
 <div class="container">
   <div class="row">
-    <div class="span12">
+    <div class="col-md-12">
       
   <h1>Source code for cloudmesh.launcher.cm_launcher_db</h1><div class="highlight"><pre>
-<span class="kn">from</span> <span class="nn">cloudmesh.config.cm_config</span> <span class="kn">import</span> <span class="n">cm_config_server</span>
-<span class="kn">from</span> <span class="nn">cloudmesh.config.cm_config</span> <span class="kn">import</span> <span class="n">get_mongo_db</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.util.logger</span> <span class="kn">import</span> <span class="n">LOGGER</span>
-
-
-<span class="kn">from</span> <span class="nn">pymongo</span> <span class="kn">import</span> <span class="n">MongoClient</span>
-<span class="kn">import</span> <span class="nn">pprint</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.cm_mongo</span> <span class="kn">import</span> <span class="n">cm_MongoBase</span>
 
 <span class="c"># ----------------------------------------------------------------------</span>
 <span class="c"># SETTING UP A LOGGER</span>
@@ -333,56 +332,12 @@
 
 <span class="n">log</span> <span class="o">=</span> <span class="n">LOGGER</span><span class="p">(</span><span class="n">__file__</span><span class="p">)</span>
 
-<div class="viewcode-block" id="cm_launcher_db"><a class="viewcode-back" href="../../../modules/cloudmesh.launcher.html#cloudmesh.launcher.cm_launcher_db.cm_launcher_db">[docs]</a><span class="k">class</span> <span class="nc">cm_launcher_db</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    
+<div class="viewcode-block" id="cm_launcher_db"><a class="viewcode-back" href="../../../modules/cloudmesh.launcher.html#cloudmesh.launcher.cm_launcher_db.cm_launcher_db">[docs]</a><span class="k">class</span> <span class="nc">cm_launcher_db</span><span class="p">(</span><span class="n">cm_MongoBase</span><span class="p">):</span>
+
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">cm_type</span> <span class="o">=</span> <span class="s">&quot;launcher&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">db</span> <span class="o">=</span> <span class="n">get_mongo_db</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cm_type</span><span class="p">)</span>
-
-<div class="viewcode-block" id="cm_launcher_db.set"><a class="viewcode-back" href="../../../modules/cloudmesh.launcher.html#cloudmesh.launcher.cm_launcher_db.cm_launcher_db.set">[docs]</a>    <span class="k">def</span> <span class="nf">set</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">d</span><span class="p">):</span>
-        <span class="n">element</span> <span class="o">=</span> <span class="nb">dict</span> <span class="p">(</span><span class="n">d</span><span class="p">)</span>
-        <span class="n">element</span><span class="p">[</span><span class="s">&quot;cm_id&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">username</span>
-        <span class="n">element</span><span class="p">[</span><span class="s">&quot;cm_type&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&quot;userauth&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s">&quot;cm_id&quot;</span><span class="p">:</span> <span class="n">username</span><span class="p">,</span> <span class="s">&quot;cm_type&quot;</span><span class="p">:</span> <span class="s">&quot;userauth&quot;</span><span class="p">},</span> <span class="n">element</span><span class="p">)</span>
-    
-    </div>
-<div class="viewcode-block" id="cm_launcher_db.update"><a class="viewcode-back" href="../../../modules/cloudmesh.launcher.html#cloudmesh.launcher.cm_launcher_db.cm_launcher_db.update">[docs]</a>    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">query</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
-        <span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">        executes a query and updates the results from mongo db.</span>
-<span class="sd">        :param query:</span>
-<span class="sd">        &#39;&#39;&#39;</span>
-        <span class="k">if</span> <span class="n">values</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
-            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">db</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">upsert</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span> 
-        <span class="k">else</span><span class="p">:</span>
-           <span class="c"># print &quot;query: &quot;,query</span>
-           <span class="c"># print &quot;values: &quot;,values</span>
-            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">db</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="p">{</span><span class="s">&quot;$set&quot;</span><span class="p">:</span><span class="n">values</span><span class="p">},</span> <span class="n">upsert</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span> 
-
-    </div>
-<div class="viewcode-block" id="cm_launcher_db.insert"><a class="viewcode-back" href="../../../modules/cloudmesh.launcher.html#cloudmesh.launcher.cm_launcher_db.cm_launcher_db.insert">[docs]</a>    <span class="k">def</span> <span class="nf">insert</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">element</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">db</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
-</div>
-<div class="viewcode-block" id="cm_launcher_db.clear"><a class="viewcode-back" href="../../../modules/cloudmesh.launcher.html#cloudmesh.launcher.cm_launcher_db.cm_launcher_db.clear">[docs]</a>    <span class="k">def</span> <span class="nf">clear</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">db</span><span class="o">.</span><span class="n">drop</span><span class="p">()</span>
-
-        </div>
-<div class="viewcode-block" id="cm_launcher_db.find"><a class="viewcode-back" href="../../../modules/cloudmesh.launcher.html#cloudmesh.launcher.cm_launcher_db.cm_launcher_db.find">[docs]</a>    <span class="k">def</span> <span class="nf">find</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">query</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
-        <span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">        executes a query and returns the results from mongo db.</span>
-<span class="sd">        :param query:</span>
-<span class="sd">        &#39;&#39;&#39;</span>
-        <span class="k">if</span> <span class="n">query</span> <span class="o">==</span> <span class="bp">None</span><span class="p">:</span>
-            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">db</span><span class="o">.</span><span class="n">find</span><span class="p">()</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">db</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">query</span><span class="p">)</span> 
-    </div>
-<div class="viewcode-block" id="cm_launcher_db.find_one"><a class="viewcode-back" href="../../../modules/cloudmesh.launcher.html#cloudmesh.launcher.cm_launcher_db.cm_launcher_db.find_one">[docs]</a>    <span class="k">def</span> <span class="nf">find_one</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">query</span><span class="p">):</span>
-        <span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">        executes a query and returns the results from mongo db.</span>
-<span class="sd">        :param query:</span>
-<span class="sd">        &#39;&#39;&#39;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">db</span><span class="o">.</span><span class="n">find_one</span><span class="p">(</span><span class="n">query</span><span class="p">)</span> 
-    
-</pre></div></div></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+</pre></div></div>
 
     </div>
       

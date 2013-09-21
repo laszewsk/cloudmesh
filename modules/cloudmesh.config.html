@@ -1,6 +1,7 @@
 
 
   
+  
  
   
   
@@ -19,8 +20,8 @@
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/bootstrap-3.0.0/css/bootstrap.min.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/bootstrap-3.0.0/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
@@ -117,7 +118,10 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../developer.html#additional-installation-for-documentation-generation">4.6&nbsp;&nbsp;&nbsp;Additional Installation for Documentation Generation</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../developer.html#blockdiag-family">4.6.1&nbsp;&nbsp;&nbsp;Blockdiag family</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../developer.html#yaml-files">4.6.2&nbsp;&nbsp;&nbsp;YAML files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer.html#yaml-files">4.6.2&nbsp;&nbsp;&nbsp;YAML files</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../developer.html#generating-a-cloudmesh-yaml-file">4.6.2.1&nbsp;&nbsp;&nbsp;Generating a cloudmesh.yaml file</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="../developer.html#mongo">4.6.3&nbsp;&nbsp;&nbsp;Mongo</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../developer.html#starting-and-testing-the-queue-service">4.6.4&nbsp;&nbsp;&nbsp;Starting and testing the Queue Service</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../developer.html#starting-the-web-service">4.6.5&nbsp;&nbsp;&nbsp;Starting the Web Service</a></li>
@@ -324,8 +328,10 @@
             
             
               <li>
+<div id="sourcelink">
   <a href="../_sources/modules/cloudmesh.config.txt"
-     rel="nofollow">Source</a></li>
+     rel="nofollow">Source</a>
+</div></li>
             
           </ul>
 
@@ -345,7 +351,7 @@
 
 <div class="container">
   <div class="row">
-    <div class="span12">
+    <div class="col-md-12">
       
   <div class="section" id="config-package">
 <h1>config Package<a class="headerlink" href="#config-package" title="Permalink to this headline">¶</a></h1>
@@ -366,8 +372,13 @@
 <span id="cloudmesh-cloud-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">cloudmesh_cloud</span></tt> Module<a class="headerlink" href="#module-cloudmesh.config.cloudmesh_cloud" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="cloudmesh.config.cloudmesh_cloud.cloudmesh_cloud">
-<em class="property">class </em><tt class="descclassname">cloudmesh.config.cloudmesh_cloud.</tt><tt class="descname">cloudmesh_cloud</tt><big>(</big><em>profiledata</em>, <em>defaultproj</em>, <em>projectlist</em>, <em>cloudname</em>, <em>clouddata</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/config/cloudmesh_cloud.html#cloudmesh_cloud"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.cloudmesh_cloud.cloudmesh_cloud" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">cloudmesh.config.cloudmesh_cloud.</tt><tt class="descname">cloudmesh_cloud</tt><big>(</big><em>username</em>, <em>email</em>, <em>defaultproj</em>, <em>projectlist</em>, <em>cloudname</em>, <em>cloudcreds</em>, <em>cloudadmincreds=None</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/config/cloudmesh_cloud.html#cloudmesh_cloud"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.cloudmesh_cloud.cloudmesh_cloud" title="Permalink to this definition">¶</a></dt>
 <dd><p>Abstract class, provides credentials for various cloud platforms</p>
+<dl class="attribute">
+<dt id="cloudmesh.config.cloudmesh_cloud.cloudmesh_cloud.admin_credentials">
+<tt class="descname">admin_credentials</tt><a class="reference internal" href="../_modules/cloudmesh/config/cloudmesh_cloud.html#cloudmesh_cloud.admin_credentials"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.cloudmesh_cloud.cloudmesh_cloud.admin_credentials" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 <dl class="method">
 <dt id="cloudmesh.config.cloudmesh_cloud.cloudmesh_cloud.change_own_password">
 <tt class="descname">change_own_password</tt><big>(</big><em>oldpass</em>, <em>newpass</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/config/cloudmesh_cloud.html#cloudmesh_cloud.change_own_password"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.cloudmesh_cloud.cloudmesh_cloud.change_own_password" title="Permalink to this definition">¶</a></dt>
@@ -381,11 +392,6 @@
 <dl class="attribute">
 <dt id="cloudmesh.config.cloudmesh_cloud.cloudmesh_cloud.credentials">
 <tt class="descname">credentials</tt><a class="reference internal" href="../_modules/cloudmesh/config/cloudmesh_cloud.html#cloudmesh_cloud.credentials"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.cloudmesh_cloud.cloudmesh_cloud.credentials" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="cloudmesh.config.cloudmesh_cloud.cloudmesh_cloud.data">
-<tt class="descname">data</tt><a class="reference internal" href="../_modules/cloudmesh/config/cloudmesh_cloud.html#cloudmesh_cloud.data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.cloudmesh_cloud.cloudmesh_cloud.data" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -435,7 +441,7 @@
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
 <dl class="attribute">
 <dt id="cloudmesh.config.cloudmesh_cloud_handler.cloudmesh_cloud_handler.cloud_handlers">
-<tt class="descname">cloud_handlers</tt><em class="property"> = {('openstack', 'grizzly'): &lt;class cloudmesh.config.openstack_grizzly_cloud.openstack_grizzly_cloud at 0x10b306390&gt;}</em><a class="headerlink" href="#cloudmesh.config.cloudmesh_cloud_handler.cloudmesh_cloud_handler.cloud_handlers" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">cloud_handlers</tt><em class="property"> = {('openstack', 'grizzly'): &lt;class cloudmesh.config.openstack_grizzly_cloud.openstack_grizzly_cloud at 0x10de4b188&gt;}</em><a class="headerlink" href="#cloudmesh.config.cloudmesh_cloud_handler.cloudmesh_cloud_handler.cloud_handlers" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -877,7 +883,7 @@ file called ~/.futuregrid/novarc</p>
 <span id="openstack-grizzly-cloud-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">openstack_grizzly_cloud</span></tt> Module<a class="headerlink" href="#module-cloudmesh.config.openstack_grizzly_cloud" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="cloudmesh.config.openstack_grizzly_cloud.openstack_grizzly_cloud">
-<em class="property">class </em><tt class="descclassname">cloudmesh.config.openstack_grizzly_cloud.</tt><tt class="descname">openstack_grizzly_cloud</tt><big>(</big><em>profiledata</em>, <em>defaultproj</em>, <em>projectlist</em>, <em>cloudname</em>, <em>clouddata</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/config/openstack_grizzly_cloud.html#openstack_grizzly_cloud"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.openstack_grizzly_cloud.openstack_grizzly_cloud" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">cloudmesh.config.openstack_grizzly_cloud.</tt><tt class="descname">openstack_grizzly_cloud</tt><big>(</big><em>username</em>, <em>email</em>, <em>defaultproj</em>, <em>projectlist</em>, <em>cloudname</em>, <em>cloudcreds</em>, <em>cloudadmincreds=None</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/config/openstack_grizzly_cloud.html#openstack_grizzly_cloud"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.openstack_grizzly_cloud.openstack_grizzly_cloud" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#cloudmesh.config.cloudmesh_cloud.cloudmesh_cloud" title="cloudmesh.config.cloudmesh_cloud.cloudmesh_cloud"><tt class="xref py py-class docutils literal"><span class="pre">cloudmesh.config.cloudmesh_cloud.cloudmesh_cloud</span></tt></a></p>
 <dl class="method">
 <dt id="cloudmesh.config.openstack_grizzly_cloud.openstack_grizzly_cloud.change_own_password">

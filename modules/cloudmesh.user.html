@@ -1,6 +1,7 @@
 
 
   
+  
  
   
   
@@ -19,8 +20,8 @@
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/bootstrap-3.0.0/css/bootstrap.min.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/bootstrap-3.0.0/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
@@ -114,7 +115,10 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../developer.html#additional-installation-for-documentation-generation">4.6&nbsp;&nbsp;&nbsp;Additional Installation for Documentation Generation</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../developer.html#blockdiag-family">4.6.1&nbsp;&nbsp;&nbsp;Blockdiag family</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../developer.html#yaml-files">4.6.2&nbsp;&nbsp;&nbsp;YAML files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer.html#yaml-files">4.6.2&nbsp;&nbsp;&nbsp;YAML files</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../developer.html#generating-a-cloudmesh-yaml-file">4.6.2.1&nbsp;&nbsp;&nbsp;Generating a cloudmesh.yaml file</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="../developer.html#mongo">4.6.3&nbsp;&nbsp;&nbsp;Mongo</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../developer.html#starting-and-testing-the-queue-service">4.6.4&nbsp;&nbsp;&nbsp;Starting and testing the Queue Service</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../developer.html#starting-the-web-service">4.6.5&nbsp;&nbsp;&nbsp;Starting the Web Service</a></li>
@@ -309,8 +313,10 @@
             
             
               <li>
+<div id="sourcelink">
   <a href="../_sources/modules/cloudmesh.user.txt"
-     rel="nofollow">Source</a></li>
+     rel="nofollow">Source</a>
+</div></li>
             
           </ul>
 
@@ -330,7 +336,7 @@
 
 <div class="container">
   <div class="row">
-    <div class="span12">
+    <div class="col-md-12">
       
   <div class="section" id="user-package">
 <h1>user Package<a class="headerlink" href="#user-package" title="Permalink to this headline">¶</a></h1>
@@ -460,7 +466,7 @@
 <em class="property">class </em><tt class="descclassname">cloudmesh.user.cm_template.</tt><tt class="descname">cm_template</tt><big>(</big><em>filename</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/user/cm_template.html#cm_template"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.user.cm_template.cm_template" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="method">
 <dt id="cloudmesh.user.cm_template.cm_template.replace">
-<tt class="descname">replace</tt><big>(</big><em>format='text'</em>, <em>**d</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/user/cm_template.html#cm_template.replace"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.user.cm_template.cm_template.replace" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">replace</tt><big>(</big><em>kind='text'</em>, <em>values=None</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/user/cm_template.html#cm_template.replace"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.user.cm_template.cm_template.replace" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -496,6 +502,11 @@ a tenant id, user id, cloud version, cloud type and location.</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="cloudmesh.user.cm_user.cm_user.connect_userdb">
+<tt class="descname">connect_userdb</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/cloudmesh/user/cm_user.html#cm_user.connect_userdb"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.user.cm_user.cm_user.connect_userdb" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
 <dt id="cloudmesh.user.cm_user.cm_user.get_name">
 <tt class="descname">get_name</tt><big>(</big><em>portal_id</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/user/cm_user.html#cm_user.get_name"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.user.cm_user.cm_user.get_name" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a user name in a tuple. (firstname, lastname)</p>
@@ -509,6 +520,25 @@ a tenant id, user id, cloud version, cloud type and location.</p>
 </tr>
 </tbody>
 </table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.user.cm_user.cm_user.get_password">
+<tt class="descname">get_password</tt><big>(</big><em>username</em>, <em>cloud</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/user/cm_user.html#cm_user.get_password"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.user.cm_user.cm_user.get_password" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a user password for the cloud</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>username</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; OS_USERNAME</li>
+<li><strong>cloud</strong> &#8211; the cloud name e.g. sierra_openstack_grizzly</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>:type cloud:str</p>
 </dd></dl>
 
 <dl class="method">
@@ -530,6 +560,25 @@ a tenant id, user id, cloud version, cloud type and location.</p>
 <p>sierra_openstack_grizzly
 :type cloud_names: list
 :returns: dict</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.user.cm_user.cm_user.set_password">
+<tt class="descname">set_password</tt><big>(</big><em>username</em>, <em>password</em>, <em>cloud</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/user/cm_user.html#cm_user.set_password"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.user.cm_user.cm_user.set_password" title="Permalink to this definition">¶</a></dt>
+<dd><p>Store a user password for the cloud</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>username</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; OS_USERNAME or cm_user_id</li>
+<li><strong>password</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; OS_PASSWORD</li>
+<li><strong>cloud</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; the cloud name e.g. sierra_openstack_grizzly</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>

@@ -1,6 +1,7 @@
 
 
   
+  
  
   
   
@@ -19,8 +20,8 @@
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/bootstrap-3.0.0/css/bootstrap.min.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/bootstrap-3.0.0/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
@@ -116,7 +117,10 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../developer.html#additional-installation-for-documentation-generation">4.6&nbsp;&nbsp;&nbsp;Additional Installation for Documentation Generation</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../developer.html#blockdiag-family">4.6.1&nbsp;&nbsp;&nbsp;Blockdiag family</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../developer.html#yaml-files">4.6.2&nbsp;&nbsp;&nbsp;YAML files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer.html#yaml-files">4.6.2&nbsp;&nbsp;&nbsp;YAML files</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../developer.html#generating-a-cloudmesh-yaml-file">4.6.2.1&nbsp;&nbsp;&nbsp;Generating a cloudmesh.yaml file</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="../developer.html#mongo">4.6.3&nbsp;&nbsp;&nbsp;Mongo</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../developer.html#starting-and-testing-the-queue-service">4.6.4&nbsp;&nbsp;&nbsp;Starting and testing the Queue Service</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../developer.html#starting-the-web-service">4.6.5&nbsp;&nbsp;&nbsp;Starting the Web Service</a></li>
@@ -308,8 +312,10 @@
             
             
               <li>
+<div id="sourcelink">
   <a href="../_sources/modules/cloudmesh.util.txt"
-     rel="nofollow">Source</a></li>
+     rel="nofollow">Source</a>
+</div></li>
             
           </ul>
 
@@ -329,7 +335,7 @@
 
 <div class="container">
   <div class="row">
-    <div class="span12">
+    <div class="col-md-12">
       
   <div class="section" id="util-package">
 <h1>util Package<a class="headerlink" href="#util-package" title="Permalink to this headline">¶</a></h1>
@@ -338,6 +344,7 @@
 <span class="target" id="module-cloudmesh.util"></span></div>
 <div class="section" id="module-cloudmesh.util.logger">
 <span id="logger-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">logger</span></tt> Module<a class="headerlink" href="#module-cloudmesh.util.logger" title="Permalink to this headline">¶</a></h2>
+<p>A simple class to set up a custom logger for a class</p>
 <dl class="function">
 <dt id="cloudmesh.util.logger.LOGGER">
 <tt class="descclassname">cloudmesh.util.logger.</tt><tt class="descname">LOGGER</tt><big>(</big><em>name</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/util/logger.html#LOGGER"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.util.logger.LOGGER" title="Permalink to this definition">¶</a></dt>
@@ -354,21 +361,29 @@
 </div>
 <div class="section" id="module-cloudmesh.util.util">
 <span id="util-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">util</span></tt> Module<a class="headerlink" href="#module-cloudmesh.util.util" title="Permalink to this headline">¶</a></h2>
+<p>a number of useful functions</p>
 <dl class="function">
 <dt id="cloudmesh.util.util.HEADING">
 <tt class="descclassname">cloudmesh.util.util.</tt><tt class="descname">HEADING</tt><big>(</big><em>txt=None</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/util/util.html#HEADING"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.util.util.HEADING" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Prints a message to stdout with #### surrounding it. This is useful for
+nosetests to better distinguish them.</p>
+</dd></dl>
 
 <dl class="function">
 <dt id="cloudmesh.util.util.address_string">
 <tt class="descclassname">cloudmesh.util.util.</tt><tt class="descname">address_string</tt><big>(</big><em>content</em>, <em>labels=False</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/util/util.html#address_string"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.util.util.address_string" title="Permalink to this definition">¶</a></dt>
 <dd><p>content is a dict of the form {u&#8217;private&#8217;: [{u&#8217;version&#8217;:
-4,u&#8217;addr&#8217;: u&#8216;10.35.23.30&#8217;,u&#8217;OS-EXT-IPS:type&#8217;:u&#8217;fixed&#8217;},
+4,u&#8217;addr&#8217;: u&#8216;10.35.23.30&#8217;,u&#8217;OS-EXT-IPS:kind&#8217;:u&#8217;fixed&#8217;},
 {u&#8217;version&#8217;: 4, u&#8217;addr&#8217;: u&#8216;198.202.120.194&#8217;,
-u&#8217;OS-EXT-IPS:type&#8217;: u&#8217;floating&#8217;}]}</p>
+u&#8217;OS-EXT-IPS:kind&#8217;: u&#8217;floating&#8217;}]}</p>
 <p>it will return</p>
 <p>&#8220;fixed: 10.35.23.30, floating: 198.202.120.194&#8217;</p>
 </dd></dl>
+
+<dl class="function">
+<dt id="cloudmesh.util.util.banner">
+<tt class="descclassname">cloudmesh.util.util.</tt><tt class="descname">banner</tt><big>(</big><em>txt=None</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/util/util.html#banner"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.util.util.banner" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="function">
 <dt id="cloudmesh.util.util.check_file_for_tabs">
@@ -384,6 +399,12 @@ verbose is set to False, the location is not printed.</p>
 <dd></dd></dl>
 
 <dl class="function">
+<dt id="cloudmesh.util.util.get_unique_name">
+<tt class="descclassname">cloudmesh.util.util.</tt><tt class="descname">get_unique_name</tt><big>(</big><em>prefix=''</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/util/util.html#get_unique_name"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.util.util.get_unique_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a UUID without some characters such as &#8216;-&#8216;, &#8216;_&#8217;, &#8216; &#8216;, &#8216;.&#8217;</p>
+</dd></dl>
+
+<dl class="function">
 <dt id="cloudmesh.util.util.path_expand">
 <tt class="descclassname">cloudmesh.util.util.</tt><tt class="descname">path_expand</tt><big>(</big><em>text</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/util/util.html#path_expand"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.util.util.path_expand" title="Permalink to this definition">¶</a></dt>
 <dd><p>returns a string with expanded variavble</p>
@@ -391,13 +412,14 @@ verbose is set to False, the location is not printed.</p>
 
 <dl class="function">
 <dt id="cloudmesh.util.util.status_color">
-<tt class="descclassname">cloudmesh.util.util.</tt><tt class="descname">status_color</tt><big>(</big><em>self</em>, <em>status</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/util/util.html#status_color"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.util.util.status_color" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">cloudmesh.util.util.</tt><tt class="descname">status_color</tt><big>(</big><em>status</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/util/util.html#status_color"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.util.util.status_color" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="function">
 <dt id="cloudmesh.util.util.table_printer">
 <tt class="descclassname">cloudmesh.util.util.</tt><tt class="descname">table_printer</tt><big>(</big><em>the_dict</em>, <em>header_info=None</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/util/util.html#table_printer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.util.util.table_printer" title="Permalink to this definition">¶</a></dt>
-<dd><p>prints recurseively a dict as an html. The header info is simpli a list with collun names.</p>
+<dd><p>prints recurseively a dict as an html. The header info is simpli a list with
+collun names.</p>
 </dd></dl>
 
 </div>

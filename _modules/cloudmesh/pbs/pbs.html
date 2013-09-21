@@ -1,6 +1,7 @@
 
 
   
+  
  
   
   
@@ -19,8 +20,8 @@
     <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/bootstrap-3.0.0/css/bootstrap.min.css" type="text/css" />
-    <link rel="stylesheet" href="../../../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/bootstrap-3.0.0/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/bootstrap-sphinx.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
@@ -115,7 +116,10 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developer.html#additional-installation-for-documentation-generation">4.6&nbsp;&nbsp;&nbsp;Additional Installation for Documentation Generation</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../developer.html#blockdiag-family">4.6.1&nbsp;&nbsp;&nbsp;Blockdiag family</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../developer.html#yaml-files">4.6.2&nbsp;&nbsp;&nbsp;YAML files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../developer.html#yaml-files">4.6.2&nbsp;&nbsp;&nbsp;YAML files</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../developer.html#generating-a-cloudmesh-yaml-file">4.6.2.1&nbsp;&nbsp;&nbsp;Generating a cloudmesh.yaml file</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="../../../developer.html#mongo">4.6.3&nbsp;&nbsp;&nbsp;Mongo</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../developer.html#starting-and-testing-the-queue-service">4.6.4&nbsp;&nbsp;&nbsp;Starting and testing the Queue Service</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../developer.html#starting-the-web-service">4.6.5&nbsp;&nbsp;&nbsp;Starting the Web Service</a></li>
@@ -316,7 +320,7 @@
 
 <div class="container">
   <div class="row">
-    <div class="span12">
+    <div class="col-md-12">
       
   <h1>Source code for cloudmesh.pbs.pbs</h1><div class="highlight"><pre>
 <span class="c"># with open (&quot;pbs_nodes_data.txt&quot;, &quot;r&quot;) as myfile:</span>
@@ -335,20 +339,20 @@
     <span class="n">host</span> <span class="o">=</span> <span class="bp">None</span>
     <span class="n">pbs_qstat_data</span> <span class="o">=</span> <span class="bp">None</span>
     <span class="n">pbs_nodes_data</span> <span class="o">=</span> <span class="bp">None</span>
-    
+
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user</span><span class="p">,</span> <span class="n">host</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">user</span> <span class="o">=</span> <span class="n">user</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">host</span> <span class="o">=</span> <span class="n">host</span>
 
 <div class="viewcode-block" id="PBS.pbsnodes"><a class="viewcode-back" href="../../../modules/cloudmesh.pbs.html#cloudmesh.pbs.pbs.PBS.pbsnodes">[docs]</a>    <span class="k">def</span> <span class="nf">pbsnodes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">refresh</span><span class="o">=</span><span class="s">&quot;True&quot;</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;returns the pbs node infor from an pbs_nodes_raw_data is a string see above for example&quot;&quot;&quot;</span>
-        
+
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">pbs_nodes_data</span> <span class="ow">is</span> <span class="bp">None</span> <span class="ow">or</span> <span class="n">refresh</span><span class="p">:</span>
             <span class="k">try</span><span class="p">:</span>
                 <span class="n">result</span> <span class="o">=</span> <span class="n">ssh</span><span class="p">(</span><span class="s">&quot;{0}@{1}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">user</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">host</span><span class="p">),</span> <span class="s">&quot;pbsnodes&quot;</span><span class="p">,</span> <span class="s">&quot;-a&quot;</span><span class="p">)</span>
             <span class="k">except</span><span class="p">:</span>
                 <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s">&quot;can not execute pbs nodes via ssh&quot;</span><span class="p">)</span>
-            <span class="n">pbsinfo</span> <span class="o">=</span> <span class="p">{}</span>        
+            <span class="n">pbsinfo</span> <span class="o">=</span> <span class="p">{}</span>
             <span class="n">nodes</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n\n</span><span class="s">&quot;</span><span class="p">)</span>
             <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">nodes</span><span class="p">:</span>
                 <span class="n">pbs_data</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
@@ -374,7 +378,7 @@
                         <span class="k">except</span><span class="p">:</span>
                             <span class="k">pass</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">pbs_nodes_data</span> <span class="o">=</span> <span class="n">pbsinfo</span>
-        
+
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">pbs_nodes_data</span>
 </div>
 <div class="viewcode-block" id="PBS.exists"><a class="viewcode-back" href="../../../modules/cloudmesh.pbs.html#cloudmesh.pbs.pbs.PBS.exists">[docs]</a>    <span class="k">def</span> <span class="nf">exists</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">host</span><span class="p">):</span>
@@ -385,14 +389,14 @@
         <span class="sd">&quot;&quot;&quot;add an attribute for the specified hosts in the format</span>
 <span class="sd">        i[1-20]. which would set the attribute for all hosts in i1 to</span>
 <span class="sd">        i20&quot;&quot;&quot;</span>
-        <span class="n">hosts</span> <span class="o">=</span> <span class="n">expand_hostlist</span><span class="p">(</span><span class="n">spec</span><span class="p">)</span>    
+        <span class="n">hosts</span> <span class="o">=</span> <span class="n">expand_hostlist</span><span class="p">(</span><span class="n">spec</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">host</span> <span class="ow">in</span> <span class="n">hosts</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_set</span><span class="p">(</span><span class="n">host</span><span class="p">,</span> <span class="n">attribute</span><span class="p">)</span>
-            </div>
+</div>
     <span class="k">def</span> <span class="nf">_set</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">host</span><span class="p">,</span> <span class="n">attribute</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;add an attribute for the specified hosts&quot;&quot;&quot;</span>
         <span class="k">print</span> <span class="s">&quot;TODO: ALLAN&quot;</span>
-            
+
 
 <div class="viewcode-block" id="PBS.qstat"><a class="viewcode-back" href="../../../modules/cloudmesh.pbs.html#cloudmesh.pbs.pbs.PBS.qstat">[docs]</a>    <span class="k">def</span> <span class="nf">qstat</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">refresh</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">pbs_qstat_data</span> <span class="ow">is</span> <span class="bp">None</span> <span class="ow">or</span> <span class="n">refresh</span><span class="p">:</span>
@@ -401,21 +405,21 @@
             <span class="k">except</span><span class="p">:</span>
                 <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s">&quot;can not execute pbs qstat via ssh&quot;</span><span class="p">)</span>
             <span class="n">info</span> <span class="o">=</span> <span class="p">{}</span>
-            
+
             <span class="k">try</span><span class="p">:</span>
                 <span class="n">xmldoc</span> <span class="o">=</span> <span class="n">minidom</span><span class="o">.</span><span class="n">parseString</span><span class="p">(</span><span class="n">xmldata</span><span class="p">)</span>
-                
-                <span class="n">itemlist</span> <span class="o">=</span> <span class="n">xmldoc</span><span class="o">.</span><span class="n">getElementsByTagName</span><span class="p">(</span><span class="s">&#39;Job&#39;</span><span class="p">)</span> 
+
+                <span class="n">itemlist</span> <span class="o">=</span> <span class="n">xmldoc</span><span class="o">.</span><span class="n">getElementsByTagName</span><span class="p">(</span><span class="s">&#39;Job&#39;</span><span class="p">)</span>
                 <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">itemlist</span><span class="p">:</span>
                     <span class="n">job</span> <span class="o">=</span> <span class="p">{}</span>
                     <span class="k">for</span> <span class="n">attribute</span> <span class="ow">in</span> <span class="n">item</span><span class="o">.</span><span class="n">childNodes</span><span class="p">:</span>
                         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">attribute</span><span class="o">.</span><span class="n">childNodes</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
                             <span class="n">job</span><span class="p">[</span><span class="n">attribute</span><span class="o">.</span><span class="n">nodeName</span><span class="p">]</span> <span class="o">=</span> <span class="n">attribute</span><span class="o">.</span><span class="n">firstChild</span><span class="o">.</span><span class="n">nodeValue</span>
                         <span class="k">else</span><span class="p">:</span>
-                            <span class="n">job</span><span class="p">[</span><span class="n">attribute</span><span class="o">.</span><span class="n">nodeName</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>                    
+                            <span class="n">job</span><span class="p">[</span><span class="n">attribute</span><span class="o">.</span><span class="n">nodeName</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
                             <span class="k">for</span> <span class="n">subchild</span> <span class="ow">in</span> <span class="n">attribute</span><span class="o">.</span><span class="n">childNodes</span><span class="p">:</span>
                                 <span class="n">job</span><span class="p">[</span><span class="n">attribute</span><span class="o">.</span><span class="n">nodeName</span><span class="p">][</span><span class="n">subchild</span><span class="o">.</span><span class="n">nodeName</span><span class="p">]</span> <span class="o">=</span> <span class="n">subchild</span><span class="o">.</span><span class="n">firstChild</span><span class="o">.</span><span class="n">nodeValue</span>
-        
+
                     <span class="n">info</span><span class="p">[</span><span class="n">job</span><span class="p">[</span><span class="s">&#39;Job_Id&#39;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">job</span>
             <span class="k">except</span><span class="p">:</span>
                 <span class="k">pass</span>

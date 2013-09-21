@@ -1,6 +1,7 @@
 
 
   
+  
  
   
   
@@ -19,8 +20,8 @@
     <link rel="stylesheet" href="../../../../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../../../../_static/bootstrap-3.0.0/css/bootstrap.min.css" type="text/css" />
-    <link rel="stylesheet" href="../../../../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../../../../_static/bootstrap-3.0.0/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/bootstrap-sphinx.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
@@ -115,7 +116,10 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../developer.html#additional-installation-for-documentation-generation">4.6&nbsp;&nbsp;&nbsp;Additional Installation for Documentation Generation</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../../developer.html#blockdiag-family">4.6.1&nbsp;&nbsp;&nbsp;Blockdiag family</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../developer.html#yaml-files">4.6.2&nbsp;&nbsp;&nbsp;YAML files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../developer.html#yaml-files">4.6.2&nbsp;&nbsp;&nbsp;YAML files</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../developer.html#generating-a-cloudmesh-yaml-file">4.6.2.1&nbsp;&nbsp;&nbsp;Generating a cloudmesh.yaml file</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../developer.html#mongo">4.6.3&nbsp;&nbsp;&nbsp;Mongo</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../developer.html#starting-and-testing-the-queue-service">4.6.4&nbsp;&nbsp;&nbsp;Starting and testing the Queue Service</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../developer.html#starting-the-web-service">4.6.5&nbsp;&nbsp;&nbsp;Starting the Web Service</a></li>
@@ -316,65 +320,65 @@
 
 <div class="container">
   <div class="row">
-    <div class="span12">
+    <div class="col-md-12">
       
   <h1>Source code for cloudmesh.metric.openstack.cm_metric_openstack</h1><div class="highlight"><pre>
 <span class="kn">from</span> <span class="nn">cloudmesh.config.cm_config</span> <span class="kn">import</span> <span class="n">get_mongo_db</span>
 
 <div class="viewcode-block" id="cm_metric_openstack"><a class="viewcode-back" href="../../../../modules/cloudmesh.metric.openstack.html#cloudmesh.metric.openstack.cm_metric_openstack.cm_metric_openstack">[docs]</a><span class="k">class</span> <span class="nc">cm_metric_openstack</span><span class="p">:</span>
-    
-        
+
+
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">collection</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
-        
+
         <span class="k">if</span> <span class="n">collection</span> <span class="ow">is</span> <span class="n">NOne</span><span class="p">:</span>
                 <span class="n">collection</span> <span class="o">=</span> <span class="s">&quot;metric&quot;</span>
-                
+
         <span class="bp">self</span><span class="o">.</span><span class="n">db_qstat</span> <span class="o">=</span> <span class="n">get_mongo_db</span><span class="p">(</span><span class="n">collections</span><span class="p">)</span>
-        
-    
+
+
 <div class="viewcode-block" id="cm_metric_openstack.update"><a class="viewcode-back" href="../../../../modules/cloudmesh.metric.openstack.html#cloudmesh.metric.openstack.cm_metric_openstack.cm_metric_openstack.update">[docs]</a>    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">query</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
         <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">        executes a query and updates the results from mongo db.</span>
 <span class="sd">        :param query:</span>
 <span class="sd">        &#39;&#39;&#39;</span>
         <span class="k">if</span> <span class="n">values</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
-            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">db_qstat</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">upsert</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span> 
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">db_qstat</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">upsert</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">print</span> <span class="n">query</span>
             <span class="k">print</span> <span class="n">values</span>
-            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">db_qstat</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">values</span><span class="p">,</span> <span class="n">upsert</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span> 
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">db_qstat</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">values</span><span class="p">,</span> <span class="n">upsert</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 
-    </div>
+</div>
 <div class="viewcode-block" id="cm_metric_openstack.insert"><a class="viewcode-back" href="../../../../modules/cloudmesh.metric.openstack.html#cloudmesh.metric.openstack.cm_metric_openstack.cm_metric_openstack.insert">[docs]</a>    <span class="k">def</span> <span class="nf">insert</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">element</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">db_qstat</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
 </div>
 <div class="viewcode-block" id="cm_metric_openstack.clear"><a class="viewcode-back" href="../../../../modules/cloudmesh.metric.openstack.html#cloudmesh.metric.openstack.cm_metric_openstack.cm_metric_openstack.clear">[docs]</a>    <span class="k">def</span> <span class="nf">clear</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">db_qstat</span><span class="o">.</span><span class="n">remove</span><span class="p">({</span><span class="s">&quot;cm_type&quot;</span> <span class="p">:</span> <span class="s">&quot;metric&quot;</span><span class="p">})</span>
-        </div>
+</div>
 <div class="viewcode-block" id="cm_metric_openstack.find"><a class="viewcode-back" href="../../../../modules/cloudmesh.metric.openstack.html#cloudmesh.metric.openstack.cm_metric_openstack.cm_metric_openstack.find">[docs]</a>    <span class="k">def</span> <span class="nf">find</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">query</span><span class="p">):</span>
         <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">        executes a query and returns the results from mongo db.</span>
 <span class="sd">        :param query:</span>
 <span class="sd">        &#39;&#39;&#39;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">db_qstat</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">query</span><span class="p">)</span> 
-    </div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">db_qstat</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+</div>
 <div class="viewcode-block" id="cm_metric_openstack.find_one"><a class="viewcode-back" href="../../../../modules/cloudmesh.metric.openstack.html#cloudmesh.metric.openstack.cm_metric_openstack.cm_metric_openstack.find_one">[docs]</a>    <span class="k">def</span> <span class="nf">find_one</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">query</span><span class="p">):</span>
         <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">        executes a query and returns the results from mongo db.</span>
 <span class="sd">        :param query:</span>
 <span class="sd">        &#39;&#39;&#39;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">db_qstat</span><span class="o">.</span><span class="n">find_one</span><span class="p">(</span><span class="n">query</span><span class="p">)</span> 
-    </div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">db_qstat</span><span class="o">.</span><span class="n">find_one</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+</div>
 <div class="viewcode-block" id="cm_metric_openstack.create_id"><a class="viewcode-back" href="../../../../modules/cloudmesh.metric.openstack.html#cloudmesh.metric.openstack.cm_metric_openstack.cm_metric_openstack.create_id">[docs]</a>    <span class="k">def</span> <span class="nf">create_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cluster</span><span class="p">,</span> <span class="n">vm</span><span class="p">):</span>
         <span class="k">return</span> <span class="s">&quot;cm-metric-{0}-{1}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cluster</span><span class="p">,</span> <span class="n">vm</span><span class="p">)</span>
 </div>
 <div class="viewcode-block" id="cm_metric_openstack.cm_insert"><a class="viewcode-back" href="../../../../modules/cloudmesh.metric.openstack.html#cloudmesh.metric.openstack.cm_metric_openstack.cm_metric_openstack.cm_insert">[docs]</a>    <span class="k">def</span> <span class="nf">cm_insert</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">element</span><span class="p">):</span>
         <span class="n">e</span> <span class="o">=</span> <span class="n">cm_element</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">db_qstat</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
-    </div>
+</div>
 <div class="viewcode-block" id="cm_metric_openstack.cm_element"><a class="viewcode-back" href="../../../../modules/cloudmesh.metric.openstack.html#cloudmesh.metric.openstack.cm_metric_openstack.cm_metric_openstack.cm_element">[docs]</a>    <span class="k">def</span> <span class="nf">cm_element</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">d</span><span class="p">):</span>
         <span class="n">element</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
-            
+
         <span class="n">cluster</span> <span class="o">=</span> <span class="s">&quot;pass me?&quot;</span>
         <span class="n">vm</span> <span class="o">=</span> <span class="s">&quot;pass me?&quot;</span>
         <span class="n">refresh</span> <span class="o">=</span> <span class="s">&quot;time when the element was refreshed&quot;</span>

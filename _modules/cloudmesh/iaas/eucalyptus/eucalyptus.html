@@ -1,6 +1,7 @@
 
 
   
+  
  
   
   
@@ -19,8 +20,8 @@
     <link rel="stylesheet" href="../../../../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../../../../_static/bootstrap-3.0.0/css/bootstrap.min.css" type="text/css" />
-    <link rel="stylesheet" href="../../../../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../../../../_static/bootstrap-3.0.0/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/bootstrap-sphinx.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
@@ -115,7 +116,10 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../developer.html#additional-installation-for-documentation-generation">4.6&nbsp;&nbsp;&nbsp;Additional Installation for Documentation Generation</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../../developer.html#blockdiag-family">4.6.1&nbsp;&nbsp;&nbsp;Blockdiag family</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../developer.html#yaml-files">4.6.2&nbsp;&nbsp;&nbsp;YAML files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../developer.html#yaml-files">4.6.2&nbsp;&nbsp;&nbsp;YAML files</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../developer.html#generating-a-cloudmesh-yaml-file">4.6.2.1&nbsp;&nbsp;&nbsp;Generating a cloudmesh.yaml file</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../developer.html#mongo">4.6.3&nbsp;&nbsp;&nbsp;Mongo</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../developer.html#starting-and-testing-the-queue-service">4.6.4&nbsp;&nbsp;&nbsp;Starting and testing the Queue Service</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../developer.html#starting-the-web-service">4.6.5&nbsp;&nbsp;&nbsp;Starting the Web Service</a></li>
@@ -316,7 +320,7 @@
 
 <div class="container">
   <div class="row">
-    <div class="span12">
+    <div class="col-md-12">
       
   <h1>Source code for cloudmesh.iaas.eucalyptus.eucalyptus</h1><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">sys</span>
@@ -392,21 +396,21 @@
     <span class="c">#</span>
     <span class="k">def</span> <span class="nf">_get_vmname</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prefix</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">_generate_vmname</span><span class="p">(</span><span class="n">prefix</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">no</span><span class="p">)</span>
-    
+
     <span class="k">def</span> <span class="nf">_generate_vmname</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prefix</span><span class="p">,</span> <span class="n">index</span><span class="p">):</span>
         <span class="n">number</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">index</span><span class="p">)</span><span class="o">.</span><span class="n">zfill</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
         <span class="n">name</span> <span class="o">=</span> <span class="s">&#39;</span><span class="si">%s</span><span class="s">-</span><span class="si">%s</span><span class="s">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">prefix</span><span class="p">,</span> <span class="n">number</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">name</span>
 
 
-    
+
 <div class="viewcode-block" id="eucalyptus.connect"><a class="viewcode-back" href="../../../../modules/cloudmesh.iaas.eucalyptus.html#cloudmesh.iaas.eucalyptus.eucalyptus.eucalyptus.connect">[docs]</a>    <span class="k">def</span> <span class="nf">connect</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">project</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        establishes a connection to the eucalyptus cloud,</span>
 <span class="sd">        e.g. initializes the needed components to conduct subsequent</span>
 <span class="sd">        queries.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        
+
         <span class="c"># from old eucalyptus_libcloud</span>
         <span class="c"># path = os.environ[&#39;HOME&#39;] + &quot;/&quot; + \</span>
         <span class="c"># self.credentials.location.replace(&quot;/eucarc&quot;, &quot;&quot;)</span>
@@ -414,10 +418,10 @@
         <span class="c">#         libcloud.security.CA_CERTS_PATH.append(self.credential[&#39;EUCALYPTUS_CERT&#39;])</span>
 
 
-        
+
         <span class="bp">self</span><span class="o">.</span><span class="n">label</span> <span class="o">=</span> <span class="n">label</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">project</span> <span class="o">=</span> <span class="n">project</span>
-        
+
         <span class="c"># copied from deprecated code</span>
         <span class="c"># if project is None:</span>
         <span class="c">#    self.activate_project(&quot;fg82&quot;)</span>
@@ -426,7 +430,7 @@
 
         <span class="k">print</span> <span class="s">&quot;Loading&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">label</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">project</span>
         <span class="n">Driver</span> <span class="o">=</span> <span class="n">get_driver</span><span class="p">(</span><span class="n">Provider</span><span class="o">.</span><span class="n">EUCALYPTUS</span><span class="p">)</span>
-        
+
         <span class="bp">self</span><span class="o">.</span><span class="n">config</span> <span class="o">=</span> <span class="n">cm_config</span><span class="p">()</span>
 
 
@@ -445,12 +449,12 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="n">host</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">netloc</span>
             <span class="n">port</span> <span class="o">=</span> <span class="bp">None</span>
-    
+
         <span class="n">path</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">path</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">credential</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">label</span><span class="p">,</span> <span class="n">expand</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
         <span class="n">pprint</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">credential</span><span class="p">)</span>
-        
+
         <span class="c"># libcloud.security.CA_CERTS_PATH.append(self.credential[&#39;EUCALYPTUS_CERT&#39;])</span>
         <span class="c"># libcloud.security.VERIFY_SSL_CERT = False</span>
 
@@ -502,7 +506,7 @@
                 <span class="k">else</span><span class="p">:</span>
                     <span class="n">vm</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
             <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">exclude</span><span class="p">:</span>
-                <span class="k">if</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">vm</span><span class="p">:</span> 
+                <span class="k">if</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">vm</span><span class="p">:</span>
                     <span class="k">del</span> <span class="n">vm</span><span class="p">[</span><span class="n">d</span><span class="p">]</span>
             <span class="n">element_array</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">vm</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">element_array</span>
@@ -521,7 +525,7 @@
 
         <span class="k">print</span> <span class="bp">self</span><span class="o">.</span><span class="n">access_key</span>
         <span class="k">print</span> <span class="bp">self</span><span class="o">.</span><span class="n">secret_key</span>
-        </div>
+</div>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span>
                  <span class="n">project</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
                  <span class="n">accessKey</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
@@ -547,7 +551,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">images</span> <span class="o">=</span> <span class="p">{}</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">nodes</span> <span class="o">=</span> <span class="p">{}</span>
         <span class="n">flavors_cache</span> <span class="o">=</span> <span class="bp">None</span>
-        <span class="n">images_cache</span> <span class="o">=</span> <span class="bp">None</span> 
+        <span class="n">images_cache</span> <span class="o">=</span> <span class="bp">None</span>
         <span class="n">servers_cache</span> <span class="o">=</span> <span class="bp">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">credential</span> <span class="o">=</span> <span class="bp">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">cloud</span> <span class="o">=</span> <span class="bp">None</span>
@@ -568,7 +572,7 @@
 
     <span class="k">def</span> <span class="nf">_delete_keys_from_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">elements</span><span class="p">,</span> <span class="n">exclude</span><span class="p">):</span>
         <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">exclude</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">elements</span><span class="p">:</span> 
+            <span class="k">if</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">elements</span><span class="p">:</span>
                 <span class="k">del</span> <span class="n">elements</span><span class="p">[</span><span class="n">d</span><span class="p">]</span>
         <span class="k">return</span> <span class="n">elements</span>
 
@@ -577,7 +581,7 @@
 
     <span class="k">def</span> <span class="nf">_get_servers_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_retrief</span><span class="p">(</span><span class="s">&quot;servers&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">cloud</span><span class="o">.</span><span class="n">list_nodes</span><span class="p">,</span> <span class="p">[</span><span class="s">&#39;private_dns&#39;</span><span class="p">,</span> <span class="s">&#39;dns_name&#39;</span><span class="p">,</span> <span class="s">&#39;instanceId&#39;</span><span class="p">,</span> <span class="s">&#39;driver&#39;</span><span class="p">,</span> <span class="s">&#39;_uuid&#39;</span><span class="p">])</span>
-    
+
     <span class="k">def</span> <span class="nf">_get_images_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_retrief</span><span class="p">(</span><span class="s">&quot;images&quot;</span><span class="p">,</span>
                              <span class="bp">self</span><span class="o">.</span><span class="n">cloud</span><span class="o">.</span><span class="n">list_images</span><span class="p">,</span>
@@ -613,7 +617,7 @@
 <span class="sd">                    key = open(key, &quot;r&quot;).read()</span>
 <span class="sd">                self.upload_key_pair(key, key_name)</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        
+
         <span class="n">config</span> <span class="o">=</span> <span class="n">cm_config</span><span class="p">()</span>
 
         <span class="k">if</span> <span class="n">flavor_name</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
@@ -621,7 +625,7 @@
 
         <span class="k">if</span> <span class="n">image_id</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
             <span class="n">image_id</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">default</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">label</span><span class="p">)[</span><span class="s">&#39;image&#39;</span><span class="p">]</span>
-            
+
         <span class="n">size</span> <span class="o">=</span> <span class="p">[</span><span class="n">s</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">flavors_cache</span> <span class="k">if</span> <span class="n">s</span><span class="o">.</span><span class="n">id</span> <span class="o">==</span> <span class="n">flavor_name</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
         <span class="n">image</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">images_cache</span> <span class="k">if</span> <span class="n">i</span><span class="o">.</span><span class="n">id</span> <span class="o">==</span> <span class="n">image_id</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
 
@@ -646,13 +650,13 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">print</span> <span class="s">&quot;self.servers_cachec&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">servers_cache</span>
         <span class="n">vm</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">servers_cache</span> <span class="k">if</span> <span class="n">i</span><span class="o">.</span><span class="n">id</span> <span class="o">==</span> <span class="nb">id</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
-        
+
         <span class="n">r</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cloud</span><span class="o">.</span><span class="n">destroy_node</span><span class="p">(</span><span class="n">vm</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="n">r</span><span class="o">.</span><span class="n">__dict__</span>
-    
 
-    </div></div>
+
+</div></div>
 <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&quot;__main__&quot;</span><span class="p">:</span>
 
     <span class="n">credential_test</span> <span class="o">=</span> <span class="bp">False</span>

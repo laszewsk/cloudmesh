@@ -1,6 +1,7 @@
 
 
   
+  
  
   
   
@@ -19,8 +20,8 @@
     <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/bootstrap-3.0.0/css/bootstrap.min.css" type="text/css" />
-    <link rel="stylesheet" href="../../../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/bootstrap-3.0.0/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/bootstrap-sphinx.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
@@ -115,7 +116,10 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developer.html#additional-installation-for-documentation-generation">4.6&nbsp;&nbsp;&nbsp;Additional Installation for Documentation Generation</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../developer.html#blockdiag-family">4.6.1&nbsp;&nbsp;&nbsp;Blockdiag family</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../developer.html#yaml-files">4.6.2&nbsp;&nbsp;&nbsp;YAML files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../developer.html#yaml-files">4.6.2&nbsp;&nbsp;&nbsp;YAML files</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../developer.html#generating-a-cloudmesh-yaml-file">4.6.2.1&nbsp;&nbsp;&nbsp;Generating a cloudmesh.yaml file</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="../../../developer.html#mongo">4.6.3&nbsp;&nbsp;&nbsp;Mongo</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../developer.html#starting-and-testing-the-queue-service">4.6.4&nbsp;&nbsp;&nbsp;Starting and testing the Queue Service</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../developer.html#starting-the-web-service">4.6.5&nbsp;&nbsp;&nbsp;Starting the Web Service</a></li>
@@ -316,7 +320,7 @@
 
 <div class="container">
   <div class="row">
-    <div class="span12">
+    <div class="col-md-12">
       
   <h1>Source code for cloudmesh.user.CMUserProviderBaseType</h1><div class="highlight"><pre>
 <span class="kn">from</span> <span class="nn">cloudmesh.config.cm_config</span> <span class="kn">import</span> <span class="n">cm_config_server</span>
@@ -335,39 +339,39 @@
 
 
 <div class="viewcode-block" id="CMUserProviderBaseType"><a class="viewcode-back" href="../../../modules/cloudmesh.user.html#cloudmesh.user.CMUserProviderBaseType.CMUserProviderBaseType">[docs]</a><span class="k">class</span> <span class="nc">CMUserProviderBaseType</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    
+
     <span class="n">providers</span> <span class="o">=</span> <span class="p">{}</span>
-    
+
     <span class="n">client</span> <span class="o">=</span> <span class="bp">None</span>
     <span class="n">db_clouds</span> <span class="o">=</span> <span class="bp">None</span>
-    
+
 <span class="c">#    config = None</span>
-    
+
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">collection</span><span class="o">=</span><span class="s">&quot;user&quot;</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;initializes the cloudmesh mongo db. The name of the collection os passed.&quot;&quot;&quot;</span>
         <span class="n">db_name</span> <span class="o">=</span> <span class="n">cm_config_server</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;mongo.db&quot;</span><span class="p">)</span>
-        
-        <span class="bp">self</span><span class="o">.</span><span class="n">client</span> <span class="o">=</span> <span class="n">MongoClient</span><span class="p">()</span>    
-        <span class="bp">self</span><span class="o">.</span><span class="n">db</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="p">[</span><span class="n">db_name</span><span class="p">]</span>          
-        <span class="bp">self</span><span class="o">.</span><span class="n">db_clouds</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">db</span><span class="p">[</span><span class="n">collection</span><span class="p">]</span>    
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">client</span> <span class="o">=</span> <span class="n">MongoClient</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">db</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="p">[</span><span class="n">db_name</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">db_clouds</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">db</span><span class="p">[</span><span class="n">collection</span><span class="p">]</span>
         <span class="c"># print db_name</span>
-	<span class="c"># print self.db</span>
-	<span class="c"># self.config = cm_config()</span>
-   
+    	<span class="c"># print self.db</span>
+    	<span class="c"># self.config = cm_config()</span>
+
 <div class="viewcode-block" id="CMUserProviderBaseType.find"><a class="viewcode-back" href="../../../modules/cloudmesh.user.html#cloudmesh.user.CMUserProviderBaseType.CMUserProviderBaseType.find">[docs]</a>    <span class="k">def</span> <span class="nf">find</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">query</span><span class="p">):</span>
         <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">        executes a query and returns the results from mongo db.</span>
 <span class="sd">        :param query:</span>
 <span class="sd">        &#39;&#39;&#39;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">db_clouds</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">query</span><span class="p">)</span> 
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">db_clouds</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
 </div>
 <div class="viewcode-block" id="CMUserProviderBaseType.find_one"><a class="viewcode-back" href="../../../modules/cloudmesh.user.html#cloudmesh.user.CMUserProviderBaseType.CMUserProviderBaseType.find_one">[docs]</a>    <span class="k">def</span> <span class="nf">find_one</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">query</span><span class="p">):</span>
         <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">        executes a query and returns the results from mongo db.</span>
 <span class="sd">        :param query:</span>
 <span class="sd">        &#39;&#39;&#39;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">db_clouds</span><span class="o">.</span><span class="n">find_one</span><span class="p">(</span><span class="n">query</span><span class="p">)</span> 
-         </div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">db_clouds</span><span class="o">.</span><span class="n">find_one</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+</div>
 <div class="viewcode-block" id="CMUserProviderBaseType.add"><a class="viewcode-back" href="../../../modules/cloudmesh.user.html#cloudmesh.user.CMUserProviderBaseType.CMUserProviderBaseType.add">[docs]</a>    <span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">id</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
         <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">        adds a user with the given id to the users database. The attributes are specified in the dict.</span>
@@ -375,15 +379,15 @@
 <span class="sd">        :param id: the unique id of the user</span>
 <span class="sd">        :param dict: the attributes of the user</span>
 <span class="sd">        &#39;&#39;&#39;</span>
-	<span class="c"># print &quot;IDIDID&quot;, id</span>
-	<span class="c"># print &quot;DICTDICT&quot;, dict</span>
-	<span class="n">result</span> <span class="o">=</span> <span class="p">{}</span>
-	<span class="n">result</span><span class="p">[</span><span class="s">&#39;cm_user_id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">id</span>
-	<span class="n">result</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="nb">dict</span><span class="p">)</span>
-	<span class="bp">self</span><span class="o">.</span><span class="n">db_clouds</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
-        <span class="c"># result[element][&#39;cm_user_id&#39;] = id </span>
+    	<span class="c"># print &quot;IDIDID&quot;, id</span>
+    	<span class="c"># print &quot;DICTDICT&quot;, dict</span>
+    	<span class="n">result</span> <span class="o">=</span> <span class="p">{}</span>
+    	<span class="n">result</span><span class="p">[</span><span class="s">&#39;cm_user_id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">id</span>
+    	<span class="n">result</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="nb">dict</span><span class="p">)</span>
+    	<span class="bp">self</span><span class="o">.</span><span class="n">db_clouds</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+        <span class="c"># result[element][&#39;cm_user_id&#39;] = id</span>
         <span class="c"># self.db_clouds.insert(result[element])</span>
-        </div>
+</div>
 <div class="viewcode-block" id="CMUserProviderBaseType.updates"><a class="viewcode-back" href="../../../modules/cloudmesh.user.html#cloudmesh.user.CMUserProviderBaseType.CMUserProviderBaseType.updates">[docs]</a>    <span class="k">def</span> <span class="nf">updates</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">id</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
         <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">        updates the attributes specified in the dict for a given user with the id</span>
@@ -391,36 +395,36 @@
 <span class="sd">        :param id: the unique id of the user</span>
 <span class="sd">        :param dict: the attributes of the use</span>
 <span class="sd">        &#39;&#39;&#39;</span>
-	<span class="c"># print &quot;DICT in updates():&quot;, dict</span>
+    	<span class="c"># print &quot;DICT in updates():&quot;, dict</span>
         <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">find_one</span><span class="p">({</span><span class="s">&#39;cm_user_id&#39;</span><span class="p">:</span> <span class="nb">id</span><span class="p">})</span>
-	<span class="c"># print &quot;EXISTING data in updates():&quot;, data</span>
-	<span class="k">if</span> <span class="n">data</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
-		<span class="n">data</span> <span class="o">=</span> <span class="p">{}</span>
-        <span class="n">data</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="nb">dict</span><span class="p">)</span>
-	<span class="c"># print &quot;data after update in updates():&quot;, data</span>
+    	<span class="c"># print &quot;EXISTING data in updates():&quot;, data</span>
+    	<span class="k">if</span> <span class="n">data</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+    	    <span class="n">data</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="n">data</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="nb">dict</span><span class="p">)</span>
+    	<span class="c"># print &quot;data after update in updates():&quot;, data</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
-        </div>
+</div>
 <div class="viewcode-block" id="CMUserProviderBaseType.remove"><a class="viewcode-back" href="../../../modules/cloudmesh.user.html#cloudmesh.user.CMUserProviderBaseType.CMUserProviderBaseType.remove">[docs]</a>    <span class="k">def</span> <span class="nf">remove</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">id</span><span class="p">):</span>
         <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">        removes the used with the given id</span>
 <span class="sd">                </span>
 <span class="sd">        :param id: the unique id of the user</span>
 <span class="sd">        &#39;&#39;&#39;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">db_clouds</span><span class="o">.</span><span class="n">remove</span><span class="p">({</span><span class="s">&quot;cm_user_id&quot;</span><span class="p">:</span> <span class="nb">id</span><span class="p">},</span> <span class="n">safe</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span> 
-                </div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">db_clouds</span><span class="o">.</span><span class="n">remove</span><span class="p">({</span><span class="s">&quot;cm_user_id&quot;</span><span class="p">:</span> <span class="nb">id</span><span class="p">},</span> <span class="n">safe</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</div>
 <div class="viewcode-block" id="CMUserProviderBaseType.clear"><a class="viewcode-back" href="../../../modules/cloudmesh.user.html#cloudmesh.user.CMUserProviderBaseType.CMUserProviderBaseType.clear">[docs]</a>    <span class="k">def</span> <span class="nf">clear</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">        empties th user database</span>
 <span class="sd">        &#39;&#39;&#39;</span>
         <span class="n">log</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s">&quot;to be implemented&quot;</span><span class="p">)</span>
-        </div>
+</div>
 <div class="viewcode-block" id="CMUserProviderBaseType.refresh"><a class="viewcode-back" href="../../../modules/cloudmesh.user.html#cloudmesh.user.CMUserProviderBaseType.CMUserProviderBaseType.refresh">[docs]</a>    <span class="k">def</span> <span class="nf">refresh</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">        refreshes the userdatabase from the user provider</span>
 <span class="sd">        &#39;&#39;&#39;</span>
         <span class="n">log</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s">&quot;to be implemented&quot;</span><span class="p">)</span>
-        </div>
+</div>
 <div class="viewcode-block" id="CMUserProviderBaseType.register"><a class="viewcode-back" href="../../../modules/cloudmesh.user.html#cloudmesh.user.CMUserProviderBaseType.CMUserProviderBaseType.register">[docs]</a>    <span class="k">def</span> <span class="nf">register</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="nb">type</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
         <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">        registers a provider with som parameters specified in the dict params</span>
@@ -430,11 +434,7 @@
 <span class="sd">        :param params: a dictionary describing wht needs to be poassed to the service that provides user information</span>
 <span class="sd">        &#39;&#39;&#39;</span>
         <span class="n">log</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s">&quot;to be implemented&quot;</span><span class="p">)</span>
-        
-        
-        
-        </div></div>
-</pre></div>
+</pre></div></div></div>
 
     </div>
       

@@ -1,6 +1,7 @@
 
 
   
+  
  
   
   
@@ -19,8 +20,8 @@
     <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/bootstrap-3.0.0/css/bootstrap.min.css" type="text/css" />
-    <link rel="stylesheet" href="../../../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/bootstrap-3.0.0/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/bootstrap-sphinx.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
@@ -115,7 +116,10 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developer.html#additional-installation-for-documentation-generation">4.6&nbsp;&nbsp;&nbsp;Additional Installation for Documentation Generation</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../developer.html#blockdiag-family">4.6.1&nbsp;&nbsp;&nbsp;Blockdiag family</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../developer.html#yaml-files">4.6.2&nbsp;&nbsp;&nbsp;YAML files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../developer.html#yaml-files">4.6.2&nbsp;&nbsp;&nbsp;YAML files</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../developer.html#generating-a-cloudmesh-yaml-file">4.6.2.1&nbsp;&nbsp;&nbsp;Generating a cloudmesh.yaml file</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="../../../developer.html#mongo">4.6.3&nbsp;&nbsp;&nbsp;Mongo</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../developer.html#starting-and-testing-the-queue-service">4.6.4&nbsp;&nbsp;&nbsp;Starting and testing the Queue Service</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../developer.html#starting-the-web-service">4.6.5&nbsp;&nbsp;&nbsp;Starting the Web Service</a></li>
@@ -316,7 +320,7 @@
 
 <div class="container">
   <div class="row">
-    <div class="span12">
+    <div class="col-md-12">
       
   <h1>Source code for cloudmesh.iaas.ComputeBaseType</h1><div class="highlight"><pre>
 <span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
@@ -329,31 +333,31 @@
 </div>
 <div class="viewcode-block" id="ComputeBaseType"><a class="viewcode-back" href="../../../modules/cloudmesh.iaas.html#cloudmesh.iaas.ComputeBaseType.ComputeBaseType">[docs]</a><span class="k">class</span> <span class="nc">ComputeBaseType</span><span class="p">:</span>
 
-    <span class="n">users</span> <span class="o">=</span> <span class="p">{}</span>         
+    <span class="n">users</span> <span class="o">=</span> <span class="p">{}</span>
     <span class="n">tenants</span> <span class="o">=</span> <span class="p">{}</span>
 
     <span class="c"># : the dict for the flavors</span>
-    <span class="n">flavors</span> <span class="o">=</span> <span class="p">{}</span>         
+    <span class="n">flavors</span> <span class="o">=</span> <span class="p">{}</span>
 
     <span class="c"># : the dict for the images</span>
-    <span class="n">images</span> <span class="o">=</span> <span class="p">{}</span>          
-    
+    <span class="n">images</span> <span class="o">=</span> <span class="p">{}</span>
+
     <span class="c"># : the dict for the servers</span>
-    <span class="n">servers</span> <span class="o">=</span> <span class="p">{}</span>         
+    <span class="n">servers</span> <span class="o">=</span> <span class="p">{}</span>
 
     <span class="c"># : the dict for the set_credentials</span>
-    <span class="n">credential</span> <span class="o">=</span> <span class="bp">None</span>    
+    <span class="n">credential</span> <span class="o">=</span> <span class="bp">None</span>
 
     <span class="c"># : the unique string identifying this cloud</span>
-    <span class="n">label</span> <span class="o">=</span> <span class="bp">None</span>         
+    <span class="n">label</span> <span class="o">=</span> <span class="bp">None</span>
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">cred</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">credential</span> <span class="o">=</span> <span class="n">cred</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">label</span> <span class="o">=</span> <span class="n">label</span>
-    
+
     <span class="k">def</span> <span class="nf">_clear</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">users</span> <span class="o">=</span> <span class="p">{}</span>         
-        <span class="bp">self</span><span class="o">.</span><span class="n">tenants</span> <span class="o">=</span> <span class="p">{}</span>         
+        <span class="bp">self</span><span class="o">.</span><span class="n">users</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tenants</span> <span class="o">=</span> <span class="p">{}</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">flavors</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c"># global var</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">images</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c"># global var</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">servers</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c"># global var</span>
@@ -388,7 +392,7 @@
         <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
 </div>
 <div class="viewcode-block" id="ComputeBaseType.dump"><a class="viewcode-back" href="../../../modules/cloudmesh.iaas.html#cloudmesh.iaas.ComputeBaseType.ComputeBaseType.dump">[docs]</a>    <span class="k">def</span> <span class="nf">dump</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s">&quot;server&quot;</span><span class="p">,</span> <span class="n">with_manager</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;returns a string that contains information about the cloud. One can ste the type to &#39;images&#39;,&#39;flavors&#39;,&#39;servers&#39;&quot;&quot;&quot;</span> 
+        <span class="sd">&quot;&quot;&quot;returns a string that contains information about the cloud. One can ste the type to &#39;images&#39;,&#39;flavors&#39;,&#39;servers&#39;&quot;&quot;&quot;</span>
         <span class="n">selection</span> <span class="o">=</span> <span class="nb">type</span><span class="o">.</span><span class="n">lower</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
         <span class="k">if</span> <span class="n">selection</span> <span class="o">==</span> <span class="s">&#39;i&#39;</span><span class="p">:</span>
             <span class="n">d</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">images</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
@@ -487,7 +491,7 @@
     <span class="c">#</span>
     <span class="c"># print</span>
     <span class="c">#</span>
-    </div>
+</div>
     <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        print everything but the set_credentials that is known about this</span>
@@ -498,12 +502,12 @@
             <span class="s">&#39;flavors&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">flavors</span><span class="p">,</span>
             <span class="s">&#39;servers&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">servers</span><span class="p">,</span>
             <span class="s">&#39;images&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">images</span><span class="p">,</span>
-            <span class="c"># &#39;users&#39;: self.users,  </span>
+            <span class="c"># &#39;users&#39;: self.users,</span>
             <span class="s">&#39;users&#39;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">users</span><span class="p">),</span>
             <span class="s">&#39;tenants&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">tenants</span><span class="p">,</span>
             <span class="p">}</span>
         <span class="k">return</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">information</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
-    
+
     <span class="c">#</span>
     <span class="c"># get methods</span>
     <span class="c">#</span>
@@ -532,7 +536,7 @@
             <span class="n">selection</span> <span class="o">=</span> <span class="nb">type</span><span class="o">.</span><span class="n">lower</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
 
         <span class="n">list_function</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_servers_dict</span>
-        
+
         <span class="n">d</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">servers</span>
         <span class="k">if</span> <span class="n">selection</span> <span class="o">==</span> <span class="s">&#39;a&#39;</span> <span class="ow">or</span> <span class="nb">type</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">refresh</span><span class="p">(</span><span class="s">&quot;images&quot;</span><span class="p">)</span>

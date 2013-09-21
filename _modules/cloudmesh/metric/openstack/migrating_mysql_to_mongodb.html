@@ -1,6 +1,7 @@
 
 
   
+  
  
   
   
@@ -19,8 +20,8 @@
     <link rel="stylesheet" href="../../../../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../../../../_static/bootstrap-3.0.0/css/bootstrap.min.css" type="text/css" />
-    <link rel="stylesheet" href="../../../../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../../../../_static/bootstrap-3.0.0/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/bootstrap-sphinx.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
@@ -115,7 +116,10 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../developer.html#additional-installation-for-documentation-generation">4.6&nbsp;&nbsp;&nbsp;Additional Installation for Documentation Generation</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../../developer.html#blockdiag-family">4.6.1&nbsp;&nbsp;&nbsp;Blockdiag family</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../developer.html#yaml-files">4.6.2&nbsp;&nbsp;&nbsp;YAML files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../developer.html#yaml-files">4.6.2&nbsp;&nbsp;&nbsp;YAML files</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../developer.html#generating-a-cloudmesh-yaml-file">4.6.2.1&nbsp;&nbsp;&nbsp;Generating a cloudmesh.yaml file</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../developer.html#mongo">4.6.3&nbsp;&nbsp;&nbsp;Mongo</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../developer.html#starting-and-testing-the-queue-service">4.6.4&nbsp;&nbsp;&nbsp;Starting and testing the Queue Service</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../developer.html#starting-the-web-service">4.6.5&nbsp;&nbsp;&nbsp;Starting the Web Service</a></li>
@@ -316,7 +320,7 @@
 
 <div class="container">
   <div class="row">
-    <div class="span12">
+    <div class="col-md-12">
       
   <h1>Source code for cloudmesh.metric.openstack.migrating_mysql_to_mongodb</h1><div class="highlight"><pre>
 <span class="c"># -*- coding: utf-8 -*-</span>
@@ -350,7 +354,7 @@
         <span class="k">try</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">dbinfo</span><span class="p">[</span><span class="s">&quot;mysqldb_tables&quot;</span><span class="p">]</span>
         <span class="k">except</span><span class="p">:</span>
-            <span class="k">return</span> 
+            <span class="k">return</span>
 </div>
 <div class="viewcode-block" id="Migrate_MySQL_to_Mongo.export_mysql_in_csv"><a class="viewcode-back" href="../../../../modules/cloudmesh.metric.openstack.html#cloudmesh.metric.openstack.migrating_mysql_to_mongodb.Migrate_MySQL_to_Mongo.export_mysql_in_csv">[docs]</a>    <span class="k">def</span> <span class="nf">export_mysql_in_csv</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tablename</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Export mysql database tables using &#39;mysql&#39; command line tools</span>
@@ -372,8 +376,8 @@
         <span class="c"># , add quote(&quot;) between new line</span>
         <span class="c"># remove the last quote by [:-1] since \&quot;\n\&quot; adds dummy quote at last</span>
         <span class="n">output</span> <span class="o">=</span> <span class="s">&quot;</span><span class="se">\&quot;</span><span class="s">&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">res_mysql</span><span class="p">)</span> \
-                <span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\t</span><span class="s">&quot;</span><span class="p">,</span><span class="s">&quot;</span><span class="se">\&quot;</span><span class="s">,</span><span class="se">\&quot;</span><span class="s">&quot;</span><span class="p">)</span> \
-                <span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="s">&quot;</span><span class="se">\&quot;\n\&quot;</span><span class="s">&quot;</span><span class="p">)</span> \
+                <span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\t</span><span class="s">&quot;</span><span class="p">,</span> <span class="s">&quot;</span><span class="se">\&quot;</span><span class="s">,</span><span class="se">\&quot;</span><span class="s">&quot;</span><span class="p">)</span> \
+                <span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="s">&quot;</span><span class="se">\&quot;\n\&quot;</span><span class="s">&quot;</span><span class="p">)</span> \
                 <span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">csv_data</span> <span class="o">=</span> <span class="n">output</span>

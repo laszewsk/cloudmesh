@@ -15,7 +15,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>cloudmesh.config.cm_projects &mdash; Cloudmesh 0.1 documentation</title>
+    <title>cloudmesh.rack.cluster_map_service &mdash; Cloudmesh 0.1 documentation</title>
     
     <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
@@ -322,83 +322,179 @@
   <div class="row">
     <div class="col-md-12">
       
-  <h1>Source code for cloudmesh.config.cm_projects</h1><div class="highlight"><pre>
-<span class="kn">from</span> <span class="nn">cloudmesh.config.cm_config</span> <span class="kn">import</span> <span class="n">cm_config</span>
-<span class="kn">from</span> <span class="nn">string</span> <span class="kn">import</span> <span class="n">Template</span>
-<span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">json</span>
-<span class="kn">import</span> <span class="nn">sys</span>
+  <h1>Source code for cloudmesh.rack.cluster_map_service</h1><div class="highlight"><pre>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Service map of cluster servers, use HSV color space</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">from</span> <span class="nn">copy</span> <span class="kn">import</span> <span class="n">deepcopy</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.rack.base_cluster_map</span> <span class="kn">import</span> <span class="n">BaseClusterMap</span>
 
-<div class="viewcode-block" id="cm_projects"><a class="viewcode-back" href="../../../modules/cloudmesh.config.html#cloudmesh.config.cm_projects.cm_projects">[docs]</a><span class="k">class</span> <span class="nc">cm_projects</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;A class to manage the project ids for the various clouds.&quot;&quot;&quot;</span>
-
-    <span class="k">def</span> <span class="nf">_path_expand</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; returns a string with expanded variavble </span>
-
-<span class="sd">        Parameters:</span>
-<span class="sd">        -----------</span>
-<span class="sd">        text:</span>
-<span class="sd">            the text taht contains path variables</span>
-
-<span class="sd">        Returns</span>
-<span class="sd">        -------</span>
-<span class="sd">        text</span>
-<span class="sd">            returns the text with all path variables expanded in it.</span>
-<span class="sd">        </span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">template</span> <span class="o">=</span> <span class="n">Template</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
-        <span class="n">result</span> <span class="o">=</span> <span class="n">template</span><span class="o">.</span><span class="n">substitute</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">)</span>
-        <span class="n">result</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">result</span>
-
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;initializes based on cm_config and returns pointer to the projects dict.&quot;&quot;&quot;</span>
-        <span class="c"># Check if the file exists</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">config</span> <span class="o">=</span> <span class="n">cm_config</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
-
-    <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">default</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;returns the default project&quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;cloudmesh.projects.default&#39;</span><span class="p">)</span>
-
-    <span class="nd">@default.setter</span>
-<div class="viewcode-block" id="cm_projects.default"><a class="viewcode-back" href="../../../modules/cloudmesh.config.html#cloudmesh.config.cm_projects.cm_projects.default">[docs]</a>    <span class="k">def</span> <span class="nf">default</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;sets the default project&quot;&quot;&quot;</span>
-        <span class="c"># check if name is in active projects</span>
-        <span class="c"># if it is, set the new default project.</span>
-        <span class="c"># if it is not through an exception and spit out a nice msg</span>
-        <span class="c"># explaining that the default project needs to be set</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s">&#39;cloudmesh&#39;</span><span class="p">][</span><span class="s">&#39;projects&#39;</span><span class="p">][</span><span class="s">&#39;default&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">name</span>
-</div>
-<div class="viewcode-block" id="cm_projects.add"><a class="viewcode-back" href="../../../modules/cloudmesh.config.html#cloudmesh.config.cm_projects.cm_projects.add">[docs]</a>    <span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">status</span><span class="o">=</span><span class="s">&quot;active&quot;</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;adds a project with given status&quot;&quot;&quot;</span>
-        <span class="c"># add the name to the following array (make sure it is an array ;-)</span>
-        <span class="k">if</span> <span class="n">status</span> <span class="o">!=</span> <span class="s">&#39;default&#39;</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s">&#39;cloudmesh&#39;</span><span class="p">][</span><span class="s">&#39;projects&#39;</span><span class="p">][</span><span class="n">status</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
-</div>
-<div class="viewcode-block" id="cm_projects.delete"><a class="viewcode-back" href="../../../modules/cloudmesh.config.html#cloudmesh.config.cm_projects.cm_projects.delete">[docs]</a>    <span class="k">def</span> <span class="nf">delete</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;adds a project with given status&quot;&quot;&quot;</span>
-        <span class="c"># add the name to the following array (make sure it is an array ;-)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s">&#39;cloudmesh&#39;</span><span class="p">][</span><span class="s">&#39;projects&#39;</span><span class="p">][</span><span class="s">&#39;active&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
-</div>
-<div class="viewcode-block" id="cm_projects.names"><a class="viewcode-back" href="../../../modules/cloudmesh.config.html#cloudmesh.config.cm_projects.cm_projects.names">[docs]</a>    <span class="k">def</span> <span class="nf">names</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">status</span><span class="o">=</span><span class="s">&quot;active&quot;</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;returns all projects in an array with a specified status&quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;cloudmesh.projects&#39;</span><span class="p">)[</span><span class="n">status</span><span class="p">]</span>
-</div>
-    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;returns the dict in a string representing the project&quot;&quot;&quot;</span>
-        <span class="c"># untested</span>
-        <span class="n">text</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;cloudmesh.projects&#39;</span><span class="p">)</span>
-        <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
-
-<div class="viewcode-block" id="cm_projects.dump"><a class="viewcode-back" href="../../../modules/cloudmesh.config.html#cloudmesh.config.cm_projects.cm_projects.dump">[docs]</a>    <span class="k">def</span> <span class="nf">dump</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;returns the dict in a string representing the project&quot;&quot;&quot;</span>
-        <span class="c"># untested</span>
-        <span class="k">return</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;cloudmesh.projects&#39;</span><span class="p">),</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
-</div>
-<div class="viewcode-block" id="cm_projects.write"><a class="viewcode-back" href="../../../modules/cloudmesh.config.html#cloudmesh.config.cm_projects.cm_projects.write">[docs]</a>    <span class="k">def</span> <span class="nf">write</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;writes the updated dict to the config&quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">write</span><span class="p">()</span></div></div>
+<div class="viewcode-block" id="ServiceClusterMap"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.cluster_map_service.ServiceClusterMap">[docs]</a><span class="k">class</span> <span class="nc">ServiceClusterMap</span><span class="p">(</span><span class="n">BaseClusterMap</span><span class="p">):</span>
+	
+	<span class="c"># maximum h, 240/360 = 2/3</span>
+	<span class="n">h_max</span> <span class="o">=</span> <span class="mf">2.0</span> <span class="o">/</span> <span class="mf">3.0</span>
+	
+	<span class="c"># section name of service list</span>
+	<span class="n">service_section_name</span> <span class="o">=</span> <span class="s">&quot;service&quot;</span>
+	
+	<span class="c"># service dict</span>
+	<span class="n">dict_services</span> <span class="o">=</span> <span class="bp">None</span>
+	
+	<span class="c"># ascending sorted service list</span>
+	<span class="n">list_services</span> <span class="o">=</span> <span class="bp">None</span>
+	
+	<span class="c"># mapping dict</span>
+	<span class="c"># map a type of service to a tuple RGB color</span>
+	<span class="c"># the key of dict is the different service got from cluster servers</span>
+	<span class="c"># formation is: {hpc:(255, 3, 5), openstack:(34, 50, 200), ...}</span>
+	<span class="n">dict_mapping</span> <span class="o">=</span> <span class="p">{}</span> 
+	
+	
+	<span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+		<span class="c"># call parent init function</span>
+		<span class="n">BaseClusterMap</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+		
+	
+	<span class="c"># get the RGB according to a specific h param</span>
+	<span class="c"># there are only limited serveral colors according to the total services </span>
+<div class="viewcode-block" id="ServiceClusterMap.getRGB"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.cluster_map_service.ServiceClusterMap.getRGB">[docs]</a>	<span class="k">def</span> <span class="nf">getRGB</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">h</span><span class="p">):</span>
+		<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">getRGBWithH</span><span class="p">(</span><span class="n">h</span><span class="p">)</span>
+	
+	
+	<span class="c"># init mapping dict</span></div>
+<div class="viewcode-block" id="ServiceClusterMap.initMappingDict"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.cluster_map_service.ServiceClusterMap.initMappingDict">[docs]</a>	<span class="k">def</span> <span class="nf">initMappingDict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+		<span class="n">len_arr</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">list_services</span><span class="p">)</span>
+		<span class="k">if</span> <span class="n">len_arr</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+			<span class="k">return</span>
+		
+		<span class="n">step</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">h_max</span> <span class="o">/</span> <span class="n">len_arr</span>
+		<span class="n">h_current</span> <span class="o">=</span> <span class="mi">0</span>
+		<span class="c"># update the first and last service type with #FF0000 and #0000FF</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">dict_mapping</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="bp">self</span><span class="o">.</span><span class="n">list_services</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)})</span>
+		<span class="k">if</span> <span class="n">len_arr</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+			<span class="bp">self</span><span class="o">.</span><span class="n">dict_mapping</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="bp">self</span><span class="o">.</span><span class="n">list_services</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">)})</span>
+			
+		<span class="c"># update other services RGB</span>
+		<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">len_arr</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+			<span class="n">h_current</span> <span class="o">+=</span> <span class="n">step</span>
+			<span class="bp">self</span><span class="o">.</span><span class="n">dict_mapping</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="bp">self</span><span class="o">.</span><span class="n">list_services</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span> <span class="bp">self</span><span class="o">.</span><span class="n">getRGB</span><span class="p">(</span><span class="n">h_current</span><span class="p">)})</span>
+		
+	
+	<span class="c"># default service for cluster servers</span>
+	<span class="c">#    default value is the first type in ascending order</span></div>
+<div class="viewcode-block" id="ServiceClusterMap.getDefaultService"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.cluster_map_service.ServiceClusterMap.getDefaultService">[docs]</a>	<span class="k">def</span> <span class="nf">getDefaultService</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+		<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">list_services</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+		
+	
+	<span class="c"># ======================================</span>
+	<span class="c">#           abstract function</span>
+	<span class="c">#         sub-class MUST override</span>
+	<span class="c"># ======================================</span>
+	<span class="c">#</span>
+	<span class="c"># get default value for dict_servers</span></div>
+<div class="viewcode-block" id="ServiceClusterMap.getServersDefaultValue"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.cluster_map_service.ServiceClusterMap.getServersDefaultValue">[docs]</a>	<span class="k">def</span> <span class="nf">getServersDefaultValue</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+		<span class="c"># get service list </span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">dict_services</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dict_rack_config</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">service_section_name</span><span class="p">]</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">list_services</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dict_services</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">initMappingDict</span><span class="p">()</span>
+		
+		<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">getDefaultService</span><span class="p">()</span>
+		
+	
+	
+	<span class="c"># ======================================</span>
+	<span class="c">#           abstract function</span>
+	<span class="c">#         sub-class MUST override</span>
+	<span class="c"># ======================================</span>
+	<span class="c">#</span>
+	<span class="c"># get corresponding mapping dict, from specific value to RGB value</span>
+	<span class="c"># the formation of RGB is: (R, G, B)</span>
+	<span class="c"># for example: {1:(255, 0, 16), 2:(25, 20, 16), ...} </span></div>
+<div class="viewcode-block" id="ServiceClusterMap.getMappingDict"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.cluster_map_service.ServiceClusterMap.getMappingDict">[docs]</a>	<span class="k">def</span> <span class="nf">getMappingDict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+		<span class="k">return</span> <span class="n">deepcopy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dict_mapping</span><span class="p">)</span>
+	
+	
+	<span class="c"># ======================================</span>
+	<span class="c">#           abstract function</span>
+	<span class="c">#         sub-class MUST override</span>
+	<span class="c"># ======================================</span>
+	<span class="c"># </span>
+	<span class="c"># get the current status of servers</span></div>
+<div class="viewcode-block" id="ServiceClusterMap.update"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.cluster_map_service.ServiceClusterMap.update">[docs]</a>	<span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+		<span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">flag_debug</span><span class="p">:</span>
+			<span class="k">print</span> <span class="s">&quot;Update servers with DEBUG random data ...&quot;</span>
+			<span class="c">#self.generateRandomService()</span>
+			<span class="bp">self</span><span class="o">.</span><span class="n">generateContinousService</span><span class="p">()</span>
+			<span class="k">return</span>
+		
+		<span class="c"># to do ....</span>
+		<span class="c"># grab real data from mongo db</span>
+		<span class="c"># ...</span>
+	
+	
+	<span class="c"># ======================================</span>
+	<span class="c">#           abstract function</span>
+	<span class="c">#         sub-class MUST override</span>
+	<span class="c"># ======================================</span>
+	<span class="c"># </span>
+	<span class="c"># plot the legend of cluster map</span>
+	<span class="c"># param, ax is an instance of matplotlib.axes.Axes</span>
+	<span class="c"># return value is the filename of legend image file</span></div>
+<div class="viewcode-block" id="ServiceClusterMap.drawLegendContent"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.cluster_map_service.ServiceClusterMap.drawLegendContent">[docs]</a>	<span class="k">def</span> <span class="nf">drawLegendContent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ax</span><span class="p">,</span> <span class="n">xylim</span><span class="p">):</span>
+		<span class="n">xcount</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">list_services</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+		<span class="n">xstep</span> <span class="o">=</span> <span class="n">xylim</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="n">xcount</span><span class="p">)</span>
+		<span class="n">xstart</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">xstep</span>
+		<span class="n">xwidth</span> <span class="o">=</span> <span class="mf">0.6</span> <span class="o">*</span> <span class="n">xstep</span>
+		<span class="n">ycount</span> <span class="o">=</span> <span class="mf">3.0</span> 
+		<span class="n">ystep</span> <span class="o">=</span> <span class="n">xylim</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">/</span> <span class="n">ycount</span>
+		<span class="n">ystart</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">ystep</span>
+		<span class="n">yheight</span> <span class="o">=</span> <span class="mf">0.6</span> <span class="o">*</span> <span class="n">ystep</span>
+		
+		<span class="k">for</span> <span class="n">service</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">list_services</span><span class="p">:</span>
+			<span class="n">rect</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">genDefaultRect</span><span class="p">()</span>
+			<span class="n">lb_x</span> <span class="o">=</span> <span class="n">xstart</span>
+			<span class="n">lb_y</span> <span class="o">=</span> <span class="n">ystart</span> <span class="o">+</span> <span class="n">ystep</span>
+			<span class="n">rect</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s">&quot;verts&quot;</span><span class="p">:{</span><span class="s">&quot;lb&quot;</span><span class="p">:(</span><span class="n">lb_x</span><span class="p">,</span> <span class="n">lb_y</span><span class="p">),</span> <span class="s">&quot;rt&quot;</span><span class="p">:(</span><span class="n">lb_x</span> <span class="o">+</span> <span class="n">xwidth</span><span class="p">,</span> <span class="n">lb_y</span> <span class="o">+</span> <span class="n">yheight</span><span class="p">)}})</span>
+			<span class="n">rcolor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">convertRGB2Hex</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dict_mapping</span><span class="p">[</span><span class="n">service</span><span class="p">])</span>
+			<span class="n">rect</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s">&quot;facecolor_rect&quot;</span><span class="p">:</span><span class="n">rcolor</span><span class="p">,</span> <span class="s">&quot;edgecolor_rect&quot;</span><span class="p">:</span><span class="n">rcolor</span><span class="p">})</span>
+			<span class="n">rect</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s">&quot;label&quot;</span><span class="p">:{</span><span class="s">&quot;lb&quot;</span><span class="p">:(</span><span class="n">lb_x</span><span class="p">,</span> <span class="n">ystart</span><span class="p">),</span> <span class="s">&quot;text&quot;</span><span class="p">:</span> <span class="n">service</span><span class="p">}})</span>
+			<span class="n">xstart</span> <span class="o">+=</span> <span class="n">xstep</span>
+			
+			<span class="bp">self</span><span class="o">.</span><span class="n">drawRectangle</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">rect</span><span class="p">)</span>
+	
+	
+	<span class="c"># only for test</span>
+	<span class="c"># generate random service for cluster servers</span></div>
+<div class="viewcode-block" id="ServiceClusterMap.generateRandomService"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.cluster_map_service.ServiceClusterMap.generateRandomService">[docs]</a>	<span class="k">def</span> <span class="nf">generateRandomService</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+		<span class="c"># init the seed of random function</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">getRandom</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
+		
+		<span class="k">for</span> <span class="n">server</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">dict_servers</span><span class="p">:</span>
+			<span class="n">temp_rand</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getRandom</span><span class="p">()</span>
+			<span class="n">temp</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">temp_rand</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">list_services</span><span class="p">)))</span> <span class="o">-</span> <span class="mi">1</span>
+			
+			<span class="bp">self</span><span class="o">.</span><span class="n">dict_servers</span><span class="p">[</span><span class="n">server</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">list_services</span><span class="p">[</span><span class="n">temp</span><span class="p">]</span>
+		
+	
+	<span class="c"># only for test, especially continuous colors</span></div>
+<div class="viewcode-block" id="ServiceClusterMap.generateContinousService"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.cluster_map_service.ServiceClusterMap.generateContinousService">[docs]</a>	<span class="k">def</span> <span class="nf">generateContinousService</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+		<span class="n">arr</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dict_servers</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+		<span class="n">len_arr</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+		<span class="c"># found a unknown cluster</span>
+		<span class="k">if</span> <span class="n">len_arr</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+			<span class="k">return</span>
+		<span class="n">len_service</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">list_services</span><span class="p">)</span>
+		<span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+		<span class="k">for</span> <span class="n">server</span> <span class="ow">in</span> <span class="n">arr</span><span class="p">:</span>
+			<span class="bp">self</span><span class="o">.</span><span class="n">dict_servers</span><span class="p">[</span><span class="n">server</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">list_services</span><span class="p">[</span><span class="n">count</span> <span class="o">%</span> <span class="n">len_service</span><span class="p">]</span>
+			<span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+	
+	
+<span class="c"># test</span></div></div>
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&quot;__main__&quot;</span><span class="p">:</span>
+	<span class="n">mytest</span> <span class="o">=</span> <span class="n">ServiceClusterMap</span><span class="p">(</span><span class="s">&quot;india&quot;</span><span class="p">)</span>
+	<span class="n">mytest</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 </pre></div>
 
     </div>

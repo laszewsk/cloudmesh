@@ -1,0 +1,577 @@
+
+
+  
+  
+ 
+  
+  
+ 
+
+
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>cloudmesh.rack.cluster_map_heat &mdash; Cloudmesh 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/bootstrap-3.0.0/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/bootstrap-3.0.0/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../../../_static/js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="../../../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../../../_static/bootstrap-3.0.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../../_static/bootstrap-sphinx.js"></script>
+    <link rel="author" title="About these documents" href="../../../about.html" />
+    <link rel="top" title="Cloudmesh 0.1 documentation" href="../../../index.html" />
+    <link rel="up" title="Module code" href="../../index.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body>
+
+  <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../index.html">Cloudmesh</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.1</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            <li class="divider-vertical"></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a href="../../../index.html"
+     class="dropdown-toggle"
+     data-toggle="dropdown">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+    ><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../about.html">1&nbsp;&nbsp;&nbsp;Documentation Management</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../about.html#installation-requirements-for-the-documentation-generation">1.1&nbsp;&nbsp;&nbsp;Installation Requirements for the Documentation Generation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../about.html#document-generation">1.2&nbsp;&nbsp;&nbsp;Document Generation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../about.html#publishing-the-documentation">1.3&nbsp;&nbsp;&nbsp;Publishing the Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tasks.html">2&nbsp;&nbsp;&nbsp;Issue Management</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../tasks.html#labels">2.1&nbsp;&nbsp;&nbsp;Labels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tasks.html#priority">2.2&nbsp;&nbsp;&nbsp;Priority</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tasks.html#inactivity">2.3&nbsp;&nbsp;&nbsp;Inactivity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tasks.html#shortcuts">2.4&nbsp;&nbsp;&nbsp;Shortcuts</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer.html">3&nbsp;&nbsp;&nbsp;Usage Quickstart</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../developer.html#with-access-to-ldap">3.1&nbsp;&nbsp;&nbsp;With access to LDAP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developer.html#without-access-to-ldap">3.2&nbsp;&nbsp;&nbsp;Without access to LDAP</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer.html#installation">4&nbsp;&nbsp;&nbsp;Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../developer.html#pip">4.1&nbsp;&nbsp;&nbsp;Pip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developer.html#virtualenv">4.2&nbsp;&nbsp;&nbsp;Virtualenv</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../developer.html#install-virtualenv">4.2.1&nbsp;&nbsp;&nbsp;Install virtualenv</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../developer.html#activate-virtualenv">4.2.2&nbsp;&nbsp;&nbsp;Activate virtualenv</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../developer.html#modify-your-rc-file-optional">4.2.3&nbsp;&nbsp;&nbsp;Modify your rc file (optional):</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developer.html#install-fabric">4.3&nbsp;&nbsp;&nbsp;Install fabric</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developer.html#github">4.4&nbsp;&nbsp;&nbsp;Github</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../developer.html#github-ssh-keys">4.4.1&nbsp;&nbsp;&nbsp;GIthub ssh keys</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../developer.html#git-username-and-e-mail">4.4.2&nbsp;&nbsp;&nbsp;Git username and e-mail</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developer.html#quick-deployment">4.5&nbsp;&nbsp;&nbsp;Quick deployment</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../developer.html#aptana-studio">4.5.1&nbsp;&nbsp;&nbsp;Aptana Studio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../developer.html#requirements">4.5.2&nbsp;&nbsp;&nbsp;Requirements</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developer.html#additional-installation-for-documentation-generation">4.6&nbsp;&nbsp;&nbsp;Additional Installation for Documentation Generation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../developer.html#blockdiag-family">4.6.1&nbsp;&nbsp;&nbsp;Blockdiag family</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../developer.html#yaml-files">4.6.2&nbsp;&nbsp;&nbsp;YAML files</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../developer.html#generating-a-cloudmesh-yaml-file">4.6.2.1&nbsp;&nbsp;&nbsp;Generating a cloudmesh.yaml file</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../developer.html#mongo">4.6.3&nbsp;&nbsp;&nbsp;Mongo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../developer.html#starting-and-testing-the-queue-service">4.6.4&nbsp;&nbsp;&nbsp;Starting and testing the Queue Service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../developer.html#starting-the-web-service">4.6.5&nbsp;&nbsp;&nbsp;Starting the Web Service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../developer.html#the-t-py-program">4.6.6&nbsp;&nbsp;&nbsp;The t.py program</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../developer.html#developer-tests">4.6.7&nbsp;&nbsp;&nbsp;Developer Tests</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developer.html#cleaning">4.7&nbsp;&nbsp;&nbsp;Cleaning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developer.html#convenient-command-shortcuts">4.8&nbsp;&nbsp;&nbsp;Convenient command shortcuts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developer.html#working-with-cloudmesh-on-a-remote-server">4.9&nbsp;&nbsp;&nbsp;Working with Cloudmesh on a remote server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developer.html#special-notes-for-centos">4.10&nbsp;&nbsp;&nbsp;Special notes for CentOS</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../developer.html#install-python">4.10.1&nbsp;&nbsp;&nbsp;Install Python</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../developer.html#starting-the-rabbitmq-service">4.10.2&nbsp;&nbsp;&nbsp;Starting the  RabbitMQ service</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developer.html#making-the-documentation">4.11&nbsp;&nbsp;&nbsp;Making the documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../developer.html#example-start-the-gui-for-development">4.11.1&nbsp;&nbsp;&nbsp;Example: Start the GUI for development</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developer.html#example-hpc-queue-server">4.12&nbsp;&nbsp;&nbsp;Example: HPC queue server</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../celery.html">5&nbsp;&nbsp;&nbsp;Celery Setup</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../celery.html#starting-and-stopping-celery">5.1&nbsp;&nbsp;&nbsp;Starting and Stopping Celery</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../celery.html#log-and-pid-files">5.2&nbsp;&nbsp;&nbsp;Log and Pid Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../celery.html#current-celery-based-tasks">5.3&nbsp;&nbsp;&nbsp;Current Celery Based Tasks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../celery.html#launcher-simulation">5.3.1&nbsp;&nbsp;&nbsp;Launcher (Simulation)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../nosetest.html">4&nbsp;&nbsp;&nbsp;Nosetests</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../nosetest.html#install">4.1&nbsp;&nbsp;&nbsp;Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../nosetest.html#run">4.2&nbsp;&nbsp;&nbsp;Run</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../nosetest.html#system">4.3&nbsp;&nbsp;&nbsp;System</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../cm-shell.html">5&nbsp;&nbsp;&nbsp;Cloud Mesh</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cm-shell.html#commands">6&nbsp;&nbsp;&nbsp;Commands</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../plan/plan.html">7&nbsp;&nbsp;&nbsp;Plan: Cloudmesh Service Shift</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../plan/plan.html#project-objectives">7.1&nbsp;&nbsp;&nbsp;Project Objectives</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../plan/plan.html#development-objectives">7.1.1&nbsp;&nbsp;&nbsp;Development Objectives</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plan/plan.html#production-objectives">7.1.2&nbsp;&nbsp;&nbsp;Production Objectives</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plan/plan.html#project-deliverables">7.2&nbsp;&nbsp;&nbsp;Project Deliverables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plan/plan.html#evolution-of-the-project">7.3&nbsp;&nbsp;&nbsp;Evolution of the Project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plan/plan.html#refernce-materials">7.4&nbsp;&nbsp;&nbsp;Refernce Materials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plan/plan.html#definitions-and-acronyms">7.5&nbsp;&nbsp;&nbsp;Definitions and Acronyms</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../plan/design.html">3&nbsp;&nbsp;&nbsp;Design: Blueprint</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../plan/design.html#features">3.1&nbsp;&nbsp;&nbsp;Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plan/design.html#difference-to-other-efforts">3.2&nbsp;&nbsp;&nbsp;Difference to other efforts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plan/design.html#component-view">3.3&nbsp;&nbsp;&nbsp;Component View</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plan/design.html#component-user-management">3.4&nbsp;&nbsp;&nbsp;Component User Management</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../plan/design.html#user-management">3.4.1&nbsp;&nbsp;&nbsp;User Management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plan/design.html#accounting-will-not-be-worked-on-much">3.4.2&nbsp;&nbsp;&nbsp;Accounting (Will not be worked on much)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plan/design.html#component-resource-management-includes-cloudshifting-as-part-of-reservation">3.5&nbsp;&nbsp;&nbsp;Component Resource Management (includes cloudshifting as part of reservation)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plan/design.html#resource-management">3.6&nbsp;&nbsp;&nbsp;Resource Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plan/design.html#scheduler">3.7&nbsp;&nbsp;&nbsp;Scheduler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plan/design.html#interfaces">3.8&nbsp;&nbsp;&nbsp;Interfaces</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules/modules.html">Modules and Classes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../modules/cloudmesh.html">cloudmesh Package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/cloudmesh.html#id1"><tt class="docutils literal"><span class="pre">cloudmesh</span></tt> Package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/cloudmesh.html#cloudmesh-module"><tt class="docutils literal"><span class="pre">cloudmesh</span></tt> Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/cloudmesh.html#cm-mongodb-module"><tt class="docutils literal"><span class="pre">cm_mongodb</span></tt> Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/cloudmesh.html#gitinfo-module"><tt class="docutils literal"><span class="pre">gitinfo</span></tt> Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/cloudmesh.html#mongodb-module"><tt class="docutils literal"><span class="pre">mongodb</span></tt> Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/cloudmesh.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/cloudmesh.accounting.html">accounting Package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.accounting.html#module-cloudmesh.accounting.AccountBaseClass"><tt class="docutils literal"><span class="pre">AccountBaseClass</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.accounting.html#goldaccounting-module"><tt class="docutils literal"><span class="pre">GoldAccounting</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.accounting.html#metrics-module"><tt class="docutils literal"><span class="pre">metrics</span></tt> Module</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/cloudmesh.config.html">config Package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#id1"><tt class="docutils literal"><span class="pre">config</span></tt> Package</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#module-cloudmesh.config.cloudmesh_cloud"><tt class="docutils literal"><span class="pre">cloudmesh_cloud</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#module-cloudmesh.config.cloudmesh_cloud_handler"><tt class="docutils literal"><span class="pre">cloudmesh_cloud_handler</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#module-cloudmesh.config.cm_config"><tt class="docutils literal"><span class="pre">cm_config</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#module-cloudmesh.config.cm_keys"><tt class="docutils literal"><span class="pre">cm_keys</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#module-cloudmesh.config.cm_projects"><tt class="docutils literal"><span class="pre">cm_projects</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#module-cloudmesh.config.cm_rc"><tt class="docutils literal"><span class="pre">cm_rc</span></tt> Module</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="../../../modules/cloudmesh.config.html#cm-manage-config">cm-manage config</a></li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#ldap-user-module"><tt class="docutils literal"><span class="pre">ldap_user</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#mock-cloud-module"><tt class="docutils literal"><span class="pre">mock_cloud</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#mock-keystone-module"><tt class="docutils literal"><span class="pre">mock_keystone</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#mock-user-module"><tt class="docutils literal"><span class="pre">mock_user</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#openstack-essex-cloud-module"><tt class="docutils literal"><span class="pre">openstack_essex_cloud</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#module-cloudmesh.config.openstack_grizzly_cloud"><tt class="docutils literal"><span class="pre">openstack_grizzly_cloud</span></tt> Module</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/cloudmesh.iaas.html">iaas Package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.iaas.html#id1"><tt class="docutils literal"><span class="pre">iaas</span></tt> Package</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.iaas.html#module-cloudmesh.iaas.ComputeBaseType"><tt class="docutils literal"><span class="pre">ComputeBaseType</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.iaas.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="../../../modules/cloudmesh.iaas.azure.html">azure Package</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="../../../modules/cloudmesh.iaas.azure.html#id1"><tt class="docutils literal"><span class="pre">azure</span></tt> Package</a></li>
+<li class="toctree-l7"><a class="reference internal" href="../../../modules/cloudmesh.iaas.azure.html#module-cloudmesh.iaas.azure.cm_azure"><tt class="docutils literal"><span class="pre">cm_azure</span></tt> Module</a></li>
+<li class="toctree-l7"><a class="reference internal" href="../../../modules/cloudmesh.iaas.azure.html#fabfile-module"><tt class="docutils literal"><span class="pre">fabfile</span></tt> Module</a></li>
+</ul>
+</li>
+<li class="toctree-l6"><a class="reference internal" href="../../../modules/cloudmesh.iaas.eucalyptus.html">eucalyptus Package</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="../../../modules/cloudmesh.iaas.eucalyptus.html#module-cloudmesh.iaas.eucalyptus.eucalyptus"><tt class="docutils literal"><span class="pre">eucalyptus</span></tt> Module</a></li>
+<li class="toctree-l7"><a class="reference internal" href="../../../modules/cloudmesh.iaas.eucalyptus.html#eucalyptus-libcloud-module"><tt class="docutils literal"><span class="pre">eucalyptus_libcloud</span></tt> Module</a></li>
+<li class="toctree-l7"><a class="reference internal" href="../../../modules/cloudmesh.iaas.eucalyptus.html#eucalyptus-new-module"><tt class="docutils literal"><span class="pre">eucalyptus_new</span></tt> Module</a></li>
+</ul>
+</li>
+<li class="toctree-l6"><a class="reference internal" href="../../../modules/cloudmesh.iaas.openstack.html">openstack Package</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="../../../modules/cloudmesh.iaas.openstack.html#id1"><tt class="docutils literal"><span class="pre">openstack</span></tt> Package</a></li>
+<li class="toctree-l7"><a class="reference internal" href="../../../modules/cloudmesh.iaas.openstack.html#module-cloudmesh.iaas.openstack.cm_compute"><tt class="docutils literal"><span class="pre">cm_compute</span></tt> Module</a></li>
+<li class="toctree-l7"><a class="reference internal" href="../../../modules/cloudmesh.iaas.openstack.html#cm-table-module"><tt class="docutils literal"><span class="pre">cm_table</span></tt> Module</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/cloudmesh.inventory.html">inventory Package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.inventory.html#id1"><tt class="docutils literal"><span class="pre">inventory</span></tt> Package</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.inventory.html#resources-module"><tt class="docutils literal"><span class="pre">resources</span></tt> Module</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/cloudmesh.provisioner.html">provisioner Package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.provisioner.html#id1"><tt class="docutils literal"><span class="pre">provisioner</span></tt> Package</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.provisioner.html#module-cloudmesh.provisioner.provisioner"><tt class="docutils literal"><span class="pre">provisioner</span></tt> Module</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/cloudmesh.shell.html">shell Package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.shell.html#module-cloudmesh.shell.cm_shell"><tt class="docutils literal"><span class="pre">cm_shell</span></tt> Module</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="../../../modules/cloudmesh.shell.html#cm-config">cm config</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/cloudmesh.util.html">util Package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.util.html#id1"><tt class="docutils literal"><span class="pre">util</span></tt> Package</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.util.html#module-cloudmesh.util.logger"><tt class="docutils literal"><span class="pre">logger</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.util.html#module-cloudmesh.util.util"><tt class="docutils literal"><span class="pre">util</span></tt> Module</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"></ul>
+</li>
+              
+            
+            
+              
+                
+              
+            
+            
+            
+            
+              <li></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      
+  <h1>Source code for cloudmesh.rack.cluster_map_heat</h1><div class="highlight"><pre>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Heat map of cluster servers, use HSV color space</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">from</span> <span class="nn">copy</span> <span class="kn">import</span> <span class="n">deepcopy</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.rack.base_cluster_map</span> <span class="kn">import</span> <span class="n">BaseClusterMap</span>
+
+
+<div class="viewcode-block" id="HeatClusterMap"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.cluster_map_heat.HeatClusterMap">[docs]</a><span class="k">class</span> <span class="nc">HeatClusterMap</span><span class="p">(</span><span class="n">BaseClusterMap</span><span class="p">):</span>
+
+    
+	<span class="c"># maximum h, 240/360 = 2/3</span>
+	<span class="n">h_max</span> <span class="o">=</span> <span class="mf">2.0</span> <span class="o">/</span> <span class="mf">3.0</span>
+	
+	<span class="c"># minimum temperature user defined</span>
+	<span class="n">temperature_min</span> <span class="o">=</span> <span class="mi">0</span>
+	
+	<span class="c"># maximum temperature user defined</span>
+	<span class="n">temperature_max</span> <span class="o">=</span> <span class="mi">100</span>
+	
+	<span class="c"># mapping dict</span>
+	<span class="c"># map the value of a temperature to a tuple RGB color</span>
+	<span class="c"># the key of dict is the different temperature got from cluster servers</span>
+	<span class="c"># the precise of the key is 0.1</span>
+	<span class="c"># formation is: {10.2:(255, 3, 5), 25.3:(34, 50, 200), ...}</span>
+	<span class="n">dict_mapping</span> <span class="o">=</span> <span class="p">{}</span> 
+	
+	<span class="c"># color table, NOT used, </span>
+	<span class="c">#</span>
+	<span class="c"># instead of using a fixed color table, we use a dynamic color table from #0000FF to #FF0000</span>
+	<span class="c"># With the dynamic color table, we can have 240 different colors rather than 100</span>
+	<span class="c"># If possilbe, we can change the 240 colors to 2M (240 * 100 * 100) colors according to the HSV color space</span>
+	<span class="c"># But, I think it is enough for us to denote the different status of clusters with 240 colors</span>
+	
+	<span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">min_temp</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">max_temp</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">temperature_min</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">min_temp</span> <span class="k">if</span> <span class="n">min_temp</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="mi">0</span><span class="p">)</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">temperature_max</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">max_temp</span><span class="p">)</span>
+		<span class="c"># call parent init function</span>
+		<span class="n">BaseClusterMap</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+		
+	
+	<span class="c"># get the RGB according to a specific temperature</span>
+	<span class="c"># the MAX different colors is 240, from #0000FF to #FF0000 with temperature ascending</span>
+<div class="viewcode-block" id="HeatClusterMap.getRGB"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.cluster_map_heat.HeatClusterMap.getRGB">[docs]</a>	<span class="k">def</span> <span class="nf">getRGB</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">temp</span><span class="p">):</span>
+		<span class="n">rate</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">temperature_max</span> <span class="o">-</span> <span class="n">temp</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">temperature_max</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">temperature_min</span><span class="p">)</span>
+		<span class="n">h</span> <span class="o">=</span> <span class="n">rate</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">h_max</span>
+		<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">getRGBWithH</span><span class="p">(</span><span class="n">h</span><span class="p">)</span>
+	
+	
+	<span class="c"># get proper temperature for cluster server</span>
+	<span class="c"># formation is XXX.X, the precise is 0.1</span></div>
+<div class="viewcode-block" id="HeatClusterMap.getProperTemperature"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.cluster_map_heat.HeatClusterMap.getProperTemperature">[docs]</a>	<span class="k">def</span> <span class="nf">getProperTemperature</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">temp</span><span class="p">):</span>
+		<span class="k">return</span> <span class="nb">round</span><span class="p">(</span><span class="n">temp</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+	
+	
+	<span class="c"># default temperature for cluster servers</span></div>
+<div class="viewcode-block" id="HeatClusterMap.getDefaultTemperature"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.cluster_map_heat.HeatClusterMap.getDefaultTemperature">[docs]</a>	<span class="k">def</span> <span class="nf">getDefaultTemperature</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+		<span class="n">temp_default</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">temperature_min</span> <span class="o">+</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">temperature_max</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">temperature_min</span><span class="p">)</span><span class="o">/</span><span class="mf">3.0</span>
+		<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">getProperTemperature</span><span class="p">(</span><span class="n">temp_default</span><span class="p">)</span>
+		
+	
+	<span class="c"># ======================================</span>
+	<span class="c">#           abstract function</span>
+	<span class="c">#         sub-class MUST override</span>
+	<span class="c"># ======================================</span>
+	<span class="c">#</span>
+	<span class="c"># get default value for dict_servers</span></div>
+<div class="viewcode-block" id="HeatClusterMap.getServersDefaultValue"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.cluster_map_heat.HeatClusterMap.getServersDefaultValue">[docs]</a>	<span class="k">def</span> <span class="nf">getServersDefaultValue</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+		<span class="n">temp_default</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getProperTemperature</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">getDefaultTemperature</span><span class="p">())</span>
+		<span class="n">temp_rgb</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getRGB</span><span class="p">(</span><span class="n">temp_default</span><span class="p">)</span>
+		<span class="c"># update mapping dict with {temp_default:temp_rgb}</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">dict_mapping</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">temp_default</span><span class="p">:</span><span class="n">temp_rgb</span><span class="p">})</span>
+		
+		<span class="k">return</span> <span class="n">temp_default</span>
+		
+	
+	
+	<span class="c"># ======================================</span>
+	<span class="c">#           abstract function</span>
+	<span class="c">#         sub-class MUST override</span>
+	<span class="c"># ======================================</span>
+	<span class="c">#</span>
+	<span class="c"># get corresponding mapping dict, from specific value to RGB value</span>
+	<span class="c"># the formation of RGB is: (R, G, B)</span>
+	<span class="c"># for example: {1:(255, 0, 16), 2:(25, 20, 16), ...} </span></div>
+<div class="viewcode-block" id="HeatClusterMap.getMappingDict"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.cluster_map_heat.HeatClusterMap.getMappingDict">[docs]</a>	<span class="k">def</span> <span class="nf">getMappingDict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+		<span class="k">return</span> <span class="n">deepcopy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dict_mapping</span><span class="p">)</span>
+	
+	
+	<span class="c"># ======================================</span>
+	<span class="c">#           abstract function</span>
+	<span class="c">#         sub-class MUST override</span>
+	<span class="c"># ======================================</span>
+	<span class="c"># </span>
+	<span class="c"># get the current status of servers</span></div>
+<div class="viewcode-block" id="HeatClusterMap.update"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.cluster_map_heat.HeatClusterMap.update">[docs]</a>	<span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+		<span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">flag_debug</span><span class="p">:</span>
+			<span class="k">print</span> <span class="s">&quot;Update servers with DEBUG random data ...&quot;</span>
+			<span class="c">#self.generateRandomTemperature()</span>
+			<span class="bp">self</span><span class="o">.</span><span class="n">generateContinousTemperature</span><span class="p">()</span>
+			<span class="k">return</span>
+		
+		<span class="c"># to do ....</span>
+		<span class="c"># grab real data from mongo db</span>
+		<span class="c"># ...</span>
+	
+	
+	<span class="c"># ======================================</span>
+	<span class="c">#           abstract function</span>
+	<span class="c">#         sub-class MUST override</span>
+	<span class="c"># ======================================</span>
+	<span class="c"># </span>
+	<span class="c"># plot the legend of cluster map</span>
+	<span class="c"># param, ax is an instance of matplotlib.axes.Axes</span>
+	<span class="c"># return value is the filename of legend image file</span></div>
+<div class="viewcode-block" id="HeatClusterMap.drawLegendContent"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.cluster_map_heat.HeatClusterMap.drawLegendContent">[docs]</a>	<span class="k">def</span> <span class="nf">drawLegendContent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ax</span><span class="p">,</span> <span class="n">xylim</span><span class="p">):</span>
+		<span class="c"># step of temperature marker</span>
+		<span class="n">marker_step</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">temperature_max</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">temperature_min</span><span class="p">))</span> <span class="o">/</span> <span class="mi">10</span>
+		<span class="n">marker_step_half</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">marker_step</span>
+		<span class="n">marker_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">50</span><span class="p">]</span>
+		
+		<span class="n">prev_value</span> <span class="o">=</span> <span class="mi">1</span>
+		<span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">marker_list</span><span class="p">:</span>
+			<span class="k">if</span> <span class="n">marker_step</span> <span class="o">&lt;</span> <span class="n">value</span><span class="p">:</span>
+				<span class="n">marker_step</span> <span class="o">=</span> <span class="n">prev_value</span>
+				<span class="k">break</span><span class="p">;</span>
+			<span class="n">prev_value</span> <span class="o">=</span> <span class="n">value</span><span class="p">;</span>
+		<span class="c"># start temperature on marker</span>
+		<span class="n">marker_start</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">temperature_min</span> <span class="o">/</span> <span class="n">marker_step</span><span class="p">))</span> <span class="o">*</span> <span class="n">marker_step</span>
+		<span class="k">while</span> <span class="n">marker_start</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">temperature_min</span> <span class="o">+</span> <span class="n">marker_step_half</span><span class="p">:</span>
+			<span class="n">marker_start</span> <span class="o">+=</span> <span class="n">marker_step</span>
+		
+		<span class="n">marker_end</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">temperature_max</span> <span class="o">/</span> <span class="n">marker_step</span><span class="p">))</span> <span class="o">*</span> <span class="n">marker_step</span>
+		<span class="k">while</span> <span class="n">marker_end</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">temperature_max</span> <span class="o">-</span> <span class="n">marker_step_half</span><span class="p">:</span>
+			<span class="n">marker_end</span> <span class="o">-=</span> <span class="n">marker_step</span>
+			
+		<span class="n">marker_count</span> <span class="o">=</span> <span class="p">(</span><span class="n">marker_end</span> <span class="o">-</span> <span class="n">marker_start</span><span class="p">)</span> <span class="o">/</span> <span class="n">marker_step</span> <span class="o">+</span> <span class="mi">1</span>
+		<span class="c">#color_bar_count = xylim[0]</span>
+		<span class="n">color_bar_count</span> <span class="o">=</span> <span class="mi">240</span>
+		
+		<span class="n">xcount</span> <span class="o">=</span> <span class="n">color_bar_count</span> <span class="o">+</span> <span class="mi">20</span>
+		<span class="n">xstep</span> <span class="o">=</span> <span class="n">xylim</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="n">xcount</span><span class="p">)</span>
+		<span class="n">xstart</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">*</span> <span class="n">xstep</span>
+		<span class="n">xwidth</span> <span class="o">=</span> <span class="n">xstep</span>
+		<span class="n">ycount</span> <span class="o">=</span> <span class="mf">3.0</span> 
+		<span class="n">ystep</span> <span class="o">=</span> <span class="n">xylim</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">/</span> <span class="n">ycount</span>
+		<span class="n">ystart</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">ystep</span>
+		<span class="n">yheight</span> <span class="o">=</span> <span class="mf">0.8</span> <span class="o">*</span> <span class="n">ystep</span>
+		
+		<span class="n">hstep</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">h_max</span> <span class="o">/</span> <span class="n">color_bar_count</span>
+		<span class="n">tstep_half</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">temperature_max</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">temperature_min</span><span class="p">)</span> <span class="o">/</span> <span class="n">color_bar_count</span>
+		<span class="n">tstep</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">tstep_half</span>
+		
+		<span class="c"># the first and last color bar</span>
+		<span class="n">color_bar_first</span> <span class="o">=</span> <span class="p">{</span><span class="s">&quot;color&quot;</span><span class="p">:</span> <span class="s">&quot;#0000FF&quot;</span><span class="p">,</span> <span class="s">&quot;temp&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">temperature_min</span><span class="p">}</span>
+		<span class="n">color_bar_last</span> <span class="o">=</span> <span class="p">{</span><span class="s">&quot;color&quot;</span><span class="p">:</span> <span class="s">&quot;#FF0000&quot;</span><span class="p">,</span> <span class="s">&quot;temp&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">temperature_max</span><span class="p">}</span>
+		
+		<span class="n">temp_current</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">temperature_min</span>
+		<span class="n">marker_current</span> <span class="o">=</span> <span class="n">marker_start</span>
+		<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color_bar_count</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+			<span class="n">rect</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">genDefaultRect</span><span class="p">()</span>
+			<span class="n">lb_x</span> <span class="o">=</span> <span class="n">xstart</span>
+			<span class="n">lb_y</span> <span class="o">=</span> <span class="n">ystart</span> <span class="o">+</span> <span class="n">ystep</span>
+			<span class="n">rect</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s">&quot;verts&quot;</span><span class="p">:{</span><span class="s">&quot;lb&quot;</span><span class="p">:(</span><span class="n">lb_x</span><span class="p">,</span> <span class="n">lb_y</span><span class="p">),</span> <span class="s">&quot;rt&quot;</span><span class="p">:(</span><span class="n">lb_x</span> <span class="o">+</span> <span class="n">xwidth</span><span class="p">,</span> <span class="n">lb_y</span> <span class="o">+</span> <span class="n">yheight</span><span class="p">)}})</span>
+			<span class="c"># color</span>
+			<span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+				<span class="n">rcolor</span> <span class="o">=</span> <span class="n">color_bar_first</span><span class="p">[</span><span class="s">&quot;color&quot;</span><span class="p">]</span>
+			<span class="k">elif</span> <span class="n">i</span> <span class="o">==</span> <span class="n">color_bar_count</span><span class="p">:</span>
+				<span class="n">rcolor</span> <span class="o">=</span> <span class="n">color_bar_last</span><span class="p">[</span><span class="s">&quot;color&quot;</span><span class="p">]</span>
+			<span class="k">else</span><span class="p">:</span>
+				<span class="n">h</span> <span class="o">=</span> <span class="p">(</span><span class="n">color_bar_count</span> <span class="o">-</span> <span class="n">i</span><span class="p">)</span> <span class="o">*</span> <span class="n">hstep</span>
+				<span class="n">rcolor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">convertRGB2Hex</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">getRGBWithH</span><span class="p">(</span><span class="n">h</span><span class="p">))</span>
+			
+			<span class="n">rect</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s">&quot;facecolor_rect&quot;</span><span class="p">:</span><span class="n">rcolor</span><span class="p">,</span> <span class="s">&quot;edgecolor_rect&quot;</span><span class="p">:</span><span class="n">rcolor</span><span class="p">})</span>
+			
+			<span class="c"># label</span>
+			<span class="n">lb_x</span> <span class="o">-=</span> <span class="n">xstep</span>
+			<span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+				<span class="n">rect</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s">&quot;label&quot;</span><span class="p">:{</span><span class="s">&quot;lb&quot;</span><span class="p">:(</span><span class="n">lb_x</span><span class="o">-</span><span class="mf">0.5</span><span class="o">*</span><span class="n">xstep</span><span class="p">,</span> <span class="n">ystart</span><span class="p">),</span> <span class="s">&quot;text&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">temperature_min</span><span class="p">}})</span>
+			<span class="k">elif</span> <span class="n">i</span> <span class="o">==</span> <span class="n">color_bar_count</span><span class="p">:</span>
+				<span class="n">rect</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s">&quot;label&quot;</span><span class="p">:{</span><span class="s">&quot;lb&quot;</span><span class="p">:(</span><span class="n">lb_x</span><span class="p">,</span> <span class="n">ystart</span><span class="p">),</span> <span class="s">&quot;text&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">temperature_max</span><span class="p">}})</span>
+			<span class="c"># marker</span>
+			<span class="k">elif</span> <span class="nb">abs</span><span class="p">(</span><span class="n">temp_current</span> <span class="o">-</span> <span class="n">marker_current</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">tstep_half</span><span class="p">:</span>
+				<span class="n">rect</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s">&quot;label&quot;</span><span class="p">:{</span><span class="s">&quot;lb&quot;</span><span class="p">:(</span><span class="n">lb_x</span><span class="p">,</span> <span class="n">ystart</span><span class="p">),</span> <span class="s">&quot;text&quot;</span><span class="p">:</span> <span class="n">marker_current</span><span class="p">}})</span>
+				<span class="n">rect</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s">&quot;marker&quot;</span><span class="p">:</span> <span class="bp">True</span><span class="p">})</span>
+				<span class="n">marker_current</span> <span class="o">+=</span> <span class="n">marker_step</span>
+				
+			<span class="n">xstart</span> <span class="o">+=</span> <span class="n">xstep</span>
+			<span class="n">temp_current</span> <span class="o">+=</span> <span class="n">tstep</span>
+			
+			<span class="bp">self</span><span class="o">.</span><span class="n">drawRectangle</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">rect</span><span class="p">)</span>
+		
+		
+	
+	<span class="c"># only for test</span>
+	<span class="c"># generate random temperature for cluster servers</span></div>
+<div class="viewcode-block" id="HeatClusterMap.generateRandomTemperature"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.cluster_map_heat.HeatClusterMap.generateRandomTemperature">[docs]</a>	<span class="k">def</span> <span class="nf">generateRandomTemperature</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+		<span class="c"># init the seed of random function</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">getRandom</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
+		
+		<span class="k">for</span> <span class="n">server</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">dict_servers</span><span class="p">:</span>
+			<span class="n">temp_rand</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getRandom</span><span class="p">()</span>
+			<span class="n">temp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getProperTemperature</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">temperature_min</span> <span class="o">+</span> <span class="n">temp_rand</span> <span class="o">*</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">temperature_max</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">temperature_min</span><span class="p">))</span>
+			<span class="n">rgb</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getRGB</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span>
+			<span class="c"># update mapping dict</span>
+			<span class="bp">self</span><span class="o">.</span><span class="n">dict_mapping</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">temp</span><span class="p">:</span><span class="n">rgb</span><span class="p">})</span>
+			
+			<span class="bp">self</span><span class="o">.</span><span class="n">dict_servers</span><span class="p">[</span><span class="n">server</span><span class="p">]</span> <span class="o">=</span> <span class="n">temp</span>
+		
+	<span class="c"># only for test, especially continuous colors</span></div>
+<div class="viewcode-block" id="HeatClusterMap.generateContinousTemperature"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.cluster_map_heat.HeatClusterMap.generateContinousTemperature">[docs]</a>	<span class="k">def</span> <span class="nf">generateContinousTemperature</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+		<span class="n">arr</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dict_servers</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+		<span class="n">len_arr</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+		<span class="c"># found a unknown cluster</span>
+		<span class="k">if</span> <span class="n">len_arr</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+			<span class="k">return</span>
+		
+		<span class="n">step</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">temperature_max</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">temperature_min</span><span class="p">)</span><span class="o">/</span><span class="n">len_arr</span>
+		<span class="n">temp_current</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">temperature_min</span>
+		
+		<span class="k">for</span> <span class="n">server</span> <span class="ow">in</span> <span class="n">arr</span><span class="p">:</span>
+			<span class="n">temp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getProperTemperature</span><span class="p">(</span><span class="n">temp_current</span><span class="p">)</span>
+			<span class="n">rgb</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getRGB</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span>
+			<span class="bp">self</span><span class="o">.</span><span class="n">dict_mapping</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">temp</span><span class="p">:</span><span class="n">rgb</span><span class="p">})</span>
+			<span class="n">temp_current</span> <span class="o">+=</span> <span class="n">step</span>
+			
+			<span class="bp">self</span><span class="o">.</span><span class="n">dict_servers</span><span class="p">[</span><span class="n">server</span><span class="p">]</span> <span class="o">=</span> <span class="n">temp</span>
+	
+	
+<span class="c"># test</span></div></div>
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&quot;__main__&quot;</span><span class="p">:</span>
+	<span class="n">mytest</span> <span class="o">=</span> <span class="n">HeatClusterMap</span><span class="p">(</span><span class="s">&quot;india&quot;</span><span class="p">,</span> <span class="mi">43</span><span class="p">,</span> <span class="mi">349</span><span class="p">)</span>
+	<span class="n">mytest</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2013, Gregor von Laszewski for  FutureGrid.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

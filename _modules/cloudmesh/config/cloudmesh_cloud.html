@@ -1,6 +1,7 @@
 
 
   
+  
  
   
   
@@ -19,8 +20,8 @@
     <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/bootstrap-3.0.0/css/bootstrap.min.css" type="text/css" />
-    <link rel="stylesheet" href="../../../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/bootstrap-3.0.0/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/bootstrap-sphinx.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
@@ -115,7 +116,10 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developer.html#additional-installation-for-documentation-generation">4.6&nbsp;&nbsp;&nbsp;Additional Installation for Documentation Generation</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../developer.html#blockdiag-family">4.6.1&nbsp;&nbsp;&nbsp;Blockdiag family</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../developer.html#yaml-files">4.6.2&nbsp;&nbsp;&nbsp;YAML files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../developer.html#yaml-files">4.6.2&nbsp;&nbsp;&nbsp;YAML files</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../developer.html#generating-a-cloudmesh-yaml-file">4.6.2.1&nbsp;&nbsp;&nbsp;Generating a cloudmesh.yaml file</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="../../../developer.html#mongo">4.6.3&nbsp;&nbsp;&nbsp;Mongo</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../developer.html#starting-and-testing-the-queue-service">4.6.4&nbsp;&nbsp;&nbsp;Starting and testing the Queue Service</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../developer.html#starting-the-web-service">4.6.5&nbsp;&nbsp;&nbsp;Starting the Web Service</a></li>
@@ -316,7 +320,7 @@
 
 <div class="container">
   <div class="row">
-    <div class="span12">
+    <div class="col-md-12">
       
   <h1>Source code for cloudmesh.config.cloudmesh_cloud</h1><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">os</span>
@@ -326,22 +330,24 @@
 
 
 <div class="viewcode-block" id="cloudmesh_cloud"><a class="viewcode-back" href="../../../modules/cloudmesh.config.html#cloudmesh.config.cloudmesh_cloud.cloudmesh_cloud">[docs]</a><span class="k">class</span> <span class="nc">cloudmesh_cloud</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;Abstract class, provides credentials for various cloud platforms&quot;&quot;&quot;</span> 
+    <span class="sd">&quot;&quot;&quot;Abstract class, provides credentials for various cloud platforms&quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">profiledata</span><span class="p">,</span> <span class="n">defaultproj</span><span class="p">,</span> <span class="n">projectlist</span><span class="p">,</span> <span class="n">cloudname</span><span class="p">,</span> <span class="n">clouddata</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_profile</span> <span class="o">=</span> <span class="n">profiledata</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_projectlist</span> <span class="o">=</span> <span class="n">projectlist</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">email</span><span class="p">,</span> <span class="n">defaultproj</span><span class="p">,</span> <span class="n">projectlist</span><span class="p">,</span> <span class="n">cloudname</span><span class="p">,</span> <span class="n">cloudcreds</span><span class="p">,</span> <span class="n">cloudadmincreds</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_username</span> <span class="o">=</span> <span class="n">username</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_email</span> <span class="o">=</span> <span class="n">email</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_defaultproj</span> <span class="o">=</span> <span class="n">defaultproj</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_projectlist</span> <span class="o">=</span> <span class="n">projectlist</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_cloudname</span> <span class="o">=</span> <span class="n">cloudname</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_data</span> <span class="o">=</span> <span class="n">clouddata</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cloudcreds</span> <span class="o">=</span> <span class="n">cloudcreds</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cloudadmincreds</span> <span class="o">=</span> <span class="n">cloudadmincreds</span>
 
     <span class="nd">@property</span>
 <div class="viewcode-block" id="cloudmesh_cloud.username"><a class="viewcode-back" href="../../../modules/cloudmesh.config.html#cloudmesh.config.cloudmesh_cloud.cloudmesh_cloud.username">[docs]</a>    <span class="k">def</span> <span class="nf">username</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_profile</span><span class="p">[</span><span class="s">&#39;username&#39;</span><span class="p">]</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_username</span>
 </div>
     <span class="nd">@property</span>
 <div class="viewcode-block" id="cloudmesh_cloud.email"><a class="viewcode-back" href="../../../modules/cloudmesh.config.html#cloudmesh.config.cloudmesh_cloud.cloudmesh_cloud.email">[docs]</a>    <span class="k">def</span> <span class="nf">email</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_profile</span><span class="p">[</span><span class="s">&#39;e_mail&#39;</span><span class="p">]</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_email</span>
 </div>
     <span class="nd">@property</span>
 <div class="viewcode-block" id="cloudmesh_cloud.cloudname"><a class="viewcode-back" href="../../../modules/cloudmesh.config.html#cloudmesh.config.cloudmesh_cloud.cloudmesh_cloud.cloudname">[docs]</a>    <span class="k">def</span> <span class="nf">cloudname</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -357,14 +363,14 @@
 </div>
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">credentials</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">[</span><span class="s">&#39;credentials&#39;</span><span class="p">]</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cloudcreds</span>
     <span class="nd">@credentials.setter</span>
 <div class="viewcode-block" id="cloudmesh_cloud.credentials"><a class="viewcode-back" href="../../../modules/cloudmesh.config.html#cloudmesh.config.cloudmesh_cloud.cloudmesh_cloud.credentials">[docs]</a>    <span class="k">def</span> <span class="nf">credentials</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">[</span><span class="s">&#39;credentials&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cloudcreds</span> <span class="o">=</span> <span class="n">v</span>
 </div>
     <span class="nd">@property</span>
-<div class="viewcode-block" id="cloudmesh_cloud.data"><a class="viewcode-back" href="../../../modules/cloudmesh.config.html#cloudmesh.config.cloudmesh_cloud.cloudmesh_cloud.data">[docs]</a>    <span class="k">def</span> <span class="nf">data</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data</span>
+<div class="viewcode-block" id="cloudmesh_cloud.admin_credentials"><a class="viewcode-back" href="../../../modules/cloudmesh.config.html#cloudmesh.config.cloudmesh_cloud.cloudmesh_cloud.admin_credentials">[docs]</a>    <span class="k">def</span> <span class="nf">admin_credentials</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cloudadmincreds</span>
 </div>
 <div class="viewcode-block" id="cloudmesh_cloud.newpass"><a class="viewcode-back" href="../../../modules/cloudmesh.config.html#cloudmesh.config.cloudmesh_cloud.cloudmesh_cloud.newpass">[docs]</a>    <span class="k">def</span> <span class="nf">newpass</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Credit: http://stackoverflow.com/questions/3854692/generate-password-in-python&quot;&quot;&quot;</span>
@@ -376,11 +382,7 @@
         <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s">&quot;Not implemented&quot;</span><span class="p">)</span>
 </div>
 <div class="viewcode-block" id="cloudmesh_cloud.change_own_password"><a class="viewcode-back" href="../../../modules/cloudmesh.config.html#cloudmesh.config.cloudmesh_cloud.cloudmesh_cloud.change_own_password">[docs]</a>    <span class="k">def</span> <span class="nf">change_own_password</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">oldpass</span><span class="p">,</span> <span class="n">newpass</span><span class="p">):</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s">&#39;credentials&#39;</span><span class="p">][</span><span class="s">&#39;OS_PASSWORD&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="n">oldpass</span><span class="p">:</span>
-            <span class="k">print</span> <span class="s">&quot;Current password is incorrect; password not changed&quot;</span>
-            <span class="k">return</span> <span class="bp">False</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="k">return</span> <span class="bp">True</span>
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s">&quot;Not implemented&quot;</span><span class="p">)</span>
 </div>
 <div class="viewcode-block" id="cloudmesh_cloud.get_own_password"><a class="viewcode-back" href="../../../modules/cloudmesh.config.html#cloudmesh.config.cloudmesh_cloud.cloudmesh_cloud.get_own_password">[docs]</a>    <span class="k">def</span> <span class="nf">get_own_password</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s">&quot;Not implemented&quot;</span><span class="p">)</span></div></div>

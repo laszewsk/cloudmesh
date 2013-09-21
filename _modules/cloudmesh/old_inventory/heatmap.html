@@ -1,6 +1,7 @@
 
 
   
+  
  
   
   
@@ -19,8 +20,8 @@
     <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/bootstrap-3.0.0/css/bootstrap.min.css" type="text/css" />
-    <link rel="stylesheet" href="../../../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/bootstrap-3.0.0/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/bootstrap-sphinx.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
@@ -115,7 +116,10 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developer.html#additional-installation-for-documentation-generation">4.6&nbsp;&nbsp;&nbsp;Additional Installation for Documentation Generation</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../developer.html#blockdiag-family">4.6.1&nbsp;&nbsp;&nbsp;Blockdiag family</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../developer.html#yaml-files">4.6.2&nbsp;&nbsp;&nbsp;YAML files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../developer.html#yaml-files">4.6.2&nbsp;&nbsp;&nbsp;YAML files</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../developer.html#generating-a-cloudmesh-yaml-file">4.6.2.1&nbsp;&nbsp;&nbsp;Generating a cloudmesh.yaml file</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="../../../developer.html#mongo">4.6.3&nbsp;&nbsp;&nbsp;Mongo</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../developer.html#starting-and-testing-the-queue-service">4.6.4&nbsp;&nbsp;&nbsp;Starting and testing the Queue Service</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../developer.html#starting-the-web-service">4.6.5&nbsp;&nbsp;&nbsp;Starting the Web Service</a></li>
@@ -316,7 +320,7 @@
 
 <div class="container">
   <div class="row">
-    <div class="span12">
+    <div class="col-md-12">
       
   <h1>Source code for cloudmesh.old_inventory.heatmap</h1><div class="highlight"><pre>
 <span class="kn">from</span> <span class="nn">jinja2</span> <span class="kn">import</span> <span class="n">Template</span>
@@ -336,97 +340,97 @@
     <span class="c"># Filename of server.diag</span>
     <span class="c">#</span>
     <span class="n">diag_filename</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
-    
+
     <span class="c">#</span>
     <span class="c"># type of image</span>
     <span class="c">#</span>
     <span class="n">image_type</span> <span class="o">=</span> <span class="s">&quot;svg&quot;</span>
-    
+
     <span class="c">#</span>
     <span class="c"># filename of image</span>
     <span class="c">#</span>
     <span class="n">image_filename</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
-    
+
     <span class="c"># content of diag file</span>
     <span class="n">diag_content</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
-    
+
     <span class="c"># temporary diag file</span>
     <span class="n">diag_temp_filename</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
-    
+
     <span class="c">#</span>
     <span class="c"># Array of sever names</span>
     <span class="c"># This array is always a double array</span>
     <span class="c"># the 1st array is related to a rack</span>
     <span class="c"># the 2nd items is a server in the specific rack</span>
     <span class="c"># the 3rd is the data of the corresponding server (name, code of template)</span>
-    <span class="c"># </span>
-    <span class="n">arr_servers</span> <span class="o">=</span> <span class="p">[]</span>
-    
     <span class="c">#</span>
-    <span class="c"># color substitute dict </span>
+    <span class="n">arr_servers</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="c">#</span>
+    <span class="c"># color substitute dict</span>
     <span class="c">#</span>
     <span class="n">dict_colors</span> <span class="o">=</span> <span class="p">{}</span>
-    
-    
+
+
     <span class="c">#</span>
     <span class="c"># static regex pattern for parsing rackXXX.diag file</span>
     <span class="c">#</span>
-    
+
     <span class="c"># racklist, a group of rack</span>
     <span class="n">patt_racklist</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">&quot;rackdiag\s*?\{&quot;</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">I</span><span class="p">)</span>
-    
+
     <span class="c"># rack, a group of server</span>
     <span class="n">patt_rack</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">&quot;rack\s*?\{&quot;</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">I</span><span class="p">)</span>
-    
-    <span class="c"># description // .... </span>
+
+    <span class="c"># description // ....</span>
     <span class="n">patt_desc</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">&quot;^//&quot;</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">I</span><span class="p">)</span>
-    
+
     <span class="c"># total server units, e.g., 48U</span>
     <span class="n">patt_total_u</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">&quot;^\d+?u&quot;</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">I</span><span class="p">)</span>
-    
-    <span class="c"># a record of normal server </span>
+
+    <span class="c"># a record of normal server</span>
     <span class="c"># 5: gravel01 [2U] {{gravel01}}</span>
     <span class="c"># 5: gravel01 {{gravel01}}</span>
     <span class="c"># 5: {{gravel01}}</span>
     <span class="n">patt_server_normal</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">&quot;(^\d+?):((?:\s*?\w+?)?(?:\s*?\[\w+?\])?)\s*?\{\{(\w+?)\}\}&quot;</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">I</span><span class="p">)</span>
-    
+
     <span class="c"># already rendered record of server</span>
     <span class="c">#  5: gravel01 [2U] [color=XXXX]</span>
     <span class="c">#  5: gravel01 [color=XXXX]</span>
     <span class="c">#  5: [color=XXXX]</span>
     <span class="n">patt_server_render</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">&quot;(^\d+?):((?:\s*?\w+?)?(?:\s*?\[\w+?\])?)\s*?\[color\s*?=\s*?(\w+?)\]&quot;</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">I</span><span class="p">)</span>
-    
-        
+
+
     <span class="c">#</span>
     <span class="c"># the image file locates in the same directory with the input filename</span>
     <span class="c"># param: filename is the input filename of a rackXXX.diag</span>
-    <span class="c"># </span>
+    <span class="c">#</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="nb">type</span><span class="p">):</span>
     	<span class="n">fullname</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
     	<span class="bp">self</span><span class="o">.</span><span class="n">diag_filename</span> <span class="o">=</span> <span class="n">fullname</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
-    	
+
     	<span class="n">basename</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">diag_filename</span><span class="p">)</span>
     	<span class="n">dirname</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">diag_filename</span><span class="p">)</span>
-    	
+
     	<span class="c"># check extension of input filename</span>
     	<span class="k">if</span> <span class="ow">not</span> <span class="n">basename</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s">&quot;.diag&quot;</span><span class="p">):</span>
     		<span class="k">print</span> <span class="s">&quot;Warning: ONLY .diag file is supported. Exit immediately!&quot;</span>
     		<span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-    	
+
     	<span class="c"># set diag temporary filename</span>
     	<span class="bp">self</span><span class="o">.</span><span class="n">diag_temp_filename</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">diag_filename</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">5</span><span class="p">]</span> <span class="o">+</span> <span class="s">&quot;-temp.diag&quot;</span>
-    	
+
     	<span class="c"># set image file to the default svg format</span>
     	<span class="bp">self</span><span class="o">.</span><span class="n">set_image_format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">image_type</span><span class="p">)</span>
-    	    	
-    
+
+
     <span class="c"># set image type</span>
     <span class="c"># change the extension of image filename</span>
 <div class="viewcode-block" id="MyTempMap.set_image_format"><a class="viewcode-back" href="../../../modules/cloudmesh.old_inventory.html#cloudmesh.old_inventory.heatmap.MyTempMap.set_image_format">[docs]</a>    <span class="k">def</span> <span class="nf">set_image_format</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">type</span><span class="p">):</span>
     	<span class="k">if</span> <span class="ow">not</span> <span class="nb">type</span><span class="p">:</span>
     		<span class="k">print</span> <span class="s">&quot;You must set a non-empty type.&quot;</span>
     		<span class="nb">exit</span>
-    	
+
     	<span class="c"># lower string of type</span>
     	<span class="n">ltype</span> <span class="o">=</span> <span class="nb">type</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
     	<span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">image_filename</span><span class="p">:</span>
@@ -440,67 +444,67 @@
     		<span class="k">print</span> <span class="s">&quot;Image type {0} is NOT supported currently!&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">type</span><span class="p">)</span>
     		<span class="k">print</span> <span class="s">&quot;Use svg to replace .&quot;</span>
     		<span class="bp">self</span><span class="o">.</span><span class="n">image_type</span> <span class="o">=</span> <span class="s">&quot;svg&quot;</span>
-    	
+
     	<span class="c"># filename, diag filename ends with &quot;.diag&quot;</span>
-    	<span class="c"># image filename ends with &quot;.&quot; + a valid lower image type </span>
+    	<span class="c"># image filename ends with &quot;.&quot; + a valid lower image type</span>
     	<span class="bp">self</span><span class="o">.</span><span class="n">image_filename</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">diag_filename</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">4</span><span class="p">]</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">image_type</span>
 
 
-        <span class="c"># bug use    (name, ending) = self.image_filename.split(&quot;.&quot;,-1) </span>
+        <span class="c"># bug use    (name, ending) = self.image_filename.split(&quot;.&quot;,-1)</span>
         <span class="c"># http://stackoverflow.com/questions/541390/extracting-extension-from-filename-in-python</span>
     	<span class="k">print</span> <span class="s">&quot;image filename is: &quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">image_filename</span>
 
-    
+
 	<span class="c"># update server color code to a real color in RGB space</span></div>
 <div class="viewcode-block" id="MyTempMap.update_server_color"><a class="viewcode-back" href="../../../modules/cloudmesh.old_inventory.html#cloudmesh.old_inventory.heatmap.MyTempMap.update_server_color">[docs]</a>    <span class="k">def</span> <span class="nf">update_server_color</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scode</span><span class="p">,</span> <span class="n">scolor</span><span class="p">):</span>
     	<span class="k">if</span> <span class="n">scode</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">dict_colors</span><span class="p">:</span>
     		<span class="k">print</span> <span class="s">&quot;update dict_colors with [{0}, {1}]&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">scode</span><span class="p">,</span> <span class="n">scolor</span><span class="p">)</span>
     		<span class="bp">self</span><span class="o">.</span><span class="n">dict_colors</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">scode</span><span class="p">:</span> <span class="n">scolor</span><span class="p">})</span>
     	<span class="k">else</span><span class="p">:</span>
-    		<span class="k">print</span> <span class="s">&quot;[Error] code {0} does NOT exist in dict_colors.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">scode</span><span class="p">)</span> 
-    
-    
+    		<span class="k">print</span> <span class="s">&quot;[Error] code {0} does NOT exist in dict_colors.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">scode</span><span class="p">)</span>
+
+
     <span class="c"># add color to color_dict</span></div>
 <div class="viewcode-block" id="MyTempMap.append_server_color"><a class="viewcode-back" href="../../../modules/cloudmesh.old_inventory.html#cloudmesh.old_inventory.heatmap.MyTempMap.append_server_color">[docs]</a>    <span class="k">def</span> <span class="nf">append_server_color</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scode</span><span class="p">):</span>
 		<span class="k">if</span> <span class="n">scode</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">dict_colors</span><span class="p">:</span>
 			<span class="k">print</span> <span class="s">&quot;Find a same color code among different server. </span><span class="se">\n</span><span class="s"> Please check the origial rackXXX.diag file.&quot;</span>
 		<span class="k">else</span><span class="p">:</span>
 			<span class="bp">self</span><span class="o">.</span><span class="n">dict_colors</span><span class="p">[</span><span class="n">scode</span><span class="p">]</span> <span class="o">=</span> <span class="n">scode</span>
-    
-    
+
+
     <span class="c">#</span>
     <span class="c"># ONLY used when a rack embed in the racklist</span>
     <span class="c"># IF there is only one rack, this function should NOT be called</span>
-    <span class="c"># </span>
+    <span class="c">#</span>
     <span class="c"># add one server record into 3-dimension array data structure</span>
-    <span class="c"># 	</span></div>
+    <span class="c">#</span></div>
 <div class="viewcode-block" id="MyTempMap.addRackListServer"><a class="viewcode-back" href="../../../modules/cloudmesh.old_inventory.html#cloudmesh.old_inventory.heatmap.MyTempMap.addRackListServer">[docs]</a>    <span class="k">def</span> <span class="nf">addRackListServer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rackIndex</span><span class="p">,</span> <span class="n">numIndex</span><span class="p">,</span> <span class="n">sname</span><span class="p">,</span> <span class="n">scolor</span><span class="p">):</span>
     	<span class="k">print</span> <span class="s">&quot;into add server info ...&quot;</span>
-    	
+
     	<span class="n">arr_record</span> <span class="o">=</span> <span class="p">(</span><span class="n">numIndex</span><span class="p">,</span> <span class="n">sname</span><span class="p">,</span> <span class="n">scolor</span><span class="p">)</span>
     	<span class="k">print</span> <span class="n">arr_record</span>
-    	
+
     	<span class="bp">self</span><span class="o">.</span><span class="n">arr_servers</span><span class="p">[</span><span class="n">rackIndex</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">arr_record</span><span class="p">)</span>
-    	
+
     	<span class="c"># add color to color_dict</span>
     	<span class="bp">self</span><span class="o">.</span><span class="n">append_server_color</span><span class="p">(</span><span class="n">scolor</span><span class="p">)</span>
-    	
-    	
-    	
+
+
+
     <span class="c"># ONLY has a rack in rackXXX.diag file</span>
     <span class="c"># It will be a 2-dimension array, containing ONLY one rack</span></div>
 <div class="viewcode-block" id="MyTempMap.addRackServer"><a class="viewcode-back" href="../../../modules/cloudmesh.old_inventory.html#cloudmesh.old_inventory.heatmap.MyTempMap.addRackServer">[docs]</a>    <span class="k">def</span> <span class="nf">addRackServer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">numIndex</span><span class="p">,</span> <span class="n">sname</span><span class="p">,</span> <span class="n">scolor</span><span class="p">):</span>
     	<span class="k">print</span> <span class="s">&quot;into add server info [rack] ...&quot;</span>
-    	
+
     	<span class="n">arr_record</span> <span class="o">=</span> <span class="p">(</span><span class="n">numIndex</span><span class="p">,</span> <span class="n">sname</span><span class="p">,</span> <span class="n">scolor</span><span class="p">)</span>
     	<span class="k">print</span> <span class="n">arr_record</span>
-    	
+
     	<span class="bp">self</span><span class="o">.</span><span class="n">arr_servers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">arr_record</span><span class="p">)</span>
-    	
+
     	<span class="c"># add color to color_dict</span>
     	<span class="bp">self</span><span class="o">.</span><span class="n">append_server_color</span><span class="p">(</span><span class="n">scolor</span><span class="p">)</span>
-    
-    
+
+
 
     <span class="c">#</span>
     <span class="c"># read information from the diag file</span>
@@ -508,18 +512,18 @@
 <div class="viewcode-block" id="MyTempMap.readDiagInfo"><a class="viewcode-back" href="../../../modules/cloudmesh.old_inventory.html#cloudmesh.old_inventory.heatmap.MyTempMap.readDiagInfo">[docs]</a>    <span class="k">def</span> <span class="nf">readDiagInfo</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
     	<span class="k">print</span> <span class="s">&quot;Ready to read DIAG info from {0} ...&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">diag_filename</span><span class="p">)</span>
         <span class="n">rf</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">diag_filename</span><span class="p">,</span> <span class="s">&quot;r&quot;</span><span class="p">)</span>
-        
+
         <span class="k">print</span> <span class="n">rf</span>
-        
+
         <span class="n">rackindex</span> <span class="o">=</span> <span class="o">-</span><span class="mi">2</span><span class="p">;</span>
         <span class="k">for</span> <span class="n">aline</span> <span class="ow">in</span> <span class="n">rf</span><span class="p">:</span>
         	<span class="k">print</span> <span class="n">aline</span>
-        	
+
         	<span class="c"># keep the file content in memory</span>
         	<span class="c"># add line string to diag_content</span>
         	<span class="bp">self</span><span class="o">.</span><span class="n">diag_content</span> <span class="o">+=</span> <span class="n">aline</span>
         	<span class="bp">self</span><span class="o">.</span><span class="n">diag_content</span> <span class="o">+=</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span>
-        	
+
         	<span class="n">line</span> <span class="o">=</span> <span class="n">aline</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
         	<span class="c"># normal server</span>
         	<span class="n">m</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">patt_server_normal</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
@@ -533,9 +537,9 @@
         			<span class="bp">self</span><span class="o">.</span><span class="n">addRackServer</span><span class="p">(</span><span class="n">sindex</span><span class="p">,</span> <span class="n">sname</span><span class="p">,</span> <span class="n">scolor</span><span class="p">)</span>
         		<span class="k">else</span><span class="p">:</span>
         			<span class="bp">self</span><span class="o">.</span><span class="n">addRackListServer</span><span class="p">(</span><span class="n">rackindex</span><span class="p">,</span> <span class="n">sindex</span><span class="p">,</span> <span class="n">sname</span><span class="p">,</span> <span class="n">scolor</span><span class="p">)</span>
-        		
+
         		<span class="k">continue</span>
-        	
+
         	<span class="c"># rendered server</span>
         	<span class="n">m</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">patt_server_render</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
         	<span class="k">if</span> <span class="n">m</span><span class="p">:</span>
@@ -545,16 +549,16 @@
         		<span class="n">scolor</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
         		<span class="k">if</span> <span class="n">rackindex</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
         			<span class="k">print</span> <span class="s">&quot;ONLY a SINGLE rack exist...&quot;</span>
-        		
+
         		<span class="k">print</span> <span class="s">&quot;RENDERED Info: index={0}, name={1}, color={2}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sindex</span><span class="p">,</span> <span class="n">sname</span><span class="p">,</span> <span class="n">scolor</span><span class="p">)</span>
         		<span class="k">continue</span>
-        	
+
         	<span class="c"># description</span>
         	<span class="n">m</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">patt_desc</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
         	<span class="k">if</span> <span class="n">m</span><span class="p">:</span>
         		<span class="k">print</span> <span class="s">&quot;find description...&quot;</span>
         		<span class="k">continue</span>
-        		
+
         	<span class="c"># rack</span>
         	<span class="n">m</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">patt_rack</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
         	<span class="k">if</span> <span class="n">m</span><span class="p">:</span>
@@ -562,54 +566,54 @@
         		<span class="bp">self</span><span class="o">.</span><span class="n">arr_servers</span><span class="o">.</span><span class="n">append</span><span class="p">([]);</span>
         		<span class="n">rackindex</span> <span class="o">+=</span> <span class="mi">1</span>
         		<span class="k">continue</span>
-        	
+
         	<span class="c"># total U</span>
         	<span class="n">m</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">patt_total_u</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
         	<span class="k">if</span> <span class="n">m</span><span class="p">:</span>
         		<span class="k">print</span> <span class="s">&quot;find total u..&quot;</span>
         		<span class="k">continue</span>
-        	
+
         	<span class="c"># racklist</span>
         	<span class="n">m</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">patt_racklist</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
         	<span class="k">if</span> <span class="n">m</span><span class="p">:</span>
         		<span class="k">print</span> <span class="s">&quot;find racklist..&quot;</span>
         		<span class="n">rackindex</span> <span class="o">+=</span> <span class="mi">1</span>
         		<span class="k">continue</span>
-        	
+
         	<span class="c"># currently, ignore all unmatched items/lines</span>
-        	<span class="c"># To do...	</span>
-        	
+        	<span class="c"># To do...</span>
+
         <span class="c"># Finally, close file</span>
         <span class="n">rf</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-    
+
     <span class="c">#</span>
     <span class="c"># generate a new diag file with random temperature or color</span>
-    <span class="c"># </span></div>
+    <span class="c">#</span></div>
 <div class="viewcode-block" id="MyTempMap.writeTempDiagInfo"><a class="viewcode-back" href="../../../modules/cloudmesh.old_inventory.html#cloudmesh.old_inventory.heatmap.MyTempMap.writeTempDiagInfo">[docs]</a>    <span class="k">def</span> <span class="nf">writeTempDiagInfo</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
     	<span class="n">arr</span> <span class="o">=</span> <span class="p">{}</span>
     	<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">dict_colors</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
     		<span class="n">vcolor</span> <span class="o">=</span> <span class="s">&#39;[color=&quot;{0}&quot;];&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dict_colors</span><span class="p">[</span><span class="n">k</span><span class="p">])</span>
     		<span class="n">arr</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">vcolor</span>
-    		
+
     	<span class="n">wf</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">diag_temp_filename</span><span class="p">,</span> <span class="s">&quot;w&quot;</span><span class="p">)</span>
     	<span class="n">template</span> <span class="o">=</span> <span class="n">Template</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">diag_content</span><span class="p">)</span>
     	<span class="n">scontent</span> <span class="o">=</span> <span class="n">template</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
     	<span class="n">wf</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">scontent</span><span class="p">)</span>
     	<span class="n">wf</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-    	
-    
+
+
     <span class="c">#</span>
     <span class="c"># generate an image with the tool of rackdiag</span>
     <span class="c">#</span></div>
 <div class="viewcode-block" id="MyTempMap.gen_rack_image"><a class="viewcode-back" href="../../../modules/cloudmesh.old_inventory.html#cloudmesh.old_inventory.heatmap.MyTempMap.gen_rack_image">[docs]</a>    <span class="k">def</span> <span class="nf">gen_rack_image</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
     	<span class="c"># step 1. write temporary diag file to disk</span>
     	<span class="bp">self</span><span class="o">.</span><span class="n">writeTempDiagInfo</span><span class="p">()</span>
-    	
+
     	<span class="c"># step 2. call rackdiag to make a image</span>
     	<span class="bp">self</span><span class="o">.</span><span class="n">plot_rackdiag</span><span class="p">()</span>
-        
-    
-    </div>
+
+
+</div>
 <div class="viewcode-block" id="MyTempMap.convertNumToRGB_2"><a class="viewcode-back" href="../../../modules/cloudmesh.old_inventory.html#cloudmesh.old_inventory.heatmap.MyTempMap.convertNumToRGB_2">[docs]</a>    <span class="k">def</span> <span class="nf">convertNumToRGB_2</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
         <span class="n">h</span> <span class="o">=</span> <span class="p">[</span>
             <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">),</span>
@@ -712,7 +716,7 @@
             <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
             <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
             <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">)]</span>
-        
+
         <span class="n">i</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">value</span> <span class="o">*</span> <span class="mi">100</span><span class="p">)</span>
 
 
@@ -722,7 +726,7 @@
         <span class="k">return</span> <span class="s">&quot;#{0:02X}{1:02X}{2:02X}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
 
 
-    <span class="c"># </span>
+    <span class="c">#</span>
     <span class="c"># convert a number between 0.00 and 1.00 to a RGB value represented by Hex value</span>
     <span class="c">#</span></div>
 <div class="viewcode-block" id="MyTempMap.convertNumToRGB"><a class="viewcode-back" href="../../../modules/cloudmesh.old_inventory.html#cloudmesh.old_inventory.heatmap.MyTempMap.convertNumToRGB">[docs]</a>    <span class="k">def</span> <span class="nf">convertNumToRGB</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
@@ -764,9 +768,9 @@
         <span class="n">shexRGB</span> <span class="o">=</span> <span class="s">&quot;#{0:02X}{1:02X}{2:02X}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">RGB_R</span><span class="p">)),</span> <span class="nb">int</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">RGB_G</span><span class="p">)),</span> <span class="nb">int</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">RGB_B</span><span class="p">)))</span>
 
         <span class="k">return</span> <span class="n">shexRGB</span>
-    
 
-    
+
+
     <span class="c"># generate random temperature for all possilbe server with color code</span>
     <span class="c"># just do this in dict_colors data structure</span></div>
 <div class="viewcode-block" id="MyTempMap.gen_random_temperature"><a class="viewcode-back" href="../../../modules/cloudmesh.old_inventory.html#cloudmesh.old_inventory.heatmap.MyTempMap.gen_random_temperature">[docs]</a>    <span class="k">def</span> <span class="nf">gen_random_temperature</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -775,22 +779,22 @@
     		<span class="n">rtemp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_random</span><span class="p">(</span><span class="bp">False</span><span class="p">);</span>
     		<span class="n">rcolor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">convertNumToRGB_2</span><span class="p">(</span><span class="n">rtemp</span><span class="p">)</span>
     		<span class="bp">self</span><span class="o">.</span><span class="n">update_server_color</span><span class="p">(</span><span class="n">scode</span><span class="p">,</span> <span class="n">rcolor</span><span class="p">)</span>
-    
+
     <span class="c"># set a specific temperature for a server</span>
     <span class="c"># this method MUST call after gen_random_temperature</span></div>
 <div class="viewcode-block" id="MyTempMap.set_server_temperature"><a class="viewcode-back" href="../../../modules/cloudmesh.old_inventory.html#cloudmesh.old_inventory.heatmap.MyTempMap.set_server_temperature">[docs]</a>    <span class="k">def</span> <span class="nf">set_server_temperature</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scode</span><span class="p">,</span> <span class="n">stemp</span><span class="p">):</span>
     	<span class="k">if</span> <span class="n">stemp</span> <span class="o">&lt;</span> <span class="mf">0.0</span> <span class="ow">or</span> <span class="n">stemp</span> <span class="o">&gt;</span> <span class="mf">1.0</span><span class="p">:</span>
     		<span class="k">print</span> <span class="s">&quot;[Error]Temperature MUST in range 0.0 -- 1.0, &quot;</span>
     		<span class="k">return</span>
-    	
+
     	<span class="k">if</span> <span class="n">scode</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">dict_colors</span><span class="p">:</span>
     		<span class="k">print</span> <span class="s">&quot;Find server {0}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">scode</span><span class="p">)</span>
     		<span class="n">rtemp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">convertNumToRGB_2</span><span class="p">(</span><span class="n">stemp</span><span class="p">)</span>
     		<span class="bp">self</span><span class="o">.</span><span class="n">dict_colors</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">scode</span><span class="p">:</span><span class="n">rtemp</span><span class="p">})</span>
     	<span class="k">else</span><span class="p">:</span>
     		<span class="k">print</span> <span class="s">&quot;Cannot find server {0} in server list&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">scode</span><span class="p">)</span>
-    
-    
+
+
     <span class="c"># get random number</span>
     <span class="c"># range is 0.00 ~ 0.99</span>
     <span class="c"># params:</span>
@@ -800,25 +804,25 @@
         <span class="k">if</span> <span class="n">bResetSeed</span><span class="p">:</span>
             <span class="n">rseed</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
             <span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
-        
+
         <span class="n">rand</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>
         <span class="c"># ivalue = int(rand * 100)</span>
         <span class="c"># fvalue = float(ivalue / 100.0)</span>
         <span class="k">return</span> <span class="n">rand</span>
-    
+
     <span class="c">#</span>
     <span class="c"># call rackdiag to make a image</span>
     <span class="c">#</span></div>
 <div class="viewcode-block" id="MyTempMap.plot_rackdiag"><a class="viewcode-back" href="../../../modules/cloudmesh.old_inventory.html#cloudmesh.old_inventory.heatmap.MyTempMap.plot_rackdiag">[docs]</a>    <span class="k">def</span> <span class="nf">plot_rackdiag</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
     	<span class="c"># write temporary diag file to disk</span>
     	<span class="bp">self</span><span class="o">.</span><span class="n">writeTempDiagInfo</span><span class="p">()</span>
-    	
+
     	<span class="c"># call rackdiag to plot</span>
     	<span class="n">r</span> <span class="o">=</span> <span class="n">rackdiag</span><span class="p">(</span><span class="s">&quot;-T{0}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">image_type</span><span class="p">),</span>
                     <span class="s">&quot;-o&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">image_filename</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">diag_temp_filename</span><span class="p">)</span>
-        
+
     <span class="c"># plot_rackdiag(type, input_filename, output_filename)</span>
-    
+
     <span class="c"># only for testing ....</span>
     <span class="c"># t = get_random_temperature()</span>
     <span class="c"># print t</span>
@@ -839,14 +843,14 @@
         <span class="k">print</span> <span class="s">&quot;</span><span class="se">\t</span><span class="s"> python chmap svg india-color.diag&quot;</span>
         <span class="k">print</span> <span class="s">&quot;</span><span class="se">\t</span><span class="s"> or&quot;</span>
         <span class="k">print</span> <span class="s">&quot;</span><span class="se">\t</span><span class="s"> python chmap india-color.diag&quot;</span>
-        <span class="k">print</span> <span class="s">&quot;&quot;</span>    
+        <span class="k">print</span> <span class="s">&quot;&quot;</span>
         <span class="nb">exit</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 
     <span class="n">diag_file</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="n">arg_len</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
-    <span class="k">print</span> <span class="s">&quot;input filename is &quot;</span><span class="p">,</span> <span class="n">diag_file</span> 
+    <span class="k">print</span> <span class="s">&quot;input filename is &quot;</span><span class="p">,</span> <span class="n">diag_file</span>
     <span class="n">t</span> <span class="o">=</span> <span class="n">MyTempMap</span><span class="p">(</span><span class="n">diag_file</span><span class="p">,</span> <span class="s">&quot;svg&quot;</span><span class="p">)</span>
     <span class="n">t</span><span class="o">.</span><span class="n">readDiagInfo</span><span class="p">()</span>
-    
+
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    print &quot;server info...&quot;</span>
 <span class="sd">    print t.arr_servers</span>

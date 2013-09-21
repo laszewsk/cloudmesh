@@ -1,6 +1,7 @@
 
 
   
+  
  
   
   
@@ -19,8 +20,8 @@
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/bootstrap-3.0.0/css/bootstrap.min.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/bootstrap-3.0.0/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
@@ -117,7 +118,10 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../developer.html#additional-installation-for-documentation-generation">4.6&nbsp;&nbsp;&nbsp;Additional Installation for Documentation Generation</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../developer.html#blockdiag-family">4.6.1&nbsp;&nbsp;&nbsp;Blockdiag family</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../developer.html#yaml-files">4.6.2&nbsp;&nbsp;&nbsp;YAML files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer.html#yaml-files">4.6.2&nbsp;&nbsp;&nbsp;YAML files</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../developer.html#generating-a-cloudmesh-yaml-file">4.6.2.1&nbsp;&nbsp;&nbsp;Generating a cloudmesh.yaml file</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="../developer.html#mongo">4.6.3&nbsp;&nbsp;&nbsp;Mongo</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../developer.html#starting-and-testing-the-queue-service">4.6.4&nbsp;&nbsp;&nbsp;Starting and testing the Queue Service</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../developer.html#starting-the-web-service">4.6.5&nbsp;&nbsp;&nbsp;Starting the Web Service</a></li>
@@ -310,8 +314,10 @@
             
             
               <li>
+<div id="sourcelink">
   <a href="../_sources/modules/cloudmesh.inventory.txt"
-     rel="nofollow">Source</a></li>
+     rel="nofollow">Source</a>
+</div></li>
             
           </ul>
 
@@ -331,7 +337,7 @@
 
 <div class="container">
   <div class="row">
-    <div class="span12">
+    <div class="col-md-12">
       
   <div class="section" id="inventory-package">
 <h1>inventory Package<a class="headerlink" href="#inventory-package" title="Permalink to this headline">¶</a></h1>
@@ -340,7 +346,17 @@
 <span class="target" id="module-cloudmesh.inventory"></span><dl class="class">
 <dt id="cloudmesh.inventory.Inventory">
 <em class="property">class </em><tt class="descclassname">cloudmesh.inventory.</tt><tt class="descname">Inventory</tt><a class="reference internal" href="../_modules/cloudmesh/inventory.html#Inventory"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.inventory.Inventory" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="method">
+<dd><dl class="attribute">
+<dt id="cloudmesh.inventory.Inventory.BOOTSPEC_FILE">
+<tt class="descname">BOOTSPEC_FILE</tt><em class="property"> = '~/.futuregrid/cloudmesh_bootspec.yaml'</em><a class="headerlink" href="#cloudmesh.inventory.Inventory.BOOTSPEC_FILE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cloudmesh.inventory.Inventory.CONFIG_FILE">
+<tt class="descname">CONFIG_FILE</tt><em class="property"> = '~/.futuregrid/cloudmesh_cluster.yaml'</em><a class="headerlink" href="#cloudmesh.inventory.Inventory.CONFIG_FILE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
 <dt id="cloudmesh.inventory.Inventory.add_bootspec">
 <tt class="descname">add_bootspec</tt><big>(</big><em>name</em>, <em>description</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/inventory.html#Inventory.add_bootspec"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.inventory.Inventory.add_bootspec" title="Permalink to this definition">¶</a></dt>
 <dd><p>cm_type: inventory
@@ -388,7 +404,7 @@ type: &#8216;xfs&#8217;</dd>
 
 <dl class="method">
 <dt id="cloudmesh.inventory.Inventory.cluster">
-<tt class="descname">cluster</tt><big>(</big><em>selfself</em>, <em>name</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/inventory.html#Inventory.cluster"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.inventory.Inventory.cluster" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">cluster</tt><big>(</big><em>name</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/inventory.html#Inventory.cluster"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.inventory.Inventory.cluster" title="Permalink to this definition">¶</a></dt>
 <dd><p>returns cluster data in dict</p>
 </dd></dl>
 
@@ -454,7 +470,7 @@ type: &#8216;xfs&#8217;</dd>
 
 <dl class="method">
 <dt id="cloudmesh.inventory.Inventory.ipadr">
-<tt class="descname">ipadr</tt><big>(</big><em>index</em>, <em>type</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/inventory.html#Inventory.ipadr"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.inventory.Inventory.ipadr" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">ipadr</tt><big>(</big><em>index</em>, <em>iptype</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/inventory.html#Inventory.ipadr"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.inventory.Inventory.ipadr" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
