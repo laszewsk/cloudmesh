@@ -346,10 +346,10 @@
 <div class="viewcode-block" id="cm_userLDAP.get_config"><a class="viewcode-back" href="../../../modules/cloudmesh.user.html#cloudmesh.user.cm_userLDAP.cm_userLDAP.get_config">[docs]</a>    <span class="k">def</span> <span class="nf">get_config</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 
         <span class="k">if</span> <span class="ow">not</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">has_key</span><span class="p">(</span><span class="s">&#39;host&#39;</span><span class="p">):</span>  <span class="c"># if kwargs[&#39;host&#39;] is None:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">host</span> <span class="o">=</span> <span class="n">cm_config_server</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;ldap.hostname&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">host</span> <span class="o">=</span> <span class="n">cm_config_server</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;cloudmesh.server.ldap.hostname&quot;</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="ow">not</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">has_key</span><span class="p">(</span><span class="s">&#39;ldapcert&#39;</span><span class="p">):</span>  <span class="c"># if kwargs[&#39;ldapcert&#39;] is None:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">cert</span> <span class="o">=</span> <span class="n">cm_config_server</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;ldap.cert&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">cert</span> <span class="o">=</span> <span class="n">cm_config_server</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;cloudmesh.server.ldap.cert&quot;</span><span class="p">)</span>
 
 </div>
 <div class="viewcode-block" id="cm_userLDAP.authenticate"><a class="viewcode-back" href="../../../modules/cloudmesh.user.html#cloudmesh.user.cm_userLDAP.cm_userLDAP.authenticate">[docs]</a>    <span class="k">def</span> <span class="nf">authenticate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">userId</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
@@ -388,6 +388,7 @@
 </div>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">collection</span><span class="o">=</span><span class="s">&quot;user&quot;</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">cm_userLDAP</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ldapconn</span> <span class="o">=</span> <span class="bp">None</span>
 
 <div class="viewcode-block" id="cm_userLDAP.refresh"><a class="viewcode-back" href="../../../modules/cloudmesh.user.html#cloudmesh.user.cm_userLDAP.cm_userLDAP.refresh">[docs]</a>    <span class="k">def</span> <span class="nf">refresh</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&#39;&#39;&#39;</span>
@@ -414,10 +415,10 @@
             <span class="n">provider</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span>
 
         <span class="k">if</span> <span class="ow">not</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">has_key</span><span class="p">(</span><span class="s">&#39;host&#39;</span><span class="p">):</span>  <span class="c"># if kwargs[&#39;host&#39;] is None:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">host</span> <span class="o">=</span> <span class="n">cm_config_server</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;ldap.hostname&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">host</span> <span class="o">=</span> <span class="n">cm_config_server</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;cloudmesh.server.ldap.hostname&quot;</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="ow">not</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">has_key</span><span class="p">(</span><span class="s">&#39;ldapcert&#39;</span><span class="p">):</span>  <span class="c"># if kwargs[&#39;ldapcert&#39;] is None:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">cert</span> <span class="o">=</span> <span class="n">cm_config_server</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;ldap.cert&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">cert</span> <span class="o">=</span> <span class="n">cm_config_server</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;cloudmesh.server.ldap.cert&quot;</span><span class="p">)</span>
 
 
         <span class="n">ldap</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="n">ldap</span><span class="o">.</span><span class="n">OPT_X_TLS_CACERTFILE</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">cert</span><span class="p">)</span>
@@ -430,7 +431,8 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">users</span> <span class="o">=</span> <span class="p">{}</span>
 </div>
 <div class="viewcode-block" id="cm_userLDAP.disconnect"><a class="viewcode-back" href="../../../modules/cloudmesh.user.html#cloudmesh.user.cm_userLDAP.cm_userLDAP.disconnect">[docs]</a>    <span class="k">def</span> <span class="nf">disconnect</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">ldapconn</span><span class="o">.</span><span class="n">unbind</span><span class="p">()</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">ldapconn</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">ldapconn</span><span class="o">.</span><span class="n">unbind</span><span class="p">()</span>
 </div>
     <span class="k">def</span> <span class="nf">__del__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">disconnect</span><span class="p">()</span>

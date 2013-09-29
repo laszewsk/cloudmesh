@@ -339,6 +339,7 @@
 <span class="kn">from</span> <span class="nn">cloudmesh.config.cm_config</span> <span class="kn">import</span> <span class="n">cm_config_server</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.util.logger</span> <span class="kn">import</span> <span class="n">LOGGER</span>
 <span class="kn">from</span> <span class="nn">pymongo</span> <span class="kn">import</span> <span class="n">MongoClient</span>
+<span class="kn">import</span> <span class="nn">traceback</span>
 
 <span class="c"># ----------------------------------------------------------------------</span>
 <span class="c"># SETTING UP A LOGGER</span>
@@ -353,49 +354,62 @@
 <span class="sd">    a tenant id, user id, cloud version, cloud type and location.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
+    <span class="n">config_server</span> <span class="o">=</span> <span class="bp">None</span>
+
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">config_server</span> <span class="o">=</span> <span class="n">cm_config_server</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">connect_db</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">connect_userdb</span><span class="p">()</span>
 
 <div class="viewcode-block" id="cm_user.connect_db"><a class="viewcode-back" href="../../../modules/cloudmesh.user.html#cloudmesh.user.cm_user.cm_user.connect_db">[docs]</a>    <span class="k">def</span> <span class="nf">connect_db</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Connect to the mongo db.&quot;&quot;&quot;</span>
-        <span class="n">db_name</span> <span class="o">=</span> <span class="n">cm_config_server</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;mongo.db&quot;</span><span class="p">)</span>
+        <span class="n">db_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">config_server</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;cloudmesh.server.mongo.db&quot;</span><span class="p">)</span>
         <span class="n">client</span> <span class="o">=</span> <span class="n">MongoClient</span><span class="p">()</span>
         <span class="n">db</span> <span class="o">=</span> <span class="n">client</span><span class="p">[</span><span class="n">db_name</span><span class="p">]</span>
         <span class="n">ldap_collection</span> <span class="o">=</span> <span class="s">&#39;user&#39;</span>
         <span class="n">cloud_collection</span> <span class="o">=</span> <span class="s">&#39;cloudmesh&#39;</span>
+        <span class="n">defaults_collection</span> <span class="o">=</span> <span class="s">&#39;defaults&#39;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">db_clouds</span> <span class="o">=</span> <span class="n">db</span><span class="p">[</span><span class="n">cloud_collection</span><span class="p">]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">db_users</span> <span class="o">=</span> <span class="n">db</span><span class="p">[</span><span class="n">ldap_collection</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">db_defaults</span> <span class="o">=</span> <span class="n">db</span><span class="p">[</span><span class="n">defaults_collection</span><span class="p">]</span>
 </div>
 <div class="viewcode-block" id="cm_user.connect_userdb"><a class="viewcode-back" href="../../../modules/cloudmesh.user.html#cloudmesh.user.cm_user.cm_user.connect_userdb">[docs]</a>    <span class="k">def</span> <span class="nf">connect_userdb</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_connect_userdb</span><span class="p">()</span>
-        <span class="k">except</span><span class="p">:</span>
+        <span class="k">except</span> <span class="ne">Exception</span><span class="p">,</span> <span class="n">e</span><span class="p">:</span>
             <span class="k">print</span>
-            <span class="k">print</span> <span class="s">&quot;The below lines should be existed in cloudmesh_server.yaml&quot;</span>
+            <span class="k">print</span> <span class="s">&quot;The following lines should exist in cloudmesh_server.yaml&quot;</span>
             <span class="k">print</span> <span class="s">&quot;----------------------&quot;</span>
-            <span class="k">print</span> <span class="s">&quot;mongo_user:</span><span class="se">\n</span><span class="s">&quot;</span> <span class="o">+</span> \
-                    <span class="s">&quot;    db: cm_user</span><span class="se">\n</span><span class="s">&quot;</span> <span class="o">+</span> \
-                    <span class="s">&quot;    host: hostname</span><span class="se">\n</span><span class="s">&quot;</span> <span class="o">+</span> \
-                    <span class="s">&quot;    port: portnumber</span><span class="se">\n</span><span class="s">&quot;</span> <span class="o">+</span> \
-                    <span class="s">&quot;    username: admin</span><span class="se">\n</span><span class="s">&quot;</span> <span class="o">+</span> \
-                    <span class="s">&quot;    password: passwd</span><span class="se">\n</span><span class="s">&quot;</span> <span class="o">+</span> \
-                    <span class="s">&quot;    path: ~/.futuregrid/mongodb_user</span><span class="se">\n</span><span class="s">&quot;</span> <span class="o">+</span> \
-                    <span class="s">&quot;    collections:</span><span class="se">\n</span><span class="s">&quot;</span> <span class="o">+</span> \
-                    <span class="s">&quot;        cm_password:</span><span class="se">\n</span><span class="s">&quot;</span> <span class="o">+</span> \
-                    <span class="s">&quot;            db: cm_user&quot;</span>
+            <span class="k">print</span> <span class="s">&quot;cloudmesh:&quot;</span>
+            <span class="k">print</span> <span class="s">&quot;    server:&quot;</span>
+            <span class="k">print</span> <span class="s">&quot;        mongo_user:</span><span class="se">\n</span><span class="s">&quot;</span> <span class="o">+</span> \
+                    <span class="s">&quot;           db: cm_user</span><span class="se">\n</span><span class="s">&quot;</span> <span class="o">+</span> \
+                    <span class="s">&quot;           host: hostname</span><span class="se">\n</span><span class="s">&quot;</span> <span class="o">+</span> \
+                    <span class="s">&quot;           port: portnumber</span><span class="se">\n</span><span class="s">&quot;</span> <span class="o">+</span> \
+                    <span class="s">&quot;           username: admin</span><span class="se">\n</span><span class="s">&quot;</span> <span class="o">+</span> \
+                    <span class="s">&quot;           password: passwd</span><span class="se">\n</span><span class="s">&quot;</span> <span class="o">+</span> \
+                    <span class="s">&quot;           path: ~/.futuregrid/mongodb_user</span><span class="se">\n</span><span class="s">&quot;</span> <span class="o">+</span> \
+                    <span class="s">&quot;           collections:</span><span class="se">\n</span><span class="s">&quot;</span> <span class="o">+</span> \
+                    <span class="s">&quot;               cm_password:</span><span class="se">\n</span><span class="s">&quot;</span> <span class="o">+</span> \
+                    <span class="s">&quot;                   db: cm_user&quot;</span>
             <span class="k">print</span> <span class="s">&quot;---------------------&quot;</span>
-
+            <span class="k">print</span> <span class="n">e</span>
+            <span class="k">print</span> <span class="n">traceback</span><span class="o">.</span><span class="n">format_exc</span><span class="p">()</span>
+            <span class="k">print</span> <span class="s">&quot;---------------------&quot;</span>
 </div>
     <span class="k">def</span> <span class="nf">_connect_userdb</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Connect to the mongo user db.&quot;&quot;&quot;</span>
         <span class="c"># This will be enabled with ssl</span>
-        <span class="n">db_name</span> <span class="o">=</span> <span class="n">cm_config_server</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;mongo_user.db&quot;</span><span class="p">)</span>
-        <span class="n">host</span> <span class="o">=</span> <span class="n">cm_config_server</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;mongo_user.host&quot;</span><span class="p">)</span>
-        <span class="n">port</span> <span class="o">=</span> <span class="n">cm_config_server</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;mongo_user.port&quot;</span><span class="p">)</span>
-        <span class="n">username</span> <span class="o">=</span> <span class="n">cm_config_server</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;mongo_user.username&quot;</span><span class="p">)</span>
-        <span class="n">password</span> <span class="o">=</span> <span class="n">cm_config_server</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;mongo_user.password&quot;</span><span class="p">)</span>
-        <span class="n">client</span> <span class="o">=</span> <span class="n">MongoClient</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="n">host</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="n">port</span><span class="p">)</span>
+        <span class="n">db_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">config_server</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;cloudmesh.server.mongo.db&quot;</span><span class="p">)</span>
+        <span class="n">host</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">config_server</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;cloudmesh.server.mongo.host&quot;</span><span class="p">)</span>
+        <span class="n">port</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">config_server</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;cloudmesh.server.mongo.port&quot;</span><span class="p">)</span>
+        <span class="n">username</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">config_server</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;cloudmesh.server.mongo.username&quot;</span><span class="p">)</span>
+        <span class="n">password</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">config_server</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;cloudmesh.server.mongo.password&quot;</span><span class="p">)</span>
+        <span class="n">client</span> <span class="o">=</span> <span class="n">MongoClient</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="n">host</span><span class="p">,</span>
+                             <span class="n">port</span><span class="o">=</span><span class="n">port</span><span class="p">,</span>
+                             <span class="c"># username=username,</span>
+                             <span class="c"># password=password</span>
+                             <span class="p">)</span>
         <span class="n">db</span> <span class="o">=</span> <span class="n">client</span><span class="p">[</span><span class="n">db_name</span><span class="p">]</span>
         <span class="n">passwd_collection</span> <span class="o">=</span> <span class="s">&#39;cm_password&#39;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">userdb_passwd</span> <span class="o">=</span> <span class="n">db</span><span class="p">[</span><span class="n">passwd_collection</span><span class="p">]</span>
@@ -428,7 +442,48 @@
                     <span class="n">userinfo</span><span class="p">[</span><span class="s">&#39;clouds&#39;</span><span class="p">][</span><span class="n">arec</span><span class="p">[</span><span class="s">&#39;cm_cloud&#39;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">arec</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">userinfo</span><span class="p">[</span><span class="s">&#39;clouds&#39;</span><span class="p">][</span><span class="n">arec</span><span class="p">[</span><span class="s">&#39;cm_cloud&#39;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">arec</span>
+        <span class="n">userinfo</span><span class="p">[</span><span class="s">&#39;defaults&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_defaults</span><span class="p">(</span><span class="n">portal_id</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">userinfo</span>
+</div>
+<div class="viewcode-block" id="cm_user.list_users"><a class="viewcode-back" href="../../../modules/cloudmesh.user.html#cloudmesh.user.cm_user.cm_user.list_users">[docs]</a>    <span class="k">def</span> <span class="nf">list_users</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cloud_names</span><span class="o">=</span><span class="p">[]):</span>
+        <span class="sd">&quot;&quot;&quot;Return all user information with a given cloud.</span>
+
+<span class="sd">        :param cloud_names: the cloud name</span>
+<span class="sd">        :type cloud_names: list</span>
+<span class="sd">        </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">ldap_info</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">db_users</span><span class="o">.</span><span class="n">find</span><span class="p">()</span>
+        <span class="n">usersinfo</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">ldap_user</span> <span class="ow">in</span> <span class="n">ldap_info</span><span class="p">:</span>
+            <span class="c"># e.g. ldap_user = {u&#39;cm_user_id&#39;: u&#39;abc&#39;, u&#39;lastname&#39;: u&#39;abc&#39;</span>
+            <span class="c"># , u&#39;_id&#39;: ObjectId(&#39;abc&#39;), u&#39;projects&#39;:</span>
+            <span class="c"># {u&#39;active&#39;: []}, u&#39;firstname&#39;: u&#39;bbc&#39;}</span>
+            <span class="n">portal_id</span> <span class="o">=</span> <span class="n">ldap_user</span><span class="p">[</span><span class="s">&#39;cm_user_id&#39;</span><span class="p">]</span>
+            <span class="n">usersinfo</span><span class="p">[</span><span class="n">portal_id</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="n">usersinfo</span><span class="p">[</span><span class="n">portal_id</span><span class="p">][</span><span class="s">&#39;profile&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ldap_user</span>
+        <span class="n">cloud_info</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">db_clouds</span><span class="o">.</span><span class="n">find</span><span class="p">({</span><span class="s">&quot;cm_kind&quot;</span><span class="p">:</span> <span class="s">&quot;users&quot;</span><span class="p">})</span>
+        <span class="k">for</span> <span class="n">cloud_user</span> <span class="ow">in</span> <span class="n">cloud_info</span><span class="p">:</span>
+            <span class="n">portal_id</span> <span class="o">=</span> <span class="n">cloud_user</span><span class="p">[</span><span class="s">&#39;name&#39;</span><span class="p">]</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">usersinfo</span><span class="p">[</span><span class="n">portal_id</span><span class="p">]</span>
+            <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+                <span class="k">print</span> <span class="n">portal_id</span> <span class="o">+</span> <span class="s">&quot; doesn&#39;t exist in the ldap, skip to search&quot;</span>
+                <span class="k">continue</span>
+
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">usersinfo</span><span class="p">[</span><span class="n">portal_id</span><span class="p">][</span><span class="s">&#39;clouds&#39;</span><span class="p">]</span>
+            <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+                <span class="n">usersinfo</span><span class="p">[</span><span class="n">portal_id</span><span class="p">][</span><span class="s">&#39;clouds&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+
+            <span class="k">if</span> <span class="n">cloud_names</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">cloud_user</span><span class="p">[</span><span class="s">&#39;cm_cloud&#39;</span><span class="p">]</span> <span class="ow">in</span> <span class="n">cloud_names</span><span class="p">:</span>
+                    <span class="n">usersinfo</span><span class="p">[</span><span class="n">portal_id</span><span class="p">][</span><span class="s">&#39;clouds&#39;</span><span class="p">][</span><span class="n">cloud_user</span><span class="p">[</span><span class="s">&#39;cm_cloud&#39;</span><span class="p">]]</span> <span class="o">=</span> \
+                    <span class="n">cloud_user</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">usersinfo</span><span class="p">[</span><span class="n">portal_id</span><span class="p">][</span><span class="s">&#39;clouds&#39;</span><span class="p">][</span><span class="n">cloud_user</span><span class="p">[</span><span class="s">&#39;cm_cloud&#39;</span><span class="p">]]</span> <span class="o">=</span> \
+                <span class="n">cloud_user</span>
+
+        <span class="k">return</span> <span class="n">usersinfo</span>
 </div>
     <span class="k">def</span> <span class="nf">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
@@ -448,6 +503,29 @@
 
             <span class="k">return</span> <span class="p">(</span><span class="n">first_name</span><span class="p">,</span> <span class="n">last_name</span><span class="p">)</span>
 </div>
+<div class="viewcode-block" id="cm_user.set_defaults"><a class="viewcode-back" href="../../../modules/cloudmesh.user.html#cloudmesh.user.cm_user.cm_user.set_defaults">[docs]</a>    <span class="k">def</span> <span class="nf">set_defaults</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">d</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Sets the defaults for a user &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">d</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">dict</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">db_defaults</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s">&#39;cm_user_id&#39;</span><span class="p">:</span> <span class="n">username</span><span class="p">},</span>
+                                    <span class="p">{</span><span class="s">&#39;$set&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s">&#39;defaults&#39;</span><span class="p">:</span> <span class="n">d</span><span class="p">}})</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">,</span> <span class="s">&#39;defaults value must be a dict&#39;</span>
+</div>
+<div class="viewcode-block" id="cm_user.set_default_attribute"><a class="viewcode-back" href="../../../modules/cloudmesh.user.html#cloudmesh.user.cm_user.cm_user.set_default_attribute">[docs]</a>    <span class="k">def</span> <span class="nf">set_default_attribute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">attribute</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;will set a variable in mongo</span>
+<span class="sd">            [&quot;defaults&quot;][attribute]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">d</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_defaults</span><span class="p">(</span><span class="n">username</span><span class="p">)</span>
+        <span class="n">d</span><span class="p">[</span><span class="n">attribute</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">set_defaults</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="cm_user.get_defaults"><a class="viewcode-back" href="../../../modules/cloudmesh.user.html#cloudmesh.user.cm_user.cm_user.get_defaults">[docs]</a>    <span class="k">def</span> <span class="nf">get_defaults</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">username</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;returns the defaults for the user&quot;&quot;&quot;</span>
+        <span class="n">user</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">db_defaults</span><span class="o">.</span><span class="n">find</span><span class="p">({</span><span class="s">&#39;cm_user_id&#39;</span><span class="p">:</span> <span class="n">username</span><span class="p">})</span>
+        <span class="k">print</span> <span class="s">&quot;****** &quot;</span><span class="p">,</span> <span class="n">user</span><span class="p">[</span><span class="s">&#39;defaults&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="s">&#39;defaults&#39;</span> <span class="ow">in</span> <span class="n">user</span> <span class="k">else</span> <span class="s">&quot;no defaults for {0}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">username</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">user</span><span class="p">[</span><span class="s">&#39;defaults&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="s">&#39;defaults&#39;</span> <span class="ow">in</span> <span class="n">user</span> <span class="k">else</span> <span class="p">{}</span>
+
+</div>
 <div class="viewcode-block" id="cm_user.set_password"><a class="viewcode-back" href="../../../modules/cloudmesh.user.html#cloudmesh.user.cm_user.cm_user.set_password">[docs]</a>    <span class="k">def</span> <span class="nf">set_password</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span> <span class="n">cloud</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Store a user password for the cloud</span>
 
@@ -459,7 +537,8 @@
 <span class="sd">        :type cloud: str</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">userdb_passwd</span><span class="o">.</span><span class="n">insert</span><span class="p">({</span><span class="s">&quot;username&quot;</span><span class="p">:</span><span class="n">username</span><span class="p">,</span> <span class="s">&quot;password&quot;</span><span class="p">:</span><span class="n">password</span><span class="p">,</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">userdb_passwd</span><span class="o">.</span><span class="n">insert</span><span class="p">({</span><span class="s">&quot;username&quot;</span><span class="p">:</span><span class="n">username</span><span class="p">,</span>
+                                   <span class="s">&quot;password&quot;</span><span class="p">:</span><span class="n">password</span><span class="p">,</span>
                                    <span class="s">&quot;cloud&quot;</span><span class="p">:</span> <span class="n">cloud</span><span class="p">})</span>
 </div>
 <div class="viewcode-block" id="cm_user.get_password"><a class="viewcode-back" href="../../../modules/cloudmesh.user.html#cloudmesh.user.cm_user.cm_user.get_password">[docs]</a>    <span class="k">def</span> <span class="nf">get_password</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">cloud</span><span class="p">):</span>

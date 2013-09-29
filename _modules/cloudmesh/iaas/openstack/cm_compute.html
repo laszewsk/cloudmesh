@@ -361,7 +361,7 @@
 <span class="kn">from</span> <span class="nn">novaclient.openstack.common</span> <span class="kn">import</span> <span class="n">strutils</span>
 
 <span class="n">log</span> <span class="o">=</span> <span class="n">LOGGER</span><span class="p">(</span><span class="n">__file__</span><span class="p">)</span>
-    
+
 <div class="viewcode-block" id="donotchange"><a class="viewcode-back" href="../../../../modules/cloudmesh.iaas.openstack.html#cloudmesh.iaas.openstack.cm_compute.donotchange">[docs]</a><span class="k">def</span> <span class="nf">donotchange</span><span class="p">(</span><span class="n">fn</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">fn</span>
 
@@ -374,8 +374,8 @@
     <span class="c"># : a dict with the images</span>
     <span class="n">images</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c"># global var</span>
 
-    <span class="c"># : a dict with the images</span>
-    <span class="n">images</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c"># global var</span>
+    <span class="c"># : a dict with the flavors</span>
+    <span class="n">flavors</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c"># global var</span>
 
     <span class="c"># : a dict with the servers</span>
     <span class="n">servers</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c"># global var</span>
@@ -423,22 +423,22 @@
         <span class="n">user_credential</span> <span class="o">=</span> <span class="n">credential</span>  <span class="c"># HACK to avoid changes in older code</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">user_credential</span> <span class="o">=</span> <span class="n">user_credential</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">admin_credential</span> <span class="o">=</span> <span class="n">admin_credential</span>
-        
+
         <span class="k">if</span> <span class="n">user_credential</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
             <span class="k">try</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">compute_config</span> <span class="o">=</span> <span class="n">cm_config</span><span class="p">()</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">user_credential</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">compute_config</span><span class="o">.</span><span class="n">credential</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
             <span class="k">except</span><span class="p">:</span>
                 <span class="n">log</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s">&quot;No user credentail found! Please check your cloudmesh.yaml file.&quot;</span><span class="p">)</span>
-                <span class="c">#sys.exit(1)</span>
-            
+                <span class="c"># sys.exit(1)</span>
+
 
         <span class="k">if</span> <span class="n">admin_credential</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
             <span class="k">try</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">admin_credential</span> <span class="o">=</span> <span class="n">cm_config_server</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;keystone&quot;</span><span class="p">,</span> <span class="n">label</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">admin_credential</span> <span class="o">=</span> <span class="n">cm_config_server</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;cloudmesh.server.keystone.{0}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">label</span><span class="p">))</span>
             <span class="k">except</span><span class="p">:</span>
                 <span class="n">log</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s">&quot;No admin credentail found! Please check your cloudmesh_server.yaml file.&quot;</span><span class="p">)</span>
-            
+        <span class="c"># connecting within init will lead to long delays</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
 
 <div class="viewcode-block" id="openstack.clear"><a class="viewcode-back" href="../../../../modules/cloudmesh.iaas.openstack.html#cloudmesh.iaas.openstack.cm_compute.openstack.clear">[docs]</a>    <span class="k">def</span> <span class="nf">clear</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -454,13 +454,12 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">user_credentials</span> <span class="o">=</span> <span class="bp">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">admin_credentials</span> <span class="o">=</span> <span class="bp">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">type</span> <span class="o">=</span> <span class="s">&quot;openstack&quot;</span>
-
-
 </div>
 <div class="viewcode-block" id="openstack.connect"><a class="viewcode-back" href="../../../../modules/cloudmesh.iaas.openstack.html#cloudmesh.iaas.openstack.cm_compute.openstack.connect">[docs]</a>    <span class="k">def</span> <span class="nf">connect</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        creates tokens for a connection</span>
 <span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">&quot;Loading User Credentials&quot;</span><span class="p">)</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_credential</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
             <span class="n">log</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s">&quot;error connecting to openstack compute, credential is None&quot;</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
@@ -468,6 +467,7 @@
 
         <span class="c"># check if keystone is defined, and if failed print log msg</span>
         <span class="c">#</span>
+        <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">&quot;Loading Admin Credentials&quot;</span><span class="p">)</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">admin_credential</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
             <span class="n">log</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s">&quot;error connecting to openstack compute, credential is None&quot;</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
@@ -481,28 +481,29 @@
 
         <span class="k">print</span> <span class="s">&quot;GET CRED&quot;</span><span class="p">,</span> <span class="n">credential</span>
 
-        <span class="n">param</span> <span class="o">=</span> <span class="p">{</span><span class="s">&quot;auth&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="s">&quot;passwordCredentials&quot;</span><span class="p">:</span> <span class="p">{</span>
-                                <span class="s">&quot;username&quot;</span><span class="p">:</span> <span class="n">credential</span><span class="p">[</span><span class="s">&#39;OS_USERNAME&#39;</span><span class="p">],</span>
-                                <span class="s">&quot;password&quot;</span><span class="p">:</span> <span class="n">credential</span><span class="p">[</span><span class="s">&#39;OS_PASSWORD&#39;</span><span class="p">],</span>
-                            <span class="p">},</span>
-                           <span class="s">&quot;tenantName&quot;</span><span class="p">:</span><span class="n">credential</span><span class="p">[</span><span class="s">&#39;OS_TENANT_NAME&#39;</span><span class="p">]</span>
-                        <span class="p">}</span>
-             <span class="p">}</span>
+        <span class="n">param</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="k">if</span> <span class="s">&#39;OS_TENANT_NAME&#39;</span> <span class="ow">in</span> <span class="n">credential</span><span class="p">:</span>
+            <span class="n">param</span> <span class="o">=</span> <span class="p">{</span><span class="s">&quot;auth&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="s">&quot;passwordCredentials&quot;</span><span class="p">:</span> <span class="p">{</span>
+                                    <span class="s">&quot;username&quot;</span><span class="p">:</span> <span class="n">credential</span><span class="p">[</span><span class="s">&#39;OS_USERNAME&#39;</span><span class="p">],</span>
+                                    <span class="s">&quot;password&quot;</span><span class="p">:</span> <span class="n">credential</span><span class="p">[</span><span class="s">&#39;OS_PASSWORD&#39;</span><span class="p">],</span>
+                                <span class="p">},</span>
+                               <span class="s">&quot;tenantName&quot;</span><span class="p">:</span><span class="n">credential</span><span class="p">[</span><span class="s">&#39;OS_TENANT_NAME&#39;</span><span class="p">]</span>
+                            <span class="p">}</span>
+                 <span class="p">}</span>
+        <span class="k">elif</span> <span class="s">&#39;OS_TENANT_ID&#39;</span> <span class="ow">in</span> <span class="n">credential</span><span class="p">:</span>
+            <span class="n">param</span> <span class="o">=</span> <span class="p">{</span><span class="s">&quot;auth&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="s">&quot;passwordCredentials&quot;</span><span class="p">:</span> <span class="p">{</span>
+                                    <span class="s">&quot;username&quot;</span><span class="p">:</span> <span class="n">credential</span><span class="p">[</span><span class="s">&#39;OS_USERNAME&#39;</span><span class="p">],</span>
+                                    <span class="s">&quot;password&quot;</span><span class="p">:</span> <span class="n">credential</span><span class="p">[</span><span class="s">&#39;OS_PASSWORD&#39;</span><span class="p">],</span>
+                                <span class="p">},</span>
+                               <span class="s">&quot;tenantId&quot;</span><span class="p">:</span><span class="n">credential</span><span class="p">[</span><span class="s">&#39;OS_TENANT_ID&#39;</span><span class="p">]</span>
+                            <span class="p">}</span>
+                 <span class="p">}</span>
         <span class="n">url</span> <span class="o">=</span> <span class="s">&quot;{0}/tokens&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">credential</span><span class="p">[</span><span class="s">&#39;OS_AUTH_URL&#39;</span><span class="p">])</span>
 
         <span class="k">print</span> <span class="s">&quot;URL&quot;</span><span class="p">,</span> <span class="n">url</span>
 
         <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;content-type&#39;</span><span class="p">:</span> <span class="s">&#39;application/json&#39;</span><span class="p">}</span>
-
-        <span class="n">verify</span> <span class="o">=</span> <span class="bp">False</span>
-
-        <span class="k">if</span> <span class="s">&#39;OS_CACERT&#39;</span> <span class="ow">in</span> <span class="n">credential</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">credential</span><span class="p">[</span><span class="s">&#39;OS_CACERT&#39;</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span> <span class="ow">and</span> \
-               <span class="n">credential</span><span class="p">[</span><span class="s">&#39;OS_CACERT&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="s">&quot;None&quot;</span> <span class="ow">and</span> \
-               <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">credential</span><span class="p">[</span><span class="s">&#39;OS_CACERT&#39;</span><span class="p">]):</span>
-                <span class="n">verify</span> <span class="o">=</span> <span class="n">credential</span><span class="p">[</span><span class="s">&#39;OS_CACERT&#39;</span><span class="p">]</span>
-
-
+        <span class="n">verify</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_cacert</span><span class="p">(</span><span class="n">credential</span><span class="p">)</span>
         <span class="k">print</span> <span class="s">&quot;PARAM&quot;</span><span class="p">,</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">param</span><span class="p">)</span>
         <span class="k">print</span> <span class="s">&quot;HEADER&quot;</span><span class="p">,</span> <span class="n">headers</span>
         <span class="k">print</span> <span class="s">&quot;VERIFY&quot;</span><span class="p">,</span> <span class="n">verify</span>
@@ -538,13 +539,13 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">user_id</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_token</span><span class="p">[</span><span class="s">&#39;access&#39;</span><span class="p">][</span><span class="s">&#39;user&#39;</span><span class="p">][</span><span class="s">&#39;id&#39;</span><span class="p">]</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_id</span>
 
-    <span class="c">#not working yet</span>
-    <span class="c">#user role is disalowed to execute this by policy setting</span>
-    <span class="c">#admin role gives uninformative error</span></div>
+    <span class="c"># not working yet</span>
+    <span class="c"># user role is disalowed to execute this by policy setting</span>
+    <span class="c"># admin role gives uninformative error</span></div>
 <div class="viewcode-block" id="openstack.get_server_usage"><a class="viewcode-back" href="../../../../modules/cloudmesh.iaas.openstack.html#cloudmesh.iaas.openstack.cm_compute.openstack.get_server_usage">[docs]</a>    <span class="k">def</span> <span class="nf">get_server_usage</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">serverid</span><span class="p">):</span>
         <span class="n">apiurl</span> <span class="o">=</span> <span class="s">&quot;servers/</span><span class="si">%s</span><span class="s">/diagnostics&quot;</span> <span class="o">%</span> <span class="n">serverid</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get</span><span class="p">(</span><span class="n">msg</span><span class="o">=</span><span class="n">apiurl</span><span class="p">,</span><span class="n">kind</span><span class="o">=</span><span class="s">&#39;admin&#39;</span><span class="p">,</span><span class="n">urltype</span><span class="o">=</span><span class="s">&#39;adminURL&#39;</span><span class="p">)</span>
-    </div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get</span><span class="p">(</span><span class="n">msg</span><span class="o">=</span><span class="n">apiurl</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s">&#39;admin&#39;</span><span class="p">,</span> <span class="n">urltype</span><span class="o">=</span><span class="s">&#39;adminURL&#39;</span><span class="p">)</span>
+</div>
     <span class="k">def</span> <span class="nf">_get_service</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s">&quot;user&quot;</span><span class="p">):</span>
 
         <span class="n">token</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_token</span>
@@ -559,41 +560,72 @@
     <span class="k">def</span> <span class="nf">_get_compute_service</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">token</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_service</span><span class="p">(</span><span class="s">&quot;compute&quot;</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">_post</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">posturl</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
-        <span class="c">#print posturl</span>
+    <span class="k">def</span> <span class="nf">_get_cacert</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">credential</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">credential</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">credential</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_credential</span>
+        <span class="n">verify</span> <span class="o">=</span> <span class="bp">False</span>
+        <span class="k">if</span> <span class="s">&#39;OS_CACERT&#39;</span> <span class="ow">in</span> <span class="n">credential</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">credential</span><span class="p">[</span><span class="s">&#39;OS_CACERT&#39;</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span> <span class="ow">and</span> \
+               <span class="n">credential</span><span class="p">[</span><span class="s">&#39;OS_CACERT&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="s">&quot;None&quot;</span> <span class="ow">and</span> \
+               <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">credential</span><span class="p">[</span><span class="s">&#39;OS_CACERT&#39;</span><span class="p">]):</span>
+                <span class="n">verify</span> <span class="o">=</span> <span class="n">credential</span><span class="p">[</span><span class="s">&#39;OS_CACERT&#39;</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">verify</span>
+
+    <span class="k">def</span> <span class="nf">_post</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">posturl</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">credential</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="c"># print posturl</span>
         <span class="c"># print self.config</span>
+        <span class="k">if</span> <span class="n">credential</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">credential</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_credential</span>
         <span class="n">conf</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_service_endpoint</span><span class="p">(</span><span class="s">&quot;compute&quot;</span><span class="p">)</span>
         <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;content-type&#39;</span><span class="p">:</span> <span class="s">&#39;application/json&#39;</span><span class="p">,</span>
                    <span class="s">&#39;X-Auth-Token&#39;</span><span class="p">:</span> <span class="s">&#39;</span><span class="si">%s</span><span class="s">&#39;</span> <span class="o">%</span> <span class="n">conf</span><span class="p">[</span><span class="s">&#39;token&#39;</span><span class="p">]}</span>
-        <span class="c">#print headers</span>
+        <span class="c"># print headers</span>
+        <span class="c"># print self._get_cacert(credential)</span>
         <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">posturl</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span>
                           <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">params</span><span class="p">),</span>
-                          <span class="n">verify</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">user_credential</span><span class="p">[</span><span class="s">&#39;OS_CACERT&#39;</span><span class="p">])</span>
+                          <span class="n">verify</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_get_cacert</span><span class="p">(</span><span class="n">credential</span><span class="p">))</span>
         <span class="n">ret</span> <span class="o">=</span> <span class="p">{</span><span class="s">&quot;msg&quot;</span><span class="p">:</span><span class="s">&quot;success&quot;</span><span class="p">}</span>
         <span class="k">if</span> <span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">:</span>
             <span class="n">ret</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
         <span class="k">return</span> <span class="n">ret</span>
 
-    <span class="k">def</span> <span class="nf">_put</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">posturl</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">_put</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">posturl</span><span class="p">,</span> <span class="n">credential</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
         <span class="c"># print self.config</span>
+        <span class="k">if</span> <span class="n">credential</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">credential</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_credential</span>
         <span class="n">conf</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_service_endpoint</span><span class="p">(</span><span class="s">&quot;compute&quot;</span><span class="p">)</span>
-        <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;content-type&#39;</span><span class="p">:</span> <span class="s">&#39;application/json&#39;</span><span class="p">,</span> 
+        <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;content-type&#39;</span><span class="p">:</span> <span class="s">&#39;application/json&#39;</span><span class="p">,</span>
                    <span class="s">&#39;X-Auth-Token&#39;</span><span class="p">:</span> <span class="s">&#39;</span><span class="si">%s</span><span class="s">&#39;</span> <span class="o">%</span> <span class="n">conf</span><span class="p">[</span><span class="s">&#39;token&#39;</span><span class="p">]}</span>
         <span class="c"># print headers</span>
         <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">posturl</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span>
                           <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">params</span><span class="p">),</span>
-                          <span class="n">verify</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">credential</span><span class="p">[</span><span class="s">&#39;OS_CACERT&#39;</span><span class="p">])</span>
+                          <span class="n">verify</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_get_cacert</span><span class="p">(</span><span class="n">credential</span><span class="p">))</span>
         <span class="n">ret</span> <span class="o">=</span> <span class="p">{</span><span class="s">&quot;msg&quot;</span><span class="p">:</span><span class="s">&quot;success&quot;</span><span class="p">}</span>
         <span class="k">if</span> <span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">:</span>
             <span class="n">ret</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
         <span class="k">return</span> <span class="n">ret</span>
-    
-    <span class="c">#    </span>
+
+    <span class="c">#</span>
 <div class="viewcode-block" id="openstack.ks_get_extensions"><a class="viewcode-back" href="../../../../modules/cloudmesh.iaas.openstack.html#cloudmesh.iaas.openstack.cm_compute.openstack.ks_get_extensions">[docs]</a>    <span class="k">def</span> <span class="nf">ks_get_extensions</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">pass</span>
     <span class="c">#    conf = self._get_service_endpoint(&quot;identity&quot;)</span>
+</div>
+<div class="viewcode-block" id="openstack.keypair_list"><a class="viewcode-back" href="../../../../modules/cloudmesh.iaas.openstack.html#cloudmesh.iaas.openstack.cm_compute.openstack.keypair_list">[docs]</a>    <span class="k">def</span> <span class="nf">keypair_list</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">apiurl</span> <span class="o">=</span> <span class="s">&quot;os-keypairs&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get</span><span class="p">(</span><span class="n">msg</span><span class="o">=</span><span class="n">apiurl</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="openstack.keypair_add"><a class="viewcode-back" href="../../../../modules/cloudmesh.iaas.openstack.html#cloudmesh.iaas.openstack.cm_compute.openstack.keypair_add">[docs]</a>    <span class="k">def</span> <span class="nf">keypair_add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">keyname</span><span class="p">,</span> <span class="n">keycontent</span><span class="p">):</span>
+        <span class="c"># keysnow = self.keypair_list()</span>
+        <span class="n">conf</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_service_endpoint</span><span class="p">(</span><span class="s">&quot;compute&quot;</span><span class="p">)</span>
+        <span class="n">publicURL</span> <span class="o">=</span> <span class="n">conf</span><span class="p">[</span><span class="s">&#39;publicURL&#39;</span><span class="p">]</span>
+        <span class="n">posturl</span> <span class="o">=</span> <span class="s">&quot;</span><span class="si">%s</span><span class="s">/os-keypairs&quot;</span> <span class="o">%</span> <span class="n">publicURL</span>
 
-        </div>
+        <span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="s">&quot;keypair&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;</span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">keyname</span><span class="p">,</span>
+                              <span class="s">&quot;public_key&quot;</span><span class="p">:</span> <span class="s">&quot;</span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">keycontent</span>
+                              <span class="p">}</span>
+                 <span class="p">}</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_post</span><span class="p">(</span><span class="n">posturl</span><span class="p">,</span> <span class="n">params</span><span class="p">)</span>
+</div>
 <div class="viewcode-block" id="openstack.vm_create"><a class="viewcode-back" href="../../../../modules/cloudmesh.iaas.openstack.html#cloudmesh.iaas.openstack.cm_compute.openstack.vm_create">[docs]</a>    <span class="k">def</span> <span class="nf">vm_create</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span>
                   <span class="n">flavor_name</span><span class="p">,</span>
                   <span class="n">image_id</span><span class="p">,</span>
@@ -637,10 +669,11 @@
                         <span class="s">&quot;imageRef&quot;</span> <span class="p">:</span> <span class="s">&quot;</span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">image_id</span><span class="p">,</span>
                         <span class="s">&quot;flavorRef&quot;</span> <span class="p">:</span> <span class="s">&quot;</span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">flavor_name</span><span class="p">,</span>
                         <span class="s">&quot;security_groups&quot;</span> <span class="p">:</span> <span class="n">secgroups</span><span class="p">,</span>
-                        <span class="s">&quot;key_name&quot;</span><span class="p">:</span> <span class="s">&quot;</span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">key_name</span><span class="p">,</span>
                         <span class="s">&quot;metadata&quot;</span> <span class="p">:</span> <span class="n">meta</span><span class="p">,</span>
                         <span class="p">}</span>
                   <span class="p">}</span>
+        <span class="k">if</span> <span class="n">key_name</span><span class="p">:</span>
+            <span class="n">params</span><span class="p">[</span><span class="s">&quot;server&quot;</span><span class="p">][</span><span class="s">&quot;key_name&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">key_name</span>
 
         <span class="k">if</span> <span class="n">userdata</span><span class="p">:</span>
             <span class="n">safe_userdata</span> <span class="o">=</span> <span class="n">strutils</span><span class="o">.</span><span class="n">safe_encode</span><span class="p">(</span><span class="n">userdata</span><span class="p">)</span>
@@ -661,7 +694,7 @@
         <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;content-type&#39;</span><span class="p">:</span> <span class="s">&#39;application/json&#39;</span><span class="p">,</span> <span class="s">&#39;X-Auth-Token&#39;</span><span class="p">:</span> <span class="s">&#39;</span><span class="si">%s</span><span class="s">&#39;</span> <span class="o">%</span> <span class="n">conf</span><span class="p">[</span><span class="s">&#39;token&#39;</span><span class="p">]}</span>
         <span class="c"># print headers</span>
         <span class="c"># no return from http delete via rest api</span>
-        <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">verify</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">user_credential</span><span class="p">[</span><span class="s">&#39;OS_CACERT&#39;</span><span class="p">])</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">verify</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_get_cacert</span><span class="p">())</span>
         <span class="n">ret</span> <span class="o">=</span> <span class="p">{</span><span class="s">&quot;msg&quot;</span><span class="p">:</span><span class="s">&quot;success&quot;</span><span class="p">}</span>
         <span class="k">if</span> <span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">:</span>
             <span class="n">ret</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
@@ -702,7 +735,7 @@
         <span class="n">publicURL</span> <span class="o">=</span> <span class="n">conf</span><span class="p">[</span><span class="s">&#39;publicURL&#39;</span><span class="p">]</span>
         <span class="n">url</span> <span class="o">=</span> <span class="s">&quot;</span><span class="si">%s</span><span class="s">/os-floating-ips/</span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">publicURL</span><span class="p">,</span> <span class="n">idofip</span><span class="p">)</span>
         <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;content-type&#39;</span><span class="p">:</span> <span class="s">&#39;application/json&#39;</span><span class="p">,</span> <span class="s">&#39;X-Auth-Token&#39;</span><span class="p">:</span> <span class="s">&#39;</span><span class="si">%s</span><span class="s">&#39;</span> <span class="o">%</span> <span class="n">conf</span><span class="p">[</span><span class="s">&#39;token&#39;</span><span class="p">]}</span>
-        <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">verify</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">user_credential</span><span class="p">[</span><span class="s">&#39;OS_CACERT&#39;</span><span class="p">])</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">verify</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_get_cacert</span><span class="p">())</span>
         <span class="n">ret</span> <span class="o">=</span> <span class="p">{</span><span class="s">&quot;msg&quot;</span><span class="p">:</span><span class="s">&quot;success&quot;</span><span class="p">}</span>
         <span class="k">if</span> <span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">:</span>
             <span class="n">ret</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
@@ -716,7 +749,7 @@
         <span class="n">publicURL</span> <span class="o">=</span> <span class="n">conf</span><span class="p">[</span><span class="s">&#39;publicURL&#39;</span><span class="p">]</span>
         <span class="n">url</span> <span class="o">=</span> <span class="s">&quot;</span><span class="si">%s</span><span class="s">/os-floating-ips&quot;</span> <span class="o">%</span> <span class="n">publicURL</span>
         <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;content-type&#39;</span><span class="p">:</span> <span class="s">&#39;application/json&#39;</span><span class="p">,</span> <span class="s">&#39;X-Auth-Token&#39;</span><span class="p">:</span> <span class="s">&#39;</span><span class="si">%s</span><span class="s">&#39;</span> <span class="o">%</span> <span class="n">conf</span><span class="p">[</span><span class="s">&#39;token&#39;</span><span class="p">]}</span>
-        <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">verify</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">user_credential</span><span class="p">[</span><span class="s">&#39;OS_CACERT&#39;</span><span class="p">])</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">verify</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_get_cacert</span><span class="p">())</span>
         <span class="k">return</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s">&quot;floating_ips&quot;</span><span class="p">]</span>
 </div>
 <div class="viewcode-block" id="openstack.release_unused_public_ips"><a class="viewcode-back" href="../../../../modules/cloudmesh.iaas.openstack.html#cloudmesh.iaas.openstack.cm_compute.openstack.release_unused_public_ips">[docs]</a>    <span class="k">def</span> <span class="nf">release_unused_public_ips</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -751,7 +784,8 @@
 
         <span class="k">print</span> <span class="n">url</span>
         <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;X-Auth-Token&#39;</span><span class="p">:</span> <span class="n">token</span><span class="p">[</span><span class="s">&#39;access&#39;</span><span class="p">][</span><span class="s">&#39;token&#39;</span><span class="p">][</span><span class="s">&#39;id&#39;</span><span class="p">]}</span>
-        <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">verify</span><span class="o">=</span><span class="n">credential</span><span class="p">[</span><span class="s">&#39;OS_CACERT&#39;</span><span class="p">],</span> <span class="n">params</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+
+        <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">verify</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_get_cacert</span><span class="p">(</span><span class="n">credential</span><span class="p">),</span> <span class="n">params</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
 
         <span class="k">print</span> <span class="s">&quot;RRRRR&quot;</span><span class="p">,</span> <span class="n">r</span>
 
@@ -770,7 +804,9 @@
         <span class="n">conf</span> <span class="o">=</span> <span class="p">{}</span>
 
         <span class="n">conf</span><span class="p">[</span><span class="s">&#39;publicURL&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">compute_service</span><span class="p">[</span><span class="s">&#39;endpoints&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s">&#39;publicURL&#39;</span><span class="p">])</span>
-        <span class="n">conf</span><span class="p">[</span><span class="s">&#39;adminURL&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">compute_service</span><span class="p">[</span><span class="s">&#39;endpoints&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s">&#39;adminURL&#39;</span><span class="p">])</span>
+        <span class="n">conf</span><span class="p">[</span><span class="s">&#39;adminURL&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="k">if</span> <span class="s">&#39;adminURL&#39;</span> <span class="ow">in</span> <span class="n">compute_service</span><span class="p">[</span><span class="s">&#39;endpoints&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]:</span>
+            <span class="n">conf</span><span class="p">[</span><span class="s">&#39;adminURL&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">compute_service</span><span class="p">[</span><span class="s">&#39;endpoints&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s">&#39;adminURL&#39;</span><span class="p">])</span>
         <span class="n">conf</span><span class="p">[</span><span class="s">&#39;token&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">user_token</span><span class="p">[</span><span class="s">&#39;access&#39;</span><span class="p">][</span><span class="s">&#39;token&#39;</span><span class="p">][</span><span class="s">&#39;id&#39;</span><span class="p">])</span>
         <span class="k">return</span> <span class="n">conf</span>
 
@@ -781,7 +817,7 @@
     <span class="c"># new</span>
     <span class="k">def</span> <span class="nf">_list_to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">list</span><span class="p">,</span> <span class="nb">id</span><span class="p">,</span> <span class="nb">type</span><span class="p">,</span> <span class="n">time_stamp</span><span class="p">):</span>
         <span class="n">d</span> <span class="o">=</span> <span class="p">{}</span>
-        <span class="n">cm_type_version</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">compute_config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;cloudmesh&#39;</span><span class="p">,</span> <span class="s">&#39;clouds&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">label</span><span class="p">,</span> <span class="s">&#39;cm_type_version&#39;</span><span class="p">)</span>
+        <span class="n">cm_type_version</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">compute_config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;cloudmesh.clouds.{0}.cm_type_version&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">label</span><span class="p">))</span>
 
         <span class="k">print</span> <span class="s">&quot;VVVVV&quot;</span><span class="p">,</span> <span class="n">cm_type_version</span>
 
@@ -806,9 +842,7 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="nb">list</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_list_to_dict</span><span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="s">&#39;name&#39;</span><span class="p">,</span> <span class="s">&quot;extensions&quot;</span><span class="p">,</span> <span class="n">time_stamp</span><span class="p">)</span>
-
-     <span class="c"># new</span>
-     <span class="c"># BUG not yet a dict</span></div>
+</div>
 <div class="viewcode-block" id="openstack.get_limits"><a class="viewcode-back" href="../../../../modules/cloudmesh.iaas.openstack.html#cloudmesh.iaas.openstack.cm_compute.openstack.get_limits">[docs]</a>    <span class="k">def</span> <span class="nf">get_limits</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">time_stamp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_now</span><span class="p">()</span>
         <span class="n">msg</span> <span class="o">=</span> <span class="s">&quot;limits&quot;</span>
@@ -827,7 +861,19 @@
         <span class="n">time_stamp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_now</span><span class="p">()</span>
         <span class="n">msg</span> <span class="o">=</span> <span class="s">&quot;flavors/detail&quot;</span>
         <span class="nb">list</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get</span><span class="p">(</span><span class="n">msg</span><span class="p">)[</span><span class="s">&#39;flavors&#39;</span><span class="p">]</span>
+
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_list_to_dict</span><span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="s">&#39;name&#39;</span><span class="p">,</span> <span class="s">&quot;flavor&quot;</span><span class="p">,</span> <span class="n">time_stamp</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="openstack.flavorid"><a class="viewcode-back" href="../../../../modules/cloudmesh.iaas.openstack.html#cloudmesh.iaas.openstack.cm_compute.openstack.flavorid">[docs]</a>    <span class="k">def</span> <span class="nf">flavorid</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">flavors</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">flavors</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s">&#39;name&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">name</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">key</span>
+</div>
+<div class="viewcode-block" id="openstack.flavor"><a class="viewcode-back" href="../../../../modules/cloudmesh.iaas.openstack.html#cloudmesh.iaas.openstack.cm_compute.openstack.flavor">[docs]</a>    <span class="k">def</span> <span class="nf">flavor</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">id_or_name</span><span class="p">):</span>
+        <span class="n">keys</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">flavors</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">id_or_name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">keys</span><span class="p">:</span>
+            <span class="n">key</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">flavorid</span><span class="p">(</span><span class="n">id_or_name</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">flavors</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
 
     <span class="c"># new</span></div>
 <div class="viewcode-block" id="openstack.get_images"><a class="viewcode-back" href="../../../../modules/cloudmesh.iaas.openstack.html#cloudmesh.iaas.openstack.cm_compute.openstack.get_images">[docs]</a>    <span class="k">def</span> <span class="nf">get_images</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -843,7 +889,7 @@
         <span class="k">if</span> <span class="n">credential</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
             <span class="n">p</span> <span class="o">=</span> <span class="n">cm_profile</span><span class="p">()</span>
             <span class="n">name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">label</span>
-            <span class="n">credential</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">server</span><span class="p">[</span><span class="s">&quot;keystone&quot;</span><span class="p">][</span><span class="n">name</span><span class="p">]</span>
+            <span class="n">credential</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">server</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;cloudmesh.server.keystone&quot;</span><span class="p">)[</span><span class="n">name</span><span class="p">]</span>
         <span class="n">msg</span> <span class="o">=</span> <span class="s">&quot;tenants&quot;</span>
         <span class="nb">list</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s">&quot;admin&quot;</span><span class="p">)[</span><span class="s">&#39;tenants&#39;</span><span class="p">]</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_list_to_dict</span><span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="s">&#39;id&#39;</span><span class="p">,</span> <span class="s">&quot;tenants&quot;</span><span class="p">,</span> <span class="n">time_stamp</span><span class="p">)</span>
@@ -858,7 +904,7 @@
 
             <span class="n">p</span> <span class="o">=</span> <span class="n">cm_profile</span><span class="p">()</span>
             <span class="n">name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">label</span>
-            <span class="n">credential</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">server</span><span class="p">[</span><span class="s">&quot;keystone&quot;</span><span class="p">][</span><span class="n">name</span><span class="p">]</span>
+            <span class="n">credential</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">server</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;cloudmesh.server.keystone&quot;</span><span class="p">)[</span><span class="n">name</span><span class="p">]</span>
 
         <span class="n">cloud</span> <span class="o">=</span> <span class="n">openstack</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">credential</span><span class="o">=</span><span class="n">credential</span><span class="p">)</span>
         <span class="n">msg</span> <span class="o">=</span> <span class="s">&quot;users&quot;</span>
@@ -935,27 +981,27 @@
 
 
 <div class="viewcode-block" id="openstack.limits"><a class="viewcode-back" href="../../../../modules/cloudmesh.iaas.openstack.html#cloudmesh.iaas.openstack.cm_compute.openstack.limits">[docs]</a>    <span class="k">def</span> <span class="nf">limits</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; returns the usage information of the tennant&quot;&quot;&quot;</span>
+        <span class="sd">&quot;&quot;&quot; returns the limats of the tennant&quot;&quot;&quot;</span>
 
         <span class="nb">list</span> <span class="o">=</span> <span class="p">[]</span>
 
-        <span class="n">info</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cloud</span><span class="o">.</span><span class="n">limits</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
-        <span class="k">del</span> <span class="n">info</span><span class="o">.</span><span class="n">manager</span>
-        <span class="n">rates</span> <span class="o">=</span> <span class="n">info</span><span class="o">.</span><span class="n">__dict__</span><span class="p">[</span><span class="s">&#39;_info&#39;</span><span class="p">][</span><span class="s">&#39;rate&#39;</span><span class="p">]</span>
+        <span class="n">info</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_limits</span><span class="p">()</span>
 
-        <span class="k">for</span> <span class="n">rate</span> <span class="ow">in</span> <span class="n">rates</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">rate</span> <span class="ow">in</span> <span class="n">info</span><span class="p">[</span><span class="s">&#39;rate&#39;</span><span class="p">]:</span>
             <span class="n">limit_set</span> <span class="o">=</span> <span class="n">rate</span><span class="p">[</span><span class="s">&#39;limit&#39;</span><span class="p">]</span>
             <span class="k">print</span> <span class="n">limit_set</span>
             <span class="k">for</span> <span class="n">limit</span> <span class="ow">in</span> <span class="n">limit_set</span><span class="p">:</span>
                 <span class="nb">list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">limit</span><span class="p">)</span>
 
+        <span class="k">print</span> <span class="nb">list</span>
+
         <span class="k">return</span> <span class="nb">list</span>
-    
+
     <span class="c"># return the security groups for a tenant, in dict format</span></div>
 <div class="viewcode-block" id="openstack.list_security_groups"><a class="viewcode-back" href="../../../../modules/cloudmesh.iaas.openstack.html#cloudmesh.iaas.openstack.cm_compute.openstack.list_security_groups">[docs]</a>    <span class="k">def</span> <span class="nf">list_security_groups</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tenant_id</span><span class="p">):</span>
         <span class="n">apiurl</span> <span class="o">=</span> <span class="s">&quot;os-security-groups&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get</span><span class="p">(</span><span class="n">apiurl</span><span class="p">)</span>
-    
+
     <span class="c"># return the security group id given a name.</span>
     <span class="c"># The id is used to identify a group when adding more rules to it</span></div>
 <div class="viewcode-block" id="openstack.find_security_groupid_by_name"><a class="viewcode-back" href="../../../../modules/cloudmesh.iaas.openstack.html#cloudmesh.iaas.openstack.cm_compute.openstack.find_security_groupid_by_name">[docs]</a>    <span class="k">def</span> <span class="nf">find_security_groupid_by_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tenant_id</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
@@ -966,7 +1012,7 @@
                 <span class="n">groupid</span> <span class="o">=</span> <span class="n">secgroup</span><span class="p">[</span><span class="s">&quot;id&quot;</span><span class="p">]</span>
                 <span class="k">break</span>
         <span class="k">return</span> <span class="n">groupid</span>
-    
+
     <span class="c"># creating a security group, and optionally add rules to it</span>
     <span class="c"># This implementation is based on the rest api</span></div>
 <div class="viewcode-block" id="openstack.create_security_group"><a class="viewcode-back" href="../../../../modules/cloudmesh.iaas.openstack.html#cloudmesh.iaas.openstack.cm_compute.openstack.create_security_group">[docs]</a>    <span class="k">def</span> <span class="nf">create_security_group</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tenant_id</span><span class="p">,</span> <span class="n">secgroup</span><span class="p">,</span> <span class="n">rules</span><span class="o">=</span><span class="p">[]):</span>
@@ -978,8 +1024,8 @@
                                     <span class="s">&quot;description&quot;</span><span class="p">:</span> <span class="n">secgroup</span><span class="o">.</span><span class="n">description</span>
                                     <span class="p">}</span>
                   <span class="p">}</span>
-        <span class="c">#print params</span>
-        <span class="n">ret</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_post</span><span class="p">(</span><span class="n">posturl</span><span class="p">,</span><span class="n">params</span><span class="p">)</span>
+        <span class="c"># print params</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_post</span><span class="p">(</span><span class="n">posturl</span><span class="p">,</span> <span class="n">params</span><span class="p">)</span>
         <span class="n">groupid</span> <span class="o">=</span> <span class="bp">None</span>
         <span class="c"># upon successful, it returns a dict keyed by &#39;security_group&#39;,</span>
         <span class="c"># otherwide may have failed due to some reason</span>
@@ -988,15 +1034,15 @@
         <span class="c"># if the security group object has rules included, add them first</span>
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">secgroup</span><span class="o">.</span><span class="n">rules</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">add_security_group_rules</span><span class="p">(</span><span class="n">groupid</span><span class="p">,</span> <span class="n">secgroup</span><span class="o">.</span><span class="n">rules</span><span class="p">)</span>
-        
-        <span class="c"># only trying to add the additional rules if the empty group has been created successfully    </span>
+
+        <span class="c"># only trying to add the additional rules if the empty group has been created successfully</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">groupid</span><span class="p">:</span>
             <span class="n">log</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s">&quot;Failed to create security group. Error message: &#39;</span><span class="si">%s</span><span class="s">&#39;&quot;</span> <span class="o">%</span> <span class="n">ret</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">add_security_group_rules</span><span class="p">(</span><span class="n">groupid</span><span class="p">,</span> <span class="n">rules</span><span class="p">)</span>
         <span class="c"># return the groupid of the newly created group, or None if failed</span>
         <span class="k">return</span> <span class="n">groupid</span>
-    
+
     <span class="c"># add rules to an existing security group</span></div>
 <div class="viewcode-block" id="openstack.add_security_group_rules"><a class="viewcode-back" href="../../../../modules/cloudmesh.iaas.openstack.html#cloudmesh.iaas.openstack.cm_compute.openstack.add_security_group_rules">[docs]</a>    <span class="k">def</span> <span class="nf">add_security_group_rules</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">groupid</span><span class="p">,</span> <span class="n">rules</span><span class="p">):</span>
         <span class="n">conf</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_service_endpoint</span><span class="p">(</span><span class="s">&quot;compute&quot;</span><span class="p">)</span>
@@ -1012,7 +1058,7 @@
                                             <span class="s">&quot;parent_group_id&quot;</span><span class="p">:</span> <span class="n">groupid</span>
                                             <span class="p">}</span>
                       <span class="p">}</span>
-            <span class="c">#print params</span>
+            <span class="c"># print params</span>
             <span class="n">ret</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_post</span><span class="p">(</span><span class="n">posturl</span><span class="p">,</span> <span class="n">params</span><span class="p">)</span>
             <span class="k">if</span> <span class="s">&quot;security_group_rule&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">ret</span><span class="p">:</span>
                 <span class="n">log</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s">&quot;Failed to create security group rule(s). Error message: &#39;</span><span class="si">%s</span><span class="s">&#39;&quot;</span> <span class="o">%</span> <span class="n">ret</span><span class="p">)</span>
@@ -1411,14 +1457,14 @@
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">message</span><span class="p">)</span>
         <span class="k">except</span> <span class="ne">TypeError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">message</span><span class="p">)</span>
-    </div>
+</div>
 <div class="viewcode-block" id="openstack.usage"><a class="viewcode-back" href="../../../../modules/cloudmesh.iaas.openstack.html#cloudmesh.iaas.openstack.cm_compute.openstack.usage">[docs]</a>    <span class="k">def</span> <span class="nf">usage</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tenant_id</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">serverid</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">format</span><span class="o">=</span><span class="s">&#39;dict&#39;</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; returns the usage information of the tennant&quot;&quot;&quot;</span>
-        <span class="n">DEFAULT_STAT_DURATION</span><span class="o">=</span><span class="mi">30</span>
+        <span class="n">DEFAULT_STAT_DURATION</span> <span class="o">=</span> <span class="mi">30</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">tenant_id</span><span class="p">:</span>
             <span class="n">computePubUrl</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_service_endpoint</span><span class="p">(</span><span class="s">&quot;compute&quot;</span><span class="p">)[</span><span class="s">&quot;publicURL&quot;</span><span class="p">]</span>
             <span class="n">urlsplit</span> <span class="o">=</span> <span class="n">computePubUrl</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&quot;/&quot;</span><span class="p">)</span>
-            <span class="n">tenant_id</span> <span class="o">=</span> <span class="n">urlsplit</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">urlsplit</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+            <span class="n">tenant_id</span> <span class="o">=</span> <span class="n">urlsplit</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">urlsplit</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
 
         <span class="c"># print 70 * &quot;-&quot;</span>
         <span class="c"># print self.cloud.certs.__dict__.get()</span>
@@ -1427,24 +1473,24 @@
         <span class="c"># tenantid = &quot;member&quot;  # not sure how to get that</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">end</span><span class="p">:</span>
             <span class="n">end</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
-            <span class="c">#end = self._now()</span>
+            <span class="c"># end = self._now()</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">start</span><span class="p">:</span>
             <span class="n">start</span> <span class="o">=</span> <span class="n">end</span> <span class="o">-</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="n">DEFAULT_STAT_DURATION</span><span class="p">)</span>
-            <span class="c">#start = start.strftime(&#39;%Y-%m-%dT%H-%M-%SZ&#39;)</span>
-        <span class="c">#iso_start = self.parse_isotime(start)</span>
-        <span class="c">#iso_end = self.parse_isotime(end)</span>
+            <span class="c"># start = start.strftime(&#39;%Y-%m-%dT%H-%M-%SZ&#39;)</span>
+        <span class="c"># iso_start = self.parse_isotime(start)</span>
+        <span class="c"># iso_end = self.parse_isotime(end)</span>
         <span class="c"># print &quot;&gt;&gt;&gt;&gt;&gt;&quot;, iso_start, iso_end</span>
         <span class="c"># info = self.cloud.usage.get(tenantid, iso_start, iso_end)</span>
 
         <span class="c"># print info.__dict__</span>
         <span class="c"># sys.exit()</span>
 
-        <span class="c">#(start, rest) = start.split(&quot;T&quot;)  # ignore time for now</span>
-        <span class="c">#(end, rest) = end.split(&quot;T&quot;)  # ignore time for now</span>
+        <span class="c"># (start, rest) = start.split(&quot;T&quot;)  # ignore time for now</span>
+        <span class="c"># (end, rest) = end.split(&quot;T&quot;)  # ignore time for now</span>
 
         <span class="n">apiurl</span> <span class="o">=</span> <span class="s">&quot;os-simple-tenant-usage/</span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">tenant_id</span>
         <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;start&#39;</span><span class="p">:</span> <span class="n">start</span><span class="p">,</span> <span class="s">&#39;end&#39;</span><span class="p">:</span> <span class="n">end</span><span class="p">}</span>
-        <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get</span><span class="p">(</span><span class="n">apiurl</span><span class="p">,</span><span class="n">payload</span><span class="o">=</span><span class="n">payload</span><span class="p">)[</span><span class="s">&#39;tenant_usage&#39;</span><span class="p">]</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get</span><span class="p">(</span><span class="n">apiurl</span><span class="p">,</span> <span class="n">payload</span><span class="o">=</span><span class="n">payload</span><span class="p">)[</span><span class="s">&#39;tenant_usage&#39;</span><span class="p">]</span>
         <span class="n">instances</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="s">&#39;server_usages&#39;</span><span class="p">]</span>
         <span class="n">numInstances</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">instances</span><span class="p">)</span>
         <span class="n">ramhours</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="s">&#39;total_memory_mb_usage&#39;</span><span class="p">]</span>
@@ -1469,19 +1515,19 @@
                    <span class="s">&#39;ramMBHours&#39;</span><span class="p">:</span> <span class="n">ramhours</span><span class="p">,</span>
                    <span class="s">&#39;diskGBHours&#39;</span><span class="p">:</span> <span class="n">diskhours</span><span class="p">}</span>
         <span class="k">return</span> <span class="n">ret</span>
-        
-        <span class="c">#(headline, matrix) = self.table_matrix(result)</span>
-        <span class="c">#headline.append(&quot;Start&quot;)</span>
-        <span class="c">#headline.append(&quot;End&quot;)</span>
-        <span class="c">#matrix[0].append(start)</span>
-        <span class="c">#matrix[0].append(end)</span>
 
-        <span class="c">#if format == &#39;dict&#39;:</span>
+        <span class="c"># (headline, matrix) = self.table_matrix(result)</span>
+        <span class="c"># headline.append(&quot;Start&quot;)</span>
+        <span class="c"># headline.append(&quot;End&quot;)</span>
+        <span class="c"># matrix[0].append(start)</span>
+        <span class="c"># matrix[0].append(end)</span>
+
+        <span class="c"># if format == &#39;dict&#39;:</span>
         <span class="c">#    result = {}</span>
         <span class="c">#    for i in range(0, len(headline)):</span>
         <span class="c">#        result[headline[i]] = matrix[0][i]</span>
         <span class="c">#    return result</span>
-        <span class="c">#else:</span>
+        <span class="c"># else:</span>
         <span class="c">#    return (headline, matrix[0])</span>
 
     <span class="c">#</span>

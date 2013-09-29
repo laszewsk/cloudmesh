@@ -441,7 +441,7 @@
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
 <dl class="attribute">
 <dt id="cloudmesh.config.cloudmesh_cloud_handler.cloudmesh_cloud_handler.cloud_handlers">
-<tt class="descname">cloud_handlers</tt><em class="property"> = {('openstack', 'grizzly'): &lt;class cloudmesh.config.openstack_grizzly_cloud.openstack_grizzly_cloud at 0x10de4b188&gt;}</em><a class="headerlink" href="#cloudmesh.config.cloudmesh_cloud_handler.cloudmesh_cloud_handler.cloud_handlers" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">cloud_handlers</tt><em class="property"> = {('openstack', 'grizzly'): &lt;class cloudmesh.config.openstack_grizzly_cloud.openstack_grizzly_cloud at 0x1085caef0&gt;}</em><a class="headerlink" href="#cloudmesh.config.cloudmesh_cloud_handler.cloudmesh_cloud_handler.cloud_handlers" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -464,11 +464,6 @@
 <dd></dd></dl>
 
 <dl class="method">
-<dt id="cloudmesh.config.cm_config.cm_config.change_own_password">
-<tt class="descname">change_own_password</tt><big>(</big><em>cloudname</em>, <em>oldpass</em>, <em>newpass</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/config/cm_config.html#cm_config.change_own_password"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.cm_config.cm_config.change_own_password" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
 <dt id="cloudmesh.config.cm_config.cm_config.cloud">
 <tt class="descname">cloud</tt><big>(</big><em>cloudname</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/config/cm_config.html#cm_config.cloud"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.cm_config.cm_config.cloud" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
@@ -478,9 +473,9 @@
 <tt class="descname">cloud_default</tt><big>(</big><em>cloudname</em>, <em>defname</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/config/cm_config.html#cm_config.cloud_default"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.cm_config.cm_config.cloud_default" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="attribute">
-<dt id="cloudmesh.config.cm_config.cm_config.cloudmesh_server_path">
-<tt class="descname">cloudmesh_server_path</tt><em class="property"> = '/Users/neu/.futuregrid/cloudmesh_server.yaml'</em><a class="headerlink" href="#cloudmesh.config.cm_config.cm_config.cloudmesh_server_path" title="Permalink to this definition">¶</a></dt>
+<dl class="method">
+<dt id="cloudmesh.config.cm_config.cm_config.cloudnames">
+<tt class="descname">cloudnames</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/cloudmesh/config/cm_config.html#cm_config.cloudnames"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.cm_config.cm_config.cloudnames" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -524,14 +519,21 @@
 <dd></dd></dl>
 
 <dl class="method">
+<dt id="cloudmesh.config.cm_config.cm_config.get_credential">
+<tt class="descname">get_credential</tt><big>(</big><em>cloud=None</em>, <em>expand=False</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/config/cm_config.html#cm_config.get_credential"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.cm_config.cm_config.get_credential" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
 <dt id="cloudmesh.config.cm_config.cm_config.get_data">
 <tt class="descname">get_data</tt><big>(</big><em>key=None</em>, <em>expand=False</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/config/cm_config.html#cm_config.get_data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.cm_config.cm_config.get_data" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
-<dt id="cloudmesh.config.cm_config.cm_config.get_own_passwords">
-<tt class="descname">get_own_passwords</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/cloudmesh/config/cm_config.html#cm_config.get_own_passwords"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.cm_config.cm_config.get_own_passwords" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dt id="cloudmesh.config.cm_config.cm_config.get_default">
+<tt class="descname">get_default</tt><big>(</big><em>'sierra_openstack_grizzly'</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/config/cm_config.html#cm_config.get_default"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.cm_config.cm_config.get_default" title="Permalink to this definition">¶</a></dt>
+<dd><p>get_default(&#8216;cloud&#8217;)
+get_default(&#8216;index&#8217;)</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="cloudmesh.config.cm_config.cm_config.incr">
@@ -544,15 +546,8 @@
 <dd></dd></dl>
 
 <dl class="method">
-<dt id="cloudmesh.config.cm_config.cm_config.initialize">
-<tt class="descname">initialize</tt><big>(</big><em>username</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/config/cm_config.html#cm_config.initialize"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.cm_config.cm_config.initialize" title="Permalink to this definition">¶</a></dt>
-<dd><p>Creates or resets the config for a user.  Note that the
-userdata_handler property must be set with appropriate handler class.</p>
-</dd></dl>
-
-<dl class="method">
 <dt id="cloudmesh.config.cm_config.cm_config.keys">
-<tt class="descname">keys</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/cloudmesh/config/cm_config.html#cm_config.keys"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.cm_config.cm_config.keys" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">keys</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/config/cm_config.html#cm_config.keys"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.cm_config.cm_config.keys" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -587,23 +582,28 @@ userdata_handler property must be set with appropriate handler class.</p>
 
 <dl class="method">
 <dt id="cloudmesh.config.cm_config.cm_config.rc_euca">
-<tt class="descname">rc_euca</tt><big>(</big><em>name</em>, <em>project</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/config/cm_config.html#cm_config.rc_euca"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.cm_config.cm_config.rc_euca" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">rc_euca</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/config/cm_config.html#cm_config.rc_euca"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.cm_config.cm_config.rc_euca" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="attribute">
-<dt id="cloudmesh.config.cm_config.cm_config.serverdata">
-<tt class="descname">serverdata</tt><a class="reference internal" href="../_modules/cloudmesh/config/cm_config.html#cm_config.serverdata"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.cm_config.cm_config.serverdata" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="cloudmesh.config.cm_config.cm_config.userdata_handler">
-<tt class="descname">userdata_handler</tt><a class="reference internal" href="../_modules/cloudmesh/config/cm_config.html#cm_config.userdata_handler"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.cm_config.cm_config.userdata_handler" title="Permalink to this definition">¶</a></dt>
-<dd><p>Plug-in class that knows how to get all the user/project config</p>
+<dl class="method">
+<dt id="cloudmesh.config.cm_config.cm_config.rc_openstack">
+<tt class="descname">rc_openstack</tt><big>(</big><em>name</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/config/cm_config.html#cm_config.rc_openstack"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.cm_config.cm_config.rc_openstack" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the lines that can be put in an rc file</p>
 </dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.config.cm_config.cm_config.set_default">
+<tt class="descname">set_default</tt><big>(</big><em>cloudname=None</em>, <em>attribute=None</em>, <em>value=None</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/config/cm_config.html#cm_config.set_default"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.cm_config.cm_config.set_default" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="method">
 <dt id="cloudmesh.config.cm_config.cm_config.userkeys">
 <tt class="descname">userkeys</tt><big>(</big><em>attribute=None</em>, <em>expand=True</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/config/cm_config.html#cm_config.userkeys"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.cm_config.cm_config.userkeys" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.config.cm_config.cm_config.username">
+<tt class="descname">username</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/cloudmesh/config/cm_config.html#cm_config.username"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.cm_config.cm_config.username" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -618,7 +618,7 @@ userdata_handler property must be set with appropriate handler class.</p>
 <em class="property">class </em><tt class="descclassname">cloudmesh.config.cm_config.</tt><tt class="descname">cm_config_launcher</tt><big>(</big><em>filename=None</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/config/cm_config.html#cm_config_launcher"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.cm_config.cm_config_launcher" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">cloudmesh.config.ConfigDict.ConfigDict</span></tt></p>
 <p>reads the information contained in the file
-~/.futuregrid/cloudmesh_server.yaml</p>
+~/.futuregrid/cloudmesh_launcher.yaml</p>
 <dl class="attribute">
 <dt id="cloudmesh.config.cm_config.cm_config_launcher.filename">
 <tt class="descname">filename</tt><em class="property"> = '/Users/neu/.futuregrid/cloudmesh_launcher.yaml'</em><a class="headerlink" href="#cloudmesh.config.cm_config.cm_config_launcher.filename" title="Permalink to this definition">¶</a></dt>
@@ -634,7 +634,7 @@ userdata_handler property must be set with appropriate handler class.</p>
 ~/.futuregrid/cloudmesh_server.yaml</p>
 <dl class="attribute">
 <dt id="cloudmesh.config.cm_config.cm_config_server.filename">
-<tt class="descname">filename</tt><em class="property"> = '/Users/neu/.futuregrid/cloudmesh_server.yaml'</em><a class="headerlink" href="#cloudmesh.config.cm_config.cm_config_server.filename" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">filename</tt><em class="property"> = '~/.futuregrid/cloudmesh_server.yaml'</em><a class="headerlink" href="#cloudmesh.config.cm_config.cm_config_server.filename" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>

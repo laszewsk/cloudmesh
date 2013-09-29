@@ -350,16 +350,15 @@
     <span class="n">BOOTSPEC_FILE</span> <span class="o">=</span> <span class="s">&quot;~/.futuregrid/cloudmesh_bootspec.yaml&quot;</span>
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="c"># read the host file definition from cloudmesh_cludter.yaml</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">server_config</span> <span class="o">=</span> <span class="n">cm_config_server</span><span class="p">()</span>
+		<span class="c"># read the host file definition from cloudmesh_cludter.yaml</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">server_config</span> <span class="o">=</span> <span class="n">cm_config_server</span><span class="p">()</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">config</span> <span class="o">=</span> <span class="n">ConfigDict</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">CONFIG_FILE</span><span class="p">)</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">config</span> <span class="o">=</span> <span class="n">ConfigDict</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">CONFIG_FILE</span><span class="p">)</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">bootspec_config</span> <span class="o">=</span> <span class="n">ConfigDict</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">BOOTSPEC_FILE</span><span class="p">)</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">bootspec_config</span> <span class="o">=</span> <span class="n">ConfigDict</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">BOOTSPEC_FILE</span><span class="p">)</span>
 
-
-        <span class="n">collection</span> <span class="o">=</span> <span class="s">&quot;inventory&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">db_inventory</span> <span class="o">=</span> <span class="n">get_mongo_db</span><span class="p">(</span><span class="n">collection</span><span class="p">)</span>
+		<span class="n">collection</span> <span class="o">=</span> <span class="s">&quot;inventory&quot;</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">db_inventory</span> <span class="o">=</span> <span class="n">get_mongo_db</span><span class="p">(</span><span class="n">collection</span><span class="p">)</span>
 
 <div class="viewcode-block" id="Inventory.get_attribute"><a class="viewcode-back" href="../../modules/cloudmesh.inventory.html#cloudmesh.inventory.Inventory.get_attribute">[docs]</a>    <span class="k">def</span> <span class="nf">get_attribute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">host_label</span><span class="p">,</span> <span class="n">attribute</span><span class="p">):</span>
 
@@ -453,9 +452,9 @@
 </div>
     <span class="k">def</span> <span class="nf">_generate_globals</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
-        <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s">&quot;clusters&quot;</span><span class="p">]:</span>
+        <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;cloudmesh.inventory&quot;</span><span class="p">):</span>
 
-            <span class="n">cluster</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s">&quot;clusters&quot;</span><span class="p">][</span><span class="n">name</span><span class="p">]</span>
+            <span class="n">cluster</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;cloudmesh.inventory&quot;</span><span class="p">)[</span><span class="n">name</span><span class="p">]</span>
             <span class="n">keys</span> <span class="o">=</span> <span class="n">cluster</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
 
             <span class="n">element</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">({</span><span class="s">&#39;cm_cluster&#39;</span><span class="p">:</span> <span class="n">name</span><span class="p">,</span>
@@ -501,7 +500,7 @@
 
 
 
-        <span class="n">clusters</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s">&quot;clusters&quot;</span><span class="p">]</span>
+        <span class="n">clusters</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;cloudmesh.inventory&quot;</span><span class="p">)</span>
 
         <span class="k">for</span> <span class="n">cluster_name</span> <span class="ow">in</span> <span class="n">clusters</span><span class="p">:</span>
             <span class="n">cluster</span> <span class="o">=</span> <span class="n">clusters</span><span class="p">[</span><span class="n">cluster_name</span><span class="p">]</span>
@@ -574,7 +573,7 @@
 <div class="viewcode-block" id="Inventory.hostlist"><a class="viewcode-back" href="../../modules/cloudmesh.inventory.html#cloudmesh.inventory.Inventory.hostlist">[docs]</a>    <span class="k">def</span> <span class="nf">hostlist</span> <span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
         <span class="k">print</span> <span class="s">&quot;NAME&quot;</span><span class="p">,</span> <span class="n">name</span>
         <span class="n">hosts</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">find</span> <span class="p">({</span><span class="s">&quot;cm_cluster&quot;</span><span class="p">:</span> <span class="n">name</span><span class="p">,</span> <span class="s">&#39;cm_key&#39;</span><span class="p">:</span> <span class="s">&#39;range&#39;</span> <span class="p">})[</span><span class="mi">0</span><span class="p">][</span><span class="s">&#39;cm_value&#39;</span><span class="p">]</span>
-        <span class="c">#print &quot;===================&quot;, self.find_one({&quot;cm_cluster&quot;: name, &#39;cm_key&#39;: &#39;range&#39; })</span>
+        <span class="c"># print &quot;===================&quot;, self.find_one({&quot;cm_cluster&quot;: name, &#39;cm_key&#39;: &#39;range&#39; })</span>
         <span class="k">return</span> <span class="n">hosts</span>
 </div>
 <div class="viewcode-block" id="Inventory.host"><a class="viewcode-back" href="../../modules/cloudmesh.inventory.html#cloudmesh.inventory.Inventory.host">[docs]</a>    <span class="k">def</span> <span class="nf">host</span> <span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">auth</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
@@ -617,7 +616,7 @@
 
 
         <span class="n">cluster_name</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s">&#39;cm_cluster&#39;</span><span class="p">]</span>
-        <span class="n">cluster_auth</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">server_config</span><span class="p">[</span><span class="s">&quot;clusters&quot;</span><span class="p">][</span><span class="n">cluster_name</span><span class="p">]</span>
+        <span class="n">cluster_auth</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">server_config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;cloudmesh.clusters&quot;</span><span class="p">)[</span><span class="n">cluster_name</span><span class="p">]</span>
 
         <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">cluster_auth</span><span class="p">:</span>
             <span class="n">network</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s">&quot;network&quot;</span><span class="p">][</span><span class="n">name</span><span class="p">]</span>
@@ -640,14 +639,15 @@
                            <span class="s">&quot;type&quot;</span><span class="p">:</span> <span class="n">iptype</span><span class="p">})[</span><span class="mi">0</span><span class="p">][</span><span class="s">&#39;ipaddr&#39;</span><span class="p">]</span>
 </div>
 <div class="viewcode-block" id="Inventory.generate_bootspec"><a class="viewcode-back" href="../../modules/cloudmesh.inventory.html#cloudmesh.inventory.Inventory.generate_bootspec">[docs]</a>    <span class="k">def</span> <span class="nf">generate_bootspec</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">print</span> <span class="bp">self</span><span class="o">.</span><span class="n">bootspec_config</span>
+		<span class="k">print</span> <span class="bp">self</span><span class="o">.</span><span class="n">bootspec_config</span>
 
-        <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">bootspec_config</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s">&#39;filename&#39;</span><span class="p">,</span> <span class="s">&#39;location&#39;</span><span class="p">]:</span>
-                <span class="k">print</span> <span class="s">&quot;Adding to inventory bootspec&quot;</span><span class="p">,</span> <span class="n">name</span>
-                <span class="n">description</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">bootspec_config</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
-                <span class="k">print</span> <span class="s">&quot;DDD&quot;</span><span class="p">,</span> <span class="n">description</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">add_bootspec</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">description</span><span class="p">)</span>
+		<span class="n">bootspecs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">bootspec_config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;cloudmesh.bootspec&quot;</span><span class="p">)</span>
+		<span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">bootspecs</span><span class="p">:</span>
+
+			<span class="k">print</span> <span class="s">&quot;Adding to inventory bootspec&quot;</span><span class="p">,</span> <span class="n">name</span>
+			<span class="n">description</span> <span class="o">=</span> <span class="n">bootspecs</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+			<span class="k">print</span> <span class="s">&quot;DDD&quot;</span><span class="p">,</span> <span class="n">description</span>
+			<span class="bp">self</span><span class="o">.</span><span class="n">add_bootspec</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">description</span><span class="p">)</span>
 </div>
 <div class="viewcode-block" id="Inventory.add_bootspec"><a class="viewcode-back" href="../../modules/cloudmesh.inventory.html#cloudmesh.inventory.Inventory.add_bootspec">[docs]</a>    <span class="k">def</span> <span class="nf">add_bootspec</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">description</span><span class="p">):</span>
         <span class="sd">&#39;&#39;&#39;</span>

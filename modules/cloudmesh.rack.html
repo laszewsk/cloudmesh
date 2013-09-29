@@ -340,7 +340,7 @@
 <p>Base class for different .diag render with rackdiag</p>
 <dl class="class">
 <dt id="cloudmesh.rack.base_cluster_map.BaseClusterMap">
-<em class="property">class </em><tt class="descclassname">cloudmesh.rack.base_cluster_map.</tt><tt class="descname">BaseClusterMap</tt><big>(</big><em>name</em>, <em>img_type='svg'</em>, <em>fn_yaml=None</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/rack/base_cluster_map.html#BaseClusterMap"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.rack.base_cluster_map.BaseClusterMap" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">cloudmesh.rack.base_cluster_map.</tt><tt class="descname">BaseClusterMap</tt><big>(</big><em>name</em>, <em>subclass_type=None</em>, <em>dir_yaml=None</em>, <em>dir_diag=None</em>, <em>dir_output=None</em>, <em>img_type=None</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/rack/base_cluster_map.html#BaseClusterMap"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.rack.base_cluster_map.BaseClusterMap" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="attribute">
 <dt id="cloudmesh.rack.base_cluster_map.BaseClusterMap.cluster_name">
 <tt class="descname">cluster_name</tt><em class="property"> = 'unknown'</em><a class="headerlink" href="#cloudmesh.rack.base_cluster_map.BaseClusterMap.cluster_name" title="Permalink to this definition">¶</a></dt>
@@ -361,14 +361,19 @@
 <tt class="descname">cluster_name_unknown</tt><em class="property"> = 'unknown'</em><a class="headerlink" href="#cloudmesh.rack.base_cluster_map.BaseClusterMap.cluster_name_unknown" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+<dl class="method">
+<dt id="cloudmesh.rack.base_cluster_map.BaseClusterMap.convertRGB2Hex">
+<tt class="descname">convertRGB2Hex</tt><big>(</big><em>rgb_tuple</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/rack/base_cluster_map.html#BaseClusterMap.convertRGB2Hex"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.rack.base_cluster_map.BaseClusterMap.convertRGB2Hex" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 <dl class="attribute">
 <dt id="cloudmesh.rack.base_cluster_map.BaseClusterMap.default_clusters_yaml">
 <tt class="descname">default_clusters_yaml</tt><em class="property"> = '~/.futuregrid/cloudmesh_cluster.yaml'</em><a class="headerlink" href="#cloudmesh.rack.base_cluster_map.BaseClusterMap.default_clusters_yaml" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
-<dt id="cloudmesh.rack.base_cluster_map.BaseClusterMap.default_image_type">
-<tt class="descname">default_image_type</tt><em class="property"> = 'svg'</em><a class="headerlink" href="#cloudmesh.rack.base_cluster_map.BaseClusterMap.default_image_type" title="Permalink to this definition">¶</a></dt>
+<dt id="cloudmesh.rack.base_cluster_map.BaseClusterMap.default_home_yaml">
+<tt class="descname">default_home_yaml</tt><em class="property"> = '~/.futuregrid'</em><a class="headerlink" href="#cloudmesh.rack.base_cluster_map.BaseClusterMap.default_home_yaml" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -389,6 +394,26 @@
 <dl class="attribute">
 <dt id="cloudmesh.rack.base_cluster_map.BaseClusterMap.dict_servers">
 <tt class="descname">dict_servers</tt><em class="property"> = {}</em><a class="headerlink" href="#cloudmesh.rack.base_cluster_map.BaseClusterMap.dict_servers" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.rack.base_cluster_map.BaseClusterMap.disableDeleteDiagTemp">
+<tt class="descname">disableDeleteDiagTemp</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/cloudmesh/rack/base_cluster_map.html#BaseClusterMap.disableDeleteDiagTemp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.rack.base_cluster_map.BaseClusterMap.disableDeleteDiagTemp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.rack.base_cluster_map.BaseClusterMap.drawLegendContent">
+<tt class="descname">drawLegendContent</tt><big>(</big><em>ax</em>, <em>xylim</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/rack/base_cluster_map.html#BaseClusterMap.drawLegendContent"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.rack.base_cluster_map.BaseClusterMap.drawLegendContent" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.rack.base_cluster_map.BaseClusterMap.drawRectangle">
+<tt class="descname">drawRectangle</tt><big>(</big><em>ax</em>, <em>vdict</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/rack/base_cluster_map.html#BaseClusterMap.drawRectangle"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.rack.base_cluster_map.BaseClusterMap.drawRectangle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.rack.base_cluster_map.BaseClusterMap.enableDeleteDiagTemp">
+<tt class="descname">enableDeleteDiagTemp</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/cloudmesh/rack/base_cluster_map.html#BaseClusterMap.enableDeleteDiagTemp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.rack.base_cluster_map.BaseClusterMap.enableDeleteDiagTemp" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -412,11 +437,6 @@
 <dd></dd></dl>
 
 <dl class="attribute">
-<dt id="cloudmesh.rack.base_cluster_map.BaseClusterMap.filename_rack_yaml">
-<tt class="descname">filename_rack_yaml</tt><em class="property"> = ''</em><a class="headerlink" href="#cloudmesh.rack.base_cluster_map.BaseClusterMap.filename_rack_yaml" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
 <dt id="cloudmesh.rack.base_cluster_map.BaseClusterMap.flag_debug">
 <tt class="descname">flag_debug</tt><em class="property"> = True</em><a class="headerlink" href="#cloudmesh.rack.base_cluster_map.BaseClusterMap.flag_debug" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
@@ -424,6 +444,66 @@
 <dl class="attribute">
 <dt id="cloudmesh.rack.base_cluster_map.BaseClusterMap.flag_delete_diag_temp">
 <tt class="descname">flag_delete_diag_temp</tt><em class="property"> = True</em><a class="headerlink" href="#cloudmesh.rack.base_cluster_map.BaseClusterMap.flag_delete_diag_temp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.rack.base_cluster_map.BaseClusterMap.formatRenderColor">
+<tt class="descname">formatRenderColor</tt><big>(</big><em>str_color</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/rack/base_cluster_map.html#BaseClusterMap.formatRenderColor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.rack.base_cluster_map.BaseClusterMap.formatRenderColor" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.rack.base_cluster_map.BaseClusterMap.genDefaultRect">
+<tt class="descname">genDefaultRect</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/cloudmesh/rack/base_cluster_map.html#BaseClusterMap.genDefaultRect"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.rack.base_cluster_map.BaseClusterMap.genDefaultRect" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.rack.base_cluster_map.BaseClusterMap.getImageFilename">
+<tt class="descname">getImageFilename</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/cloudmesh/rack/base_cluster_map.html#BaseClusterMap.getImageFilename"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.rack.base_cluster_map.BaseClusterMap.getImageFilename" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.rack.base_cluster_map.BaseClusterMap.getLegendFilename">
+<tt class="descname">getLegendFilename</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/cloudmesh/rack/base_cluster_map.html#BaseClusterMap.getLegendFilename"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.rack.base_cluster_map.BaseClusterMap.getLegendFilename" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.rack.base_cluster_map.BaseClusterMap.getMappingDict">
+<tt class="descname">getMappingDict</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/cloudmesh/rack/base_cluster_map.html#BaseClusterMap.getMappingDict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.rack.base_cluster_map.BaseClusterMap.getMappingDict" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.rack.base_cluster_map.BaseClusterMap.getRGBWithH">
+<tt class="descname">getRGBWithH</tt><big>(</big><em>h</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/rack/base_cluster_map.html#BaseClusterMap.getRGBWithH"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.rack.base_cluster_map.BaseClusterMap.getRGBWithH" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.rack.base_cluster_map.BaseClusterMap.getRackCount">
+<tt class="descname">getRackCount</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/cloudmesh/rack/base_cluster_map.html#BaseClusterMap.getRackCount"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.rack.base_cluster_map.BaseClusterMap.getRackCount" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.rack.base_cluster_map.BaseClusterMap.getRandom">
+<tt class="descname">getRandom</tt><big>(</big><em>bResetSeed=False</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/rack/base_cluster_map.html#BaseClusterMap.getRandom"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.rack.base_cluster_map.BaseClusterMap.getRandom" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.rack.base_cluster_map.BaseClusterMap.getServersDefaultValue">
+<tt class="descname">getServersDefaultValue</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/cloudmesh/rack/base_cluster_map.html#BaseClusterMap.getServersDefaultValue"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.rack.base_cluster_map.BaseClusterMap.getServersDefaultValue" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.rack.base_cluster_map.BaseClusterMap.guessDefaultConfigLocation">
+<tt class="descname">guessDefaultConfigLocation</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/cloudmesh/rack/base_cluster_map.html#BaseClusterMap.guessDefaultConfigLocation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.rack.base_cluster_map.BaseClusterMap.guessDefaultConfigLocation" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.rack.base_cluster_map.BaseClusterMap.guessDefaultDiagLocation">
+<tt class="descname">guessDefaultDiagLocation</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/cloudmesh/rack/base_cluster_map.html#BaseClusterMap.guessDefaultDiagLocation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.rack.base_cluster_map.BaseClusterMap.guessDefaultDiagLocation" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.rack.base_cluster_map.BaseClusterMap.guessDefaultDiagramLocation">
+<tt class="descname">guessDefaultDiagramLocation</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/cloudmesh/rack/base_cluster_map.html#BaseClusterMap.guessDefaultDiagramLocation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.rack.base_cluster_map.BaseClusterMap.guessDefaultDiagramLocation" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -436,6 +516,81 @@
 <tt class="descname">image_type_list</tt><em class="property"> = ['svg', 'png']</em><a class="headerlink" href="#cloudmesh.rack.base_cluster_map.BaseClusterMap.image_type_list" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+<dl class="method">
+<dt id="cloudmesh.rack.base_cluster_map.BaseClusterMap.initDictServers">
+<tt class="descname">initDictServers</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/cloudmesh/rack/base_cluster_map.html#BaseClusterMap.initDictServers"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.rack.base_cluster_map.BaseClusterMap.initDictServers" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.rack.base_cluster_map.BaseClusterMap.legend">
+<tt class="descname">legend</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/cloudmesh/rack/base_cluster_map.html#BaseClusterMap.legend"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.rack.base_cluster_map.BaseClusterMap.legend" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cloudmesh.rack.base_cluster_map.BaseClusterMap.only_filename_image">
+<tt class="descname">only_filename_image</tt><em class="property"> = ''</em><a class="headerlink" href="#cloudmesh.rack.base_cluster_map.BaseClusterMap.only_filename_image" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cloudmesh.rack.base_cluster_map.BaseClusterMap.only_filename_legend">
+<tt class="descname">only_filename_legend</tt><em class="property"> = ''</em><a class="headerlink" href="#cloudmesh.rack.base_cluster_map.BaseClusterMap.only_filename_legend" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.rack.base_cluster_map.BaseClusterMap.plot">
+<tt class="descname">plot</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/cloudmesh/rack/base_cluster_map.html#BaseClusterMap.plot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.rack.base_cluster_map.BaseClusterMap.plot" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cloudmesh.rack.base_cluster_map.BaseClusterMap.rack_count">
+<tt class="descname">rack_count</tt><em class="property"> = 1</em><a class="headerlink" href="#cloudmesh.rack.base_cluster_map.BaseClusterMap.rack_count" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.rack.base_cluster_map.BaseClusterMap.readClustersConfig">
+<tt class="descname">readClustersConfig</tt><big>(</big><em>dir_yaml</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/rack/base_cluster_map.html#BaseClusterMap.readClustersConfig"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.rack.base_cluster_map.BaseClusterMap.readClustersConfig" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.rack.base_cluster_map.BaseClusterMap.readRackConfig">
+<tt class="descname">readRackConfig</tt><big>(</big><em>name</em>, <em>dir_yaml</em>, <em>dir_diag</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/rack/base_cluster_map.html#BaseClusterMap.readRackConfig"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.rack.base_cluster_map.BaseClusterMap.readRackConfig" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.rack.base_cluster_map.BaseClusterMap.render">
+<tt class="descname">render</tt><big>(</big><em>mapping</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/rack/base_cluster_map.html#BaseClusterMap.render"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.rack.base_cluster_map.BaseClusterMap.render" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.rack.base_cluster_map.BaseClusterMap.resetDictServers">
+<tt class="descname">resetDictServers</tt><big>(</big><em>value</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/rack/base_cluster_map.html#BaseClusterMap.resetDictServers"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.rack.base_cluster_map.BaseClusterMap.resetDictServers" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.rack.base_cluster_map.BaseClusterMap.setRackImageType">
+<tt class="descname">setRackImageType</tt><big>(</big><em>subclass_type</em>, <em>img_type</em>, <em>dir_output</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/rack/base_cluster_map.html#BaseClusterMap.setRackImageType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.rack.base_cluster_map.BaseClusterMap.setRackImageType" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cloudmesh.rack.base_cluster_map.BaseClusterMap.subclass_type">
+<tt class="descname">subclass_type</tt><em class="property"> = ''</em><a class="headerlink" href="#cloudmesh.rack.base_cluster_map.BaseClusterMap.subclass_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cloudmesh.rack.base_cluster_map.BaseClusterMap.subclass_type_list">
+<tt class="descname">subclass_type_list</tt><em class="property"> = ['temperature', 'service']</em><a class="headerlink" href="#cloudmesh.rack.base_cluster_map.BaseClusterMap.subclass_type_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.rack.base_cluster_map.BaseClusterMap.update">
+<tt class="descname">update</tt><big>(</big><em>dict_values</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/rack/base_cluster_map.html#BaseClusterMap.update"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.rack.base_cluster_map.BaseClusterMap.update" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.rack.base_cluster_map.BaseClusterMap.updateServer">
+<tt class="descname">updateServer</tt><big>(</big><em>server</em>, <em>value</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/rack/base_cluster_map.html#BaseClusterMap.updateServer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.rack.base_cluster_map.BaseClusterMap.updateServer" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 </dd></dl>
 
 </div>
@@ -444,16 +599,26 @@
 <p>Heat map of cluster servers, use HSV color space</p>
 <dl class="class">
 <dt id="cloudmesh.rack.cluster_map_heat.HeatClusterMap">
-<em class="property">class </em><tt class="descclassname">cloudmesh.rack.cluster_map_heat.</tt><tt class="descname">HeatClusterMap</tt><big>(</big><em>name</em>, <em>min_temp=0</em>, <em>max_temp=100</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/rack/cluster_map_heat.html#HeatClusterMap"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.rack.cluster_map_heat.HeatClusterMap" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">cloudmesh.rack.cluster_map_heat.</tt><tt class="descname">HeatClusterMap</tt><big>(</big><em>name</em>, <em>dir_yaml=None</em>, <em>dir_diag=None</em>, <em>dir_output=None</em>, <em>img_type=None</em>, <em>min_temp=0</em>, <em>max_temp=100</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/rack/cluster_map_heat.html#HeatClusterMap"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.rack.cluster_map_heat.HeatClusterMap" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#cloudmesh.rack.base_cluster_map.BaseClusterMap" title="cloudmesh.rack.base_cluster_map.BaseClusterMap"><tt class="xref py py-class docutils literal"><span class="pre">cloudmesh.rack.base_cluster_map.BaseClusterMap</span></tt></a></p>
 <dl class="attribute">
 <dt id="cloudmesh.rack.cluster_map_heat.HeatClusterMap.dict_mapping">
 <tt class="descname">dict_mapping</tt><em class="property"> = {}</em><a class="headerlink" href="#cloudmesh.rack.cluster_map_heat.HeatClusterMap.dict_mapping" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+<dl class="attribute">
+<dt id="cloudmesh.rack.cluster_map_heat.HeatClusterMap.dict_marker">
+<tt class="descname">dict_marker</tt><em class="property"> = {'end': None, 'min': None, 'max': None, 'range': None, 'start': None, 'step': None, 'round': None}</em><a class="headerlink" href="#cloudmesh.rack.cluster_map_heat.HeatClusterMap.dict_marker" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 <dl class="method">
 <dt id="cloudmesh.rack.cluster_map_heat.HeatClusterMap.drawLegendContent">
 <tt class="descname">drawLegendContent</tt><big>(</big><em>ax</em>, <em>xylim</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/rack/cluster_map_heat.html#HeatClusterMap.drawLegendContent"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.rack.cluster_map_heat.HeatClusterMap.drawLegendContent" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.rack.cluster_map_heat.HeatClusterMap.genRandomValues">
+<tt class="descname">genRandomValues</tt><big>(</big><em>flag_continue=True</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/rack/cluster_map_heat.html#HeatClusterMap.genRandomValues"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.rack.cluster_map_heat.HeatClusterMap.genRandomValues" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -496,6 +661,16 @@
 <tt class="descname">h_max</tt><em class="property"> = 0.6666666666666666</em><a class="headerlink" href="#cloudmesh.rack.cluster_map_heat.HeatClusterMap.h_max" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+<dl class="method">
+<dt id="cloudmesh.rack.cluster_map_heat.HeatClusterMap.setTemperatureMinMax">
+<tt class="descname">setTemperatureMinMax</tt><big>(</big><em>tmin</em>, <em>tmax</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/rack/cluster_map_heat.html#HeatClusterMap.setTemperatureMinMax"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.rack.cluster_map_heat.HeatClusterMap.setTemperatureMinMax" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cloudmesh.rack.cluster_map_heat.HeatClusterMap.temperature_default">
+<tt class="descname">temperature_default</tt><em class="property"> = 0</em><a class="headerlink" href="#cloudmesh.rack.cluster_map_heat.HeatClusterMap.temperature_default" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 <dl class="attribute">
 <dt id="cloudmesh.rack.cluster_map_heat.HeatClusterMap.temperature_max">
 <tt class="descname">temperature_max</tt><em class="property"> = 100</em><a class="headerlink" href="#cloudmesh.rack.cluster_map_heat.HeatClusterMap.temperature_max" title="Permalink to this definition">¶</a></dt>
@@ -508,7 +683,7 @@
 
 <dl class="method">
 <dt id="cloudmesh.rack.cluster_map_heat.HeatClusterMap.update">
-<tt class="descname">update</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/cloudmesh/rack/cluster_map_heat.html#HeatClusterMap.update"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.rack.cluster_map_heat.HeatClusterMap.update" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">update</tt><big>(</big><em>dict_values</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/rack/cluster_map_heat.html#HeatClusterMap.update"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.rack.cluster_map_heat.HeatClusterMap.update" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -519,7 +694,7 @@
 <p>Service map of cluster servers, use HSV color space</p>
 <dl class="class">
 <dt id="cloudmesh.rack.cluster_map_service.ServiceClusterMap">
-<em class="property">class </em><tt class="descclassname">cloudmesh.rack.cluster_map_service.</tt><tt class="descname">ServiceClusterMap</tt><big>(</big><em>name</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/rack/cluster_map_service.html#ServiceClusterMap"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.rack.cluster_map_service.ServiceClusterMap" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">cloudmesh.rack.cluster_map_service.</tt><tt class="descname">ServiceClusterMap</tt><big>(</big><em>name</em>, <em>dir_yaml=None</em>, <em>dir_diag=None</em>, <em>dir_output=None</em>, <em>img_type=None</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/rack/cluster_map_service.html#ServiceClusterMap"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.rack.cluster_map_service.ServiceClusterMap" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#cloudmesh.rack.base_cluster_map.BaseClusterMap" title="cloudmesh.rack.base_cluster_map.BaseClusterMap"><tt class="xref py py-class docutils literal"><span class="pre">cloudmesh.rack.base_cluster_map.BaseClusterMap</span></tt></a></p>
 <dl class="attribute">
 <dt id="cloudmesh.rack.cluster_map_service.ServiceClusterMap.dict_mapping">
@@ -534,6 +709,11 @@
 <dl class="method">
 <dt id="cloudmesh.rack.cluster_map_service.ServiceClusterMap.drawLegendContent">
 <tt class="descname">drawLegendContent</tt><big>(</big><em>ax</em>, <em>xylim</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/rack/cluster_map_service.html#ServiceClusterMap.drawLegendContent"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.rack.cluster_map_service.ServiceClusterMap.drawLegendContent" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.rack.cluster_map_service.ServiceClusterMap.genRandomValues">
+<tt class="descname">genRandomValues</tt><big>(</big><em>flag_continue=True</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/rack/cluster_map_service.html#ServiceClusterMap.genRandomValues"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.rack.cluster_map_service.ServiceClusterMap.genRandomValues" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -557,6 +737,11 @@
 <dd></dd></dl>
 
 <dl class="method">
+<dt id="cloudmesh.rack.cluster_map_service.ServiceClusterMap.getProperService">
+<tt class="descname">getProperService</tt><big>(</big><em>value</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/rack/cluster_map_service.html#ServiceClusterMap.getProperService"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.rack.cluster_map_service.ServiceClusterMap.getProperService" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
 <dt id="cloudmesh.rack.cluster_map_service.ServiceClusterMap.getRGB">
 <tt class="descname">getRGB</tt><big>(</big><em>h</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/rack/cluster_map_service.html#ServiceClusterMap.getRGB"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.rack.cluster_map_service.ServiceClusterMap.getRGB" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
@@ -571,14 +756,19 @@
 <tt class="descname">h_max</tt><em class="property"> = 0.6666666666666666</em><a class="headerlink" href="#cloudmesh.rack.cluster_map_service.ServiceClusterMap.h_max" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
-<dt id="cloudmesh.rack.cluster_map_service.ServiceClusterMap.initMappingDict">
-<tt class="descname">initMappingDict</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/cloudmesh/rack/cluster_map_service.html#ServiceClusterMap.initMappingDict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.rack.cluster_map_service.ServiceClusterMap.initMappingDict" title="Permalink to this definition">¶</a></dt>
+<dl class="attribute">
+<dt id="cloudmesh.rack.cluster_map_service.ServiceClusterMap.list_services_found">
+<tt class="descname">list_services_found</tt><em class="property"> = []</em><a class="headerlink" href="#cloudmesh.rack.cluster_map_service.ServiceClusterMap.list_services_found" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
-<dt id="cloudmesh.rack.cluster_map_service.ServiceClusterMap.list_services">
-<tt class="descname">list_services</tt><em class="property"> = None</em><a class="headerlink" href="#cloudmesh.rack.cluster_map_service.ServiceClusterMap.list_services" title="Permalink to this definition">¶</a></dt>
+<dt id="cloudmesh.rack.cluster_map_service.ServiceClusterMap.list_services_known">
+<tt class="descname">list_services_known</tt><em class="property"> = None</em><a class="headerlink" href="#cloudmesh.rack.cluster_map_service.ServiceClusterMap.list_services_known" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cloudmesh.rack.cluster_map_service.ServiceClusterMap.list_unknown_services_found">
+<tt class="descname">list_unknown_services_found</tt><em class="property"> = []</em><a class="headerlink" href="#cloudmesh.rack.cluster_map_service.ServiceClusterMap.list_unknown_services_found" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -586,9 +776,14 @@
 <tt class="descname">service_section_name</tt><em class="property"> = 'service'</em><a class="headerlink" href="#cloudmesh.rack.cluster_map_service.ServiceClusterMap.service_section_name" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+<dl class="attribute">
+<dt id="cloudmesh.rack.cluster_map_service.ServiceClusterMap.unknown_service">
+<tt class="descname">unknown_service</tt><em class="property"> = 'unknown'</em><a class="headerlink" href="#cloudmesh.rack.cluster_map_service.ServiceClusterMap.unknown_service" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 <dl class="method">
 <dt id="cloudmesh.rack.cluster_map_service.ServiceClusterMap.update">
-<tt class="descname">update</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/cloudmesh/rack/cluster_map_service.html#ServiceClusterMap.update"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.rack.cluster_map_service.ServiceClusterMap.update" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">update</tt><big>(</big><em>dict_values</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/rack/cluster_map_service.html#ServiceClusterMap.update"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.rack.cluster_map_service.ServiceClusterMap.update" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>

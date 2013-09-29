@@ -326,14 +326,12 @@
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">Heat map of cluster servers, use HSV color space</span>
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="kn">import</span> <span class="nn">math</span>
 <span class="kn">from</span> <span class="nn">copy</span> <span class="kn">import</span> <span class="n">deepcopy</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.rack.base_cluster_map</span> <span class="kn">import</span> <span class="n">BaseClusterMap</span>
 
 
 <div class="viewcode-block" id="HeatClusterMap"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.cluster_map_heat.HeatClusterMap">[docs]</a><span class="k">class</span> <span class="nc">HeatClusterMap</span><span class="p">(</span><span class="n">BaseClusterMap</span><span class="p">):</span>
 
-    
 	<span class="c"># maximum h, 240/360 = 2/3</span>
 	<span class="n">h_max</span> <span class="o">=</span> <span class="mf">2.0</span> <span class="o">/</span> <span class="mf">3.0</span>
 	
@@ -343,12 +341,25 @@
 	<span class="c"># maximum temperature user defined</span>
 	<span class="n">temperature_max</span> <span class="o">=</span> <span class="mi">100</span>
 	
+	<span class="c"># default temperature</span>
+	<span class="n">temperature_default</span> <span class="o">=</span> <span class="mi">0</span>
+	
 	<span class="c"># mapping dict</span>
 	<span class="c"># map the value of a temperature to a tuple RGB color</span>
 	<span class="c"># the key of dict is the different temperature got from cluster servers</span>
 	<span class="c"># the precise of the key is 0.1</span>
 	<span class="c"># formation is: {10.2:(255, 3, 5), 25.3:(34, 50, 200), ...}</span>
 	<span class="n">dict_mapping</span> <span class="o">=</span> <span class="p">{}</span> 
+	
+	<span class="c"># temperature marker dict</span>
+	<span class="n">dict_marker</span> <span class="o">=</span> <span class="p">{</span><span class="s">&quot;min&quot;</span><span class="p">:</span> <span class="bp">None</span><span class="p">,</span>     <span class="c"># minimum temperature displayed on color bar, &lt;= temperature_min</span>
+				   <span class="s">&quot;max&quot;</span><span class="p">:</span> <span class="bp">None</span><span class="p">,</span>     <span class="c"># maximum temperature displayed on color bar, &gt;= temperature_max</span>
+				   <span class="s">&quot;start&quot;</span><span class="p">:</span> <span class="bp">None</span><span class="p">,</span>   <span class="c"># marker start displayed on color bar</span>
+				   <span class="s">&quot;end&quot;</span><span class="p">:</span> <span class="bp">None</span><span class="p">,</span>     <span class="c"># marker end displayed on color bar</span>
+				   <span class="s">&quot;step&quot;</span><span class="p">:</span> <span class="bp">None</span><span class="p">,</span>    <span class="c"># marker step</span>
+				   <span class="s">&quot;round&quot;</span><span class="p">:</span> <span class="bp">None</span><span class="p">,</span>   <span class="c"># temperarture precise</span>
+				   <span class="s">&quot;range&quot;</span><span class="p">:</span> <span class="bp">None</span>    <span class="c"># marker_max - marker_min </span>
+				<span class="p">}</span>
 	
 	<span class="c"># color table, NOT used, </span>
 	<span class="c">#</span>
@@ -357,25 +368,87 @@
 	<span class="c"># If possilbe, we can change the 240 colors to 2M (240 * 100 * 100) colors according to the HSV color space</span>
 	<span class="c"># But, I think it is enough for us to denote the different status of clusters with 240 colors</span>
 	
-	<span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">min_temp</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">max_temp</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
-		<span class="bp">self</span><span class="o">.</span><span class="n">temperature_min</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">min_temp</span> <span class="k">if</span> <span class="n">min_temp</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="mi">0</span><span class="p">)</span>
-		<span class="bp">self</span><span class="o">.</span><span class="n">temperature_max</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">max_temp</span><span class="p">)</span>
+	<span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> 
+				 <span class="n">dir_yaml</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">dir_diag</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">dir_output</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">img_type</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+				 <span class="n">min_temp</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">max_temp</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">setTemperatureMinMax</span><span class="p">(</span><span class="n">min_temp</span><span class="p">,</span> <span class="n">max_temp</span><span class="p">)</span>
 		<span class="c"># call parent init function</span>
-		<span class="n">BaseClusterMap</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+		<span class="n">BaseClusterMap</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="s">&quot;temperature&quot;</span><span class="p">,</span> <span class="n">dir_yaml</span><span class="p">,</span> <span class="n">dir_diag</span><span class="p">,</span> <span class="n">dir_output</span><span class="p">,</span> <span class="n">img_type</span><span class="p">)</span>
+		
+	
+	<span class="c"># set min/max temperature</span>
+	<span class="c"># adjust min/max and marker on color bar</span>
+	<span class="c"># </span>
+<div class="viewcode-block" id="HeatClusterMap.setTemperatureMinMax"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.cluster_map_heat.HeatClusterMap.setTemperatureMinMax">[docs]</a>	<span class="k">def</span> <span class="nf">setTemperatureMinMax</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tmin</span><span class="p">,</span> <span class="n">tmax</span><span class="p">):</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">temperature_min</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">tmin</span> <span class="k">if</span> <span class="n">tmin</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="mi">0</span><span class="p">)</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">temperature_max</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">tmax</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">temperature_min</span> <span class="o">&lt;</span> <span class="n">tmax</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">temperature_min</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+		
+		<span class="c"># step of temperature marker</span>
+		<span class="n">marker_step</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">temperature_max</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">temperature_min</span><span class="p">)</span> <span class="o">/</span> <span class="mi">10</span>
+		<span class="c">#marker_step_half = 0.5 * marker_step</span>
+		<span class="n">marker_list</span> <span class="o">=</span>       <span class="p">[</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span>  <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span>   <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">500</span><span class="p">]</span>
+		<span class="n">marker_round_list</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span>  <span class="mi">5</span><span class="p">,</span>  <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span>  <span class="mi">50</span><span class="p">,</span>  <span class="mi">100</span><span class="p">]</span>
+		<span class="n">temp_round_list</span> <span class="o">=</span>   <span class="p">[</span><span class="mi">3</span><span class="p">,</span>    <span class="mi">3</span><span class="p">,</span>    <span class="mi">3</span><span class="p">,</span>    <span class="mi">3</span><span class="p">,</span>    <span class="mi">2</span><span class="p">,</span>   <span class="mi">2</span><span class="p">,</span>   <span class="mi">2</span><span class="p">,</span>   <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>   <span class="mi">1</span><span class="p">,</span>   <span class="mi">1</span><span class="p">]</span>
+		<span class="c"># guess the perfect step of color bar marker</span>
+		<span class="n">prev_index</span> <span class="o">=</span> <span class="mi">0</span>
+		<span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">marker_list</span><span class="p">:</span>
+			<span class="k">if</span> <span class="n">marker_step</span> <span class="o">&lt;</span> <span class="n">value</span><span class="p">:</span>
+				<span class="n">marker_step</span> <span class="o">=</span> <span class="n">marker_list</span><span class="p">[</span><span class="n">prev_index</span><span class="p">]</span>
+				<span class="n">marker_round</span> <span class="o">=</span> <span class="n">marker_round_list</span><span class="p">[</span><span class="n">prev_index</span><span class="p">]</span>
+				<span class="n">temp_round_precise</span> <span class="o">=</span> <span class="n">temp_round_list</span><span class="p">[</span><span class="n">prev_index</span><span class="p">]</span>
+				<span class="k">break</span><span class="p">;</span>
+			<span class="n">prev_index</span> <span class="o">+=</span> <span class="mi">1</span>
+		<span class="c"># marker start/end on color bar marker</span>
+		<span class="n">marker_start</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">temperature_min</span> <span class="o">/</span> <span class="n">marker_step</span><span class="p">))</span> <span class="o">*</span> <span class="n">marker_step</span>
+		<span class="n">marker_end</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">temperature_max</span> <span class="o">/</span> <span class="n">marker_step</span><span class="p">))</span> <span class="o">*</span> <span class="n">marker_step</span>
+		<span class="c"># min/max temperature on color bar</span>
+		<span class="n">marker_min</span> <span class="o">=</span> <span class="n">marker_start</span>
+		<span class="k">while</span> <span class="n">marker_min</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">temperature_min</span><span class="p">:</span>
+			<span class="n">marker_min</span> <span class="o">-=</span> <span class="n">marker_round</span>
+		<span class="k">if</span> <span class="n">marker_min</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+			<span class="n">marker_min</span> <span class="o">=</span> <span class="mi">0</span>
+		<span class="n">marker_max</span> <span class="o">=</span> <span class="n">marker_end</span>
+		<span class="k">while</span> <span class="n">marker_max</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">temperature_max</span><span class="p">:</span>
+			<span class="n">marker_max</span> <span class="o">+=</span> <span class="n">marker_round</span>
+		<span class="c"># re-evaluate marker start/end</span>
+		<span class="k">if</span> <span class="n">marker_start</span> <span class="o">==</span> <span class="n">marker_min</span><span class="p">:</span>
+			<span class="n">marker_start</span> <span class="o">+=</span> <span class="n">marker_step</span> 
+		<span class="k">while</span> <span class="n">marker_start</span> <span class="o">-</span> <span class="n">marker_step</span> <span class="o">&gt;</span> <span class="n">marker_min</span><span class="p">:</span>
+			<span class="n">marker_start</span> <span class="o">-=</span> <span class="n">marker_step</span>
+		
+		<span class="k">if</span> <span class="n">marker_end</span> <span class="o">==</span> <span class="n">marker_max</span><span class="p">:</span>
+			<span class="n">marker_end</span> <span class="o">-=</span> <span class="n">marker_step</span>
+		<span class="k">while</span> <span class="n">marker_end</span> <span class="o">+</span> <span class="n">marker_step</span> <span class="o">&lt;</span> <span class="n">marker_max</span><span class="p">:</span>
+			<span class="n">marker_end</span> <span class="o">+=</span> <span class="n">marker_step</span>
+		<span class="c"># save the property of marker</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">dict_marker</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s">&quot;min&quot;</span><span class="p">:</span> <span class="n">marker_min</span><span class="p">,</span>
+								 <span class="s">&quot;max&quot;</span><span class="p">:</span> <span class="n">marker_max</span><span class="p">,</span>
+								 <span class="s">&quot;start&quot;</span><span class="p">:</span> <span class="n">marker_start</span><span class="p">,</span>
+								 <span class="s">&quot;end&quot;</span><span class="p">:</span> <span class="n">marker_end</span><span class="p">,</span>
+								 <span class="s">&quot;step&quot;</span><span class="p">:</span> <span class="n">marker_step</span><span class="p">,</span>
+								 <span class="s">&quot;round&quot;</span><span class="p">:</span> <span class="n">temp_round_precise</span><span class="p">,</span>
+								 <span class="s">&quot;range&quot;</span><span class="p">:</span> <span class="n">marker_max</span> <span class="o">-</span> <span class="n">marker_min</span>
+								<span class="p">})</span>
+		<span class="k">print</span> <span class="s">&quot;[Debug] color bar marker, &quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">dict_marker</span>
+		
 		
 	
 	<span class="c"># get the RGB according to a specific temperature</span>
-	<span class="c"># the MAX different colors is 240, from #0000FF to #FF0000 with temperature ascending</span>
+	<span class="c"># the MAX different colors is 240, from #0000FF to #FF0000 with temperature ascending</span></div>
 <div class="viewcode-block" id="HeatClusterMap.getRGB"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.cluster_map_heat.HeatClusterMap.getRGB">[docs]</a>	<span class="k">def</span> <span class="nf">getRGB</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">temp</span><span class="p">):</span>
-		<span class="n">rate</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">temperature_max</span> <span class="o">-</span> <span class="n">temp</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">temperature_max</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">temperature_min</span><span class="p">)</span>
+		<span class="n">rate</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dict_marker</span><span class="p">[</span><span class="s">&quot;max&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="n">temp</span><span class="p">)</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">dict_marker</span><span class="p">[</span><span class="s">&quot;range&quot;</span><span class="p">]</span>
 		<span class="n">h</span> <span class="o">=</span> <span class="n">rate</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">h_max</span>
 		<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">getRGBWithH</span><span class="p">(</span><span class="n">h</span><span class="p">)</span>
 	
 	
 	<span class="c"># get proper temperature for cluster server</span>
-	<span class="c"># formation is XXX.X, the precise is 0.1</span></div>
+	<span class="c"># formation is XXX.YYY, the precise (YYY) is controlled by self.dict_marker[&quot;round&quot;] </span></div>
 <div class="viewcode-block" id="HeatClusterMap.getProperTemperature"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.cluster_map_heat.HeatClusterMap.getProperTemperature">[docs]</a>	<span class="k">def</span> <span class="nf">getProperTemperature</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">temp</span><span class="p">):</span>
-		<span class="k">return</span> <span class="nb">round</span><span class="p">(</span><span class="n">temp</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+		<span class="n">round_temp</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">temp</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">dict_marker</span><span class="p">[</span><span class="s">&quot;round&quot;</span><span class="p">])</span>
+		<span class="n">temp_rgb</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getRGB</span><span class="p">(</span><span class="n">round_temp</span><span class="p">)</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">dict_mapping</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">round_temp</span><span class="p">:</span><span class="n">temp_rgb</span><span class="p">})</span>
+		
+		<span class="k">return</span> <span class="n">round_temp</span>
 	
 	
 	<span class="c"># default temperature for cluster servers</span></div>
@@ -391,12 +464,8 @@
 	<span class="c">#</span>
 	<span class="c"># get default value for dict_servers</span></div>
 <div class="viewcode-block" id="HeatClusterMap.getServersDefaultValue"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.cluster_map_heat.HeatClusterMap.getServersDefaultValue">[docs]</a>	<span class="k">def</span> <span class="nf">getServersDefaultValue</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-		<span class="n">temp_default</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getProperTemperature</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">getDefaultTemperature</span><span class="p">())</span>
-		<span class="n">temp_rgb</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getRGB</span><span class="p">(</span><span class="n">temp_default</span><span class="p">)</span>
-		<span class="c"># update mapping dict with {temp_default:temp_rgb}</span>
-		<span class="bp">self</span><span class="o">.</span><span class="n">dict_mapping</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">temp_default</span><span class="p">:</span><span class="n">temp_rgb</span><span class="p">})</span>
-		
-		<span class="k">return</span> <span class="n">temp_default</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">temperature_default</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getDefaultTemperature</span><span class="p">()</span>
+		<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">temperature_default</span>
 		
 	
 	
@@ -413,23 +482,27 @@
 	
 	
 	<span class="c"># ======================================</span>
-	<span class="c">#           abstract function</span>
-	<span class="c">#         sub-class MUST override</span>
+	<span class="c">#		   abstract function</span>
+	<span class="c">#		 sub-class MUST override</span>
 	<span class="c"># ======================================</span>
-	<span class="c"># </span>
-	<span class="c"># get the current status of servers</span></div>
-<div class="viewcode-block" id="HeatClusterMap.update"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.cluster_map_heat.HeatClusterMap.update">[docs]</a>	<span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-		<span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">flag_debug</span><span class="p">:</span>
-			<span class="k">print</span> <span class="s">&quot;Update servers with DEBUG random data ...&quot;</span>
-			<span class="c">#self.generateRandomTemperature()</span>
-			<span class="bp">self</span><span class="o">.</span><span class="n">generateContinousTemperature</span><span class="p">()</span>
+	<span class="c">#</span>
+	<span class="c"># get the current status of servers</span>
+	<span class="c"># params: dict_values means the data get from each server</span>
+	<span class="c"># this function MUST be called before plot to refresh status of servers in memory</span></div>
+<div class="viewcode-block" id="HeatClusterMap.update"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.cluster_map_heat.HeatClusterMap.update">[docs]</a>	<span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="p">):</span>
+		<span class="k">if</span> <span class="n">dict_values</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
 			<span class="k">return</span>
 		
-		<span class="c"># to do ....</span>
-		<span class="c"># grab real data from mongo db</span>
-		<span class="c"># ...</span>
-	
-	
+		<span class="bp">self</span><span class="o">.</span><span class="n">dict_mapping</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+		<span class="n">arr_values</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">dict_values</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">setTemperatureMinMax</span><span class="p">(</span><span class="n">arr_values</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">arr_values</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">resetDictServers</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">getServersDefaultValue</span><span class="p">())</span>
+		
+		<span class="k">for</span> <span class="n">server</span> <span class="ow">in</span> <span class="n">dict_values</span><span class="p">:</span>
+			<span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getProperTemperature</span><span class="p">(</span><span class="n">dict_values</span><span class="p">[</span><span class="n">server</span><span class="p">])</span>
+			<span class="bp">self</span><span class="o">.</span><span class="n">updateServer</span><span class="p">(</span><span class="n">server</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+
+
 	<span class="c"># ======================================</span>
 	<span class="c">#           abstract function</span>
 	<span class="c">#         sub-class MUST override</span>
@@ -439,28 +512,12 @@
 	<span class="c"># param, ax is an instance of matplotlib.axes.Axes</span>
 	<span class="c"># return value is the filename of legend image file</span></div>
 <div class="viewcode-block" id="HeatClusterMap.drawLegendContent"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.cluster_map_heat.HeatClusterMap.drawLegendContent">[docs]</a>	<span class="k">def</span> <span class="nf">drawLegendContent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ax</span><span class="p">,</span> <span class="n">xylim</span><span class="p">):</span>
-		<span class="c"># step of temperature marker</span>
-		<span class="n">marker_step</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">temperature_max</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">temperature_min</span><span class="p">))</span> <span class="o">/</span> <span class="mi">10</span>
-		<span class="n">marker_step_half</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">marker_step</span>
-		<span class="n">marker_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">50</span><span class="p">]</span>
-		
-		<span class="n">prev_value</span> <span class="o">=</span> <span class="mi">1</span>
-		<span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">marker_list</span><span class="p">:</span>
-			<span class="k">if</span> <span class="n">marker_step</span> <span class="o">&lt;</span> <span class="n">value</span><span class="p">:</span>
-				<span class="n">marker_step</span> <span class="o">=</span> <span class="n">prev_value</span>
-				<span class="k">break</span><span class="p">;</span>
-			<span class="n">prev_value</span> <span class="o">=</span> <span class="n">value</span><span class="p">;</span>
-		<span class="c"># start temperature on marker</span>
-		<span class="n">marker_start</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">temperature_min</span> <span class="o">/</span> <span class="n">marker_step</span><span class="p">))</span> <span class="o">*</span> <span class="n">marker_step</span>
-		<span class="k">while</span> <span class="n">marker_start</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">temperature_min</span> <span class="o">+</span> <span class="n">marker_step_half</span><span class="p">:</span>
-			<span class="n">marker_start</span> <span class="o">+=</span> <span class="n">marker_step</span>
-		
-		<span class="n">marker_end</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">temperature_max</span> <span class="o">/</span> <span class="n">marker_step</span><span class="p">))</span> <span class="o">*</span> <span class="n">marker_step</span>
-		<span class="k">while</span> <span class="n">marker_end</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">temperature_max</span> <span class="o">-</span> <span class="n">marker_step_half</span><span class="p">:</span>
-			<span class="n">marker_end</span> <span class="o">-=</span> <span class="n">marker_step</span>
+		<span class="n">marker_min</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dict_marker</span><span class="p">[</span><span class="s">&quot;min&quot;</span><span class="p">]</span>
+		<span class="n">marker_max</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dict_marker</span><span class="p">[</span><span class="s">&quot;max&quot;</span><span class="p">]</span>
+		<span class="n">marker_start</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dict_marker</span><span class="p">[</span><span class="s">&quot;start&quot;</span><span class="p">]</span>
+		<span class="c">#marker_end = self.dict_marker[&quot;end&quot;]</span>
+		<span class="n">marker_step</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dict_marker</span><span class="p">[</span><span class="s">&quot;step&quot;</span><span class="p">]</span>
 			
-		<span class="n">marker_count</span> <span class="o">=</span> <span class="p">(</span><span class="n">marker_end</span> <span class="o">-</span> <span class="n">marker_start</span><span class="p">)</span> <span class="o">/</span> <span class="n">marker_step</span> <span class="o">+</span> <span class="mi">1</span>
-		<span class="c">#color_bar_count = xylim[0]</span>
 		<span class="n">color_bar_count</span> <span class="o">=</span> <span class="mi">240</span>
 		
 		<span class="n">xcount</span> <span class="o">=</span> <span class="n">color_bar_count</span> <span class="o">+</span> <span class="mi">20</span>
@@ -473,14 +530,10 @@
 		<span class="n">yheight</span> <span class="o">=</span> <span class="mf">0.8</span> <span class="o">*</span> <span class="n">ystep</span>
 		
 		<span class="n">hstep</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">h_max</span> <span class="o">/</span> <span class="n">color_bar_count</span>
-		<span class="n">tstep_half</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">temperature_max</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">temperature_min</span><span class="p">)</span> <span class="o">/</span> <span class="n">color_bar_count</span>
+		<span class="n">tstep_half</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">marker_max</span> <span class="o">-</span> <span class="n">marker_min</span><span class="p">)</span> <span class="o">/</span> <span class="n">color_bar_count</span>
 		<span class="n">tstep</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">tstep_half</span>
 		
-		<span class="c"># the first and last color bar</span>
-		<span class="n">color_bar_first</span> <span class="o">=</span> <span class="p">{</span><span class="s">&quot;color&quot;</span><span class="p">:</span> <span class="s">&quot;#0000FF&quot;</span><span class="p">,</span> <span class="s">&quot;temp&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">temperature_min</span><span class="p">}</span>
-		<span class="n">color_bar_last</span> <span class="o">=</span> <span class="p">{</span><span class="s">&quot;color&quot;</span><span class="p">:</span> <span class="s">&quot;#FF0000&quot;</span><span class="p">,</span> <span class="s">&quot;temp&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">temperature_max</span><span class="p">}</span>
-		
-		<span class="n">temp_current</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">temperature_min</span>
+		<span class="n">temp_current</span> <span class="o">=</span> <span class="n">marker_min</span>
 		<span class="n">marker_current</span> <span class="o">=</span> <span class="n">marker_start</span>
 		<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color_bar_count</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
 			<span class="n">rect</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">genDefaultRect</span><span class="p">()</span>
@@ -489,9 +542,9 @@
 			<span class="n">rect</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s">&quot;verts&quot;</span><span class="p">:{</span><span class="s">&quot;lb&quot;</span><span class="p">:(</span><span class="n">lb_x</span><span class="p">,</span> <span class="n">lb_y</span><span class="p">),</span> <span class="s">&quot;rt&quot;</span><span class="p">:(</span><span class="n">lb_x</span> <span class="o">+</span> <span class="n">xwidth</span><span class="p">,</span> <span class="n">lb_y</span> <span class="o">+</span> <span class="n">yheight</span><span class="p">)}})</span>
 			<span class="c"># color</span>
 			<span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-				<span class="n">rcolor</span> <span class="o">=</span> <span class="n">color_bar_first</span><span class="p">[</span><span class="s">&quot;color&quot;</span><span class="p">]</span>
+				<span class="n">rcolor</span> <span class="o">=</span> <span class="s">&quot;#0000FF&quot;</span>
 			<span class="k">elif</span> <span class="n">i</span> <span class="o">==</span> <span class="n">color_bar_count</span><span class="p">:</span>
-				<span class="n">rcolor</span> <span class="o">=</span> <span class="n">color_bar_last</span><span class="p">[</span><span class="s">&quot;color&quot;</span><span class="p">]</span>
+				<span class="n">rcolor</span> <span class="o">=</span> <span class="s">&quot;#FF0000&quot;</span>
 			<span class="k">else</span><span class="p">:</span>
 				<span class="n">h</span> <span class="o">=</span> <span class="p">(</span><span class="n">color_bar_count</span> <span class="o">-</span> <span class="n">i</span><span class="p">)</span> <span class="o">*</span> <span class="n">hstep</span>
 				<span class="n">rcolor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">convertRGB2Hex</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">getRGBWithH</span><span class="p">(</span><span class="n">h</span><span class="p">))</span>
@@ -501,9 +554,9 @@
 			<span class="c"># label</span>
 			<span class="n">lb_x</span> <span class="o">-=</span> <span class="n">xstep</span>
 			<span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-				<span class="n">rect</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s">&quot;label&quot;</span><span class="p">:{</span><span class="s">&quot;lb&quot;</span><span class="p">:(</span><span class="n">lb_x</span><span class="o">-</span><span class="mf">0.5</span><span class="o">*</span><span class="n">xstep</span><span class="p">,</span> <span class="n">ystart</span><span class="p">),</span> <span class="s">&quot;text&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">temperature_min</span><span class="p">}})</span>
+				<span class="n">rect</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s">&quot;label&quot;</span><span class="p">:{</span><span class="s">&quot;lb&quot;</span><span class="p">:(</span><span class="n">lb_x</span><span class="o">-</span><span class="mf">0.5</span><span class="o">*</span><span class="n">xstep</span><span class="p">,</span> <span class="n">ystart</span><span class="p">),</span> <span class="s">&quot;text&quot;</span><span class="p">:</span> <span class="n">marker_min</span><span class="p">}})</span>
 			<span class="k">elif</span> <span class="n">i</span> <span class="o">==</span> <span class="n">color_bar_count</span><span class="p">:</span>
-				<span class="n">rect</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s">&quot;label&quot;</span><span class="p">:{</span><span class="s">&quot;lb&quot;</span><span class="p">:(</span><span class="n">lb_x</span><span class="p">,</span> <span class="n">ystart</span><span class="p">),</span> <span class="s">&quot;text&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">temperature_max</span><span class="p">}})</span>
+				<span class="n">rect</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s">&quot;label&quot;</span><span class="p">:{</span><span class="s">&quot;lb&quot;</span><span class="p">:(</span><span class="n">lb_x</span><span class="p">,</span> <span class="n">ystart</span><span class="p">),</span> <span class="s">&quot;text&quot;</span><span class="p">:</span> <span class="n">marker_max</span><span class="p">}})</span>
 			<span class="c"># marker</span>
 			<span class="k">elif</span> <span class="nb">abs</span><span class="p">(</span><span class="n">temp_current</span> <span class="o">-</span> <span class="n">marker_current</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">tstep_half</span><span class="p">:</span>
 				<span class="n">rect</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s">&quot;label&quot;</span><span class="p">:{</span><span class="s">&quot;lb&quot;</span><span class="p">:(</span><span class="n">lb_x</span><span class="p">,</span> <span class="n">ystart</span><span class="p">),</span> <span class="s">&quot;text&quot;</span><span class="p">:</span> <span class="n">marker_current</span><span class="p">}})</span>
@@ -516,6 +569,13 @@
 			<span class="bp">self</span><span class="o">.</span><span class="n">drawRectangle</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">rect</span><span class="p">)</span>
 		
 		
+	<span class="c"># only for test</span></div>
+<div class="viewcode-block" id="HeatClusterMap.genRandomValues"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.cluster_map_heat.HeatClusterMap.genRandomValues">[docs]</a>	<span class="k">def</span> <span class="nf">genRandomValues</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">flag_continue</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
+		<span class="k">if</span> <span class="n">flag_continue</span><span class="p">:</span>
+			<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">generateContinousTemperature</span><span class="p">()</span>
+		<span class="k">else</span><span class="p">:</span>
+			<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">generateRandomTemperature</span><span class="p">()</span>
+	
 	
 	<span class="c"># only for test</span>
 	<span class="c"># generate random temperature for cluster servers</span></div>
@@ -523,14 +583,14 @@
 		<span class="c"># init the seed of random function</span>
 		<span class="bp">self</span><span class="o">.</span><span class="n">getRandom</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
 		
+		<span class="n">dict_data</span> <span class="o">=</span> <span class="p">{}</span>
 		<span class="k">for</span> <span class="n">server</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">dict_servers</span><span class="p">:</span>
 			<span class="n">temp_rand</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getRandom</span><span class="p">()</span>
 			<span class="n">temp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getProperTemperature</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">temperature_min</span> <span class="o">+</span> <span class="n">temp_rand</span> <span class="o">*</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">temperature_max</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">temperature_min</span><span class="p">))</span>
-			<span class="n">rgb</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getRGB</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span>
-			<span class="c"># update mapping dict</span>
-			<span class="bp">self</span><span class="o">.</span><span class="n">dict_mapping</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">temp</span><span class="p">:</span><span class="n">rgb</span><span class="p">})</span>
+			<span class="n">dict_data</span><span class="p">[</span><span class="n">server</span><span class="p">]</span> <span class="o">=</span> <span class="n">temp</span>
 			
-			<span class="bp">self</span><span class="o">.</span><span class="n">dict_servers</span><span class="p">[</span><span class="n">server</span><span class="p">]</span> <span class="o">=</span> <span class="n">temp</span>
+		<span class="k">return</span> <span class="n">dict_data</span>
+	
 		
 	<span class="c"># only for test, especially continuous colors</span></div>
 <div class="viewcode-block" id="HeatClusterMap.generateContinousTemperature"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.cluster_map_heat.HeatClusterMap.generateContinousTemperature">[docs]</a>	<span class="k">def</span> <span class="nf">generateContinousTemperature</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -543,18 +603,18 @@
 		<span class="n">step</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">temperature_max</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">temperature_min</span><span class="p">)</span><span class="o">/</span><span class="n">len_arr</span>
 		<span class="n">temp_current</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">temperature_min</span>
 		
+		<span class="n">dict_data</span> <span class="o">=</span> <span class="p">{}</span>
 		<span class="k">for</span> <span class="n">server</span> <span class="ow">in</span> <span class="n">arr</span><span class="p">:</span>
-			<span class="n">temp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getProperTemperature</span><span class="p">(</span><span class="n">temp_current</span><span class="p">)</span>
-			<span class="n">rgb</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getRGB</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span>
-			<span class="bp">self</span><span class="o">.</span><span class="n">dict_mapping</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">temp</span><span class="p">:</span><span class="n">rgb</span><span class="p">})</span>
+			<span class="n">dict_data</span><span class="p">[</span><span class="n">server</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getProperTemperature</span><span class="p">(</span><span class="n">temp_current</span><span class="p">)</span>
 			<span class="n">temp_current</span> <span class="o">+=</span> <span class="n">step</span>
 			
-			<span class="bp">self</span><span class="o">.</span><span class="n">dict_servers</span><span class="p">[</span><span class="n">server</span><span class="p">]</span> <span class="o">=</span> <span class="n">temp</span>
+		<span class="k">return</span> <span class="n">dict_data</span>
 	
 	
 <span class="c"># test</span></div></div>
 <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&quot;__main__&quot;</span><span class="p">:</span>
-	<span class="n">mytest</span> <span class="o">=</span> <span class="n">HeatClusterMap</span><span class="p">(</span><span class="s">&quot;india&quot;</span><span class="p">,</span> <span class="mi">43</span><span class="p">,</span> <span class="mi">349</span><span class="p">)</span>
+	<span class="n">mytest</span> <span class="o">=</span> <span class="n">HeatClusterMap</span><span class="p">(</span><span class="s">&quot;all&quot;</span><span class="p">)</span>
+	<span class="n">mytest</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">mytest</span><span class="o">.</span><span class="n">genRandomValues</span><span class="p">())</span>
 	<span class="n">mytest</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 </pre></div>
 

@@ -1,0 +1,11 @@
+aws Package
+===========
+
+:mod:`cm_compute` Module
+------------------------
+
+.. automodule:: cloudmesh.iaas.aws.cm_compute
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
