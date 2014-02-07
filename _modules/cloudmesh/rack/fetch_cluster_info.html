@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>cloudmesh.rack.cluster_map_service &mdash; Cloudmesh 0.1 documentation</title>
+    <title>cloudmesh.rack.fetch_cluster_info &mdash; Cloudmesh 0.1 documentation</title>
     
     <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
@@ -437,257 +437,226 @@
   <div class="row">
     <div class="col-md-12">
       
-  <h1>Source code for cloudmesh.rack.cluster_map_service</h1><div class="highlight"><pre>
+  <h1>Source code for cloudmesh.rack.fetch_cluster_info</h1><div class="highlight"><pre>
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">Service map of cluster servers, use HSV color space</span>
+<span class="sd">Fetch cluster&#39;s information, for example: temperature, service type and etc.</span>
+<span class="sd">Currently, FetchCluster only knows existing cluster,</span>
+<span class="sd">that is [&#39;india&#39;, &#39;bravo&#39;, &#39;echo&#39;, &#39;delta&#39;]</span>
+<span class="sd">If more cluster are added later, this class MUST be modified carefully</span>
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="kn">import</span> <span class="nn">math</span>
-<span class="kn">from</span> <span class="nn">copy</span> <span class="kn">import</span> <span class="n">deepcopy</span>
-<span class="kn">from</span> <span class="nn">cloudmesh.rack.base_cluster_map</span> <span class="kn">import</span> <span class="n">BaseClusterMap</span>
-
+<span class="kn">from</span> <span class="nn">cloudmesh.rack.rack_data</span> <span class="kn">import</span> <span class="n">RackData</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.rack.rack_work</span> <span class="kn">import</span> <span class="n">RackWork</span>
+<span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">sleep</span>
+<span class="kn">import</span> <span class="nn">threading</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.rack.queue.tasks</span> <span class="kn">import</span> <span class="n">temperature</span><span class="p">,</span> <span class="n">pbs_service</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.rack.rack_progress</span> <span class="kn">import</span> <span class="n">get_temperature_progress</span><span class="p">,</span> <span class="n">get_service_progress</span>
 
 <span class="kn">from</span> <span class="nn">cloudmesh.util.logger</span> <span class="kn">import</span> <span class="n">LOGGER</span>
 
+
 <span class="n">log</span> <span class="o">=</span> <span class="n">LOGGER</span><span class="p">(</span><span class="n">__file__</span><span class="p">)</span>
 
-<div class="viewcode-block" id="ServiceClusterMap"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.cluster_map_service.ServiceClusterMap">[docs]</a><span class="k">class</span> <span class="nc">ServiceClusterMap</span><span class="p">(</span><span class="n">BaseClusterMap</span><span class="p">):</span>
-
-    <span class="c"># maximum h, 240/360 = 2/3</span>
-    <span class="n">h_max</span> <span class="o">=</span> <span class="mf">2.0</span> <span class="o">/</span> <span class="mf">3.0</span>
-
-    <span class="c"># section name of service list</span>
-    <span class="n">service_section_name</span> <span class="o">=</span> <span class="s">&quot;service&quot;</span>
-
-    <span class="c"># service dict</span>
-    <span class="n">dict_services</span> <span class="o">=</span> <span class="bp">None</span>
-
-    <span class="c"># already know service list, read from &#39;default_rack_yaml&#39; file</span>
-    <span class="n">list_services_known</span> <span class="o">=</span> <span class="bp">None</span>
-
-    <span class="c"># service found in current clusters</span>
-    <span class="n">list_services_found</span> <span class="o">=</span> <span class="bp">None</span>
-
-    <span class="c"># unknown service list had found</span>
-    <span class="n">list_unknown_services_found</span> <span class="o">=</span> <span class="bp">None</span>
-
-    <span class="c"># unknown service</span>
-    <span class="n">unknown_service</span> <span class="o">=</span> <span class="s">&quot;unknown&quot;</span>
-
-    <span class="c"># hardware error service</span>
-    <span class="n">hardware_error</span> <span class="o">=</span> <span class="s">&quot;hardwareerror&quot;</span>
-
-    <span class="c"># mapping dict</span>
-    <span class="c"># map a type of service to a tuple RGB color</span>
-    <span class="c"># the key of dict is the different service got from cluster servers</span>
-    <span class="c"># formation is: {hpc:(255, 3, 5), openstack:(34, 50, 200), ...}</span>
-    <span class="n">dict_mapping</span> <span class="o">=</span> <span class="p">{}</span>
 
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">dir_yaml</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">dir_diag</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">dir_output</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">img_type</span><span class="o">=</span><span class="bp">None</span> <span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">list_services_found</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">list_unknown_services_found</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="c"># call parent init function</span>
-        <span class="n">BaseClusterMap</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="s">&quot;service&quot;</span><span class="p">,</span> <span class="n">dir_yaml</span><span class="p">,</span> <span class="n">dir_diag</span><span class="p">,</span> <span class="n">dir_output</span><span class="p">,</span> <span class="n">img_type</span><span class="p">)</span>
+<div class="viewcode-block" id="FetchClusterInfo"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.fetch_cluster_info.FetchClusterInfo">[docs]</a><span class="k">class</span> <span class="nc">FetchClusterInfo</span><span class="p">:</span>
+
+    <span class="n">map_progress</span> <span class="o">=</span> <span class="bp">None</span>
+    <span class="n">username</span> <span class="o">=</span> <span class="bp">None</span>
+    <span class="n">data_valid_time</span> <span class="o">=</span> <span class="mi">0</span>
+    
+    <span class="c"># default data valid time is set to 1800 seconds</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">username</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">valid_time</span><span class="o">=</span><span class="mi">1800</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">username</span> <span class="o">=</span> <span class="n">username</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">set_data_valid_time</span><span class="p">(</span><span class="n">valid_time</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rackdata</span> <span class="o">=</span> <span class="n">RackData</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data_valid_time</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rackwork</span> <span class="o">=</span> <span class="n">RackWork</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">username</span><span class="p">)</span>
         
-
-<div class="viewcode-block" id="ServiceClusterMap.set_optional_param"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.cluster_map_service.ServiceClusterMap.set_optional_param">[docs]</a>    <span class="k">def</span> <span class="nf">set_optional_param</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">aparam</span><span class="p">):</span>
-        <span class="k">pass</span>
+    
+    <span class="c"># get/set data valid time in mongo db</span>
+<div class="viewcode-block" id="FetchClusterInfo.get_data_valid_time"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.fetch_cluster_info.FetchClusterInfo.get_data_valid_time">[docs]</a>    <span class="k">def</span> <span class="nf">get_data_valid_time</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_valid_time</span>
     </div>
-<div class="viewcode-block" id="ServiceClusterMap.get_optional_param"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.cluster_map_service.ServiceClusterMap.get_optional_param">[docs]</a>    <span class="k">def</span> <span class="nf">get_optional_param</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">None</span>
+<div class="viewcode-block" id="FetchClusterInfo.set_data_valid_time"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.fetch_cluster_info.FetchClusterInfo.set_data_valid_time">[docs]</a>    <span class="k">def</span> <span class="nf">set_data_valid_time</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">valid_time</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data_valid_time</span> <span class="o">=</span> <span class="n">valid_time</span> <span class="k">if</span> <span class="n">valid_time</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="mi">0</span>
     
-    
-    <span class="c"># get the RGB according to a specific h param</span>
-    <span class="c"># there are only limited serveral colors according to the total services</span></div>
-<div class="viewcode-block" id="ServiceClusterMap.getRGB"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.cluster_map_service.ServiceClusterMap.getRGB">[docs]</a>    <span class="k">def</span> <span class="nf">getRGB</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">h</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">getRGBWithH</span><span class="p">(</span><span class="n">h</span><span class="p">)</span>
-
-
-    <span class="c"># get proper service</span></div>
-<div class="viewcode-block" id="ServiceClusterMap.getProperService"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.cluster_map_service.ServiceClusterMap.getProperService">[docs]</a>    <span class="k">def</span> <span class="nf">getProperService</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-        <span class="n">lvalue</span> <span class="o">=</span> <span class="n">value</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
-        <span class="c"># check &#39;value&#39; is a service in known service list or not</span>
-        <span class="c"># if not, assign it to a unknown servcie, and log warning message</span>
-        <span class="k">if</span> <span class="n">lvalue</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">list_services_known</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">lvalue</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">list_unknown_services_found</span><span class="p">:</span>
-                <span class="n">log</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s">&quot;The param service &#39;{0}&#39; is NOT a known service, assign its status to &#39;unknown&#39;.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">value</span><span class="p">))</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">list_unknown_services_found</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">lvalue</span><span class="p">)</span>
-
-            <span class="n">lvalue</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">unknown_service</span>
-        <span class="c"># update current service list</span>
-        <span class="c"># service_found will NOT include unknown service</span>
-        <span class="k">elif</span> <span class="n">lvalue</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">list_services_found</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">list_services_found</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">lvalue</span><span class="p">)</span>
-
-        <span class="k">return</span> <span class="n">lvalue</span>
-
-
-    <span class="c"># default service for cluster servers</span>
-    <span class="c">#    default value is &quot;unknown&quot;</span></div>
-<div class="viewcode-block" id="ServiceClusterMap.getDefaultService"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.cluster_map_service.ServiceClusterMap.getDefaultService">[docs]</a>    <span class="k">def</span> <span class="nf">getDefaultService</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">getProperService</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">unknown_service</span><span class="p">)</span>
-
-
-    <span class="c"># ======================================</span>
-    <span class="c">#           abstract function</span>
-    <span class="c">#         sub-class MUST override</span>
-    <span class="c"># ======================================</span>
-    <span class="c">#</span>
-    <span class="c"># get default value for dict_servers</span></div>
-<div class="viewcode-block" id="ServiceClusterMap.getServersDefaultValue"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.cluster_map_service.ServiceClusterMap.getServersDefaultValue">[docs]</a>    <span class="k">def</span> <span class="nf">getServersDefaultValue</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="c"># get service list by reading &#39;default_rack_yaml&#39; file</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">dict_services</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dict_rack_config</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">service_section_name</span><span class="p">]</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">list_services_known</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span><span class="n">x</span><span class="o">.</span><span class="n">lower</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">dict_services</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
-
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">getDefaultService</span><span class="p">()</span>
-
-
-
-    <span class="c"># ======================================</span>
-    <span class="c">#           abstract function</span>
-    <span class="c">#         sub-class MUST override</span>
-    <span class="c"># ======================================</span>
-    <span class="c">#</span>
-    <span class="c"># get corresponding mapping dict, from specific value to RGB value</span>
-    <span class="c"># the formation of RGB is: (R, G, B)</span>
-    <span class="c"># for example: {1:(255, 0, 16), 2:(25, 20, 16), ...}</span></div>
-<div class="viewcode-block" id="ServiceClusterMap.getMappingDict"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.cluster_map_service.ServiceClusterMap.getMappingDict">[docs]</a>    <span class="k">def</span> <span class="nf">getMappingDict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="c"># update the unknown type with #d3d3d3 (gray)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">dict_mapping</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="bp">self</span><span class="o">.</span><span class="n">unknown_service</span><span class="p">:</span> <span class="p">(</span><span class="mi">211</span><span class="p">,</span> <span class="mi">211</span><span class="p">,</span> <span class="mi">211</span><span class="p">)})</span>
-        <span class="c"># update the HardwareError type with #FF0000 if exist</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">hardware_error</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">list_services_found</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">dict_mapping</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="bp">self</span><span class="o">.</span><span class="n">hardware_error</span><span class="p">:</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)})</span>
-
-        <span class="n">list_services</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">filterServiceWithoutHardwareError</span><span class="p">()</span>
-        <span class="n">len_found</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">list_services</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">len_found</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="p">:</span>
-            <span class="n">list_found_sorted</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">list_services</span><span class="p">)</span>
-            <span class="c"># the first service type with #0000FF</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">dict_mapping</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">list_found_sorted</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">)})</span>
-
-            <span class="c"># update other services RGB</span>
-            <span class="n">step</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">h_max</span> <span class="o">/</span> <span class="n">len_found</span>
-            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">len_found</span><span class="p">):</span>
-                <span class="n">h_current</span> <span class="o">=</span> <span class="n">step</span> <span class="o">*</span> <span class="p">(</span><span class="n">len_found</span> <span class="o">-</span> <span class="n">i</span><span class="p">)</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">dict_mapping</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">list_found_sorted</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span> <span class="bp">self</span><span class="o">.</span><span class="n">getRGB</span><span class="p">(</span><span class="n">h_current</span><span class="p">)})</span>
-
-        <span class="k">return</span> <span class="n">deepcopy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dict_mapping</span><span class="p">)</span>
-
-
-    <span class="c"># ======================================</span>
-    <span class="c">#           abstract function</span>
-    <span class="c">#         sub-class MUST override</span>
-    <span class="c"># ======================================</span>
-    <span class="c">#</span>
-    <span class="c"># get the current status of servers</span>
-    <span class="c"># params: dict_values means the data get from each server</span>
-    <span class="c"># this function MUST be called before plot to refresh status of servers in memory</span></div>
-<div class="viewcode-block" id="ServiceClusterMap.update"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.cluster_map_service.ServiceClusterMap.update">[docs]</a>    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">dict_values</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
-            <span class="k">return</span>
-        <span class="c"># clear data structure</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">dict_mapping</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
-        
-        <span class="bp">self</span><span class="o">.</span><span class="n">resetDictServers</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">getDefaultService</span><span class="p">())</span>
-        <span class="c"># update servce with proper service</span>
-        <span class="k">for</span> <span class="n">server</span> <span class="ow">in</span> <span class="n">dict_values</span><span class="p">:</span>
-            <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getProperService</span><span class="p">(</span><span class="n">dict_values</span><span class="p">[</span><span class="n">server</span><span class="p">])</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">updateServer</span><span class="p">(</span><span class="n">server</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
-
-
-    <span class="c"># ======================================</span>
-    <span class="c">#           abstract function</span>
-    <span class="c">#         sub-class MUST override</span>
-    <span class="c"># ======================================</span>
-    <span class="c">#</span>
-    <span class="c"># plot the legend of cluster map</span>
-    <span class="c"># param, ax is an instance of matplotlib.axes.Axes</span>
-    <span class="c"># return value is the filename of legend image file</span></div>
-<div class="viewcode-block" id="ServiceClusterMap.drawLegendContent"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.cluster_map_service.ServiceClusterMap.drawLegendContent">[docs]</a>    <span class="k">def</span> <span class="nf">drawLegendContent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ax</span><span class="p">,</span> <span class="n">xylim</span><span class="p">):</span>
-        <span class="n">xcount</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">list_services_found</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span>
-        <span class="n">xstep</span> <span class="o">=</span> <span class="n">xylim</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="n">xcount</span><span class="p">)</span>
-        <span class="n">xstart</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">xstep</span>
-        <span class="n">xwidth</span> <span class="o">=</span> <span class="mf">0.6</span> <span class="o">*</span> <span class="n">xstep</span>
-        <span class="n">ycount</span> <span class="o">=</span> <span class="mf">3.0</span>
-        <span class="n">ystep</span> <span class="o">=</span> <span class="n">xylim</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">/</span> <span class="n">ycount</span>
-        <span class="n">ystart</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">ystep</span>
-        <span class="n">yheight</span> <span class="o">=</span> <span class="mf">0.6</span> <span class="o">*</span> <span class="n">ystep</span>
-
-        <span class="n">list_services</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">filterServiceWithoutHardwareError</span><span class="p">())</span>
-        <span class="n">all_services</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">unknown_service</span><span class="p">]</span> <span class="o">+</span> <span class="n">list_services</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">hardware_error</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">list_services_found</span><span class="p">:</span>
-            <span class="n">all_services</span> <span class="o">+=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">hardware_error</span><span class="p">]</span>
-
-        <span class="c"># we always arrange the display location of the &#39;unknown service&#39; to the last</span>
-        <span class="k">for</span> <span class="n">service</span> <span class="ow">in</span> <span class="n">all_services</span><span class="p">:</span>
-            <span class="n">rect</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">genDefaultRect</span><span class="p">()</span>
-            <span class="n">lb_x</span> <span class="o">=</span> <span class="n">xstart</span>
-            <span class="n">lb_y</span> <span class="o">=</span> <span class="n">ystart</span> <span class="o">+</span> <span class="n">ystep</span>
-            <span class="n">rect</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s">&quot;verts&quot;</span><span class="p">:{</span><span class="s">&quot;lb&quot;</span><span class="p">:(</span><span class="n">lb_x</span><span class="p">,</span> <span class="n">lb_y</span><span class="p">),</span> <span class="s">&quot;rt&quot;</span><span class="p">:(</span><span class="n">lb_x</span> <span class="o">+</span> <span class="n">xwidth</span><span class="p">,</span> <span class="n">lb_y</span> <span class="o">+</span> <span class="n">yheight</span><span class="p">)}})</span>
-            <span class="n">rcolor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">convertRGB2Hex</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dict_mapping</span><span class="p">[</span><span class="n">service</span><span class="p">])</span>
-            <span class="n">rect</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s">&quot;facecolor_rect&quot;</span><span class="p">:</span><span class="n">rcolor</span><span class="p">,</span> <span class="s">&quot;edgecolor_rect&quot;</span><span class="p">:</span><span class="n">rcolor</span><span class="p">})</span>
-            <span class="n">service_text</span> <span class="o">=</span> <span class="s">&quot;Unknown&quot;</span>
-            <span class="k">if</span> <span class="n">service</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">unknown_service</span><span class="p">:</span>
-                <span class="n">service_text</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dict_services</span><span class="p">[</span><span class="n">service</span><span class="p">]</span>
-            <span class="n">rect</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s">&quot;label&quot;</span><span class="p">:{</span><span class="s">&quot;lb&quot;</span><span class="p">:(</span><span class="n">lb_x</span><span class="p">,</span> <span class="n">ystart</span><span class="p">),</span> <span class="s">&quot;text&quot;</span><span class="p">:</span> <span class="n">service_text</span><span class="p">}})</span>
-            <span class="n">xstart</span> <span class="o">+=</span> <span class="n">xstep</span>
-
-            <span class="bp">self</span><span class="o">.</span><span class="n">drawRectangle</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">rect</span><span class="p">)</span>
-
-
-
-    <span class="c"># only for test</span></div>
-<div class="viewcode-block" id="ServiceClusterMap.genRandomValues"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.cluster_map_service.ServiceClusterMap.genRandomValues">[docs]</a>    <span class="k">def</span> <span class="nf">genRandomValues</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">flag_continue</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">flag_continue</span><span class="p">:</span>
-            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">generateContinousService</span><span class="p">()</span>
+    <span class="c"># start async call to refresh racks</span></div>
+<div class="viewcode-block" id="FetchClusterInfo.start_async_refresh"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.fetch_cluster_info.FetchClusterInfo.start_async_refresh">[docs]</a>    <span class="k">def</span> <span class="nf">start_async_refresh</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">type</span><span class="p">,</span> <span class="n">rack_name</span><span class="p">,</span> <span class="n">server</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">type</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">rackdata</span><span class="o">.</span><span class="n">TEMPERATURE_NAME</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">rackdata</span><span class="o">.</span><span class="n">mydebug</span><span class="p">(</span><span class="s">&quot;start_async_refresh, BEGIN delay start server {2} of {1}-{0}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">type</span><span class="p">,</span> <span class="n">rack_name</span><span class="p">,</span> <span class="n">server</span><span class="p">))</span>
+            <span class="n">temperature</span><span class="o">.</span><span class="n">apply_async</span><span class="p">((</span><span class="n">server</span><span class="p">,</span> <span class="n">rack_name</span><span class="p">,</span> <span class="s">&#39;C&#39;</span><span class="p">),</span> <span class="n">queue</span><span class="o">=</span><span class="s">&#39;rack&#39;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">rackdata</span><span class="o">.</span><span class="n">mydebug</span><span class="p">(</span><span class="s">&quot;start_async_refresh, END delay start server {2} of {1}-{0}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">type</span><span class="p">,</span> <span class="n">rack_name</span><span class="p">,</span> <span class="n">server</span><span class="p">))</span>
+        <span class="k">elif</span> <span class="nb">type</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">rackdata</span><span class="o">.</span><span class="n">SERVICE_NAME</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">rackdata</span><span class="o">.</span><span class="n">mydebug</span><span class="p">(</span><span class="s">&quot;start_async_refresh, BEGIN delay start pbs_service of {1}-{0}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">type</span><span class="p">,</span> <span class="n">rack_name</span><span class="p">))</span>
+            <span class="n">pbs_service</span><span class="o">.</span><span class="n">apply_async</span><span class="p">([</span><span class="n">rack_name</span><span class="p">],</span> <span class="n">queue</span><span class="o">=</span><span class="s">&#39;rack&#39;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">rackdata</span><span class="o">.</span><span class="n">mydebug</span><span class="p">(</span><span class="s">&quot;start_async_refresh, END delay start pbs_service of {1}-{0}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">type</span><span class="p">,</span> <span class="n">rack_name</span><span class="p">))</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">generateRandomService</span><span class="p">()</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s">&quot;NOT Supported to refresh {0} status of {1}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">type</span><span class="p">,</span> <span class="n">rack_name</span><span class="p">))</span>
+    
+    
+    <span class="c"># refresh rack status data</span></div>
+<div class="viewcode-block" id="FetchClusterInfo.refresh_rack_data"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.fetch_cluster_info.FetchClusterInfo.refresh_rack_data">[docs]</a>    <span class="k">def</span> <span class="nf">refresh_rack_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">type</span><span class="p">,</span> <span class="n">rack_name</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rackdata</span><span class="o">.</span><span class="n">mydebug</span><span class="p">(</span><span class="s">&quot;enter into refresh_rack_data of {0}-{1}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">rack_name</span><span class="p">,</span> <span class="nb">type</span><span class="p">))</span>
+        <span class="c"># check the status of &#39;rack_status&#39;</span>
+        <span class="n">refresh_dict</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rackdata</span><span class="o">.</span><span class="n">can_start_refresh</span><span class="p">(</span><span class="nb">type</span><span class="p">,</span> <span class="n">rack_name</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">map_progress</span><span class="o">.</span><span class="n">set_check_refresh_condition</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">refresh_dict</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">False</span>
+        
+        <span class="n">total_hosts</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">if</span> <span class="nb">type</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">rackdata</span><span class="o">.</span><span class="n">TEMPERATURE_NAME</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">rack_name</span> <span class="ow">in</span> <span class="n">refresh_dict</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">refresh_dict</span><span class="p">[</span><span class="n">rack_name</span><span class="p">]:</span>
+                    <span class="n">total_hosts</span><span class="p">[</span><span class="n">rack_name</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s">&quot;total&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s">&quot;updated&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s">&quot;ratio&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span>
+                    <span class="c"># change the status of &#39;rack_status&#39; to &#39;refresh&#39;</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">rackdata</span><span class="o">.</span><span class="n">set_status_start_refresh</span><span class="p">(</span><span class="nb">type</span><span class="p">,</span> <span class="n">rack_name</span><span class="p">)</span>
+                    <span class="n">hosts</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rackdata</span><span class="o">.</span><span class="n">inventory</span><span class="o">.</span><span class="n">hostlist</span><span class="p">(</span><span class="n">rack_name</span><span class="p">)</span>
+                    <span class="n">total_hosts</span><span class="p">[</span><span class="n">rack_name</span><span class="p">][</span><span class="s">&quot;total&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">hosts</span><span class="p">)</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">map_progress</span><span class="o">.</span><span class="n">update_data</span><span class="p">(</span><span class="s">&quot;temperature_data&quot;</span><span class="p">,</span> <span class="p">{</span><span class="n">rack_name</span><span class="p">:</span> <span class="n">total_hosts</span><span class="p">[</span><span class="n">rack_name</span><span class="p">]})</span>
+                    <span class="c"># fetch data for each host</span>
+                    <span class="k">for</span> <span class="n">server</span> <span class="ow">in</span> <span class="n">hosts</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">start_async_refresh</span><span class="p">(</span><span class="nb">type</span><span class="p">,</span> <span class="n">rack_name</span><span class="p">,</span> <span class="n">server</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">type</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">rackdata</span><span class="o">.</span><span class="n">SERVICE_NAME</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">reduce</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span> <span class="ow">or</span> <span class="n">y</span><span class="p">,</span> <span class="p">[</span><span class="n">refresh_dict</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">refresh_dict</span><span class="p">],</span> <span class="bp">False</span><span class="p">):</span>
+                <span class="k">for</span> <span class="n">rack_name</span> <span class="ow">in</span> <span class="n">refresh_dict</span><span class="p">:</span>
+                    <span class="n">total_hosts</span><span class="p">[</span><span class="n">rack_name</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s">&quot;total&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s">&quot;updated&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s">&quot;ratio&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span>
+                    <span class="c"># change the status of &#39;rack_status&#39; to &#39;refresh&#39;</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">rackdata</span><span class="o">.</span><span class="n">set_status_start_refresh</span><span class="p">(</span><span class="nb">type</span><span class="p">,</span> <span class="n">rack_name</span><span class="p">)</span>
+                    <span class="n">hosts</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rackdata</span><span class="o">.</span><span class="n">inventory</span><span class="o">.</span><span class="n">hostlist</span><span class="p">(</span><span class="n">rack_name</span><span class="p">)</span>
+                    <span class="n">total_hosts</span><span class="p">[</span><span class="n">rack_name</span><span class="p">][</span><span class="s">&quot;total&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">hosts</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">map_progress</span><span class="o">.</span><span class="n">update_data</span><span class="p">(</span><span class="s">&quot;service_data&quot;</span><span class="p">,</span> <span class="n">total_hosts</span><span class="p">)</span>
+                <span class="c"># service refresh operation can update all rack ONLY once</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">start_async_refresh</span><span class="p">(</span><span class="nb">type</span><span class="p">,</span> <span class="n">rack_name</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">rackdata</span><span class="o">.</span><span class="n">mydebug</span><span class="p">(</span><span class="s">&quot;exit from refresh_rack_data of {0}-{1} with refresh data {2}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">rack_name</span><span class="p">,</span> <span class="nb">type</span><span class="p">,</span> <span class="n">refresh_dict</span><span class="p">))</span>
+        
+        <span class="k">return</span> <span class="bp">True</span>
+    
+    
+    <span class="c"># refresh rack temperature</span></div>
+<div class="viewcode-block" id="FetchClusterInfo.refresh_rack_temperature"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.fetch_cluster_info.FetchClusterInfo.refresh_rack_temperature">[docs]</a>    <span class="k">def</span> <span class="nf">refresh_rack_temperature</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rack_name</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">refresh_rack_data</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rackdata</span><span class="o">.</span><span class="n">TEMPERATURE_NAME</span><span class="p">,</span> <span class="n">rack_name</span><span class="p">)</span>
 
 
-    <span class="c"># only for test</span>
-    <span class="c"># generate random service for cluster servers</span></div>
-<div class="viewcode-block" id="ServiceClusterMap.generateRandomService"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.cluster_map_service.ServiceClusterMap.generateRandomService">[docs]</a>    <span class="k">def</span> <span class="nf">generateRandomService</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="c"># init the seed of random function</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">getRandom</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
+    <span class="c"># refresh rack service</span></div>
+<div class="viewcode-block" id="FetchClusterInfo.refresh_rack_service"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.fetch_cluster_info.FetchClusterInfo.refresh_rack_service">[docs]</a>    <span class="k">def</span> <span class="nf">refresh_rack_service</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rack_name</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">refresh_rack_data</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rackdata</span><span class="o">.</span><span class="n">SERVICE_NAME</span><span class="p">,</span> <span class="n">rack_name</span><span class="p">)</span>
+    
+    
+    <span class="c"># API of generate map</span></div>
+<div class="viewcode-block" id="FetchClusterInfo.start_gen_map"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.fetch_cluster_info.FetchClusterInfo.start_gen_map">[docs]</a>    <span class="k">def</span> <span class="nf">start_gen_map</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">service</span><span class="p">,</span> <span class="n">rack_name</span><span class="p">):</span>
+        <span class="n">t</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">gen_map_thread</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">[</span><span class="n">service</span><span class="p">,</span> <span class="n">rack_name</span><span class="p">])</span>
+        <span class="n">t</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+        <span class="k">return</span> <span class="bp">True</span>
+    
+    
+    <span class="c"># API of refresh map</span>
+    <span class="c"># return True means start refresh process</span>
+    <span class="c">#        False means NOT start refresh process, &quot;fresh&quot; gives the reason</span>
+    <span class="c">#               if &quot;fresh&quot; is True, that means the data in db is fresh, does NOT need a refresh</span>
+    <span class="c">#                             Flase, means ERROR occured in db</span></div>
+<div class="viewcode-block" id="FetchClusterInfo.start_refresh_map"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.fetch_cluster_info.FetchClusterInfo.start_refresh_map">[docs]</a>    <span class="k">def</span> <span class="nf">start_refresh_map</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">service</span><span class="p">,</span> <span class="n">rack_name</span><span class="p">):</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="bp">False</span>
+        <span class="n">flag_fresh</span> <span class="o">=</span> <span class="bp">False</span>
+        <span class="n">refresh_dict</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rackdata</span><span class="o">.</span><span class="n">can_start_refresh</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="n">rack_name</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">refresh_dict</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="nb">reduce</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">:</span> <span class="n">x</span> <span class="ow">or</span> <span class="n">y</span><span class="p">,</span> <span class="p">[</span><span class="n">refresh_dict</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">refresh_dict</span><span class="p">],</span> <span class="bp">False</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">result</span><span class="p">:</span>
+                <span class="n">t</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">refresh_map_thread</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">[</span><span class="n">service</span><span class="p">,</span> <span class="n">rack_name</span><span class="p">])</span>
+                <span class="n">t</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">flag_fresh</span> <span class="o">=</span> <span class="bp">True</span>
+            
+        <span class="k">return</span> <span class="p">{</span><span class="s">&quot;result&quot;</span><span class="p">:</span> <span class="n">result</span><span class="p">,</span> <span class="s">&quot;fresh&quot;</span><span class="p">:</span> <span class="n">flag_fresh</span><span class="p">}</span>
+    
+    
+    <span class="c"># refresh map thread</span></div>
+<div class="viewcode-block" id="FetchClusterInfo.refresh_map_thread"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.fetch_cluster_info.FetchClusterInfo.refresh_map_thread">[docs]</a>    <span class="k">def</span> <span class="nf">refresh_map_thread</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">service</span><span class="p">,</span> <span class="n">rack_name</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">get_map_progress</span><span class="p">(</span><span class="n">service</span><span class="p">)</span>
+        <span class="c">#self.map_progress.set_refresh_map()</span>
+        <span class="n">flag_data_ready</span> <span class="o">=</span> <span class="bp">False</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">refresh_rack_data</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="n">rack_name</span><span class="p">):</span>
+            <span class="n">flag_data_ready</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">check_rack_refresh_status</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="n">rack_name</span><span class="p">)</span>
+        
+        <span class="k">if</span> <span class="n">flag_data_ready</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">rackwork</span><span class="o">.</span><span class="n">generate_map</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="n">rack_name</span><span class="p">,</span> <span class="bp">True</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">map_progress</span><span class="o">.</span><span class="n">set_error_status</span><span class="p">()</span>    <span class="c"># refresh error, return to user</span>
+    
+    
+    <span class="c"># generate map thread</span></div>
+<div class="viewcode-block" id="FetchClusterInfo.gen_map_thread"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.fetch_cluster_info.FetchClusterInfo.gen_map_thread">[docs]</a>    <span class="k">def</span> <span class="nf">gen_map_thread</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">service</span><span class="p">,</span> <span class="n">rack_name</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">get_map_progress</span><span class="p">(</span><span class="n">service</span><span class="p">)</span>
+        
+        <span class="n">flag_read_refresh_data</span> <span class="o">=</span> <span class="bp">False</span>
+        <span class="n">flag_data_ready</span> <span class="o">=</span> <span class="bp">False</span>
+        
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">rackdata</span><span class="o">.</span><span class="n">is_rack_data_ready</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="n">rack_name</span><span class="p">):</span>
+            <span class="n">flag_data_ready</span> <span class="o">=</span> <span class="bp">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">map_progress</span><span class="o">.</span><span class="n">set_load_refresh_map</span><span class="p">()</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">refresh_rack_data</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="n">rack_name</span><span class="p">):</span>
+                <span class="n">flag_read_refresh_data</span> <span class="o">=</span> <span class="bp">True</span>
+                <span class="n">flag_data_ready</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">check_rack_refresh_status</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="n">rack_name</span><span class="p">)</span>
+        
+        <span class="k">if</span> <span class="n">flag_data_ready</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">rackwork</span><span class="o">.</span><span class="n">generate_map</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="n">rack_name</span><span class="p">,</span> <span class="n">flag_read_refresh_data</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">map_progress</span><span class="o">.</span><span class="n">set_error_status</span><span class="p">()</span>    <span class="c"># read db error, return to user</span>
 
-        <span class="n">dict_data</span> <span class="o">=</span> <span class="p">{}</span>
-        <span class="n">arr_services</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">list_services_known</span> <span class="o">+</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">unknown_service</span><span class="p">]</span>
-        <span class="n">len_services</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">arr_services</span><span class="p">)</span>
-        <span class="k">for</span> <span class="n">server</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">dict_servers</span><span class="p">:</span>
-            <span class="n">temp_rand</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getRandom</span><span class="p">()</span>
-            <span class="n">temp</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">temp_rand</span> <span class="o">*</span> <span class="n">len_services</span><span class="p">))</span> <span class="o">-</span> <span class="mi">1</span>
-            <span class="n">dict_data</span><span class="p">[</span><span class="n">server</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getProperService</span><span class="p">(</span><span class="n">arr_services</span><span class="p">[</span><span class="n">temp</span><span class="p">])</span>
+        
+    <span class="c"># update the status of async  data refresh</span></div>
+<div class="viewcode-block" id="FetchClusterInfo.update_data_refresh_status"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.fetch_cluster_info.FetchClusterInfo.update_data_refresh_status">[docs]</a>    <span class="k">def</span> <span class="nf">update_data_refresh_status</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">service</span><span class="p">):</span>
+        <span class="n">data_dict</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">map_progress</span><span class="o">.</span><span class="n">get_data</span><span class="p">(</span><span class="s">&quot;{0}_data&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">service</span><span class="p">))</span>
+        <span class="n">total_count</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">total_updated</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">rack_name</span> <span class="ow">in</span> <span class="n">data_dict</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">data_dict</span><span class="p">[</span><span class="n">rack_name</span><span class="p">][</span><span class="s">&quot;updated&quot;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">data_dict</span><span class="p">[</span><span class="n">rack_name</span><span class="p">][</span><span class="s">&quot;total&quot;</span><span class="p">]:</span>
+                <span class="c"># query db to get recent update status</span>
+                <span class="n">query_dict</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rackdata</span><span class="o">.</span><span class="n">get_rack_query_dict</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="n">rack_name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">rackdata</span><span class="o">.</span><span class="n">LOCATION_TEMP</span><span class="p">)</span>
+                <span class="n">result_dict</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rackdata</span><span class="o">.</span><span class="n">partly_query</span><span class="p">(</span><span class="n">query_dict</span><span class="p">[</span><span class="n">rack_name</span><span class="p">],</span> <span class="p">{</span><span class="s">&quot;updated_node&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span>
+                <span class="n">data_dict</span><span class="p">[</span><span class="n">rack_name</span><span class="p">][</span><span class="s">&quot;updated&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">result_dict</span><span class="p">[</span><span class="s">&quot;updated_node&quot;</span><span class="p">]</span>
+            <span class="n">total_count</span> <span class="o">+=</span> <span class="n">data_dict</span><span class="p">[</span><span class="n">rack_name</span><span class="p">][</span><span class="s">&quot;total&quot;</span><span class="p">]</span>
+            <span class="n">total_updated</span> <span class="o">+=</span> <span class="n">data_dict</span><span class="p">[</span><span class="n">rack_name</span><span class="p">][</span><span class="s">&quot;updated&quot;</span><span class="p">]</span>
+        <span class="n">ratio</span> <span class="o">=</span> <span class="n">total_updated</span> <span class="o">*</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">total_count</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">map_progress</span><span class="o">.</span><span class="n">set_async_refresh</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">ratio</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
 
-        <span class="k">return</span> <span class="n">dict_data</span>
 
-
-    <span class="c"># only for test, especially continuous colors</span></div>
-<div class="viewcode-block" id="ServiceClusterMap.generateContinousService"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.cluster_map_service.ServiceClusterMap.generateContinousService">[docs]</a>    <span class="k">def</span> <span class="nf">generateContinousService</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">arr_servers</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dict_servers</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
-        <span class="n">len_servers</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">arr_servers</span><span class="p">)</span>
-
-        <span class="n">dict_data</span> <span class="o">=</span> <span class="p">{}</span>
-        <span class="n">arr_services</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">list_services_known</span><span class="p">)</span> <span class="o">+</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">unknown_service</span><span class="p">]</span>
-        <span class="n">len_services</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">arr_services</span><span class="p">)</span>
-        <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="k">for</span> <span class="n">server</span> <span class="ow">in</span> <span class="n">arr_servers</span><span class="p">:</span>
-            <span class="n">dict_data</span><span class="p">[</span><span class="n">server</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getProperService</span><span class="p">(</span><span class="n">arr_services</span><span class="p">[</span><span class="n">count</span> <span class="o">%</span> <span class="n">len_services</span><span class="p">])</span>
-            <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
-
-        <span class="k">return</span> <span class="n">dict_data</span>
-
+    <span class="c"># check mongo db refresh status</span>
+    <span class="c"># default interval time is 200ms, and the max check count is 10000</span></div>
+<div class="viewcode-block" id="FetchClusterInfo.check_rack_refresh_status"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.fetch_cluster_info.FetchClusterInfo.check_rack_refresh_status">[docs]</a>    <span class="k">def</span> <span class="nf">check_rack_refresh_status</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">service</span><span class="p">,</span> <span class="n">rack_name</span><span class="p">,</span> <span class="n">interval</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">max_count</span><span class="o">=</span><span class="mi">10000</span><span class="p">):</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="bp">False</span>
+        <span class="n">curr_count</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+            <span class="n">sleep</span><span class="p">(</span><span class="n">interval</span><span class="p">)</span>  <span class="c"># default is 200 ms</span>
+            <span class="c"># check and update async data refresh status</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">update_data_refresh_status</span><span class="p">(</span><span class="n">service</span><span class="p">)</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">rackdata</span><span class="o">.</span><span class="n">is_refresh_rack_data_ready</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="n">rack_name</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">map_progress</span><span class="o">.</span><span class="n">set_async_refresh</span><span class="p">()</span>
+                <span class="n">result</span> <span class="o">=</span> <span class="bp">True</span>
+                <span class="k">break</span><span class="p">;</span>
+            <span class="n">curr_count</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">if</span> <span class="n">curr_count</span> <span class="o">&gt;</span> <span class="n">max_count</span><span class="p">:</span>
+                <span class="k">break</span><span class="p">;</span>
+        <span class="k">return</span> <span class="n">result</span>
 </div>
-<div class="viewcode-block" id="ServiceClusterMap.filterServiceWithoutHardwareError"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.cluster_map_service.ServiceClusterMap.filterServiceWithoutHardwareError">[docs]</a>    <span class="k">def</span> <span class="nf">filterServiceWithoutHardwareError</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">list_services_found</span> <span class="k">if</span> <span class="n">x</span> <span class="o">!=</span> <span class="s">&quot;hardwareerror&quot;</span><span class="p">]</span>
-        <span class="k">return</span> <span class="n">arr</span>
+<div class="viewcode-block" id="FetchClusterInfo.get_map_progress"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.fetch_cluster_info.FetchClusterInfo.get_map_progress">[docs]</a>    <span class="k">def</span> <span class="nf">get_map_progress</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">service</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">service</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">rackdata</span><span class="o">.</span><span class="n">TEMPERATURE_NAME</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">map_progress</span> <span class="o">=</span> <span class="n">get_temperature_progress</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">username</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">service</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">rackdata</span><span class="o">.</span><span class="n">SERVICE_NAME</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">map_progress</span> <span class="o">=</span> <span class="n">get_service_progress</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">username</span><span class="p">)</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">map_progress</span>
+    
 
-
-<span class="c"># test</span></div></div>
+<span class="c"># debug</span></div></div>
 <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&quot;__main__&quot;</span><span class="p">:</span>
-    <span class="n">mytest</span> <span class="o">=</span> <span class="n">ServiceClusterMap</span><span class="p">(</span><span class="s">&quot;all&quot;</span><span class="p">)</span>
-    <span class="n">mytest</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">mytest</span><span class="o">.</span><span class="n">genRandomValues</span><span class="p">())</span>
-    <span class="n">mytest</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
-    <span class="c"># print mytest.genRandomValues()</span>
+    <span class="n">config</span> <span class="o">=</span> <span class="n">cm_config</span><span class="p">()</span>
+    <span class="n">mytest</span> <span class="o">=</span> <span class="n">FetchClusterInfo</span><span class="p">()</span>
+    <span class="c">#data = mytest.fetch_temperature_ipmi()</span>
+    <span class="c">#print &quot;=&quot; * 30</span>
+    <span class="c">#print data</span>
+    <span class="c">#print &quot;-&quot; * 30</span>
+    <span class="n">mytest</span><span class="o">.</span><span class="n">refresh_rack_temperature</span><span class="p">(</span><span class="s">&quot;echo&quot;</span><span class="p">)</span>
 </pre></div>
 
     </div>

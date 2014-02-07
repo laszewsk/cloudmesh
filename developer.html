@@ -584,8 +584,9 @@ can be found with:</p>
 <div class="highlight-python"><pre>fab build.install
 fab mongo.start
 fab mongo.cloud
-fab mq.start
-fab queue.start:1
+# fab mq.start
+# fab queue.start:1
+fab hpc.touch
 fab server.start</pre>
 </div>
 </div>
@@ -595,8 +596,9 @@ fab server.start</pre>
 fab mongo.start
 fab mongo.simple
 fab user.mongo
-fab mq.start
-fab queue.start:1
+# fab mq.start
+# fab queue.start:1
+fab hpc.touch
 fab server.start</pre>
 </div>
 </div>
@@ -709,8 +711,16 @@ git config --global user.email "laszewski@gmail.com"</pre>
 <div class="section" id="quick-deployment">
 <h2><a class="toc-backref" href="#id16">4.5&nbsp;&nbsp;&nbsp;Quick deployment</a><a class="headerlink" href="#quick-deployment" title="Permalink to this headline">¶</a></h2>
 <p>This quick deployment is targeted for ubuntu. It can be achieved in several easy steps.
-First, obtain a vanilla ubuntu system. Make sure that git is installed, which is standard by now.
-Next execute the following commands</p>
+First, obtain a vanilla ubuntu system. Make sure that git is installed, which is standard by now.</p>
+<p>Note: that on osx we have to set the ldflags to get to the ttfonts</p>
+<p>OSX</p>
+<div class="highlight-python"><pre>xcode-select --install
+
+??? does not work</pre>
+</div>
+<div class="highlight-python"><pre>LDFLAGS="-L/usr/local/opt/freetype/lib -L/usr/local/opt/libpng/lib" CPPFLAGS="-I/usr/local/opt/freetype/include -I/usr/local/opt/libpng/include -I/usr/local/opt/freetype/include/freetype2" pip install matplotlib</pre>
+</div>
+<p>Next execute the following commands</p>
 <div class="highlight-python"><pre>$ git clone git@github.com:cloudmesh/cloudmesh.git
 $ cd cloudmesh
 $ fab -f install/fabfile.py deploy
@@ -1068,6 +1078,14 @@ $ cd cloudmesh
 $ fab -f install/fabfile.py deploy
 $ fab build.install</pre>
 </div>
+<p>HPC services</p>
+<blockquote>
+<div>log into
+alamo
+india
+sierra
+foxtrot
+hotel</div></blockquote>
 </div>
 </div>
 

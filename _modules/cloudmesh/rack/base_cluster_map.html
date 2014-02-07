@@ -1,13 +1,3 @@
-
-
-  
-  
- 
-  
-  
- 
-
-
 <!DOCTYPE html>
 
 
@@ -60,7 +50,8 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="../../../index.html">Cloudmesh</a>
+        <a class="navbar-brand" href="../../../index.html"><img src="../../../_static/fg-logo-white-24x36.png">
+          Cloudmesh</a>
         <span class="navbar-text navbar-version pull-left"><b>0.1</b></span>
       </div>
 
@@ -140,6 +131,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developer.html#example-hpc-queue-server">4.12&nbsp;&nbsp;&nbsp;Example: HPC queue server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developer.html#environment">4.13&nbsp;&nbsp;&nbsp;ENVIRONMENT</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../celery.html">5&nbsp;&nbsp;&nbsp;Celery Setup</a><ul>
@@ -161,8 +153,134 @@
 </li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../cm-shell.html">5&nbsp;&nbsp;&nbsp;Cloud Mesh</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../cm-shell.html#commands">6&nbsp;&nbsp;&nbsp;Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../configure.html">Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../configure.html#cloudmesh-yaml">cloudmesh.yaml</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../configure.html#hp-cloud">HP Cloud</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../configure.html#azure">Azure</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../configure.html#amazon-web-services">Amazon Web Services</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../configure.html#india">India</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../configure.html#sierra">Sierra</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../configure.html#alamo">Alamo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../configure.html#a-complete-example">A complete example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../configure.html#cloudmesh-server-yaml">cloudmesh-server.yaml</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../configure.html#debugging">Debugging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../configure.html#web-ui">Web UI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../configure.html#ldap-integration">LDAP Integration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../configure.html#baremetal-provisioning-with-teefa">Baremetal provisioning with teefa</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../configure.html#clusters">Clusters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../configure.html#roles">Roles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../configure.html#keystone-server">Keystone server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../configure.html#mongo">Mongo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../configure.html#complete-example">Complete Example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../configure.html#cloudmesh-cluster-yaml">cloudmesh_cluster.yaml</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../configure.html#metadata">Metadata</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../configure.html#id1">Clusters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../configure.html#a-cluster">A Cluster</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../configure.html#network">Network:</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../configure.html#cloudmesh-bootspec-yaml">cloudmesh_bootspec.yaml</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../configure.html#other-yaml-files">Other Yaml files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../configure.html#me-sample">Me Sample</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../cm-shell.html">5&nbsp;&nbsp;&nbsp;Cloud Mesh</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../cm-shell.html#defaults">5.1&nbsp;&nbsp;&nbsp;Defaults</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cm-shell.html#register-clouds">5.2&nbsp;&nbsp;&nbsp;Register Clouds</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../cm-shell.html#register-an-aws-account">5.2.1&nbsp;&nbsp;&nbsp;Register an AWS account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../cm-shell.html#register-an-azure-account">5.2.2&nbsp;&nbsp;&nbsp;Register an azure account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../cm-shell.html#register-an-eucalyptus-account">5.2.3&nbsp;&nbsp;&nbsp;Register an Eucalyptus account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../cm-shell.html#register-an-openstack-account">5.2.4&nbsp;&nbsp;&nbsp;Register an OpenStack account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../cm-shell.html#register-an-ec2-account">5.2.5&nbsp;&nbsp;&nbsp;Register an EC2 account</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cm-shell.html#activate-clouds">5.3&nbsp;&nbsp;&nbsp;Activate Clouds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cm-shell.html#managing-projects">5.4&nbsp;&nbsp;&nbsp;Managing Projects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cm-shell.html#managing-users">5.5&nbsp;&nbsp;&nbsp;Managing Users</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cm-shell.html#manageing-virtual-machines">5.6&nbsp;&nbsp;&nbsp;Manageing Virtual Machines</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../cm-shell.html#list-images">5.6.1&nbsp;&nbsp;&nbsp;List images</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../cm-shell.html#starting-vms">5.6.2&nbsp;&nbsp;&nbsp;Starting VMs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../cm-shell.html#manageing-security-groups">5.6.3&nbsp;&nbsp;&nbsp;Manageing Security Groups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../cm-shell.html#managing-volumes">5.6.4&nbsp;&nbsp;&nbsp;Managing Volumes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../cm-shell.html#managing-heat-s-for-openstack">5.6.5&nbsp;&nbsp;&nbsp;Managing heat&#8217;s for OpenStack</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cm-shell.html#commands">6&nbsp;&nbsp;&nbsp;Commands</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../cm-shell.html#listing-images">6.1&nbsp;&nbsp;&nbsp;Listing images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cm-shell.html#cm-manage-initialize-user-name-password-password">6.2&nbsp;&nbsp;&nbsp;cm manage initialize &#8211;user&lt;name&gt; &#8211;password &lt;password&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cm-shell.html#cm-project-list">6.3&nbsp;&nbsp;&nbsp;cm project list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cm-shell.html#cm-project-info-number">6.4&nbsp;&nbsp;&nbsp;cm project &#8211;info &lt;number&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cm-shell.html#cm-project-activate-number">6.5&nbsp;&nbsp;&nbsp;cm project &#8211;activate &lt;number&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cm-shell.html#cm-project-deactivate">6.6&nbsp;&nbsp;&nbsp;cm project &#8211;deactivate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cm-shell.html#cm-env">6.7&nbsp;&nbsp;&nbsp;cm env</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cm-shell.html#cm-resource-list">6.8&nbsp;&nbsp;&nbsp;cm resource &#8211;list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cm-shell.html#cm-service-list">6.9&nbsp;&nbsp;&nbsp;cm service &#8211;list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cm-shell.html#cm-service-register">6.10&nbsp;&nbsp;&nbsp;cm service register</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cm-shell.html#cm-resource-register">6.11&nbsp;&nbsp;&nbsp;cm resource register</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cm-shell.html#cm-image-list">6.12&nbsp;&nbsp;&nbsp;cm image &#8211;list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cm-shell.html#cm-id-list">6.13&nbsp;&nbsp;&nbsp;cm id &#8211;list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cm-shell.html#cm-label-id-id">6.14&nbsp;&nbsp;&nbsp;cm label &#8211;id &lt;id&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cm-shell.html#cm-vm-create-label">6.15&nbsp;&nbsp;&nbsp;cm vm create &lt;label&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cm-shell.html#cm-vm-destroy-label">6.16&nbsp;&nbsp;&nbsp;cm vm destroy &lt;label&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cm-shell.html#cm-vm-terminate-label">6.17&nbsp;&nbsp;&nbsp;cm vm terminate &lt;label&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cm-shell.html#cm-vm-suspoend-label">6.18&nbsp;&nbsp;&nbsp;cm vm suspoend &lt;label&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cm-shell.html#cm-vm-resume-label">6.19&nbsp;&nbsp;&nbsp;cm vm resume &lt;label&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cm-shell.html#cm-vm-login">6.20&nbsp;&nbsp;&nbsp;cm vm login</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cm-shell.html#cm-seceurity-group-add-label-parameters">6.21&nbsp;&nbsp;&nbsp;cm seceurity group add &lt;label&gt; &lt;parameters&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cm-shell.html#cm-seceurity-group-delete">6.22&nbsp;&nbsp;&nbsp;cm seceurity group delete</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cm-shell.html#cm-seceurity-group-default-add-label">6.23&nbsp;&nbsp;&nbsp;cm seceurity group default add &lt;label&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cm-shell.html#cm-seceurity-group-default-delete-label">6.24&nbsp;&nbsp;&nbsp;cm seceurity group default delete &lt;label&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cm-shell.html#examples">6.25&nbsp;&nbsp;&nbsp;Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cm-manage.html">cm-manage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../coding.html">Cloudmesh Style Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../coding.html#information">Information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../coding.html#general">General</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../coding.html#imports">Imports</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../coding.html#human-alphabetical-order-examples">Human Alphabetical Order Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../coding.html#docstrings">Docstrings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../coding.html#dictionaries-lists">Dictionaries/Lists</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../coding.html#calling-methods">Calling Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../coding.html#internationalization-i18n-strings">Internationalization (i18n) Strings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../coding.html#python-3-x-compatibility">Python 3.x compatibility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../coding.html#creating-unit-tests">Creating Unit Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../coding.html#running-tests">Running Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../coding.html#building-docs">Building Docs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../coding.html#oslo-incubator">oslo-incubator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../coding.html#commit-messages">Commit Messages</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contact.html">Contact</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../contact.html#contributors">Contributors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../contact.html#blog">Blog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../contact.html#repository">Repository</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../deploy.html">Production Deployment Server</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../deploy.html#instalation">Instalation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../deploy.html#starting-the-deployed-server">Starting the deployed server</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../doc.html">Adding to the Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../doc.html#creating-the-documentation-locally">Creating the documentation locally</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../doc.html#rst-documentation">RST Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../doc.html#gh-pages">gh-pages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../doc.html#published-documentation">Published Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../fg.html">FutureGrid Specific tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../support.html">Support</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../plan/plan.html">7&nbsp;&nbsp;&nbsp;Plan: Cloudmesh Service Shift</a><ul>
@@ -210,21 +328,18 @@
 </li>
 <li class="toctree-l4"><a class="reference internal" href="../../../modules/cloudmesh.config.html">config Package</a><ul>
 <li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#id1"><tt class="docutils literal"><span class="pre">config</span></tt> Package</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#module-cloudmesh.config.cloudmesh_cloud"><tt class="docutils literal"><span class="pre">cloudmesh_cloud</span></tt> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#module-cloudmesh.config.cloudmesh_cloud_handler"><tt class="docutils literal"><span class="pre">cloudmesh_cloud_handler</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#cloudmesh-cloud-module"><tt class="docutils literal"><span class="pre">cloudmesh_cloud</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#cloudmesh-cloud-handler-module"><tt class="docutils literal"><span class="pre">cloudmesh_cloud_handler</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#module-cloudmesh.config.cm_config"><tt class="docutils literal"><span class="pre">cm_config</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#module-cloudmesh.config.cm_keys"><tt class="docutils literal"><span class="pre">cm_keys</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#module-cloudmesh.config.cm_projects"><tt class="docutils literal"><span class="pre">cm_projects</span></tt> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#module-cloudmesh.config.cm_rc"><tt class="docutils literal"><span class="pre">cm_rc</span></tt> Module</a><ul>
-<li class="toctree-l6"><a class="reference internal" href="../../../modules/cloudmesh.config.html#cm-manage-config">cm-manage config</a></li>
-</ul>
-</li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#cm-rc-module"><tt class="docutils literal"><span class="pre">cm_rc</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#ldap-user-module"><tt class="docutils literal"><span class="pre">ldap_user</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#mock-cloud-module"><tt class="docutils literal"><span class="pre">mock_cloud</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#mock-keystone-module"><tt class="docutils literal"><span class="pre">mock_keystone</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#mock-user-module"><tt class="docutils literal"><span class="pre">mock_user</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#openstack-essex-cloud-module"><tt class="docutils literal"><span class="pre">openstack_essex_cloud</span></tt> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#module-cloudmesh.config.openstack_grizzly_cloud"><tt class="docutils literal"><span class="pre">openstack_grizzly_cloud</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#openstack-grizzly-cloud-module"><tt class="docutils literal"><span class="pre">openstack_grizzly_cloud</span></tt> Module</a></li>
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="../../../modules/cloudmesh.iaas.html">iaas Package</a><ul>
@@ -233,7 +348,7 @@
 <li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.iaas.html#subpackages">Subpackages</a><ul>
 <li class="toctree-l6"><a class="reference internal" href="../../../modules/cloudmesh.iaas.azure.html">azure Package</a><ul>
 <li class="toctree-l7"><a class="reference internal" href="../../../modules/cloudmesh.iaas.azure.html#id1"><tt class="docutils literal"><span class="pre">azure</span></tt> Package</a></li>
-<li class="toctree-l7"><a class="reference internal" href="../../../modules/cloudmesh.iaas.azure.html#module-cloudmesh.iaas.azure.cm_azure"><tt class="docutils literal"><span class="pre">cm_azure</span></tt> Module</a></li>
+<li class="toctree-l7"><a class="reference internal" href="../../../modules/cloudmesh.iaas.azure.html#cm-azure-module"><tt class="docutils literal"><span class="pre">cm_azure</span></tt> Module</a></li>
 <li class="toctree-l7"><a class="reference internal" href="../../../modules/cloudmesh.iaas.azure.html#fabfile-module"><tt class="docutils literal"><span class="pre">fabfile</span></tt> Module</a></li>
 </ul>
 </li>
@@ -300,7 +415,7 @@
             
             
             
-              <li></li>
+              <li class="hidden-sm"></li>
             
           </ul>
 
@@ -327,473 +442,561 @@
 <span class="sd">Base class for different .diag render with rackdiag</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
+<span class="kn">import</span> <span class="nn">matplotlib</span>
+<span class="c">#matplotlib.use(&quot;SVG&quot;)</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">matplotlib.path</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">from</span> <span class="nn">matplotlib.lines</span> <span class="kn">import</span> <span class="n">Line2D</span>
+<span class="kn">import</span> <span class="nn">matplotlib.patches</span> <span class="kn">as</span> <span class="nn">patches</span>
+
 <span class="kn">from</span> <span class="nn">cloudmesh.config.ConfigDict</span> <span class="kn">import</span> <span class="n">ConfigDict</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.util.util</span> <span class="kn">import</span> <span class="n">path_expand</span> <span class="k">as</span> <span class="n">cm_path_expand</span>
-
+<span class="kn">from</span> <span class="nn">cloudmesh.rack.rack_progress</span> <span class="kn">import</span> <span class="n">get_temperature_progress</span><span class="p">,</span> <span class="n">get_service_progress</span>
 <span class="kn">from</span> <span class="nn">jinja2</span> <span class="kn">import</span> <span class="n">Template</span>
 <span class="kn">from</span> <span class="nn">hostlist</span> <span class="kn">import</span> <span class="n">expand_hostlist</span>
 <span class="kn">from</span> <span class="nn">sh</span> <span class="kn">import</span> <span class="n">rackdiag</span>  <span class="c"># @UnresolvedImport</span>
 <span class="kn">from</span> <span class="nn">sh</span> <span class="kn">import</span> <span class="n">rm</span>  <span class="c"># @UnresolvedImport</span>
 <span class="kn">from</span> <span class="nn">sh</span> <span class="kn">import</span> <span class="n">pwd</span>  <span class="c"># @UnresolvedImport</span>
 <span class="kn">from</span> <span class="nn">sh</span> <span class="kn">import</span> <span class="n">mkdir</span>  <span class="c"># @UnresolvedImport</span>
+<span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">path</span>
 <span class="kn">import</span> <span class="nn">random</span>
 <span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">re</span>
 <span class="kn">import</span> <span class="nn">colorsys</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">matplotlib.path</span> <span class="kn">import</span> <span class="n">Path</span>
-<span class="kn">from</span> <span class="nn">matplotlib.lines</span> <span class="kn">import</span> <span class="n">Line2D</span>
-<span class="kn">import</span> <span class="nn">matplotlib.patches</span> <span class="kn">as</span> <span class="nn">patches</span>
+<span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
 
+<span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
+
+
+<span class="kn">from</span> <span class="nn">cloudmesh.util.logger</span> <span class="kn">import</span> <span class="n">LOGGER</span>
+
+<span class="n">log</span> <span class="o">=</span> <span class="n">LOGGER</span><span class="p">(</span><span class="n">__file__</span><span class="p">)</span>
 
 <div class="viewcode-block" id="BaseClusterMap"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.base_cluster_map.BaseClusterMap">[docs]</a><span class="k">class</span> <span class="nc">BaseClusterMap</span><span class="p">:</span>
-	<span class="c"># default location of yaml configuration file</span>
-	<span class="n">default_home_yaml</span> <span class="o">=</span> <span class="s">&quot;~/.futuregrid&quot;</span>
+    <span class="c"># default location of yaml configuration file</span>
+    <span class="n">default_home_yaml</span> <span class="o">=</span> <span class="s">&quot;~/.futuregrid&quot;</span>
 
-	<span class="c"># default location of cloudmesh_clusters.yaml</span>
-	<span class="n">default_clusters_yaml</span> <span class="o">=</span> <span class="s">&quot;~/.futuregrid/cloudmesh_cluster.yaml&quot;</span>
+    <span class="c"># default location of cloudmesh_clusters.yaml</span>
+    <span class="n">default_clusters_yaml</span> <span class="o">=</span> <span class="s">&quot;cloudmesh_cluster.yaml&quot;</span>
 
-	<span class="c"># default location of cloudmesh_rack.yaml</span>
-	<span class="n">default_rack_yaml</span> <span class="o">=</span> <span class="s">&quot;~/.futuregrid/cloudmesh_rack.yaml&quot;</span>
+    <span class="c"># default location of cloudmesh_rack.yaml</span>
+    <span class="n">default_rack_yaml</span> <span class="o">=</span> <span class="s">&quot;cloudmesh_rack.yaml&quot;</span>
 
-	<span class="c"># the name of Clusters</span>
-	<span class="n">cluster_name_all</span> <span class="o">=</span> <span class="s">&quot;all&quot;</span>
-	<span class="n">cluster_name_unknown</span> <span class="o">=</span> <span class="s">&quot;unknown&quot;</span>
-	<span class="n">cluster_name</span> <span class="o">=</span> <span class="n">cluster_name_unknown</span>
+    <span class="c"># the name of Clusters</span>
+    <span class="n">cluster_name_all</span> <span class="o">=</span> <span class="s">&quot;all&quot;</span>
+    <span class="n">cluster_name_unknown</span> <span class="o">=</span> <span class="s">&quot;unknown&quot;</span>
+    <span class="n">cluster_name</span> <span class="o">=</span> <span class="n">cluster_name_unknown</span>
 
-	<span class="c"># cluster name list in rack yaml configuration</span>
-	<span class="c"># default element only one element, &quot;all&quot;, means including all other clustes</span>
-	<span class="n">cluster_name_list</span> <span class="o">=</span> <span class="p">[</span> <span class="n">cluster_name_all</span> <span class="p">]</span>
+    <span class="c"># cluster name list in rack yaml configuration</span>
+    <span class="c"># default element only one element, &quot;all&quot;, means including all other clustes</span>
+    <span class="n">cluster_name_list</span> <span class="o">=</span> <span class="p">[</span> <span class="n">cluster_name_all</span> <span class="p">]</span>
 
-	<span class="c"># clusters config parsed from default_clusters_yaml file</span>
-	<span class="n">dict_clusters_config</span> <span class="o">=</span> <span class="bp">None</span>
+    <span class="c"># clusters config parsed from default_clusters_yaml file</span>
+    <span class="n">dict_clusters_config</span> <span class="o">=</span> <span class="bp">None</span>
 
-	<span class="c">#</span>
-	<span class="c"># servers dict</span>
-	<span class="c"># this will be used to render the original .diag file with Template</span>
-	<span class="c"># sub-class must fill this field with its specific characteristics</span>
-	<span class="c"># for example, a heat map dict:</span>
-	<span class="c"># 	 formation: {(&#39;i001&#39;, &#39;[color=&quot;#FF0000&quot;]&#39;), (..., ...) ...}</span>
-	<span class="c">#</span>
-	<span class="n">dict_servers</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="c">#</span>
+    <span class="c"># servers dict</span>
+    <span class="c"># this will be used to render the original .diag file with Template</span>
+    <span class="c"># sub-class must fill this field with its specific characteristics</span>
+    <span class="c"># for example, a heat map dict:</span>
+    <span class="c">#      formation: {(&#39;i001&#39;, &#39;[color=&quot;#FF0000&quot;]&#39;), (..., ...) ...}</span>
+    <span class="c">#</span>
+    <span class="n">dict_servers</span> <span class="o">=</span> <span class="p">{}</span>
 
-	<span class="c">#</span>
-	<span class="c"># cluster rack configuration dict</span>
-	<span class="c"># the global routine is: cloudmesh:rack:cluster</span>
-	<span class="c"># its children are: all, bravo, delta, echo, india and unknown</span>
-	<span class="n">dict_rack_config</span> <span class="o">=</span> <span class="bp">None</span>
+    <span class="c">#</span>
+    <span class="c"># cluster rack configuration dict</span>
+    <span class="c"># the global routine is: cloudmesh:rack:cluster</span>
+    <span class="c"># its children are: all, bravo, delta, echo, india and unknown</span>
+    <span class="n">dict_rack_config</span> <span class="o">=</span> <span class="bp">None</span>
 
-	<span class="c">#</span>
-	<span class="c"># type of image with rackdiag</span>
-	<span class="c">#</span>
-	<span class="c"># If more image type supported, append the list to [&quot;svg&quot;, &quot;png&quot;, &quot;gif&quot;, &quot;jpg&quot;, ...]</span>
-	<span class="n">image_type_list</span> <span class="o">=</span> <span class="p">[</span><span class="s">&quot;svg&quot;</span><span class="p">,</span> <span class="s">&quot;png&quot;</span><span class="p">]</span>
+    <span class="c">#</span>
+    <span class="c"># type of image with rackdiag</span>
+    <span class="c">#</span>
+    <span class="c"># If more image type supported, append the list to [&quot;svg&quot;, &quot;png&quot;, &quot;gif&quot;, &quot;jpg&quot;, ...]</span>
+    <span class="n">image_type_list</span> <span class="o">=</span> <span class="p">[</span><span class="s">&quot;svg&quot;</span><span class="p">,</span> <span class="s">&quot;png&quot;</span><span class="p">]</span>
+    
+    <span class="c"># if more image type are supported later, please update the options dict</span>
+    <span class="c"># and add corresponding function to get the size of the specific image type</span>
+    <span class="c"># {key:value}, key denote the image type, </span>
+    <span class="c">#              value denote the function name to get the size of relevent image type</span>
+    <span class="n">image_size_options</span> <span class="o">=</span> <span class="p">{</span>
+                            <span class="s">&quot;svg&quot;</span><span class="p">:</span> <span class="s">&quot;getSVGSize&quot;</span><span class="p">,</span>
+                            <span class="s">&quot;png&quot;</span><span class="p">:</span> <span class="s">&quot;getPNGSize&quot;</span><span class="p">,</span>
+                         <span class="p">}</span>
+    
 
-	<span class="c"># subclass type list</span>
-	<span class="n">subclass_type_list</span> <span class="o">=</span> <span class="p">[</span><span class="s">&quot;temperature&quot;</span><span class="p">,</span> <span class="s">&quot;service&quot;</span><span class="p">]</span>
+    <span class="c"># subclass type list</span>
+    <span class="n">subclass_type_list</span> <span class="o">=</span> <span class="p">[</span><span class="s">&quot;temperature&quot;</span><span class="p">,</span> <span class="s">&quot;service&quot;</span><span class="p">]</span>
 
-	<span class="c"># user choose a specific image type from image_type_list,</span>
-	<span class="c"># if not, the default type will be the default_image_type, &quot;svg&quot;</span>
-	<span class="n">image_type</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
+    <span class="c"># user choose a specific image type from image_type_list,</span>
+    <span class="c"># if not, the default type will be the default_image_type, &quot;svg&quot;</span>
+    <span class="n">image_type</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
 
-	<span class="c"># subclass type</span>
-	<span class="n">subclass_type</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
+    <span class="c"># subclass type</span>
+    <span class="n">subclass_type</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
 
-	<span class="c">#</span>
-	<span class="c"># filename of rack image generated by rackdiag</span>
-	<span class="c">#</span>
-	<span class="n">only_filename_image</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
-	<span class="n">only_filename_legend</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
-	<span class="n">filename_rack_image</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
-	<span class="n">filename_rack_legend</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
+    <span class="c">#</span>
+    <span class="c"># filename of rack image generated by rackdiag</span>
+    <span class="c">#</span>
+    <span class="n">only_filename_image</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
+    <span class="n">only_filename_legend</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
+    <span class="n">filename_rack_image</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
+    <span class="n">filename_rack_legend</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
 
-	<span class="c"># filename of .diag</span>
-	<span class="c"># get this filename by reading configuration of default_rack_yaml</span>
-	<span class="n">filename_diag</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
+    <span class="c"># filename of .diag</span>
+    <span class="c"># get this filename by reading configuration of default_rack_yaml</span>
+    <span class="n">filename_diag</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
 
-	<span class="c"># temporary diag file, generated by Template render from filename_diag</span>
-	<span class="c"># this file will be used as a source file to generate a rack image with rackdiag</span>
-	<span class="c"># btw, this file can be deleted after use according to the flag_delete_temp_diag</span>
-	<span class="n">filename_diag_temp</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
+    <span class="c"># temporary diag file, generated by Template render from filename_diag</span>
+    <span class="c"># this file will be used as a source file to generate a rack image with rackdiag</span>
+    <span class="c"># btw, this file can be deleted after use according to the flag_delete_temp_diag</span>
+    <span class="n">filename_diag_temp</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
 
-	<span class="c"># total number of racks</span>
-	<span class="n">rack_count</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="c"># total number of racks</span>
+    <span class="n">rack_count</span> <span class="o">=</span> <span class="mi">1</span>
 
-	<span class="c">#</span>
-	<span class="c"># flag of delete filename_diag_temp after used</span>
-	<span class="c">#</span>
-	<span class="n">flag_delete_diag_temp</span> <span class="o">=</span> <span class="bp">True</span>
+    <span class="c">#</span>
+    <span class="c"># flag of delete filename_diag_temp after used</span>
+    <span class="c">#</span>
+    <span class="n">flag_delete_diag_temp</span> <span class="o">=</span> <span class="bp">True</span>
 
-	<span class="c">#</span>
-	<span class="c"># flag of DEBUG used ONLY</span>
-	<span class="c"># we use random generated data instead of the real data reading from clusters</span>
-	<span class="c">#</span>
-	<span class="n">flag_debug</span> <span class="o">=</span> <span class="bp">True</span>
-
-
-	<span class="c"># construction function with default and image type rack filename</span>
-	<span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">subclass_type</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">dir_yaml</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">dir_diag</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">dir_output</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">img_type</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
-		<span class="c"># init params with default values</span>
-		<span class="k">if</span> <span class="n">subclass_type</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
-			<span class="n">subclass_type</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">subclass_type_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-		<span class="k">if</span> <span class="n">dir_yaml</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
-			<span class="n">dir_yaml</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">guessDefaultConfigLocation</span><span class="p">()</span>
-		<span class="k">if</span> <span class="n">dir_diag</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
-			<span class="n">dir_diag</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">guessDefaultDiagLocation</span><span class="p">()</span>
-		<span class="k">if</span> <span class="n">dir_output</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
-			<span class="n">dir_output</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">guessDefaultDiagramLocation</span><span class="p">()</span>
-		<span class="k">if</span> <span class="n">img_type</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
-			<span class="n">img_type</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">image_type_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-
-		<span class="n">abs_dir_yaml</span> <span class="o">=</span> <span class="n">cm_path_expand</span><span class="p">(</span><span class="n">dir_yaml</span><span class="p">)</span>
-		<span class="n">abs_dir_diag</span> <span class="o">=</span> <span class="n">cm_path_expand</span><span class="p">(</span><span class="n">dir_diag</span><span class="p">)</span>
-		<span class="n">abs_dir_output</span> <span class="o">=</span> <span class="n">cm_path_expand</span><span class="p">(</span><span class="n">dir_output</span><span class="p">)</span>
-
-		<span class="k">print</span> <span class="s">&quot;dir output,,,,,&quot;</span><span class="p">,</span> <span class="n">abs_dir_output</span>
-		<span class="c"># make sure the output directory exist</span>
-		<span class="n">mkdir</span><span class="p">(</span><span class="s">&quot;-p&quot;</span><span class="p">,</span> <span class="n">abs_dir_output</span><span class="p">)</span>
-
-		<span class="bp">self</span><span class="o">.</span><span class="n">readClustersConfig</span><span class="p">(</span><span class="n">abs_dir_yaml</span><span class="p">)</span>
-		<span class="bp">self</span><span class="o">.</span><span class="n">readRackConfig</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">abs_dir_yaml</span><span class="p">,</span> <span class="n">abs_dir_diag</span><span class="p">)</span>
-		<span class="bp">self</span><span class="o">.</span><span class="n">setRackImageType</span><span class="p">(</span><span class="n">subclass_type</span><span class="p">,</span> <span class="n">img_type</span><span class="p">,</span> <span class="n">abs_dir_output</span><span class="p">)</span>
-		<span class="bp">self</span><span class="o">.</span><span class="n">initDictServers</span><span class="p">()</span>
+    <span class="c">#</span>
+    <span class="c"># flag of DEBUG used ONLY</span>
+    <span class="c"># we use random generated data instead of the real data reading from clusters</span>
+    <span class="c">#</span>
+    <span class="n">flag_debug</span> <span class="o">=</span> <span class="bp">True</span>
+    
+    <span class="c"># login username</span>
+    <span class="n">username</span> <span class="o">=</span> <span class="bp">None</span>
+    
+    <span class="c"># progress status</span>
+    <span class="n">map_progress</span> <span class="o">=</span> <span class="bp">None</span>
 
 
-	<span class="c"># ======================================</span>
-	<span class="c"># 		   abstract function</span>
-	<span class="c"># 		 sub-class MUST override</span>
-	<span class="c"># ======================================</span>
-	<span class="c">#</span>
-	<span class="c"># get default value for dict_servers</span>
-<div class="viewcode-block" id="BaseClusterMap.getServersDefaultValue"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.base_cluster_map.BaseClusterMap.getServersDefaultValue">[docs]</a>	<span class="k">def</span> <span class="nf">getServersDefaultValue</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-		<span class="k">pass</span>
+    <span class="c"># construction function with default and image type rack filename</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">subclass_type</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">dir_yaml</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">dir_diag</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">dir_output</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">img_type</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="c"># init params with default values</span>
+        <span class="k">if</span> <span class="n">subclass_type</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">subclass_type</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">subclass_type_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">dir_yaml</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">dir_yaml</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">guessDefaultConfigLocation</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">dir_diag</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">dir_diag</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">guessDefaultDiagLocation</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">dir_output</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">dir_output</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">guessDefaultDiagramLocation</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">img_type</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">img_type</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">image_type_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="c"># set login username</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">set_login_username</span><span class="p">(</span><span class="n">username</span><span class="p">)</span>
+        
+        <span class="n">abs_dir_yaml</span> <span class="o">=</span> <span class="n">cm_path_expand</span><span class="p">(</span><span class="n">dir_yaml</span><span class="p">)</span>
+        <span class="n">abs_dir_diag</span> <span class="o">=</span> <span class="n">cm_path_expand</span><span class="p">(</span><span class="n">dir_diag</span><span class="p">)</span>
+        <span class="n">abs_dir_output</span> <span class="o">=</span> <span class="n">cm_path_expand</span><span class="p">(</span><span class="n">dir_output</span><span class="p">)</span>
+
+        <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s">&quot;The output directory of rack diagram is {0}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">abs_dir_output</span><span class="p">))</span>
+        <span class="c"># make sure the output directory exist</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">abs_dir_output</span><span class="p">):</span>
+            <span class="n">mkdir</span><span class="p">(</span><span class="s">&quot;-p&quot;</span><span class="p">,</span> <span class="n">abs_dir_output</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">readClustersConfig</span><span class="p">(</span><span class="n">abs_dir_yaml</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">readRackConfig</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">abs_dir_yaml</span><span class="p">,</span> <span class="n">abs_dir_diag</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setRackImageType</span><span class="p">(</span><span class="n">subclass_type</span><span class="p">,</span> <span class="n">img_type</span><span class="p">,</span> <span class="n">abs_dir_output</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">initDictServers</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">get_map_progress</span><span class="p">()</span>
 
 
-	<span class="c"># ======================================</span>
-	<span class="c"># 		   abstract function</span>
-	<span class="c"># 		 sub-class MUST override</span>
-	<span class="c"># ======================================</span>
-	<span class="c">#</span>
-	<span class="c"># get corresponding mapping dict, from specific value to RGB value</span>
-	<span class="c"># the formation of RGB is: (R, G, B)</span>
-	<span class="c"># for example: {1:(255, 0, 16), 2:(25, 20, 16), ...}</span></div>
-<div class="viewcode-block" id="BaseClusterMap.getMappingDict"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.base_cluster_map.BaseClusterMap.getMappingDict">[docs]</a>	<span class="k">def</span> <span class="nf">getMappingDict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-		<span class="k">pass</span>
+    <span class="c"># ======================================</span>
+    <span class="c">#           abstract function</span>
+    <span class="c">#         sub-class MUST override</span>
+    <span class="c"># ======================================</span>
+    <span class="c">#</span>
+    <span class="c"># get default value for dict_servers</span>
+<div class="viewcode-block" id="BaseClusterMap.getServersDefaultValue"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.base_cluster_map.BaseClusterMap.getServersDefaultValue">[docs]</a>    <span class="k">def</span> <span class="nf">getServersDefaultValue</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
 
 
-	<span class="c"># ======================================</span>
-	<span class="c"># 		   abstract function</span>
-	<span class="c"># 		 sub-class MUST override</span>
-	<span class="c"># ======================================</span>
-	<span class="c">#</span>
-	<span class="c"># get the current status of servers</span>
-	<span class="c"># params: dict_values means the data get from each server</span>
-	<span class="c"># this function MUST be called before plot to refresh status of servers in memory</span></div>
-<div class="viewcode-block" id="BaseClusterMap.update"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.base_cluster_map.BaseClusterMap.update">[docs]</a>	<span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="p">):</span>
-		<span class="k">pass</span>
+    <span class="c"># ======================================</span>
+    <span class="c">#           abstract function</span>
+    <span class="c">#         sub-class MUST override</span>
+    <span class="c"># ======================================</span>
+    <span class="c">#</span>
+    <span class="c"># get corresponding mapping dict, from specific value to RGB value</span>
+    <span class="c"># the formation of RGB is: (R, G, B)</span>
+    <span class="c"># for example: {1:(255, 0, 16), 2:(25, 20, 16), ...}</span></div>
+<div class="viewcode-block" id="BaseClusterMap.getMappingDict"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.base_cluster_map.BaseClusterMap.getMappingDict">[docs]</a>    <span class="k">def</span> <span class="nf">getMappingDict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
 
 
-	<span class="c"># ======================================</span>
-	<span class="c"># 		   abstract function</span>
-	<span class="c"># 		 sub-class MUST override</span>
-	<span class="c"># ======================================</span>
-	<span class="c">#</span>
-	<span class="c"># plot the legend of cluster map</span>
-	<span class="c"># param, ax is an instance of matplotlib.axes.Axes</span>
-	<span class="c"># return value is the filename of legend image file</span></div>
-<div class="viewcode-block" id="BaseClusterMap.drawLegendContent"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.base_cluster_map.BaseClusterMap.drawLegendContent">[docs]</a>	<span class="k">def</span> <span class="nf">drawLegendContent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ax</span><span class="p">,</span> <span class="n">xylim</span><span class="p">):</span>
-		<span class="k">pass</span>
+    <span class="c"># ======================================</span>
+    <span class="c">#           abstract function</span>
+    <span class="c">#         sub-class MUST override</span>
+    <span class="c"># ======================================</span>
+    <span class="c">#</span>
+    <span class="c"># get the current status of servers</span>
+    <span class="c"># params: dict_values means the data get from each server</span>
+    <span class="c"># this function MUST be called before plot to refresh status of servers in memory</span></div>
+<div class="viewcode-block" id="BaseClusterMap.update"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.base_cluster_map.BaseClusterMap.update">[docs]</a>    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="p">):</span>
+        <span class="k">pass</span>
 
 
-	<span class="c"># read clusters config</span></div>
-<div class="viewcode-block" id="BaseClusterMap.readClustersConfig"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.base_cluster_map.BaseClusterMap.readClustersConfig">[docs]</a>	<span class="k">def</span> <span class="nf">readClustersConfig</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dir_yaml</span><span class="p">):</span>
-		<span class="n">clusters_config</span> <span class="o">=</span> <span class="n">ConfigDict</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">default_clusters_yaml</span><span class="p">)</span>
-		<span class="bp">self</span><span class="o">.</span><span class="n">dict_clusters_config</span> <span class="o">=</span> <span class="n">clusters_config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;cloudmesh.inventory&quot;</span><span class="p">)</span>
-		<span class="c"># get all possible cluster names from dict_clusters_config</span>
-		<span class="bp">self</span><span class="o">.</span><span class="n">cluster_name_list</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dict_clusters_config</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
-
-		<span class="k">print</span> <span class="s">&quot;clusters name list: &quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">cluster_name_list</span>
-
-
-	<span class="c"># get the total racks of cluster</span></div>
-<div class="viewcode-block" id="BaseClusterMap.getRackCount"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.base_cluster_map.BaseClusterMap.getRackCount">[docs]</a>	<span class="k">def</span> <span class="nf">getRackCount</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-		<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">rack_count</span>
+    <span class="c"># ======================================</span>
+    <span class="c">#           abstract function</span>
+    <span class="c">#         sub-class MUST override</span>
+    <span class="c"># ======================================</span>
+    <span class="c">#</span>
+    <span class="c"># plot the legend of cluster map</span>
+    <span class="c"># param, ax is an instance of matplotlib.axes.Axes</span>
+    <span class="c"># return value is the filename of legend image file</span></div>
+<div class="viewcode-block" id="BaseClusterMap.drawLegendContent"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.base_cluster_map.BaseClusterMap.drawLegendContent">[docs]</a>    <span class="k">def</span> <span class="nf">drawLegendContent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ax</span><span class="p">,</span> <span class="n">xylim</span><span class="p">):</span>
+        <span class="k">pass</span>
 
 
-	<span class="c"># read default_rack_yaml configuration</span></div>
-<div class="viewcode-block" id="BaseClusterMap.readRackConfig"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.base_cluster_map.BaseClusterMap.readRackConfig">[docs]</a>	<span class="k">def</span> <span class="nf">readRackConfig</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">dir_yaml</span><span class="p">,</span> <span class="n">dir_diag</span><span class="p">):</span>
-		<span class="n">rack_config</span> <span class="o">=</span> <span class="n">ConfigDict</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">default_rack_yaml</span><span class="p">)</span>
-		<span class="bp">self</span><span class="o">.</span><span class="n">dict_rack_config</span> <span class="o">=</span> <span class="n">rack_config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;cloudmesh.rack&quot;</span><span class="p">)</span>
-		<span class="k">print</span> <span class="bp">self</span><span class="o">.</span><span class="n">dict_rack_config</span>
-
-		<span class="n">lname</span> <span class="o">=</span> <span class="n">name</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
-		<span class="bp">self</span><span class="o">.</span><span class="n">cluster_name</span> <span class="o">=</span> <span class="n">lname</span> <span class="k">if</span> <span class="n">lname</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">cluster_name_list</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">cluster_name_unknown</span>
-		<span class="k">print</span> <span class="s">&quot;rack name is: &quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">cluster_name</span>
-
-		<span class="c"># diag filename</span>
-		<span class="bp">self</span><span class="o">.</span><span class="n">filename_diag</span> <span class="o">=</span> <span class="n">dir_diag</span> <span class="o">+</span> <span class="s">&quot;/&quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">dict_rack_config</span><span class="p">[</span><span class="s">&quot;cluster&quot;</span><span class="p">][</span><span class="bp">self</span><span class="o">.</span><span class="n">cluster_name</span><span class="p">][</span><span class="s">&quot;diag&quot;</span><span class="p">]</span>
-		<span class="bp">self</span><span class="o">.</span><span class="n">rack_count</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dict_rack_config</span><span class="p">[</span><span class="s">&quot;cluster&quot;</span><span class="p">][</span><span class="bp">self</span><span class="o">.</span><span class="n">cluster_name</span><span class="p">][</span><span class="s">&quot;count&quot;</span><span class="p">]</span>
-		<span class="bp">self</span><span class="o">.</span><span class="n">filename_diag_temp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">filename_diag</span> <span class="o">+</span> <span class="s">&quot;.temp&quot;</span>
-
-		<span class="c"># additional process for &#39;all&#39;</span>
-		<span class="c"># its count equals the sum of all other cluster exclude &#39;all&#39; and &#39;unknown&#39;</span>
-		<span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="s">&quot;all&quot;</span><span class="p">:</span>
-			<span class="n">raw_set</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dict_rack_config</span><span class="p">[</span><span class="s">&quot;cluster&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
-			<span class="n">exclude_set</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="s">&quot;all&quot;</span><span class="p">,</span> <span class="s">&quot;unknown&quot;</span><span class="p">])</span>
-			<span class="n">all_set</span> <span class="o">=</span> <span class="n">raw_set</span> <span class="o">-</span> <span class="n">exclude_set</span>
-			<span class="bp">self</span><span class="o">.</span><span class="n">rack_count</span> <span class="o">=</span> <span class="mi">0</span>
-			<span class="k">for</span> <span class="n">rack</span> <span class="ow">in</span> <span class="n">all_set</span><span class="p">:</span>
-				<span class="bp">self</span><span class="o">.</span><span class="n">rack_count</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dict_rack_config</span><span class="p">[</span><span class="s">&quot;cluster&quot;</span><span class="p">][</span><span class="n">rack</span><span class="p">][</span><span class="s">&quot;count&quot;</span><span class="p">]</span>
-
-		<span class="k">print</span> <span class="s">&quot;total rack count is: {0} = {1}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">rack_count</span><span class="p">)</span>
+    <span class="c"># read clusters config</span></div>
+<div class="viewcode-block" id="BaseClusterMap.readClustersConfig"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.base_cluster_map.BaseClusterMap.readClustersConfig">[docs]</a>    <span class="k">def</span> <span class="nf">readClustersConfig</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dir_yaml</span><span class="p">):</span>
+        <span class="n">clusters_config</span> <span class="o">=</span> <span class="n">ConfigDict</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="n">dir_yaml</span> <span class="o">+</span> <span class="s">&quot;/&quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">default_clusters_yaml</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dict_clusters_config</span> <span class="o">=</span> <span class="n">clusters_config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;cloudmesh.inventory&quot;</span><span class="p">)</span>
+        <span class="c"># get all possible cluster names from dict_clusters_config</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cluster_name_list</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dict_clusters_config</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
 
 
-	<span class="c"># set the type of rack image</span></div>
-<div class="viewcode-block" id="BaseClusterMap.setRackImageType"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.base_cluster_map.BaseClusterMap.setRackImageType">[docs]</a>	<span class="k">def</span> <span class="nf">setRackImageType</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">subclass_type</span><span class="p">,</span> <span class="n">img_type</span><span class="p">,</span> <span class="n">dir_output</span><span class="p">):</span>
-		<span class="n">ltype</span> <span class="o">=</span> <span class="n">subclass_type</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
-		<span class="bp">self</span><span class="o">.</span><span class="n">subclass_type</span> <span class="o">=</span> <span class="n">ltype</span> <span class="k">if</span> <span class="n">ltype</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">subclass_type_list</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">subclass_type_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-
-		<span class="c"># lower string of type</span>
-		<span class="n">ltype</span> <span class="o">=</span> <span class="n">img_type</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
-
-		<span class="k">if</span> <span class="n">ltype</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">image_type_list</span><span class="p">:</span>
-			<span class="bp">self</span><span class="o">.</span><span class="n">image_type</span> <span class="o">=</span> <span class="n">ltype</span>
-		<span class="k">else</span><span class="p">:</span>
-			<span class="k">print</span> <span class="s">&quot;[Warn]BaseClusterMap: Rack image type {0} is NOT supported currently!</span><span class="se">\n</span><span class="s"> Use {1} to replace.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">img_type</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">image_type_list</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-			<span class="bp">self</span><span class="o">.</span><span class="n">image_type</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">image_type_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-
-		<span class="c"># filename, diag filename ends with &quot;.diag&quot;</span>
-		<span class="c"># image filename ends with &quot;.&quot; + a valid lower image type</span>
-		<span class="n">image_basename</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cluster_name</span> <span class="o">+</span> <span class="s">&quot;-&quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">subclass_type</span><span class="p">;</span>
-		<span class="bp">self</span><span class="o">.</span><span class="n">only_filename_image</span> <span class="o">=</span> <span class="n">image_basename</span> <span class="o">+</span> <span class="s">&quot;.&quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">image_type</span>
-		<span class="bp">self</span><span class="o">.</span><span class="n">only_filename_legend</span> <span class="o">=</span> <span class="n">image_basename</span> <span class="o">+</span> <span class="s">&quot;-legend.png&quot;</span>
-		<span class="bp">self</span><span class="o">.</span><span class="n">filename_rack_image</span> <span class="o">=</span> <span class="n">dir_output</span> <span class="o">+</span> <span class="s">&quot;/&quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">only_filename_image</span>
-		<span class="bp">self</span><span class="o">.</span><span class="n">filename_rack_legend</span> <span class="o">=</span> <span class="n">dir_output</span> <span class="o">+</span> <span class="s">&quot;/&quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">only_filename_legend</span>
+    <span class="c"># get the total racks of cluster</span></div>
+<div class="viewcode-block" id="BaseClusterMap.getRackCount"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.base_cluster_map.BaseClusterMap.getRackCount">[docs]</a>    <span class="k">def</span> <span class="nf">getRackCount</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">rack_count</span>
 
 
-		<span class="k">print</span> <span class="s">&quot;rack image filename is: &quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">filename_rack_image</span>
+    <span class="c"># read default_rack_yaml configuration</span></div>
+<div class="viewcode-block" id="BaseClusterMap.readRackConfig"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.base_cluster_map.BaseClusterMap.readRackConfig">[docs]</a>    <span class="k">def</span> <span class="nf">readRackConfig</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">dir_yaml</span><span class="p">,</span> <span class="n">dir_diag</span><span class="p">):</span>
+        <span class="n">rack_config</span> <span class="o">=</span> <span class="n">ConfigDict</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="n">dir_yaml</span> <span class="o">+</span> <span class="s">&quot;/&quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">default_rack_yaml</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dict_rack_config</span> <span class="o">=</span> <span class="n">rack_config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;cloudmesh.rack&quot;</span><span class="p">)</span>
+
+        <span class="n">lname</span> <span class="o">=</span> <span class="n">name</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+        <span class="c"># the rack name in cloudmesh_rack.yaml MUST be valid/predefined in clouldmesh_cluster.yaml</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cluster_name</span> <span class="o">=</span> <span class="n">lname</span> <span class="k">if</span> <span class="n">lname</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">cluster_name_list</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">cluster_name_unknown</span>
+
+        <span class="c"># diag filename and temporary diag filename</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">filename_diag</span> <span class="o">=</span> <span class="n">dir_diag</span> <span class="o">+</span> <span class="s">&quot;/&quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">dict_rack_config</span><span class="p">[</span><span class="s">&quot;cluster&quot;</span><span class="p">][</span><span class="bp">self</span><span class="o">.</span><span class="n">cluster_name</span><span class="p">][</span><span class="s">&quot;diag&quot;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rack_count</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dict_rack_config</span><span class="p">[</span><span class="s">&quot;cluster&quot;</span><span class="p">][</span><span class="bp">self</span><span class="o">.</span><span class="n">cluster_name</span><span class="p">][</span><span class="s">&quot;count&quot;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">filename_diag_temp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">filename_diag</span> <span class="o">+</span> <span class="s">&quot;.temp&quot;</span>
+
+        <span class="c"># additional process for &#39;all&#39;</span>
+        <span class="c"># its count equals the sum of all other cluster exclude &#39;all&#39; and &#39;unknown&#39;</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="s">&quot;all&quot;</span><span class="p">:</span>
+            <span class="n">raw_set</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dict_rack_config</span><span class="p">[</span><span class="s">&quot;cluster&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+            <span class="n">exclude_set</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="s">&quot;all&quot;</span><span class="p">,</span> <span class="s">&quot;unknown&quot;</span><span class="p">])</span>
+            <span class="n">all_set</span> <span class="o">=</span> <span class="n">raw_set</span> <span class="o">-</span> <span class="n">exclude_set</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">rack_count</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="k">for</span> <span class="n">rack</span> <span class="ow">in</span> <span class="n">all_set</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">rack_count</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dict_rack_config</span><span class="p">[</span><span class="s">&quot;cluster&quot;</span><span class="p">][</span><span class="n">rack</span><span class="p">][</span><span class="s">&quot;count&quot;</span><span class="p">]</span>
 
 
-	<span class="c"># initialize dict servers</span>
-	<span class="c"># formation, {&quot;i001&quot;:None, &quot;i002&quot;:None, ...}</span></div>
-<div class="viewcode-block" id="BaseClusterMap.initDictServers"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.base_cluster_map.BaseClusterMap.initDictServers">[docs]</a>	<span class="k">def</span> <span class="nf">initDictServers</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-		<span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">cluster_name</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">cluster_name_unknown</span><span class="p">:</span>
-			<span class="k">return</span>
+    <span class="c"># set the type of rack image</span></div>
+<div class="viewcode-block" id="BaseClusterMap.setRackImageType"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.base_cluster_map.BaseClusterMap.setRackImageType">[docs]</a>    <span class="k">def</span> <span class="nf">setRackImageType</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">subclass_type</span><span class="p">,</span> <span class="n">img_type</span><span class="p">,</span> <span class="n">dir_output</span><span class="p">):</span>
+        <span class="n">ltype</span> <span class="o">=</span> <span class="n">subclass_type</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">subclass_type</span> <span class="o">=</span> <span class="n">ltype</span> <span class="k">if</span> <span class="n">ltype</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">subclass_type_list</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">subclass_type_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 
-		<span class="n">servers_range_list</span> <span class="o">=</span> <span class="p">[]</span>
-		<span class="k">print</span> <span class="s">&quot;rack name is: &quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">cluster_name</span>
-		<span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">cluster_name</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">cluster_name_all</span><span class="p">:</span>
-			<span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">dict_clusters_config</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-				<span class="k">print</span> <span class="s">&quot;clusters config name.id: &quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">dict_clusters_config</span><span class="p">[</span><span class="n">name</span><span class="p">][</span><span class="s">&quot;id&quot;</span><span class="p">]</span>
-				<span class="n">servers_range_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dict_clusters_config</span><span class="p">[</span><span class="n">name</span><span class="p">][</span><span class="s">&quot;id&quot;</span><span class="p">])</span>
-		<span class="k">else</span><span class="p">:</span>
-			<span class="n">servers_range_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dict_clusters_config</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">cluster_name</span><span class="p">][</span><span class="s">&quot;id&quot;</span><span class="p">])</span>
+        <span class="c"># lower string of type</span>
+        <span class="n">ltype</span> <span class="o">=</span> <span class="n">img_type</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
 
-		<span class="c"># server name list, add more server here</span>
-		<span class="n">list_servers</span> <span class="o">=</span> <span class="p">[]</span>
-		<span class="k">for</span> <span class="n">spec</span> <span class="ow">in</span> <span class="n">servers_range_list</span><span class="p">:</span>
-			<span class="n">servers</span> <span class="o">=</span> <span class="n">expand_hostlist</span><span class="p">(</span><span class="n">spec</span><span class="p">)</span>
-			<span class="n">list_servers</span> <span class="o">+=</span> <span class="n">servers</span>
+        <span class="k">if</span> <span class="n">ltype</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">image_type_list</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">image_type</span> <span class="o">=</span> <span class="n">ltype</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s">&quot;The image type &#39;{0}&#39; of rack is NOT supported currently! Use the default type &#39;{1}&#39; instead.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">img_type</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">image_type_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">image_type</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">image_type_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 
-		<span class="bp">self</span><span class="o">.</span><span class="n">dict_servers</span> <span class="o">=</span> <span class="nb">dict</span><span class="o">.</span><span class="n">fromkeys</span><span class="p">(</span><span class="n">list_servers</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">getServersDefaultValue</span><span class="p">())</span>
-
-
-	<span class="c">#</span>
-	<span class="c"># reset dict servers to a default value</span>
-	<span class="c">#</span></div>
-<div class="viewcode-block" id="BaseClusterMap.resetDictServers"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.base_cluster_map.BaseClusterMap.resetDictServers">[docs]</a>	<span class="k">def</span> <span class="nf">resetDictServers</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-		<span class="k">for</span> <span class="n">server</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">dict_servers</span><span class="p">:</span>
-			<span class="bp">self</span><span class="o">.</span><span class="n">dict_servers</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">server</span><span class="p">:</span><span class="n">value</span><span class="p">})</span>
-		<span class="k">pass</span>
+        <span class="c"># filename, diag filename ends with &quot;.diag&quot;</span>
+        <span class="c"># image filename ends with &quot;.&quot; + a valid lower image type</span>
+        <span class="n">image_basename</span> <span class="o">=</span> <span class="s">&quot;_&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">username</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">cluster_name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">subclass_type</span><span class="p">]);</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">only_filename_image</span> <span class="o">=</span> <span class="s">&quot;.&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">image_basename</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">image_type</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">only_filename_legend</span> <span class="o">=</span> <span class="s">&quot;_legend.&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">image_basename</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">image_type</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">filename_rack_image</span> <span class="o">=</span> <span class="s">&quot;/&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">dir_output</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">only_filename_image</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">filename_rack_legend</span> <span class="o">=</span> <span class="s">&quot;/&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">dir_output</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">only_filename_legend</span><span class="p">])</span>
 
 
-	<span class="c"># update a server info in dict servers</span></div>
-<div class="viewcode-block" id="BaseClusterMap.updateServer"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.base_cluster_map.BaseClusterMap.updateServer">[docs]</a>	<span class="k">def</span> <span class="nf">updateServer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">server</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-		<span class="bp">self</span><span class="o">.</span><span class="n">dict_servers</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">server</span><span class="p">:</span><span class="n">value</span><span class="p">})</span>
+
+    <span class="c"># initialize dict servers</span>
+    <span class="c"># formation, {&quot;i001&quot;:None, &quot;i002&quot;:None, ...}</span></div>
+<div class="viewcode-block" id="BaseClusterMap.initDictServers"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.base_cluster_map.BaseClusterMap.initDictServers">[docs]</a>    <span class="k">def</span> <span class="nf">initDictServers</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">cluster_name</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">cluster_name_unknown</span><span class="p">:</span>
+            <span class="k">return</span>
+
+        <span class="n">servers_range_list</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">cluster_name</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">cluster_name_all</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">dict_clusters_config</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                <span class="n">servers_range_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dict_clusters_config</span><span class="p">[</span><span class="n">name</span><span class="p">][</span><span class="s">&quot;id&quot;</span><span class="p">])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">servers_range_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dict_clusters_config</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">cluster_name</span><span class="p">][</span><span class="s">&quot;id&quot;</span><span class="p">])</span>
+
+        <span class="c"># server name list, add more server here</span>
+        <span class="n">list_servers</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">spec</span> <span class="ow">in</span> <span class="n">servers_range_list</span><span class="p">:</span>
+            <span class="n">servers</span> <span class="o">=</span> <span class="n">expand_hostlist</span><span class="p">(</span><span class="n">spec</span><span class="p">)</span>
+            <span class="n">list_servers</span> <span class="o">+=</span> <span class="n">servers</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">dict_servers</span> <span class="o">=</span> <span class="nb">dict</span><span class="o">.</span><span class="n">fromkeys</span><span class="p">(</span><span class="n">list_servers</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">getServersDefaultValue</span><span class="p">())</span>
 
 
-	<span class="c">#</span>
-	<span class="c"># Enable/Disable the function of delete filename_diag_temp after used</span>
-	<span class="c">#</span></div>
-<div class="viewcode-block" id="BaseClusterMap.enableDeleteDiagTemp"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.base_cluster_map.BaseClusterMap.enableDeleteDiagTemp">[docs]</a>	<span class="k">def</span> <span class="nf">enableDeleteDiagTemp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-		<span class="bp">self</span><span class="o">.</span><span class="n">flag_delete_diag_temp</span> <span class="o">=</span> <span class="bp">True</span>
+    <span class="c">#</span>
+    <span class="c"># reset dict servers to a default value</span>
+    <span class="c">#</span></div>
+<div class="viewcode-block" id="BaseClusterMap.resetDictServers"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.base_cluster_map.BaseClusterMap.resetDictServers">[docs]</a>    <span class="k">def</span> <span class="nf">resetDictServers</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">server</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">dict_servers</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">dict_servers</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">server</span><span class="p">:</span><span class="n">value</span><span class="p">})</span>
+        <span class="k">pass</span>
+
+
+    <span class="c"># update a server info in dict servers</span></div>
+<div class="viewcode-block" id="BaseClusterMap.updateServer"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.base_cluster_map.BaseClusterMap.updateServer">[docs]</a>    <span class="k">def</span> <span class="nf">updateServer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">server</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dict_servers</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">server</span><span class="p">:</span><span class="n">value</span><span class="p">})</span>
+
+
+    <span class="c">#</span>
+    <span class="c"># Enable/Disable the function of delete filename_diag_temp after used</span>
+    <span class="c">#</span></div>
+<div class="viewcode-block" id="BaseClusterMap.enableDeleteDiagTemp"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.base_cluster_map.BaseClusterMap.enableDeleteDiagTemp">[docs]</a>    <span class="k">def</span> <span class="nf">enableDeleteDiagTemp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">flag_delete_diag_temp</span> <span class="o">=</span> <span class="bp">True</span>
 </div>
-<div class="viewcode-block" id="BaseClusterMap.disableDeleteDiagTemp"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.base_cluster_map.BaseClusterMap.disableDeleteDiagTemp">[docs]</a>	<span class="k">def</span> <span class="nf">disableDeleteDiagTemp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-		<span class="bp">self</span><span class="o">.</span><span class="n">flag_delete_diag_temp</span> <span class="o">=</span> <span class="bp">False</span>
+<div class="viewcode-block" id="BaseClusterMap.disableDeleteDiagTemp"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.base_cluster_map.BaseClusterMap.disableDeleteDiagTemp">[docs]</a>    <span class="k">def</span> <span class="nf">disableDeleteDiagTemp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">flag_delete_diag_temp</span> <span class="o">=</span> <span class="bp">False</span>
 
 
-	<span class="c"># only filename</span></div>
-<div class="viewcode-block" id="BaseClusterMap.getImageFilename"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.base_cluster_map.BaseClusterMap.getImageFilename">[docs]</a>	<span class="k">def</span> <span class="nf">getImageFilename</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-		<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">only_filename_image</span>
+    <span class="c"># only filename</span></div>
+<div class="viewcode-block" id="BaseClusterMap.getImageFilename"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.base_cluster_map.BaseClusterMap.getImageFilename">[docs]</a>    <span class="k">def</span> <span class="nf">getImageFilename</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">only_filename_image</span>
 </div>
-<div class="viewcode-block" id="BaseClusterMap.getLegendFilename"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.base_cluster_map.BaseClusterMap.getLegendFilename">[docs]</a>	<span class="k">def</span> <span class="nf">getLegendFilename</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-		<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">only_filename_legend</span>
+<div class="viewcode-block" id="BaseClusterMap.getLegendFilename"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.base_cluster_map.BaseClusterMap.getLegendFilename">[docs]</a>    <span class="k">def</span> <span class="nf">getLegendFilename</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">only_filename_legend</span>
+</div>
+<div class="viewcode-block" id="BaseClusterMap.getImageLegendSize"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.base_cluster_map.BaseClusterMap.getImageLegendSize">[docs]</a>    <span class="k">def</span> <span class="nf">getImageLegendSize</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">getImageSize</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">filename_rack_legend</span><span class="p">)</span>
 
-	<span class="c"># render dict_servers with correct colors</span>
-	<span class="c"># param: mapping is a dict provided by function getMappingDict</span></div>
-<div class="viewcode-block" id="BaseClusterMap.render"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.base_cluster_map.BaseClusterMap.render">[docs]</a>	<span class="k">def</span> <span class="nf">render</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mapping</span><span class="p">):</span>
-		<span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">mapping</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-			<span class="n">rgb</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">convertRGB2Hex</span><span class="p">(</span><span class="n">mapping</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
-			<span class="n">mapping</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">formatRenderColor</span><span class="p">(</span><span class="n">rgb</span><span class="p">)</span>
-
-		<span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">dict_servers</span><span class="p">:</span>
-			<span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dict_servers</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
-			<span class="bp">self</span><span class="o">.</span><span class="n">dict_servers</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">mapping</span><span class="p">[</span><span class="n">value</span><span class="p">]</span>
-
-
-	<span class="c"># generate an empty/default rectangle data structure</span></div>
-<div class="viewcode-block" id="BaseClusterMap.genDefaultRect"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.base_cluster_map.BaseClusterMap.genDefaultRect">[docs]</a>	<span class="k">def</span> <span class="nf">genDefaultRect</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-		<span class="k">return</span> <span class="p">{</span><span class="s">&quot;verts&quot;</span><span class="p">:</span> <span class="bp">None</span><span class="p">,</span>
-				<span class="s">&quot;facecolor_rect&quot;</span><span class="p">:</span> <span class="s">&#39;white&#39;</span><span class="p">,</span>
-				<span class="s">&quot;edgecolor_rect&quot;</span><span class="p">:</span> <span class="s">&#39;black&#39;</span><span class="p">,</span>
-				<span class="s">&quot;label&quot;</span><span class="p">:</span> <span class="bp">None</span><span class="p">,</span>
-				<span class="s">&quot;marker&quot;</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>
-				<span class="s">&quot;edgecolor_marker&quot;</span><span class="p">:</span> <span class="s">&#39;black&#39;</span>
-			   <span class="p">}</span>
+    <span class="c"># get 2-D size of image file</span>
+    <span class="c"># return {&quot;width&quot;: width, &quot;height&quot;, height}</span></div>
+<div class="viewcode-block" id="BaseClusterMap.getImageSize"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.base_cluster_map.BaseClusterMap.getImageSize">[docs]</a>    <span class="k">def</span> <span class="nf">getImageSize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="c"># the default action is to get the size of rack image</span>
+        <span class="k">if</span> <span class="n">filename</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">filename</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">filename_rack_image</span>
+        <span class="k">return</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">image_size_options</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">image_type</span><span class="p">])(</span><span class="n">filename</span><span class="p">)</span>
 
 
-	<span class="c"># draw a rectangle</span>
-	<span class="c">#</span>
-	<span class="c"># {verts: {lb:(left, bottom),rt:(right, top)},</span>
-	<span class="c">#  facecolor_rect: &#39;white&#39;,</span>
-	<span class="c">#  edgecolor_rect: &#39;black&#39;,</span>
-	<span class="c">#  label: [lb:(left, bottom), text:&quot;&quot;]</span>
-	<span class="c">#  marker: True|False</span>
-	<span class="c">#  edgecolor_mark: &#39;black&#39;</span>
-	<span class="c"># }</span></div>
-<div class="viewcode-block" id="BaseClusterMap.drawRectangle"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.base_cluster_map.BaseClusterMap.drawRectangle">[docs]</a>	<span class="k">def</span> <span class="nf">drawRectangle</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ax</span><span class="p">,</span> <span class="n">vdict</span><span class="p">):</span>
-		<span class="c"># rect</span>
-		<span class="n">vlb</span> <span class="o">=</span> <span class="n">vdict</span><span class="p">[</span><span class="s">&quot;verts&quot;</span><span class="p">][</span><span class="s">&quot;lb&quot;</span><span class="p">];</span>
-		<span class="n">vrt</span> <span class="o">=</span> <span class="n">vdict</span><span class="p">[</span><span class="s">&quot;verts&quot;</span><span class="p">][</span><span class="s">&quot;rt&quot;</span><span class="p">]</span>
-		<span class="n">verts</span> <span class="o">=</span> <span class="p">[</span><span class="n">vlb</span><span class="p">,</span> <span class="p">(</span><span class="n">vlb</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">vrt</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="n">vrt</span><span class="p">,</span> <span class="p">(</span><span class="n">vrt</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">vlb</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">)]</span>
-		<span class="n">codes</span> <span class="o">=</span> <span class="p">[</span><span class="n">Path</span><span class="o">.</span><span class="n">MOVETO</span><span class="p">,</span>
-		 		 <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
-				 <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
-		 		 <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
-		 		 <span class="n">Path</span><span class="o">.</span><span class="n">CLOSEPOLY</span><span class="p">,</span>
-		 		<span class="p">]</span>
-		<span class="n">path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">verts</span><span class="p">,</span> <span class="n">codes</span><span class="p">)</span>
-		<span class="n">patch</span> <span class="o">=</span> <span class="n">patches</span><span class="o">.</span><span class="n">PathPatch</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="n">vdict</span><span class="p">[</span><span class="s">&quot;facecolor_rect&quot;</span><span class="p">],</span> <span class="n">edgecolor</span><span class="o">=</span><span class="n">vdict</span><span class="p">[</span><span class="s">&quot;edgecolor_rect&quot;</span><span class="p">],</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-		<span class="n">ax</span><span class="o">.</span><span class="n">add_patch</span><span class="p">(</span><span class="n">patch</span><span class="p">)</span>
-		<span class="c"># label</span>
-		<span class="k">if</span> <span class="n">vdict</span><span class="p">[</span><span class="s">&quot;label&quot;</span><span class="p">]:</span>
-			<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">vdict</span><span class="p">[</span><span class="s">&quot;label&quot;</span><span class="p">][</span><span class="s">&quot;lb&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">vdict</span><span class="p">[</span><span class="s">&quot;label&quot;</span><span class="p">][</span><span class="s">&quot;lb&quot;</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="n">vdict</span><span class="p">[</span><span class="s">&quot;label&quot;</span><span class="p">][</span><span class="s">&quot;text&quot;</span><span class="p">])</span>
-			<span class="c"># marker</span>
-			<span class="k">if</span> <span class="n">vdict</span><span class="p">[</span><span class="s">&quot;marker&quot;</span><span class="p">]:</span>
-				<span class="n">vfrom</span> <span class="o">=</span> <span class="n">vlb</span>
-				<span class="n">vto</span> <span class="o">=</span> <span class="p">[</span><span class="n">vfrom</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">vfrom</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>
-				<span class="n">aline</span> <span class="o">=</span> <span class="n">Line2D</span><span class="p">([</span><span class="n">vfrom</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">vto</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span> <span class="p">[</span><span class="n">vfrom</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">vto</span><span class="p">[</span><span class="mi">1</span><span class="p">]],</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">vdict</span><span class="p">[</span><span class="s">&quot;edgecolor_marker&quot;</span><span class="p">])</span>
-				<span class="n">ax</span><span class="o">.</span><span class="n">add_line</span><span class="p">(</span><span class="n">aline</span><span class="p">)</span>
+    <span class="c"># get 2-D size of svg file</span></div>
+<div class="viewcode-block" id="BaseClusterMap.getSVGSize"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.base_cluster_map.BaseClusterMap.getSVGSize">[docs]</a>    <span class="k">def</span> <span class="nf">getSVGSize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
+        <span class="c"># parse svg file to get width and height</span>
+        <span class="c"># &lt;svg viewBox=&quot;0 0 1792 2000&quot;</span>
+        <span class="n">dict_result</span> <span class="o">=</span> <span class="p">{</span><span class="s">&quot;width&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s">&quot;height&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span>
+        <span class="n">patt</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">&#39;&lt;svg.*?viewBox=.+?\s+?.+?\s+?(\d+)\s+?(\d+)&#39;</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">IGNORECASE</span><span class="p">)</span>
+        <span class="n">fsvg</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">fsvg</span><span class="p">:</span>
+            <span class="n">m</span> <span class="o">=</span> <span class="n">patt</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">m</span><span class="p">:</span>
+                <span class="n">dict_result</span><span class="p">[</span><span class="s">&quot;width&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+                <span class="n">dict_result</span><span class="p">[</span><span class="s">&quot;height&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+                <span class="k">break</span>
+        <span class="n">fsvg</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">dict_result</span>
+
+    <span class="c"># get 2-D size of png file</span></div>
+<div class="viewcode-block" id="BaseClusterMap.getPNGSize"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.base_cluster_map.BaseClusterMap.getPNGSize">[docs]</a>    <span class="k">def</span> <span class="nf">getPNGSize</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">dict_result</span> <span class="o">=</span> <span class="p">{</span><span class="s">&quot;width&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s">&quot;height&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span>
+        <span class="n">fpng</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+        <span class="n">png</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">fpng</span><span class="p">)</span>
+        <span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span> <span class="o">=</span> <span class="n">png</span><span class="o">.</span><span class="n">size</span>
+        <span class="n">dict_result</span><span class="p">[</span><span class="s">&quot;width&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">w</span>
+        <span class="n">dict_result</span><span class="p">[</span><span class="s">&quot;height&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">h</span>
+        <span class="n">fpng</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">dict_result</span>
 
 
+    <span class="c"># render dict_servers with correct colors</span>
+    <span class="c"># param: mapping is a dict provided by function getMappingDict</span></div>
+<div class="viewcode-block" id="BaseClusterMap.render"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.base_cluster_map.BaseClusterMap.render">[docs]</a>    <span class="k">def</span> <span class="nf">render</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mapping</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">mapping</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="n">rgb</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">convertRGB2Hex</span><span class="p">(</span><span class="n">mapping</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
+            <span class="n">mapping</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">formatRenderColor</span><span class="p">(</span><span class="n">rgb</span><span class="p">)</span>
 
-	<span class="c"># draw legend</span></div>
-<div class="viewcode-block" id="BaseClusterMap.legend"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.base_cluster_map.BaseClusterMap.legend">[docs]</a>	<span class="k">def</span> <span class="nf">legend</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-		<span class="n">ysize</span> <span class="o">=</span> <span class="mi">1</span>
-		<span class="n">xyrate</span> <span class="o">=</span> <span class="mi">10</span>
-		<span class="n">xsize</span> <span class="o">=</span> <span class="n">xyrate</span> <span class="o">*</span> <span class="n">ysize</span>
-		<span class="n">xlim</span> <span class="o">=</span> <span class="n">xyrate</span> <span class="o">*</span> <span class="n">xsize</span>
-		<span class="n">ylim</span> <span class="o">=</span> <span class="n">xyrate</span> <span class="o">*</span> <span class="n">ysize</span>
-		<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="n">xsize</span><span class="p">,</span> <span class="n">ysize</span><span class="p">))</span>
-		<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
-		<span class="n">plt</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="mf">0.99</span><span class="p">,</span> <span class="n">top</span><span class="o">=</span><span class="mf">0.99</span><span class="p">,</span> <span class="n">bottom</span><span class="o">=</span><span class="mf">0.05</span><span class="p">)</span>
-		<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">xlim</span><span class="p">)</span>
-		<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">ylim</span><span class="p">)</span>
-		<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s">&#39;off&#39;</span><span class="p">)</span>
-
-		<span class="bp">self</span><span class="o">.</span><span class="n">drawLegendContent</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="p">(</span><span class="n">xlim</span><span class="p">,</span> <span class="n">ylim</span><span class="p">))</span>
-
-		<span class="c"># plt.show()</span>
-		<span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">filename_rack_legend</span><span class="p">,</span> <span class="n">transparent</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
-
-	<span class="c">#</span>
-	<span class="c"># update function MUST be called before call the plot function</span>
-	<span class="c"># call rackdiag to plot an image of rack</span>
-	<span class="c">#</span></div>
-<div class="viewcode-block" id="BaseClusterMap.plot"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.base_cluster_map.BaseClusterMap.plot">[docs]</a>	<span class="k">def</span> <span class="nf">plot</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-		<span class="c"># get mapping dict of colors</span>
-		<span class="n">dict_mapping</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getMappingDict</span><span class="p">()</span>
-		<span class="c"># print &quot;dict mapping, &quot;, dict_mapping</span>
-		<span class="c"># render dict_servers with correct color formation</span>
-		<span class="bp">self</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">dict_mapping</span><span class="p">)</span>
-
-		<span class="c"># write rendered temporary diag file to disk</span>
-		<span class="c"># read original diag file</span>
-		<span class="n">rf</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">filename_diag</span><span class="p">,</span> <span class="s">&quot;r&quot;</span><span class="p">);</span>
-		<span class="n">template</span> <span class="o">=</span> <span class="n">Template</span><span class="p">(</span><span class="n">rf</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
-		<span class="n">scontent</span> <span class="o">=</span> <span class="n">template</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dict_servers</span><span class="p">)</span>
-		<span class="n">rf</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-
-		<span class="c"># write rendered diag file to temporary file</span>
-		<span class="n">wf</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">filename_diag_temp</span><span class="p">,</span> <span class="s">&quot;w&quot;</span><span class="p">)</span>
-		<span class="n">wf</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">scontent</span><span class="p">)</span>
-		<span class="n">wf</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-
-		<span class="c"># call rackdiag to plot</span>
-		<span class="n">rackdiag</span><span class="p">(</span><span class="s">&quot;-T{0}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">image_type</span><span class="p">),</span>
-					<span class="s">&quot;-o&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">filename_rack_image</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">filename_diag_temp</span><span class="p">)</span>
-
-		<span class="c"># draw the image of legend</span>
-		<span class="bp">self</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-
-		<span class="c"># delete the temporary diag file if needed</span>
-		<span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">flag_delete_diag_temp</span><span class="p">:</span>
-			<span class="n">rm</span><span class="p">(</span><span class="s">&quot;-f&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">filename_diag_temp</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">dict_servers</span><span class="p">:</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dict_servers</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">dict_servers</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">mapping</span><span class="p">[</span><span class="n">value</span><span class="p">]</span>
 
 
-	<span class="c"># get random number</span>
-	<span class="c"># range is 0.0 ~ 1.0</span>
-	<span class="c"># params:</span>
-	<span class="c">#   bResetSeed, a Boolean value. True means the seed of Random will be set with current time,</span>
-	<span class="c"># 				Flase, do not touch the seed of Random</span></div>
-<div class="viewcode-block" id="BaseClusterMap.getRandom"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.base_cluster_map.BaseClusterMap.getRandom">[docs]</a>	<span class="k">def</span> <span class="nf">getRandom</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bResetSeed</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
-		<span class="k">if</span> <span class="n">bResetSeed</span><span class="p">:</span>
-			<span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">())</span>
-
-		<span class="k">return</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>
-
-
-	<span class="c"># guess default location of yaml configuration</span></div>
-<div class="viewcode-block" id="BaseClusterMap.guessDefaultConfigLocation"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.base_cluster_map.BaseClusterMap.guessDefaultConfigLocation">[docs]</a>	<span class="k">def</span> <span class="nf">guessDefaultConfigLocation</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-		<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">default_home_yaml</span>
-
-	<span class="c"># guess default location of diag configuration</span></div>
-<div class="viewcode-block" id="BaseClusterMap.guessDefaultDiagLocation"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.base_cluster_map.BaseClusterMap.guessDefaultDiagLocation">[docs]</a>	<span class="k">def</span> <span class="nf">guessDefaultDiagLocation</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-		<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">default_home_yaml</span> <span class="o">+</span> <span class="s">&quot;/racks&quot;</span>
-
-	<span class="c"># guess default location of image output</span></div>
-<div class="viewcode-block" id="BaseClusterMap.guessDefaultDiagramLocation"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.base_cluster_map.BaseClusterMap.guessDefaultDiagramLocation">[docs]</a>	<span class="k">def</span> <span class="nf">guessDefaultDiagramLocation</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-		<span class="n">arr_dir_current</span> <span class="o">=</span> <span class="n">pwd</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&quot;/&quot;</span><span class="p">)</span>
-		<span class="c"># current py file: cloudmesh_home/cloudmesh/rack/*.py</span>
-		<span class="c"># webui static dir: cloudmesh_home/webui/static</span>
-		<span class="n">arr_dir_guess</span> <span class="o">=</span> <span class="n">arr_dir_current</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="s">&quot;webui&quot;</span><span class="p">,</span> <span class="s">&quot;static&quot;</span><span class="p">,</span> <span class="s">&quot;racks&quot;</span><span class="p">]</span>
-		<span class="k">return</span> <span class="s">&quot;/&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">arr_dir_guess</span><span class="p">)</span>
+    <span class="c"># generate an empty/default rectangle data structure</span></div>
+<div class="viewcode-block" id="BaseClusterMap.genDefaultRect"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.base_cluster_map.BaseClusterMap.genDefaultRect">[docs]</a>    <span class="k">def</span> <span class="nf">genDefaultRect</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s">&quot;verts&quot;</span><span class="p">:</span> <span class="bp">None</span><span class="p">,</span>
+                <span class="s">&quot;facecolor_rect&quot;</span><span class="p">:</span> <span class="s">&#39;white&#39;</span><span class="p">,</span>
+                <span class="s">&quot;edgecolor_rect&quot;</span><span class="p">:</span> <span class="s">&#39;black&#39;</span><span class="p">,</span>
+                <span class="s">&quot;label&quot;</span><span class="p">:</span> <span class="bp">None</span><span class="p">,</span>
+                <span class="s">&quot;marker&quot;</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>
+                <span class="s">&quot;edgecolor_marker&quot;</span><span class="p">:</span> <span class="s">&#39;black&#39;</span>
+               <span class="p">}</span>
 
 
-	<span class="c"># a helper function</span>
-	<span class="c"># get the RGB according to a specific h param</span>
-	<span class="c"># ONLY called by sub-class, the valid range of h is [0.0, 2/3]</span></div>
-<div class="viewcode-block" id="BaseClusterMap.getRGBWithH"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.base_cluster_map.BaseClusterMap.getRGBWithH">[docs]</a>	<span class="k">def</span> <span class="nf">getRGBWithH</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">h</span><span class="p">):</span>
-		<span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="o">=</span> <span class="n">colorsys</span><span class="o">.</span><span class="n">hsv_to_rgb</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-		<span class="n">arrRGB</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">i</span> <span class="o">*</span> <span class="mi">255</span><span class="p">))</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">b</span><span class="p">)]</span>
-		<span class="k">return</span> <span class="nb">tuple</span><span class="p">([</span><span class="n">v</span> <span class="k">if</span> <span class="n">v</span> <span class="o">&lt;</span> <span class="mi">255</span> <span class="k">else</span> <span class="mi">255</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">arrRGB</span><span class="p">])</span>
+    <span class="c"># draw a rectangle</span>
+    <span class="c">#</span>
+    <span class="c"># {verts: {lb:(left, bottom),rt:(right, top)},</span>
+    <span class="c">#  facecolor_rect: &#39;white&#39;,</span>
+    <span class="c">#  edgecolor_rect: &#39;black&#39;,</span>
+    <span class="c">#  label: [lb:(left, bottom), text:&quot;&quot;]</span>
+    <span class="c">#  marker: True|False</span>
+    <span class="c">#  edgecolor_mark: &#39;black&#39;</span>
+    <span class="c"># }</span></div>
+<div class="viewcode-block" id="BaseClusterMap.drawRectangle"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.base_cluster_map.BaseClusterMap.drawRectangle">[docs]</a>    <span class="k">def</span> <span class="nf">drawRectangle</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ax</span><span class="p">,</span> <span class="n">vdict</span><span class="p">):</span>
+        <span class="c"># rect</span>
+        <span class="n">vlb</span> <span class="o">=</span> <span class="n">vdict</span><span class="p">[</span><span class="s">&quot;verts&quot;</span><span class="p">][</span><span class="s">&quot;lb&quot;</span><span class="p">];</span>
+        <span class="n">vrt</span> <span class="o">=</span> <span class="n">vdict</span><span class="p">[</span><span class="s">&quot;verts&quot;</span><span class="p">][</span><span class="s">&quot;rt&quot;</span><span class="p">]</span>
+        <span class="n">verts</span> <span class="o">=</span> <span class="p">[</span><span class="n">vlb</span><span class="p">,</span> <span class="p">(</span><span class="n">vlb</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">vrt</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="n">vrt</span><span class="p">,</span> <span class="p">(</span><span class="n">vrt</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">vlb</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">)]</span>
+        <span class="n">codes</span> <span class="o">=</span> <span class="p">[</span> <span class="n">Path</span><span class="o">.</span><span class="n">MOVETO</span><span class="p">,</span>
+                  <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+                  <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+                  <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+                  <span class="n">Path</span><span class="o">.</span><span class="n">CLOSEPOLY</span><span class="p">,</span>
+                <span class="p">]</span>
+        
+        <span class="n">path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">verts</span><span class="p">,</span> <span class="n">codes</span><span class="p">)</span>
+        <span class="n">patch</span> <span class="o">=</span> <span class="n">patches</span><span class="o">.</span><span class="n">PathPatch</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="n">vdict</span><span class="p">[</span><span class="s">&quot;facecolor_rect&quot;</span><span class="p">],</span> <span class="n">edgecolor</span><span class="o">=</span><span class="n">vdict</span><span class="p">[</span><span class="s">&quot;edgecolor_rect&quot;</span><span class="p">],</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">add_patch</span><span class="p">(</span><span class="n">patch</span><span class="p">)</span>
+        <span class="c"># label</span>
+        <span class="k">if</span> <span class="n">vdict</span><span class="p">[</span><span class="s">&quot;label&quot;</span><span class="p">]:</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">vdict</span><span class="p">[</span><span class="s">&quot;label&quot;</span><span class="p">][</span><span class="s">&quot;lb&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">vdict</span><span class="p">[</span><span class="s">&quot;label&quot;</span><span class="p">][</span><span class="s">&quot;lb&quot;</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="n">vdict</span><span class="p">[</span><span class="s">&quot;label&quot;</span><span class="p">][</span><span class="s">&quot;text&quot;</span><span class="p">])</span>
+            <span class="c"># marker</span>
+            <span class="k">if</span> <span class="n">vdict</span><span class="p">[</span><span class="s">&quot;marker&quot;</span><span class="p">]:</span>
+                <span class="n">vfrom</span> <span class="o">=</span> <span class="n">vlb</span>
+                <span class="n">vto</span> <span class="o">=</span> <span class="p">[</span><span class="n">vfrom</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">vfrom</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>
+                <span class="n">aline</span> <span class="o">=</span> <span class="n">Line2D</span><span class="p">([</span><span class="n">vfrom</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">vto</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span> <span class="p">[</span><span class="n">vfrom</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">vto</span><span class="p">[</span><span class="mi">1</span><span class="p">]],</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">vdict</span><span class="p">[</span><span class="s">&quot;edgecolor_marker&quot;</span><span class="p">])</span>
+                <span class="n">ax</span><span class="o">.</span><span class="n">add_line</span><span class="p">(</span><span class="n">aline</span><span class="p">)</span>
+
+    
+    <span class="c"># draw text</span></div>
+<div class="viewcode-block" id="BaseClusterMap.drawText"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.base_cluster_map.BaseClusterMap.drawText">[docs]</a>    <span class="k">def</span> <span class="nf">drawText</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ax</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">stext</span><span class="p">):</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">pos</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">pos</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">stext</span><span class="p">)</span>
+
+    <span class="c"># draw legend</span></div>
+<div class="viewcode-block" id="BaseClusterMap.legend"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.base_cluster_map.BaseClusterMap.legend">[docs]</a>    <span class="k">def</span> <span class="nf">legend</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">ysize</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="n">xyrate</span> <span class="o">=</span> <span class="mi">10</span>
+        <span class="n">xsize</span> <span class="o">=</span> <span class="n">xyrate</span> <span class="o">*</span> <span class="n">ysize</span>
+        <span class="n">xlim</span> <span class="o">=</span> <span class="n">xyrate</span> <span class="o">*</span> <span class="n">xsize</span>
+        <span class="n">ylim</span> <span class="o">=</span> <span class="n">xyrate</span> <span class="o">*</span> <span class="n">ysize</span>
+        <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="n">xsize</span><span class="p">,</span> <span class="n">ysize</span><span class="p">))</span>
+        <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="mf">0.99</span><span class="p">,</span> <span class="n">top</span><span class="o">=</span><span class="mf">0.99</span><span class="p">,</span> <span class="n">bottom</span><span class="o">=</span><span class="mf">0.05</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">xlim</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">ylim</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s">&#39;off&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">map_progress</span><span class="o">.</span><span class="n">set_plot_legend</span><span class="p">(</span><span class="mf">0.2</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">drawLegendContent</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="p">(</span><span class="n">xlim</span><span class="p">,</span> <span class="n">ylim</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">map_progress</span><span class="o">.</span><span class="n">set_plot_legend</span><span class="p">(</span><span class="mf">0.7</span><span class="p">)</span>
+
+        <span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">filename_rack_legend</span><span class="p">,</span> <span class="n">transparent</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 
 
-	<span class="c"># RGB convertion from triple to HEX</span></div>
-<div class="viewcode-block" id="BaseClusterMap.convertRGB2Hex"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.base_cluster_map.BaseClusterMap.convertRGB2Hex">[docs]</a>	<span class="k">def</span> <span class="nf">convertRGB2Hex</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rgb_tuple</span><span class="p">):</span>
-		<span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="o">=</span> <span class="n">rgb_tuple</span>
-		<span class="k">return</span> <span class="s">&quot;#{0:02X}{1:02X}{2:02X}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+    <span class="c">#</span>
+    <span class="c"># update function MUST be called before call the plot function</span>
+    <span class="c"># call rackdiag to plot an image of rack</span>
+    <span class="c">#</span></div>
+<div class="viewcode-block" id="BaseClusterMap.plot"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.base_cluster_map.BaseClusterMap.plot">[docs]</a>    <span class="k">def</span> <span class="nf">plot</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c"># get mapping dict of colors</span>
+        <span class="n">dict_mapping</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getMappingDict</span><span class="p">()</span>
+        <span class="c"># log.debug(&quot;dict mapping, {0}&quot;.format(dict_mapping))</span>
+        <span class="c"># render dict_servers with correct color formation</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">dict_mapping</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">map_progress</span><span class="o">.</span><span class="n">set_process_data</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
 
-	<span class="c"># format render color</span>
-	<span class="c"># formation is: [color=&quot;#FF00FF&quot;]</span></div>
-<div class="viewcode-block" id="BaseClusterMap.formatRenderColor"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.base_cluster_map.BaseClusterMap.formatRenderColor">[docs]</a>	<span class="k">def</span> <span class="nf">formatRenderColor</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">str_color</span><span class="p">):</span>
-		<span class="k">return</span> <span class="s">&#39;[color=&quot;{0}&quot;]&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">str_color</span><span class="p">)</span>
+        <span class="c"># write rendered temporary diag file to disk</span>
+        <span class="c"># read original diag file</span>
+        <span class="n">rf</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">filename_diag</span><span class="p">,</span> <span class="s">&quot;r&quot;</span><span class="p">);</span>
+        <span class="n">template</span> <span class="o">=</span> <span class="n">Template</span><span class="p">(</span><span class="n">rf</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+        <span class="n">scontent</span> <span class="o">=</span> <span class="n">template</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dict_servers</span><span class="p">)</span>
+        <span class="n">rf</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">map_progress</span><span class="o">.</span><span class="n">set_process_data</span><span class="p">(</span><span class="mf">0.75</span><span class="p">)</span>
+
+        <span class="c"># write rendered diag file to temporary file</span>
+        <span class="n">wf</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">filename_diag_temp</span><span class="p">,</span> <span class="s">&quot;w&quot;</span><span class="p">)</span>
+        <span class="n">wf</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">scontent</span><span class="p">)</span>
+        <span class="n">wf</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">map_progress</span><span class="o">.</span><span class="n">set_process_data</span><span class="p">()</span>
+
+        <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s">&quot;Call rackdiag to draw the image of rack ...&quot;</span><span class="p">)</span>
+        <span class="c"># call rackdiag to plot</span>
+        <span class="n">rackdiag</span><span class="p">(</span><span class="s">&quot;-T{0}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">image_type</span><span class="p">),</span>
+                    <span class="s">&quot;-o&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">filename_rack_image</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">filename_diag_temp</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">map_progress</span><span class="o">.</span><span class="n">set_plot_map</span><span class="p">()</span>
+
+        <span class="c"># draw the image of legend</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">map_progress</span><span class="o">.</span><span class="n">set_plot_legend</span><span class="p">()</span>
+        <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s">&quot;Draw the legend of rack image finished.&quot;</span><span class="p">)</span>
+
+        <span class="c"># delete the temporary diag file if needed</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">flag_delete_diag_temp</span><span class="p">:</span>
+            <span class="n">rm</span><span class="p">(</span><span class="s">&quot;-f&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">filename_diag_temp</span><span class="p">)</span>
 
 
+    <span class="c"># get random number</span>
+    <span class="c"># range is 0.0 ~ 1.0</span>
+    <span class="c"># params:</span>
+    <span class="c">#   bResetSeed, a Boolean value. True means the seed of Random will be set with current time,</span>
+    <span class="c">#                 Flase, do not touch the seed of Random</span></div>
+<div class="viewcode-block" id="BaseClusterMap.getRandom"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.base_cluster_map.BaseClusterMap.getRandom">[docs]</a>    <span class="k">def</span> <span class="nf">getRandom</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bResetSeed</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">bResetSeed</span><span class="p">:</span>
+            <span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">())</span>
+
+        <span class="k">return</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>
+
+
+    <span class="c"># guess default location of yaml configuration</span></div>
+<div class="viewcode-block" id="BaseClusterMap.guessDefaultConfigLocation"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.base_cluster_map.BaseClusterMap.guessDefaultConfigLocation">[docs]</a>    <span class="k">def</span> <span class="nf">guessDefaultConfigLocation</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">default_home_yaml</span>
+
+    <span class="c"># guess default location of diag configuration</span></div>
+<div class="viewcode-block" id="BaseClusterMap.guessDefaultDiagLocation"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.base_cluster_map.BaseClusterMap.guessDefaultDiagLocation">[docs]</a>    <span class="k">def</span> <span class="nf">guessDefaultDiagLocation</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">default_home_yaml</span> <span class="o">+</span> <span class="s">&quot;/racks&quot;</span>
+
+    <span class="c"># guess default location of image output</span></div>
+<div class="viewcode-block" id="BaseClusterMap.guessDefaultDiagramLocation"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.base_cluster_map.BaseClusterMap.guessDefaultDiagramLocation">[docs]</a>    <span class="k">def</span> <span class="nf">guessDefaultDiagramLocation</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">arr_dir_current</span> <span class="o">=</span> <span class="n">pwd</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&quot;/&quot;</span><span class="p">)</span>
+        <span class="c"># current py file: cloudmesh_home/cloudmesh/rack/*.py</span>
+        <span class="c"># webui static dir: cloudmesh_home/webui/static</span>
+        <span class="n">arr_dir_guess</span> <span class="o">=</span> <span class="n">arr_dir_current</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="s">&quot;webui&quot;</span><span class="p">,</span> <span class="s">&quot;static&quot;</span><span class="p">,</span> <span class="s">&quot;racks&quot;</span><span class="p">]</span>
+        <span class="k">return</span> <span class="s">&quot;/&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">arr_dir_guess</span><span class="p">)</span>
+
+
+    <span class="c"># a helper function</span>
+    <span class="c"># get the RGB according to a specific h param</span>
+    <span class="c"># ONLY called by sub-class, the valid range of h is [0.0, 2/3]</span></div>
+<div class="viewcode-block" id="BaseClusterMap.getRGBWithH"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.base_cluster_map.BaseClusterMap.getRGBWithH">[docs]</a>    <span class="k">def</span> <span class="nf">getRGBWithH</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">h</span><span class="p">):</span>
+        <span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="o">=</span> <span class="n">colorsys</span><span class="o">.</span><span class="n">hsv_to_rgb</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">arrRGB</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">i</span> <span class="o">*</span> <span class="mi">255</span><span class="p">))</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">b</span><span class="p">)]</span>
+        <span class="k">return</span> <span class="nb">tuple</span><span class="p">([</span><span class="n">v</span> <span class="k">if</span> <span class="n">v</span> <span class="o">&lt;</span> <span class="mi">255</span> <span class="k">else</span> <span class="mi">255</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">arrRGB</span><span class="p">])</span>
+
+
+    <span class="c"># RGB convertion from triple to HEX</span></div>
+<div class="viewcode-block" id="BaseClusterMap.convertRGB2Hex"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.base_cluster_map.BaseClusterMap.convertRGB2Hex">[docs]</a>    <span class="k">def</span> <span class="nf">convertRGB2Hex</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rgb_tuple</span><span class="p">):</span>
+        <span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="o">=</span> <span class="n">rgb_tuple</span>
+        <span class="k">return</span> <span class="s">&quot;#{0:02X}{1:02X}{2:02X}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+
+    <span class="c"># format render color</span>
+    <span class="c"># formation is: [color=&quot;#FF00FF&quot;]</span></div>
+<div class="viewcode-block" id="BaseClusterMap.formatRenderColor"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.base_cluster_map.BaseClusterMap.formatRenderColor">[docs]</a>    <span class="k">def</span> <span class="nf">formatRenderColor</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">str_color</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s">&#39;[color=&quot;{0}&quot;]&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">str_color</span><span class="p">)</span>
+
+    <span class="c"># MUST be called immediately after create an instance of this class and its sub-classes</span>
+    <span class="c"># set login username</span></div>
+<div class="viewcode-block" id="BaseClusterMap.set_login_username"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.base_cluster_map.BaseClusterMap.set_login_username">[docs]</a>    <span class="k">def</span> <span class="nf">set_login_username</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">username</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">username</span> <span class="o">=</span> <span class="n">username</span> <span class="k">if</span> <span class="n">username</span> <span class="k">else</span> <span class="s">&quot;None&quot;</span>
+        
+    <span class="c"># get unique instance of progress for login username</span></div>
+<div class="viewcode-block" id="BaseClusterMap.get_map_progress"><a class="viewcode-back" href="../../../modules/cloudmesh.rack.html#cloudmesh.rack.base_cluster_map.BaseClusterMap.get_map_progress">[docs]</a>    <span class="k">def</span> <span class="nf">get_map_progress</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">service</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">subclass_type</span>
+        <span class="k">if</span> <span class="n">service</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">subclass_type_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">map_progress</span> <span class="o">=</span> <span class="n">get_temperature_progress</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">username</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">service</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">subclass_type_list</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">map_progress</span> <span class="o">=</span> <span class="n">get_service_progress</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">username</span><span class="p">)</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">map_progress</span>
 </div></div>
 <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&quot;__main__&quot;</span><span class="p">:</span>
-	<span class="n">mytest</span> <span class="o">=</span> <span class="n">BaseClusterMap</span><span class="p">(</span><span class="s">&quot;all&quot;</span><span class="p">)</span>
-	<span class="k">print</span> <span class="s">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">60</span>
-	<span class="c"># print mytest.dict_servers</span>
+    <span class="n">mytest</span> <span class="o">=</span> <span class="n">BaseClusterMap</span><span class="p">(</span><span class="s">&quot;all&quot;</span><span class="p">)</span>
+    <span class="c"># print mytest.dict_servers</span>
 </pre></div>
 
     </div>
