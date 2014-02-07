@@ -1,13 +1,3 @@
-
-
-  
-  
- 
-  
-  
- 
-
-
 <!DOCTYPE html>
 
 
@@ -61,7 +51,8 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="../index.html">Cloudmesh</a>
+        <a class="navbar-brand" href="../index.html"><img src="../_static/fg-logo-white-24x36.png">
+          Cloudmesh</a>
         <span class="navbar-text navbar-version pull-left"><b>0.1</b></span>
       </div>
 
@@ -141,6 +132,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../developer.html#example-hpc-queue-server">4.12&nbsp;&nbsp;&nbsp;Example: HPC queue server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer.html#environment">4.13&nbsp;&nbsp;&nbsp;ENVIRONMENT</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../celery.html">5&nbsp;&nbsp;&nbsp;Celery Setup</a><ul>
@@ -162,8 +154,134 @@
 </li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../cm-shell.html">5&nbsp;&nbsp;&nbsp;Cloud Mesh</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cm-shell.html#commands">6&nbsp;&nbsp;&nbsp;Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configure.html">Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../configure.html#cloudmesh-yaml">cloudmesh.yaml</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../configure.html#hp-cloud">HP Cloud</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../configure.html#azure">Azure</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../configure.html#amazon-web-services">Amazon Web Services</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../configure.html#india">India</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../configure.html#sierra">Sierra</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../configure.html#alamo">Alamo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../configure.html#a-complete-example">A complete example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../configure.html#cloudmesh-server-yaml">cloudmesh-server.yaml</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../configure.html#debugging">Debugging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../configure.html#web-ui">Web UI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../configure.html#ldap-integration">LDAP Integration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../configure.html#baremetal-provisioning-with-teefa">Baremetal provisioning with teefa</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../configure.html#clusters">Clusters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../configure.html#roles">Roles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../configure.html#keystone-server">Keystone server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../configure.html#mongo">Mongo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../configure.html#complete-example">Complete Example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../configure.html#cloudmesh-cluster-yaml">cloudmesh_cluster.yaml</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../configure.html#metadata">Metadata</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../configure.html#id1">Clusters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../configure.html#a-cluster">A Cluster</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../configure.html#network">Network:</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../configure.html#cloudmesh-bootspec-yaml">cloudmesh_bootspec.yaml</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../configure.html#other-yaml-files">Other Yaml files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../configure.html#me-sample">Me Sample</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../cm-shell.html">5&nbsp;&nbsp;&nbsp;Cloud Mesh</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cm-shell.html#defaults">5.1&nbsp;&nbsp;&nbsp;Defaults</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cm-shell.html#register-clouds">5.2&nbsp;&nbsp;&nbsp;Register Clouds</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../cm-shell.html#register-an-aws-account">5.2.1&nbsp;&nbsp;&nbsp;Register an AWS account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cm-shell.html#register-an-azure-account">5.2.2&nbsp;&nbsp;&nbsp;Register an azure account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cm-shell.html#register-an-eucalyptus-account">5.2.3&nbsp;&nbsp;&nbsp;Register an Eucalyptus account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cm-shell.html#register-an-openstack-account">5.2.4&nbsp;&nbsp;&nbsp;Register an OpenStack account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cm-shell.html#register-an-ec2-account">5.2.5&nbsp;&nbsp;&nbsp;Register an EC2 account</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../cm-shell.html#activate-clouds">5.3&nbsp;&nbsp;&nbsp;Activate Clouds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cm-shell.html#managing-projects">5.4&nbsp;&nbsp;&nbsp;Managing Projects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cm-shell.html#managing-users">5.5&nbsp;&nbsp;&nbsp;Managing Users</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cm-shell.html#manageing-virtual-machines">5.6&nbsp;&nbsp;&nbsp;Manageing Virtual Machines</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../cm-shell.html#list-images">5.6.1&nbsp;&nbsp;&nbsp;List images</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cm-shell.html#starting-vms">5.6.2&nbsp;&nbsp;&nbsp;Starting VMs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cm-shell.html#manageing-security-groups">5.6.3&nbsp;&nbsp;&nbsp;Manageing Security Groups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cm-shell.html#managing-volumes">5.6.4&nbsp;&nbsp;&nbsp;Managing Volumes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cm-shell.html#managing-heat-s-for-openstack">5.6.5&nbsp;&nbsp;&nbsp;Managing heat&#8217;s for OpenStack</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../cm-shell.html#commands">6&nbsp;&nbsp;&nbsp;Commands</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cm-shell.html#listing-images">6.1&nbsp;&nbsp;&nbsp;Listing images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cm-shell.html#cm-manage-initialize-user-name-password-password">6.2&nbsp;&nbsp;&nbsp;cm manage initialize &#8211;user&lt;name&gt; &#8211;password &lt;password&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cm-shell.html#cm-project-list">6.3&nbsp;&nbsp;&nbsp;cm project list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cm-shell.html#cm-project-info-number">6.4&nbsp;&nbsp;&nbsp;cm project &#8211;info &lt;number&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cm-shell.html#cm-project-activate-number">6.5&nbsp;&nbsp;&nbsp;cm project &#8211;activate &lt;number&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cm-shell.html#cm-project-deactivate">6.6&nbsp;&nbsp;&nbsp;cm project &#8211;deactivate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cm-shell.html#cm-env">6.7&nbsp;&nbsp;&nbsp;cm env</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cm-shell.html#cm-resource-list">6.8&nbsp;&nbsp;&nbsp;cm resource &#8211;list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cm-shell.html#cm-service-list">6.9&nbsp;&nbsp;&nbsp;cm service &#8211;list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cm-shell.html#cm-service-register">6.10&nbsp;&nbsp;&nbsp;cm service register</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cm-shell.html#cm-resource-register">6.11&nbsp;&nbsp;&nbsp;cm resource register</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cm-shell.html#cm-image-list">6.12&nbsp;&nbsp;&nbsp;cm image &#8211;list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cm-shell.html#cm-id-list">6.13&nbsp;&nbsp;&nbsp;cm id &#8211;list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cm-shell.html#cm-label-id-id">6.14&nbsp;&nbsp;&nbsp;cm label &#8211;id &lt;id&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cm-shell.html#cm-vm-create-label">6.15&nbsp;&nbsp;&nbsp;cm vm create &lt;label&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cm-shell.html#cm-vm-destroy-label">6.16&nbsp;&nbsp;&nbsp;cm vm destroy &lt;label&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cm-shell.html#cm-vm-terminate-label">6.17&nbsp;&nbsp;&nbsp;cm vm terminate &lt;label&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cm-shell.html#cm-vm-suspoend-label">6.18&nbsp;&nbsp;&nbsp;cm vm suspoend &lt;label&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cm-shell.html#cm-vm-resume-label">6.19&nbsp;&nbsp;&nbsp;cm vm resume &lt;label&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cm-shell.html#cm-vm-login">6.20&nbsp;&nbsp;&nbsp;cm vm login</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cm-shell.html#cm-seceurity-group-add-label-parameters">6.21&nbsp;&nbsp;&nbsp;cm seceurity group add &lt;label&gt; &lt;parameters&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cm-shell.html#cm-seceurity-group-delete">6.22&nbsp;&nbsp;&nbsp;cm seceurity group delete</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cm-shell.html#cm-seceurity-group-default-add-label">6.23&nbsp;&nbsp;&nbsp;cm seceurity group default add &lt;label&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cm-shell.html#cm-seceurity-group-default-delete-label">6.24&nbsp;&nbsp;&nbsp;cm seceurity group default delete &lt;label&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cm-shell.html#examples">6.25&nbsp;&nbsp;&nbsp;Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../cm-manage.html">cm-manage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../coding.html">Cloudmesh Style Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../coding.html#information">Information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../coding.html#general">General</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../coding.html#imports">Imports</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../coding.html#human-alphabetical-order-examples">Human Alphabetical Order Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../coding.html#docstrings">Docstrings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../coding.html#dictionaries-lists">Dictionaries/Lists</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../coding.html#calling-methods">Calling Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../coding.html#internationalization-i18n-strings">Internationalization (i18n) Strings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../coding.html#python-3-x-compatibility">Python 3.x compatibility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../coding.html#creating-unit-tests">Creating Unit Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../coding.html#running-tests">Running Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../coding.html#building-docs">Building Docs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../coding.html#oslo-incubator">oslo-incubator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../coding.html#commit-messages">Commit Messages</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../contact.html">Contact</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../contact.html#contributors">Contributors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../contact.html#blog">Blog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../contact.html#repository">Repository</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../deploy.html">Production Deployment Server</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../deploy.html#instalation">Instalation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../deploy.html#starting-the-deployed-server">Starting the deployed server</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../doc.html">Adding to the Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../doc.html#creating-the-documentation-locally">Creating the documentation locally</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../doc.html#rst-documentation">RST Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../doc.html#gh-pages">gh-pages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../doc.html#published-documentation">Published Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../fg.html">FutureGrid Specific tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support.html">Support</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../plan/plan.html">7&nbsp;&nbsp;&nbsp;Plan: Cloudmesh Service Shift</a><ul>
@@ -211,21 +329,18 @@
 </li>
 <li class="toctree-l4"><a class="reference internal" href="cloudmesh.config.html">config Package</a><ul>
 <li class="toctree-l5"><a class="reference internal" href="cloudmesh.config.html#id1"><tt class="docutils literal"><span class="pre">config</span></tt> Package</a></li>
-<li class="toctree-l5"><a class="reference internal" href="cloudmesh.config.html#module-cloudmesh.config.cloudmesh_cloud"><tt class="docutils literal"><span class="pre">cloudmesh_cloud</span></tt> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="cloudmesh.config.html#module-cloudmesh.config.cloudmesh_cloud_handler"><tt class="docutils literal"><span class="pre">cloudmesh_cloud_handler</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="cloudmesh.config.html#cloudmesh-cloud-module"><tt class="docutils literal"><span class="pre">cloudmesh_cloud</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="cloudmesh.config.html#cloudmesh-cloud-handler-module"><tt class="docutils literal"><span class="pre">cloudmesh_cloud_handler</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="cloudmesh.config.html#module-cloudmesh.config.cm_config"><tt class="docutils literal"><span class="pre">cm_config</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="cloudmesh.config.html#module-cloudmesh.config.cm_keys"><tt class="docutils literal"><span class="pre">cm_keys</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="cloudmesh.config.html#module-cloudmesh.config.cm_projects"><tt class="docutils literal"><span class="pre">cm_projects</span></tt> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="cloudmesh.config.html#module-cloudmesh.config.cm_rc"><tt class="docutils literal"><span class="pre">cm_rc</span></tt> Module</a><ul>
-<li class="toctree-l6"><a class="reference internal" href="cloudmesh.config.html#cm-manage-config">cm-manage config</a></li>
-</ul>
-</li>
+<li class="toctree-l5"><a class="reference internal" href="cloudmesh.config.html#cm-rc-module"><tt class="docutils literal"><span class="pre">cm_rc</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="cloudmesh.config.html#ldap-user-module"><tt class="docutils literal"><span class="pre">ldap_user</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="cloudmesh.config.html#mock-cloud-module"><tt class="docutils literal"><span class="pre">mock_cloud</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="cloudmesh.config.html#mock-keystone-module"><tt class="docutils literal"><span class="pre">mock_keystone</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="cloudmesh.config.html#mock-user-module"><tt class="docutils literal"><span class="pre">mock_user</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="cloudmesh.config.html#openstack-essex-cloud-module"><tt class="docutils literal"><span class="pre">openstack_essex_cloud</span></tt> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="cloudmesh.config.html#module-cloudmesh.config.openstack_grizzly_cloud"><tt class="docutils literal"><span class="pre">openstack_grizzly_cloud</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="cloudmesh.config.html#openstack-grizzly-cloud-module"><tt class="docutils literal"><span class="pre">openstack_grizzly_cloud</span></tt> Module</a></li>
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="cloudmesh.iaas.html">iaas Package</a><ul>
@@ -234,7 +349,7 @@
 <li class="toctree-l5"><a class="reference internal" href="cloudmesh.iaas.html#subpackages">Subpackages</a><ul>
 <li class="toctree-l6"><a class="reference internal" href="cloudmesh.iaas.azure.html">azure Package</a><ul>
 <li class="toctree-l7"><a class="reference internal" href="cloudmesh.iaas.azure.html#id1"><tt class="docutils literal"><span class="pre">azure</span></tt> Package</a></li>
-<li class="toctree-l7"><a class="reference internal" href="cloudmesh.iaas.azure.html#module-cloudmesh.iaas.azure.cm_azure"><tt class="docutils literal"><span class="pre">cm_azure</span></tt> Module</a></li>
+<li class="toctree-l7"><a class="reference internal" href="cloudmesh.iaas.azure.html#cm-azure-module"><tt class="docutils literal"><span class="pre">cm_azure</span></tt> Module</a></li>
 <li class="toctree-l7"><a class="reference internal" href="cloudmesh.iaas.azure.html#fabfile-module"><tt class="docutils literal"><span class="pre">fabfile</span></tt> Module</a></li>
 </ul>
 </li>
@@ -301,16 +416,20 @@
             
               
                 
-  <li><a href="../plan/design.html"
-         title="Previous Chapter: 3   Design: Blueprint">&laquo; 3   Design: Blue...</a></li>
-  <li><a href="cloudmesh.html"
-         title="Next Chapter: cloudmesh Package">cloudmesh Packag... &raquo;</a></li>
+  <li>
+    <a href="../plan/design.html" title="Previous Chapter: 3   Design: Blueprint"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm">&laquo; 3   Design: Blue...</span>
+    </a>
+  </li>
+  <li>
+    <a href="cloudmesh.html" title="Next Chapter: cloudmesh Package"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm">cloudmesh Packag... &raquo;</span>
+    </a>
+  </li>
               
             
             
             
             
-              <li>
+              <li class="hidden-sm">
 <div id="sourcelink">
   <a href="../_sources/modules/modules.txt"
      rel="nofollow">Source</a>
@@ -355,18 +474,18 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="cloudmesh.config.html">config Package</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="cloudmesh.config.html#id1"><tt class="docutils literal"><span class="pre">config</span></tt> Package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cloudmesh.config.html#module-cloudmesh.config.cloudmesh_cloud"><tt class="docutils literal"><span class="pre">cloudmesh_cloud</span></tt> Module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cloudmesh.config.html#module-cloudmesh.config.cloudmesh_cloud_handler"><tt class="docutils literal"><span class="pre">cloudmesh_cloud_handler</span></tt> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudmesh.config.html#cloudmesh-cloud-module"><tt class="docutils literal"><span class="pre">cloudmesh_cloud</span></tt> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudmesh.config.html#cloudmesh-cloud-handler-module"><tt class="docutils literal"><span class="pre">cloudmesh_cloud_handler</span></tt> Module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="cloudmesh.config.html#module-cloudmesh.config.cm_config"><tt class="docutils literal"><span class="pre">cm_config</span></tt> Module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="cloudmesh.config.html#module-cloudmesh.config.cm_keys"><tt class="docutils literal"><span class="pre">cm_keys</span></tt> Module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="cloudmesh.config.html#module-cloudmesh.config.cm_projects"><tt class="docutils literal"><span class="pre">cm_projects</span></tt> Module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cloudmesh.config.html#module-cloudmesh.config.cm_rc"><tt class="docutils literal"><span class="pre">cm_rc</span></tt> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudmesh.config.html#cm-rc-module"><tt class="docutils literal"><span class="pre">cm_rc</span></tt> Module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="cloudmesh.config.html#ldap-user-module"><tt class="docutils literal"><span class="pre">ldap_user</span></tt> Module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="cloudmesh.config.html#mock-cloud-module"><tt class="docutils literal"><span class="pre">mock_cloud</span></tt> Module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="cloudmesh.config.html#mock-keystone-module"><tt class="docutils literal"><span class="pre">mock_keystone</span></tt> Module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="cloudmesh.config.html#mock-user-module"><tt class="docutils literal"><span class="pre">mock_user</span></tt> Module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="cloudmesh.config.html#openstack-essex-cloud-module"><tt class="docutils literal"><span class="pre">openstack_essex_cloud</span></tt> Module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cloudmesh.config.html#module-cloudmesh.config.openstack_grizzly_cloud"><tt class="docutils literal"><span class="pre">openstack_grizzly_cloud</span></tt> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudmesh.config.html#openstack-grizzly-cloud-module"><tt class="docutils literal"><span class="pre">openstack_grizzly_cloud</span></tt> Module</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="cloudmesh.iaas.html">iaas Package</a><ul>

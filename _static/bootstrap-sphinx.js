@@ -51,8 +51,7 @@
       .attr("border", 0);
   };
 
-  $(document).ready(function () {
-
+  $(window).load(function () {
     /*
      * Scroll the window to avoid the topnav bar
      * https://github.com/twitter/bootstrap/issues/1768
@@ -62,12 +61,14 @@
         shiftWindow = function() { scrollBy(0, -navHeight - 10); };
 
       if (location.hash) {
-        shiftWindow();
+        setTimeout(shiftWindow, 1);
       }
 
       window.addEventListener("hashchange", shiftWindow);
     }
+  });
 
+  $(document).ready(function () {
     // Add styling, structure to TOC's.
     $(".dropdown-menu").each(function () {
       $(this).find("ul").each(function (index, item){
@@ -152,8 +153,12 @@
       // ignore references
       if (!$(e).parent().hasClass("reference")) {
         $(e).replaceWith(function () {
-          return $("<code />").text($(this).text());
+          return $("<code />").html($(this).html());
         });
       }});
+
+    // Update sourcelink to remove outerdiv (fixes appearance in navbar).
+    var $srcLink = $(".nav #sourcelink");
+    $srcLink.parent().html($srcLink.html());
   });
 }($jqTheme || window.jQuery));

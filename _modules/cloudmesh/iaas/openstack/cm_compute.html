@@ -1,13 +1,3 @@
-
-
-  
-  
- 
-  
-  
- 
-
-
 <!DOCTYPE html>
 
 
@@ -60,7 +50,8 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="../../../../index.html">Cloudmesh</a>
+        <a class="navbar-brand" href="../../../../index.html"><img src="../../../../_static/fg-logo-white-24x36.png">
+          Cloudmesh</a>
         <span class="navbar-text navbar-version pull-left"><b>0.1</b></span>
       </div>
 
@@ -140,6 +131,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../developer.html#example-hpc-queue-server">4.12&nbsp;&nbsp;&nbsp;Example: HPC queue server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../developer.html#environment">4.13&nbsp;&nbsp;&nbsp;ENVIRONMENT</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../celery.html">5&nbsp;&nbsp;&nbsp;Celery Setup</a><ul>
@@ -161,8 +153,134 @@
 </li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../../cm-shell.html">5&nbsp;&nbsp;&nbsp;Cloud Mesh</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../cm-shell.html#commands">6&nbsp;&nbsp;&nbsp;Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../configure.html">Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../configure.html#cloudmesh-yaml">cloudmesh.yaml</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../configure.html#hp-cloud">HP Cloud</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../configure.html#azure">Azure</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../configure.html#amazon-web-services">Amazon Web Services</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../configure.html#india">India</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../configure.html#sierra">Sierra</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../configure.html#alamo">Alamo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../configure.html#a-complete-example">A complete example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../configure.html#cloudmesh-server-yaml">cloudmesh-server.yaml</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../configure.html#debugging">Debugging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../configure.html#web-ui">Web UI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../configure.html#ldap-integration">LDAP Integration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../configure.html#baremetal-provisioning-with-teefa">Baremetal provisioning with teefa</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../configure.html#clusters">Clusters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../configure.html#roles">Roles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../configure.html#keystone-server">Keystone server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../configure.html#mongo">Mongo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../configure.html#complete-example">Complete Example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../configure.html#cloudmesh-cluster-yaml">cloudmesh_cluster.yaml</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../configure.html#metadata">Metadata</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../configure.html#id1">Clusters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../configure.html#a-cluster">A Cluster</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../configure.html#network">Network:</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../configure.html#cloudmesh-bootspec-yaml">cloudmesh_bootspec.yaml</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../configure.html#other-yaml-files">Other Yaml files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../configure.html#me-sample">Me Sample</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../cm-shell.html">5&nbsp;&nbsp;&nbsp;Cloud Mesh</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#defaults">5.1&nbsp;&nbsp;&nbsp;Defaults</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#register-clouds">5.2&nbsp;&nbsp;&nbsp;Register Clouds</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../cm-shell.html#register-an-aws-account">5.2.1&nbsp;&nbsp;&nbsp;Register an AWS account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../cm-shell.html#register-an-azure-account">5.2.2&nbsp;&nbsp;&nbsp;Register an azure account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../cm-shell.html#register-an-eucalyptus-account">5.2.3&nbsp;&nbsp;&nbsp;Register an Eucalyptus account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../cm-shell.html#register-an-openstack-account">5.2.4&nbsp;&nbsp;&nbsp;Register an OpenStack account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../cm-shell.html#register-an-ec2-account">5.2.5&nbsp;&nbsp;&nbsp;Register an EC2 account</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#activate-clouds">5.3&nbsp;&nbsp;&nbsp;Activate Clouds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#managing-projects">5.4&nbsp;&nbsp;&nbsp;Managing Projects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#managing-users">5.5&nbsp;&nbsp;&nbsp;Managing Users</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#manageing-virtual-machines">5.6&nbsp;&nbsp;&nbsp;Manageing Virtual Machines</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../cm-shell.html#list-images">5.6.1&nbsp;&nbsp;&nbsp;List images</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../cm-shell.html#starting-vms">5.6.2&nbsp;&nbsp;&nbsp;Starting VMs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../cm-shell.html#manageing-security-groups">5.6.3&nbsp;&nbsp;&nbsp;Manageing Security Groups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../cm-shell.html#managing-volumes">5.6.4&nbsp;&nbsp;&nbsp;Managing Volumes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../cm-shell.html#managing-heat-s-for-openstack">5.6.5&nbsp;&nbsp;&nbsp;Managing heat&#8217;s for OpenStack</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../cm-shell.html#commands">6&nbsp;&nbsp;&nbsp;Commands</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#listing-images">6.1&nbsp;&nbsp;&nbsp;Listing images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#cm-manage-initialize-user-name-password-password">6.2&nbsp;&nbsp;&nbsp;cm manage initialize &#8211;user&lt;name&gt; &#8211;password &lt;password&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#cm-project-list">6.3&nbsp;&nbsp;&nbsp;cm project list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#cm-project-info-number">6.4&nbsp;&nbsp;&nbsp;cm project &#8211;info &lt;number&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#cm-project-activate-number">6.5&nbsp;&nbsp;&nbsp;cm project &#8211;activate &lt;number&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#cm-project-deactivate">6.6&nbsp;&nbsp;&nbsp;cm project &#8211;deactivate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#cm-env">6.7&nbsp;&nbsp;&nbsp;cm env</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#cm-resource-list">6.8&nbsp;&nbsp;&nbsp;cm resource &#8211;list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#cm-service-list">6.9&nbsp;&nbsp;&nbsp;cm service &#8211;list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#cm-service-register">6.10&nbsp;&nbsp;&nbsp;cm service register</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#cm-resource-register">6.11&nbsp;&nbsp;&nbsp;cm resource register</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#cm-image-list">6.12&nbsp;&nbsp;&nbsp;cm image &#8211;list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#cm-id-list">6.13&nbsp;&nbsp;&nbsp;cm id &#8211;list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#cm-label-id-id">6.14&nbsp;&nbsp;&nbsp;cm label &#8211;id &lt;id&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#cm-vm-create-label">6.15&nbsp;&nbsp;&nbsp;cm vm create &lt;label&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#cm-vm-destroy-label">6.16&nbsp;&nbsp;&nbsp;cm vm destroy &lt;label&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#cm-vm-terminate-label">6.17&nbsp;&nbsp;&nbsp;cm vm terminate &lt;label&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#cm-vm-suspoend-label">6.18&nbsp;&nbsp;&nbsp;cm vm suspoend &lt;label&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#cm-vm-resume-label">6.19&nbsp;&nbsp;&nbsp;cm vm resume &lt;label&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#cm-vm-login">6.20&nbsp;&nbsp;&nbsp;cm vm login</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#cm-seceurity-group-add-label-parameters">6.21&nbsp;&nbsp;&nbsp;cm seceurity group add &lt;label&gt; &lt;parameters&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#cm-seceurity-group-delete">6.22&nbsp;&nbsp;&nbsp;cm seceurity group delete</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#cm-seceurity-group-default-add-label">6.23&nbsp;&nbsp;&nbsp;cm seceurity group default add &lt;label&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#cm-seceurity-group-default-delete-label">6.24&nbsp;&nbsp;&nbsp;cm seceurity group default delete &lt;label&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#examples">6.25&nbsp;&nbsp;&nbsp;Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../cm-manage.html">cm-manage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../coding.html">Cloudmesh Style Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../coding.html#information">Information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../coding.html#general">General</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../coding.html#imports">Imports</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../coding.html#human-alphabetical-order-examples">Human Alphabetical Order Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../coding.html#docstrings">Docstrings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../coding.html#dictionaries-lists">Dictionaries/Lists</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../coding.html#calling-methods">Calling Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../coding.html#internationalization-i18n-strings">Internationalization (i18n) Strings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../coding.html#python-3-x-compatibility">Python 3.x compatibility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../coding.html#creating-unit-tests">Creating Unit Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../coding.html#running-tests">Running Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../coding.html#building-docs">Building Docs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../coding.html#oslo-incubator">oslo-incubator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../coding.html#commit-messages">Commit Messages</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../contact.html">Contact</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../contact.html#contributors">Contributors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../contact.html#blog">Blog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../contact.html#repository">Repository</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../deploy.html">Production Deployment Server</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../deploy.html#instalation">Instalation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../deploy.html#starting-the-deployed-server">Starting the deployed server</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../doc.html">Adding to the Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../doc.html#creating-the-documentation-locally">Creating the documentation locally</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../doc.html#rst-documentation">RST Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../doc.html#gh-pages">gh-pages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../doc.html#published-documentation">Published Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../fg.html">FutureGrid Specific tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../support.html">Support</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../plan/plan.html">7&nbsp;&nbsp;&nbsp;Plan: Cloudmesh Service Shift</a><ul>
@@ -210,21 +328,18 @@
 </li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../modules/cloudmesh.config.html">config Package</a><ul>
 <li class="toctree-l5"><a class="reference internal" href="../../../../modules/cloudmesh.config.html#id1"><tt class="docutils literal"><span class="pre">config</span></tt> Package</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../../../../modules/cloudmesh.config.html#module-cloudmesh.config.cloudmesh_cloud"><tt class="docutils literal"><span class="pre">cloudmesh_cloud</span></tt> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../../../../modules/cloudmesh.config.html#module-cloudmesh.config.cloudmesh_cloud_handler"><tt class="docutils literal"><span class="pre">cloudmesh_cloud_handler</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../modules/cloudmesh.config.html#cloudmesh-cloud-module"><tt class="docutils literal"><span class="pre">cloudmesh_cloud</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../modules/cloudmesh.config.html#cloudmesh-cloud-handler-module"><tt class="docutils literal"><span class="pre">cloudmesh_cloud_handler</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../../modules/cloudmesh.config.html#module-cloudmesh.config.cm_config"><tt class="docutils literal"><span class="pre">cm_config</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../../modules/cloudmesh.config.html#module-cloudmesh.config.cm_keys"><tt class="docutils literal"><span class="pre">cm_keys</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../../modules/cloudmesh.config.html#module-cloudmesh.config.cm_projects"><tt class="docutils literal"><span class="pre">cm_projects</span></tt> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../../../../modules/cloudmesh.config.html#module-cloudmesh.config.cm_rc"><tt class="docutils literal"><span class="pre">cm_rc</span></tt> Module</a><ul>
-<li class="toctree-l6"><a class="reference internal" href="../../../../modules/cloudmesh.config.html#cm-manage-config">cm-manage config</a></li>
-</ul>
-</li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../modules/cloudmesh.config.html#cm-rc-module"><tt class="docutils literal"><span class="pre">cm_rc</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../../modules/cloudmesh.config.html#ldap-user-module"><tt class="docutils literal"><span class="pre">ldap_user</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../../modules/cloudmesh.config.html#mock-cloud-module"><tt class="docutils literal"><span class="pre">mock_cloud</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../../modules/cloudmesh.config.html#mock-keystone-module"><tt class="docutils literal"><span class="pre">mock_keystone</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../../modules/cloudmesh.config.html#mock-user-module"><tt class="docutils literal"><span class="pre">mock_user</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../../modules/cloudmesh.config.html#openstack-essex-cloud-module"><tt class="docutils literal"><span class="pre">openstack_essex_cloud</span></tt> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../../../../modules/cloudmesh.config.html#module-cloudmesh.config.openstack_grizzly_cloud"><tt class="docutils literal"><span class="pre">openstack_grizzly_cloud</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../modules/cloudmesh.config.html#openstack-grizzly-cloud-module"><tt class="docutils literal"><span class="pre">openstack_grizzly_cloud</span></tt> Module</a></li>
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../modules/cloudmesh.iaas.html">iaas Package</a><ul>
@@ -233,7 +348,7 @@
 <li class="toctree-l5"><a class="reference internal" href="../../../../modules/cloudmesh.iaas.html#subpackages">Subpackages</a><ul>
 <li class="toctree-l6"><a class="reference internal" href="../../../../modules/cloudmesh.iaas.azure.html">azure Package</a><ul>
 <li class="toctree-l7"><a class="reference internal" href="../../../../modules/cloudmesh.iaas.azure.html#id1"><tt class="docutils literal"><span class="pre">azure</span></tt> Package</a></li>
-<li class="toctree-l7"><a class="reference internal" href="../../../../modules/cloudmesh.iaas.azure.html#module-cloudmesh.iaas.azure.cm_azure"><tt class="docutils literal"><span class="pre">cm_azure</span></tt> Module</a></li>
+<li class="toctree-l7"><a class="reference internal" href="../../../../modules/cloudmesh.iaas.azure.html#cm-azure-module"><tt class="docutils literal"><span class="pre">cm_azure</span></tt> Module</a></li>
 <li class="toctree-l7"><a class="reference internal" href="../../../../modules/cloudmesh.iaas.azure.html#fabfile-module"><tt class="docutils literal"><span class="pre">fabfile</span></tt> Module</a></li>
 </ul>
 </li>
@@ -300,7 +415,7 @@
             
             
             
-              <li></li>
+              <li class="hidden-sm"></li>
             
           </ul>
 
@@ -329,6 +444,7 @@
 <span class="c"># see also http://docs.openstack.org/cli/quick-start/content/nova-cli-reference.html</span>
 <span class="c">#</span>
 
+<span class="kn">from</span> <span class="nn">cloudmesh.util.util</span> <span class="kn">import</span> <span class="n">banner</span>
 <span class="kn">import</span> <span class="nn">requests</span>
 <span class="kn">from</span> <span class="nn">requests.auth</span> <span class="kn">import</span> <span class="n">AuthBase</span>
 
@@ -345,8 +461,8 @@
 <span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
 <span class="kn">from</span> <span class="nn">urlparse</span> <span class="kn">import</span> <span class="n">urlparse</span>
 
-<span class="kn">from</span> <span class="nn">sh</span> <span class="kn">import</span> <span class="n">fgrep</span>
-<span class="kn">from</span> <span class="nn">sh</span> <span class="kn">import</span> <span class="n">nova</span>
+<span class="c"># from sh import fgrep</span>
+<span class="c"># from sh import nova</span>
 
 <span class="c"># from cm_credential import credentials</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.util.cm_table</span> <span class="kn">import</span> <span class="n">cm_table</span>
@@ -354,11 +470,11 @@
 <span class="kn">from</span> <span class="nn">cloudmesh.config.cm_config</span> <span class="kn">import</span> <span class="n">cm_config_server</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.iaas.ComputeBaseType</span> <span class="kn">import</span> <span class="n">ComputeBaseType</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.iaas.Ec2SecurityGroup</span> <span class="kn">import</span> <span class="n">Ec2SecurityGroup</span>
-<span class="kn">from</span> <span class="nn">cloudmesh.cm_profile</span> <span class="kn">import</span> <span class="n">cm_profile</span>
+<span class="c"># from cloudmesh.cm_profile import cm_profile</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.util.logger</span> <span class="kn">import</span> <span class="n">LOGGER</span>
 
-<span class="kn">import</span> <span class="nn">novaclient</span>
-<span class="kn">from</span> <span class="nn">novaclient.openstack.common</span> <span class="kn">import</span> <span class="n">strutils</span>
+<span class="c"># import novaclient</span>
+<span class="c"># from novaclient.openstack.common import strutils</span>
 
 <span class="n">log</span> <span class="o">=</span> <span class="n">LOGGER</span><span class="p">(</span><span class="n">__file__</span><span class="p">)</span>
 
@@ -381,13 +497,14 @@
     <span class="n">servers</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c"># global var</span>
 
     <span class="c"># : a dict with the users</span>
-    <span class="n">users</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c"># global var</span>
+    <span class="c"># users = {}  # global var</span>
 
     <span class="c"># : a dict containing the credentionls read with cm_config</span>
     <span class="c"># credential = None  # global var</span>
     <span class="n">user_credential</span> <span class="o">=</span> <span class="bp">None</span>  <span class="c"># global var</span>
     <span class="n">admin_credential</span> <span class="o">=</span> <span class="bp">None</span>
-
+    <span class="n">with_admin_credential</span> <span class="o">=</span> <span class="bp">None</span>
+    
     <span class="n">user_token</span> <span class="o">=</span> <span class="bp">None</span>
     <span class="n">admin_token</span> <span class="o">=</span> <span class="bp">None</span>
 
@@ -405,13 +522,32 @@
     <span class="c"># : The user id</span>
     <span class="n">user_id</span> <span class="o">=</span> <span class="bp">None</span>  <span class="c"># internal var</span>
 
-    <span class="n">_nova</span> <span class="o">=</span> <span class="n">nova</span>
+    <span class="c"># _nova = nova</span>
 
+
+
+    <span class="k">def</span> <span class="nf">_load_admin_credential</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">admin_credential</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="s">&#39;keystone&#39;</span> <span class="ow">in</span> <span class="n">cm_config_server</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;cloudmesh.server&#39;</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">idp_clouds</span> <span class="o">=</span> <span class="n">cm_config_server</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;cloudmesh.server.keystone&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">with_admin_credential</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">label</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">idp_clouds</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">with_admin_credential</span><span class="p">:</span>
+                    <span class="k">try</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">admin_credential</span> <span class="o">=</span> <span class="n">cm_config_server</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;cloudmesh.server.keystone.{0}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">label</span><span class="p">))</span>
+                    <span class="k">except</span><span class="p">:</span>
+                        <span class="n">log</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s">&quot;No admin credential found! Please check your cloudmesh_server.yaml file.&quot;</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">admin_credential</span> <span class="o">=</span> <span class="bp">None</span>
+                    <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">&quot;The cloud {0} has no admin credential&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">label</span><span class="p">))</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">admin_credential</span>
     <span class="c">#</span>
     <span class="c"># initialize</span>
     <span class="c">#</span>
     <span class="c"># possibly make connext seperate</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">credential</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">admin_credential</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">label</span><span class="p">,</span>
+                 <span class="n">credential</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+                 <span class="n">admin_credential</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        initializes the openstack cloud from a file</span>
 <span class="sd">        located at ~/.futuregrid.org/cloudmesh.yaml.</span>
@@ -432,13 +568,8 @@
                 <span class="n">log</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s">&quot;No user credentail found! Please check your cloudmesh.yaml file.&quot;</span><span class="p">)</span>
                 <span class="c"># sys.exit(1)</span>
 
+        <span class="bp">self</span><span class="o">.</span><span class="n">_load_admin_credential</span><span class="p">()</span>
 
-        <span class="k">if</span> <span class="n">admin_credential</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
-            <span class="k">try</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">admin_credential</span> <span class="o">=</span> <span class="n">cm_config_server</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;cloudmesh.server.keystone.{0}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">label</span><span class="p">))</span>
-            <span class="k">except</span><span class="p">:</span>
-                <span class="n">log</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s">&quot;No admin credentail found! Please check your cloudmesh_server.yaml file.&quot;</span><span class="p">)</span>
-        <span class="c"># connecting within init will lead to long delays</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
 
 <div class="viewcode-block" id="openstack.clear"><a class="viewcode-back" href="../../../../modules/cloudmesh.iaas.openstack.html#cloudmesh.iaas.openstack.cm_compute.openstack.clear">[docs]</a>    <span class="k">def</span> <span class="nf">clear</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -462,24 +593,34 @@
         <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">&quot;Loading User Credentials&quot;</span><span class="p">)</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_credential</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
             <span class="n">log</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s">&quot;error connecting to openstack compute, credential is None&quot;</span><span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
+        <span class="k">elif</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_token</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">user_token</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_token</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">user_credentials</span><span class="p">)</span>
 
         <span class="c"># check if keystone is defined, and if failed print log msg</span>
         <span class="c">#</span>
         <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">&quot;Loading Admin Credentials&quot;</span><span class="p">)</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">admin_credential</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">admin_credential</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">with_admin_credential</span><span class="p">):</span>
             <span class="n">log</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s">&quot;error connecting to openstack compute, credential is None&quot;</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">admin_token</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_token</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">admin_credential</span><span class="p">)</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">with_admin_credential</span> <span class="ow">and</span> <span class="p">(</span><span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">admin_token</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">admin_token</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_token</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">admin_credential</span><span class="p">)</span>
 
+</div>
+<div class="viewcode-block" id="openstack.DEBUG"><a class="viewcode-back" href="../../../../modules/cloudmesh.iaas.openstack.html#cloudmesh.iaas.openstack.cm_compute.openstack.DEBUG">[docs]</a>    <span class="k">def</span> <span class="nf">DEBUG</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">msg</span> <span class="o">==</span> <span class="s">&quot;credential&quot;</span><span class="p">:</span>
+            <span class="n">debug_dict</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">user_credential</span><span class="p">)</span>
+            <span class="n">debug_dict</span><span class="p">[</span><span class="s">&#39;OS_PASSWORD&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&quot;********&quot;</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s">&quot;GET CRED {0}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">debug_dict</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">msg</span><span class="p">))</span>
 </div>
 <div class="viewcode-block" id="openstack.get_token"><a class="viewcode-back" href="../../../../modules/cloudmesh.iaas.openstack.html#cloudmesh.iaas.openstack.cm_compute.openstack.get_token">[docs]</a>    <span class="k">def</span> <span class="nf">get_token</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">credential</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
 
         <span class="k">if</span> <span class="n">credential</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
             <span class="n">credential</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_credential</span>
 
-        <span class="k">print</span> <span class="s">&quot;GET CRED&quot;</span><span class="p">,</span> <span class="n">credential</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">(</span><span class="s">&quot;credential&quot;</span><span class="p">)</span>
 
         <span class="n">param</span> <span class="o">=</span> <span class="bp">None</span>
         <span class="k">if</span> <span class="s">&#39;OS_TENANT_NAME&#39;</span> <span class="ow">in</span> <span class="n">credential</span><span class="p">:</span>
@@ -500,13 +641,13 @@
                  <span class="p">}</span>
         <span class="n">url</span> <span class="o">=</span> <span class="s">&quot;{0}/tokens&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">credential</span><span class="p">[</span><span class="s">&#39;OS_AUTH_URL&#39;</span><span class="p">])</span>
 
-        <span class="k">print</span> <span class="s">&quot;URL&quot;</span><span class="p">,</span> <span class="n">url</span>
+        <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s">&quot;URL {0}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">url</span><span class="p">))</span>
 
         <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;content-type&#39;</span><span class="p">:</span> <span class="s">&#39;application/json&#39;</span><span class="p">}</span>
         <span class="n">verify</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_cacert</span><span class="p">(</span><span class="n">credential</span><span class="p">)</span>
-        <span class="k">print</span> <span class="s">&quot;PARAM&quot;</span><span class="p">,</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">param</span><span class="p">)</span>
-        <span class="k">print</span> <span class="s">&quot;HEADER&quot;</span><span class="p">,</span> <span class="n">headers</span>
-        <span class="k">print</span> <span class="s">&quot;VERIFY&quot;</span><span class="p">,</span> <span class="n">verify</span>
+        <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s">&quot;PARAM {0}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">param</span><span class="p">)))</span>
+        <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s">&quot;HEADER {0}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">headers</span><span class="p">))</span>
+        <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s">&quot;VERIFY {0}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">verify</span><span class="p">))</span>
 
         <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span>
                           <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">param</span><span class="p">),</span>
@@ -533,7 +674,7 @@
                 <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_id</span>
             <span class="k">except</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">user_id</span> <span class="o">=</span> <span class="bp">None</span>
-                <span class="k">print</span> <span class="s">&quot;OS_USER_ID not set&quot;</span>
+                <span class="n">log</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s">&quot;OS_USER_ID not set&quot;</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">user_token</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_token</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">user_id</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_token</span><span class="p">[</span><span class="s">&#39;access&#39;</span><span class="p">][</span><span class="s">&#39;user&#39;</span><span class="p">][</span><span class="s">&#39;id&#39;</span><span class="p">]</span>
@@ -546,14 +687,15 @@
         <span class="n">apiurl</span> <span class="o">=</span> <span class="s">&quot;servers/</span><span class="si">%s</span><span class="s">/diagnostics&quot;</span> <span class="o">%</span> <span class="n">serverid</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get</span><span class="p">(</span><span class="n">msg</span><span class="o">=</span><span class="n">apiurl</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s">&#39;admin&#39;</span><span class="p">,</span> <span class="n">urltype</span><span class="o">=</span><span class="s">&#39;adminURL&#39;</span><span class="p">)</span>
 </div>
-    <span class="k">def</span> <span class="nf">_get_service</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s">&quot;user&quot;</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">_get_service</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s">&quot;compute&quot;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s">&quot;user&quot;</span><span class="p">):</span>
 
         <span class="n">token</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_token</span>
+        <span class="c"># print token</span>
         <span class="k">if</span> <span class="n">kind</span> <span class="o">==</span> <span class="s">&quot;admin&quot;</span><span class="p">:</span>
             <span class="n">token</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">admin_token</span>
 
         <span class="k">for</span> <span class="n">service</span> <span class="ow">in</span> <span class="n">token</span><span class="p">[</span><span class="s">&#39;access&#39;</span><span class="p">][</span><span class="s">&#39;serviceCatalog&#39;</span><span class="p">]:</span>
-            <span class="k">if</span> <span class="n">service</span><span class="p">[</span><span class="s">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">kind</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">service</span><span class="p">[</span><span class="s">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="nb">type</span><span class="p">:</span>
                 <span class="k">break</span>
         <span class="k">return</span> <span class="n">service</span>
 
@@ -615,6 +757,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get</span><span class="p">(</span><span class="n">msg</span><span class="o">=</span><span class="n">apiurl</span><span class="p">)</span>
 </div>
 <div class="viewcode-block" id="openstack.keypair_add"><a class="viewcode-back" href="../../../../modules/cloudmesh.iaas.openstack.html#cloudmesh.iaas.openstack.cm_compute.openstack.keypair_add">[docs]</a>    <span class="k">def</span> <span class="nf">keypair_add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">keyname</span><span class="p">,</span> <span class="n">keycontent</span><span class="p">):</span>
+        <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s">&quot;adding a keypair in cm_compute...&quot;</span><span class="p">)</span>
         <span class="c"># keysnow = self.keypair_list()</span>
         <span class="n">conf</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_service_endpoint</span><span class="p">(</span><span class="s">&quot;compute&quot;</span><span class="p">)</span>
         <span class="n">publicURL</span> <span class="o">=</span> <span class="n">conf</span><span class="p">[</span><span class="s">&#39;publicURL&#39;</span><span class="p">]</span>
@@ -624,7 +767,24 @@
                               <span class="s">&quot;public_key&quot;</span><span class="p">:</span> <span class="s">&quot;</span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">keycontent</span>
                               <span class="p">}</span>
                  <span class="p">}</span>
+        <span class="c"># print params</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_post</span><span class="p">(</span><span class="n">posturl</span><span class="p">,</span> <span class="n">params</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="openstack.keypair_remove"><a class="viewcode-back" href="../../../../modules/cloudmesh.iaas.openstack.html#cloudmesh.iaas.openstack.cm_compute.openstack.keypair_remove">[docs]</a>    <span class="k">def</span> <span class="nf">keypair_remove</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">keyname</span><span class="p">):</span>
+        <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s">&quot;removing a keypair in cm_compute...&quot;</span><span class="p">)</span>
+        <span class="n">conf</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_service_endpoint</span><span class="p">(</span><span class="s">&quot;compute&quot;</span><span class="p">)</span>
+        <span class="n">publicURL</span> <span class="o">=</span> <span class="n">conf</span><span class="p">[</span><span class="s">&#39;publicURL&#39;</span><span class="p">]</span>
+
+        <span class="n">url</span> <span class="o">=</span> <span class="s">&quot;</span><span class="si">%s</span><span class="s">/os-keypairs/</span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">publicURL</span><span class="p">,</span> <span class="n">keyname</span><span class="p">)</span>
+        <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;content-type&#39;</span><span class="p">:</span> <span class="s">&#39;application/json&#39;</span><span class="p">,</span> <span class="s">&#39;X-Auth-Token&#39;</span><span class="p">:</span> <span class="s">&#39;</span><span class="si">%s</span><span class="s">&#39;</span> <span class="o">%</span> <span class="n">conf</span><span class="p">[</span><span class="s">&#39;token&#39;</span><span class="p">]}</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">verify</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_get_cacert</span><span class="p">())</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="p">{</span><span class="s">&quot;msg&quot;</span><span class="p">:</span><span class="s">&quot;success&quot;</span><span class="p">}</span>
+        <span class="k">if</span> <span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">ret</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+            <span class="k">except</span><span class="p">:</span>
+                <span class="k">pass</span>
+        <span class="k">return</span> <span class="n">ret</span>
 </div>
 <div class="viewcode-block" id="openstack.vm_create"><a class="viewcode-back" href="../../../../modules/cloudmesh.iaas.openstack.html#cloudmesh.iaas.openstack.cm_compute.openstack.vm_create">[docs]</a>    <span class="k">def</span> <span class="nf">vm_create</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span>
                   <span class="n">flavor_name</span><span class="p">,</span>
@@ -679,7 +839,7 @@
             <span class="n">safe_userdata</span> <span class="o">=</span> <span class="n">strutils</span><span class="o">.</span><span class="n">safe_encode</span><span class="p">(</span><span class="n">userdata</span><span class="p">)</span>
             <span class="n">params</span><span class="p">[</span><span class="s">&quot;server&quot;</span><span class="p">][</span><span class="s">&quot;user_data&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">base64</span><span class="o">.</span><span class="n">b64encode</span><span class="p">(</span><span class="n">safe_userdata</span><span class="p">)</span>
 
-        <span class="k">print</span> <span class="n">params</span>
+        <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s">&quot;POST PARAMS {0}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">params</span><span class="p">))</span>
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_post</span><span class="p">(</span><span class="n">posturl</span><span class="p">,</span> <span class="n">params</span><span class="p">)</span>
 </div>
@@ -724,7 +884,7 @@
                                     <span class="s">&quot;address&quot;</span><span class="p">:</span> <span class="s">&quot;</span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">ip</span>
                                     <span class="p">}</span>
                   <span class="p">}</span>
-        <span class="k">print</span> <span class="n">params</span>
+        <span class="n">log</span><span class="o">.</span><span class="n">debug</span> <span class="p">(</span><span class="s">&quot;POST PARAMS {0}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">params</span><span class="p">))</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_post</span><span class="p">(</span><span class="n">posturl</span><span class="p">,</span> <span class="n">params</span><span class="p">)</span>
 </div>
 <div class="viewcode-block" id="openstack.delete_public_ip"><a class="viewcode-back" href="../../../../modules/cloudmesh.iaas.openstack.html#cloudmesh.iaas.openstack.cm_compute.openstack.delete_public_ip">[docs]</a>    <span class="k">def</span> <span class="nf">delete_public_ip</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">idofip</span><span class="p">):</span>
@@ -782,12 +942,12 @@
 
         <span class="n">url</span> <span class="o">=</span> <span class="s">&quot;{0}/{1}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">msg</span><span class="p">)</span>
 
-        <span class="k">print</span> <span class="n">url</span>
+        <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s">&quot;AUTH URL {0}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">url</span><span class="p">))</span>
         <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;X-Auth-Token&#39;</span><span class="p">:</span> <span class="n">token</span><span class="p">[</span><span class="s">&#39;access&#39;</span><span class="p">][</span><span class="s">&#39;token&#39;</span><span class="p">][</span><span class="s">&#39;id&#39;</span><span class="p">]}</span>
 
         <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">verify</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_get_cacert</span><span class="p">(</span><span class="n">credential</span><span class="p">),</span> <span class="n">params</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
 
-        <span class="k">print</span> <span class="s">&quot;RRRRR&quot;</span><span class="p">,</span> <span class="n">r</span>
+        <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s">&quot;Response {0}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">r</span><span class="p">))</span>
 
         <span class="k">if</span> <span class="n">json</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
@@ -801,9 +961,20 @@
             <span class="nb">type</span> <span class="o">=</span> <span class="s">&quot;compute&quot;</span>
         <span class="n">compute_service</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_service</span><span class="p">(</span><span class="nb">type</span><span class="p">)</span>
         <span class="c"># pprint(compute_service)</span>
+        <span class="n">credential</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_credential</span>
+        <span class="c"># print credential</span>
+
         <span class="n">conf</span> <span class="o">=</span> <span class="p">{}</span>
 
+        <span class="n">credential</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_credential</span>
+
         <span class="n">conf</span><span class="p">[</span><span class="s">&#39;publicURL&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">compute_service</span><span class="p">[</span><span class="s">&#39;endpoints&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s">&#39;publicURL&#39;</span><span class="p">])</span>
+        <span class="k">if</span> <span class="s">&#39;OS_REGION&#39;</span> <span class="ow">in</span> <span class="n">credential</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">endpoint</span> <span class="ow">in</span> <span class="n">compute_service</span><span class="p">[</span><span class="s">&#39;endpoints&#39;</span><span class="p">]:</span>
+                <span class="k">if</span> <span class="n">endpoint</span><span class="p">[</span><span class="s">&#39;region&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">credential</span><span class="p">[</span><span class="s">&#39;OS_REGION&#39;</span><span class="p">]:</span>
+                    <span class="n">conf</span><span class="p">[</span><span class="s">&#39;publicURL&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">endpoint</span><span class="p">[</span><span class="s">&#39;publicURL&#39;</span><span class="p">]</span>
+                    <span class="k">break</span><span class="p">;</span>
+
         <span class="n">conf</span><span class="p">[</span><span class="s">&#39;adminURL&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">None</span>
         <span class="k">if</span> <span class="s">&#39;adminURL&#39;</span> <span class="ow">in</span> <span class="n">compute_service</span><span class="p">[</span><span class="s">&#39;endpoints&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]:</span>
             <span class="n">conf</span><span class="p">[</span><span class="s">&#39;adminURL&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">compute_service</span><span class="p">[</span><span class="s">&#39;endpoints&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s">&#39;adminURL&#39;</span><span class="p">])</span>
@@ -817,17 +988,16 @@
     <span class="c"># new</span>
     <span class="k">def</span> <span class="nf">_list_to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">list</span><span class="p">,</span> <span class="nb">id</span><span class="p">,</span> <span class="nb">type</span><span class="p">,</span> <span class="n">time_stamp</span><span class="p">):</span>
         <span class="n">d</span> <span class="o">=</span> <span class="p">{}</span>
-        <span class="n">cm_type_version</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">compute_config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;cloudmesh.clouds.{0}.cm_type_version&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">label</span><span class="p">))</span>
-
-        <span class="k">print</span> <span class="s">&quot;VVVVV&quot;</span><span class="p">,</span> <span class="n">cm_type_version</span>
+        <span class="c"># cm_type_version = self.compute_config.get(&#39;cloudmesh.clouds.{0}.cm_type_version&#39;.format(self.label))</span>
+        <span class="c"># log.debug (&quot;CM TYPE VERSION {0}&quot;.format(cm_type_version))</span>
 
         <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">:</span>
             <span class="n">element</span><span class="p">[</span><span class="s">&#39;cm_type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">type</span>
             <span class="n">element</span><span class="p">[</span><span class="s">&#39;cm_cloud&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">label</span>
             <span class="n">element</span><span class="p">[</span><span class="s">&#39;cm_cloud_type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">type</span>
-            <span class="n">element</span><span class="p">[</span><span class="s">&#39;cm_cloud_version&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cm_type_version</span>
+            <span class="c"># element[&#39;cm_cloud_version&#39;] = cm_type_version</span>
             <span class="n">element</span><span class="p">[</span><span class="s">&#39;cm_refresh&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">time_stamp</span>
-            <span class="n">d</span><span class="p">[</span><span class="n">element</span><span class="p">[</span><span class="nb">id</span><span class="p">]]</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
+            <span class="n">d</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">element</span><span class="p">[</span><span class="nb">id</span><span class="p">])]</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">d</span>
 
     <span class="c"># new</span>
@@ -837,7 +1007,7 @@
         <span class="c"># list = self._get(msg)[&#39;extensions&#39;]</span>
         <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">result</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">404</span><span class="p">:</span>
-            <span class="k">print</span> <span class="s">&quot;ERROR: extensions not available&quot;</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s">&quot;extensions not available&quot;</span><span class="p">)</span>
             <span class="k">return</span> <span class="p">{}</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="nb">list</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
@@ -854,15 +1024,30 @@
         <span class="n">time_stamp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_now</span><span class="p">()</span>
         <span class="n">msg</span> <span class="o">=</span> <span class="s">&quot;servers/detail&quot;</span>
         <span class="nb">list</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get</span><span class="p">(</span><span class="n">msg</span><span class="p">)[</span><span class="s">&#39;servers&#39;</span><span class="p">]</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_list_to_dict</span><span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="s">&#39;id&#39;</span><span class="p">,</span> <span class="s">&quot;server&quot;</span><span class="p">,</span> <span class="n">time_stamp</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">servers</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_list_to_dict</span><span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="s">&#39;id&#39;</span><span class="p">,</span> <span class="s">&quot;server&quot;</span><span class="p">,</span> <span class="n">time_stamp</span><span class="p">)</span>
+
+        <span class="c">#</span>
+        <span class="c"># hack for the hp cloud west</span>
+        <span class="c">#</span>
+        <span class="k">for</span> <span class="n">server</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">servers</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">servers</span><span class="p">[</span><span class="n">server</span><span class="p">][</span><span class="s">&#39;id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">servers</span><span class="p">[</span><span class="n">server</span><span class="p">][</span><span class="s">&#39;id&#39;</span><span class="p">])</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">servers</span>
 
     <span class="c"># new</span></div>
 <div class="viewcode-block" id="openstack.get_flavors"><a class="viewcode-back" href="../../../../modules/cloudmesh.iaas.openstack.html#cloudmesh.iaas.openstack.cm_compute.openstack.get_flavors">[docs]</a>    <span class="k">def</span> <span class="nf">get_flavors</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">time_stamp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_now</span><span class="p">()</span>
         <span class="n">msg</span> <span class="o">=</span> <span class="s">&quot;flavors/detail&quot;</span>
         <span class="nb">list</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get</span><span class="p">(</span><span class="n">msg</span><span class="p">)[</span><span class="s">&#39;flavors&#39;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">flavors</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_list_to_dict</span><span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="s">&#39;name&#39;</span><span class="p">,</span> <span class="s">&quot;flavor&quot;</span><span class="p">,</span> <span class="n">time_stamp</span><span class="p">)</span>
 
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_list_to_dict</span><span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="s">&#39;name&#39;</span><span class="p">,</span> <span class="s">&quot;flavor&quot;</span><span class="p">,</span> <span class="n">time_stamp</span><span class="p">)</span>
+        <span class="c">#</span>
+        <span class="c"># hack for the hp cloud west</span>
+        <span class="c">#</span>
+        <span class="k">for</span> <span class="n">flavor</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">flavors</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">flavors</span><span class="p">[</span><span class="n">flavor</span><span class="p">][</span><span class="s">&#39;id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">flavors</span><span class="p">[</span><span class="n">flavor</span><span class="p">][</span><span class="s">&#39;id&#39;</span><span class="p">])</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">flavors</span>
 </div>
 <div class="viewcode-block" id="openstack.flavorid"><a class="viewcode-back" href="../../../../modules/cloudmesh.iaas.openstack.html#cloudmesh.iaas.openstack.cm_compute.openstack.flavorid">[docs]</a>    <span class="k">def</span> <span class="nf">flavorid</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
         <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">flavors</span><span class="p">:</span>
@@ -880,37 +1065,44 @@
         <span class="n">time_stamp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_now</span><span class="p">()</span>
         <span class="n">msg</span> <span class="o">=</span> <span class="s">&quot;images/detail&quot;</span>
         <span class="nb">list</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get</span><span class="p">(</span><span class="n">msg</span><span class="p">)[</span><span class="s">&#39;images&#39;</span><span class="p">]</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_list_to_dict</span><span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="s">&#39;id&#39;</span><span class="p">,</span> <span class="s">&quot;image&quot;</span><span class="p">,</span> <span class="n">time_stamp</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">images</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_list_to_dict</span><span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="s">&#39;id&#39;</span><span class="p">,</span> <span class="s">&quot;image&quot;</span><span class="p">,</span> <span class="n">time_stamp</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">images</span>
 
     <span class="c"># new</span></div>
-<div class="viewcode-block" id="openstack.get_tenants"><a class="viewcode-back" href="../../../../modules/cloudmesh.iaas.openstack.html#cloudmesh.iaas.openstack.cm_compute.openstack.get_tenants">[docs]</a>    <span class="k">def</span> <span class="nf">get_tenants</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">credential</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
-        <span class="n">time_stamp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_now</span><span class="p">()</span>
-        <span class="sd">&quot;&quot;&quot;get the tenants dict for the vm with the given id&quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="n">credential</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
-            <span class="n">p</span> <span class="o">=</span> <span class="n">cm_profile</span><span class="p">()</span>
-            <span class="n">name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">label</span>
-            <span class="n">credential</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">server</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;cloudmesh.server.keystone&quot;</span><span class="p">)[</span><span class="n">name</span><span class="p">]</span>
-        <span class="n">msg</span> <span class="o">=</span> <span class="s">&quot;tenants&quot;</span>
-        <span class="nb">list</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s">&quot;admin&quot;</span><span class="p">)[</span><span class="s">&#39;tenants&#39;</span><span class="p">]</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_list_to_dict</span><span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="s">&#39;id&#39;</span><span class="p">,</span> <span class="s">&quot;tenants&quot;</span><span class="p">,</span> <span class="n">time_stamp</span><span class="p">)</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    def get_tenants(self, credential=None):</span>
+<span class="sd">        time_stamp = self._now()</span>
+<span class="sd">        #get the tenants dict for the vm with the given id</span>
+<span class="sd">        if credential is None:</span>
+<span class="sd">            p = cm_profile()</span>
+<span class="sd">            name = self.label</span>
+<span class="sd">            credential = p.server.get(&quot;cloudmesh.server.keystone&quot;)[name]</span>
+<span class="sd">        msg = &quot;tenants&quot;</span>
+<span class="sd">        list = self._get(msg, kind=&quot;admin&quot;)[&#39;tenants&#39;]</span>
+<span class="sd">        return self._list_to_dict(list, &#39;id&#39;, &quot;tenants&quot;, time_stamp)</span>
+<span class="sd">    # new</span>
+<span class="sd">    def get_users(self, credential=None):</span>
+<span class="sd">        time_stamp = self._now()</span>
+<span class="sd">        #get the tenants dict for the vm with the given id</span>
+<span class="sd">        if credential is None:</span>
 
+<span class="sd">            p = cm_profile()</span>
+<span class="sd">            name = self.label</span>
 
+<span class="sd">            idp_clouds = p.server.get(&quot;cloudmesh.server.keystone&quot;).keys()</span>
 
-    <span class="c"># new</span></div>
-<div class="viewcode-block" id="openstack.get_users"><a class="viewcode-back" href="../../../../modules/cloudmesh.iaas.openstack.html#cloudmesh.iaas.openstack.cm_compute.openstack.get_users">[docs]</a>    <span class="k">def</span> <span class="nf">get_users</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">credential</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
-        <span class="n">time_stamp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_now</span><span class="p">()</span>
-        <span class="sd">&quot;&quot;&quot;get the tenants dict for the vm with the given id&quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="n">credential</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+<span class="sd">            if name in idp_clouds:</span>
+<span class="sd">                credential = p.server.get(&quot;cloudmesh.server.keystone&quot;)[name]</span>
+<span class="sd">            else:</span>
+<span class="sd">                log.error(&quot;The cloud {0} does not have keyston access&quot;.format(name))</span>
+<span class="sd">                return dict({})</span>
 
-            <span class="n">p</span> <span class="o">=</span> <span class="n">cm_profile</span><span class="p">()</span>
-            <span class="n">name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">label</span>
-            <span class="n">credential</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">server</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;cloudmesh.server.keystone&quot;</span><span class="p">)[</span><span class="n">name</span><span class="p">]</span>
+<span class="sd">        cloud = openstack(name, credential=credential)</span>
+<span class="sd">        msg = &quot;users&quot;</span>
+<span class="sd">        list = cloud._get(msg, kind=&quot;admin&quot;, service=&quot;identity&quot;, urltype=&#39;adminURL&#39;)[&#39;users&#39;]</span>
+<span class="sd">        return self._list_to_dict(list, &#39;id&#39;, &quot;users&quot;, time_stamp)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
-        <span class="n">cloud</span> <span class="o">=</span> <span class="n">openstack</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">credential</span><span class="o">=</span><span class="n">credential</span><span class="p">)</span>
-        <span class="n">msg</span> <span class="o">=</span> <span class="s">&quot;users&quot;</span>
-        <span class="nb">list</span> <span class="o">=</span> <span class="n">cloud</span><span class="o">.</span><span class="n">_get</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s">&quot;admin&quot;</span><span class="p">,</span> <span class="n">service</span><span class="o">=</span><span class="s">&quot;identity&quot;</span><span class="p">,</span> <span class="n">urltype</span><span class="o">=</span><span class="s">&#39;adminURL&#39;</span><span class="p">)[</span><span class="s">&#39;users&#39;</span><span class="p">]</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_list_to_dict</span><span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="s">&#39;id&#39;</span><span class="p">,</span> <span class="s">&quot;users&quot;</span><span class="p">,</span> <span class="n">time_stamp</span><span class="p">)</span>
-</div>
 <div class="viewcode-block" id="openstack.get_meta"><a class="viewcode-back" href="../../../../modules/cloudmesh.iaas.openstack.html#cloudmesh.iaas.openstack.cm_compute.openstack.get_meta">[docs]</a>    <span class="k">def</span> <span class="nf">get_meta</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">id</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;get the metadata dict for the vm with the given id&quot;&quot;&quot;</span>
         <span class="n">msg</span> <span class="o">=</span> <span class="s">&quot;/servers/</span><span class="si">%s</span><span class="s">/metadata&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="nb">id</span><span class="p">)</span>
@@ -958,14 +1150,17 @@
 
     <span class="c">#</span>
     <span class="c"># refresh</span>
-    <span class="c">#</span></div>
-    <span class="k">def</span> <span class="nf">_get_users_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_users</span><span class="p">()</span>
-        <span class="k">return</span> <span class="n">result</span>
+    <span class="c">#</span>
+    <span class="c"># identity management moved to its dedicated class</span></div>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    def _get_users_dict(self):</span>
+<span class="sd">        result = self.get_users()</span>
+<span class="sd">        return result</span>
 
-    <span class="k">def</span> <span class="nf">_get_tenants_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_tenants</span><span class="p">()</span>
-        <span class="k">return</span> <span class="n">result</span>
+<span class="sd">    def _get_tenants_dict(self):</span>
+<span class="sd">        result = self.get_tenants()</span>
+<span class="sd">        return result</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="nf">_get_images_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_images</span><span class="p">()</span>
@@ -997,16 +1192,16 @@
 
         <span class="k">return</span> <span class="nb">list</span>
 
-    <span class="c"># return the security groups for a tenant, in dict format</span></div>
-<div class="viewcode-block" id="openstack.list_security_groups"><a class="viewcode-back" href="../../../../modules/cloudmesh.iaas.openstack.html#cloudmesh.iaas.openstack.cm_compute.openstack.list_security_groups">[docs]</a>    <span class="k">def</span> <span class="nf">list_security_groups</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tenant_id</span><span class="p">):</span>
+    <span class="c"># return the security groups for the current authenticated tenant, in dict format</span></div>
+<div class="viewcode-block" id="openstack.list_security_groups"><a class="viewcode-back" href="../../../../modules/cloudmesh.iaas.openstack.html#cloudmesh.iaas.openstack.cm_compute.openstack.list_security_groups">[docs]</a>    <span class="k">def</span> <span class="nf">list_security_groups</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">apiurl</span> <span class="o">=</span> <span class="s">&quot;os-security-groups&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get</span><span class="p">(</span><span class="n">apiurl</span><span class="p">)</span>
 
-    <span class="c"># return the security group id given a name.</span>
+    <span class="c"># return the security group id given a name, if it&#39;s defined in the current tenant</span>
     <span class="c"># The id is used to identify a group when adding more rules to it</span></div>
-<div class="viewcode-block" id="openstack.find_security_groupid_by_name"><a class="viewcode-back" href="../../../../modules/cloudmesh.iaas.openstack.html#cloudmesh.iaas.openstack.cm_compute.openstack.find_security_groupid_by_name">[docs]</a>    <span class="k">def</span> <span class="nf">find_security_groupid_by_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tenant_id</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+<div class="viewcode-block" id="openstack.find_security_groupid_by_name"><a class="viewcode-back" href="../../../../modules/cloudmesh.iaas.openstack.html#cloudmesh.iaas.openstack.cm_compute.openstack.find_security_groupid_by_name">[docs]</a>    <span class="k">def</span> <span class="nf">find_security_groupid_by_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
         <span class="n">groupid</span> <span class="o">=</span> <span class="bp">None</span>
-        <span class="n">secgroups</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">list_security_groups</span><span class="p">(</span><span class="n">tenant_id</span><span class="p">)</span>
+        <span class="n">secgroups</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">list_security_groups</span><span class="p">()</span>
         <span class="k">for</span> <span class="n">secgroup</span> <span class="ow">in</span> <span class="n">secgroups</span><span class="p">[</span><span class="s">&quot;security_groups&quot;</span><span class="p">]:</span>
             <span class="k">if</span> <span class="n">secgroup</span><span class="p">[</span><span class="s">&quot;name&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">name</span><span class="p">:</span>
                 <span class="n">groupid</span> <span class="o">=</span> <span class="n">secgroup</span><span class="p">[</span><span class="s">&quot;id&quot;</span><span class="p">]</span>
@@ -1014,8 +1209,9 @@
         <span class="k">return</span> <span class="n">groupid</span>
 
     <span class="c"># creating a security group, and optionally add rules to it</span>
+    <span class="c"># for the current TENANT that it authenticated as</span>
     <span class="c"># This implementation is based on the rest api</span></div>
-<div class="viewcode-block" id="openstack.create_security_group"><a class="viewcode-back" href="../../../../modules/cloudmesh.iaas.openstack.html#cloudmesh.iaas.openstack.cm_compute.openstack.create_security_group">[docs]</a>    <span class="k">def</span> <span class="nf">create_security_group</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tenant_id</span><span class="p">,</span> <span class="n">secgroup</span><span class="p">,</span> <span class="n">rules</span><span class="o">=</span><span class="p">[]):</span>
+<div class="viewcode-block" id="openstack.create_security_group"><a class="viewcode-back" href="../../../../modules/cloudmesh.iaas.openstack.html#cloudmesh.iaas.openstack.cm_compute.openstack.create_security_group">[docs]</a>    <span class="k">def</span> <span class="nf">create_security_group</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">secgroup</span><span class="p">,</span> <span class="n">rules</span><span class="o">=</span><span class="p">[]):</span>
         <span class="n">conf</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_service_endpoint</span><span class="p">(</span><span class="s">&quot;compute&quot;</span><span class="p">)</span>
         <span class="n">publicURL</span> <span class="o">=</span> <span class="n">conf</span><span class="p">[</span><span class="s">&#39;publicURL&#39;</span><span class="p">]</span>
         <span class="n">posturl</span> <span class="o">=</span> <span class="s">&quot;</span><span class="si">%s</span><span class="s">/os-security-groups&quot;</span> <span class="o">%</span> <span class="n">publicURL</span>
@@ -1024,7 +1220,7 @@
                                     <span class="s">&quot;description&quot;</span><span class="p">:</span> <span class="n">secgroup</span><span class="o">.</span><span class="n">description</span>
                                     <span class="p">}</span>
                   <span class="p">}</span>
-        <span class="c"># print params</span>
+        <span class="c">#         log.debug (&quot;POST PARAMS {0}&quot;.format(params))</span>
         <span class="n">ret</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_post</span><span class="p">(</span><span class="n">posturl</span><span class="p">,</span> <span class="n">params</span><span class="p">)</span>
         <span class="n">groupid</span> <span class="o">=</span> <span class="bp">None</span>
         <span class="c"># upon successful, it returns a dict keyed by &#39;security_group&#39;,</span>
@@ -1058,7 +1254,7 @@
                                             <span class="s">&quot;parent_group_id&quot;</span><span class="p">:</span> <span class="n">groupid</span>
                                             <span class="p">}</span>
                       <span class="p">}</span>
-            <span class="c"># print params</span>
+            <span class="c">#         log.debug (&quot;POST PARAMS {0}&quot;.format(params))</span>
             <span class="n">ret</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_post</span><span class="p">(</span><span class="n">posturl</span><span class="p">,</span> <span class="n">params</span><span class="p">)</span>
             <span class="k">if</span> <span class="s">&quot;security_group_rule&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">ret</span><span class="p">:</span>
                 <span class="n">log</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s">&quot;Failed to create security group rule(s). Error message: &#39;</span><span class="si">%s</span><span class="s">&#39;&quot;</span> <span class="o">%</span> <span class="n">ret</span><span class="p">)</span>

@@ -1,13 +1,3 @@
-
-
-  
-  
- 
-  
-  
- 
-
-
 <!DOCTYPE html>
 
 
@@ -25,7 +15,7 @@
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '',
+        URL_ROOT:    './',
         VERSION:     '0.1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
@@ -42,8 +32,8 @@
     <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
     <link rel="author" title="About these documents" href="about.html" />
     <link rel="top" title="Cloudmesh 0.1 documentation" href="index.html" />
-    <link rel="next" title="7   Plan: Cloudmesh Service Shift" href="plan/plan.html" />
-    <link rel="prev" title="4   Nosetests" href="nosetest.html" />
+    <link rel="next" title="cm-manage" href="cm-manage.html" />
+    <link rel="prev" title="Configuration" href="configure.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -61,7 +51,8 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="index.html">Cloudmesh</a>
+        <a class="navbar-brand" href="index.html"><img src="_static/fg-logo-white-24x36.png">
+          Cloudmesh</a>
         <span class="navbar-text navbar-version pull-left"><b>0.1</b></span>
       </div>
 
@@ -141,6 +132,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="developer.html#example-hpc-queue-server">4.12&nbsp;&nbsp;&nbsp;Example: HPC queue server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer.html#environment">4.13&nbsp;&nbsp;&nbsp;ENVIRONMENT</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="celery.html">5&nbsp;&nbsp;&nbsp;Celery Setup</a><ul>
@@ -161,9 +153,135 @@
 </ul>
 </li>
 </ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="configure.html">Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="configure.html#cloudmesh-yaml">cloudmesh.yaml</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="configure.html#hp-cloud">HP Cloud</a></li>
+<li class="toctree-l3"><a class="reference internal" href="configure.html#azure">Azure</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="configure.html#amazon-web-services">Amazon Web Services</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="configure.html#india">India</a></li>
+<li class="toctree-l3"><a class="reference internal" href="configure.html#sierra">Sierra</a></li>
+<li class="toctree-l3"><a class="reference internal" href="configure.html#alamo">Alamo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="configure.html#a-complete-example">A complete example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="configure.html#cloudmesh-server-yaml">cloudmesh-server.yaml</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="configure.html#debugging">Debugging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="configure.html#web-ui">Web UI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="configure.html#ldap-integration">LDAP Integration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="configure.html#baremetal-provisioning-with-teefa">Baremetal provisioning with teefa</a></li>
+<li class="toctree-l3"><a class="reference internal" href="configure.html#clusters">Clusters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="configure.html#roles">Roles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="configure.html#keystone-server">Keystone server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="configure.html#mongo">Mongo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="configure.html#complete-example">Complete Example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="configure.html#cloudmesh-cluster-yaml">cloudmesh_cluster.yaml</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="configure.html#metadata">Metadata</a></li>
+<li class="toctree-l3"><a class="reference internal" href="configure.html#id1">Clusters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="configure.html#a-cluster">A Cluster</a></li>
+<li class="toctree-l3"><a class="reference internal" href="configure.html#network">Network:</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="configure.html#cloudmesh-bootspec-yaml">cloudmesh_bootspec.yaml</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configure.html#other-yaml-files">Other Yaml files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configure.html#me-sample">Me Sample</a></li>
+</ul>
+</li>
+</ul>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="">5&nbsp;&nbsp;&nbsp;Cloud Mesh</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#commands">6&nbsp;&nbsp;&nbsp;Commands</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">5&nbsp;&nbsp;&nbsp;Cloud Mesh</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#defaults">5.1&nbsp;&nbsp;&nbsp;Defaults</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#register-clouds">5.2&nbsp;&nbsp;&nbsp;Register Clouds</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#register-an-aws-account">5.2.1&nbsp;&nbsp;&nbsp;Register an AWS account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#register-an-azure-account">5.2.2&nbsp;&nbsp;&nbsp;Register an azure account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#register-an-eucalyptus-account">5.2.3&nbsp;&nbsp;&nbsp;Register an Eucalyptus account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#register-an-openstack-account">5.2.4&nbsp;&nbsp;&nbsp;Register an OpenStack account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#register-an-ec2-account">5.2.5&nbsp;&nbsp;&nbsp;Register an EC2 account</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#activate-clouds">5.3&nbsp;&nbsp;&nbsp;Activate Clouds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#managing-projects">5.4&nbsp;&nbsp;&nbsp;Managing Projects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#managing-users">5.5&nbsp;&nbsp;&nbsp;Managing Users</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#manageing-virtual-machines">5.6&nbsp;&nbsp;&nbsp;Manageing Virtual Machines</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#list-images">5.6.1&nbsp;&nbsp;&nbsp;List images</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#starting-vms">5.6.2&nbsp;&nbsp;&nbsp;Starting VMs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#manageing-security-groups">5.6.3&nbsp;&nbsp;&nbsp;Manageing Security Groups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#managing-volumes">5.6.4&nbsp;&nbsp;&nbsp;Managing Volumes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#managing-heat-s-for-openstack">5.6.5&nbsp;&nbsp;&nbsp;Managing heat&#8217;s for OpenStack</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#commands">6&nbsp;&nbsp;&nbsp;Commands</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#listing-images">6.1&nbsp;&nbsp;&nbsp;Listing images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cm-manage-initialize-user-name-password-password">6.2&nbsp;&nbsp;&nbsp;cm manage initialize &#8211;user&lt;name&gt; &#8211;password &lt;password&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cm-project-list">6.3&nbsp;&nbsp;&nbsp;cm project list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cm-project-info-number">6.4&nbsp;&nbsp;&nbsp;cm project &#8211;info &lt;number&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cm-project-activate-number">6.5&nbsp;&nbsp;&nbsp;cm project &#8211;activate &lt;number&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cm-project-deactivate">6.6&nbsp;&nbsp;&nbsp;cm project &#8211;deactivate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cm-env">6.7&nbsp;&nbsp;&nbsp;cm env</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cm-resource-list">6.8&nbsp;&nbsp;&nbsp;cm resource &#8211;list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cm-service-list">6.9&nbsp;&nbsp;&nbsp;cm service &#8211;list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cm-service-register">6.10&nbsp;&nbsp;&nbsp;cm service register</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cm-resource-register">6.11&nbsp;&nbsp;&nbsp;cm resource register</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cm-image-list">6.12&nbsp;&nbsp;&nbsp;cm image &#8211;list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cm-id-list">6.13&nbsp;&nbsp;&nbsp;cm id &#8211;list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cm-label-id-id">6.14&nbsp;&nbsp;&nbsp;cm label &#8211;id &lt;id&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cm-vm-create-label">6.15&nbsp;&nbsp;&nbsp;cm vm create &lt;label&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cm-vm-destroy-label">6.16&nbsp;&nbsp;&nbsp;cm vm destroy &lt;label&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cm-vm-terminate-label">6.17&nbsp;&nbsp;&nbsp;cm vm terminate &lt;label&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cm-vm-suspoend-label">6.18&nbsp;&nbsp;&nbsp;cm vm suspoend &lt;label&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cm-vm-resume-label">6.19&nbsp;&nbsp;&nbsp;cm vm resume &lt;label&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cm-vm-login">6.20&nbsp;&nbsp;&nbsp;cm vm login</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cm-seceurity-group-add-label-parameters">6.21&nbsp;&nbsp;&nbsp;cm seceurity group add &lt;label&gt; &lt;parameters&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cm-seceurity-group-delete">6.22&nbsp;&nbsp;&nbsp;cm seceurity group delete</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cm-seceurity-group-default-add-label">6.23&nbsp;&nbsp;&nbsp;cm seceurity group default add &lt;label&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cm-seceurity-group-default-delete-label">6.24&nbsp;&nbsp;&nbsp;cm seceurity group default delete &lt;label&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#examples">6.25&nbsp;&nbsp;&nbsp;Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cm-manage.html">cm-manage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="coding.html">Cloudmesh Style Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="coding.html#information">Information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coding.html#general">General</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coding.html#imports">Imports</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coding.html#human-alphabetical-order-examples">Human Alphabetical Order Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coding.html#docstrings">Docstrings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coding.html#dictionaries-lists">Dictionaries/Lists</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coding.html#calling-methods">Calling Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coding.html#internationalization-i18n-strings">Internationalization (i18n) Strings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coding.html#python-3-x-compatibility">Python 3.x compatibility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coding.html#creating-unit-tests">Creating Unit Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coding.html#running-tests">Running Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coding.html#building-docs">Building Docs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coding.html#oslo-incubator">oslo-incubator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coding.html#commit-messages">Commit Messages</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="contact.html">Contact</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="contact.html#contributors">Contributors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contact.html#blog">Blog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contact.html#repository">Repository</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="deploy.html">Production Deployment Server</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="deploy.html#instalation">Instalation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="deploy.html#starting-the-deployed-server">Starting the deployed server</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="doc.html">Adding to the Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="doc.html#creating-the-documentation-locally">Creating the documentation locally</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doc.html#rst-documentation">RST Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doc.html#gh-pages">gh-pages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doc.html#published-documentation">Published Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="fg.html">FutureGrid Specific tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="support.html">Support</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="plan/plan.html">7&nbsp;&nbsp;&nbsp;Plan: Cloudmesh Service Shift</a><ul>
@@ -211,21 +329,18 @@
 </li>
 <li class="toctree-l4"><a class="reference internal" href="modules/cloudmesh.config.html">config Package</a><ul>
 <li class="toctree-l5"><a class="reference internal" href="modules/cloudmesh.config.html#id1"><tt class="docutils literal"><span class="pre">config</span></tt> Package</a></li>
-<li class="toctree-l5"><a class="reference internal" href="modules/cloudmesh.config.html#module-cloudmesh.config.cloudmesh_cloud"><tt class="docutils literal"><span class="pre">cloudmesh_cloud</span></tt> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="modules/cloudmesh.config.html#module-cloudmesh.config.cloudmesh_cloud_handler"><tt class="docutils literal"><span class="pre">cloudmesh_cloud_handler</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/cloudmesh.config.html#cloudmesh-cloud-module"><tt class="docutils literal"><span class="pre">cloudmesh_cloud</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/cloudmesh.config.html#cloudmesh-cloud-handler-module"><tt class="docutils literal"><span class="pre">cloudmesh_cloud_handler</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="modules/cloudmesh.config.html#module-cloudmesh.config.cm_config"><tt class="docutils literal"><span class="pre">cm_config</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="modules/cloudmesh.config.html#module-cloudmesh.config.cm_keys"><tt class="docutils literal"><span class="pre">cm_keys</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="modules/cloudmesh.config.html#module-cloudmesh.config.cm_projects"><tt class="docutils literal"><span class="pre">cm_projects</span></tt> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="modules/cloudmesh.config.html#module-cloudmesh.config.cm_rc"><tt class="docutils literal"><span class="pre">cm_rc</span></tt> Module</a><ul>
-<li class="toctree-l6"><a class="reference internal" href="modules/cloudmesh.config.html#cm-manage-config">cm-manage config</a></li>
-</ul>
-</li>
+<li class="toctree-l5"><a class="reference internal" href="modules/cloudmesh.config.html#cm-rc-module"><tt class="docutils literal"><span class="pre">cm_rc</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="modules/cloudmesh.config.html#ldap-user-module"><tt class="docutils literal"><span class="pre">ldap_user</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="modules/cloudmesh.config.html#mock-cloud-module"><tt class="docutils literal"><span class="pre">mock_cloud</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="modules/cloudmesh.config.html#mock-keystone-module"><tt class="docutils literal"><span class="pre">mock_keystone</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="modules/cloudmesh.config.html#mock-user-module"><tt class="docutils literal"><span class="pre">mock_user</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="modules/cloudmesh.config.html#openstack-essex-cloud-module"><tt class="docutils literal"><span class="pre">openstack_essex_cloud</span></tt> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="modules/cloudmesh.config.html#module-cloudmesh.config.openstack_grizzly_cloud"><tt class="docutils literal"><span class="pre">openstack_grizzly_cloud</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/cloudmesh.config.html#openstack-grizzly-cloud-module"><tt class="docutils literal"><span class="pre">openstack_grizzly_cloud</span></tt> Module</a></li>
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="modules/cloudmesh.iaas.html">iaas Package</a><ul>
@@ -234,7 +349,7 @@
 <li class="toctree-l5"><a class="reference internal" href="modules/cloudmesh.iaas.html#subpackages">Subpackages</a><ul>
 <li class="toctree-l6"><a class="reference internal" href="modules/cloudmesh.iaas.azure.html">azure Package</a><ul>
 <li class="toctree-l7"><a class="reference internal" href="modules/cloudmesh.iaas.azure.html#id1"><tt class="docutils literal"><span class="pre">azure</span></tt> Package</a></li>
-<li class="toctree-l7"><a class="reference internal" href="modules/cloudmesh.iaas.azure.html#module-cloudmesh.iaas.azure.cm_azure"><tt class="docutils literal"><span class="pre">cm_azure</span></tt> Module</a></li>
+<li class="toctree-l7"><a class="reference internal" href="modules/cloudmesh.iaas.azure.html#cm-azure-module"><tt class="docutils literal"><span class="pre">cm_azure</span></tt> Module</a></li>
 <li class="toctree-l7"><a class="reference internal" href="modules/cloudmesh.iaas.azure.html#fabfile-module"><tt class="docutils literal"><span class="pre">fabfile</span></tt> Module</a></li>
 </ul>
 </li>
@@ -290,8 +405,57 @@
                 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown">Page <b class="caret"></b></a>
   <ul class="dropdown-menu localtoc"><ul>
-<li><a class="reference internal" href="#">5&nbsp;&nbsp;&nbsp;Cloud Mesh</a></li>
-<li><a class="reference internal" href="#commands">6&nbsp;&nbsp;&nbsp;Commands</a></li>
+<li><a class="reference internal" href="#">5&nbsp;&nbsp;&nbsp;Cloud Mesh</a><ul>
+<li><a class="reference internal" href="#defaults">5.1&nbsp;&nbsp;&nbsp;Defaults</a></li>
+<li><a class="reference internal" href="#register-clouds">5.2&nbsp;&nbsp;&nbsp;Register Clouds</a><ul>
+<li><a class="reference internal" href="#register-an-aws-account">5.2.1&nbsp;&nbsp;&nbsp;Register an AWS account</a></li>
+<li><a class="reference internal" href="#register-an-azure-account">5.2.2&nbsp;&nbsp;&nbsp;Register an azure account</a></li>
+<li><a class="reference internal" href="#register-an-eucalyptus-account">5.2.3&nbsp;&nbsp;&nbsp;Register an Eucalyptus account</a></li>
+<li><a class="reference internal" href="#register-an-openstack-account">5.2.4&nbsp;&nbsp;&nbsp;Register an OpenStack account</a></li>
+<li><a class="reference internal" href="#register-an-ec2-account">5.2.5&nbsp;&nbsp;&nbsp;Register an EC2 account</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#activate-clouds">5.3&nbsp;&nbsp;&nbsp;Activate Clouds</a></li>
+<li><a class="reference internal" href="#managing-projects">5.4&nbsp;&nbsp;&nbsp;Managing Projects</a></li>
+<li><a class="reference internal" href="#managing-users">5.5&nbsp;&nbsp;&nbsp;Managing Users</a></li>
+<li><a class="reference internal" href="#manageing-virtual-machines">5.6&nbsp;&nbsp;&nbsp;Manageing Virtual Machines</a><ul>
+<li><a class="reference internal" href="#list-images">5.6.1&nbsp;&nbsp;&nbsp;List images</a></li>
+<li><a class="reference internal" href="#starting-vms">5.6.2&nbsp;&nbsp;&nbsp;Starting VMs</a></li>
+<li><a class="reference internal" href="#manageing-security-groups">5.6.3&nbsp;&nbsp;&nbsp;Manageing Security Groups</a></li>
+<li><a class="reference internal" href="#managing-volumes">5.6.4&nbsp;&nbsp;&nbsp;Managing Volumes</a></li>
+<li><a class="reference internal" href="#managing-heat-s-for-openstack">5.6.5&nbsp;&nbsp;&nbsp;Managing heat&#8217;s for OpenStack</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#commands">6&nbsp;&nbsp;&nbsp;Commands</a><ul>
+<li><a class="reference internal" href="#listing-images">6.1&nbsp;&nbsp;&nbsp;Listing images</a></li>
+<li><a class="reference internal" href="#cm-manage-initialize-user-name-password-password">6.2&nbsp;&nbsp;&nbsp;cm manage initialize &#8211;user&lt;name&gt; &#8211;password &lt;password&gt;</a></li>
+<li><a class="reference internal" href="#cm-project-list">6.3&nbsp;&nbsp;&nbsp;cm project list</a></li>
+<li><a class="reference internal" href="#cm-project-info-number">6.4&nbsp;&nbsp;&nbsp;cm project &#8211;info &lt;number&gt;</a></li>
+<li><a class="reference internal" href="#cm-project-activate-number">6.5&nbsp;&nbsp;&nbsp;cm project &#8211;activate &lt;number&gt;</a></li>
+<li><a class="reference internal" href="#cm-project-deactivate">6.6&nbsp;&nbsp;&nbsp;cm project &#8211;deactivate</a></li>
+<li><a class="reference internal" href="#cm-env">6.7&nbsp;&nbsp;&nbsp;cm env</a></li>
+<li><a class="reference internal" href="#cm-resource-list">6.8&nbsp;&nbsp;&nbsp;cm resource &#8211;list</a></li>
+<li><a class="reference internal" href="#cm-service-list">6.9&nbsp;&nbsp;&nbsp;cm service &#8211;list</a></li>
+<li><a class="reference internal" href="#cm-service-register">6.10&nbsp;&nbsp;&nbsp;cm service register</a></li>
+<li><a class="reference internal" href="#cm-resource-register">6.11&nbsp;&nbsp;&nbsp;cm resource register</a></li>
+<li><a class="reference internal" href="#cm-image-list">6.12&nbsp;&nbsp;&nbsp;cm image &#8211;list</a></li>
+<li><a class="reference internal" href="#cm-id-list">6.13&nbsp;&nbsp;&nbsp;cm id &#8211;list</a></li>
+<li><a class="reference internal" href="#cm-label-id-id">6.14&nbsp;&nbsp;&nbsp;cm label &#8211;id &lt;id&gt;</a></li>
+<li><a class="reference internal" href="#cm-vm-create-label">6.15&nbsp;&nbsp;&nbsp;cm vm create &lt;label&gt;</a></li>
+<li><a class="reference internal" href="#cm-vm-destroy-label">6.16&nbsp;&nbsp;&nbsp;cm vm destroy &lt;label&gt;</a></li>
+<li><a class="reference internal" href="#cm-vm-terminate-label">6.17&nbsp;&nbsp;&nbsp;cm vm terminate &lt;label&gt;</a></li>
+<li><a class="reference internal" href="#cm-vm-suspoend-label">6.18&nbsp;&nbsp;&nbsp;cm vm suspoend &lt;label&gt;</a></li>
+<li><a class="reference internal" href="#cm-vm-resume-label">6.19&nbsp;&nbsp;&nbsp;cm vm resume &lt;label&gt;</a></li>
+<li><a class="reference internal" href="#cm-vm-login">6.20&nbsp;&nbsp;&nbsp;cm vm login</a></li>
+<li><a class="reference internal" href="#cm-seceurity-group-add-label-parameters">6.21&nbsp;&nbsp;&nbsp;cm seceurity group add &lt;label&gt; &lt;parameters&gt;</a></li>
+<li><a class="reference internal" href="#cm-seceurity-group-delete">6.22&nbsp;&nbsp;&nbsp;cm seceurity group delete</a></li>
+<li><a class="reference internal" href="#cm-seceurity-group-default-add-label">6.23&nbsp;&nbsp;&nbsp;cm seceurity group default add &lt;label&gt;</a></li>
+<li><a class="reference internal" href="#cm-seceurity-group-default-delete-label">6.24&nbsp;&nbsp;&nbsp;cm seceurity group default delete &lt;label&gt;</a></li>
+<li><a class="reference internal" href="#examples">6.25&nbsp;&nbsp;&nbsp;Examples</a></li>
+</ul>
+</li>
 </ul>
 </ul>
 </li>
@@ -300,16 +464,20 @@
             
               
                 
-  <li><a href="nosetest.html"
-         title="Previous Chapter: 4   Nosetests">&laquo; 4   Nosetests</a></li>
-  <li><a href="plan/plan.html"
-         title="Next Chapter: 7   Plan: Cloudmesh Service Shift">7   Plan: Cloudm... &raquo;</a></li>
+  <li>
+    <a href="configure.html" title="Previous Chapter: Configuration"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm">&laquo; Configuration</span>
+    </a>
+  </li>
+  <li>
+    <a href="cm-manage.html" title="Next Chapter: cm-manage"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm">cm-manage &raquo;</span>
+    </a>
+  </li>
               
             
             
             
             
-              <li>
+              <li class="hidden-sm">
 <div id="sourcelink">
   <a href="_sources/cm-shell.txt"
      rel="nofollow">Source</a>
@@ -339,10 +507,133 @@
 <h1>5&nbsp;&nbsp;&nbsp;Cloud Mesh<a class="headerlink" href="#cloud-mesh" title="Permalink to this headline">¶</a></h1>
 <p>A project to interface easily with multiple clouds from the
 commandline and a command shell.</p>
+<div class="section" id="defaults">
+<h2>5.1&nbsp;&nbsp;&nbsp;Defaults<a class="headerlink" href="#defaults" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">env</span>
+</pre></div>
+</div>
+<div class="highlight-python"><pre>default ...</pre>
+</div>
+</div>
+<div class="section" id="register-clouds">
+<h2>5.2&nbsp;&nbsp;&nbsp;Register Clouds<a class="headerlink" href="#register-clouds" title="Permalink to this headline">¶</a></h2>
+<p>Before you can use a cloud you need to register it. Registration will
+allow you to log into the cloud and use its resources.</p>
+<div class="section" id="register-an-aws-account">
+<h3>5.2.1&nbsp;&nbsp;&nbsp;Register an AWS account<a class="headerlink" href="#register-an-aws-account" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><pre>cm register aws ...</pre>
+</div>
+<p>Example:</p>
+<ul class="simple">
+<li>Amazon AWS account</li>
+</ul>
+</div>
+<div class="section" id="register-an-azure-account">
+<h3>5.2.2&nbsp;&nbsp;&nbsp;Register an azure account<a class="headerlink" href="#register-an-azure-account" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><pre>cm register azure ...</pre>
+</div>
+<p>Example:</p>
+<ul class="simple">
+<li>Microsoft azure Cloud</li>
+</ul>
+</div>
+<div class="section" id="register-an-eucalyptus-account">
+<h3>5.2.3&nbsp;&nbsp;&nbsp;Register an Eucalyptus account<a class="headerlink" href="#register-an-eucalyptus-account" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><pre>cm register eucalyptus ...</pre>
+</div>
+<ul class="simple">
+<li>FutureGrid india (Eucalyptus)</li>
+</ul>
+</div>
+<div class="section" id="register-an-openstack-account">
+<h3>5.2.4&nbsp;&nbsp;&nbsp;Register an OpenStack account<a class="headerlink" href="#register-an-openstack-account" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><pre>cm register openstack ...</pre>
+</div>
+<p>Examples:</p>
+<ul class="simple">
+<li>FutureGrid sierra</li>
+<li>FutureGrid india (Openstack)</li>
+<li>HP Cloud</li>
+</ul>
+</div>
+<div class="section" id="register-an-ec2-account">
+<h3>5.2.5&nbsp;&nbsp;&nbsp;Register an EC2 account<a class="headerlink" href="#register-an-ec2-account" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><pre>cm register ec2 ...</pre>
+</div>
+<p>Examples:</p>
+<ul class="simple">
+<li>FutureGrid alamo</li>
+<li>FutureGrid hotel</li>
+</ul>
+</div>
+</div>
+<div class="section" id="activate-clouds">
+<h2>5.3&nbsp;&nbsp;&nbsp;Activate Clouds<a class="headerlink" href="#activate-clouds" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><pre>cm activate &lt;label&gt;</pre>
+</div>
+<div class="highlight-python"><pre>cm deactivate &lt;label&gt;</pre>
+</div>
+<dl class="docutils">
+<dt>::</dt>
+<dd>cm activate &lt;label&gt; yes
+cm activate &lt;label&gt; no</dd>
+</dl>
+<dl class="docutils">
+<dt>::</dt>
+<dd>cm activate &lt;label&gt; select</dd>
+</dl>
+<p>Prints a little menu that allows you to select a number and activate
+the cloud from the menu</p>
+</div>
+<div class="section" id="managing-projects">
+<h2>5.4&nbsp;&nbsp;&nbsp;Managing Projects<a class="headerlink" href="#managing-projects" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="managing-users">
+<h2>5.5&nbsp;&nbsp;&nbsp;Managing Users<a class="headerlink" href="#managing-users" title="Permalink to this headline">¶</a></h2>
+<p>TBD</p>
+</div>
+<div class="section" id="manageing-virtual-machines">
+<h2>5.6&nbsp;&nbsp;&nbsp;Manageing Virtual Machines<a class="headerlink" href="#manageing-virtual-machines" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="list-images">
+<h3>5.6.1&nbsp;&nbsp;&nbsp;List images<a class="headerlink" href="#list-images" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="starting-vms">
+<h3>5.6.2&nbsp;&nbsp;&nbsp;Starting VMs<a class="headerlink" href="#starting-vms" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="manageing-security-groups">
+<h3>5.6.3&nbsp;&nbsp;&nbsp;Manageing Security Groups<a class="headerlink" href="#manageing-security-groups" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="managing-volumes">
+<h3>5.6.4&nbsp;&nbsp;&nbsp;Managing Volumes<a class="headerlink" href="#managing-volumes" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="managing-heat-s-for-openstack">
+<h3>5.6.5&nbsp;&nbsp;&nbsp;Managing heat&#8217;s for OpenStack<a class="headerlink" href="#managing-heat-s-for-openstack" title="Permalink to this headline">¶</a></h3>
+<p>(Jonathan)</p>
+</div>
+</div>
 </div>
 <div class="section" id="commands">
 <h1>6&nbsp;&nbsp;&nbsp;Commands<a class="headerlink" href="#commands" title="Permalink to this headline">¶</a></h1>
-<p>cm manage initialize &#8211;user&lt;name&gt; &#8211;password &lt;password&gt;</p>
+<p>Creating configuration files</p>
+<div class="highlight-python"><pre>cm generate me
+
+cm generat yaml
+
+they do exist ;-)
+
+cm-manage</pre>
+</div>
+<div class="section" id="listing-images">
+<h2>6.1&nbsp;&nbsp;&nbsp;Listing images<a class="headerlink" href="#listing-images" title="Permalink to this headline">¶</a></h2>
+<p>To list all images you do</p>
+<div class="highlight-python"><pre>cm image --list</pre>
+</div>
+<p>To list a specfic image you can do:</p>
+<div class="highlight-python"><pre>the other</pre>
+</div>
+</div>
+<div class="section" id="cm-manage-initialize-user-name-password-password">
+<h2>6.2&nbsp;&nbsp;&nbsp;cm manage initialize &#8211;user&lt;name&gt; &#8211;password &lt;password&gt;<a class="headerlink" href="#cm-manage-initialize-user-name-password-password" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><ul class="simple">
 <li>connects to FG and retrieves important information for you to use</li>
@@ -353,75 +644,137 @@ information</li>
 <li>if the command is called more than 10 times a day the account is disabled</li>
 </ul>
 </div></blockquote>
-<p>cm project list</p>
+</div>
+<div class="section" id="cm-project-list">
+<h2>6.3&nbsp;&nbsp;&nbsp;cm project list<a class="headerlink" href="#cm-project-list" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div>lists the projects a user is in</div></blockquote>
-<p>cm project &#8211;info &lt;number&gt;</p>
+</div>
+<div class="section" id="cm-project-info-number">
+<h2>6.4&nbsp;&nbsp;&nbsp;cm project &#8211;info &lt;number&gt;<a class="headerlink" href="#cm-project-info-number" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><ul class="simple">
 <li>retrieves information about the project</li>
 <li>if the user is the manager or lead it returns member information</li>
 </ul>
 </div></blockquote>
-<p>cm project &#8211;activate &lt;number&gt;</p>
+</div>
+<div class="section" id="cm-project-activate-number">
+<h2>6.5&nbsp;&nbsp;&nbsp;cm project &#8211;activate &lt;number&gt;<a class="headerlink" href="#cm-project-activate-number" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><ul class="simple">
 <li>activates charging for this project</li>
 <li>subsequent calls are charged against this project</li>
 </ul>
 </div></blockquote>
-<p>cm project &#8211;deactivate</p>
+</div>
+<div class="section" id="cm-project-deactivate">
+<h2>6.6&nbsp;&nbsp;&nbsp;cm project &#8211;deactivate<a class="headerlink" href="#cm-project-deactivate" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><ul class="simple">
 <li>deactivates any charge of a project</li>
 </ul>
 </div></blockquote>
-<p>cm env</p>
+</div>
+<div class="section" id="cm-env">
+<h2>6.7&nbsp;&nbsp;&nbsp;cm env<a class="headerlink" href="#cm-env" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><ul class="simple">
 <li>prints the environment and its variables currently associated
 with cm</li>
 </ul>
 </div></blockquote>
-<p>cm resource &#8211;list</p>
+</div>
+<div class="section" id="cm-resource-list">
+<h2>6.8&nbsp;&nbsp;&nbsp;cm resource &#8211;list<a class="headerlink" href="#cm-resource-list" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><ul class="simple">
 <li>lists the resources available for the user</li>
 </ul>
 </div></blockquote>
-<p>cm service &#8211;list</p>
+</div>
+<div class="section" id="cm-service-list">
+<h2>6.9&nbsp;&nbsp;&nbsp;cm service &#8211;list<a class="headerlink" href="#cm-service-list" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><ul class="simple">
 <li>list the services in the cloud mesh</li>
 </ul>
 </div></blockquote>
-<p>cm service register</p>
+</div>
+<div class="section" id="cm-service-register">
+<h2>6.10&nbsp;&nbsp;&nbsp;cm service register<a class="headerlink" href="#cm-service-register" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div>see fg-inventory</div></blockquote>
-<p>cm resource register</p>
+</div>
+<div class="section" id="cm-resource-register">
+<h2>6.11&nbsp;&nbsp;&nbsp;cm resource register<a class="headerlink" href="#cm-resource-register" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div>see fg-inventory</div></blockquote>
-<p>cm image &#8211;list</p>
+</div>
+<div class="section" id="cm-image-list">
+<h2>6.12&nbsp;&nbsp;&nbsp;cm image &#8211;list<a class="headerlink" href="#cm-image-list" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><ul class="simple">
 <li>list the images</li>
 </ul>
 </div></blockquote>
-<p>cm id &#8211;list</p>
+</div>
+<div class="section" id="cm-id-list">
+<h2>6.13&nbsp;&nbsp;&nbsp;cm id &#8211;list<a class="headerlink" href="#cm-id-list" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><ul class="simple">
 <li>list all ids and their types</li>
 </ul>
 </div></blockquote>
-<p>cm label &#8211;id &lt;id&gt;</p>
+</div>
+<div class="section" id="cm-label-id-id">
+<h2>6.14&nbsp;&nbsp;&nbsp;cm label &#8211;id &lt;id&gt;<a class="headerlink" href="#cm-label-id-id" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><ul class="simple">
 <li>associates a human readable lable with an id</li>
 </ul>
 </div></blockquote>
-<p>cm create &lt;label&gt;</p>
-<p>cm destroy &lt;label&gt;</p>
-<p>cm terminate &lt;label&gt;</p>
+</div>
+<div class="section" id="cm-vm-create-label">
+<h2>6.15&nbsp;&nbsp;&nbsp;cm vm create &lt;label&gt;<a class="headerlink" href="#cm-vm-create-label" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="cm-vm-destroy-label">
+<h2>6.16&nbsp;&nbsp;&nbsp;cm vm destroy &lt;label&gt;<a class="headerlink" href="#cm-vm-destroy-label" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="cm-vm-terminate-label">
+<h2>6.17&nbsp;&nbsp;&nbsp;cm vm terminate &lt;label&gt;<a class="headerlink" href="#cm-vm-terminate-label" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="cm-vm-suspoend-label">
+<h2>6.18&nbsp;&nbsp;&nbsp;cm vm suspoend &lt;label&gt;<a class="headerlink" href="#cm-vm-suspoend-label" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="cm-vm-resume-label">
+<h2>6.19&nbsp;&nbsp;&nbsp;cm vm resume &lt;label&gt;<a class="headerlink" href="#cm-vm-resume-label" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="cm-vm-login">
+<h2>6.20&nbsp;&nbsp;&nbsp;cm vm login<a class="headerlink" href="#cm-vm-login" title="Permalink to this headline">¶</a></h2>
+<p>= ssh label</p>
+</div>
+<div class="section" id="cm-seceurity-group-add-label-parameters">
+<h2>6.21&nbsp;&nbsp;&nbsp;cm seceurity group add &lt;label&gt; &lt;parameters&gt;<a class="headerlink" href="#cm-seceurity-group-add-label-parameters" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="cm-seceurity-group-delete">
+<h2>6.22&nbsp;&nbsp;&nbsp;cm seceurity group delete<a class="headerlink" href="#cm-seceurity-group-delete" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="cm-seceurity-group-default-add-label">
+<h2>6.23&nbsp;&nbsp;&nbsp;cm seceurity group default add &lt;label&gt;<a class="headerlink" href="#cm-seceurity-group-default-add-label" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="cm-seceurity-group-default-delete-label">
+<h2>6.24&nbsp;&nbsp;&nbsp;cm seceurity group default delete &lt;label&gt;<a class="headerlink" href="#cm-seceurity-group-default-delete-label" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="examples">
+<h2>6.25&nbsp;&nbsp;&nbsp;Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<p>The goal of this example is to .....</p>
+<p>multiple vms, multiple clouds
+configuration</p>
+<p>starting vms</p>
+<p>listng status of all started vmsd across all clouds</p>
+<p>ssh login -&gt; can not be don with pytho sha but must be done with os.system</p>
+</div>
 </div>
 
 

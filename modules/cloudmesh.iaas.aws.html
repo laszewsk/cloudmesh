@@ -1,13 +1,3 @@
-
-
-  
-  
- 
-  
-  
- 
-
-
 <!DOCTYPE html>
 
 
@@ -15,7 +5,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>aws Package &mdash; Cloudmesh 0.1 documentation</title>
+    <title>cloudmesh.iaas.aws package &mdash; Cloudmesh 0.1 documentation</title>
     
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -59,7 +49,8 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="../index.html">Cloudmesh</a>
+        <a class="navbar-brand" href="../index.html"><img src="../_static/fg-logo-white-24x36.png">
+          Cloudmesh</a>
         <span class="navbar-text navbar-version pull-left"><b>0.1</b></span>
       </div>
 
@@ -139,6 +130,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../developer.html#example-hpc-queue-server">4.12&nbsp;&nbsp;&nbsp;Example: HPC queue server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer.html#environment">4.13&nbsp;&nbsp;&nbsp;ENVIRONMENT</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../celery.html">5&nbsp;&nbsp;&nbsp;Celery Setup</a><ul>
@@ -160,8 +152,134 @@
 </li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../cm-shell.html">5&nbsp;&nbsp;&nbsp;Cloud Mesh</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cm-shell.html#commands">6&nbsp;&nbsp;&nbsp;Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configure.html">Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../configure.html#cloudmesh-yaml">cloudmesh.yaml</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../configure.html#hp-cloud">HP Cloud</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../configure.html#azure">Azure</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../configure.html#amazon-web-services">Amazon Web Services</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../configure.html#india">India</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../configure.html#sierra">Sierra</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../configure.html#alamo">Alamo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../configure.html#a-complete-example">A complete example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../configure.html#cloudmesh-server-yaml">cloudmesh-server.yaml</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../configure.html#debugging">Debugging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../configure.html#web-ui">Web UI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../configure.html#ldap-integration">LDAP Integration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../configure.html#baremetal-provisioning-with-teefa">Baremetal provisioning with teefa</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../configure.html#clusters">Clusters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../configure.html#roles">Roles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../configure.html#keystone-server">Keystone server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../configure.html#mongo">Mongo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../configure.html#complete-example">Complete Example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../configure.html#cloudmesh-cluster-yaml">cloudmesh_cluster.yaml</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../configure.html#metadata">Metadata</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../configure.html#id1">Clusters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../configure.html#a-cluster">A Cluster</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../configure.html#network">Network:</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../configure.html#cloudmesh-bootspec-yaml">cloudmesh_bootspec.yaml</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../configure.html#other-yaml-files">Other Yaml files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../configure.html#me-sample">Me Sample</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../cm-shell.html">5&nbsp;&nbsp;&nbsp;Cloud Mesh</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cm-shell.html#defaults">5.1&nbsp;&nbsp;&nbsp;Defaults</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cm-shell.html#register-clouds">5.2&nbsp;&nbsp;&nbsp;Register Clouds</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../cm-shell.html#register-an-aws-account">5.2.1&nbsp;&nbsp;&nbsp;Register an AWS account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cm-shell.html#register-an-azure-account">5.2.2&nbsp;&nbsp;&nbsp;Register an azure account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cm-shell.html#register-an-eucalyptus-account">5.2.3&nbsp;&nbsp;&nbsp;Register an Eucalyptus account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cm-shell.html#register-an-openstack-account">5.2.4&nbsp;&nbsp;&nbsp;Register an OpenStack account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cm-shell.html#register-an-ec2-account">5.2.5&nbsp;&nbsp;&nbsp;Register an EC2 account</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../cm-shell.html#activate-clouds">5.3&nbsp;&nbsp;&nbsp;Activate Clouds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cm-shell.html#managing-projects">5.4&nbsp;&nbsp;&nbsp;Managing Projects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cm-shell.html#managing-users">5.5&nbsp;&nbsp;&nbsp;Managing Users</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cm-shell.html#manageing-virtual-machines">5.6&nbsp;&nbsp;&nbsp;Manageing Virtual Machines</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../cm-shell.html#list-images">5.6.1&nbsp;&nbsp;&nbsp;List images</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cm-shell.html#starting-vms">5.6.2&nbsp;&nbsp;&nbsp;Starting VMs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cm-shell.html#manageing-security-groups">5.6.3&nbsp;&nbsp;&nbsp;Manageing Security Groups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cm-shell.html#managing-volumes">5.6.4&nbsp;&nbsp;&nbsp;Managing Volumes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cm-shell.html#managing-heat-s-for-openstack">5.6.5&nbsp;&nbsp;&nbsp;Managing heat&#8217;s for OpenStack</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../cm-shell.html#commands">6&nbsp;&nbsp;&nbsp;Commands</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cm-shell.html#listing-images">6.1&nbsp;&nbsp;&nbsp;Listing images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cm-shell.html#cm-manage-initialize-user-name-password-password">6.2&nbsp;&nbsp;&nbsp;cm manage initialize &#8211;user&lt;name&gt; &#8211;password &lt;password&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cm-shell.html#cm-project-list">6.3&nbsp;&nbsp;&nbsp;cm project list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cm-shell.html#cm-project-info-number">6.4&nbsp;&nbsp;&nbsp;cm project &#8211;info &lt;number&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cm-shell.html#cm-project-activate-number">6.5&nbsp;&nbsp;&nbsp;cm project &#8211;activate &lt;number&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cm-shell.html#cm-project-deactivate">6.6&nbsp;&nbsp;&nbsp;cm project &#8211;deactivate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cm-shell.html#cm-env">6.7&nbsp;&nbsp;&nbsp;cm env</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cm-shell.html#cm-resource-list">6.8&nbsp;&nbsp;&nbsp;cm resource &#8211;list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cm-shell.html#cm-service-list">6.9&nbsp;&nbsp;&nbsp;cm service &#8211;list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cm-shell.html#cm-service-register">6.10&nbsp;&nbsp;&nbsp;cm service register</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cm-shell.html#cm-resource-register">6.11&nbsp;&nbsp;&nbsp;cm resource register</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cm-shell.html#cm-image-list">6.12&nbsp;&nbsp;&nbsp;cm image &#8211;list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cm-shell.html#cm-id-list">6.13&nbsp;&nbsp;&nbsp;cm id &#8211;list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cm-shell.html#cm-label-id-id">6.14&nbsp;&nbsp;&nbsp;cm label &#8211;id &lt;id&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cm-shell.html#cm-vm-create-label">6.15&nbsp;&nbsp;&nbsp;cm vm create &lt;label&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cm-shell.html#cm-vm-destroy-label">6.16&nbsp;&nbsp;&nbsp;cm vm destroy &lt;label&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cm-shell.html#cm-vm-terminate-label">6.17&nbsp;&nbsp;&nbsp;cm vm terminate &lt;label&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cm-shell.html#cm-vm-suspoend-label">6.18&nbsp;&nbsp;&nbsp;cm vm suspoend &lt;label&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cm-shell.html#cm-vm-resume-label">6.19&nbsp;&nbsp;&nbsp;cm vm resume &lt;label&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cm-shell.html#cm-vm-login">6.20&nbsp;&nbsp;&nbsp;cm vm login</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cm-shell.html#cm-seceurity-group-add-label-parameters">6.21&nbsp;&nbsp;&nbsp;cm seceurity group add &lt;label&gt; &lt;parameters&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cm-shell.html#cm-seceurity-group-delete">6.22&nbsp;&nbsp;&nbsp;cm seceurity group delete</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cm-shell.html#cm-seceurity-group-default-add-label">6.23&nbsp;&nbsp;&nbsp;cm seceurity group default add &lt;label&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cm-shell.html#cm-seceurity-group-default-delete-label">6.24&nbsp;&nbsp;&nbsp;cm seceurity group default delete &lt;label&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cm-shell.html#examples">6.25&nbsp;&nbsp;&nbsp;Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../cm-manage.html">cm-manage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../coding.html">Cloudmesh Style Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../coding.html#information">Information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../coding.html#general">General</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../coding.html#imports">Imports</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../coding.html#human-alphabetical-order-examples">Human Alphabetical Order Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../coding.html#docstrings">Docstrings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../coding.html#dictionaries-lists">Dictionaries/Lists</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../coding.html#calling-methods">Calling Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../coding.html#internationalization-i18n-strings">Internationalization (i18n) Strings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../coding.html#python-3-x-compatibility">Python 3.x compatibility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../coding.html#creating-unit-tests">Creating Unit Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../coding.html#running-tests">Running Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../coding.html#building-docs">Building Docs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../coding.html#oslo-incubator">oslo-incubator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../coding.html#commit-messages">Commit Messages</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../contact.html">Contact</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../contact.html#contributors">Contributors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../contact.html#blog">Blog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../contact.html#repository">Repository</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../deploy.html">Production Deployment Server</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../deploy.html#instalation">Instalation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../deploy.html#starting-the-deployed-server">Starting the deployed server</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../doc.html">Adding to the Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../doc.html#creating-the-documentation-locally">Creating the documentation locally</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../doc.html#rst-documentation">RST Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../doc.html#gh-pages">gh-pages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../doc.html#published-documentation">Published Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../fg.html">FutureGrid Specific tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support.html">Support</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../plan/plan.html">7&nbsp;&nbsp;&nbsp;Plan: Cloudmesh Service Shift</a><ul>
@@ -209,21 +327,18 @@
 </li>
 <li class="toctree-l4"><a class="reference internal" href="cloudmesh.config.html">config Package</a><ul>
 <li class="toctree-l5"><a class="reference internal" href="cloudmesh.config.html#id1"><tt class="docutils literal"><span class="pre">config</span></tt> Package</a></li>
-<li class="toctree-l5"><a class="reference internal" href="cloudmesh.config.html#module-cloudmesh.config.cloudmesh_cloud"><tt class="docutils literal"><span class="pre">cloudmesh_cloud</span></tt> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="cloudmesh.config.html#module-cloudmesh.config.cloudmesh_cloud_handler"><tt class="docutils literal"><span class="pre">cloudmesh_cloud_handler</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="cloudmesh.config.html#cloudmesh-cloud-module"><tt class="docutils literal"><span class="pre">cloudmesh_cloud</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="cloudmesh.config.html#cloudmesh-cloud-handler-module"><tt class="docutils literal"><span class="pre">cloudmesh_cloud_handler</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="cloudmesh.config.html#module-cloudmesh.config.cm_config"><tt class="docutils literal"><span class="pre">cm_config</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="cloudmesh.config.html#module-cloudmesh.config.cm_keys"><tt class="docutils literal"><span class="pre">cm_keys</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="cloudmesh.config.html#module-cloudmesh.config.cm_projects"><tt class="docutils literal"><span class="pre">cm_projects</span></tt> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="cloudmesh.config.html#module-cloudmesh.config.cm_rc"><tt class="docutils literal"><span class="pre">cm_rc</span></tt> Module</a><ul>
-<li class="toctree-l6"><a class="reference internal" href="cloudmesh.config.html#cm-manage-config">cm-manage config</a></li>
-</ul>
-</li>
+<li class="toctree-l5"><a class="reference internal" href="cloudmesh.config.html#cm-rc-module"><tt class="docutils literal"><span class="pre">cm_rc</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="cloudmesh.config.html#ldap-user-module"><tt class="docutils literal"><span class="pre">ldap_user</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="cloudmesh.config.html#mock-cloud-module"><tt class="docutils literal"><span class="pre">mock_cloud</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="cloudmesh.config.html#mock-keystone-module"><tt class="docutils literal"><span class="pre">mock_keystone</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="cloudmesh.config.html#mock-user-module"><tt class="docutils literal"><span class="pre">mock_user</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="cloudmesh.config.html#openstack-essex-cloud-module"><tt class="docutils literal"><span class="pre">openstack_essex_cloud</span></tt> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="cloudmesh.config.html#module-cloudmesh.config.openstack_grizzly_cloud"><tt class="docutils literal"><span class="pre">openstack_grizzly_cloud</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="cloudmesh.config.html#openstack-grizzly-cloud-module"><tt class="docutils literal"><span class="pre">openstack_grizzly_cloud</span></tt> Module</a></li>
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="cloudmesh.iaas.html">iaas Package</a><ul>
@@ -232,7 +347,7 @@
 <li class="toctree-l5"><a class="reference internal" href="cloudmesh.iaas.html#subpackages">Subpackages</a><ul>
 <li class="toctree-l6"><a class="reference internal" href="cloudmesh.iaas.azure.html">azure Package</a><ul>
 <li class="toctree-l7"><a class="reference internal" href="cloudmesh.iaas.azure.html#id1"><tt class="docutils literal"><span class="pre">azure</span></tt> Package</a></li>
-<li class="toctree-l7"><a class="reference internal" href="cloudmesh.iaas.azure.html#module-cloudmesh.iaas.azure.cm_azure"><tt class="docutils literal"><span class="pre">cm_azure</span></tt> Module</a></li>
+<li class="toctree-l7"><a class="reference internal" href="cloudmesh.iaas.azure.html#cm-azure-module"><tt class="docutils literal"><span class="pre">cm_azure</span></tt> Module</a></li>
 <li class="toctree-l7"><a class="reference internal" href="cloudmesh.iaas.azure.html#fabfile-module"><tt class="docutils literal"><span class="pre">fabfile</span></tt> Module</a></li>
 </ul>
 </li>
@@ -288,8 +403,13 @@
                 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown">Page <b class="caret"></b></a>
   <ul class="dropdown-menu localtoc"><ul>
-<li><a class="reference internal" href="#">aws Package</a><ul>
-<li><a class="reference internal" href="#module-cloudmesh.iaas.aws.cm_compute"><tt class="docutils literal"><span class="pre">cm_compute</span></tt> Module</a></li>
+<li><a class="reference internal" href="#">cloudmesh.iaas.aws package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-cloudmesh.iaas.aws.cm_compute">cloudmesh.iaas.aws.cm_compute module</a><ul>
+<li><a class="reference internal" href="#cloudmesh-iaas-aws-cm-compute">cloudmesh.iaas.aws.cm_compute</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-cloudmesh.iaas.aws">Module contents</a></li>
 </ul>
 </li>
 </ul>
@@ -305,7 +425,7 @@
             
             
             
-              <li>
+              <li class="hidden-sm">
 <div id="sourcelink">
   <a href="../_sources/modules/cloudmesh.iaas.aws.txt"
      rel="nofollow">Source</a>
@@ -331,19 +451,35 @@
   <div class="row">
     <div class="col-md-12">
       
-  <div class="section" id="aws-package">
-<h1>aws Package<a class="headerlink" href="#aws-package" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="cloudmesh-iaas-aws-package">
+<h1>cloudmesh.iaas.aws package<a class="headerlink" href="#cloudmesh-iaas-aws-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
 <div class="section" id="module-cloudmesh.iaas.aws.cm_compute">
-<span id="cm-compute-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">cm_compute</span></tt> Module<a class="headerlink" href="#module-cloudmesh.iaas.aws.cm_compute" title="Permalink to this headline">¶</a></h2>
+<span id="cloudmesh-iaas-aws-cm-compute-module"></span><h2>cloudmesh.iaas.aws.cm_compute module<a class="headerlink" href="#module-cloudmesh.iaas.aws.cm_compute" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="cloudmesh-iaas-aws-cm-compute">
+<h3>cloudmesh.iaas.aws.cm_compute<a class="headerlink" href="#cloudmesh-iaas-aws-cm-compute" title="Permalink to this headline">¶</a></h3>
 <dl class="class">
 <dt id="cloudmesh.iaas.aws.cm_compute.aws">
-<em class="property">class </em><tt class="descclassname">cloudmesh.iaas.aws.cm_compute.</tt><tt class="descname">aws</tt><a class="reference internal" href="../_modules/cloudmesh/iaas/aws/cm_compute.html#aws"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.iaas.aws.cm_compute.aws" title="Permalink to this definition">¶</a></dt>
-<dd><p>Amazon Cloud service with the boto interface
-With boto interface, cloudmesh supports Amazon Web Services such as EC2, S3,
+<em class="property">class </em><tt class="descclassname">cloudmesh.iaas.aws.cm_compute.</tt><tt class="descname">aws</tt><big>(</big><em>label='aws'</em>, <em>credential=None</em>, <em>admin_credential=None</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/iaas/aws/cm_compute.html#aws"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.iaas.aws.cm_compute.aws" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="cloudmesh.iaas.html#cloudmesh.iaas.ComputeBaseType.ComputeBaseType" title="cloudmesh.iaas.ComputeBaseType.ComputeBaseType"><tt class="xref py py-class docutils literal"><span class="pre">cloudmesh.iaas.ComputeBaseType.ComputeBaseType</span></tt></a></p>
+<p>Amazon Cloud service with the libcloud interface
+With libcloud interface, cloudmesh supports Amazon Web Services such as EC2, S3,
 EBS, etc.</p>
+<dl class="attribute">
+<dt id="cloudmesh.iaas.aws.cm_compute.aws.DEFAULT_LABEL">
+<tt class="descname">DEFAULT_LABEL</tt><em class="property"> = 'aws'</em><a class="headerlink" href="#cloudmesh.iaas.aws.cm_compute.aws.DEFAULT_LABEL" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 <dl class="method">
 <dt id="cloudmesh.iaas.aws.cm_compute.aws.connect">
 <tt class="descname">connect</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/cloudmesh/iaas/aws/cm_compute.html#aws.connect"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.iaas.aws.cm_compute.aws.connect" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.iaas.aws.cm_compute.aws.convert_to_dict">
+<tt class="descname">convert_to_dict</tt><big>(</big><em>_list</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/iaas/aws/cm_compute.html#aws.convert_to_dict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.iaas.aws.cm_compute.aws.convert_to_dict" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -353,7 +489,7 @@ EBS, etc.</p>
 
 <dl class="method">
 <dt id="cloudmesh.iaas.aws.cm_compute.aws.delete_vm">
-<tt class="descname">delete_vm</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/cloudmesh/iaas/aws/cm_compute.html#aws.delete_vm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.iaas.aws.cm_compute.aws.delete_vm" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">delete_vm</tt><big>(</big><em>name</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/iaas/aws/cm_compute.html#aws.delete_vm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.iaas.aws.cm_compute.aws.delete_vm" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -374,6 +510,37 @@ EBS, etc.</p>
 <dl class="method">
 <dt id="cloudmesh.iaas.aws.cm_compute.aws.get_name">
 <tt class="descname">get_name</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/cloudmesh/iaas/aws/cm_compute.html#aws.get_name"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.iaas.aws.cm_compute.aws.get_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.iaas.aws.cm_compute.aws.get_node_from_id">
+<tt class="descname">get_node_from_id</tt><big>(</big><em>id</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/iaas/aws/cm_compute.html#aws.get_node_from_id"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.iaas.aws.cm_compute.aws.get_node_from_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.iaas.aws.cm_compute.aws.keypair_add">
+<tt class="descname">keypair_add</tt><big>(</big><em>name</em>, <em>content</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/iaas/aws/cm_compute.html#aws.keypair_add"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.iaas.aws.cm_compute.aws.keypair_add" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.iaas.aws.cm_compute.aws.keypair_list">
+<tt class="descname">keypair_list</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/cloudmesh/iaas/aws/cm_compute.html#aws.keypair_list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.iaas.aws.cm_compute.aws.keypair_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.iaas.aws.cm_compute.aws.keypair_remove">
+<tt class="descname">keypair_remove</tt><big>(</big><em>name</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/iaas/aws/cm_compute.html#aws.keypair_remove"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.iaas.aws.cm_compute.aws.keypair_remove" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete a keypair</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.iaas.aws.cm_compute.aws.list_flavors">
+<tt class="descname">list_flavors</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/cloudmesh/iaas/aws/cm_compute.html#aws.list_flavors"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.iaas.aws.cm_compute.aws.list_flavors" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.iaas.aws.cm_compute.aws.list_images">
+<tt class="descname">list_images</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/cloudmesh/iaas/aws/cm_compute.html#aws.list_images"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.iaas.aws.cm_compute.aws.list_images" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -401,6 +568,16 @@ EBS, etc.</p>
 <dd></dd></dl>
 
 <dl class="method">
+<dt id="cloudmesh.iaas.aws.cm_compute.aws.release_unused_public_ips">
+<tt class="descname">release_unused_public_ips</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/cloudmesh/iaas/aws/cm_compute.html#aws.release_unused_public_ips"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.iaas.aws.cm_compute.aws.release_unused_public_ips" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.iaas.aws.cm_compute.aws.set_credential">
+<tt class="descname">set_credential</tt><big>(</big><em>cred</em>, <em>admin_cred</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/iaas/aws/cm_compute.html#aws.set_credential"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.iaas.aws.cm_compute.aws.set_credential" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
 <dt id="cloudmesh.iaas.aws.cm_compute.aws.set_flavor">
 <tt class="descname">set_flavor</tt><big>(</big><em>name</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/iaas/aws/cm_compute.html#aws.set_flavor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.iaas.aws.cm_compute.aws.set_flavor" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
@@ -411,22 +588,31 @@ EBS, etc.</p>
 <dd></dd></dl>
 
 <dl class="method">
+<dt id="cloudmesh.iaas.aws.cm_compute.aws.set_keyname">
+<tt class="descname">set_keyname</tt><big>(</big><em>name</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/iaas/aws/cm_compute.html#aws.set_keyname"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.iaas.aws.cm_compute.aws.set_keyname" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
 <dt id="cloudmesh.iaas.aws.cm_compute.aws.set_location">
 <tt class="descname">set_location</tt><big>(</big><em>name</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/iaas/aws/cm_compute.html#aws.set_location"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.iaas.aws.cm_compute.aws.set_location" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="cloudmesh.iaas.aws.cm_compute.aws.vm_create">
-<tt class="descname">vm_create</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/cloudmesh/iaas/aws/cm_compute.html#aws.vm_create"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.iaas.aws.cm_compute.aws.vm_create" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">vm_create</tt><big>(</big><em>name</em>, <em>flavor_name</em>, <em>image_id</em>, <em>security_groups=None</em>, <em>key_name=None</em>, <em>meta={}</em>, <em>userdata=None</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/iaas/aws/cm_compute.html#aws.vm_create"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.iaas.aws.cm_compute.aws.vm_create" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="cloudmesh.iaas.aws.cm_compute.aws.vm_delete">
-<tt class="descname">vm_delete</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/cloudmesh/iaas/aws/cm_compute.html#aws.vm_delete"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.iaas.aws.cm_compute.aws.vm_delete" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">vm_delete</tt><big>(</big><em>name</em><big>)</big><a class="reference internal" href="../_modules/cloudmesh/iaas/aws/cm_compute.html#aws.vm_delete"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.iaas.aws.cm_compute.aws.vm_delete" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
+</div>
+</div>
+<div class="section" id="module-cloudmesh.iaas.aws">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-cloudmesh.iaas.aws" title="Permalink to this headline">¶</a></h2>
 </div>
 </div>
 

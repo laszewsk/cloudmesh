@@ -1,13 +1,3 @@
-
-
-  
-  
- 
-  
-  
- 
-
-
 <!DOCTYPE html>
 
 
@@ -60,7 +50,8 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="../../../index.html">Cloudmesh</a>
+        <a class="navbar-brand" href="../../../index.html"><img src="../../../_static/fg-logo-white-24x36.png">
+          Cloudmesh</a>
         <span class="navbar-text navbar-version pull-left"><b>0.1</b></span>
       </div>
 
@@ -140,6 +131,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developer.html#example-hpc-queue-server">4.12&nbsp;&nbsp;&nbsp;Example: HPC queue server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developer.html#environment">4.13&nbsp;&nbsp;&nbsp;ENVIRONMENT</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../celery.html">5&nbsp;&nbsp;&nbsp;Celery Setup</a><ul>
@@ -161,8 +153,134 @@
 </li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../cm-shell.html">5&nbsp;&nbsp;&nbsp;Cloud Mesh</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../cm-shell.html#commands">6&nbsp;&nbsp;&nbsp;Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../configure.html">Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../configure.html#cloudmesh-yaml">cloudmesh.yaml</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../configure.html#hp-cloud">HP Cloud</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../configure.html#azure">Azure</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../configure.html#amazon-web-services">Amazon Web Services</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../configure.html#india">India</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../configure.html#sierra">Sierra</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../configure.html#alamo">Alamo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../configure.html#a-complete-example">A complete example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../configure.html#cloudmesh-server-yaml">cloudmesh-server.yaml</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../configure.html#debugging">Debugging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../configure.html#web-ui">Web UI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../configure.html#ldap-integration">LDAP Integration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../configure.html#baremetal-provisioning-with-teefa">Baremetal provisioning with teefa</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../configure.html#clusters">Clusters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../configure.html#roles">Roles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../configure.html#keystone-server">Keystone server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../configure.html#mongo">Mongo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../configure.html#complete-example">Complete Example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../configure.html#cloudmesh-cluster-yaml">cloudmesh_cluster.yaml</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../configure.html#metadata">Metadata</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../configure.html#id1">Clusters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../configure.html#a-cluster">A Cluster</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../configure.html#network">Network:</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../configure.html#cloudmesh-bootspec-yaml">cloudmesh_bootspec.yaml</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../configure.html#other-yaml-files">Other Yaml files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../configure.html#me-sample">Me Sample</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../cm-shell.html">5&nbsp;&nbsp;&nbsp;Cloud Mesh</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../cm-shell.html#defaults">5.1&nbsp;&nbsp;&nbsp;Defaults</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cm-shell.html#register-clouds">5.2&nbsp;&nbsp;&nbsp;Register Clouds</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../cm-shell.html#register-an-aws-account">5.2.1&nbsp;&nbsp;&nbsp;Register an AWS account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../cm-shell.html#register-an-azure-account">5.2.2&nbsp;&nbsp;&nbsp;Register an azure account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../cm-shell.html#register-an-eucalyptus-account">5.2.3&nbsp;&nbsp;&nbsp;Register an Eucalyptus account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../cm-shell.html#register-an-openstack-account">5.2.4&nbsp;&nbsp;&nbsp;Register an OpenStack account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../cm-shell.html#register-an-ec2-account">5.2.5&nbsp;&nbsp;&nbsp;Register an EC2 account</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cm-shell.html#activate-clouds">5.3&nbsp;&nbsp;&nbsp;Activate Clouds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cm-shell.html#managing-projects">5.4&nbsp;&nbsp;&nbsp;Managing Projects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cm-shell.html#managing-users">5.5&nbsp;&nbsp;&nbsp;Managing Users</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cm-shell.html#manageing-virtual-machines">5.6&nbsp;&nbsp;&nbsp;Manageing Virtual Machines</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../cm-shell.html#list-images">5.6.1&nbsp;&nbsp;&nbsp;List images</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../cm-shell.html#starting-vms">5.6.2&nbsp;&nbsp;&nbsp;Starting VMs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../cm-shell.html#manageing-security-groups">5.6.3&nbsp;&nbsp;&nbsp;Manageing Security Groups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../cm-shell.html#managing-volumes">5.6.4&nbsp;&nbsp;&nbsp;Managing Volumes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../cm-shell.html#managing-heat-s-for-openstack">5.6.5&nbsp;&nbsp;&nbsp;Managing heat&#8217;s for OpenStack</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cm-shell.html#commands">6&nbsp;&nbsp;&nbsp;Commands</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../cm-shell.html#listing-images">6.1&nbsp;&nbsp;&nbsp;Listing images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cm-shell.html#cm-manage-initialize-user-name-password-password">6.2&nbsp;&nbsp;&nbsp;cm manage initialize &#8211;user&lt;name&gt; &#8211;password &lt;password&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cm-shell.html#cm-project-list">6.3&nbsp;&nbsp;&nbsp;cm project list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cm-shell.html#cm-project-info-number">6.4&nbsp;&nbsp;&nbsp;cm project &#8211;info &lt;number&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cm-shell.html#cm-project-activate-number">6.5&nbsp;&nbsp;&nbsp;cm project &#8211;activate &lt;number&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cm-shell.html#cm-project-deactivate">6.6&nbsp;&nbsp;&nbsp;cm project &#8211;deactivate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cm-shell.html#cm-env">6.7&nbsp;&nbsp;&nbsp;cm env</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cm-shell.html#cm-resource-list">6.8&nbsp;&nbsp;&nbsp;cm resource &#8211;list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cm-shell.html#cm-service-list">6.9&nbsp;&nbsp;&nbsp;cm service &#8211;list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cm-shell.html#cm-service-register">6.10&nbsp;&nbsp;&nbsp;cm service register</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cm-shell.html#cm-resource-register">6.11&nbsp;&nbsp;&nbsp;cm resource register</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cm-shell.html#cm-image-list">6.12&nbsp;&nbsp;&nbsp;cm image &#8211;list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cm-shell.html#cm-id-list">6.13&nbsp;&nbsp;&nbsp;cm id &#8211;list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cm-shell.html#cm-label-id-id">6.14&nbsp;&nbsp;&nbsp;cm label &#8211;id &lt;id&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cm-shell.html#cm-vm-create-label">6.15&nbsp;&nbsp;&nbsp;cm vm create &lt;label&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cm-shell.html#cm-vm-destroy-label">6.16&nbsp;&nbsp;&nbsp;cm vm destroy &lt;label&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cm-shell.html#cm-vm-terminate-label">6.17&nbsp;&nbsp;&nbsp;cm vm terminate &lt;label&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cm-shell.html#cm-vm-suspoend-label">6.18&nbsp;&nbsp;&nbsp;cm vm suspoend &lt;label&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cm-shell.html#cm-vm-resume-label">6.19&nbsp;&nbsp;&nbsp;cm vm resume &lt;label&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cm-shell.html#cm-vm-login">6.20&nbsp;&nbsp;&nbsp;cm vm login</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cm-shell.html#cm-seceurity-group-add-label-parameters">6.21&nbsp;&nbsp;&nbsp;cm seceurity group add &lt;label&gt; &lt;parameters&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cm-shell.html#cm-seceurity-group-delete">6.22&nbsp;&nbsp;&nbsp;cm seceurity group delete</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cm-shell.html#cm-seceurity-group-default-add-label">6.23&nbsp;&nbsp;&nbsp;cm seceurity group default add &lt;label&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cm-shell.html#cm-seceurity-group-default-delete-label">6.24&nbsp;&nbsp;&nbsp;cm seceurity group default delete &lt;label&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cm-shell.html#examples">6.25&nbsp;&nbsp;&nbsp;Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cm-manage.html">cm-manage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../coding.html">Cloudmesh Style Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../coding.html#information">Information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../coding.html#general">General</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../coding.html#imports">Imports</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../coding.html#human-alphabetical-order-examples">Human Alphabetical Order Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../coding.html#docstrings">Docstrings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../coding.html#dictionaries-lists">Dictionaries/Lists</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../coding.html#calling-methods">Calling Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../coding.html#internationalization-i18n-strings">Internationalization (i18n) Strings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../coding.html#python-3-x-compatibility">Python 3.x compatibility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../coding.html#creating-unit-tests">Creating Unit Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../coding.html#running-tests">Running Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../coding.html#building-docs">Building Docs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../coding.html#oslo-incubator">oslo-incubator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../coding.html#commit-messages">Commit Messages</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contact.html">Contact</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../contact.html#contributors">Contributors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../contact.html#blog">Blog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../contact.html#repository">Repository</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../deploy.html">Production Deployment Server</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../deploy.html#instalation">Instalation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../deploy.html#starting-the-deployed-server">Starting the deployed server</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../doc.html">Adding to the Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../doc.html#creating-the-documentation-locally">Creating the documentation locally</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../doc.html#rst-documentation">RST Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../doc.html#gh-pages">gh-pages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../doc.html#published-documentation">Published Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../fg.html">FutureGrid Specific tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../support.html">Support</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../plan/plan.html">7&nbsp;&nbsp;&nbsp;Plan: Cloudmesh Service Shift</a><ul>
@@ -210,21 +328,18 @@
 </li>
 <li class="toctree-l4"><a class="reference internal" href="../../../modules/cloudmesh.config.html">config Package</a><ul>
 <li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#id1"><tt class="docutils literal"><span class="pre">config</span></tt> Package</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#module-cloudmesh.config.cloudmesh_cloud"><tt class="docutils literal"><span class="pre">cloudmesh_cloud</span></tt> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#module-cloudmesh.config.cloudmesh_cloud_handler"><tt class="docutils literal"><span class="pre">cloudmesh_cloud_handler</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#cloudmesh-cloud-module"><tt class="docutils literal"><span class="pre">cloudmesh_cloud</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#cloudmesh-cloud-handler-module"><tt class="docutils literal"><span class="pre">cloudmesh_cloud_handler</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#module-cloudmesh.config.cm_config"><tt class="docutils literal"><span class="pre">cm_config</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#module-cloudmesh.config.cm_keys"><tt class="docutils literal"><span class="pre">cm_keys</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#module-cloudmesh.config.cm_projects"><tt class="docutils literal"><span class="pre">cm_projects</span></tt> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#module-cloudmesh.config.cm_rc"><tt class="docutils literal"><span class="pre">cm_rc</span></tt> Module</a><ul>
-<li class="toctree-l6"><a class="reference internal" href="../../../modules/cloudmesh.config.html#cm-manage-config">cm-manage config</a></li>
-</ul>
-</li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#cm-rc-module"><tt class="docutils literal"><span class="pre">cm_rc</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#ldap-user-module"><tt class="docutils literal"><span class="pre">ldap_user</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#mock-cloud-module"><tt class="docutils literal"><span class="pre">mock_cloud</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#mock-keystone-module"><tt class="docutils literal"><span class="pre">mock_keystone</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#mock-user-module"><tt class="docutils literal"><span class="pre">mock_user</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#openstack-essex-cloud-module"><tt class="docutils literal"><span class="pre">openstack_essex_cloud</span></tt> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#module-cloudmesh.config.openstack_grizzly_cloud"><tt class="docutils literal"><span class="pre">openstack_grizzly_cloud</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#openstack-grizzly-cloud-module"><tt class="docutils literal"><span class="pre">openstack_grizzly_cloud</span></tt> Module</a></li>
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="../../../modules/cloudmesh.iaas.html">iaas Package</a><ul>
@@ -233,7 +348,7 @@
 <li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.iaas.html#subpackages">Subpackages</a><ul>
 <li class="toctree-l6"><a class="reference internal" href="../../../modules/cloudmesh.iaas.azure.html">azure Package</a><ul>
 <li class="toctree-l7"><a class="reference internal" href="../../../modules/cloudmesh.iaas.azure.html#id1"><tt class="docutils literal"><span class="pre">azure</span></tt> Package</a></li>
-<li class="toctree-l7"><a class="reference internal" href="../../../modules/cloudmesh.iaas.azure.html#module-cloudmesh.iaas.azure.cm_azure"><tt class="docutils literal"><span class="pre">cm_azure</span></tt> Module</a></li>
+<li class="toctree-l7"><a class="reference internal" href="../../../modules/cloudmesh.iaas.azure.html#cm-azure-module"><tt class="docutils literal"><span class="pre">cm_azure</span></tt> Module</a></li>
 <li class="toctree-l7"><a class="reference internal" href="../../../modules/cloudmesh.iaas.azure.html#fabfile-module"><tt class="docutils literal"><span class="pre">fabfile</span></tt> Module</a></li>
 </ul>
 </li>
@@ -300,7 +415,7 @@
             
             
             
-              <li></li>
+              <li class="hidden-sm"></li>
             
           </ul>
 
@@ -336,11 +451,16 @@
 <span class="sd">    the unique identification in ldap and cloud.</span>
 
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="kn">from</span> <span class="nn">cloudmesh.config.cm_config</span> <span class="kn">import</span> <span class="n">cm_config_server</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.config.cm_config</span> <span class="kn">import</span> <span class="n">cm_config_server</span><span class="p">,</span> <span class="n">get_mongo_db</span><span class="p">,</span> <span class="n">cm_config</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.util.encryptdata</span> <span class="kn">import</span> <span class="n">encrypt</span><span class="p">,</span> <span class="n">decrypt</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.util.logger</span> <span class="kn">import</span> <span class="n">LOGGER</span>
-<span class="kn">from</span> <span class="nn">pymongo</span> <span class="kn">import</span> <span class="n">MongoClient</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.util.util</span> <span class="kn">import</span> <span class="n">deprecated</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.util.util</span> <span class="kn">import</span> <span class="n">path_expand</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.user.cm_template</span> <span class="kn">import</span> <span class="n">cm_template</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.user.cm_userLDAP</span> <span class="kn">import</span> <span class="n">cm_userLDAP</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.cm_mongo</span> <span class="kn">import</span> <span class="n">cm_mongo</span>
 <span class="kn">import</span> <span class="nn">traceback</span>
-
+<span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
 <span class="c"># ----------------------------------------------------------------------</span>
 <span class="c"># SETTING UP A LOGGER</span>
 <span class="c"># ----------------------------------------------------------------------</span>
@@ -356,94 +476,244 @@
 
     <span class="n">config_server</span> <span class="o">=</span> <span class="bp">None</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">config_server</span> <span class="o">=</span> <span class="n">cm_config_server</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">connect_db</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">connect_userdb</span><span class="p">()</span>
 
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">from_yaml</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">from_yaml</span> <span class="o">=</span> <span class="n">from_yaml</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">config_server</span> <span class="o">=</span> <span class="n">cm_config_server</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">password_key</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">config_server</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;cloudmesh.server.mongo.collections.password.key&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">with_ldap</span> <span class="o">=</span> <span class="n">cm_config_server</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;cloudmesh.server.ldap.with_ldap&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">connect_db</span><span class="p">()</span>
+
+
+
+<div class="viewcode-block" id="cm_user.authenticate"><a class="viewcode-back" href="../../../modules/cloudmesh.user.html#cloudmesh.user.cm_user.cm_user.authenticate">[docs]</a>    <span class="k">def</span> <span class="nf">authenticate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">userId</span><span class="p">,</span> <span class="n">password</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">with_ldap</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">True</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">idp</span> <span class="o">=</span> <span class="n">cm_userLDAP</span> <span class="p">()</span>
+            <span class="n">idp</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s">&quot;fg-ldap&quot;</span><span class="p">,</span> <span class="s">&quot;ldap&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">idp</span><span class="o">.</span><span class="n">authenticate</span><span class="p">(</span><span class="n">userId</span><span class="p">,</span> <span class="n">password</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span><span class="p">,</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s">&quot;{0}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+            <span class="k">return</span> <span class="bp">False</span>
+</div>
+<div class="viewcode-block" id="cm_user.generate_yaml"><a class="viewcode-back" href="../../../modules/cloudmesh.user.html#cloudmesh.user.cm_user.cm_user.generate_yaml">[docs]</a>    <span class="k">def</span> <span class="nf">generate_yaml</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">id</span><span class="p">,</span> <span class="n">basename</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Generates the content for a yaml file based on the passed parameters.</span>
+<span class="sd">        </span>
+<span class="sd">        :param id: The username for which we want to create the yaml file</span>
+<span class="sd">        :type id: String</span>
+<span class="sd">        :param basename: The base name of the yaml file in the etc directory.</span>
+<span class="sd">                         Allowed values are &#39;me&#39; and &#39;cloudmesh&#39;</span>
+<span class="sd">        :type basename: String</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+
+        <span class="sd">&quot;&quot;&quot;id = username&quot;&quot;&quot;</span>
+        <span class="sd">&quot;&quot;&quot;basename = me, cloudmesh&quot;&quot;&quot;</span>
+
+        <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">&quot;generate {1} yaml {0}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">basename</span><span class="p">))</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span>
+        <span class="n">result</span><span class="p">[</span><span class="s">&#39;password&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_credentials</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span>
+
+        <span class="n">etc_filename</span> <span class="o">=</span> <span class="n">path_expand</span><span class="p">(</span><span class="s">&quot;~/.futuregrid/etc/{0}.yaml&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">basename</span><span class="p">))</span>
+
+        <span class="n">t</span> <span class="o">=</span> <span class="n">cm_template</span><span class="p">(</span><span class="n">etc_filename</span><span class="p">)</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s">&#39;dict&#39;</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="n">result</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">out</span>
+
+</div>
 <div class="viewcode-block" id="cm_user.connect_db"><a class="viewcode-back" href="../../../modules/cloudmesh.user.html#cloudmesh.user.cm_user.cm_user.connect_db">[docs]</a>    <span class="k">def</span> <span class="nf">connect_db</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Connect to the mongo db.&quot;&quot;&quot;</span>
-        <span class="n">db_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">config_server</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;cloudmesh.server.mongo.db&quot;</span><span class="p">)</span>
-        <span class="n">client</span> <span class="o">=</span> <span class="n">MongoClient</span><span class="p">()</span>
-        <span class="n">db</span> <span class="o">=</span> <span class="n">client</span><span class="p">[</span><span class="n">db_name</span><span class="p">]</span>
-        <span class="n">ldap_collection</span> <span class="o">=</span> <span class="s">&#39;user&#39;</span>
-        <span class="n">cloud_collection</span> <span class="o">=</span> <span class="s">&#39;cloudmesh&#39;</span>
-        <span class="n">defaults_collection</span> <span class="o">=</span> <span class="s">&#39;defaults&#39;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">db_clouds</span> <span class="o">=</span> <span class="n">db</span><span class="p">[</span><span class="n">cloud_collection</span><span class="p">]</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">db_users</span> <span class="o">=</span> <span class="n">db</span><span class="p">[</span><span class="n">ldap_collection</span><span class="p">]</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">db_defaults</span> <span class="o">=</span> <span class="n">db</span><span class="p">[</span><span class="n">defaults_collection</span><span class="p">]</span>
-</div>
-<div class="viewcode-block" id="cm_user.connect_userdb"><a class="viewcode-back" href="../../../modules/cloudmesh.user.html#cloudmesh.user.cm_user.cm_user.connect_userdb">[docs]</a>    <span class="k">def</span> <span class="nf">connect_userdb</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">try</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_connect_userdb</span><span class="p">()</span>
-        <span class="k">except</span> <span class="ne">Exception</span><span class="p">,</span> <span class="n">e</span><span class="p">:</span>
-            <span class="k">print</span>
-            <span class="k">print</span> <span class="s">&quot;The following lines should exist in cloudmesh_server.yaml&quot;</span>
-            <span class="k">print</span> <span class="s">&quot;----------------------&quot;</span>
-            <span class="k">print</span> <span class="s">&quot;cloudmesh:&quot;</span>
-            <span class="k">print</span> <span class="s">&quot;    server:&quot;</span>
-            <span class="k">print</span> <span class="s">&quot;        mongo_user:</span><span class="se">\n</span><span class="s">&quot;</span> <span class="o">+</span> \
-                    <span class="s">&quot;           db: cm_user</span><span class="se">\n</span><span class="s">&quot;</span> <span class="o">+</span> \
-                    <span class="s">&quot;           host: hostname</span><span class="se">\n</span><span class="s">&quot;</span> <span class="o">+</span> \
-                    <span class="s">&quot;           port: portnumber</span><span class="se">\n</span><span class="s">&quot;</span> <span class="o">+</span> \
-                    <span class="s">&quot;           username: admin</span><span class="se">\n</span><span class="s">&quot;</span> <span class="o">+</span> \
-                    <span class="s">&quot;           password: passwd</span><span class="se">\n</span><span class="s">&quot;</span> <span class="o">+</span> \
-                    <span class="s">&quot;           path: ~/.futuregrid/mongodb_user</span><span class="se">\n</span><span class="s">&quot;</span> <span class="o">+</span> \
-                    <span class="s">&quot;           collections:</span><span class="se">\n</span><span class="s">&quot;</span> <span class="o">+</span> \
-                    <span class="s">&quot;               cm_password:</span><span class="se">\n</span><span class="s">&quot;</span> <span class="o">+</span> \
-                    <span class="s">&quot;                   db: cm_user&quot;</span>
-            <span class="k">print</span> <span class="s">&quot;---------------------&quot;</span>
-            <span class="k">print</span> <span class="n">e</span>
-            <span class="k">print</span> <span class="n">traceback</span><span class="o">.</span><span class="n">format_exc</span><span class="p">()</span>
-            <span class="k">print</span> <span class="s">&quot;---------------------&quot;</span>
-</div>
-    <span class="k">def</span> <span class="nf">_connect_userdb</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; Connect to the mongo user db.&quot;&quot;&quot;</span>
-        <span class="c"># This will be enabled with ssl</span>
-        <span class="n">db_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">config_server</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;cloudmesh.server.mongo.db&quot;</span><span class="p">)</span>
-        <span class="n">host</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">config_server</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;cloudmesh.server.mongo.host&quot;</span><span class="p">)</span>
-        <span class="n">port</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">config_server</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;cloudmesh.server.mongo.port&quot;</span><span class="p">)</span>
-        <span class="n">username</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">config_server</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;cloudmesh.server.mongo.username&quot;</span><span class="p">)</span>
-        <span class="n">password</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">config_server</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;cloudmesh.server.mongo.password&quot;</span><span class="p">)</span>
-        <span class="n">client</span> <span class="o">=</span> <span class="n">MongoClient</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="n">host</span><span class="p">,</span>
-                             <span class="n">port</span><span class="o">=</span><span class="n">port</span><span class="p">,</span>
-                             <span class="c"># username=username,</span>
-                             <span class="c"># password=password</span>
-                             <span class="p">)</span>
-        <span class="n">db</span> <span class="o">=</span> <span class="n">client</span><span class="p">[</span><span class="n">db_name</span><span class="p">]</span>
-        <span class="n">passwd_collection</span> <span class="o">=</span> <span class="s">&#39;cm_password&#39;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">userdb_passwd</span> <span class="o">=</span> <span class="n">db</span><span class="p">[</span><span class="n">passwd_collection</span><span class="p">]</span>
-        <span class="n">db</span><span class="o">.</span><span class="n">authenticate</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">)</span>
 
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">from_yaml</span><span class="p">:</span>
+
+            <span class="n">ldap_collection</span> <span class="o">=</span> <span class="s">&#39;user&#39;</span>
+            <span class="n">cloud_collection</span> <span class="o">=</span> <span class="s">&#39;cloudmesh&#39;</span>
+            <span class="n">defaults_collection</span> <span class="o">=</span> <span class="s">&#39;defaults&#39;</span>
+            <span class="n">passwd_collection</span> <span class="o">=</span> <span class="s">&#39;password&#39;</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">db_clouds</span> <span class="o">=</span> <span class="n">get_mongo_db</span><span class="p">(</span><span class="n">cloud_collection</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">db_users</span> <span class="o">=</span> <span class="n">get_mongo_db</span><span class="p">(</span><span class="n">ldap_collection</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">db_defaults</span> <span class="o">=</span> <span class="n">get_mongo_db</span><span class="p">(</span><span class="n">defaults_collection</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">userdb_passwd</span> <span class="o">=</span> <span class="n">get_mongo_db</span><span class="p">(</span><span class="n">passwd_collection</span><span class="p">)</span>
+
+
+
+</div>
 <div class="viewcode-block" id="cm_user.info"><a class="viewcode-back" href="../../../modules/cloudmesh.user.html#cloudmesh.user.cm_user.cm_user.info">[docs]</a>    <span class="k">def</span> <span class="nf">info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">portal_id</span><span class="p">,</span> <span class="n">cloud_names</span><span class="o">=</span><span class="p">[]):</span>
-        <span class="sd">&quot;&quot;&quot;Return the user information with a given portal id.</span>
-
-<span class="sd">        :param portal_id: the unique portal id to retrieve</span>
-<span class="sd">        :type portal_id: str</span>
-<span class="sd">        :param cloud_names: the list of cloud names to search, e.g.</span>
+        <span class="sd">&quot;&quot;&quot;Return th&lt;: the list of cloud names to search, e.g.</span>
 <span class="sd">        sierra_openstack_grizzly</span>
 <span class="sd">        :type cloud_names: list</span>
 <span class="sd">        :returns: dict</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">ldap_info</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">db_users</span><span class="o">.</span><span class="n">find</span><span class="p">({</span><span class="s">&quot;cm_user_id&quot;</span><span class="p">:</span> <span class="n">portal_id</span><span class="p">})</span>
-        <span class="n">cloud_info</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">db_clouds</span><span class="o">.</span><span class="n">find</span><span class="p">({</span><span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="n">portal_id</span><span class="p">,</span> <span class="s">&quot;cm_kind&quot;</span><span class="p">:</span> <span class="s">&quot;users&quot;</span><span class="p">})</span>
-        <span class="n">userinfo</span> <span class="o">=</span> <span class="p">{}</span>
-        <span class="c"># username is unique in ldap</span>
-        <span class="k">if</span> <span class="n">ldap_info</span><span class="o">.</span><span class="n">count</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="n">ldap_user</span> <span class="o">=</span> <span class="n">ldap_info</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-            <span class="k">del</span> <span class="n">ldap_user</span><span class="p">[</span><span class="s">&#39;_id&#39;</span><span class="p">]</span>
-            <span class="n">userinfo</span><span class="p">[</span><span class="s">&quot;profile&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ldap_user</span>
-        <span class="n">userinfo</span><span class="p">[</span><span class="s">&#39;clouds&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
-        <span class="k">for</span> <span class="n">arec</span> <span class="ow">in</span> <span class="n">cloud_info</span><span class="p">:</span>
-            <span class="k">del</span> <span class="n">arec</span><span class="p">[</span><span class="s">&#39;_id&#39;</span><span class="p">]</span>
-            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">cloud_names</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-                <span class="k">if</span> <span class="n">arec</span><span class="p">[</span><span class="s">&#39;cm_cloud&#39;</span><span class="p">]</span> <span class="ow">in</span> <span class="n">cloud_names</span><span class="p">:</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">from_yaml</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">get_ldap_user_from_yaml</span><span class="p">()</span>
+
+        <span class="k">else</span><span class="p">:</span>
+
+            <span class="n">ldap_info</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">db_users</span><span class="o">.</span><span class="n">find</span><span class="p">({</span><span class="s">&quot;cm_user_id&quot;</span><span class="p">:</span> <span class="n">portal_id</span><span class="p">})</span>
+            <span class="n">cloud_info</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">db_clouds</span><span class="o">.</span><span class="n">find</span><span class="p">({</span><span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="n">portal_id</span><span class="p">,</span> <span class="s">&quot;cm_kind&quot;</span><span class="p">:</span> <span class="s">&quot;users&quot;</span><span class="p">})</span>
+            <span class="n">userinfo</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="c"># username is unique in ldap</span>
+            <span class="k">if</span> <span class="n">ldap_info</span><span class="o">.</span><span class="n">count</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">ldap_user</span> <span class="o">=</span> <span class="n">ldap_info</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+                <span class="k">del</span> <span class="n">ldap_user</span><span class="p">[</span><span class="s">&#39;_id&#39;</span><span class="p">]</span>
+                <span class="n">userinfo</span><span class="p">[</span><span class="s">&quot;profile&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ldap_user</span>
+                <span class="c">#</span>
+                <span class="c"># repositionning keys and projects</span>
+                <span class="c">#</span>
+
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">userinfo</span><span class="p">[</span><span class="s">&quot;keys&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+                    <span class="n">userinfo</span><span class="p">[</span><span class="s">&quot;keys&quot;</span><span class="p">][</span><span class="s">&quot;keylist&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ldap_user</span><span class="p">[</span><span class="s">&#39;keys&#39;</span><span class="p">]</span>
+                <span class="k">except</span><span class="p">:</span>
+                    <span class="n">userinfo</span><span class="p">[</span><span class="s">&quot;keys&quot;</span><span class="p">][</span><span class="s">&quot;keylist&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">userinfo</span><span class="p">[</span><span class="s">&quot;projects&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ldap_user</span><span class="p">[</span><span class="s">&#39;projects&#39;</span><span class="p">]</span>
+                <span class="k">except</span><span class="p">:</span>
+                    <span class="n">userinfo</span><span class="p">[</span><span class="s">&quot;projects&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;active&#39;</span><span class="p">:</span> <span class="p">[],</span> <span class="s">&#39;completed&#39;</span><span class="p">:</span> <span class="p">[]}</span>
+
+                <span class="k">del</span> <span class="n">userinfo</span><span class="p">[</span><span class="s">&#39;profile&#39;</span><span class="p">][</span><span class="s">&#39;keys&#39;</span><span class="p">]</span>
+                <span class="k">del</span> <span class="n">userinfo</span><span class="p">[</span><span class="s">&#39;profile&#39;</span><span class="p">][</span><span class="s">&#39;projects&#39;</span><span class="p">]</span>
+
+
+                <span class="n">userinfo</span><span class="p">[</span><span class="s">&#39;portalname&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">portal_id</span>
+                <span class="n">userinfo</span><span class="p">[</span><span class="s">&#39;cm_user_id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">portal_id</span>
+
+            <span class="n">userinfo</span><span class="p">[</span><span class="s">&#39;clouds&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="k">for</span> <span class="n">arec</span> <span class="ow">in</span> <span class="n">cloud_info</span><span class="p">:</span>
+                <span class="k">del</span> <span class="n">arec</span><span class="p">[</span><span class="s">&#39;_id&#39;</span><span class="p">]</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">cloud_names</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">arec</span><span class="p">[</span><span class="s">&#39;cm_cloud&#39;</span><span class="p">]</span> <span class="ow">in</span> <span class="n">cloud_names</span><span class="p">:</span>
+                        <span class="n">userinfo</span><span class="p">[</span><span class="s">&#39;clouds&#39;</span><span class="p">][</span><span class="n">arec</span><span class="p">[</span><span class="s">&#39;cm_cloud&#39;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">arec</span>
+                <span class="k">else</span><span class="p">:</span>
                     <span class="n">userinfo</span><span class="p">[</span><span class="s">&#39;clouds&#39;</span><span class="p">][</span><span class="n">arec</span><span class="p">[</span><span class="s">&#39;cm_cloud&#39;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">arec</span>
+            <span class="n">userinfo</span><span class="p">[</span><span class="s">&#39;defaults&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_defaults</span><span class="p">(</span><span class="n">portal_id</span><span class="p">)</span>
+            <span class="c">#</span>
+            <span class="c"># update project names</span>
+            <span class="c">#</span>
+
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">projects</span> <span class="o">=</span> <span class="n">userinfo</span><span class="p">[</span><span class="s">&quot;projects&quot;</span><span class="p">]</span>
+                <span class="n">projects</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">update_users_project_names</span><span class="p">(</span><span class="n">projects</span><span class="p">)</span>
+            <span class="k">except</span><span class="p">:</span>
+                <span class="k">pass</span>
+
+            <span class="k">return</span> <span class="n">userinfo</span>
+</div>
+    <span class="n">cloud_names</span> <span class="o">=</span> <span class="n">cm_config</span><span class="p">()</span><span class="o">.</span><span class="n">cloudnames</span><span class="p">()</span>
+    <span class="n">default_security_group</span> <span class="o">=</span> <span class="n">cm_config</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;cloudmesh.security.default&quot;</span><span class="p">)</span>
+    <span class="c"># default_cloud = &#39;sierra_openstack_grizzly&#39;</span>
+    <span class="n">default_cloud</span> <span class="o">=</span> <span class="bp">None</span>
+    
+<div class="viewcode-block" id="cm_user.init_defaults"><a class="viewcode-back" href="../../../modules/cloudmesh.user.html#cloudmesh.user.cm_user.cm_user.init_defaults">[docs]</a>    <span class="k">def</span> <span class="nf">init_defaults</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">username</span><span class="p">):</span>
+        <span class="c"># ONLY for debug</span>
+        <span class="c"># added by Heng Chen on Nov. 11, 2013 to test LDAP and user.mongo</span>
+        <span class="c"># BEGIN debug</span>
+        <span class="c">#log.debug(&quot;cm_user_init_defaults, I was called.........&quot;)</span>
+        <span class="c"># END debug</span>
+
+        <span class="n">user</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">username</span><span class="p">)</span>
+
+        <span class="n">defaults</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_defaults</span><span class="p">(</span><span class="n">username</span><span class="p">)</span>
+        <span class="n">defaults</span><span class="p">[</span><span class="s">&#39;cm_user_id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">username</span>
+        <span class="k">if</span> <span class="s">&#39;prefix&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">defaults</span><span class="p">:</span>
+            <span class="n">defaults</span><span class="p">[</span><span class="s">&#39;prefix&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">user</span><span class="p">[</span><span class="s">&#39;cm_user_id&#39;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="s">&#39;index&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">defaults</span><span class="p">:</span>
+            <span class="n">defaults</span><span class="p">[</span><span class="s">&#39;index&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+
+        <span class="c"># DO NOT set default cloud any more</span>
+        <span class="k">if</span> <span class="s">&#39;cloud&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">defaults</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">default_cloud</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">cloud_names</span><span class="p">:</span>
+                <span class="n">defaults</span><span class="p">[</span><span class="s">&#39;cloud&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">default_cloud</span>
+            <span class="c"># elif len(self.cloud_names) &gt; 0:</span>
+            <span class="c">#    defaults[&#39;cloud&#39;] = self.cloud_names[0]</span>
+
+        <span class="k">if</span> <span class="s">&#39;key&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">defaults</span><span class="p">:</span>
+            <span class="n">keylist</span> <span class="o">=</span> <span class="n">user</span><span class="p">[</span><span class="s">&#39;keys&#39;</span><span class="p">][</span><span class="s">&#39;keylist&#39;</span><span class="p">]</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">keylist</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">defaults</span><span class="p">[</span><span class="s">&#39;key&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">keylist</span><span class="o">.</span><span class="n">keys</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="s">&#39;project&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">defaults</span><span class="p">:</span>
+            <span class="n">projectlist</span> <span class="o">=</span> <span class="n">user</span><span class="p">[</span><span class="s">&#39;projects&#39;</span><span class="p">][</span><span class="s">&#39;active&#39;</span><span class="p">]</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">projectlist</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">defaults</span><span class="p">[</span><span class="s">&#39;project&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">projectlist</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="s">&#39;activeclouds&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">defaults</span><span class="p">:</span>
+            <span class="k">if</span> <span class="s">&#39;cloud&#39;</span> <span class="ow">in</span> <span class="n">defaults</span><span class="p">:</span>
+                <span class="n">defaults</span><span class="p">[</span><span class="s">&#39;activeclouds&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">defaults</span><span class="p">[</span><span class="s">&#39;cloud&#39;</span><span class="p">]]</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="n">userinfo</span><span class="p">[</span><span class="s">&#39;clouds&#39;</span><span class="p">][</span><span class="n">arec</span><span class="p">[</span><span class="s">&#39;cm_cloud&#39;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">arec</span>
-        <span class="n">userinfo</span><span class="p">[</span><span class="s">&#39;defaults&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_defaults</span><span class="p">(</span><span class="n">portal_id</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">userinfo</span>
+                <span class="n">defaults</span><span class="p">[</span><span class="s">&#39;activeclouds&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+                
+        <span class="k">if</span> <span class="s">&#39;registered_clouds&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">defaults</span><span class="p">:</span>
+            <span class="k">if</span> <span class="s">&#39;activeclouds&#39;</span> <span class="ow">in</span> <span class="n">defaults</span><span class="p">:</span>
+                <span class="n">defaults</span><span class="p">[</span><span class="s">&#39;registered_clouds&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">defaults</span><span class="p">[</span><span class="s">&#39;activeclouds&#39;</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">defaults</span><span class="p">[</span><span class="s">&#39;registered_clouds&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="n">cm</span> <span class="o">=</span> <span class="n">cm_mongo</span><span class="p">()</span>
+
+        <span class="c">#</span>
+        <span class="c"># set default images for active clouds</span>
+        <span class="c">#</span>
+
+        <span class="k">if</span> <span class="s">&#39;images&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">defaults</span><span class="p">:</span>
+            <span class="n">defaults</span><span class="p">[</span><span class="s">&#39;images&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">cloud</span> <span class="ow">in</span> <span class="n">defaults</span><span class="p">[</span><span class="s">&#39;activeclouds&#39;</span><span class="p">]:</span>
+            <span class="k">if</span> <span class="n">cloud</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">defaults</span><span class="p">[</span><span class="s">&#39;images&#39;</span><span class="p">]:</span>
+                <span class="n">default_image</span> <span class="o">=</span> <span class="s">&quot;none&quot;</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">default_image</span> <span class="o">=</span> <span class="n">cm</span><span class="o">.</span><span class="n">images</span><span class="p">([</span><span class="n">cloud</span><span class="p">])[</span><span class="n">cloud</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+                <span class="k">except</span><span class="p">:</span>
+                    <span class="k">pass</span>
+                <span class="n">defaults</span><span class="p">[</span><span class="s">&#39;images&#39;</span><span class="p">][</span><span class="n">cloud</span><span class="p">]</span> <span class="o">=</span> <span class="n">default_image</span>
+
+        <span class="c">#</span>
+        <span class="c"># set default flavors for active clouds</span>
+        <span class="c">#</span>
+        <span class="k">if</span> <span class="s">&#39;flavors&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">defaults</span><span class="p">:</span>
+            <span class="n">defaults</span><span class="p">[</span><span class="s">&#39;flavors&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">cloud</span> <span class="ow">in</span> <span class="n">defaults</span><span class="p">[</span><span class="s">&#39;activeclouds&#39;</span><span class="p">]:</span>
+            <span class="k">if</span> <span class="n">cloud</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">defaults</span><span class="p">[</span><span class="s">&#39;flavors&#39;</span><span class="p">]:</span>
+                <span class="n">default_flavor</span> <span class="o">=</span> <span class="s">&quot;none&quot;</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">default_flavor</span> <span class="o">=</span> <span class="n">cm</span><span class="o">.</span><span class="n">flavors</span><span class="p">([</span><span class="n">cloud</span><span class="p">])[</span><span class="n">cloud</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+                <span class="k">except</span><span class="p">:</span>
+                    <span class="k">pass</span>
+                <span class="n">defaults</span><span class="p">[</span><span class="s">&#39;flavors&#39;</span><span class="p">][</span><span class="n">cloud</span><span class="p">]</span> <span class="o">=</span> <span class="n">default_flavor</span>
+
+        <span class="c">#</span>
+        <span class="c"># set default page status (Accordion open/close) for active clouds</span>
+        <span class="c"># added by Heng Chen, Nov. 8, 2013</span>
+        <span class="c"># to fix the bug &#39;UndefinedError: no attribute pagestatus&#39; found by Hyungro Lee on Nov. 7, 2013</span>
+        <span class="c">#</span>
+        <span class="n">str_pagestatus</span> <span class="o">=</span> <span class="s">&#39;pagestatus&#39;</span>
+        <span class="k">if</span> <span class="n">str_pagestatus</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">defaults</span><span class="p">:</span>
+            <span class="n">defaults</span><span class="p">[</span><span class="n">str_pagestatus</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">cloud</span> <span class="ow">in</span> <span class="n">defaults</span><span class="p">[</span><span class="s">&#39;activeclouds&#39;</span><span class="p">]:</span>
+            <span class="k">if</span> <span class="n">cloud</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">defaults</span><span class="p">[</span><span class="n">str_pagestatus</span><span class="p">]:</span>
+                <span class="n">defaults</span><span class="p">[</span><span class="n">str_pagestatus</span><span class="p">][</span><span class="n">cloud</span><span class="p">]</span> <span class="o">=</span> <span class="s">&quot;false&quot;</span>
+        
+        
+        <span class="k">if</span> <span class="s">&#39;securitygroup&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">defaults</span><span class="p">:</span>
+            <span class="n">defaults</span><span class="p">[</span><span class="s">&#39;securitygroup&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">default_security_group</span>
+
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">update_defaults</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">defaults</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="cm_user.update_users_project_names"><a class="viewcode-back" href="../../../modules/cloudmesh.user.html#cloudmesh.user.cm_user.cm_user.update_users_project_names">[docs]</a>    <span class="k">def</span> <span class="nf">update_users_project_names</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">projects</span><span class="p">):</span>
+
+        <span class="k">if</span> <span class="s">&quot;active&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">projects</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="n">projects</span><span class="p">[</span><span class="s">&quot;active&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="k">if</span> <span class="s">&quot;completed&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">projects</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="n">projects</span><span class="p">[</span><span class="s">&quot;active&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="k">return</span> <span class="n">projects</span>
 </div>
 <div class="viewcode-block" id="cm_user.list_users"><a class="viewcode-back" href="../../../modules/cloudmesh.user.html#cloudmesh.user.cm_user.cm_user.list_users">[docs]</a>    <span class="k">def</span> <span class="nf">list_users</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cloud_names</span><span class="o">=</span><span class="p">[]):</span>
         <span class="sd">&quot;&quot;&quot;Return all user information with a given cloud.</span>
@@ -452,42 +722,66 @@
 <span class="sd">        :type cloud_names: list</span>
 <span class="sd">        </span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">ldap_info</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">db_users</span><span class="o">.</span><span class="n">find</span><span class="p">()</span>
-        <span class="n">usersinfo</span> <span class="o">=</span> <span class="p">{}</span>
-        <span class="k">for</span> <span class="n">ldap_user</span> <span class="ow">in</span> <span class="n">ldap_info</span><span class="p">:</span>
-            <span class="c"># e.g. ldap_user = {u&#39;cm_user_id&#39;: u&#39;abc&#39;, u&#39;lastname&#39;: u&#39;abc&#39;</span>
-            <span class="c"># , u&#39;_id&#39;: ObjectId(&#39;abc&#39;), u&#39;projects&#39;:</span>
-            <span class="c"># {u&#39;active&#39;: []}, u&#39;firstname&#39;: u&#39;bbc&#39;}</span>
-            <span class="n">portal_id</span> <span class="o">=</span> <span class="n">ldap_user</span><span class="p">[</span><span class="s">&#39;cm_user_id&#39;</span><span class="p">]</span>
-            <span class="n">usersinfo</span><span class="p">[</span><span class="n">portal_id</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
-            <span class="n">usersinfo</span><span class="p">[</span><span class="n">portal_id</span><span class="p">][</span><span class="s">&#39;profile&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ldap_user</span>
-        <span class="n">cloud_info</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">db_clouds</span><span class="o">.</span><span class="n">find</span><span class="p">({</span><span class="s">&quot;cm_kind&quot;</span><span class="p">:</span> <span class="s">&quot;users&quot;</span><span class="p">})</span>
-        <span class="k">for</span> <span class="n">cloud_user</span> <span class="ow">in</span> <span class="n">cloud_info</span><span class="p">:</span>
-            <span class="n">portal_id</span> <span class="o">=</span> <span class="n">cloud_user</span><span class="p">[</span><span class="s">&#39;name&#39;</span><span class="p">]</span>
-            <span class="k">try</span><span class="p">:</span>
-                <span class="n">usersinfo</span><span class="p">[</span><span class="n">portal_id</span><span class="p">]</span>
-            <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
-                <span class="k">print</span> <span class="n">portal_id</span> <span class="o">+</span> <span class="s">&quot; doesn&#39;t exist in the ldap, skip to search&quot;</span>
-                <span class="k">continue</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">from_yaml</span><span class="p">:</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span><span class="s">&quot;NOT IMPLEMENTED&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
 
-            <span class="k">try</span><span class="p">:</span>
-                <span class="n">usersinfo</span><span class="p">[</span><span class="n">portal_id</span><span class="p">][</span><span class="s">&#39;clouds&#39;</span><span class="p">]</span>
-            <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
-                <span class="n">usersinfo</span><span class="p">[</span><span class="n">portal_id</span><span class="p">][</span><span class="s">&#39;clouds&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="n">ldap_info</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">db_users</span><span class="o">.</span><span class="n">find</span><span class="p">()</span>
+            <span class="n">usersinfo</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="k">for</span> <span class="n">ldap_user</span> <span class="ow">in</span> <span class="n">ldap_info</span><span class="p">:</span>
+                <span class="c"># e.g. ldap_user = {u&#39;cm_user_id&#39;: u&#39;abc&#39;, u&#39;lastname&#39;: u&#39;abc&#39;</span>
+                <span class="c"># , u&#39;_id&#39;: ObjectId(&#39;abc&#39;), u&#39;projects&#39;:</span>
+                <span class="c"># {u&#39;active&#39;: []}, u&#39;firstname&#39;: u&#39;bbc&#39;}</span>
+                <span class="n">portal_id</span> <span class="o">=</span> <span class="n">ldap_user</span><span class="p">[</span><span class="s">&#39;cm_user_id&#39;</span><span class="p">]</span>
+                <span class="n">usersinfo</span><span class="p">[</span><span class="n">portal_id</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
 
-            <span class="k">if</span> <span class="n">cloud_names</span><span class="p">:</span>
-                <span class="k">if</span> <span class="n">cloud_user</span><span class="p">[</span><span class="s">&#39;cm_cloud&#39;</span><span class="p">]</span> <span class="ow">in</span> <span class="n">cloud_names</span><span class="p">:</span>
+                <span class="n">userinfo</span> <span class="o">=</span> <span class="n">usersinfo</span><span class="p">[</span><span class="n">portal_id</span><span class="p">]</span>
+
+                <span class="n">userinfo</span><span class="p">[</span><span class="s">&#39;portalname&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">portal_id</span>
+                <span class="n">userinfo</span><span class="p">[</span><span class="s">&#39;profile&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ldap_user</span>
+                <span class="c">#</span>
+                <span class="c"># repositioning</span>
+                <span class="c">#</span>
+                <span class="n">userinfo</span><span class="p">[</span><span class="s">&quot;keys&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;keylist&#39;</span><span class="p">:</span> <span class="n">ldap_user</span><span class="p">[</span><span class="s">&#39;keys&#39;</span><span class="p">]}</span>
+
+                <span class="n">userinfo</span><span class="p">[</span><span class="s">&quot;projects&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ldap_user</span><span class="p">[</span><span class="s">&#39;projects&#39;</span><span class="p">]</span>
+                <span class="k">del</span> <span class="n">userinfo</span><span class="p">[</span><span class="s">&#39;profile&#39;</span><span class="p">][</span><span class="s">&#39;keys&#39;</span><span class="p">]</span>
+                <span class="k">del</span> <span class="n">userinfo</span><span class="p">[</span><span class="s">&#39;profile&#39;</span><span class="p">][</span><span class="s">&#39;projects&#39;</span><span class="p">]</span>
+
+                <span class="c">#</span>
+                <span class="c"># correct projects</span>
+                <span class="c">#</span>
+                <span class="n">projects</span> <span class="o">=</span> <span class="n">userinfo</span><span class="p">[</span><span class="s">&quot;projects&quot;</span><span class="p">]</span>
+                <span class="n">projects</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">update_users_project_names</span><span class="p">(</span><span class="n">projects</span><span class="p">)</span>
+
+            <span class="n">cloud_info</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">db_clouds</span><span class="o">.</span><span class="n">find</span><span class="p">({</span><span class="s">&quot;cm_kind&quot;</span><span class="p">:</span> <span class="s">&quot;users&quot;</span><span class="p">})</span>
+            <span class="k">for</span> <span class="n">cloud_user</span> <span class="ow">in</span> <span class="n">cloud_info</span><span class="p">:</span>
+                <span class="n">portal_id</span> <span class="o">=</span> <span class="n">cloud_user</span><span class="p">[</span><span class="s">&#39;name&#39;</span><span class="p">]</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">usersinfo</span><span class="p">[</span><span class="n">portal_id</span><span class="p">]</span>
+                <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+                    <span class="k">print</span> <span class="n">portal_id</span> <span class="o">+</span> <span class="s">&quot; doesn&#39;t exist in the ldap, skip to search&quot;</span>
+                    <span class="k">continue</span>
+
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">usersinfo</span><span class="p">[</span><span class="n">portal_id</span><span class="p">][</span><span class="s">&#39;clouds&#39;</span><span class="p">]</span>
+                <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+                    <span class="n">usersinfo</span><span class="p">[</span><span class="n">portal_id</span><span class="p">][</span><span class="s">&#39;clouds&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+
+                <span class="k">if</span> <span class="n">cloud_names</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">cloud_user</span><span class="p">[</span><span class="s">&#39;cm_cloud&#39;</span><span class="p">]</span> <span class="ow">in</span> <span class="n">cloud_names</span><span class="p">:</span>
+                        <span class="n">usersinfo</span><span class="p">[</span><span class="n">portal_id</span><span class="p">][</span><span class="s">&#39;clouds&#39;</span><span class="p">][</span><span class="n">cloud_user</span><span class="p">[</span><span class="s">&#39;cm_cloud&#39;</span><span class="p">]]</span> <span class="o">=</span> \
+                        <span class="n">cloud_user</span>
+                <span class="k">else</span><span class="p">:</span>
                     <span class="n">usersinfo</span><span class="p">[</span><span class="n">portal_id</span><span class="p">][</span><span class="s">&#39;clouds&#39;</span><span class="p">][</span><span class="n">cloud_user</span><span class="p">[</span><span class="s">&#39;cm_cloud&#39;</span><span class="p">]]</span> <span class="o">=</span> \
                     <span class="n">cloud_user</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="n">usersinfo</span><span class="p">[</span><span class="n">portal_id</span><span class="p">][</span><span class="s">&#39;clouds&#39;</span><span class="p">][</span><span class="n">cloud_user</span><span class="p">[</span><span class="s">&#39;cm_cloud&#39;</span><span class="p">]]</span> <span class="o">=</span> \
-                <span class="n">cloud_user</span>
 
-        <span class="k">return</span> <span class="n">usersinfo</span>
+            <span class="k">return</span> <span class="n">usersinfo</span>
 </div>
     <span class="k">def</span> <span class="nf">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
 
+    <span class="nd">@deprecated</span>
 <div class="viewcode-block" id="cm_user.get_name"><a class="viewcode-back" href="../../../modules/cloudmesh.user.html#cloudmesh.user.cm_user.cm_user.get_name">[docs]</a>    <span class="k">def</span> <span class="nf">get_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">portal_id</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Return a user name in a tuple. (firstname, lastname)</span>
 <span class="sd">        </span>
@@ -496,18 +790,26 @@
 <span class="sd">        :returns: tuple</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
+        <span class="p">(</span><span class="n">firstname</span><span class="p">,</span> <span class="n">lastname</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="bp">None</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
         <span class="n">ldap_data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">db_users</span><span class="o">.</span><span class="n">find</span><span class="p">({</span><span class="s">&quot;cm_user_id&quot;</span><span class="p">:</span> <span class="n">portal_id</span><span class="p">})</span>
         <span class="k">if</span> <span class="n">ldap_data</span><span class="o">.</span><span class="n">count</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
             <span class="n">ldap_info</span> <span class="o">=</span> <span class="n">ldap_data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
             <span class="p">(</span><span class="n">first_name</span><span class="p">,</span> <span class="n">last_name</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="n">ldap_info</span><span class="p">[</span><span class="s">&#39;firstname&#39;</span><span class="p">],</span> <span class="n">ldap_info</span><span class="p">[</span><span class="s">&#39;lastname&#39;</span><span class="p">])</span>
 
-            <span class="k">return</span> <span class="p">(</span><span class="n">first_name</span><span class="p">,</span> <span class="n">last_name</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">first_name</span><span class="p">,</span> <span class="n">last_name</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="cm_user.update_defaults"><a class="viewcode-back" href="../../../modules/cloudmesh.user.html#cloudmesh.user.cm_user.cm_user.update_defaults">[docs]</a>    <span class="k">def</span> <span class="nf">update_defaults</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">d</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Sets the defaults for a user &quot;&quot;&quot;</span>
+        <span class="n">stored_d</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_defaults</span><span class="p">(</span><span class="n">username</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">attribute</span> <span class="ow">in</span> <span class="n">d</span><span class="p">:</span>
+            <span class="n">stored_d</span><span class="p">[</span><span class="n">attribute</span><span class="p">]</span> <span class="o">=</span> <span class="n">d</span><span class="p">[</span><span class="n">attribute</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">set_defaults</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">stored_d</span><span class="p">)</span>
 </div>
 <div class="viewcode-block" id="cm_user.set_defaults"><a class="viewcode-back" href="../../../modules/cloudmesh.user.html#cloudmesh.user.cm_user.cm_user.set_defaults">[docs]</a>    <span class="k">def</span> <span class="nf">set_defaults</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">d</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Sets the defaults for a user &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">d</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">dict</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">db_defaults</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s">&#39;cm_user_id&#39;</span><span class="p">:</span> <span class="n">username</span><span class="p">},</span>
-                                    <span class="p">{</span><span class="s">&#39;$set&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s">&#39;defaults&#39;</span><span class="p">:</span> <span class="n">d</span><span class="p">}})</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">db_defaults</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s">&#39;cm_user_id&#39;</span><span class="p">:</span> <span class="n">username</span><span class="p">},</span> <span class="n">d</span><span class="p">,</span> <span class="n">upsert</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
         <span class="k">else</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">,</span> <span class="s">&#39;defaults value must be a dict&#39;</span>
 </div>
@@ -521,41 +823,51 @@
 </div>
 <div class="viewcode-block" id="cm_user.get_defaults"><a class="viewcode-back" href="../../../modules/cloudmesh.user.html#cloudmesh.user.cm_user.cm_user.get_defaults">[docs]</a>    <span class="k">def</span> <span class="nf">get_defaults</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">username</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;returns the defaults for the user&quot;&quot;&quot;</span>
-        <span class="n">user</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">db_defaults</span><span class="o">.</span><span class="n">find</span><span class="p">({</span><span class="s">&#39;cm_user_id&#39;</span><span class="p">:</span> <span class="n">username</span><span class="p">})</span>
-        <span class="k">print</span> <span class="s">&quot;****** &quot;</span><span class="p">,</span> <span class="n">user</span><span class="p">[</span><span class="s">&#39;defaults&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="s">&#39;defaults&#39;</span> <span class="ow">in</span> <span class="n">user</span> <span class="k">else</span> <span class="s">&quot;no defaults for {0}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">username</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">user</span><span class="p">[</span><span class="s">&#39;defaults&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="s">&#39;defaults&#39;</span> <span class="ow">in</span> <span class="n">user</span> <span class="k">else</span> <span class="p">{}</span>
+        <span class="n">user</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">db_defaults</span><span class="o">.</span><span class="n">find_one</span><span class="p">({</span><span class="s">&#39;cm_user_id&#39;</span><span class="p">:</span> <span class="n">username</span><span class="p">})</span>
+
+        <span class="k">if</span> <span class="n">user</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">user</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">return</span> <span class="n">user</span>
+</div>
+<div class="viewcode-block" id="cm_user.set_credential"><a class="viewcode-back" href="../../../modules/cloudmesh.user.html#cloudmesh.user.cm_user.cm_user.set_credential">[docs]</a>    <span class="k">def</span> <span class="nf">set_credential</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">cloud</span><span class="p">,</span> <span class="n">credential</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;credential is a dict&quot;&quot;&quot;</span>
+        <span class="n">safe_credential</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">cred</span> <span class="ow">in</span> <span class="n">credential</span><span class="p">:</span>
+            <span class="n">safe_credential</span><span class="p">[</span><span class="n">cred</span><span class="p">]</span> <span class="o">=</span> <span class="n">encrypt</span><span class="p">(</span><span class="n">credential</span><span class="p">[</span><span class="n">cred</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">password_key</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">userdb_passwd</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s">&quot;cm_user_id&quot;</span><span class="p">:</span> <span class="n">username</span><span class="p">,</span> <span class="s">&quot;cloud&quot;</span><span class="p">:</span> <span class="n">cloud</span> <span class="p">},</span> \
+                                  <span class="p">{</span><span class="s">&quot;cm_user_id&quot;</span><span class="p">:</span><span class="n">username</span><span class="p">,</span> <span class="s">&quot;credential&quot;</span><span class="p">:</span><span class="n">safe_credential</span><span class="p">,</span> \
+                                   <span class="s">&quot;cloud&quot;</span><span class="p">:</span> <span class="n">cloud</span><span class="p">},</span> <span class="n">upsert</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
 
 </div>
-<div class="viewcode-block" id="cm_user.set_password"><a class="viewcode-back" href="../../../modules/cloudmesh.user.html#cloudmesh.user.cm_user.cm_user.set_password">[docs]</a>    <span class="k">def</span> <span class="nf">set_password</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span> <span class="n">cloud</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Store a user password for the cloud</span>
-
-<span class="sd">        :param username: OS_USERNAME or cm_user_id</span>
-<span class="sd">        :type username: str</span>
-<span class="sd">        :param password: OS_PASSWORD</span>
-<span class="sd">        :type password: str</span>
-<span class="sd">        :param cloud: the cloud name e.g. sierra_openstack_grizzly</span>
-<span class="sd">        :type cloud: str</span>
-
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">userdb_passwd</span><span class="o">.</span><span class="n">insert</span><span class="p">({</span><span class="s">&quot;username&quot;</span><span class="p">:</span><span class="n">username</span><span class="p">,</span>
-                                   <span class="s">&quot;password&quot;</span><span class="p">:</span><span class="n">password</span><span class="p">,</span>
-                                   <span class="s">&quot;cloud&quot;</span><span class="p">:</span> <span class="n">cloud</span><span class="p">})</span>
-</div>
-<div class="viewcode-block" id="cm_user.get_password"><a class="viewcode-back" href="../../../modules/cloudmesh.user.html#cloudmesh.user.cm_user.cm_user.get_password">[docs]</a>    <span class="k">def</span> <span class="nf">get_password</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">cloud</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Return a user password for the cloud</span>
-
-<span class="sd">        :param username: OS_USERNAME</span>
-<span class="sd">        :type username: str</span>
-<span class="sd">        :param cloud: the cloud name e.g. sierra_openstack_grizzly</span>
-<span class="sd">        :type cloud:str</span>
-
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">passwd</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">userdb_passwd</span><span class="o">.</span><span class="n">find</span><span class="p">({</span><span class="s">&quot;username&quot;</span><span class="p">:</span> <span class="n">username</span><span class="p">,</span> <span class="s">&quot;cloud&quot;</span><span class="p">:</span><span class="n">cloud</span><span class="p">})</span>
+<div class="viewcode-block" id="cm_user.get_credential"><a class="viewcode-back" href="../../../modules/cloudmesh.user.html#cloudmesh.user.cm_user.cm_user.get_credential">[docs]</a>    <span class="k">def</span> <span class="nf">get_credential</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">cloud</span><span class="p">):</span>
         <span class="k">try</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">passwd</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">safe_credential</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">userdb_passwd</span><span class="o">.</span><span class="n">find_one</span><span class="p">({</span><span class="s">&quot;cm_user_id&quot;</span><span class="p">:</span> <span class="n">username</span><span class="p">,</span> <span class="s">&quot;cloud&quot;</span><span class="p">:</span><span class="n">cloud</span><span class="p">})[</span><span class="s">&quot;credential&quot;</span><span class="p">]</span>
+
+            <span class="k">for</span> <span class="n">cred</span> <span class="ow">in</span> <span class="n">safe_credential</span><span class="p">:</span>
+                <span class="n">t</span> <span class="o">=</span> <span class="n">safe_credential</span><span class="p">[</span><span class="n">cred</span><span class="p">]</span>
+
+                <span class="n">n</span> <span class="o">=</span> <span class="n">decrypt</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">password_key</span><span class="p">)</span>
+
+                <span class="n">safe_credential</span><span class="p">[</span><span class="n">cred</span><span class="p">]</span> <span class="o">=</span> <span class="n">n</span>
+
+
+            <span class="k">return</span> <span class="n">safe_credential</span>
         <span class="k">except</span><span class="p">:</span>
-            <span class="k">return</span> <span class="bp">None</span></div></div>
-</pre></div>
+            <span class="k">return</span> <span class="bp">None</span>
+
+</div>
+<div class="viewcode-block" id="cm_user.get_credentials"><a class="viewcode-back" href="../../../modules/cloudmesh.user.html#cloudmesh.user.cm_user.cm_user.get_credentials">[docs]</a>    <span class="k">def</span> <span class="nf">get_credentials</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">username</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return all user passwords in the form of a dict, keyed by cloud name&quot;&quot;&quot;</span>
+        <span class="n">credentials</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">userdb_passwd</span><span class="o">.</span><span class="n">find</span><span class="p">({</span> <span class="s">&quot;cm_user_id&quot;</span><span class="p">:</span> <span class="n">username</span> <span class="p">})</span>
+        <span class="n">d</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="sd">&quot;&quot;&quot; bug multiple times same cloud ? &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">credentials</span><span class="p">:</span>
+            <span class="n">cloud</span> <span class="o">=</span> <span class="n">c</span><span class="p">[</span><span class="s">&quot;cloud&quot;</span><span class="p">]</span>
+            <span class="n">d</span><span class="p">[</span><span class="n">cloud</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="n">d</span><span class="p">[</span><span class="n">cloud</span><span class="p">][</span><span class="s">&quot;credential&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_credential</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">cloud</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">d</span>
+</pre></div></div></div>
 
     </div>
       

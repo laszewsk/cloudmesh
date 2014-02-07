@@ -1,13 +1,3 @@
-
-
-  
-  
- 
-  
-  
- 
-
-
 <!DOCTYPE html>
 
 
@@ -25,7 +15,7 @@
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '',
+        URL_ROOT:    './',
         VERSION:     '0.1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
@@ -61,7 +51,8 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="index.html">Cloudmesh</a>
+        <a class="navbar-brand" href="index.html"><img src="_static/fg-logo-white-24x36.png">
+          Cloudmesh</a>
         <span class="navbar-text navbar-version pull-left"><b>0.1</b></span>
       </div>
 
@@ -141,6 +132,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#example-hpc-queue-server">4.12&nbsp;&nbsp;&nbsp;Example: HPC queue server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#environment">4.13&nbsp;&nbsp;&nbsp;ENVIRONMENT</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="celery.html">5&nbsp;&nbsp;&nbsp;Celery Setup</a><ul>
@@ -162,8 +154,134 @@
 </li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="cm-shell.html">5&nbsp;&nbsp;&nbsp;Cloud Mesh</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cm-shell.html#commands">6&nbsp;&nbsp;&nbsp;Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configure.html">Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="configure.html#cloudmesh-yaml">cloudmesh.yaml</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="configure.html#hp-cloud">HP Cloud</a></li>
+<li class="toctree-l3"><a class="reference internal" href="configure.html#azure">Azure</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="configure.html#amazon-web-services">Amazon Web Services</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="configure.html#india">India</a></li>
+<li class="toctree-l3"><a class="reference internal" href="configure.html#sierra">Sierra</a></li>
+<li class="toctree-l3"><a class="reference internal" href="configure.html#alamo">Alamo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="configure.html#a-complete-example">A complete example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="configure.html#cloudmesh-server-yaml">cloudmesh-server.yaml</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="configure.html#debugging">Debugging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="configure.html#web-ui">Web UI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="configure.html#ldap-integration">LDAP Integration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="configure.html#baremetal-provisioning-with-teefa">Baremetal provisioning with teefa</a></li>
+<li class="toctree-l3"><a class="reference internal" href="configure.html#clusters">Clusters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="configure.html#roles">Roles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="configure.html#keystone-server">Keystone server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="configure.html#mongo">Mongo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="configure.html#complete-example">Complete Example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="configure.html#cloudmesh-cluster-yaml">cloudmesh_cluster.yaml</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="configure.html#metadata">Metadata</a></li>
+<li class="toctree-l3"><a class="reference internal" href="configure.html#id1">Clusters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="configure.html#a-cluster">A Cluster</a></li>
+<li class="toctree-l3"><a class="reference internal" href="configure.html#network">Network:</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="configure.html#cloudmesh-bootspec-yaml">cloudmesh_bootspec.yaml</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configure.html#other-yaml-files">Other Yaml files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configure.html#me-sample">Me Sample</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="cm-shell.html">5&nbsp;&nbsp;&nbsp;Cloud Mesh</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cm-shell.html#defaults">5.1&nbsp;&nbsp;&nbsp;Defaults</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cm-shell.html#register-clouds">5.2&nbsp;&nbsp;&nbsp;Register Clouds</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cm-shell.html#register-an-aws-account">5.2.1&nbsp;&nbsp;&nbsp;Register an AWS account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cm-shell.html#register-an-azure-account">5.2.2&nbsp;&nbsp;&nbsp;Register an azure account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cm-shell.html#register-an-eucalyptus-account">5.2.3&nbsp;&nbsp;&nbsp;Register an Eucalyptus account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cm-shell.html#register-an-openstack-account">5.2.4&nbsp;&nbsp;&nbsp;Register an OpenStack account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cm-shell.html#register-an-ec2-account">5.2.5&nbsp;&nbsp;&nbsp;Register an EC2 account</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cm-shell.html#activate-clouds">5.3&nbsp;&nbsp;&nbsp;Activate Clouds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cm-shell.html#managing-projects">5.4&nbsp;&nbsp;&nbsp;Managing Projects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cm-shell.html#managing-users">5.5&nbsp;&nbsp;&nbsp;Managing Users</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cm-shell.html#manageing-virtual-machines">5.6&nbsp;&nbsp;&nbsp;Manageing Virtual Machines</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cm-shell.html#list-images">5.6.1&nbsp;&nbsp;&nbsp;List images</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cm-shell.html#starting-vms">5.6.2&nbsp;&nbsp;&nbsp;Starting VMs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cm-shell.html#manageing-security-groups">5.6.3&nbsp;&nbsp;&nbsp;Manageing Security Groups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cm-shell.html#managing-volumes">5.6.4&nbsp;&nbsp;&nbsp;Managing Volumes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cm-shell.html#managing-heat-s-for-openstack">5.6.5&nbsp;&nbsp;&nbsp;Managing heat&#8217;s for OpenStack</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cm-shell.html#commands">6&nbsp;&nbsp;&nbsp;Commands</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cm-shell.html#listing-images">6.1&nbsp;&nbsp;&nbsp;Listing images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cm-shell.html#cm-manage-initialize-user-name-password-password">6.2&nbsp;&nbsp;&nbsp;cm manage initialize &#8211;user&lt;name&gt; &#8211;password &lt;password&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cm-shell.html#cm-project-list">6.3&nbsp;&nbsp;&nbsp;cm project list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cm-shell.html#cm-project-info-number">6.4&nbsp;&nbsp;&nbsp;cm project &#8211;info &lt;number&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cm-shell.html#cm-project-activate-number">6.5&nbsp;&nbsp;&nbsp;cm project &#8211;activate &lt;number&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cm-shell.html#cm-project-deactivate">6.6&nbsp;&nbsp;&nbsp;cm project &#8211;deactivate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cm-shell.html#cm-env">6.7&nbsp;&nbsp;&nbsp;cm env</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cm-shell.html#cm-resource-list">6.8&nbsp;&nbsp;&nbsp;cm resource &#8211;list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cm-shell.html#cm-service-list">6.9&nbsp;&nbsp;&nbsp;cm service &#8211;list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cm-shell.html#cm-service-register">6.10&nbsp;&nbsp;&nbsp;cm service register</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cm-shell.html#cm-resource-register">6.11&nbsp;&nbsp;&nbsp;cm resource register</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cm-shell.html#cm-image-list">6.12&nbsp;&nbsp;&nbsp;cm image &#8211;list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cm-shell.html#cm-id-list">6.13&nbsp;&nbsp;&nbsp;cm id &#8211;list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cm-shell.html#cm-label-id-id">6.14&nbsp;&nbsp;&nbsp;cm label &#8211;id &lt;id&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cm-shell.html#cm-vm-create-label">6.15&nbsp;&nbsp;&nbsp;cm vm create &lt;label&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cm-shell.html#cm-vm-destroy-label">6.16&nbsp;&nbsp;&nbsp;cm vm destroy &lt;label&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cm-shell.html#cm-vm-terminate-label">6.17&nbsp;&nbsp;&nbsp;cm vm terminate &lt;label&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cm-shell.html#cm-vm-suspoend-label">6.18&nbsp;&nbsp;&nbsp;cm vm suspoend &lt;label&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cm-shell.html#cm-vm-resume-label">6.19&nbsp;&nbsp;&nbsp;cm vm resume &lt;label&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cm-shell.html#cm-vm-login">6.20&nbsp;&nbsp;&nbsp;cm vm login</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cm-shell.html#cm-seceurity-group-add-label-parameters">6.21&nbsp;&nbsp;&nbsp;cm seceurity group add &lt;label&gt; &lt;parameters&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cm-shell.html#cm-seceurity-group-delete">6.22&nbsp;&nbsp;&nbsp;cm seceurity group delete</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cm-shell.html#cm-seceurity-group-default-add-label">6.23&nbsp;&nbsp;&nbsp;cm seceurity group default add &lt;label&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cm-shell.html#cm-seceurity-group-default-delete-label">6.24&nbsp;&nbsp;&nbsp;cm seceurity group default delete &lt;label&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cm-shell.html#examples">6.25&nbsp;&nbsp;&nbsp;Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cm-manage.html">cm-manage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="coding.html">Cloudmesh Style Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="coding.html#information">Information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coding.html#general">General</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coding.html#imports">Imports</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coding.html#human-alphabetical-order-examples">Human Alphabetical Order Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coding.html#docstrings">Docstrings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coding.html#dictionaries-lists">Dictionaries/Lists</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coding.html#calling-methods">Calling Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coding.html#internationalization-i18n-strings">Internationalization (i18n) Strings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coding.html#python-3-x-compatibility">Python 3.x compatibility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coding.html#creating-unit-tests">Creating Unit Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coding.html#running-tests">Running Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coding.html#building-docs">Building Docs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coding.html#oslo-incubator">oslo-incubator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coding.html#commit-messages">Commit Messages</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="contact.html">Contact</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="contact.html#contributors">Contributors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contact.html#blog">Blog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contact.html#repository">Repository</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="deploy.html">Production Deployment Server</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="deploy.html#instalation">Instalation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="deploy.html#starting-the-deployed-server">Starting the deployed server</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="doc.html">Adding to the Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="doc.html#creating-the-documentation-locally">Creating the documentation locally</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doc.html#rst-documentation">RST Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doc.html#gh-pages">gh-pages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doc.html#published-documentation">Published Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="fg.html">FutureGrid Specific tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="support.html">Support</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="plan/plan.html">7&nbsp;&nbsp;&nbsp;Plan: Cloudmesh Service Shift</a><ul>
@@ -211,21 +329,18 @@
 </li>
 <li class="toctree-l4"><a class="reference internal" href="modules/cloudmesh.config.html">config Package</a><ul>
 <li class="toctree-l5"><a class="reference internal" href="modules/cloudmesh.config.html#id1"><tt class="docutils literal"><span class="pre">config</span></tt> Package</a></li>
-<li class="toctree-l5"><a class="reference internal" href="modules/cloudmesh.config.html#module-cloudmesh.config.cloudmesh_cloud"><tt class="docutils literal"><span class="pre">cloudmesh_cloud</span></tt> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="modules/cloudmesh.config.html#module-cloudmesh.config.cloudmesh_cloud_handler"><tt class="docutils literal"><span class="pre">cloudmesh_cloud_handler</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/cloudmesh.config.html#cloudmesh-cloud-module"><tt class="docutils literal"><span class="pre">cloudmesh_cloud</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/cloudmesh.config.html#cloudmesh-cloud-handler-module"><tt class="docutils literal"><span class="pre">cloudmesh_cloud_handler</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="modules/cloudmesh.config.html#module-cloudmesh.config.cm_config"><tt class="docutils literal"><span class="pre">cm_config</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="modules/cloudmesh.config.html#module-cloudmesh.config.cm_keys"><tt class="docutils literal"><span class="pre">cm_keys</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="modules/cloudmesh.config.html#module-cloudmesh.config.cm_projects"><tt class="docutils literal"><span class="pre">cm_projects</span></tt> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="modules/cloudmesh.config.html#module-cloudmesh.config.cm_rc"><tt class="docutils literal"><span class="pre">cm_rc</span></tt> Module</a><ul>
-<li class="toctree-l6"><a class="reference internal" href="modules/cloudmesh.config.html#cm-manage-config">cm-manage config</a></li>
-</ul>
-</li>
+<li class="toctree-l5"><a class="reference internal" href="modules/cloudmesh.config.html#cm-rc-module"><tt class="docutils literal"><span class="pre">cm_rc</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="modules/cloudmesh.config.html#ldap-user-module"><tt class="docutils literal"><span class="pre">ldap_user</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="modules/cloudmesh.config.html#mock-cloud-module"><tt class="docutils literal"><span class="pre">mock_cloud</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="modules/cloudmesh.config.html#mock-keystone-module"><tt class="docutils literal"><span class="pre">mock_keystone</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="modules/cloudmesh.config.html#mock-user-module"><tt class="docutils literal"><span class="pre">mock_user</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="modules/cloudmesh.config.html#openstack-essex-cloud-module"><tt class="docutils literal"><span class="pre">openstack_essex_cloud</span></tt> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="modules/cloudmesh.config.html#module-cloudmesh.config.openstack_grizzly_cloud"><tt class="docutils literal"><span class="pre">openstack_grizzly_cloud</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/cloudmesh.config.html#openstack-grizzly-cloud-module"><tt class="docutils literal"><span class="pre">openstack_grizzly_cloud</span></tt> Module</a></li>
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="modules/cloudmesh.iaas.html">iaas Package</a><ul>
@@ -234,7 +349,7 @@
 <li class="toctree-l5"><a class="reference internal" href="modules/cloudmesh.iaas.html#subpackages">Subpackages</a><ul>
 <li class="toctree-l6"><a class="reference internal" href="modules/cloudmesh.iaas.azure.html">azure Package</a><ul>
 <li class="toctree-l7"><a class="reference internal" href="modules/cloudmesh.iaas.azure.html#id1"><tt class="docutils literal"><span class="pre">azure</span></tt> Package</a></li>
-<li class="toctree-l7"><a class="reference internal" href="modules/cloudmesh.iaas.azure.html#module-cloudmesh.iaas.azure.cm_azure"><tt class="docutils literal"><span class="pre">cm_azure</span></tt> Module</a></li>
+<li class="toctree-l7"><a class="reference internal" href="modules/cloudmesh.iaas.azure.html#cm-azure-module"><tt class="docutils literal"><span class="pre">cm_azure</span></tt> Module</a></li>
 <li class="toctree-l7"><a class="reference internal" href="modules/cloudmesh.iaas.azure.html#fabfile-module"><tt class="docutils literal"><span class="pre">fabfile</span></tt> Module</a></li>
 </ul>
 </li>
@@ -340,6 +455,7 @@
 </ul>
 </li>
 <li><a class="reference internal" href="#example-hpc-queue-server">4.12&nbsp;&nbsp;&nbsp;Example: HPC queue server</a></li>
+<li><a class="reference internal" href="#environment">4.13&nbsp;&nbsp;&nbsp;ENVIRONMENT</a></li>
 </ul>
 </li>
 </ul>
@@ -350,16 +466,20 @@
             
               
                 
-  <li><a href="tasks.html"
-         title="Previous Chapter: 2   Issue Management">&laquo; 2   Issue Manage...</a></li>
-  <li><a href="celery.html"
-         title="Next Chapter: 5   Celery Setup">5   Celery Setup &raquo;</a></li>
+  <li>
+    <a href="tasks.html" title="Previous Chapter: 2   Issue Management"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm">&laquo; 2   Issue Manage...</span>
+    </a>
+  </li>
+  <li>
+    <a href="celery.html" title="Next Chapter: 5   Celery Setup"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm">5   Celery Setup &raquo;</span>
+    </a>
+  </li>
               
             
             
             
             
-              <li>
+              <li class="hidden-sm">
 <div id="sourcelink">
   <a href="_sources/developer.txt"
      rel="nofollow">Source</a>
@@ -439,6 +559,7 @@
 </ul>
 </li>
 <li><a class="reference internal" href="#example-hpc-queue-server" id="id36">4.12&nbsp;&nbsp;&nbsp;Example: HPC queue server</a></li>
+<li><a class="reference internal" href="#environment" id="id37">4.13&nbsp;&nbsp;&nbsp;ENVIRONMENT</a></li>
 </ul>
 </li>
 </ul>
@@ -511,7 +632,7 @@ test this say:</p>
 <p>Once that is accomplished you can create a virtual env as follows in the
 directory ENV:</p>
 <blockquote>
-<div>$ virtualenv ~/ENV</div></blockquote>
+<div>$ virtualenv  &#8211;no-site-packages ~/ENV</div></blockquote>
 <p>If you do not have root access you can install it from source as
 documented at</p>
 <ul class="simple">
@@ -798,7 +919,7 @@ refresh of the web page automatically to other test programs.</p>
 <p>Python has a very good unit test framework called nosetests. As we have many different tests it is sometimes useful not to run all of them but to run a selected test. Running all of the tests would take simply to long during debugging. We are providing an easy to use test fabric command that can be used as follows. Assume that in your directory tests are located a number of tests. They can be listed with:</p>
 <div class="highlight-python"><pre>$ fab test.info</pre>
 </div>
-<p>This will list the available test files/groups by name (the <a href="#id37"><span class="problematic" id="id38">test_</span></a> prefix is omitted). To list the individual tests in a file/grou, you can use it as a parameter to info. Thus:</p>
+<p>This will list the available test files/groups by name (the <a href="#id38"><span class="problematic" id="id39">test_</span></a> prefix is omitted). To list the individual tests in a file/grou, you can use it as a parameter to info. Thus:</p>
 <div class="highlight-python"><pre>fab test.info:compute</pre>
 </div>
 <p>will list the tests in the file test_compute.py. To call an individual test, you can use the name of the file and a unique prefix of the test you like to call via test.start. Thus:</p>
@@ -818,89 +939,6 @@ refresh of the web page automatically to other test programs.</p>
 <div class="section" id="convenient-command-shortcuts">
 <h2><a class="toc-backref" href="#id29">4.8&nbsp;&nbsp;&nbsp;Convenient command shortcuts</a><a class="headerlink" href="#convenient-command-shortcuts" title="Permalink to this headline">¶</a></h2>
 <p>We are providing a number of useful command that will make your development efforts easier.  These commands are build with fabfiles in the fabfile directory. in the cloudmesh directory, you will find a directory called fabfile that includes the agglomerated helper files. To access them you can use the name of the file, followed by a task that is defined within the file. Next we list the available commands:</p>
-<div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> fab -l
-<span class="go">Available commands:</span>
-
-<span class="go">    build.install       install cloudmesh</span>
-<span class="go">    build.req           install the requirements</span>
-<span class="go">    build.sdist         create the sdist</span>
-<span class="go">    build.sphinx</span>
-<span class="go">    clean.all           clean the dis and uninstall cloudmesh</span>
-<span class="go">    clean.dir           clean the dirs</span>
-<span class="go">    doc.gh              deploy the documentation on gh-pages</span>
-<span class="go">    doc.html            build the doc locally and view</span>
-<span class="go">    doc.view            view the documentation in a browser</span>
-<span class="go">    git.gregor          git config of name and email for gregor</span>
-<span class="go">    git.pull            git pull</span>
-<span class="go">    git.push            git push</span>
-<span class="go">    iptable.info</span>
-<span class="go">    iptable.port</span>
-<span class="go">    iptable.production</span>
-<span class="go">    mongo.admin         creates a password protected user for mongo</span>
-<span class="go">    mongo.boot</span>
-<span class="go">    mongo.clean</span>
-<span class="go">    mongo.cloud         puts a snapshot of users, servers, images, and flavor...</span>
-<span class="go">    mongo.cloudusers    adds the clud user information from FG to the users m...</span>
-<span class="go">    mongo.errormetric   puts an example of a log file into the mongodb logfil...</span>
-<span class="go">    mongo.info</span>
-<span class="go">    mongo.inventory</span>
-<span class="go">    mongo.kill</span>
-<span class="go">    mongo.ldap          fetches a user list from ldap and displays it</span>
-<span class="go">    mongo.metric        puts an example of a log file into the mongodb logfil...</span>
-<span class="go">    mongo.pbs</span>
-<span class="go">    mongo.projects</span>
-<span class="go">    mongo.simple        puts a snapshot of servers, images, and flavors into ...</span>
-<span class="go">    mongo.start         start the mongod service in the location as specified...</span>
-<span class="go">    mongo.stop          stops the currently running mongod</span>
-<span class="go">    mongo.users         puts a snapshot of the users into mongo</span>
-<span class="go">    mongo.vms_find</span>
-<span class="go">    mongo.wipe          wipes out all traces from mongo</span>
-<span class="go">    mq.allow            allow a user to access the host in rabitmq</span>
-<span class="go">    mq.check            check if the /etc/hosts file is properly configures</span>
-<span class="go">    mq.dns              restart the dns server</span>
-<span class="go">    mq.host             adding a host to rabitmq</span>
-<span class="go">    mq.info             print some essential information about the messaging ...</span>
-<span class="go">    mq.install          install the rabitmq</span>
-<span class="go">    mq.menu             open a menu to start some commands with an ascii menu</span>
-<span class="go">    mq.start            start the rabit mq server</span>
-<span class="go">    mq.status           print the status of rabbitmq</span>
-<span class="go">    mq.stop             stop the rabit mq server</span>
-<span class="go">    mq.user             create a user in rabit mq</span>
-<span class="go">    nose.install        install nose-json</span>
-<span class="go">    nose.run            run the nosetests</span>
-<span class="go">    nose.view</span>
-<span class="go">    pep8.auto           run autopep8 on all python files</span>
-<span class="go">    pep8.install        install pep8, autopep8, pylint</span>
-<span class="go">    pep8.stat           create statistics for pep8</span>
-<span class="go">    pypi.register       register with pypi. Needs only to be done once.</span>
-<span class="go">    pypi.upload         upload the dist to pypi</span>
-<span class="go">    queue.clean         stop celery and clean up</span>
-<span class="go">    queue.gui           start the flower celery gui</span>
-<span class="go">    queue.kill</span>
-<span class="go">    queue.list          list the workers</span>
-<span class="go">    queue.ls</span>
-<span class="go">    queue.lspbs</span>
-<span class="go">    queue.monitor       provide some information about celery</span>
-<span class="go">    queue.start         start the celery server</span>
-<span class="go">    queue.stop          stop the workers</span>
-<span class="go">    server.agent</span>
-<span class="go">    server.clean        clean the directory</span>
-<span class="go">    server.kill         kills all server processes</span>
-<span class="go">    server.start        starts in dir webgui the program server.py and displa...</span>
-<span class="go">    server.stop         sma e as the kill command</span>
-<span class="go">    server.view         run the browser</span>
-<span class="go">    test.info           list all functions of file with the partial name f</span>
-<span class="go">    test.start          executes a test with a given partial filename and par...</span>
-<span class="go">    tunnel.flask</span>
-<span class="go">    tunnel.ldap</span>
-<span class="go">    tunnel.open         clean the dirs</span>
-<span class="go">    user.info</span>
-<span class="go">    user.list</span>
-<span class="go">    user.mongo</span>
-<span class="go">    user.password</span>
-<span class="go">    user.yaml           creates a user from tempalte and a simplified version...</span>
-</pre></div>
-</div>
 </div>
 <div class="section" id="working-with-cloudmesh-on-a-remote-server">
 <h2><a class="toc-backref" href="#id30">4.9&nbsp;&nbsp;&nbsp;Working with Cloudmesh on a remote server</a><a class="headerlink" href="#working-with-cloudmesh-on-a-remote-server" title="Permalink to this headline">¶</a></h2>
@@ -952,8 +990,12 @@ values.</p>
 </div>
 <div class="section" id="making-the-documentation">
 <h2><a class="toc-backref" href="#id34">4.11&nbsp;&nbsp;&nbsp;Making the documentation</a><a class="headerlink" href="#making-the-documentation" title="Permalink to this headline">¶</a></h2>
-<p>The documentation requiresa couple of add ons that are not included in
-the requirements.txt file. However, they can be installed with:</p>
+<p>A simple way to creat ethe documentation is with:</p>
+<div class="highlight-python"><pre>make sphinx</pre>
+</div>
+<p>However, some extensions may require additional packages for sphinx.
+These add ons are unfortunatly not included in the requirements.txt.
+However, they can be installed with (on OSX hg is a prerequisit):</p>
 <div class="highlight-python"><pre>$ fab build.sphinx</pre>
 </div>
 <p>After that you can create the newest documentation with:</p>
@@ -1010,6 +1052,20 @@ If you want to do thia by hand you can do this with:</p>
 queue server. That inspects certain queues. This can be done by
 specifing a specific server at startup called hpc:</p>
 <div class="highlight-python"><pre>$ fab server.start:server=hpc</pre>
+</div>
+</div>
+<div class="section" id="environment">
+<h2><a class="toc-backref" href="#id37">4.13&nbsp;&nbsp;&nbsp;ENVIRONMENT</a><a class="headerlink" href="#environment" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><pre>deactivate
+cd
+virtualenv --no-site-packages ENV</pre>
+</div>
+<p>open a new terminal</p>
+<div class="highlight-python"><pre>$ pip install numpy matplotlib fabric
+$ git clone git@github.com:cloudmesh/cloudmesh.git
+$ cd cloudmesh
+$ fab -f install/fabfile.py deploy
+$ fab build.install</pre>
 </div>
 </div>
 </div>

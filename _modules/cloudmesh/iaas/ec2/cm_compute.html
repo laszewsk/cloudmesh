@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>cloudmesh.iaas.ec2.cm_compute &mdash; Cloudmesh 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="../../../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/bootstrap-3.0.0/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/bootstrap-3.0.0/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../../',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../../../../_static/js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="../../../../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../../../../_static/bootstrap-3.0.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../../../_static/bootstrap-sphinx.js"></script>
+    <link rel="author" title="About these documents" href="../../../../about.html" />
+    <link rel="top" title="Cloudmesh 0.1 documentation" href="../../../../index.html" />
+    <link rel="up" title="Module code" href="../../../index.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body>
+
+  <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../../index.html"><img src="../../../../_static/fg-logo-white-24x36.png">
+          Cloudmesh</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.1</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            <li class="divider-vertical"></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a href="../../../../index.html"
+     class="dropdown-toggle"
+     data-toggle="dropdown">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+    ><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../about.html">1&nbsp;&nbsp;&nbsp;Documentation Management</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../about.html#installation-requirements-for-the-documentation-generation">1.1&nbsp;&nbsp;&nbsp;Installation Requirements for the Documentation Generation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../about.html#document-generation">1.2&nbsp;&nbsp;&nbsp;Document Generation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../about.html#publishing-the-documentation">1.3&nbsp;&nbsp;&nbsp;Publishing the Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tasks.html">2&nbsp;&nbsp;&nbsp;Issue Management</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../tasks.html#labels">2.1&nbsp;&nbsp;&nbsp;Labels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../tasks.html#priority">2.2&nbsp;&nbsp;&nbsp;Priority</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../tasks.html#inactivity">2.3&nbsp;&nbsp;&nbsp;Inactivity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../tasks.html#shortcuts">2.4&nbsp;&nbsp;&nbsp;Shortcuts</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../developer.html">3&nbsp;&nbsp;&nbsp;Usage Quickstart</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../developer.html#with-access-to-ldap">3.1&nbsp;&nbsp;&nbsp;With access to LDAP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../developer.html#without-access-to-ldap">3.2&nbsp;&nbsp;&nbsp;Without access to LDAP</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../developer.html#installation">4&nbsp;&nbsp;&nbsp;Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../developer.html#pip">4.1&nbsp;&nbsp;&nbsp;Pip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../developer.html#virtualenv">4.2&nbsp;&nbsp;&nbsp;Virtualenv</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../developer.html#install-virtualenv">4.2.1&nbsp;&nbsp;&nbsp;Install virtualenv</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../developer.html#activate-virtualenv">4.2.2&nbsp;&nbsp;&nbsp;Activate virtualenv</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../developer.html#modify-your-rc-file-optional">4.2.3&nbsp;&nbsp;&nbsp;Modify your rc file (optional):</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../developer.html#install-fabric">4.3&nbsp;&nbsp;&nbsp;Install fabric</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../developer.html#github">4.4&nbsp;&nbsp;&nbsp;Github</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../developer.html#github-ssh-keys">4.4.1&nbsp;&nbsp;&nbsp;GIthub ssh keys</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../developer.html#git-username-and-e-mail">4.4.2&nbsp;&nbsp;&nbsp;Git username and e-mail</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../developer.html#quick-deployment">4.5&nbsp;&nbsp;&nbsp;Quick deployment</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../developer.html#aptana-studio">4.5.1&nbsp;&nbsp;&nbsp;Aptana Studio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../developer.html#requirements">4.5.2&nbsp;&nbsp;&nbsp;Requirements</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../developer.html#additional-installation-for-documentation-generation">4.6&nbsp;&nbsp;&nbsp;Additional Installation for Documentation Generation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../developer.html#blockdiag-family">4.6.1&nbsp;&nbsp;&nbsp;Blockdiag family</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../developer.html#yaml-files">4.6.2&nbsp;&nbsp;&nbsp;YAML files</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../developer.html#generating-a-cloudmesh-yaml-file">4.6.2.1&nbsp;&nbsp;&nbsp;Generating a cloudmesh.yaml file</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../developer.html#mongo">4.6.3&nbsp;&nbsp;&nbsp;Mongo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../developer.html#starting-and-testing-the-queue-service">4.6.4&nbsp;&nbsp;&nbsp;Starting and testing the Queue Service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../developer.html#starting-the-web-service">4.6.5&nbsp;&nbsp;&nbsp;Starting the Web Service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../developer.html#the-t-py-program">4.6.6&nbsp;&nbsp;&nbsp;The t.py program</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../developer.html#developer-tests">4.6.7&nbsp;&nbsp;&nbsp;Developer Tests</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../developer.html#cleaning">4.7&nbsp;&nbsp;&nbsp;Cleaning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../developer.html#convenient-command-shortcuts">4.8&nbsp;&nbsp;&nbsp;Convenient command shortcuts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../developer.html#working-with-cloudmesh-on-a-remote-server">4.9&nbsp;&nbsp;&nbsp;Working with Cloudmesh on a remote server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../developer.html#special-notes-for-centos">4.10&nbsp;&nbsp;&nbsp;Special notes for CentOS</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../developer.html#install-python">4.10.1&nbsp;&nbsp;&nbsp;Install Python</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../developer.html#starting-the-rabbitmq-service">4.10.2&nbsp;&nbsp;&nbsp;Starting the  RabbitMQ service</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../developer.html#making-the-documentation">4.11&nbsp;&nbsp;&nbsp;Making the documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../developer.html#example-start-the-gui-for-development">4.11.1&nbsp;&nbsp;&nbsp;Example: Start the GUI for development</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../developer.html#example-hpc-queue-server">4.12&nbsp;&nbsp;&nbsp;Example: HPC queue server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../developer.html#environment">4.13&nbsp;&nbsp;&nbsp;ENVIRONMENT</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../celery.html">5&nbsp;&nbsp;&nbsp;Celery Setup</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../celery.html#starting-and-stopping-celery">5.1&nbsp;&nbsp;&nbsp;Starting and Stopping Celery</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../celery.html#log-and-pid-files">5.2&nbsp;&nbsp;&nbsp;Log and Pid Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../celery.html#current-celery-based-tasks">5.3&nbsp;&nbsp;&nbsp;Current Celery Based Tasks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../celery.html#launcher-simulation">5.3.1&nbsp;&nbsp;&nbsp;Launcher (Simulation)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../nosetest.html">4&nbsp;&nbsp;&nbsp;Nosetests</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../nosetest.html#install">4.1&nbsp;&nbsp;&nbsp;Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../nosetest.html#run">4.2&nbsp;&nbsp;&nbsp;Run</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../nosetest.html#system">4.3&nbsp;&nbsp;&nbsp;System</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../configure.html">Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../configure.html#cloudmesh-yaml">cloudmesh.yaml</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../configure.html#hp-cloud">HP Cloud</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../configure.html#azure">Azure</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../configure.html#amazon-web-services">Amazon Web Services</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../configure.html#india">India</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../configure.html#sierra">Sierra</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../configure.html#alamo">Alamo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../configure.html#a-complete-example">A complete example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../configure.html#cloudmesh-server-yaml">cloudmesh-server.yaml</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../configure.html#debugging">Debugging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../configure.html#web-ui">Web UI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../configure.html#ldap-integration">LDAP Integration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../configure.html#baremetal-provisioning-with-teefa">Baremetal provisioning with teefa</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../configure.html#clusters">Clusters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../configure.html#roles">Roles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../configure.html#keystone-server">Keystone server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../configure.html#mongo">Mongo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../configure.html#complete-example">Complete Example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../configure.html#cloudmesh-cluster-yaml">cloudmesh_cluster.yaml</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../configure.html#metadata">Metadata</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../configure.html#id1">Clusters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../configure.html#a-cluster">A Cluster</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../configure.html#network">Network:</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../configure.html#cloudmesh-bootspec-yaml">cloudmesh_bootspec.yaml</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../configure.html#other-yaml-files">Other Yaml files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../configure.html#me-sample">Me Sample</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../cm-shell.html">5&nbsp;&nbsp;&nbsp;Cloud Mesh</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#defaults">5.1&nbsp;&nbsp;&nbsp;Defaults</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#register-clouds">5.2&nbsp;&nbsp;&nbsp;Register Clouds</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../cm-shell.html#register-an-aws-account">5.2.1&nbsp;&nbsp;&nbsp;Register an AWS account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../cm-shell.html#register-an-azure-account">5.2.2&nbsp;&nbsp;&nbsp;Register an azure account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../cm-shell.html#register-an-eucalyptus-account">5.2.3&nbsp;&nbsp;&nbsp;Register an Eucalyptus account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../cm-shell.html#register-an-openstack-account">5.2.4&nbsp;&nbsp;&nbsp;Register an OpenStack account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../cm-shell.html#register-an-ec2-account">5.2.5&nbsp;&nbsp;&nbsp;Register an EC2 account</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#activate-clouds">5.3&nbsp;&nbsp;&nbsp;Activate Clouds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#managing-projects">5.4&nbsp;&nbsp;&nbsp;Managing Projects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#managing-users">5.5&nbsp;&nbsp;&nbsp;Managing Users</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#manageing-virtual-machines">5.6&nbsp;&nbsp;&nbsp;Manageing Virtual Machines</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../cm-shell.html#list-images">5.6.1&nbsp;&nbsp;&nbsp;List images</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../cm-shell.html#starting-vms">5.6.2&nbsp;&nbsp;&nbsp;Starting VMs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../cm-shell.html#manageing-security-groups">5.6.3&nbsp;&nbsp;&nbsp;Manageing Security Groups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../cm-shell.html#managing-volumes">5.6.4&nbsp;&nbsp;&nbsp;Managing Volumes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../cm-shell.html#managing-heat-s-for-openstack">5.6.5&nbsp;&nbsp;&nbsp;Managing heat&#8217;s for OpenStack</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../cm-shell.html#commands">6&nbsp;&nbsp;&nbsp;Commands</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#listing-images">6.1&nbsp;&nbsp;&nbsp;Listing images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#cm-manage-initialize-user-name-password-password">6.2&nbsp;&nbsp;&nbsp;cm manage initialize &#8211;user&lt;name&gt; &#8211;password &lt;password&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#cm-project-list">6.3&nbsp;&nbsp;&nbsp;cm project list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#cm-project-info-number">6.4&nbsp;&nbsp;&nbsp;cm project &#8211;info &lt;number&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#cm-project-activate-number">6.5&nbsp;&nbsp;&nbsp;cm project &#8211;activate &lt;number&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#cm-project-deactivate">6.6&nbsp;&nbsp;&nbsp;cm project &#8211;deactivate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#cm-env">6.7&nbsp;&nbsp;&nbsp;cm env</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#cm-resource-list">6.8&nbsp;&nbsp;&nbsp;cm resource &#8211;list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#cm-service-list">6.9&nbsp;&nbsp;&nbsp;cm service &#8211;list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#cm-service-register">6.10&nbsp;&nbsp;&nbsp;cm service register</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#cm-resource-register">6.11&nbsp;&nbsp;&nbsp;cm resource register</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#cm-image-list">6.12&nbsp;&nbsp;&nbsp;cm image &#8211;list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#cm-id-list">6.13&nbsp;&nbsp;&nbsp;cm id &#8211;list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#cm-label-id-id">6.14&nbsp;&nbsp;&nbsp;cm label &#8211;id &lt;id&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#cm-vm-create-label">6.15&nbsp;&nbsp;&nbsp;cm vm create &lt;label&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#cm-vm-destroy-label">6.16&nbsp;&nbsp;&nbsp;cm vm destroy &lt;label&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#cm-vm-terminate-label">6.17&nbsp;&nbsp;&nbsp;cm vm terminate &lt;label&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#cm-vm-suspoend-label">6.18&nbsp;&nbsp;&nbsp;cm vm suspoend &lt;label&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#cm-vm-resume-label">6.19&nbsp;&nbsp;&nbsp;cm vm resume &lt;label&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#cm-vm-login">6.20&nbsp;&nbsp;&nbsp;cm vm login</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#cm-seceurity-group-add-label-parameters">6.21&nbsp;&nbsp;&nbsp;cm seceurity group add &lt;label&gt; &lt;parameters&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#cm-seceurity-group-delete">6.22&nbsp;&nbsp;&nbsp;cm seceurity group delete</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#cm-seceurity-group-default-add-label">6.23&nbsp;&nbsp;&nbsp;cm seceurity group default add &lt;label&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#cm-seceurity-group-default-delete-label">6.24&nbsp;&nbsp;&nbsp;cm seceurity group default delete &lt;label&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#examples">6.25&nbsp;&nbsp;&nbsp;Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../cm-manage.html">cm-manage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../coding.html">Cloudmesh Style Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../coding.html#information">Information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../coding.html#general">General</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../coding.html#imports">Imports</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../coding.html#human-alphabetical-order-examples">Human Alphabetical Order Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../coding.html#docstrings">Docstrings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../coding.html#dictionaries-lists">Dictionaries/Lists</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../coding.html#calling-methods">Calling Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../coding.html#internationalization-i18n-strings">Internationalization (i18n) Strings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../coding.html#python-3-x-compatibility">Python 3.x compatibility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../coding.html#creating-unit-tests">Creating Unit Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../coding.html#running-tests">Running Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../coding.html#building-docs">Building Docs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../coding.html#oslo-incubator">oslo-incubator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../coding.html#commit-messages">Commit Messages</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../contact.html">Contact</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../contact.html#contributors">Contributors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../contact.html#blog">Blog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../contact.html#repository">Repository</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../deploy.html">Production Deployment Server</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../deploy.html#instalation">Instalation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../deploy.html#starting-the-deployed-server">Starting the deployed server</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../doc.html">Adding to the Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../doc.html#creating-the-documentation-locally">Creating the documentation locally</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../doc.html#rst-documentation">RST Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../doc.html#gh-pages">gh-pages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../doc.html#published-documentation">Published Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../fg.html">FutureGrid Specific tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../support.html">Support</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../plan/plan.html">7&nbsp;&nbsp;&nbsp;Plan: Cloudmesh Service Shift</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../plan/plan.html#project-objectives">7.1&nbsp;&nbsp;&nbsp;Project Objectives</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../plan/plan.html#development-objectives">7.1.1&nbsp;&nbsp;&nbsp;Development Objectives</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../plan/plan.html#production-objectives">7.1.2&nbsp;&nbsp;&nbsp;Production Objectives</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../plan/plan.html#project-deliverables">7.2&nbsp;&nbsp;&nbsp;Project Deliverables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../plan/plan.html#evolution-of-the-project">7.3&nbsp;&nbsp;&nbsp;Evolution of the Project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../plan/plan.html#refernce-materials">7.4&nbsp;&nbsp;&nbsp;Refernce Materials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../plan/plan.html#definitions-and-acronyms">7.5&nbsp;&nbsp;&nbsp;Definitions and Acronyms</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../plan/design.html">3&nbsp;&nbsp;&nbsp;Design: Blueprint</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../plan/design.html#features">3.1&nbsp;&nbsp;&nbsp;Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../plan/design.html#difference-to-other-efforts">3.2&nbsp;&nbsp;&nbsp;Difference to other efforts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../plan/design.html#component-view">3.3&nbsp;&nbsp;&nbsp;Component View</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../plan/design.html#component-user-management">3.4&nbsp;&nbsp;&nbsp;Component User Management</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../plan/design.html#user-management">3.4.1&nbsp;&nbsp;&nbsp;User Management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../plan/design.html#accounting-will-not-be-worked-on-much">3.4.2&nbsp;&nbsp;&nbsp;Accounting (Will not be worked on much)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../plan/design.html#component-resource-management-includes-cloudshifting-as-part-of-reservation">3.5&nbsp;&nbsp;&nbsp;Component Resource Management (includes cloudshifting as part of reservation)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../plan/design.html#resource-management">3.6&nbsp;&nbsp;&nbsp;Resource Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../plan/design.html#scheduler">3.7&nbsp;&nbsp;&nbsp;Scheduler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../plan/design.html#interfaces">3.8&nbsp;&nbsp;&nbsp;Interfaces</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../modules/modules.html">Modules and Classes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../modules/cloudmesh.html">cloudmesh Package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../modules/cloudmesh.html#id1"><tt class="docutils literal"><span class="pre">cloudmesh</span></tt> Package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../modules/cloudmesh.html#cloudmesh-module"><tt class="docutils literal"><span class="pre">cloudmesh</span></tt> Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../modules/cloudmesh.html#cm-mongodb-module"><tt class="docutils literal"><span class="pre">cm_mongodb</span></tt> Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../modules/cloudmesh.html#gitinfo-module"><tt class="docutils literal"><span class="pre">gitinfo</span></tt> Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../modules/cloudmesh.html#mongodb-module"><tt class="docutils literal"><span class="pre">mongodb</span></tt> Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../modules/cloudmesh.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../modules/cloudmesh.accounting.html">accounting Package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../../modules/cloudmesh.accounting.html#module-cloudmesh.accounting.AccountBaseClass"><tt class="docutils literal"><span class="pre">AccountBaseClass</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../modules/cloudmesh.accounting.html#goldaccounting-module"><tt class="docutils literal"><span class="pre">GoldAccounting</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../modules/cloudmesh.accounting.html#metrics-module"><tt class="docutils literal"><span class="pre">metrics</span></tt> Module</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../modules/cloudmesh.config.html">config Package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../../modules/cloudmesh.config.html#id1"><tt class="docutils literal"><span class="pre">config</span></tt> Package</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../modules/cloudmesh.config.html#cloudmesh-cloud-module"><tt class="docutils literal"><span class="pre">cloudmesh_cloud</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../modules/cloudmesh.config.html#cloudmesh-cloud-handler-module"><tt class="docutils literal"><span class="pre">cloudmesh_cloud_handler</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../modules/cloudmesh.config.html#module-cloudmesh.config.cm_config"><tt class="docutils literal"><span class="pre">cm_config</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../modules/cloudmesh.config.html#module-cloudmesh.config.cm_keys"><tt class="docutils literal"><span class="pre">cm_keys</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../modules/cloudmesh.config.html#module-cloudmesh.config.cm_projects"><tt class="docutils literal"><span class="pre">cm_projects</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../modules/cloudmesh.config.html#cm-rc-module"><tt class="docutils literal"><span class="pre">cm_rc</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../modules/cloudmesh.config.html#ldap-user-module"><tt class="docutils literal"><span class="pre">ldap_user</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../modules/cloudmesh.config.html#mock-cloud-module"><tt class="docutils literal"><span class="pre">mock_cloud</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../modules/cloudmesh.config.html#mock-keystone-module"><tt class="docutils literal"><span class="pre">mock_keystone</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../modules/cloudmesh.config.html#mock-user-module"><tt class="docutils literal"><span class="pre">mock_user</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../modules/cloudmesh.config.html#openstack-essex-cloud-module"><tt class="docutils literal"><span class="pre">openstack_essex_cloud</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../modules/cloudmesh.config.html#openstack-grizzly-cloud-module"><tt class="docutils literal"><span class="pre">openstack_grizzly_cloud</span></tt> Module</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../modules/cloudmesh.iaas.html">iaas Package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../../modules/cloudmesh.iaas.html#id1"><tt class="docutils literal"><span class="pre">iaas</span></tt> Package</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../modules/cloudmesh.iaas.html#module-cloudmesh.iaas.ComputeBaseType"><tt class="docutils literal"><span class="pre">ComputeBaseType</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../modules/cloudmesh.iaas.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="../../../../modules/cloudmesh.iaas.azure.html">azure Package</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="../../../../modules/cloudmesh.iaas.azure.html#id1"><tt class="docutils literal"><span class="pre">azure</span></tt> Package</a></li>
+<li class="toctree-l7"><a class="reference internal" href="../../../../modules/cloudmesh.iaas.azure.html#cm-azure-module"><tt class="docutils literal"><span class="pre">cm_azure</span></tt> Module</a></li>
+<li class="toctree-l7"><a class="reference internal" href="../../../../modules/cloudmesh.iaas.azure.html#fabfile-module"><tt class="docutils literal"><span class="pre">fabfile</span></tt> Module</a></li>
+</ul>
+</li>
+<li class="toctree-l6"><a class="reference internal" href="../../../../modules/cloudmesh.iaas.eucalyptus.html">eucalyptus Package</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="../../../../modules/cloudmesh.iaas.eucalyptus.html#module-cloudmesh.iaas.eucalyptus.eucalyptus"><tt class="docutils literal"><span class="pre">eucalyptus</span></tt> Module</a></li>
+<li class="toctree-l7"><a class="reference internal" href="../../../../modules/cloudmesh.iaas.eucalyptus.html#eucalyptus-libcloud-module"><tt class="docutils literal"><span class="pre">eucalyptus_libcloud</span></tt> Module</a></li>
+<li class="toctree-l7"><a class="reference internal" href="../../../../modules/cloudmesh.iaas.eucalyptus.html#eucalyptus-new-module"><tt class="docutils literal"><span class="pre">eucalyptus_new</span></tt> Module</a></li>
+</ul>
+</li>
+<li class="toctree-l6"><a class="reference internal" href="../../../../modules/cloudmesh.iaas.openstack.html">openstack Package</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="../../../../modules/cloudmesh.iaas.openstack.html#id1"><tt class="docutils literal"><span class="pre">openstack</span></tt> Package</a></li>
+<li class="toctree-l7"><a class="reference internal" href="../../../../modules/cloudmesh.iaas.openstack.html#module-cloudmesh.iaas.openstack.cm_compute"><tt class="docutils literal"><span class="pre">cm_compute</span></tt> Module</a></li>
+<li class="toctree-l7"><a class="reference internal" href="../../../../modules/cloudmesh.iaas.openstack.html#cm-table-module"><tt class="docutils literal"><span class="pre">cm_table</span></tt> Module</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../modules/cloudmesh.inventory.html">inventory Package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../../modules/cloudmesh.inventory.html#id1"><tt class="docutils literal"><span class="pre">inventory</span></tt> Package</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../modules/cloudmesh.inventory.html#resources-module"><tt class="docutils literal"><span class="pre">resources</span></tt> Module</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../modules/cloudmesh.provisioner.html">provisioner Package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../../modules/cloudmesh.provisioner.html#id1"><tt class="docutils literal"><span class="pre">provisioner</span></tt> Package</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../modules/cloudmesh.provisioner.html#module-cloudmesh.provisioner.provisioner"><tt class="docutils literal"><span class="pre">provisioner</span></tt> Module</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../modules/cloudmesh.shell.html">shell Package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../../modules/cloudmesh.shell.html#module-cloudmesh.shell.cm_shell"><tt class="docutils literal"><span class="pre">cm_shell</span></tt> Module</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="../../../../modules/cloudmesh.shell.html#cm-config">cm config</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../modules/cloudmesh.util.html">util Package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../../modules/cloudmesh.util.html#id1"><tt class="docutils literal"><span class="pre">util</span></tt> Package</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../modules/cloudmesh.util.html#module-cloudmesh.util.logger"><tt class="docutils literal"><span class="pre">logger</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../modules/cloudmesh.util.html#module-cloudmesh.util.util"><tt class="docutils literal"><span class="pre">util</span></tt> Module</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"></ul>
+</li>
+              
+            
+            
+              
+                
+              
+            
+            
+            
+            
+              <li class="hidden-sm"></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../../../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      
+  <h1>Source code for cloudmesh.iaas.ec2.cm_compute</h1><div class="highlight"><pre>
+<span class="c"># -*- coding: utf-8 -*-</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">cloudmesh.iaas.ec2.cm_compute</span>
+<span class="sd">~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.config.cm_config</span> <span class="kn">import</span> <span class="n">cm_config</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.iaas.ComputeBaseType</span> <span class="kn">import</span> <span class="n">ComputeBaseType</span>
+<span class="kn">from</span> <span class="nn">libcloud.compute.base</span> <span class="kn">import</span> <span class="n">NodeImage</span><span class="p">,</span> <span class="n">NodeSize</span>
+<span class="kn">from</span> <span class="nn">libcloud.compute.providers</span> <span class="kn">import</span> <span class="n">get_driver</span>
+<span class="kn">from</span> <span class="nn">libcloud.compute.types</span> <span class="kn">import</span> <span class="n">Provider</span>
+<span class="kn">import</span> <span class="nn">libcloud.security</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="kn">import</span> <span class="nn">urlparse</span>
+<span class="kn">import</span> <span class="nn">tempfile</span>
+
+
+<div class="viewcode-block" id="ec2"><a class="viewcode-back" href="../../../../modules/cloudmesh.iaas.ec2.html#cloudmesh.iaas.ec2.cm_compute.ec2">[docs]</a><span class="k">class</span> <span class="nc">ec2</span><span class="p">(</span><span class="n">ComputeBaseType</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; </span>
+<span class="sd">    ec2 service with the libcloud interface</span>
+<span class="sd">    With libcloud interface, cloudmesh supports Amazon Web Services such as EC2, S3,</span>
+<span class="sd">    EBS, etc.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;ec2&quot;</span>
+    <span class="n">DEFAULT_LABEL</span> <span class="o">=</span> <span class="n">name</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">DEFAULT_LABEL</span><span class="p">,</span> <span class="n">credential</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+                 <span class="n">admin_credential</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">load_default</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">set_credential</span><span class="p">(</span><span class="n">credential</span><span class="p">,</span> <span class="n">admin_credential</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+
+<div class="viewcode-block" id="ec2.set_credential"><a class="viewcode-back" href="../../../../modules/cloudmesh.iaas.ec2.html#cloudmesh.iaas.ec2.cm_compute.ec2.set_credential">[docs]</a>    <span class="k">def</span> <span class="nf">set_credential</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cred</span><span class="p">,</span> <span class="n">admin_cred</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">cred</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">user_credential</span> <span class="o">=</span> <span class="n">cred</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">access_key_id</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_credential</span><span class="p">[</span><span class="s">&#39;EC2_ACCESS_KEY&#39;</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">secret_access_key</span> <span class="o">=</span> \
+                    <span class="bp">self</span><span class="o">.</span><span class="n">user_credential</span><span class="p">[</span><span class="s">&#39;EC2_SECRET_KEY&#39;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">admin_cred</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">admin_credential</span> <span class="o">=</span> <span class="n">admin_cred</span>
+</div>
+<div class="viewcode-block" id="ec2.load_default"><a class="viewcode-back" href="../../../../modules/cloudmesh.iaas.ec2.html#cloudmesh.iaas.ec2.cm_compute.ec2.load_default">[docs]</a>    <span class="k">def</span> <span class="nf">load_default</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">label</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Load default values and set them to the object</span>
+<span class="sd">        </span>
+<span class="sd">        :param label: the section name to load from yaml</span>
+<span class="sd">        :type label: str</span>
+<span class="sd">        </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">compute_config</span> <span class="o">=</span> <span class="n">cm_config</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">user_credential</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">compute_config</span><span class="o">.</span><span class="n">credential</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
+
+        <span class="c"># Service certificate</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">access_key_id</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_credential</span><span class="p">[</span><span class="s">&#39;EC2_ACCESS_KEY&#39;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">secret_access_key</span> <span class="o">=</span> \
+        <span class="bp">self</span><span class="o">.</span><span class="n">user_credential</span><span class="p">[</span><span class="s">&#39;EC2_SECRET_KEY&#39;</span><span class="p">]</span>
+
+        <span class="c"># SSH</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ssh_userid</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_credential</span><span class="p">[</span><span class="s">&#39;userid&#39;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ssh_keyname</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_credential</span><span class="p">[</span><span class="s">&#39;keyname&#39;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ssh_pkey</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_credential</span><span class="p">[</span><span class="s">&#39;EC2_PRIVATE_KEY&#39;</span><span class="p">]</span>
+
+        <span class="c"># set default flavor from yaml</span>
+        <span class="n">flavor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">compute_config</span><span class="o">.</span><span class="n">default</span><span class="p">(</span><span class="n">label</span><span class="p">)[</span><span class="s">&#39;flavor&#39;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">set_flavor</span><span class="p">(</span><span class="n">flavor</span><span class="p">)</span>
+
+        <span class="n">image_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">compute_config</span><span class="o">.</span><span class="n">default</span><span class="p">(</span><span class="n">label</span><span class="p">)[</span><span class="s">&#39;image&#39;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">set_image_name</span><span class="p">(</span><span class="n">image_name</span><span class="p">)</span>
+
+        <span class="c"># set default location from yaml</span>
+        <span class="c"># location = self.compute_config.default(label)[&#39;location&#39;]</span>
+        <span class="c"># self.set_location(location)</span>
+
+        <span class="c"># Auth url</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ec2_url</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_credential</span><span class="p">[</span><span class="s">&#39;EC2_URL&#39;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">hostname</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">port</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_secure</span> <span class="o">=</span> \
+                                                <span class="bp">self</span><span class="o">.</span><span class="n">_urlparse</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ec2_url</span><span class="p">)</span>
+
+
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">certfile</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_credential</span><span class="p">[</span><span class="s">&#39;EUCALYPTUS_CERT&#39;</span><span class="p">]</span>
+        <span class="n">libcloud</span><span class="o">.</span><span class="n">security</span><span class="o">.</span><span class="n">CA_CERTS_PATH</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">certfile</span><span class="p">)</span>
+
+        <span class="c"># Skip this step if you are launching nodes on an official</span>
+        <span class="c"># provider. It is intended only for self signed SSL certs in</span>
+        <span class="c"># test deployments.</span>
+        <span class="c"># Note: Code like this poses a security risk (MITM attack) and</span>
+        <span class="c"># that&#39;s the reason why you should never use it for anything else</span>
+        <span class="c"># besides testing. You have been warned.</span>
+        <span class="n">libcloud</span><span class="o">.</span><span class="n">security</span><span class="o">.</span><span class="n">VERIFY_SSL_CERT</span> <span class="o">=</span> <span class="bp">False</span>
+</div>
+<div class="viewcode-block" id="ec2.connect"><a class="viewcode-back" href="../../../../modules/cloudmesh.iaas.ec2.html#cloudmesh.iaas.ec2.cm_compute.ec2.connect">[docs]</a>    <span class="k">def</span> <span class="nf">connect</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">Driver</span> <span class="o">=</span> <span class="n">get_driver</span><span class="p">(</span><span class="n">Provider</span><span class="o">.</span><span class="n">EUCALYPTUS</span><span class="p">)</span>
+
+        <span class="c">#</span>
+        <span class="c"># BUG, make sure we use the cert, confirm with team ....</span>
+        <span class="c">#</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">conn</span> <span class="o">=</span> <span class="n">Driver</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">access_key_id</span><span class="p">,</span>
+                      <span class="n">secret</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">secret_access_key</span><span class="p">,</span>
+                      <span class="n">secure</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">is_secure</span><span class="p">,</span>
+                      <span class="n">host</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">hostname</span><span class="p">,</span>
+                      <span class="n">path</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">,</span>
+                      <span class="n">port</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">port</span><span class="p">)</span>
+
+        <span class="k">except</span> <span class="ne">Exception</span><span class="p">,</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">print</span> <span class="n">e</span>
+            <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">conn</span> <span class="o">=</span> <span class="n">conn</span>
+</div>
+<div class="viewcode-block" id="ec2.vm_create"><a class="viewcode-back" href="../../../../modules/cloudmesh.iaas.ec2.html#cloudmesh.iaas.ec2.cm_compute.ec2.vm_create">[docs]</a>    <span class="k">def</span> <span class="nf">vm_create</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span>
+                  <span class="n">flavor_name</span><span class="p">,</span>
+                  <span class="n">image_id</span><span class="p">,</span>
+                  <span class="n">security_groups</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+                  <span class="n">key_name</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+                  <span class="n">meta</span><span class="o">=</span><span class="p">{},</span>
+                  <span class="n">userdata</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">create_vm</span><span class="p">(</span><span class="n">flavor_name</span><span class="p">,</span> <span class="n">image_id</span><span class="p">,</span> <span class="n">key_name</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="ec2.create_vm"><a class="viewcode-back" href="../../../../modules/cloudmesh.iaas.ec2.html#cloudmesh.iaas.ec2.cm_compute.ec2.create_vm">[docs]</a>    <span class="k">def</span> <span class="nf">create_vm</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">flavor_name</span><span class="p">,</span> <span class="n">image_id</span><span class="p">,</span> <span class="n">key_name</span><span class="p">):</span>
+        <span class="n">image</span> <span class="o">=</span> <span class="n">NodeImage</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">image_id</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">,</span> <span class="n">driver</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">)</span>
+        <span class="n">size</span> <span class="o">=</span> <span class="n">NodeSize</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">flavor_name</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">,</span> <span class="n">ram</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">disk</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+                        <span class="n">bandwidth</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">price</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">driver</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">conn</span><span class="o">.</span><span class="n">create_node</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">get_name</span><span class="p">(),</span> <span class="n">image</span><span class="o">=</span><span class="n">image</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">size</span><span class="p">,</span>
+                              <span class="n">ex_keyname</span><span class="o">=</span><span class="n">key_name</span><span class="p">)</span>
+        <span class="k">return</span>
+</div>
+<div class="viewcode-block" id="ec2.list_vm"><a class="viewcode-back" href="../../../../modules/cloudmesh.iaas.ec2.html#cloudmesh.iaas.ec2.cm_compute.ec2.list_vm">[docs]</a>    <span class="k">def</span> <span class="nf">list_vm</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">nodes</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">conn</span><span class="o">.</span><span class="n">list_nodes</span><span class="p">()</span>
+        <span class="n">vm_dict</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">vm_obj</span> <span class="ow">in</span> <span class="n">nodes</span><span class="p">:</span>
+            <span class="n">vm</span> <span class="o">=</span> <span class="n">vm_obj</span><span class="o">.</span><span class="n">__dict__</span>
+            <span class="n">instanceid</span> <span class="o">=</span> <span class="n">vm_obj</span><span class="o">.</span><span class="n">id</span>
+            <span class="n">vm_dict</span><span class="p">[</span><span class="n">instanceid</span><span class="p">]</span> <span class="o">=</span> <span class="n">vm</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">servers</span> <span class="o">=</span> <span class="n">vm_dict</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">servers</span>
+</div>
+<div class="viewcode-block" id="ec2.vm_delete"><a class="viewcode-back" href="../../../../modules/cloudmesh.iaas.ec2.html#cloudmesh.iaas.ec2.cm_compute.ec2.vm_delete">[docs]</a>    <span class="k">def</span> <span class="nf">vm_delete</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">delete_vm</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="ec2.delete_vm"><a class="viewcode-back" href="../../../../modules/cloudmesh.iaas.ec2.html#cloudmesh.iaas.ec2.cm_compute.ec2.delete_vm">[docs]</a>    <span class="k">def</span> <span class="nf">delete_vm</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="n">node</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_node_from_id</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">conn</span><span class="o">.</span><span class="n">destroy_node</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+        <span class="k">return</span>
+</div>
+<div class="viewcode-block" id="ec2.get_node_from_id"><a class="viewcode-back" href="../../../../modules/cloudmesh.iaas.ec2.html#cloudmesh.iaas.ec2.cm_compute.ec2.get_node_from_id">[docs]</a>    <span class="k">def</span> <span class="nf">get_node_from_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">id</span><span class="p">):</span>
+        <span class="n">nodelist</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">conn</span><span class="o">.</span><span class="n">list_nodes</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">nodelist</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">node</span><span class="o">.</span><span class="n">id</span> <span class="o">==</span> <span class="nb">id</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">node</span>
+</div>
+<div class="viewcode-block" id="ec2.set_location"><a class="viewcode-back" href="../../../../modules/cloudmesh.iaas.ec2.html#cloudmesh.iaas.ec2.cm_compute.ec2.set_location">[docs]</a>    <span class="k">def</span> <span class="nf">set_location</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">location</span> <span class="o">=</span> <span class="n">name</span>
+</div>
+<div class="viewcode-block" id="ec2.set_image_name"><a class="viewcode-back" href="../../../../modules/cloudmesh.iaas.ec2.html#cloudmesh.iaas.ec2.cm_compute.ec2.set_image_name">[docs]</a>    <span class="k">def</span> <span class="nf">set_image_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">image_name</span> <span class="o">=</span> <span class="n">name</span>
+</div>
+<div class="viewcode-block" id="ec2.set_flavor"><a class="viewcode-back" href="../../../../modules/cloudmesh.iaas.ec2.html#cloudmesh.iaas.ec2.cm_compute.ec2.set_flavor">[docs]</a>    <span class="k">def</span> <span class="nf">set_flavor</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">flavor</span> <span class="o">=</span> <span class="n">name</span>
+</div>
+<div class="viewcode-block" id="ec2.get_name"><a class="viewcode-back" href="../../../../modules/cloudmesh.iaas.ec2.html#cloudmesh.iaas.ec2.cm_compute.ec2.get_name">[docs]</a>    <span class="k">def</span> <span class="nf">get_name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span>
+</div>
+<div class="viewcode-block" id="ec2.get_flavor"><a class="viewcode-back" href="../../../../modules/cloudmesh.iaas.ec2.html#cloudmesh.iaas.ec2.cm_compute.ec2.get_flavor">[docs]</a>    <span class="k">def</span> <span class="nf">get_flavor</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">flavor</span>
+</div>
+<div class="viewcode-block" id="ec2.get_keyname"><a class="viewcode-back" href="../../../../modules/cloudmesh.iaas.ec2.html#cloudmesh.iaas.ec2.cm_compute.ec2.get_keyname">[docs]</a>    <span class="k">def</span> <span class="nf">get_keyname</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">ssh_keyname</span>
+</div>
+<div class="viewcode-block" id="ec2.get_image_name"><a class="viewcode-back" href="../../../../modules/cloudmesh.iaas.ec2.html#cloudmesh.iaas.ec2.cm_compute.ec2.get_image_name">[docs]</a>    <span class="k">def</span> <span class="nf">get_image_name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">image_name</span>
+</div>
+    <span class="k">def</span> <span class="nf">_get_servers_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">vm_list</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">list_vm</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">convert_to_openstack_style</span><span class="p">(</span><span class="n">vm_list</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">vm_list</span>
+
+<div class="viewcode-block" id="ec2.convert_to_openstack_style"><a class="viewcode-back" href="../../../../modules/cloudmesh.iaas.ec2.html#cloudmesh.iaas.ec2.cm_compute.ec2.convert_to_openstack_style">[docs]</a>    <span class="k">def</span> <span class="nf">convert_to_openstack_style</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vmlist</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">vmid</span> <span class="ow">in</span> <span class="n">vmlist</span><span class="p">:</span>
+            <span class="n">vm</span> <span class="o">=</span> <span class="n">vmlist</span><span class="p">[</span><span class="n">vmid</span><span class="p">]</span>
+            <span class="n">vm</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="nb">unicode</span><span class="p">(</span><span class="n">vm</span><span class="p">[</span><span class="s">&#39;id&#39;</span><span class="p">]),</span> \
+                       <span class="s">&quot;status&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">convert_states</span><span class="p">(</span><span class="n">vm</span><span class="p">[</span><span class="s">&#39;extra&#39;</span><span class="p">][</span><span class="s">&#39;status&#39;</span><span class="p">]),</span> \
+                       <span class="s">&quot;addresses&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">convert_ips</span><span class="p">(</span><span class="n">vm</span><span class="p">[</span><span class="s">&#39;public_ips&#39;</span><span class="p">]),</span> \
+                       <span class="s">&quot;flavor&quot;</span><span class="p">:</span>
+                       <span class="bp">self</span><span class="o">.</span><span class="n">convert_flavors</span><span class="p">(</span><span class="n">vm</span><span class="p">[</span><span class="s">&#39;extra&#39;</span><span class="p">][</span><span class="s">&#39;instancetype&#39;</span><span class="p">]),</span> \
+                       <span class="c"># &quot;id&quot;: exists</span>
+                       <span class="s">&quot;user_id&quot;</span><span class="p">:</span> <span class="nb">unicode</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">),</span> \
+                       <span class="s">&quot;metadata&quot;</span><span class="p">:</span> <span class="p">{},</span> \
+                       <span class="s">&quot;key_name&quot;</span><span class="p">:</span> <span class="nb">unicode</span><span class="p">(</span><span class="n">vm</span><span class="p">[</span><span class="s">&#39;extra&#39;</span><span class="p">][</span><span class="s">&#39;keyname&#39;</span><span class="p">]),</span> \
+                       <span class="s">&quot;created&quot;</span><span class="p">:</span> <span class="nb">unicode</span><span class="p">(</span><span class="n">vm</span><span class="p">[</span><span class="s">&#39;extra&#39;</span><span class="p">][</span><span class="s">&#39;launchdatetime&#39;</span><span class="p">])</span>\
+                      <span class="p">})</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="c"># deleting object to avoid mongodb errors when inserts</span>
+                <span class="n">vm</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s">&quot;driver&quot;</span><span class="p">:</span><span class="bp">None</span><span class="p">})</span>
+            <span class="k">except</span><span class="p">:</span>
+                <span class="k">pass</span>
+</div>
+<div class="viewcode-block" id="ec2.convert_states"><a class="viewcode-back" href="../../../../modules/cloudmesh.iaas.ec2.html#cloudmesh.iaas.ec2.cm_compute.ec2.convert_states">[docs]</a>    <span class="k">def</span> <span class="nf">convert_states</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">status</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">status</span> <span class="o">==</span> <span class="s">&quot;running&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s">&quot;ACTIVE&quot;</span>
+        <span class="k">elif</span> <span class="n">status</span> <span class="o">==</span> <span class="s">&quot;terminated&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s">&quot;SHUTOFF&quot;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">status</span>
+</div>
+<div class="viewcode-block" id="ec2.convert_ips"><a class="viewcode-back" href="../../../../modules/cloudmesh.iaas.ec2.html#cloudmesh.iaas.ec2.cm_compute.ec2.convert_ips">[docs]</a>    <span class="k">def</span> <span class="nf">convert_ips</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ip</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">ip_address</span> <span class="o">=</span> <span class="n">ip</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
+            <span class="n">ip_address</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
+        <span class="n">ip_ver</span> <span class="o">=</span> <span class="mi">4</span>
+        <span class="n">ip_type</span> <span class="o">=</span> <span class="s">&quot;fixed&quot;</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="p">{</span><span class="s">u&#39;private&#39;</span><span class="p">:[</span> <span class="p">{</span><span class="s">u&#39;version&#39;</span><span class="p">:</span> <span class="n">ip_ver</span><span class="p">,</span> <span class="s">u&#39;addr&#39;</span><span class="p">:</span> <span class="n">ip_address</span><span class="p">,</span> \
+                             <span class="s">u&#39;OS-EXT-IPS:type&#39;</span><span class="p">:</span> <span class="n">ip_type</span><span class="p">}]}</span>
+        <span class="k">return</span> <span class="n">res</span>
+</div>
+<div class="viewcode-block" id="ec2.convert_flavors"><a class="viewcode-back" href="../../../../modules/cloudmesh.iaas.ec2.html#cloudmesh.iaas.ec2.cm_compute.ec2.convert_flavors">[docs]</a>    <span class="k">def</span> <span class="nf">convert_flavors</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">flavor</span><span class="p">):</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="p">{</span><span class="s">u&#39;id&#39;</span><span class="p">:</span> <span class="nb">unicode</span><span class="p">(</span><span class="n">flavor</span><span class="p">),</span> \
+               <span class="s">u&#39;links&#39;</span><span class="p">:</span>\
+               <span class="p">[</span> <span class="p">{</span><span class="s">u&#39;href&#39;</span><span class="p">:</span><span class="bp">None</span><span class="p">,</span> \
+                  <span class="s">u&#39;rel&#39;</span><span class="p">:</span><span class="bp">None</span><span class="p">}]}</span>
+        <span class="k">return</span> <span class="n">res</span>
+</div>
+<div class="viewcode-block" id="ec2.release_unused_public_ips"><a class="viewcode-back" href="../../../../modules/cloudmesh.iaas.ec2.html#cloudmesh.iaas.ec2.cm_compute.ec2.release_unused_public_ips">[docs]</a>    <span class="k">def</span> <span class="nf">release_unused_public_ips</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span>
+</div>
+    <span class="k">def</span> <span class="nf">_urlparse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ec2_url</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return host, port and path from ec2_url&quot;&quot;&quot;</span>
+
+        <span class="n">result</span> <span class="o">=</span> <span class="n">urlparse</span><span class="o">.</span><span class="n">urlparse</span><span class="p">(</span><span class="n">ec2_url</span><span class="p">)</span>
+        <span class="n">is_secure</span> <span class="o">=</span> <span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">scheme</span> <span class="o">==</span> <span class="s">&#39;https&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="s">&quot;:&quot;</span> <span class="ow">in</span> <span class="n">result</span><span class="o">.</span><span class="n">netloc</span><span class="p">:</span>
+           <span class="n">host_port_tuple</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">netloc</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&#39;:&#39;</span><span class="p">)</span>
+           <span class="n">host</span> <span class="o">=</span> <span class="n">host_port_tuple</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+           <span class="n">port</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">host_port_tuple</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+        <span class="k">else</span><span class="p">:</span>
+           <span class="n">host</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">netloc</span>
+           <span class="n">port</span> <span class="o">=</span> <span class="bp">None</span>
+
+        <span class="n">path</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">path</span>
+
+        <span class="k">return</span> <span class="n">host</span><span class="p">,</span> <span class="n">port</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">is_secure</span>
+
+
+    <span class="k">def</span> <span class="nf">_get_flavors_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">list_flavors</span><span class="p">()</span>
+        <span class="n">res_dict</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">convert_to_dict</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">flavors</span> <span class="o">=</span> <span class="n">res_dict</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">flavors</span>
+
+<div class="viewcode-block" id="ec2.convert_to_dict"><a class="viewcode-back" href="../../../../modules/cloudmesh.iaas.ec2.html#cloudmesh.iaas.ec2.cm_compute.ec2.convert_to_dict">[docs]</a>    <span class="k">def</span> <span class="nf">convert_to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">_list</span><span class="p">):</span>
+        <span class="n">res_dict</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">_list</span><span class="p">:</span>
+            <span class="c"># row looks like</span>
+            <span class="c"># {&#39;_uuid&#39;: None, &#39;name&#39;: &#39;Micro Instance&#39;, &#39;price&#39;: 0.02, &#39;ram&#39;:</span>
+            <span class="c"># 613, &#39;driver&#39;: &lt;libcloud.compute.drivers.ec2.EucNodeDriver</span>
+            <span class="c"># object at 0x307e350&gt;, &#39;bandwidth&#39;: None, &#39;disk&#39;: 15, &#39;id&#39;:</span>
+            <span class="c"># &#39;t1.micro&#39;}</span>
+            <span class="n">res_dict</span><span class="p">[</span><span class="n">row</span><span class="o">.</span><span class="n">id</span><span class="p">]</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">__dict__</span>
+            <span class="k">del</span><span class="p">(</span><span class="n">row</span><span class="o">.</span><span class="n">driver</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">res_dict</span>
+</div>
+<div class="viewcode-block" id="ec2.list_flavors"><a class="viewcode-back" href="../../../../modules/cloudmesh.iaas.ec2.html#cloudmesh.iaas.ec2.cm_compute.ec2.list_flavors">[docs]</a>    <span class="k">def</span> <span class="nf">list_flavors</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">conn</span><span class="o">.</span><span class="n">list_sizes</span><span class="p">()</span>
+</div>
+    <span class="k">def</span> <span class="nf">_get_images_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">list_images</span><span class="p">()</span>
+        <span class="n">res_dict</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">convert_to_dict</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">images</span> <span class="o">=</span> <span class="n">res_dict</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">images</span>
+
+<div class="viewcode-block" id="ec2.list_images"><a class="viewcode-back" href="../../../../modules/cloudmesh.iaas.ec2.html#cloudmesh.iaas.ec2.cm_compute.ec2.list_images">[docs]</a>    <span class="k">def</span> <span class="nf">list_images</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">conn</span><span class="o">.</span><span class="n">list_images</span><span class="p">()</span>
+</div>
+<div class="viewcode-block" id="ec2.keypair_list"><a class="viewcode-back" href="../../../../modules/cloudmesh.iaas.ec2.html#cloudmesh.iaas.ec2.cm_compute.ec2.keypair_list">[docs]</a>    <span class="k">def</span> <span class="nf">keypair_list</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return a keypair list. keypair_list() function name is fixed</span>
+<span class="sd">        </span>
+<span class="sd">        :returns: dict</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">keylist</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">conn</span><span class="o">.</span><span class="n">ex_describe_all_keypairs</span><span class="p">()</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="p">{</span> <span class="s">&#39;keypairs&#39;</span><span class="p">:</span> <span class="p">[]</span> <span class="p">}</span>
+        <span class="k">for</span> <span class="n">keyname</span> <span class="ow">in</span> <span class="n">keylist</span><span class="p">:</span>
+            <span class="n">tmp</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;keypair&#39;</span><span class="p">:{</span><span class="s">&#39;name&#39;</span><span class="p">:</span> <span class="n">keyname</span><span class="p">}}</span>
+            <span class="n">res</span><span class="p">[</span><span class="s">&#39;keypairs&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tmp</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">res</span>
+</div>
+<div class="viewcode-block" id="ec2.keypair_add"><a class="viewcode-back" href="../../../../modules/cloudmesh.iaas.ec2.html#cloudmesh.iaas.ec2.cm_compute.ec2.keypair_add">[docs]</a>    <span class="k">def</span> <span class="nf">keypair_add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">content</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Add a keypair&quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">conn</span><span class="o">.</span><span class="n">ex_import_keypair_from_string</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">content</span><span class="p">)</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+
+<span class="sd">        keyfile = tempfile.NamedTemporaryFile(delete=False)</span>
+<span class="sd">        keyfile.write(content)</span>
+<span class="sd">        keyfile_name = keyfile.name</span>
+<span class="sd">        keyfile.close()</span>
+
+<span class="sd">        return self.conn.ex_import_keypair(name, keyfile_name)</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+</div>
+<div class="viewcode-block" id="ec2.keypair_remove"><a class="viewcode-back" href="../../../../modules/cloudmesh.iaas.ec2.html#cloudmesh.iaas.ec2.cm_compute.ec2.keypair_remove">[docs]</a>    <span class="k">def</span> <span class="nf">keypair_remove</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Delete a keypair&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">conn</span><span class="o">.</span><span class="n">ex_delete_keypair</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+            <span class="k">return</span> <span class="p">{</span><span class="s">&quot;msg&quot;</span><span class="p">:</span><span class="s">&quot;success&quot;</span><span class="p">}</span></div></div>
+</pre></div>
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2013, Gregor von Laszewski for  FutureGrid.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>
