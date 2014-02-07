@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Adding to the Documentation &mdash; Cloudmesh 0.1 documentation</title>
+    <title>Documentation Management &mdash; Cloudmesh 0.1 documentation</title>
     
     <link rel="stylesheet" href="_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -67,12 +67,7 @@
      data-toggle="dropdown">Site <b class="caret"></b></a>
   <ul class="dropdown-menu globaltoc"
     ><ul>
-<li class="toctree-l1"><a class="reference internal" href="about.html">1&nbsp;&nbsp;&nbsp;Documentation Management</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="about.html#installation-requirements-for-the-documentation-generation">1.1&nbsp;&nbsp;&nbsp;Installation Requirements for the Documentation Generation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="about.html#document-generation">1.2&nbsp;&nbsp;&nbsp;Document Generation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="about.html#publishing-the-documentation">1.3&nbsp;&nbsp;&nbsp;Publishing the Documentation</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">1&nbsp;&nbsp;&nbsp;About</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tasks.html">2&nbsp;&nbsp;&nbsp;Issue Management</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="tasks.html#labels">2.1&nbsp;&nbsp;&nbsp;Labels</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tasks.html#priority">2.2&nbsp;&nbsp;&nbsp;Priority</a></li>
@@ -273,11 +268,18 @@
 <li class="toctree-l2"><a class="reference internal" href="deploy.html#starting-the-deployed-server">Starting the deployed server</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Adding to the Documentation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#creating-the-documentation-locally">Creating the documentation locally</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#rst-documentation">RST Documentation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#gh-pages">gh-pages</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#published-documentation">Published Documentation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Documentation Management</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#installation-requirements-for-the-documentation-generation">Installation Requirements for the Documentation Generation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#creating-the-documentation">Creating the Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#document-generation">Document Generation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#publishing-the-documentation">Publishing the Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#adding-to-the-documentation">Adding to the Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#creating-the-documentation-locally">Creating the documentation locally</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rst-documentation">RST Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gh-pages">gh-pages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#published-documentation">Published Documentation</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="fg.html">FutureGrid Specific tips</a></li>
@@ -405,11 +407,18 @@
                 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown">Page <b class="caret"></b></a>
   <ul class="dropdown-menu localtoc"><ul>
-<li><a class="reference internal" href="#">Adding to the Documentation</a><ul>
+<li><a class="reference internal" href="#">Documentation Management</a><ul>
+<li><a class="reference internal" href="#installation-requirements-for-the-documentation-generation">Installation Requirements for the Documentation Generation</a></li>
+<li><a class="reference internal" href="#creating-the-documentation">Creating the Documentation</a></li>
+<li><a class="reference internal" href="#document-generation">Document Generation</a></li>
+<li><a class="reference internal" href="#publishing-the-documentation">Publishing the Documentation</a></li>
+<li><a class="reference internal" href="#adding-to-the-documentation">Adding to the Documentation</a><ul>
 <li><a class="reference internal" href="#creating-the-documentation-locally">Creating the documentation locally</a></li>
 <li><a class="reference internal" href="#rst-documentation">RST Documentation</a></li>
 <li><a class="reference internal" href="#gh-pages">gh-pages</a></li>
 <li><a class="reference internal" href="#published-documentation">Published Documentation</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -459,19 +468,87 @@
   <div class="row">
     <div class="col-md-12">
       
-  <div class="section" id="adding-to-the-documentation">
-<h1>Adding to the Documentation<a class="headerlink" href="#adding-to-the-documentation" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="documentation-management">
+<h1>Documentation Management<a class="headerlink" href="#documentation-management" title="Permalink to this headline">¶</a></h1>
+<p>Before doing anything please set up and use virtualenv and pip. (see
+develoeprs Documentation). Make sure to activate your virtualenv.</p>
+<p>This document is maintained via sphinx and uploaded regularly to github</p>
+<ul class="simple">
+<li><a class="reference external" href="https://cloudmes.github.com/cloudmesh/">https://cloudmes.github.com/cloudmesh/</a></li>
+</ul>
+<p>You can check it out the code and the documentation with:</p>
+<div class="highlight-python"><pre>git clone git@github.com:cloudmesh/cloudmesh.git</pre>
+</div>
+<p>A number of packages need to be installed on your machine. YOu can do
+this with</p>
+<blockquote>
+<div>$ cd cloudmesh
+$ fab -f install/fabfile.py deploy
+$ fab build.install</div></blockquote>
+<div class="section" id="installation-requirements-for-the-documentation-generation">
+<h2>Installation Requirements for the Documentation Generation<a class="headerlink" href="#installation-requirements-for-the-documentation-generation" title="Permalink to this headline">¶</a></h2>
+<p>We assume you have autodoc installed for sphinx (see previously) it is
+not in the requirements file, as I could not find it in pypi. Hence we
+install it before hand:</p>
+<div class="highlight-python"><pre>mkdir /tmp/install-cloudmesh
+hg clone http://bitbucket.org/birkenfeld/sphinx-contrib/
+cd sphinx-contrib/autorun
+python setup.py install
+
+cd /tmp/install-cloudmesh
+
+git@github.com:cloudmesh/cloudmesh.git
+cd cloudmesh
+pip install -r requirements.txt</pre>
+</div>
+<p>If anything is missing, please let us know so we can update this documentation.</p>
+</div>
+<div class="section" id="creating-the-documentation">
+<h2>Creating the Documentation<a class="headerlink" href="#creating-the-documentation" title="Permalink to this headline">¶</a></h2>
+<p>Once you make changes to the documentation you can say:</p>
+<div class="highlight-python"><pre>fab doc.html</pre>
+</div>
+<p>The pages will be locally available to you under:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">doc</span><span class="o">/</span><span class="n">build</span><span class="o">/</span><span class="n">html</span><span class="o">/</span><span class="n">index</span><span class="o">.</span><span class="n">html</span>
+</pre></div>
+</div>
+<p>The pages will be regularly uploaded to github by Gregor von Laszewski. Make sure that the documentation do not contain any compile errors. Once that is done the pages can be uploaded.
+with the command:</p>
+<div class="highlight-python"><pre>fab doc.gh</pre>
+</div>
+<p>Please note that the fab doc.gh should only be executed by
+Gregor von Laszewski (<a class="reference external" href="mailto:laszewski&#37;&#52;&#48;gmail&#46;com">laszewski<span>&#64;</span>gmail<span>&#46;</span>com</a>). Please notify him when you think that your documentation
+contribution justifies an update.</p>
+</div>
+<div class="section" id="document-generation">
+<h2>Document Generation<a class="headerlink" href="#document-generation" title="Permalink to this headline">¶</a></h2>
+<p>This will publish the documentation locally:</p>
+<div class="highlight-python"><pre>fab doc.html</pre>
+</div>
+</div>
+<div class="section" id="publishing-the-documentation">
+<h2>Publishing the Documentation<a class="headerlink" href="#publishing-the-documentation" title="Permalink to this headline">¶</a></h2>
+<p>If you do (which you should not, only Gregor should do this):</p>
+<div class="highlight-python"><pre>fab doc.gh</pre>
+</div>
+<p>it will publish the page to gh-pages at</p>
+<ul class="simple">
+<li><a class="reference external" href="http://cloudmesh.github.io/cloudmesh/">http://cloudmesh.github.io/cloudmesh/</a></li>
+</ul>
+</div>
+<div class="section" id="adding-to-the-documentation">
+<h2>Adding to the Documentation<a class="headerlink" href="#adding-to-the-documentation" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="creating-the-documentation-locally">
-<h2>Creating the documentation locally<a class="headerlink" href="#creating-the-documentation-locally" title="Permalink to this headline">¶</a></h2>
+<h3>Creating the documentation locally<a class="headerlink" href="#creating-the-documentation-locally" title="Permalink to this headline">¶</a></h3>
 <p>The documentation to this project is kept in doc/sources. You will
 find there a number of rst files. You can add new files, but must make
 sure that they are listed in the index.rst page. To create the
-documentation in your local directory, do:</p>
-<div class="highlight-python"><pre>cd doc
-make html</pre>
+documentation in your local directory you can do this from the main
+cloudmesh directory with:</p>
+<div class="highlight-python"><pre>fab doc.html</pre>
 </div>
 <p>Than open a browser on the file build/html/index.html. In OSX this can be done with:</p>
-<div class="highlight-python"><pre>open build/html/index.html</pre>
+<div class="highlight-python"><pre>open doc/build/html/index.html</pre>
 </div>
 <p>On a Linux machien you may want to substitute the open call with firefox or another browser.
 To create a single html page you can say</p>
@@ -481,7 +558,7 @@ open build/singlehtml/index.html</pre>
 </div>
 </div>
 <div class="section" id="rst-documentation">
-<h2>RST Documentation<a class="headerlink" href="#rst-documentation" title="Permalink to this headline">¶</a></h2>
+<h3>RST Documentation<a class="headerlink" href="#rst-documentation" title="Permalink to this headline">¶</a></h3>
 <p>Information about rst and sphinx can be found at</p>
 <ul class="simple">
 <li><a class="reference external" href="http://sphinx-doc.org/rest.html">http://sphinx-doc.org/rest.html</a></li>
@@ -489,7 +566,7 @@ open build/singlehtml/index.html</pre>
 </ul>
 </div>
 <div class="section" id="gh-pages">
-<h2>gh-pages<a class="headerlink" href="#gh-pages" title="Permalink to this headline">¶</a></h2>
+<h3>gh-pages<a class="headerlink" href="#gh-pages" title="Permalink to this headline">¶</a></h3>
 <div class="admonition warning">
 <p class="first admonition-title">Warning</p>
 <p class="last">This step is only to be executed by Gregor von Laszewski</p>
@@ -500,7 +577,7 @@ the root directory of the project and say:</p>
 <div class="highlight-python"><pre>fab clean</pre>
 </div>
 <p>This will create a clean dir. Third, execute the command:</p>
-<div class="highlight-python"><pre>make gh-pages</pre>
+<div class="highlight-python"><pre>fab doc.gh</pre>
 </div>
 <p>This will go into the barnch gh-pages, checkout the content under /tmp
 and recreate the documentation. Than it will check it back into the
@@ -508,13 +585,14 @@ branch and do a git push. If everything is normal (no errors occur)
 you wil see the new documentation.</p>
 </div>
 <div class="section" id="published-documentation">
-<h2>Published Documentation<a class="headerlink" href="#published-documentation" title="Permalink to this headline">¶</a></h2>
+<h3>Published Documentation<a class="headerlink" href="#published-documentation" title="Permalink to this headline">¶</a></h3>
 <p>The final documentation will be located at</p>
 <ul class="simple">
 <li><a class="reference external" href="http://cloudmesh.github.com/cloudmesh">http://cloudmesh.github.com/cloudmesh</a></li>
 </ul>
 <p>If you find something missing communicate with Gregor von Laszewski (<a class="reference external" href="mailto:laszewski&#37;&#52;&#48;gmail&#46;com">laszewski<span>&#64;</span>gmail<span>&#46;</span>com</a>) so
 he updates the gh-pages.</p>
+</div>
 </div>
 </div>
 
