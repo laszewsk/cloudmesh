@@ -1,27 +1,30 @@
-old_inventory Package
-=====================
+cloudmesh.old_inventory package
+===============================
 
-:mod:`old_inventory` Package
-----------------------------
+Submodules
+----------
 
-.. automodule:: cloudmesh.old_inventory
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
-:mod:`heatmap` Module
----------------------
+cloudmesh.old_inventory.heatmap module
+--------------------------------------
 
 .. automodule:: cloudmesh.old_inventory.heatmap
     :members:
     :undoc-members:
     :show-inheritance:
 
-:mod:`inventory` Module
------------------------
+cloudmesh.old_inventory.inventory module
+----------------------------------------
 
 .. automodule:: cloudmesh.old_inventory.inventory
     :members:
     :undoc-members:
     :show-inheritance:
 
+
+Module contents
+---------------
+
+.. automodule:: cloudmesh.old_inventory
+    :members:
+    :undoc-members:
+    :show-inheritance:

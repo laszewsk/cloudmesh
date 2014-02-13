@@ -1,27 +1,30 @@
-eucalyptus Package
-==================
+cloudmesh.iaas.eucalyptus package
+=================================
 
-:mod:`eucalyptus` Module
-------------------------
+Submodules
+----------
+
+cloudmesh.iaas.eucalyptus.eucalyptus module
+-------------------------------------------
 
 .. automodule:: cloudmesh.iaas.eucalyptus.eucalyptus
     :members:
     :undoc-members:
     :show-inheritance:
 
-:mod:`eucalyptus_libcloud` Module
----------------------------------
+cloudmesh.iaas.eucalyptus.eucalyptus_deprecated module
+------------------------------------------------------
 
-.. automodule:: cloudmesh.iaas.eucalyptus.eucalyptus_libcloud
+.. automodule:: cloudmesh.iaas.eucalyptus.eucalyptus_deprecated
     :members:
     :undoc-members:
     :show-inheritance:
 
-:mod:`eucalyptus_new` Module
-----------------------------
 
-.. automodule:: cloudmesh.iaas.eucalyptus.eucalyptus_new
+Module contents
+---------------
+
+.. automodule:: cloudmesh.iaas.eucalyptus
     :members:
     :undoc-members:
     :show-inheritance:
-

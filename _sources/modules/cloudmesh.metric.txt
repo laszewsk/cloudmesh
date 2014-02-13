@@ -1,5 +1,5 @@
-metric Package
-==============
+cloudmesh.metric package
+========================
 
 Subpackages
 -----------
@@ -9,3 +9,10 @@ Subpackages
     cloudmesh.metric.eucalyptus
     cloudmesh.metric.openstack
 
+Module contents
+---------------
+
+.. automodule:: cloudmesh.metric
+    :members:
+    :undoc-members:
+    :show-inheritance:

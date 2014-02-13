@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>cloudmesh.util.gitinfo &mdash; Cloudmesh 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/bootstrap-3.0.0/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/bootstrap-3.0.0/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../../../_static/js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="../../../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../../../_static/bootstrap-3.0.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../../_static/bootstrap-sphinx.js"></script>
+    <link rel="author" title="About these documents" href="../../../about.html" />
+    <link rel="top" title="Cloudmesh 0.1 documentation" href="../../../index.html" />
+    <link rel="up" title="Module code" href="../../index.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body>
+
+  <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../index.html"><img src="../../../_static/fg-logo-white-24x36.png">
+          Cloudmesh</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.1</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            <li class="divider-vertical"></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a href="../../../index.html"
+     class="dropdown-toggle"
+     data-toggle="dropdown">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+    ><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../about.html">1&nbsp;&nbsp;&nbsp;Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../about.html#system-monitoring-and-operations">1.1&nbsp;&nbsp;&nbsp;System Monitoring and Operations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../about.html#user-and-project-services">1.2&nbsp;&nbsp;&nbsp;User and Project Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../about.html#accounting-and-app-store">1.3&nbsp;&nbsp;&nbsp;Accounting and App Store</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../about.html#networking">1.4&nbsp;&nbsp;&nbsp;Networking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../about.html#monitoring">1.5&nbsp;&nbsp;&nbsp;Monitoring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../about.html#role-and-use-of-standards-and-open-source-software">1.6&nbsp;&nbsp;&nbsp;Role and Use of Standards and Open Source Software</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../about.html#features">1.7&nbsp;&nbsp;&nbsp;Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../about.html#bugs">1.8&nbsp;&nbsp;&nbsp;Bugs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../about.html#project-contributors">1.9&nbsp;&nbsp;&nbsp;Project Contributors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../about.html#history">1.10&nbsp;&nbsp;&nbsp;History</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../about.html#cloudmesh-0-1">1.10.1&nbsp;&nbsp;&nbsp;Cloudmesh 0.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../about.html#cloudmesh-0-2">1.10.2&nbsp;&nbsp;&nbsp;Cloudmesh 0.2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../about.html#cloudmesh-0-3">1.10.3&nbsp;&nbsp;&nbsp;Cloudmesh 0.3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../about.html#cloudmesh-0-4">1.10.4&nbsp;&nbsp;&nbsp;Cloudmesh 0.4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../about.html#cloudmesh-0-5-0-7">1.10.5&nbsp;&nbsp;&nbsp;Cloudmesh 0.5 - 0.7</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bib.html">2&nbsp;&nbsp;&nbsp;References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contact.html">3&nbsp;&nbsp;&nbsp;Contact</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../contact.html#contributors">3.1&nbsp;&nbsp;&nbsp;Contributors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../contact.html#blog">3.2&nbsp;&nbsp;&nbsp;Blog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../contact.html#repository">3.3&nbsp;&nbsp;&nbsp;Repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../contact.html#support">3.4&nbsp;&nbsp;&nbsp;Support</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tasks.html">4&nbsp;&nbsp;&nbsp;Issue Management</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../tasks.html#labels">4.1&nbsp;&nbsp;&nbsp;Labels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tasks.html#priority">4.2&nbsp;&nbsp;&nbsp;Priority</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tasks.html#inactivity">4.3&nbsp;&nbsp;&nbsp;Inactivity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tasks.html#shortcuts">4.4&nbsp;&nbsp;&nbsp;Shortcuts</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../coding.html">5&nbsp;&nbsp;&nbsp;Cloudmesh Style Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../coding.html#information">5.1&nbsp;&nbsp;&nbsp;Information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../coding.html#general">5.2&nbsp;&nbsp;&nbsp;General</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../coding.html#imports">5.3&nbsp;&nbsp;&nbsp;Imports</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../coding.html#human-alphabetical-order-examples">5.4&nbsp;&nbsp;&nbsp;Human Alphabetical Order Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../coding.html#docstrings">5.5&nbsp;&nbsp;&nbsp;Docstrings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../coding.html#dictionaries-lists">5.6&nbsp;&nbsp;&nbsp;Dictionaries/Lists</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../coding.html#calling-methods">5.7&nbsp;&nbsp;&nbsp;Calling Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../coding.html#internationalization-i18n-strings">5.8&nbsp;&nbsp;&nbsp;Internationalization (i18n) Strings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../coding.html#python-3-x-compatibility">5.9&nbsp;&nbsp;&nbsp;Python 3.x compatibility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../coding.html#creating-unit-tests">5.10&nbsp;&nbsp;&nbsp;Creating Unit Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../coding.html#running-tests">5.11&nbsp;&nbsp;&nbsp;Running Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../coding.html#commit-messages">5.12&nbsp;&nbsp;&nbsp;Commit Messages</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../doc.html">6&nbsp;&nbsp;&nbsp;Documentation Management</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../doc.html#deprecated-requirements-for-the-documentation">6.1&nbsp;&nbsp;&nbsp;(Deprecated) Requirements for the Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../doc.html#creating-the-documentation">6.2&nbsp;&nbsp;&nbsp;Creating the Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../doc.html#creating-the-documentation-in-a-single-page">6.3&nbsp;&nbsp;&nbsp;Creating the documentation in a single page</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer.html">7&nbsp;&nbsp;&nbsp;Usage Quickstart</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../developer.html#with-access-to-ldap">7.1&nbsp;&nbsp;&nbsp;With access to LDAP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developer.html#without-access-to-ldap">7.2&nbsp;&nbsp;&nbsp;Without access to LDAP</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer.html#installation">8&nbsp;&nbsp;&nbsp;Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../developer.html#pip">8.1&nbsp;&nbsp;&nbsp;Pip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developer.html#virtualenv">8.2&nbsp;&nbsp;&nbsp;Virtualenv</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../developer.html#install-virtualenv">8.2.1&nbsp;&nbsp;&nbsp;Install virtualenv</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../developer.html#activate-virtualenv">8.2.2&nbsp;&nbsp;&nbsp;Activate virtualenv</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../developer.html#modify-your-rc-file-optional">8.2.3&nbsp;&nbsp;&nbsp;Modify your rc file (optional):</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developer.html#install-fabric">8.3&nbsp;&nbsp;&nbsp;Install fabric</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developer.html#github">8.4&nbsp;&nbsp;&nbsp;Github</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../developer.html#github-ssh-keys">8.4.1&nbsp;&nbsp;&nbsp;GIthub ssh keys</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../developer.html#git-username-and-e-mail">8.4.2&nbsp;&nbsp;&nbsp;Git username and e-mail</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developer.html#quick-deployment">8.5&nbsp;&nbsp;&nbsp;Quick deployment</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../developer.html#aptana-studio">8.5.1&nbsp;&nbsp;&nbsp;Aptana Studio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../developer.html#requirements">8.5.2&nbsp;&nbsp;&nbsp;Requirements</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developer.html#additional-installation-for-documentation-generation">8.6&nbsp;&nbsp;&nbsp;Additional Installation for Documentation Generation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../developer.html#blockdiag-family">8.6.1&nbsp;&nbsp;&nbsp;Blockdiag family</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../developer.html#yaml-files">8.6.2&nbsp;&nbsp;&nbsp;YAML files</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../developer.html#generating-a-cloudmesh-yaml-file">8.6.2.1&nbsp;&nbsp;&nbsp;Generating a cloudmesh.yaml file</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../developer.html#mongo">8.6.3&nbsp;&nbsp;&nbsp;Mongo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../developer.html#starting-and-testing-the-queue-service">8.6.4&nbsp;&nbsp;&nbsp;Starting and testing the Queue Service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../developer.html#starting-the-web-service">8.6.5&nbsp;&nbsp;&nbsp;Starting the Web Service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../developer.html#the-t-py-program">8.6.6&nbsp;&nbsp;&nbsp;The t.py program</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../developer.html#developer-tests">8.6.7&nbsp;&nbsp;&nbsp;Developer Tests</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developer.html#cleaning">8.7&nbsp;&nbsp;&nbsp;Cleaning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developer.html#convenient-command-shortcuts">8.8&nbsp;&nbsp;&nbsp;Convenient command shortcuts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developer.html#working-with-cloudmesh-on-a-remote-server">8.9&nbsp;&nbsp;&nbsp;Working with Cloudmesh on a remote server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developer.html#special-notes-for-centos">8.10&nbsp;&nbsp;&nbsp;Special notes for CentOS</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../developer.html#install-python">8.10.1&nbsp;&nbsp;&nbsp;Install Python</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../developer.html#starting-the-rabbitmq-service">8.10.2&nbsp;&nbsp;&nbsp;Starting the  RabbitMQ service</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developer.html#making-the-documentation">8.11&nbsp;&nbsp;&nbsp;Making the documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../developer.html#example-start-the-gui-for-development">8.11.1&nbsp;&nbsp;&nbsp;Example: Start the GUI for development</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developer.html#example-hpc-queue-server">8.12&nbsp;&nbsp;&nbsp;Example: HPC queue server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developer.html#environment">8.13&nbsp;&nbsp;&nbsp;ENVIRONMENT</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../celery.html">5&nbsp;&nbsp;&nbsp;Celery Setup</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../celery.html#starting-and-stopping-celery">5.1&nbsp;&nbsp;&nbsp;Starting and Stopping Celery</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../celery.html#log-and-pid-files">5.2&nbsp;&nbsp;&nbsp;Log and Pid Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../celery.html#current-celery-based-tasks">5.3&nbsp;&nbsp;&nbsp;Current Celery Based Tasks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../celery.html#launcher-simulation">5.3.1&nbsp;&nbsp;&nbsp;Launcher (Simulation)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../nosetest.html">4&nbsp;&nbsp;&nbsp;Nosetests</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../nosetest.html#install">4.1&nbsp;&nbsp;&nbsp;Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../nosetest.html#run">4.2&nbsp;&nbsp;&nbsp;Run</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../nosetest.html#system">4.3&nbsp;&nbsp;&nbsp;System</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../configure.html">Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../configure.html#cloudmesh-yaml">cloudmesh.yaml</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../configure.html#hp-cloud">HP Cloud</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../configure.html#azure">Azure</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../configure.html#amazon-web-services">Amazon Web Services</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../configure.html#india">India</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../configure.html#sierra">Sierra</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../configure.html#alamo">Alamo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../configure.html#a-complete-example">A complete example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../configure.html#cloudmesh-server-yaml">cloudmesh-server.yaml</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../configure.html#debugging">Debugging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../configure.html#web-ui">Web UI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../configure.html#ldap-integration">LDAP Integration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../configure.html#baremetal-provisioning-with-teefa">Baremetal provisioning with teefa</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../configure.html#clusters">Clusters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../configure.html#roles">Roles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../configure.html#keystone-server">Keystone server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../configure.html#mongo">Mongo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../configure.html#complete-example">Complete Example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../configure.html#cloudmesh-cluster-yaml">cloudmesh_cluster.yaml</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../configure.html#metadata">Metadata</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../configure.html#id1">Clusters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../configure.html#a-cluster">A Cluster</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../configure.html#network">Network:</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../configure.html#cloudmesh-bootspec-yaml">cloudmesh_bootspec.yaml</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../configure.html#other-yaml-files">Other Yaml files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../configure.html#me-sample">Me Sample</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../cm-shell.html">5&nbsp;&nbsp;&nbsp;Cloud Mesh</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../cm-shell.html#defaults">5.1&nbsp;&nbsp;&nbsp;Defaults</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cm-shell.html#register-clouds">5.2&nbsp;&nbsp;&nbsp;Register Clouds</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../cm-shell.html#register-an-aws-account">5.2.1&nbsp;&nbsp;&nbsp;Register an AWS account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../cm-shell.html#register-an-azure-account">5.2.2&nbsp;&nbsp;&nbsp;Register an azure account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../cm-shell.html#register-an-eucalyptus-account">5.2.3&nbsp;&nbsp;&nbsp;Register an Eucalyptus account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../cm-shell.html#register-an-openstack-account">5.2.4&nbsp;&nbsp;&nbsp;Register an OpenStack account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../cm-shell.html#register-an-ec2-account">5.2.5&nbsp;&nbsp;&nbsp;Register an EC2 account</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cm-shell.html#activate-clouds">5.3&nbsp;&nbsp;&nbsp;Activate Clouds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cm-shell.html#managing-projects">5.4&nbsp;&nbsp;&nbsp;Managing Projects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cm-shell.html#managing-users">5.5&nbsp;&nbsp;&nbsp;Managing Users</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cm-shell.html#manageing-virtual-machines">5.6&nbsp;&nbsp;&nbsp;Manageing Virtual Machines</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../cm-shell.html#list-images">5.6.1&nbsp;&nbsp;&nbsp;List images</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../cm-shell.html#starting-vms">5.6.2&nbsp;&nbsp;&nbsp;Starting VMs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../cm-shell.html#manageing-security-groups">5.6.3&nbsp;&nbsp;&nbsp;Manageing Security Groups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../cm-shell.html#managing-volumes">5.6.4&nbsp;&nbsp;&nbsp;Managing Volumes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../cm-shell.html#managing-heat-s-for-openstack">5.6.5&nbsp;&nbsp;&nbsp;Managing heat&#8217;s for OpenStack</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cm-shell.html#commands">6&nbsp;&nbsp;&nbsp;Commands</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../cm-shell.html#listing-images">6.1&nbsp;&nbsp;&nbsp;Listing images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cm-shell.html#cm-manage-initialize-user-name-password-password">6.2&nbsp;&nbsp;&nbsp;cm manage initialize &#8211;user&lt;name&gt; &#8211;password &lt;password&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cm-shell.html#cm-project-list">6.3&nbsp;&nbsp;&nbsp;cm project list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cm-shell.html#cm-project-info-number">6.4&nbsp;&nbsp;&nbsp;cm project &#8211;info &lt;number&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cm-shell.html#cm-project-activate-number">6.5&nbsp;&nbsp;&nbsp;cm project &#8211;activate &lt;number&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cm-shell.html#cm-project-deactivate">6.6&nbsp;&nbsp;&nbsp;cm project &#8211;deactivate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cm-shell.html#cm-env">6.7&nbsp;&nbsp;&nbsp;cm env</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cm-shell.html#cm-resource-list">6.8&nbsp;&nbsp;&nbsp;cm resource &#8211;list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cm-shell.html#cm-service-list">6.9&nbsp;&nbsp;&nbsp;cm service &#8211;list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cm-shell.html#cm-service-register">6.10&nbsp;&nbsp;&nbsp;cm service register</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cm-shell.html#cm-resource-register">6.11&nbsp;&nbsp;&nbsp;cm resource register</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cm-shell.html#cm-image-list">6.12&nbsp;&nbsp;&nbsp;cm image &#8211;list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cm-shell.html#cm-id-list">6.13&nbsp;&nbsp;&nbsp;cm id &#8211;list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cm-shell.html#cm-label-id-id">6.14&nbsp;&nbsp;&nbsp;cm label &#8211;id &lt;id&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cm-shell.html#cm-vm-create-label">6.15&nbsp;&nbsp;&nbsp;cm vm create &lt;label&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cm-shell.html#cm-vm-destroy-label">6.16&nbsp;&nbsp;&nbsp;cm vm destroy &lt;label&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cm-shell.html#cm-vm-terminate-label">6.17&nbsp;&nbsp;&nbsp;cm vm terminate &lt;label&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cm-shell.html#cm-vm-suspoend-label">6.18&nbsp;&nbsp;&nbsp;cm vm suspoend &lt;label&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cm-shell.html#cm-vm-resume-label">6.19&nbsp;&nbsp;&nbsp;cm vm resume &lt;label&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cm-shell.html#cm-vm-login">6.20&nbsp;&nbsp;&nbsp;cm vm login</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cm-shell.html#cm-seceurity-group-add-label-parameters">6.21&nbsp;&nbsp;&nbsp;cm seceurity group add &lt;label&gt; &lt;parameters&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cm-shell.html#cm-seceurity-group-delete">6.22&nbsp;&nbsp;&nbsp;cm seceurity group delete</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cm-shell.html#cm-seceurity-group-default-add-label">6.23&nbsp;&nbsp;&nbsp;cm seceurity group default add &lt;label&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cm-shell.html#cm-seceurity-group-default-delete-label">6.24&nbsp;&nbsp;&nbsp;cm seceurity group default delete &lt;label&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cm-shell.html#examples">6.25&nbsp;&nbsp;&nbsp;Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cm-manage.html">cm-manage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../deploy.html">Production Deployment Server</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../deploy.html#instalation">Instalation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../deploy.html#starting-the-deployed-server">Starting the deployed server</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../fg.html">FutureGrid Specific tips</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../plan/plan.html">7&nbsp;&nbsp;&nbsp;Plan: Cloudmesh Service Shift</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../plan/plan.html#project-objectives">7.1&nbsp;&nbsp;&nbsp;Project Objectives</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../plan/plan.html#development-objectives">7.1.1&nbsp;&nbsp;&nbsp;Development Objectives</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plan/plan.html#production-objectives">7.1.2&nbsp;&nbsp;&nbsp;Production Objectives</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plan/plan.html#project-deliverables">7.2&nbsp;&nbsp;&nbsp;Project Deliverables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plan/plan.html#evolution-of-the-project">7.3&nbsp;&nbsp;&nbsp;Evolution of the Project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plan/plan.html#refernce-materials">7.4&nbsp;&nbsp;&nbsp;Refernce Materials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plan/plan.html#definitions-and-acronyms">7.5&nbsp;&nbsp;&nbsp;Definitions and Acronyms</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../plan/design.html">3&nbsp;&nbsp;&nbsp;Design: Blueprint</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../plan/design.html#features">3.1&nbsp;&nbsp;&nbsp;Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plan/design.html#difference-to-other-efforts">3.2&nbsp;&nbsp;&nbsp;Difference to other efforts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plan/design.html#component-view">3.3&nbsp;&nbsp;&nbsp;Component View</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plan/design.html#component-user-management">3.4&nbsp;&nbsp;&nbsp;Component User Management</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../plan/design.html#user-management">3.4.1&nbsp;&nbsp;&nbsp;User Management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plan/design.html#accounting-will-not-be-worked-on-much">3.4.2&nbsp;&nbsp;&nbsp;Accounting (Will not be worked on much)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plan/design.html#component-resource-management-includes-cloudshifting-as-part-of-reservation">3.5&nbsp;&nbsp;&nbsp;Component Resource Management (includes cloudshifting as part of reservation)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plan/design.html#resource-management">3.6&nbsp;&nbsp;&nbsp;Resource Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plan/design.html#scheduler">3.7&nbsp;&nbsp;&nbsp;Scheduler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plan/design.html#interfaces">3.8&nbsp;&nbsp;&nbsp;Interfaces</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules/modules.html">Modules and Classes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../modules/cloudmesh.html">cloudmesh package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/cloudmesh.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/cloudmesh.accounting.html">cloudmesh.accounting package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.accounting.html#submodules">Submodules</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.accounting.html#module-cloudmesh.accounting.AccountBaseClass">cloudmesh.accounting.AccountBaseClass module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.accounting.html#cloudmesh-accounting-goldaccounting-module">cloudmesh.accounting.GoldAccounting module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.accounting.html#cloudmesh-accounting-metrics-module">cloudmesh.accounting.metrics module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.accounting.html#module-cloudmesh.accounting">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/cloudmesh.config.html">cloudmesh.config package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#submodules">Submodules</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#module-cloudmesh.config.ConfigDict">cloudmesh.config.ConfigDict module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#module-cloudmesh.config.cm_config">cloudmesh.config.cm_config module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#module-cloudmesh.config.cm_keys">cloudmesh.config.cm_keys module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#module-cloudmesh.config.cm_manage">cloudmesh.config.cm_manage module</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="../../../modules/cloudmesh.config.html#cm-manage-config">cm-manage config</a></li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#module-cloudmesh.config.cm_projects">cloudmesh.config.cm_projects module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#cloudmesh-config-openstack-grizzly-cloud-module">cloudmesh.config.openstack_grizzly_cloud module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.config.html#module-cloudmesh.config">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/cloudmesh.iaas.html">cloudmesh.iaas package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.iaas.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="../../../modules/cloudmesh.iaas.aws.html">cloudmesh.iaas.aws package</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="../../../modules/cloudmesh.iaas.aws.html#submodules">Submodules</a></li>
+<li class="toctree-l7"><a class="reference internal" href="../../../modules/cloudmesh.iaas.aws.html#module-cloudmesh.iaas.aws.cm_compute">cloudmesh.iaas.aws.cm_compute module</a><ul>
+<li class="toctree-l8"><a class="reference internal" href="../../../modules/cloudmesh.iaas.aws.html#cloudmesh-iaas-aws-cm-compute">cloudmesh.iaas.aws.cm_compute</a></li>
+</ul>
+</li>
+<li class="toctree-l7"><a class="reference internal" href="../../../modules/cloudmesh.iaas.aws.html#module-cloudmesh.iaas.aws">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l6"><a class="reference internal" href="../../../modules/cloudmesh.iaas.azure.html">cloudmesh.iaas.azure package</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="../../../modules/cloudmesh.iaas.azure.html#submodules">Submodules</a></li>
+<li class="toctree-l7"><a class="reference internal" href="../../../modules/cloudmesh.iaas.azure.html#cloudmesh-iaas-azure-cm-azure-module">cloudmesh.iaas.azure.cm_azure module</a></li>
+<li class="toctree-l7"><a class="reference internal" href="../../../modules/cloudmesh.iaas.azure.html#module-cloudmesh.iaas.azure.cm_compute">cloudmesh.iaas.azure.cm_compute module</a><ul>
+<li class="toctree-l8"><a class="reference internal" href="../../../modules/cloudmesh.iaas.azure.html#cloudmesh-iaas-azure-cm-compute">cloudmesh.iaas.azure.cm_compute</a></li>
+</ul>
+</li>
+<li class="toctree-l7"><a class="reference internal" href="../../../modules/cloudmesh.iaas.azure.html#cloudmesh-iaas-azure-fabfile-module">cloudmesh.iaas.azure.fabfile module</a></li>
+<li class="toctree-l7"><a class="reference internal" href="../../../modules/cloudmesh.iaas.azure.html#module-cloudmesh.iaas.azure">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l6"><a class="reference internal" href="../../../modules/cloudmesh.iaas.ec2.html">cloudmesh.iaas.ec2 package</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="../../../modules/cloudmesh.iaas.ec2.html#submodules">Submodules</a></li>
+<li class="toctree-l7"><a class="reference internal" href="../../../modules/cloudmesh.iaas.ec2.html#module-cloudmesh.iaas.ec2.cm_compute">cloudmesh.iaas.ec2.cm_compute module</a><ul>
+<li class="toctree-l8"><a class="reference internal" href="../../../modules/cloudmesh.iaas.ec2.html#cloudmesh-iaas-ec2-cm-compute">cloudmesh.iaas.ec2.cm_compute</a></li>
+</ul>
+</li>
+<li class="toctree-l7"><a class="reference internal" href="../../../modules/cloudmesh.iaas.ec2.html#module-cloudmesh.iaas.ec2">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l6"><a class="reference internal" href="../../../modules/cloudmesh.iaas.eucalyptus.html">cloudmesh.iaas.eucalyptus package</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="../../../modules/cloudmesh.iaas.eucalyptus.html#submodules">Submodules</a></li>
+<li class="toctree-l7"><a class="reference internal" href="../../../modules/cloudmesh.iaas.eucalyptus.html#module-cloudmesh.iaas.eucalyptus.eucalyptus">cloudmesh.iaas.eucalyptus.eucalyptus module</a></li>
+<li class="toctree-l7"><a class="reference internal" href="../../../modules/cloudmesh.iaas.eucalyptus.html#module-cloudmesh.iaas.eucalyptus.eucalyptus_deprecated">cloudmesh.iaas.eucalyptus.eucalyptus_deprecated module</a></li>
+<li class="toctree-l7"><a class="reference internal" href="../../../modules/cloudmesh.iaas.eucalyptus.html#module-cloudmesh.iaas.eucalyptus">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l6"><a class="reference internal" href="../../../modules/cloudmesh.iaas.opencirrus.html">cloudmesh.iaas.opencirrus package</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="../../../modules/cloudmesh.iaas.opencirrus.html#submodules">Submodules</a></li>
+<li class="toctree-l7"><a class="reference internal" href="../../../modules/cloudmesh.iaas.opencirrus.html#module-cloudmesh.iaas.opencirrus.opencirrus">cloudmesh.iaas.opencirrus.opencirrus module</a></li>
+<li class="toctree-l7"><a class="reference internal" href="../../../modules/cloudmesh.iaas.opencirrus.html#module-cloudmesh.iaas.opencirrus">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l6"><a class="reference internal" href="../../../modules/cloudmesh.iaas.openstack.html">cloudmesh.iaas.openstack package</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="../../../modules/cloudmesh.iaas.openstack.html#submodules">Submodules</a></li>
+<li class="toctree-l7"><a class="reference internal" href="../../../modules/cloudmesh.iaas.openstack.html#module-cloudmesh.iaas.openstack.cm_compute">cloudmesh.iaas.openstack.cm_compute module</a></li>
+<li class="toctree-l7"><a class="reference internal" href="../../../modules/cloudmesh.iaas.openstack.html#module-cloudmesh.iaas.openstack.cm_idm">cloudmesh.iaas.openstack.cm_idm module</a></li>
+<li class="toctree-l7"><a class="reference internal" href="../../../modules/cloudmesh.iaas.openstack.html#module-cloudmesh.iaas.openstack">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.iaas.html#submodules">Submodules</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.iaas.html#module-cloudmesh.iaas.ComputeBaseType">cloudmesh.iaas.ComputeBaseType module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.iaas.html#module-cloudmesh.iaas.Ec2SecurityGroup">cloudmesh.iaas.Ec2SecurityGroup module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.iaas.html#module-cloudmesh.iaas">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/cloudmesh.launcher.html">cloudmesh.launcher package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.launcher.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="../../../modules/cloudmesh.launcher.queue.html">cloudmesh.launcher.queue package</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="../../../modules/cloudmesh.launcher.queue.html#submodules">Submodules</a></li>
+<li class="toctree-l7"><a class="reference internal" href="../../../modules/cloudmesh.launcher.queue.html#module-cloudmesh.launcher.queue.celery">cloudmesh.launcher.queue.celery module</a></li>
+<li class="toctree-l7"><a class="reference internal" href="../../../modules/cloudmesh.launcher.queue.html#module-cloudmesh.launcher.queue.tasks">cloudmesh.launcher.queue.tasks module</a></li>
+<li class="toctree-l7"><a class="reference internal" href="../../../modules/cloudmesh.launcher.queue.html#module-cloudmesh.launcher.queue">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.launcher.html#submodules">Submodules</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.launcher.html#module-cloudmesh.launcher.cm_launcher">cloudmesh.launcher.cm_launcher module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.launcher.html#module-cloudmesh.launcher.cm_launcher_db">cloudmesh.launcher.cm_launcher_db module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.launcher.html#module-contents">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/cloudmesh.metric.html">cloudmesh.metric package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.metric.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="../../../modules/cloudmesh.metric.eucalyptus.html">cloudmesh.metric.eucalyptus package</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="../../../modules/cloudmesh.metric.eucalyptus.html#submodules">Submodules</a></li>
+<li class="toctree-l7"><a class="reference internal" href="../../../modules/cloudmesh.metric.eucalyptus.html#module-cloudmesh.metric.eucalyptus.cm_metric_eucalyptus">cloudmesh.metric.eucalyptus.cm_metric_eucalyptus module</a></li>
+<li class="toctree-l7"><a class="reference internal" href="../../../modules/cloudmesh.metric.eucalyptus.html#module-cloudmesh.metric.eucalyptus">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l6"><a class="reference internal" href="../../../modules/cloudmesh.metric.openstack.html">cloudmesh.metric.openstack package</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="../../../modules/cloudmesh.metric.openstack.html#submodules">Submodules</a></li>
+<li class="toctree-l7"><a class="reference internal" href="../../../modules/cloudmesh.metric.openstack.html#module-cloudmesh.metric.openstack.cm_metric_openstack">cloudmesh.metric.openstack.cm_metric_openstack module</a></li>
+<li class="toctree-l7"><a class="reference internal" href="../../../modules/cloudmesh.metric.openstack.html#cloudmesh-metric-openstack-migrating-mysql-to-mongodb-module">cloudmesh.metric.openstack.migrating_mysql_to_mongodb module</a></li>
+<li class="toctree-l7"><a class="reference internal" href="../../../modules/cloudmesh.metric.openstack.html#module-cloudmesh.metric.openstack">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.metric.html#module-cloudmesh.metric">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/cloudmesh.old_inventory.html">cloudmesh.old_inventory package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.old_inventory.html#submodules">Submodules</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.old_inventory.html#module-cloudmesh.old_inventory.heatmap">cloudmesh.old_inventory.heatmap module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.old_inventory.html#cloudmesh-old-inventory-inventory-module">cloudmesh.old_inventory.inventory module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.old_inventory.html#module-cloudmesh.old_inventory">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/cloudmesh.pbs.html">cloudmesh.pbs package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.pbs.html#submodules">Submodules</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.pbs.html#module-cloudmesh.pbs.celery">cloudmesh.pbs.celery module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.pbs.html#module-cloudmesh.pbs.pbs">cloudmesh.pbs.pbs module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.pbs.html#module-cloudmesh.pbs.pbs_mongo">cloudmesh.pbs.pbs_mongo module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.pbs.html#module-cloudmesh.pbs.pbs_note">cloudmesh.pbs.pbs_note module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.pbs.html#module-cloudmesh.pbs.tasks">cloudmesh.pbs.tasks module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.pbs.html#module-cloudmesh.pbs">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/cloudmesh.provisioner.html">cloudmesh.provisioner package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.provisioner.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="../../../modules/cloudmesh.provisioner.queue.html">cloudmesh.provisioner.queue package</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="../../../modules/cloudmesh.provisioner.queue.html#submodules">Submodules</a></li>
+<li class="toctree-l7"><a class="reference internal" href="../../../modules/cloudmesh.provisioner.queue.html#module-cloudmesh.provisioner.queue.celery">cloudmesh.provisioner.queue.celery module</a></li>
+<li class="toctree-l7"><a class="reference internal" href="../../../modules/cloudmesh.provisioner.queue.html#module-cloudmesh.provisioner.queue.tasks">cloudmesh.provisioner.queue.tasks module</a></li>
+<li class="toctree-l7"><a class="reference internal" href="../../../modules/cloudmesh.provisioner.queue.html#module-cloudmesh.provisioner.queue">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.provisioner.html#submodules">Submodules</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.provisioner.html#module-cloudmesh.provisioner.provisioner">cloudmesh.provisioner.provisioner module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.provisioner.html#module-cloudmesh.provisioner.provisioner_teefaa">cloudmesh.provisioner.provisioner_teefaa module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.provisioner.html#module-cloudmesh.provisioner.system_info">cloudmesh.provisioner.system_info module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.provisioner.html#module-cloudmesh.provisioner">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/cloudmesh.rack.html">cloudmesh.rack package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.rack.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="../../../modules/cloudmesh.rack.queue.html">cloudmesh.rack.queue package</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="../../../modules/cloudmesh.rack.queue.html#submodules">Submodules</a></li>
+<li class="toctree-l7"><a class="reference internal" href="../../../modules/cloudmesh.rack.queue.html#module-cloudmesh.rack.queue.celery">cloudmesh.rack.queue.celery module</a></li>
+<li class="toctree-l7"><a class="reference internal" href="../../../modules/cloudmesh.rack.queue.html#module-cloudmesh.rack.queue.tasks">cloudmesh.rack.queue.tasks module</a></li>
+<li class="toctree-l7"><a class="reference internal" href="../../../modules/cloudmesh.rack.queue.html#module-cloudmesh.rack.queue">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.rack.html#submodules">Submodules</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.rack.html#module-cloudmesh.rack.base_cluster_map">cloudmesh.rack.base_cluster_map module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.rack.html#module-cloudmesh.rack.base_progress">cloudmesh.rack.base_progress module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.rack.html#module-cloudmesh.rack.cluster_map_heat">cloudmesh.rack.cluster_map_heat module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.rack.html#module-cloudmesh.rack.cluster_map_service">cloudmesh.rack.cluster_map_service module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.rack.html#module-cloudmesh.rack.fetch_cluster_info">cloudmesh.rack.fetch_cluster_info module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.rack.html#module-cloudmesh.rack.map_progress">cloudmesh.rack.map_progress module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.rack.html#module-cloudmesh.rack.rack_data">cloudmesh.rack.rack_data module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.rack.html#module-cloudmesh.rack.rack_progress">cloudmesh.rack.rack_progress module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.rack.html#module-cloudmesh.rack.rack_work">cloudmesh.rack.rack_work module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.rack.html#cloudmesh-rack-tasks-module">cloudmesh.rack.tasks module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.rack.html#module-cloudmesh.rack">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/cloudmesh.shell.html">cloudmesh.shell package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.shell.html#submodules">Submodules</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.shell.html#module-cloudmesh.shell.cm_shell">cloudmesh.shell.cm_shell module</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="../../../modules/cloudmesh.shell.html#cm-config">cm config</a></li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.shell.html#module-cloudmesh.shell">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/cloudmesh.temperature.html">cloudmesh.temperature package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.temperature.html#submodules">Submodules</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.temperature.html#module-cloudmesh.temperature.cm_temperature">cloudmesh.temperature.cm_temperature module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.temperature.html#module-cloudmesh.temperature">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/cloudmesh.user.html">cloudmesh.user package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.user.html#submodules">Submodules</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.user.html#module-cloudmesh.user.CMUserProviderBaseType">cloudmesh.user.CMUserProviderBaseType module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.user.html#module-cloudmesh.user.cm_pagestatus">cloudmesh.user.cm_pagestatus module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.user.html#module-cloudmesh.user.cm_projects">cloudmesh.user.cm_projects module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.user.html#module-cloudmesh.user.cm_template">cloudmesh.user.cm_template module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.user.html#module-cloudmesh.user.cm_user">cloudmesh.user.cm_user module</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="../../../modules/cloudmesh.user.html#cloudmesh-user-cm-user">cloudmesh.user.cm_user</a></li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.user.html#module-cloudmesh.user.cm_userLDAP">cloudmesh.user.cm_userLDAP module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.user.html#module-cloudmesh.user.cm_user_ldap_future">cloudmesh.user.cm_user_ldap_future module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.user.html#module-cloudmesh.user.roles">cloudmesh.user.roles module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.user.html#module-cloudmesh.user">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/cloudmesh.util.html">cloudmesh.util package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.util.html#submodules">Submodules</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.util.html#module-cloudmesh.util.cm_table">cloudmesh.util.cm_table module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.util.html#module-cloudmesh.util.config">cloudmesh.util.config module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.util.html#module-cloudmesh.util.encryptdata">cloudmesh.util.encryptdata module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.util.html#module-cloudmesh.util.gitinfo">cloudmesh.util.gitinfo module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.util.html#module-cloudmesh.util.keys">cloudmesh.util.keys module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.util.html#module-cloudmesh.util.logger">cloudmesh.util.logger module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.util.html#module-cloudmesh.util.menu">cloudmesh.util.menu module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.util.html#module-cloudmesh.util.password">cloudmesh.util.password module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.util.html#module-cloudmesh.util.ping">cloudmesh.util.ping module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.util.html#module-cloudmesh.util.ssh">cloudmesh.util.ssh module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.util.html#module-cloudmesh.util.stopwatch">cloudmesh.util.stopwatch module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.util.html#module-cloudmesh.util.util">cloudmesh.util.util module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.util.html#module-cloudmesh.util.webutil">cloudmesh.util.webutil module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../modules/cloudmesh.util.html#module-cloudmesh.util">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/cloudmesh.html#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/cloudmesh.html#module-cloudmesh.cm_mesh">cloudmesh.cm_mesh module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/cloudmesh.html#module-cloudmesh.cm_mongo">cloudmesh.cm_mongo module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/cloudmesh.html#module-cloudmesh.inventory">cloudmesh.inventory module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/cloudmesh.html#module-cloudmesh">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"></ul>
+</li>
+              
+            
+            
+              
+                
+              
+            
+            
+            
+            
+              <li class="hidden-sm"></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      
+  <h1>Source code for cloudmesh.util.gitinfo</h1><div class="highlight"><pre>
+<span class="sd">&quot;&quot;&quot;managing information from GIT&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
+<span class="kn">from</span> <span class="nn">sh</span> <span class="kn">import</span> <span class="n">git</span>
+<span class="kn">from</span> <span class="nn">sh</span> <span class="kn">import</span> <span class="n">sort</span>
+
+
+<div class="viewcode-block" id="GitInfo"><a class="viewcode-back" href="../../../modules/cloudmesh.util.html#cloudmesh.util.gitinfo.GitInfo">[docs]</a><span class="k">class</span> <span class="nc">GitInfo</span><span class="p">:</span>
+
+    <span class="sd">&quot;&quot;&quot;This class can be used to return some elementary information</span>
+<span class="sd">    about the git hub directory.  This includes the: </span>
+
+<span class="sd">    * version number of the code</span>
+<span class="sd">    * the list of people contributing to the code</span>
+<span class="sd">    * emails of the people contributing</span>
+<span class="sd">    * a statistic about canged code by person</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="GitInfo.version"><a class="viewcode-back" href="../../../modules/cloudmesh.util.html#cloudmesh.util.gitinfo.GitInfo.version">[docs]</a>    <span class="k">def</span> <span class="nf">version</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        retruns the verison of the code from github</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">git</span><span class="o">.</span><span class="n">describe</span><span class="p">(</span><span class="s">&quot;--tags&quot;</span><span class="p">))[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</div>
+<div class="viewcode-block" id="GitInfo.emails"><a class="viewcode-back" href="../../../modules/cloudmesh.util.html#cloudmesh.util.gitinfo.GitInfo.emails">[docs]</a>    <span class="k">def</span> <span class="nf">emails</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">format_arg</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        returns the emails of the authors either as a text or as a dict. The</span>
+<span class="sd">        format is specified as an argument.</span>
+<span class="sd">        </span>
+<span class="sd">        :param format_arg: if &quot;dict&quot; is specified a dict will be returned</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">if</span> <span class="n">format_arg</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">format_string</span> <span class="o">=</span> <span class="s">&quot;&#39;%aN&#39; &lt;</span><span class="si">%c</span><span class="s">E&gt;&quot;</span>
+        <span class="k">elif</span> <span class="n">format_arg</span> <span class="o">==</span> <span class="s">&#39;dict&#39;</span><span class="p">:</span>
+            <span class="n">format_string</span> <span class="o">=</span> <span class="s">&quot;%aN</span><span class="se">\t</span><span class="si">%c</span><span class="s">E&quot;</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">sort</span><span class="p">(</span><span class="n">git</span><span class="o">.</span><span class="n">log</span><span class="p">(</span>
+            <span class="s">&quot;--all&quot;</span><span class="p">,</span> <span class="s">&quot;--format=&quot;</span> <span class="o">+</span> <span class="n">format_string</span><span class="p">,</span>
+            <span class="n">_tty_in</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">_tty_out</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">_piped</span><span class="o">=</span><span class="bp">True</span><span class="p">),</span> <span class="s">&quot;-u&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">format_arg</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">result</span>
+        <span class="k">elif</span> <span class="n">format_arg</span> <span class="o">==</span> <span class="s">&quot;dict&quot;</span><span class="p">:</span>
+            <span class="nb">list</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="s">&quot;</span><span class="se">\t</span><span class="s">&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\t</span><span class="s">&quot;</span><span class="p">)[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+            <span class="n">it</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+            <span class="n">emails</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">it</span><span class="p">,</span> <span class="n">it</span><span class="p">))</span>
+            <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">emails</span><span class="p">:</span>
+                <span class="n">emails</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">emails</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+            <span class="k">return</span> <span class="n">emails</span>
+</div>
+<div class="viewcode-block" id="GitInfo.authors"><a class="viewcode-back" href="../../../modules/cloudmesh.util.html#cloudmesh.util.gitinfo.GitInfo.authors">[docs]</a>    <span class="k">def</span> <span class="nf">authors</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">format_arg</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        returns the authors of the authors either as a text or as a dict. The</span>
+<span class="sd">        format is specified as an argument.</span>
+<span class="sd">        </span>
+<span class="sd">        :param format_arg: if &quot;dict&quot; is specified a dict will be returned</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">git</span><span class="o">.</span><span class="n">shortlog</span><span class="p">(</span><span class="s">&quot;-s&quot;</span><span class="p">,</span> <span class="s">&quot;-n&quot;</span><span class="p">,</span> <span class="n">_tty_in</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">_tty_out</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">format_arg</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">result</span>
+        <span class="k">elif</span> <span class="n">format_arg</span> <span class="o">==</span> <span class="s">&quot;dict&quot;</span><span class="p">:</span>
+            <span class="nb">list</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="s">&quot;</span><span class="se">\t</span><span class="s">&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\t</span><span class="s">&quot;</span><span class="p">)[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+            <span class="n">it</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="nb">list</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+            <span class="n">authors</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">it</span><span class="p">,</span> <span class="n">it</span><span class="p">))</span>
+            <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">authors</span><span class="p">:</span>
+                <span class="n">authors</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">authors</span><span class="p">[</span><span class="n">name</span><span class="p">])</span>
+            <span class="k">return</span> <span class="n">authors</span>
+</div>
+<div class="viewcode-block" id="GitInfo.info"><a class="viewcode-back" href="../../../modules/cloudmesh.util.html#cloudmesh.util.gitinfo.GitInfo.info">[docs]</a>    <span class="k">def</span> <span class="nf">info</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        returns the information about authors, emails, and commits in a dict.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="n">authors</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">authors</span><span class="p">(</span><span class="s">&quot;dict&quot;</span><span class="p">)</span>
+        <span class="n">email</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">emails</span><span class="p">(</span><span class="s">&quot;dict&quot;</span><span class="p">)</span>
+
+        <span class="n">info</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">authors</span><span class="p">:</span>
+            <span class="n">info</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="n">name</span><span class="p">,</span>
+                <span class="s">&quot;commits&quot;</span><span class="p">:</span> <span class="n">authors</span><span class="p">[</span><span class="n">name</span><span class="p">],</span>
+                <span class="s">&quot;email&quot;</span><span class="p">:</span> <span class="n">email</span><span class="p">[</span><span class="n">name</span><span class="p">]}</span>
+        <span class="k">return</span> <span class="n">info</span>
+</div>
+<div class="viewcode-block" id="GitInfo.stat"><a class="viewcode-back" href="../../../modules/cloudmesh.util.html#cloudmesh.util.gitinfo.GitInfo.stat">[docs]</a>    <span class="k">def</span> <span class="nf">stat</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">email</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        returns a statistick of a git author with the given e_mail.</span>
+<span class="sd">        </span>
+<span class="sd">        :param email: name of the author</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="n">sums</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">git</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s">&quot;--all&quot;</span><span class="p">,</span> <span class="s">&quot;--stat&quot;</span><span class="p">,</span> <span class="s">&#39;--author={0}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">email</span><span class="p">),</span> <span class="n">_tty_in</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">_tty_out</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">_iter</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
+            <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+            <span class="k">if</span> <span class="s">&quot; files changed&quot;</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
+                <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&quot; insertions(+)&quot;</span><span class="p">,</span> <span class="s">&quot;&quot;</span><span class="p">)</span>
+                <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&quot; insertion(+)&quot;</span><span class="p">,</span> <span class="s">&quot;&quot;</span><span class="p">)</span>
+                <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&quot; deletion(-)&quot;</span><span class="p">,</span> <span class="s">&quot;&quot;</span><span class="p">)</span>
+                <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&quot; deletions(-)&quot;</span><span class="p">,</span> <span class="s">&quot;&quot;</span><span class="p">)</span>
+                <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&quot; files changed&quot;</span><span class="p">,</span> <span class="s">&quot;&quot;</span><span class="p">)</span>
+                <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&quot;,&quot;</span><span class="p">)</span>
+                <span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">line</span><span class="p">]</span>
+                <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)):</span>
+                    <span class="n">sums</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">+=</span> <span class="n">data</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+
+        <span class="k">return</span> <span class="p">{</span><span class="s">&quot;email&quot;</span><span class="p">:</span> <span class="n">email</span><span class="p">,</span>
+                <span class="s">&quot;fileschanged&quot;</span><span class="p">:</span> <span class="n">sums</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+                <span class="s">&quot;inserted&quot;</span><span class="p">:</span> <span class="n">sums</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+                <span class="s">&quot;deleted&quot;</span><span class="p">:</span> <span class="n">sums</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span>
+                <span class="s">&quot;lineschanged&quot;</span><span class="p">:</span> <span class="n">sums</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">sums</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span>
+                <span class="p">}</span>
+</div>
+<div class="viewcode-block" id="GitInfo.compute"><a class="viewcode-back" href="../../../modules/cloudmesh.util.html#cloudmesh.util.gitinfo.GitInfo.compute">[docs]</a>    <span class="k">def</span> <span class="nf">compute</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        computes the statistic of all authors in a git repository and returns</span>
+<span class="sd">        the result as a dict.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="n">emails</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">gitinfo</span><span class="o">.</span><span class="n">emails</span><span class="p">(</span><span class="s">&quot;dict&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+
+        <span class="n">stats</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">sums</span> <span class="o">=</span> <span class="p">{</span><span class="s">&quot;fileschanged&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s">&quot;inserted&quot;</span><span class="p">:</span>
+                <span class="mi">0</span><span class="p">,</span> <span class="s">&quot;deleted&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s">&quot;lineschanged&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span>
+        <span class="k">for</span> <span class="n">email</span> <span class="ow">in</span> <span class="n">emails</span><span class="p">:</span>
+            <span class="k">print</span> <span class="s">&quot;Calculating stats for&quot;</span><span class="p">,</span> <span class="n">email</span>
+            <span class="n">stats</span><span class="p">[</span><span class="n">email</span><span class="p">]</span> <span class="o">=</span> <span class="n">gitinfo</span><span class="o">.</span><span class="n">stat</span><span class="p">(</span><span class="n">email</span><span class="p">)</span>
+
+            <span class="n">sums</span><span class="p">[</span><span class="s">&quot;fileschanged&quot;</span><span class="p">]</span> <span class="o">+=</span> <span class="n">stats</span><span class="p">[</span><span class="n">email</span><span class="p">][</span><span class="s">&quot;fileschanged&quot;</span><span class="p">]</span>
+            <span class="n">sums</span><span class="p">[</span><span class="s">&quot;inserted&quot;</span><span class="p">]</span> <span class="o">+=</span> <span class="n">stats</span><span class="p">[</span><span class="n">email</span><span class="p">][</span><span class="s">&quot;inserted&quot;</span><span class="p">]</span>
+            <span class="n">sums</span><span class="p">[</span><span class="s">&quot;deleted&quot;</span><span class="p">]</span> <span class="o">+=</span> <span class="n">stats</span><span class="p">[</span><span class="n">email</span><span class="p">][</span><span class="s">&quot;deleted&quot;</span><span class="p">]</span>
+            <span class="n">sums</span><span class="p">[</span><span class="s">&quot;lineschanged&quot;</span><span class="p">]</span> <span class="o">+=</span> <span class="n">stats</span><span class="p">[</span><span class="n">email</span><span class="p">][</span><span class="s">&quot;lineschanged&quot;</span><span class="p">]</span>
+
+        <span class="k">for</span> <span class="n">email</span> <span class="ow">in</span> <span class="n">emails</span><span class="p">:</span>
+            <span class="n">stats</span><span class="p">[</span><span class="n">email</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;percentage&#39;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="n">stats</span><span class="p">[</span><span class="n">email</span><span class="p">][</span><span class="s">&quot;fileschanged&quot;</span><span class="p">]</span> <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="n">sums</span><span class="p">[</span><span class="s">&quot;fileschanged&quot;</span><span class="p">]),</span>
+                <span class="n">stats</span><span class="p">[</span><span class="n">email</span><span class="p">][</span><span class="s">&quot;inserted&quot;</span><span class="p">]</span> <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="n">sums</span><span class="p">[</span><span class="s">&quot;inserted&quot;</span><span class="p">]),</span>
+                <span class="n">stats</span><span class="p">[</span><span class="n">email</span><span class="p">][</span><span class="s">&quot;deleted&quot;</span><span class="p">]</span> <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="n">sums</span><span class="p">[</span><span class="s">&quot;deleted&quot;</span><span class="p">]),</span>
+                <span class="n">stats</span><span class="p">[</span><span class="n">email</span><span class="p">][</span><span class="s">&quot;lineschanged&quot;</span><span class="p">]</span> <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="n">sums</span><span class="p">[</span><span class="s">&quot;lineschanged&quot;</span><span class="p">]),</span>
+            <span class="p">]</span>
+            <span class="p">}</span>
+
+        <span class="k">return</span> <span class="n">stats</span>
+</div></div>
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">gitinfo</span> <span class="o">=</span> <span class="n">GitInfo</span><span class="p">()</span>
+
+    <span class="c"># print gitinfo.version()</span>
+
+    <span class="k">print</span> <span class="s">&quot;A&quot;</span>
+    <span class="k">print</span> <span class="n">gitinfo</span><span class="o">.</span><span class="n">authors</span><span class="p">()</span>
+
+    <span class="k">print</span> <span class="s">&quot;b&quot;</span>
+    <span class="n">pprint</span><span class="p">(</span><span class="n">gitinfo</span><span class="o">.</span><span class="n">authors</span><span class="p">(</span><span class="s">&quot;dict&quot;</span><span class="p">))</span>
+
+    <span class="k">print</span> <span class="s">&quot;c&quot;</span>
+    <span class="n">pprint</span><span class="p">(</span><span class="n">gitinfo</span><span class="o">.</span><span class="n">emails</span><span class="p">())</span>
+
+    <span class="k">print</span> <span class="s">&quot;d&quot;</span>
+    <span class="n">pprint</span><span class="p">(</span><span class="n">gitinfo</span><span class="o">.</span><span class="n">emails</span><span class="p">(</span><span class="s">&quot;dict&quot;</span><span class="p">))</span>
+
+    <span class="k">print</span> <span class="s">&quot;e&quot;</span>
+    <span class="n">pprint</span><span class="p">(</span><span class="n">gitinfo</span><span class="o">.</span><span class="n">info</span><span class="p">())</span>
+
+    <span class="k">print</span> <span class="s">&quot;f&quot;</span>
+    <span class="k">print</span> <span class="n">gitinfo</span><span class="o">.</span><span class="n">stat</span><span class="p">(</span><span class="s">&quot;laszewski@gmail.com&quot;</span><span class="p">)</span>
+
+    <span class="k">print</span> <span class="s">&quot;g&quot;</span>
+    <span class="n">stats</span> <span class="o">=</span> <span class="n">gitinfo</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>
+
+    <span class="k">print</span> <span class="n">stats</span>
+
+    <span class="k">print</span> <span class="s">&quot;h&quot;</span>
+    <span class="k">for</span> <span class="n">email</span> <span class="ow">in</span> <span class="n">stats</span><span class="p">:</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="n">stats</span><span class="p">[</span><span class="n">email</span><span class="p">][</span><span class="s">&quot;percentage&quot;</span><span class="p">]</span>
+        <span class="k">print</span> <span class="s">&quot;{0} {1:.3f}% {2:.3f}%  {3:.3f}% {4:.3f}%&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">email</span><span class="p">,</span> <span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">p</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">p</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+</pre></div>
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2013, Gregor von Laszewski for  FutureGrid.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

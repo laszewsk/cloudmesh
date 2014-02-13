@@ -1,19 +1,30 @@
-queue Package
-=============
+cloudmesh.launcher.queue package
+================================
 
-:mod:`celery` Module
---------------------
+Submodules
+----------
+
+cloudmesh.launcher.queue.celery module
+--------------------------------------
 
 .. automodule:: cloudmesh.launcher.queue.celery
     :members:
     :undoc-members:
     :show-inheritance:
 
-:mod:`tasks` Module
--------------------
+cloudmesh.launcher.queue.tasks module
+-------------------------------------
 
 .. automodule:: cloudmesh.launcher.queue.tasks
     :members:
     :undoc-members:
     :show-inheritance:
 
+
+Module contents
+---------------
+
+.. automodule:: cloudmesh.launcher.queue
+    :members:
+    :undoc-members:
+    :show-inheritance:

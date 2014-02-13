@@ -1,11 +1,22 @@
-eucalyptus Package
-==================
+cloudmesh.metric.eucalyptus package
+===================================
 
-:mod:`cm_metric_eucalyptus` Module
-----------------------------------
+Submodules
+----------
+
+cloudmesh.metric.eucalyptus.cm_metric_eucalyptus module
+-------------------------------------------------------
 
 .. automodule:: cloudmesh.metric.eucalyptus.cm_metric_eucalyptus
     :members:
     :undoc-members:
     :show-inheritance:
 
+
+Module contents
+---------------
+
+.. automodule:: cloudmesh.metric.eucalyptus
+    :members:
+    :undoc-members:
+    :show-inheritance:
