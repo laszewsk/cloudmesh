@@ -9,8 +9,8 @@
     
     <link rel="stylesheet" href="../../../../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../../../_static/bootstrap-3.0.0/css/bootstrap.min.css" type="text/css" />
-    <link rel="stylesheet" href="../../../../_static/bootstrap-3.0.0/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/bootstrap-3.1.0/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/bootstrap-3.1.0/css/bootstrap-theme.min.css" type="text/css" />
     <link rel="stylesheet" href="../../../../_static/bootstrap-sphinx.css" type="text/css" />
     
     <script type="text/javascript">
@@ -26,9 +26,9 @@
     <script type="text/javascript" src="../../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../../_static/doctools.js"></script>
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/javascript" src="../../../../_static/js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="../../../../_static/js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="../../../../_static/js/jquery-fix.js"></script>
-    <script type="text/javascript" src="../../../../_static/bootstrap-3.0.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../../../_static/bootstrap-3.1.0/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../../../../_static/bootstrap-sphinx.js"></script>
     <link rel="author" title="About these documents" href="../../../../about.html" />
     <link rel="top" title="Cloudmesh 0.1 documentation" href="../../../../index.html" />
@@ -61,11 +61,14 @@
             
             
               <li class="dropdown globaltoc-container">
-  <a href="../../../../index.html"
-     class="dropdown-toggle"
-     data-toggle="dropdown">Site <b class="caret"></b></a>
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../../../../index.html">Site <b class="caret"></b></a>
   <ul class="dropdown-menu globaltoc"
-    ><ul>
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../about.html">1&nbsp;&nbsp;&nbsp;Overview</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../../about.html#system-monitoring-and-operations">1.1&nbsp;&nbsp;&nbsp;System Monitoring and Operations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../about.html#user-and-project-services">1.2&nbsp;&nbsp;&nbsp;User and Project Services</a></li>
@@ -237,86 +240,89 @@
 </li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../../cm-shell.html">5&nbsp;&nbsp;&nbsp;Cloud Mesh</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#info">5.1&nbsp;&nbsp;&nbsp;Info</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#variables">5.2&nbsp;&nbsp;&nbsp;Variables</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#defaults">5.3&nbsp;&nbsp;&nbsp;Defaults</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#managing-users">5.4&nbsp;&nbsp;&nbsp;Managing Users</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#managing-clouds">5.5&nbsp;&nbsp;&nbsp;Managing Clouds</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../../cm-shell.html#register-an-aws-account">5.5.1&nbsp;&nbsp;&nbsp;Register an AWS account</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../cm-shell.html#register-an-azure-account">5.5.2&nbsp;&nbsp;&nbsp;Register an azure account</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../cm-shell.html#register-an-eucalyptus-account">5.5.3&nbsp;&nbsp;&nbsp;Register an Eucalyptus account</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../cm-shell.html#register-an-openstack-account">5.5.4&nbsp;&nbsp;&nbsp;Register an OpenStack account</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../cm-shell.html#register-an-ec2-account">5.5.5&nbsp;&nbsp;&nbsp;Register an EC2 account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../cm-shell.html">5&nbsp;&nbsp;&nbsp;Cloudmesh Shell</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#commandline">5.1&nbsp;&nbsp;&nbsp;Commandline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#shell-usage">5.2&nbsp;&nbsp;&nbsp;Shell Usage</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#activate-clouds">5.6&nbsp;&nbsp;&nbsp;Activate Clouds</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#managing-projects">5.7&nbsp;&nbsp;&nbsp;Managing Projects</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../../cm-shell.html#project-list">5.7.1&nbsp;&nbsp;&nbsp;Project List</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../cm-shell.html#project-information">5.7.2&nbsp;&nbsp;&nbsp;Project Information</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../cm-shell.html#project-activation">5.7.3&nbsp;&nbsp;&nbsp;Project Activation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../cm-shell.html#project-deactivation">5.7.4&nbsp;&nbsp;&nbsp;Project Deactivation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../cm-shell.html#command-overview">6&nbsp;&nbsp;&nbsp;Command Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#help">6.1&nbsp;&nbsp;&nbsp;Help</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#variables">6.2&nbsp;&nbsp;&nbsp;Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#defaults">6.3&nbsp;&nbsp;&nbsp;Defaults</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#managing-users">6.4&nbsp;&nbsp;&nbsp;Managing Users</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#managing-clouds">6.5&nbsp;&nbsp;&nbsp;Managing Clouds</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../cm-shell.html#register-a-cloud">6.5.1&nbsp;&nbsp;&nbsp;Register a cloud</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../cm-shell.html#activate-cloud">6.5.2&nbsp;&nbsp;&nbsp;Activate cloud</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#managaging-images">5.8&nbsp;&nbsp;&nbsp;Managaging Images</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../../cm-shell.html#list-images">5.8.1&nbsp;&nbsp;&nbsp;List images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#managing-projects">6.6&nbsp;&nbsp;&nbsp;Managing Projects</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../cm-shell.html#project-list">6.6.1&nbsp;&nbsp;&nbsp;Project List</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../cm-shell.html#project-information">6.6.2&nbsp;&nbsp;&nbsp;Project Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../cm-shell.html#project-activation">6.6.3&nbsp;&nbsp;&nbsp;Project Activation</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#activating-images">5.9&nbsp;&nbsp;&nbsp;Activating Images</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#managing-flavors">5.10&nbsp;&nbsp;&nbsp;Managing Flavors</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../../cm-shell.html#list-flavors">5.10.1&nbsp;&nbsp;&nbsp;List Flavors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#managing-keys">6.7&nbsp;&nbsp;&nbsp;Managing Keys</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#managing-images">6.8&nbsp;&nbsp;&nbsp;Managing Images</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../cm-shell.html#list-images">6.8.1&nbsp;&nbsp;&nbsp;List images</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../cm-shell.html#image-information">6.8.2&nbsp;&nbsp;&nbsp;Image information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../cm-shell.html#default-image">6.8.3&nbsp;&nbsp;&nbsp;Default image</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#activating-flavors">5.11&nbsp;&nbsp;&nbsp;Activating Flavors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#manageing-virtual-machines">5.12&nbsp;&nbsp;&nbsp;Manageing Virtual Machines</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../../cm-shell.html#starting-vms">5.12.1&nbsp;&nbsp;&nbsp;Starting VMs</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../../cm-shell.html#vm-history">5.12.1.1&nbsp;&nbsp;&nbsp;VM History</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#managing-flavors">6.9&nbsp;&nbsp;&nbsp;Managing Flavors</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../cm-shell.html#list-flavors">6.9.1&nbsp;&nbsp;&nbsp;List Flavors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../cm-shell.html#flavor-information">6.9.2&nbsp;&nbsp;&nbsp;Flavor information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../cm-shell.html#default-flavor">6.9.3&nbsp;&nbsp;&nbsp;Default Flavor</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../cm-shell.html#manageing-security-groups">5.12.2&nbsp;&nbsp;&nbsp;Manageing Security Groups</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../cm-shell.html#managing-volumes">5.12.3&nbsp;&nbsp;&nbsp;Managing Volumes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../cm-shell.html#managing-heat-s-for-openstack">5.12.4&nbsp;&nbsp;&nbsp;Managing heat&#8217;s for OpenStack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#managing-virtual-machines">6.10&nbsp;&nbsp;&nbsp;Managing Virtual Machines</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../cm-shell.html#starting-vms">6.10.1&nbsp;&nbsp;&nbsp;Starting VMs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../cm-shell.html#vm-history">6.10.1.1&nbsp;&nbsp;&nbsp;VM History</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#managing-security-groups">5.13&nbsp;&nbsp;&nbsp;Managing Security Groups</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#examples">5.14&nbsp;&nbsp;&nbsp;Examples</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#todo-most-likely-in-cloud-command-and-register-command">5.15&nbsp;&nbsp;&nbsp;TODO (most likely in cloud command and register command)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../cm-shell.html#managing-security-groups">6.10.2&nbsp;&nbsp;&nbsp;Managing Security Groups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../cm-shell.html#managing-volumes">6.10.3&nbsp;&nbsp;&nbsp;Managing Volumes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../cm-shell.html#managing-heat-s-for-openstack">6.10.4&nbsp;&nbsp;&nbsp;Managing heat&#8217;s for OpenStack</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../cm-shell.html#commands">6&nbsp;&nbsp;&nbsp;Commands</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#eof">6.1&nbsp;&nbsp;&nbsp;EOF</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#clear">6.2&nbsp;&nbsp;&nbsp;clear</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#cloud">6.3&nbsp;&nbsp;&nbsp;cloud</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#count">6.4&nbsp;&nbsp;&nbsp;count</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#id1">6.5&nbsp;&nbsp;&nbsp;defaults</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#dot2">6.6&nbsp;&nbsp;&nbsp;dot2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#edit">6.7&nbsp;&nbsp;&nbsp;edit</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#exec">6.8&nbsp;&nbsp;&nbsp;exec</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#exp">6.9&nbsp;&nbsp;&nbsp;exp</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#graphviz">6.10&nbsp;&nbsp;&nbsp;graphviz</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#help">6.11&nbsp;&nbsp;&nbsp;help</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#id2">6.12&nbsp;&nbsp;&nbsp;info</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#init">6.13&nbsp;&nbsp;&nbsp;init</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#keys">6.14&nbsp;&nbsp;&nbsp;keys</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#list">6.15&nbsp;&nbsp;&nbsp;list</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#man">6.16&nbsp;&nbsp;&nbsp;man</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#open">6.17&nbsp;&nbsp;&nbsp;open</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#pause">6.18&nbsp;&nbsp;&nbsp;pause</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#plugins">6.19&nbsp;&nbsp;&nbsp;plugins</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#project">6.20&nbsp;&nbsp;&nbsp;project</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#py">6.21&nbsp;&nbsp;&nbsp;py</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#q">6.22&nbsp;&nbsp;&nbsp;q</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#quit">6.23&nbsp;&nbsp;&nbsp;quit</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#reg">6.24&nbsp;&nbsp;&nbsp;reg</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#rst">6.25&nbsp;&nbsp;&nbsp;rst</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#script">6.26&nbsp;&nbsp;&nbsp;script</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#timer">6.27&nbsp;&nbsp;&nbsp;timer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#use">6.28&nbsp;&nbsp;&nbsp;use</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#user">6.29&nbsp;&nbsp;&nbsp;user</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#var">6.30&nbsp;&nbsp;&nbsp;var</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#verbose">6.31&nbsp;&nbsp;&nbsp;verbose</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#version">6.32&nbsp;&nbsp;&nbsp;version</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#vm">6.33&nbsp;&nbsp;&nbsp;vm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#id1">6.11&nbsp;&nbsp;&nbsp;Managing Security Groups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#examples">6.12&nbsp;&nbsp;&nbsp;Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#todo-most-likely-in-cloud-command-and-register-command">6.13&nbsp;&nbsp;&nbsp;TODO (most likely in cloud command and register command)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../cm-shell.html#commands">7&nbsp;&nbsp;&nbsp;Commands</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#eof">7.1&nbsp;&nbsp;&nbsp;EOF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#clear">7.2&nbsp;&nbsp;&nbsp;clear</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#cloud">7.3&nbsp;&nbsp;&nbsp;cloud</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#count">7.4&nbsp;&nbsp;&nbsp;count</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#id2">7.5&nbsp;&nbsp;&nbsp;defaults</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#dot2">7.6&nbsp;&nbsp;&nbsp;dot2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#edit">7.7&nbsp;&nbsp;&nbsp;edit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#exec">7.8&nbsp;&nbsp;&nbsp;exec</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#exp">7.9&nbsp;&nbsp;&nbsp;exp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#graphviz">7.10&nbsp;&nbsp;&nbsp;graphviz</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#id3">7.11&nbsp;&nbsp;&nbsp;help</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#info">7.12&nbsp;&nbsp;&nbsp;info</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#init">7.13&nbsp;&nbsp;&nbsp;init</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#keys">7.14&nbsp;&nbsp;&nbsp;keys</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#list">7.15&nbsp;&nbsp;&nbsp;list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#man">7.16&nbsp;&nbsp;&nbsp;man</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#open">7.17&nbsp;&nbsp;&nbsp;open</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#pause">7.18&nbsp;&nbsp;&nbsp;pause</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#plugins">7.19&nbsp;&nbsp;&nbsp;plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#project">7.20&nbsp;&nbsp;&nbsp;project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#py">7.21&nbsp;&nbsp;&nbsp;py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#q">7.22&nbsp;&nbsp;&nbsp;q</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#quit">7.23&nbsp;&nbsp;&nbsp;quit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#reg">7.24&nbsp;&nbsp;&nbsp;reg</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#rst">7.25&nbsp;&nbsp;&nbsp;rst</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#script">7.26&nbsp;&nbsp;&nbsp;script</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#timer">7.27&nbsp;&nbsp;&nbsp;timer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#use">7.28&nbsp;&nbsp;&nbsp;use</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#user">7.29&nbsp;&nbsp;&nbsp;user</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#var">7.30&nbsp;&nbsp;&nbsp;var</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#verbose">7.31&nbsp;&nbsp;&nbsp;verbose</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#version">7.32&nbsp;&nbsp;&nbsp;version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cm-shell.html#vm">7.33&nbsp;&nbsp;&nbsp;vm</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../cm-manage.html">cm-manage</a></li>
@@ -462,6 +468,12 @@
 </li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../modules/cloudmesh.metric.html">cloudmesh.metric package</a><ul>
 <li class="toctree-l5"><a class="reference internal" href="../../../../modules/cloudmesh.metric.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="../../../../modules/cloudmesh.metric.api.html">cloudmesh.metric.api package</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="../../../../modules/cloudmesh.metric.api.html#submodules">Submodules</a></li>
+<li class="toctree-l7"><a class="reference internal" href="../../../../modules/cloudmesh.metric.api.html#module-cloudmesh.metric.api.cm_metric_api">cloudmesh.metric.api.cm_metric_api module</a></li>
+<li class="toctree-l7"><a class="reference internal" href="../../../../modules/cloudmesh.metric.api.html#module-cloudmesh.metric.api">Module contents</a></li>
+</ul>
+</li>
 <li class="toctree-l6"><a class="reference internal" href="../../../../modules/cloudmesh.metric.eucalyptus.html">cloudmesh.metric.eucalyptus package</a><ul>
 <li class="toctree-l7"><a class="reference internal" href="../../../../modules/cloudmesh.metric.eucalyptus.html#submodules">Submodules</a></li>
 <li class="toctree-l7"><a class="reference internal" href="../../../../modules/cloudmesh.metric.eucalyptus.html#module-cloudmesh.metric.eucalyptus.cm_metric_eucalyptus">cloudmesh.metric.eucalyptus.cm_metric_eucalyptus module</a></li>
@@ -473,6 +485,15 @@
 <li class="toctree-l7"><a class="reference internal" href="../../../../modules/cloudmesh.metric.openstack.html#module-cloudmesh.metric.openstack.cm_metric_openstack">cloudmesh.metric.openstack.cm_metric_openstack module</a></li>
 <li class="toctree-l7"><a class="reference internal" href="../../../../modules/cloudmesh.metric.openstack.html#cloudmesh-metric-openstack-migrating-mysql-to-mongodb-module">cloudmesh.metric.openstack.migrating_mysql_to_mongodb module</a></li>
 <li class="toctree-l7"><a class="reference internal" href="../../../../modules/cloudmesh.metric.openstack.html#module-cloudmesh.metric.openstack">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l6"><a class="reference internal" href="../../../../modules/cloudmesh.metric.rest.html">cloudmesh.metric.rest package</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="../../../../modules/cloudmesh.metric.rest.html#submodules">Submodules</a></li>
+<li class="toctree-l7"><a class="reference internal" href="../../../../modules/cloudmesh.metric.rest.html#module-cloudmesh.metric.rest.cm_metric_rest">cloudmesh.metric.rest.cm_metric_rest module</a></li>
+<li class="toctree-l7"><a class="reference internal" href="../../../../modules/cloudmesh.metric.rest.html#cloudmesh-metric-rest-cm-mimerender-module">cloudmesh.metric.rest.cm_mimerender module</a></li>
+<li class="toctree-l7"><a class="reference internal" href="../../../../modules/cloudmesh.metric.rest.html#cloudmesh-metric-rest-cm-wsapps-module">cloudmesh.metric.rest.cm_wsapps module</a></li>
+<li class="toctree-l7"><a class="reference internal" href="../../../../modules/cloudmesh.metric.rest.html#cloudmesh-metric-rest-cm-wsmain-module">cloudmesh.metric.rest.cm_wsmain module</a></li>
+<li class="toctree-l7"><a class="reference internal" href="../../../../modules/cloudmesh.metric.rest.html#module-cloudmesh.metric.rest">Module contents</a></li>
 </ul>
 </li>
 </ul>
@@ -605,8 +626,14 @@
 </li>
               
                 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Page <b class="caret"></b></a>
-  <ul class="dropdown-menu localtoc"></ul>
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"></ul>
 </li>
               
             
@@ -646,7 +673,7 @@
 <span class="c">#</span>
 <span class="c"># see also http://docs.openstack.org/cli/quick-start/content/nova-cli-reference.html</span>
 <span class="c">#</span>
-
+<span class="kn">import</span> <span class="nn">inspect</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.util.util</span> <span class="kn">import</span> <span class="n">banner</span>
 <span class="kn">import</span> <span class="nn">requests</span>
 <span class="kn">from</span> <span class="nn">requests.auth</span> <span class="kn">import</span> <span class="n">AuthBase</span>
@@ -679,6 +706,10 @@
 <span class="c"># import novaclient</span>
 <span class="c"># from novaclient.openstack.common import strutils</span>
 
+<div class="viewcode-block" id="lineno"><a class="viewcode-back" href="../../../../modules/cloudmesh.iaas.openstack.html#cloudmesh.iaas.openstack.cm_compute.lineno">[docs]</a><span class="k">def</span> <span class="nf">lineno</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Returns the current line number in our program.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">inspect</span><span class="o">.</span><span class="n">currentframe</span><span class="p">()</span><span class="o">.</span><span class="n">f_back</span><span class="o">.</span><span class="n">f_lineno</span>
+</div>
 <span class="n">log</span> <span class="o">=</span> <span class="n">LOGGER</span><span class="p">(</span><span class="n">__file__</span><span class="p">)</span>
 
 <div class="viewcode-block" id="donotchange"><a class="viewcode-back" href="../../../../modules/cloudmesh.iaas.openstack.html#cloudmesh.iaas.openstack.cm_compute.donotchange">[docs]</a><span class="k">def</span> <span class="nf">donotchange</span><span class="p">(</span><span class="n">fn</span><span class="p">):</span>
@@ -738,10 +769,10 @@
                     <span class="k">try</span><span class="p">:</span>
                         <span class="bp">self</span><span class="o">.</span><span class="n">admin_credential</span> <span class="o">=</span> <span class="n">cm_config_server</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;cloudmesh.server.keystone.{0}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">label</span><span class="p">))</span>
                     <span class="k">except</span><span class="p">:</span>
-                        <span class="n">log</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s">&quot;No admin credential found! Please check your cloudmesh_server.yaml file.&quot;</span><span class="p">)</span>
+                        <span class="n">log</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">lineno</span><span class="p">())</span> <span class="o">+</span> <span class="s">&quot; No admin credential found! Please check your cloudmesh_server.yaml file.&quot;</span><span class="p">)</span>
                 <span class="k">else</span><span class="p">:</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">admin_credential</span> <span class="o">=</span> <span class="bp">None</span>
-                    <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">&quot;The cloud {0} has no admin credential&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">label</span><span class="p">))</span>
+                    <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">lineno</span><span class="p">())</span> <span class="o">+</span> <span class="s">&quot;: The cloud {0} has no admin credential&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">label</span><span class="p">))</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">admin_credential</span>
     <span class="c">#</span>
     <span class="c"># initialize</span>
@@ -768,7 +799,7 @@
                 <span class="bp">self</span><span class="o">.</span><span class="n">compute_config</span> <span class="o">=</span> <span class="n">cm_config</span><span class="p">()</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">user_credential</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">compute_config</span><span class="o">.</span><span class="n">credential</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
             <span class="k">except</span><span class="p">:</span>
-                <span class="n">log</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s">&quot;No user credentail found! Please check your cloudmesh.yaml file.&quot;</span><span class="p">)</span>
+                <span class="n">log</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">lineno</span><span class="p">())</span> <span class="o">+</span> <span class="s">&quot;: No user credentail found! Please check your cloudmesh.yaml file.&quot;</span><span class="p">)</span>
                 <span class="c"># sys.exit(1)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">_load_admin_credential</span><span class="p">()</span>
@@ -793,37 +824,39 @@
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        creates tokens for a connection</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">&quot;Loading User Credentials&quot;</span><span class="p">)</span>
+        <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">lineno</span><span class="p">())</span> <span class="o">+</span> <span class="s">&quot;: Loading User Credentials&quot;</span><span class="p">)</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_credential</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
-            <span class="n">log</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s">&quot;error connecting to openstack compute, credential is None&quot;</span><span class="p">)</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">lineno</span><span class="p">())</span> <span class="o">+</span> <span class="s">&quot;: error connecting to openstack compute, credential is None&quot;</span><span class="p">)</span>
         <span class="k">elif</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_token</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">user_token</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_token</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">user_credentials</span><span class="p">)</span>
 
         <span class="c"># check if keystone is defined, and if failed print log msg</span>
         <span class="c">#</span>
-        <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">&quot;Loading Admin Credentials&quot;</span><span class="p">)</span>
+        <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">lineno</span><span class="p">())</span> <span class="o">+</span> <span class="s">&quot;: Loading Admin Credentials&quot;</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">admin_credential</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">with_admin_credential</span><span class="p">):</span>
-            <span class="n">log</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s">&quot;error connecting to openstack compute, credential is None&quot;</span><span class="p">)</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">lineno</span><span class="p">())</span> <span class="o">+</span> <span class="s">&quot;:error connecting to openstack compute, credential is None&quot;</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">with_admin_credential</span> <span class="ow">and</span> <span class="p">(</span><span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">admin_token</span><span class="p">):</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">admin_token</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_token</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">admin_credential</span><span class="p">)</span>
 
 </div>
-<div class="viewcode-block" id="openstack.DEBUG"><a class="viewcode-back" href="../../../../modules/cloudmesh.iaas.openstack.html#cloudmesh.iaas.openstack.cm_compute.openstack.DEBUG">[docs]</a>    <span class="k">def</span> <span class="nf">DEBUG</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">):</span>
+<div class="viewcode-block" id="openstack.DEBUG"><a class="viewcode-back" href="../../../../modules/cloudmesh.iaas.openstack.html#cloudmesh.iaas.openstack.cm_compute.openstack.DEBUG">[docs]</a>    <span class="k">def</span> <span class="nf">DEBUG</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="n">line_number</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">line_number</span> <span class="o">==</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">line_number</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
         <span class="k">if</span> <span class="n">msg</span> <span class="o">==</span> <span class="s">&quot;credential&quot;</span><span class="p">:</span>
             <span class="n">debug_dict</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">user_credential</span><span class="p">)</span>
             <span class="n">debug_dict</span><span class="p">[</span><span class="s">&#39;OS_PASSWORD&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&quot;********&quot;</span>
-            <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s">&quot;GET CRED {0}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">debug_dict</span><span class="p">))</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s">&quot;{1} - GET CRED {0}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">debug_dict</span><span class="p">,</span><span class="nb">str</span><span class="p">(</span><span class="n">line_number</span><span class="p">)))</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">msg</span><span class="p">))</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s">&quot;{0} - {1}&quot;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">line_number</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">msg</span><span class="p">))</span>
 </div>
 <div class="viewcode-block" id="openstack.get_token"><a class="viewcode-back" href="../../../../modules/cloudmesh.iaas.openstack.html#cloudmesh.iaas.openstack.cm_compute.openstack.get_token">[docs]</a>    <span class="k">def</span> <span class="nf">get_token</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">credential</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
 
         <span class="k">if</span> <span class="n">credential</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
             <span class="n">credential</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_credential</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">(</span><span class="s">&quot;credential&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">(</span><span class="s">&quot;credential&quot;</span><span class="p">,</span> <span class="n">lineno</span><span class="p">())</span>
 
         <span class="n">param</span> <span class="o">=</span> <span class="bp">None</span>
         <span class="k">if</span> <span class="s">&#39;OS_TENANT_NAME&#39;</span> <span class="ow">in</span> <span class="n">credential</span><span class="p">:</span>
@@ -844,13 +877,15 @@
                  <span class="p">}</span>
         <span class="n">url</span> <span class="o">=</span> <span class="s">&quot;{0}/tokens&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">credential</span><span class="p">[</span><span class="s">&#39;OS_AUTH_URL&#39;</span><span class="p">])</span>
 
-        <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s">&quot;URL {0}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">url</span><span class="p">))</span>
+        <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">lineno</span><span class="p">())</span> <span class="o">+</span> <span class="s">&quot;: URL {0}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">url</span><span class="p">))</span>
 
         <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;content-type&#39;</span><span class="p">:</span> <span class="s">&#39;application/json&#39;</span><span class="p">}</span>
         <span class="n">verify</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_cacert</span><span class="p">(</span><span class="n">credential</span><span class="p">)</span>
-        <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s">&quot;PARAM {0}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">param</span><span class="p">)))</span>
-        <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s">&quot;HEADER {0}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">headers</span><span class="p">))</span>
-        <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s">&quot;VERIFY {0}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">verify</span><span class="p">))</span>
+        <span class="n">print_param</span> <span class="o">=</span> <span class="n">param</span>
+        <span class="n">print_param</span><span class="p">[</span><span class="s">&quot;auth&quot;</span><span class="p">][</span><span class="s">&quot;passwordCredentials&quot;</span><span class="p">][</span><span class="s">&quot;password&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&quot;********&quot;</span>
+        <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">lineno</span><span class="p">())</span> <span class="o">+</span> <span class="s">&quot;:PARAM {0}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">print_param</span><span class="p">)))</span>
+        <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">lineno</span><span class="p">())</span> <span class="o">+</span> <span class="s">&quot;:HEADER {0}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">headers</span><span class="p">))</span>
+        <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">lineno</span><span class="p">())</span> <span class="o">+</span> <span class="s">&quot;:VERIFY {0}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">verify</span><span class="p">))</span>
 
         <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span>
                           <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">param</span><span class="p">),</span>
@@ -960,7 +995,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get</span><span class="p">(</span><span class="n">msg</span><span class="o">=</span><span class="n">apiurl</span><span class="p">)</span>
 </div>
 <div class="viewcode-block" id="openstack.keypair_add"><a class="viewcode-back" href="../../../../modules/cloudmesh.iaas.openstack.html#cloudmesh.iaas.openstack.cm_compute.openstack.keypair_add">[docs]</a>    <span class="k">def</span> <span class="nf">keypair_add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">keyname</span><span class="p">,</span> <span class="n">keycontent</span><span class="p">):</span>
-        <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s">&quot;adding a keypair in cm_compute...&quot;</span><span class="p">)</span>
+        <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">lineno</span><span class="p">())</span> <span class="o">+</span> <span class="s">&quot;:adding a keypair in cm_compute...&quot;</span><span class="p">)</span>
         <span class="c"># keysnow = self.keypair_list()</span>
         <span class="n">conf</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_service_endpoint</span><span class="p">(</span><span class="s">&quot;compute&quot;</span><span class="p">)</span>
         <span class="n">publicURL</span> <span class="o">=</span> <span class="n">conf</span><span class="p">[</span><span class="s">&#39;publicURL&#39;</span><span class="p">]</span>
@@ -974,7 +1009,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_post</span><span class="p">(</span><span class="n">posturl</span><span class="p">,</span> <span class="n">params</span><span class="p">)</span>
 </div>
 <div class="viewcode-block" id="openstack.keypair_remove"><a class="viewcode-back" href="../../../../modules/cloudmesh.iaas.openstack.html#cloudmesh.iaas.openstack.cm_compute.openstack.keypair_remove">[docs]</a>    <span class="k">def</span> <span class="nf">keypair_remove</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">keyname</span><span class="p">):</span>
-        <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s">&quot;removing a keypair in cm_compute...&quot;</span><span class="p">)</span>
+        <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">lineno</span><span class="p">())</span> <span class="o">+</span> <span class="s">&quot;:removing a keypair in cm_compute...&quot;</span><span class="p">)</span>
         <span class="n">conf</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_service_endpoint</span><span class="p">(</span><span class="s">&quot;compute&quot;</span><span class="p">)</span>
         <span class="n">publicURL</span> <span class="o">=</span> <span class="n">conf</span><span class="p">[</span><span class="s">&#39;publicURL&#39;</span><span class="p">]</span>
 
@@ -1042,7 +1077,7 @@
             <span class="n">safe_userdata</span> <span class="o">=</span> <span class="n">strutils</span><span class="o">.</span><span class="n">safe_encode</span><span class="p">(</span><span class="n">userdata</span><span class="p">)</span>
             <span class="n">params</span><span class="p">[</span><span class="s">&quot;server&quot;</span><span class="p">][</span><span class="s">&quot;user_data&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">base64</span><span class="o">.</span><span class="n">b64encode</span><span class="p">(</span><span class="n">safe_userdata</span><span class="p">)</span>
 
-        <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s">&quot;POST PARAMS {0}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">params</span><span class="p">))</span>
+        <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">lineno</span><span class="p">())</span> <span class="o">+</span> <span class="s">&quot;:POST PARAMS {0}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">params</span><span class="p">))</span>
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_post</span><span class="p">(</span><span class="n">posturl</span><span class="p">,</span> <span class="n">params</span><span class="p">)</span>
 </div>
@@ -1145,12 +1180,12 @@
 
         <span class="n">url</span> <span class="o">=</span> <span class="s">&quot;{0}/{1}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">msg</span><span class="p">)</span>
 
-        <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s">&quot;AUTH URL {0}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">url</span><span class="p">))</span>
+        <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">lineno</span><span class="p">())</span> <span class="o">+</span> <span class="s">&quot;: AUTH URL {0}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">url</span><span class="p">))</span>
         <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;X-Auth-Token&#39;</span><span class="p">:</span> <span class="n">token</span><span class="p">[</span><span class="s">&#39;access&#39;</span><span class="p">][</span><span class="s">&#39;token&#39;</span><span class="p">][</span><span class="s">&#39;id&#39;</span><span class="p">]}</span>
 
         <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">verify</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_get_cacert</span><span class="p">(</span><span class="n">credential</span><span class="p">),</span> <span class="n">params</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
 
-        <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s">&quot;Response {0}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">r</span><span class="p">))</span>
+        <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">lineno</span><span class="p">())</span> <span class="o">+</span> <span class="s">&quot;: Response {0}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">r</span><span class="p">))</span>
 
         <span class="k">if</span> <span class="n">json</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>

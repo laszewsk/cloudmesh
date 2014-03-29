@@ -5,12 +5,12 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>5   Cloud Mesh &mdash; Cloudmesh 0.1 documentation</title>
+    <title>5   Cloudmesh Shell &mdash; Cloudmesh 0.1 documentation</title>
     
     <link rel="stylesheet" href="_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/bootstrap-3.0.0/css/bootstrap.min.css" type="text/css" />
-    <link rel="stylesheet" href="_static/bootstrap-3.0.0/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-3.1.0/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-3.1.0/css/bootstrap-theme.min.css" type="text/css" />
     <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
     
     <script type="text/javascript">
@@ -26,9 +26,9 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/javascript" src="_static/js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
-    <script type="text/javascript" src="_static/bootstrap-3.0.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.1.0/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
     <link rel="author" title="About these documents" href="about.html" />
     <link rel="top" title="Cloudmesh 0.1 documentation" href="index.html" />
@@ -62,11 +62,14 @@
             
             
               <li class="dropdown globaltoc-container">
-  <a href="index.html"
-     class="dropdown-toggle"
-     data-toggle="dropdown">Site <b class="caret"></b></a>
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="index.html">Site <b class="caret"></b></a>
   <ul class="dropdown-menu globaltoc"
-    ><ul>
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
 <li class="toctree-l1"><a class="reference internal" href="about.html">1&nbsp;&nbsp;&nbsp;Overview</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="about.html#system-monitoring-and-operations">1.1&nbsp;&nbsp;&nbsp;System Monitoring and Operations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="about.html#user-and-project-services">1.2&nbsp;&nbsp;&nbsp;User and Project Services</a></li>
@@ -238,86 +241,89 @@
 </li>
 </ul>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="">5&nbsp;&nbsp;&nbsp;Cloud Mesh</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#info">5.1&nbsp;&nbsp;&nbsp;Info</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#variables">5.2&nbsp;&nbsp;&nbsp;Variables</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#defaults">5.3&nbsp;&nbsp;&nbsp;Defaults</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#managing-users">5.4&nbsp;&nbsp;&nbsp;Managing Users</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#managing-clouds">5.5&nbsp;&nbsp;&nbsp;Managing Clouds</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#register-an-aws-account">5.5.1&nbsp;&nbsp;&nbsp;Register an AWS account</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#register-an-azure-account">5.5.2&nbsp;&nbsp;&nbsp;Register an azure account</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#register-an-eucalyptus-account">5.5.3&nbsp;&nbsp;&nbsp;Register an Eucalyptus account</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#register-an-openstack-account">5.5.4&nbsp;&nbsp;&nbsp;Register an OpenStack account</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#register-an-ec2-account">5.5.5&nbsp;&nbsp;&nbsp;Register an EC2 account</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">5&nbsp;&nbsp;&nbsp;Cloudmesh Shell</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#commandline">5.1&nbsp;&nbsp;&nbsp;Commandline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#shell-usage">5.2&nbsp;&nbsp;&nbsp;Shell Usage</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#activate-clouds">5.6&nbsp;&nbsp;&nbsp;Activate Clouds</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#managing-projects">5.7&nbsp;&nbsp;&nbsp;Managing Projects</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#project-list">5.7.1&nbsp;&nbsp;&nbsp;Project List</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#project-information">5.7.2&nbsp;&nbsp;&nbsp;Project Information</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#project-activation">5.7.3&nbsp;&nbsp;&nbsp;Project Activation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#project-deactivation">5.7.4&nbsp;&nbsp;&nbsp;Project Deactivation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#command-overview">6&nbsp;&nbsp;&nbsp;Command Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#help">6.1&nbsp;&nbsp;&nbsp;Help</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#variables">6.2&nbsp;&nbsp;&nbsp;Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#defaults">6.3&nbsp;&nbsp;&nbsp;Defaults</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#managing-users">6.4&nbsp;&nbsp;&nbsp;Managing Users</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#managing-clouds">6.5&nbsp;&nbsp;&nbsp;Managing Clouds</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#register-a-cloud">6.5.1&nbsp;&nbsp;&nbsp;Register a cloud</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#activate-cloud">6.5.2&nbsp;&nbsp;&nbsp;Activate cloud</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#managaging-images">5.8&nbsp;&nbsp;&nbsp;Managaging Images</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#list-images">5.8.1&nbsp;&nbsp;&nbsp;List images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#managing-projects">6.6&nbsp;&nbsp;&nbsp;Managing Projects</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#project-list">6.6.1&nbsp;&nbsp;&nbsp;Project List</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#project-information">6.6.2&nbsp;&nbsp;&nbsp;Project Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#project-activation">6.6.3&nbsp;&nbsp;&nbsp;Project Activation</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#activating-images">5.9&nbsp;&nbsp;&nbsp;Activating Images</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#managing-flavors">5.10&nbsp;&nbsp;&nbsp;Managing Flavors</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#list-flavors">5.10.1&nbsp;&nbsp;&nbsp;List Flavors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#managing-keys">6.7&nbsp;&nbsp;&nbsp;Managing Keys</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#managing-images">6.8&nbsp;&nbsp;&nbsp;Managing Images</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#list-images">6.8.1&nbsp;&nbsp;&nbsp;List images</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#image-information">6.8.2&nbsp;&nbsp;&nbsp;Image information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#default-image">6.8.3&nbsp;&nbsp;&nbsp;Default image</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#activating-flavors">5.11&nbsp;&nbsp;&nbsp;Activating Flavors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#manageing-virtual-machines">5.12&nbsp;&nbsp;&nbsp;Manageing Virtual Machines</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#starting-vms">5.12.1&nbsp;&nbsp;&nbsp;Starting VMs</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#vm-history">5.12.1.1&nbsp;&nbsp;&nbsp;VM History</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#managing-flavors">6.9&nbsp;&nbsp;&nbsp;Managing Flavors</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#list-flavors">6.9.1&nbsp;&nbsp;&nbsp;List Flavors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#flavor-information">6.9.2&nbsp;&nbsp;&nbsp;Flavor information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#default-flavor">6.9.3&nbsp;&nbsp;&nbsp;Default Flavor</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#manageing-security-groups">5.12.2&nbsp;&nbsp;&nbsp;Manageing Security Groups</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#managing-volumes">5.12.3&nbsp;&nbsp;&nbsp;Managing Volumes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#managing-heat-s-for-openstack">5.12.4&nbsp;&nbsp;&nbsp;Managing heat&#8217;s for OpenStack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#managing-virtual-machines">6.10&nbsp;&nbsp;&nbsp;Managing Virtual Machines</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#starting-vms">6.10.1&nbsp;&nbsp;&nbsp;Starting VMs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#vm-history">6.10.1.1&nbsp;&nbsp;&nbsp;VM History</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#managing-security-groups">5.13&nbsp;&nbsp;&nbsp;Managing Security Groups</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#examples">5.14&nbsp;&nbsp;&nbsp;Examples</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#todo-most-likely-in-cloud-command-and-register-command">5.15&nbsp;&nbsp;&nbsp;TODO (most likely in cloud command and register command)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#managing-security-groups">6.10.2&nbsp;&nbsp;&nbsp;Managing Security Groups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#managing-volumes">6.10.3&nbsp;&nbsp;&nbsp;Managing Volumes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#managing-heat-s-for-openstack">6.10.4&nbsp;&nbsp;&nbsp;Managing heat&#8217;s for OpenStack</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="#commands">6&nbsp;&nbsp;&nbsp;Commands</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#eof">6.1&nbsp;&nbsp;&nbsp;EOF</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#clear">6.2&nbsp;&nbsp;&nbsp;clear</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#cloud">6.3&nbsp;&nbsp;&nbsp;cloud</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#count">6.4&nbsp;&nbsp;&nbsp;count</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id1">6.5&nbsp;&nbsp;&nbsp;defaults</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#dot2">6.6&nbsp;&nbsp;&nbsp;dot2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#edit">6.7&nbsp;&nbsp;&nbsp;edit</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#exec">6.8&nbsp;&nbsp;&nbsp;exec</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#exp">6.9&nbsp;&nbsp;&nbsp;exp</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#graphviz">6.10&nbsp;&nbsp;&nbsp;graphviz</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#help">6.11&nbsp;&nbsp;&nbsp;help</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id2">6.12&nbsp;&nbsp;&nbsp;info</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#init">6.13&nbsp;&nbsp;&nbsp;init</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#keys">6.14&nbsp;&nbsp;&nbsp;keys</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#list">6.15&nbsp;&nbsp;&nbsp;list</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#man">6.16&nbsp;&nbsp;&nbsp;man</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#open">6.17&nbsp;&nbsp;&nbsp;open</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#pause">6.18&nbsp;&nbsp;&nbsp;pause</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#plugins">6.19&nbsp;&nbsp;&nbsp;plugins</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#project">6.20&nbsp;&nbsp;&nbsp;project</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#py">6.21&nbsp;&nbsp;&nbsp;py</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#q">6.22&nbsp;&nbsp;&nbsp;q</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#quit">6.23&nbsp;&nbsp;&nbsp;quit</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#reg">6.24&nbsp;&nbsp;&nbsp;reg</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#rst">6.25&nbsp;&nbsp;&nbsp;rst</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#script">6.26&nbsp;&nbsp;&nbsp;script</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#timer">6.27&nbsp;&nbsp;&nbsp;timer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#use">6.28&nbsp;&nbsp;&nbsp;use</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#user">6.29&nbsp;&nbsp;&nbsp;user</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#var">6.30&nbsp;&nbsp;&nbsp;var</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#verbose">6.31&nbsp;&nbsp;&nbsp;verbose</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#version">6.32&nbsp;&nbsp;&nbsp;version</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#vm">6.33&nbsp;&nbsp;&nbsp;vm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id1">6.11&nbsp;&nbsp;&nbsp;Managing Security Groups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#examples">6.12&nbsp;&nbsp;&nbsp;Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#todo-most-likely-in-cloud-command-and-register-command">6.13&nbsp;&nbsp;&nbsp;TODO (most likely in cloud command and register command)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#commands">7&nbsp;&nbsp;&nbsp;Commands</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#eof">7.1&nbsp;&nbsp;&nbsp;EOF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#clear">7.2&nbsp;&nbsp;&nbsp;clear</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cloud">7.3&nbsp;&nbsp;&nbsp;cloud</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#count">7.4&nbsp;&nbsp;&nbsp;count</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">7.5&nbsp;&nbsp;&nbsp;defaults</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dot2">7.6&nbsp;&nbsp;&nbsp;dot2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#edit">7.7&nbsp;&nbsp;&nbsp;edit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#exec">7.8&nbsp;&nbsp;&nbsp;exec</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#exp">7.9&nbsp;&nbsp;&nbsp;exp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#graphviz">7.10&nbsp;&nbsp;&nbsp;graphviz</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">7.11&nbsp;&nbsp;&nbsp;help</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#info">7.12&nbsp;&nbsp;&nbsp;info</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#init">7.13&nbsp;&nbsp;&nbsp;init</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#keys">7.14&nbsp;&nbsp;&nbsp;keys</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#list">7.15&nbsp;&nbsp;&nbsp;list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#man">7.16&nbsp;&nbsp;&nbsp;man</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#open">7.17&nbsp;&nbsp;&nbsp;open</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pause">7.18&nbsp;&nbsp;&nbsp;pause</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#plugins">7.19&nbsp;&nbsp;&nbsp;plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#project">7.20&nbsp;&nbsp;&nbsp;project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#py">7.21&nbsp;&nbsp;&nbsp;py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#q">7.22&nbsp;&nbsp;&nbsp;q</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#quit">7.23&nbsp;&nbsp;&nbsp;quit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#reg">7.24&nbsp;&nbsp;&nbsp;reg</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rst">7.25&nbsp;&nbsp;&nbsp;rst</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#script">7.26&nbsp;&nbsp;&nbsp;script</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#timer">7.27&nbsp;&nbsp;&nbsp;timer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#use">7.28&nbsp;&nbsp;&nbsp;use</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#user">7.29&nbsp;&nbsp;&nbsp;user</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#var">7.30&nbsp;&nbsp;&nbsp;var</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#verbose">7.31&nbsp;&nbsp;&nbsp;verbose</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#version">7.32&nbsp;&nbsp;&nbsp;version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#vm">7.33&nbsp;&nbsp;&nbsp;vm</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="cm-manage.html">cm-manage</a></li>
@@ -463,6 +469,12 @@
 </li>
 <li class="toctree-l4"><a class="reference internal" href="modules/cloudmesh.metric.html">cloudmesh.metric package</a><ul>
 <li class="toctree-l5"><a class="reference internal" href="modules/cloudmesh.metric.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="modules/cloudmesh.metric.api.html">cloudmesh.metric.api package</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="modules/cloudmesh.metric.api.html#submodules">Submodules</a></li>
+<li class="toctree-l7"><a class="reference internal" href="modules/cloudmesh.metric.api.html#module-cloudmesh.metric.api.cm_metric_api">cloudmesh.metric.api.cm_metric_api module</a></li>
+<li class="toctree-l7"><a class="reference internal" href="modules/cloudmesh.metric.api.html#module-cloudmesh.metric.api">Module contents</a></li>
+</ul>
+</li>
 <li class="toctree-l6"><a class="reference internal" href="modules/cloudmesh.metric.eucalyptus.html">cloudmesh.metric.eucalyptus package</a><ul>
 <li class="toctree-l7"><a class="reference internal" href="modules/cloudmesh.metric.eucalyptus.html#submodules">Submodules</a></li>
 <li class="toctree-l7"><a class="reference internal" href="modules/cloudmesh.metric.eucalyptus.html#module-cloudmesh.metric.eucalyptus.cm_metric_eucalyptus">cloudmesh.metric.eucalyptus.cm_metric_eucalyptus module</a></li>
@@ -474,6 +486,15 @@
 <li class="toctree-l7"><a class="reference internal" href="modules/cloudmesh.metric.openstack.html#module-cloudmesh.metric.openstack.cm_metric_openstack">cloudmesh.metric.openstack.cm_metric_openstack module</a></li>
 <li class="toctree-l7"><a class="reference internal" href="modules/cloudmesh.metric.openstack.html#cloudmesh-metric-openstack-migrating-mysql-to-mongodb-module">cloudmesh.metric.openstack.migrating_mysql_to_mongodb module</a></li>
 <li class="toctree-l7"><a class="reference internal" href="modules/cloudmesh.metric.openstack.html#module-cloudmesh.metric.openstack">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l6"><a class="reference internal" href="modules/cloudmesh.metric.rest.html">cloudmesh.metric.rest package</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="modules/cloudmesh.metric.rest.html#submodules">Submodules</a></li>
+<li class="toctree-l7"><a class="reference internal" href="modules/cloudmesh.metric.rest.html#module-cloudmesh.metric.rest.cm_metric_rest">cloudmesh.metric.rest.cm_metric_rest module</a></li>
+<li class="toctree-l7"><a class="reference internal" href="modules/cloudmesh.metric.rest.html#cloudmesh-metric-rest-cm-mimerender-module">cloudmesh.metric.rest.cm_mimerender module</a></li>
+<li class="toctree-l7"><a class="reference internal" href="modules/cloudmesh.metric.rest.html#cloudmesh-metric-rest-cm-wsapps-module">cloudmesh.metric.rest.cm_wsapps module</a></li>
+<li class="toctree-l7"><a class="reference internal" href="modules/cloudmesh.metric.rest.html#cloudmesh-metric-rest-cm-wsmain-module">cloudmesh.metric.rest.cm_wsmain module</a></li>
+<li class="toctree-l7"><a class="reference internal" href="modules/cloudmesh.metric.rest.html#module-cloudmesh.metric.rest">Module contents</a></li>
 </ul>
 </li>
 </ul>
@@ -606,88 +627,97 @@
 </li>
               
                 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Page <b class="caret"></b></a>
-  <ul class="dropdown-menu localtoc"><ul>
-<li><a class="reference internal" href="#">5&nbsp;&nbsp;&nbsp;Cloud Mesh</a><ul>
-<li><a class="reference internal" href="#info">5.1&nbsp;&nbsp;&nbsp;Info</a></li>
-<li><a class="reference internal" href="#variables">5.2&nbsp;&nbsp;&nbsp;Variables</a></li>
-<li><a class="reference internal" href="#defaults">5.3&nbsp;&nbsp;&nbsp;Defaults</a></li>
-<li><a class="reference internal" href="#managing-users">5.4&nbsp;&nbsp;&nbsp;Managing Users</a></li>
-<li><a class="reference internal" href="#managing-clouds">5.5&nbsp;&nbsp;&nbsp;Managing Clouds</a><ul>
-<li><a class="reference internal" href="#register-an-aws-account">5.5.1&nbsp;&nbsp;&nbsp;Register an AWS account</a></li>
-<li><a class="reference internal" href="#register-an-azure-account">5.5.2&nbsp;&nbsp;&nbsp;Register an azure account</a></li>
-<li><a class="reference internal" href="#register-an-eucalyptus-account">5.5.3&nbsp;&nbsp;&nbsp;Register an Eucalyptus account</a></li>
-<li><a class="reference internal" href="#register-an-openstack-account">5.5.4&nbsp;&nbsp;&nbsp;Register an OpenStack account</a></li>
-<li><a class="reference internal" href="#register-an-ec2-account">5.5.5&nbsp;&nbsp;&nbsp;Register an EC2 account</a></li>
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">5&nbsp;&nbsp;&nbsp;Cloudmesh Shell</a><ul>
+<li><a class="reference internal" href="#commandline">5.1&nbsp;&nbsp;&nbsp;Commandline</a></li>
+<li><a class="reference internal" href="#shell-usage">5.2&nbsp;&nbsp;&nbsp;Shell Usage</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#activate-clouds">5.6&nbsp;&nbsp;&nbsp;Activate Clouds</a></li>
-<li><a class="reference internal" href="#managing-projects">5.7&nbsp;&nbsp;&nbsp;Managing Projects</a><ul>
-<li><a class="reference internal" href="#project-list">5.7.1&nbsp;&nbsp;&nbsp;Project List</a></li>
-<li><a class="reference internal" href="#project-information">5.7.2&nbsp;&nbsp;&nbsp;Project Information</a></li>
-<li><a class="reference internal" href="#project-activation">5.7.3&nbsp;&nbsp;&nbsp;Project Activation</a></li>
-<li><a class="reference internal" href="#project-deactivation">5.7.4&nbsp;&nbsp;&nbsp;Project Deactivation</a></li>
+<li><a class="reference internal" href="#command-overview">6&nbsp;&nbsp;&nbsp;Command Overview</a><ul>
+<li><a class="reference internal" href="#help">6.1&nbsp;&nbsp;&nbsp;Help</a></li>
+<li><a class="reference internal" href="#variables">6.2&nbsp;&nbsp;&nbsp;Variables</a></li>
+<li><a class="reference internal" href="#defaults">6.3&nbsp;&nbsp;&nbsp;Defaults</a></li>
+<li><a class="reference internal" href="#managing-users">6.4&nbsp;&nbsp;&nbsp;Managing Users</a></li>
+<li><a class="reference internal" href="#managing-clouds">6.5&nbsp;&nbsp;&nbsp;Managing Clouds</a><ul>
+<li><a class="reference internal" href="#register-a-cloud">6.5.1&nbsp;&nbsp;&nbsp;Register a cloud</a></li>
+<li><a class="reference internal" href="#activate-cloud">6.5.2&nbsp;&nbsp;&nbsp;Activate cloud</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#managaging-images">5.8&nbsp;&nbsp;&nbsp;Managaging Images</a><ul>
-<li><a class="reference internal" href="#list-images">5.8.1&nbsp;&nbsp;&nbsp;List images</a></li>
+<li><a class="reference internal" href="#managing-projects">6.6&nbsp;&nbsp;&nbsp;Managing Projects</a><ul>
+<li><a class="reference internal" href="#project-list">6.6.1&nbsp;&nbsp;&nbsp;Project List</a></li>
+<li><a class="reference internal" href="#project-information">6.6.2&nbsp;&nbsp;&nbsp;Project Information</a></li>
+<li><a class="reference internal" href="#project-activation">6.6.3&nbsp;&nbsp;&nbsp;Project Activation</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#activating-images">5.9&nbsp;&nbsp;&nbsp;Activating Images</a></li>
-<li><a class="reference internal" href="#managing-flavors">5.10&nbsp;&nbsp;&nbsp;Managing Flavors</a><ul>
-<li><a class="reference internal" href="#list-flavors">5.10.1&nbsp;&nbsp;&nbsp;List Flavors</a></li>
+<li><a class="reference internal" href="#managing-keys">6.7&nbsp;&nbsp;&nbsp;Managing Keys</a></li>
+<li><a class="reference internal" href="#managing-images">6.8&nbsp;&nbsp;&nbsp;Managing Images</a><ul>
+<li><a class="reference internal" href="#list-images">6.8.1&nbsp;&nbsp;&nbsp;List images</a></li>
+<li><a class="reference internal" href="#image-information">6.8.2&nbsp;&nbsp;&nbsp;Image information</a></li>
+<li><a class="reference internal" href="#default-image">6.8.3&nbsp;&nbsp;&nbsp;Default image</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#activating-flavors">5.11&nbsp;&nbsp;&nbsp;Activating Flavors</a></li>
-<li><a class="reference internal" href="#manageing-virtual-machines">5.12&nbsp;&nbsp;&nbsp;Manageing Virtual Machines</a><ul>
-<li><a class="reference internal" href="#starting-vms">5.12.1&nbsp;&nbsp;&nbsp;Starting VMs</a><ul>
-<li><a class="reference internal" href="#vm-history">5.12.1.1&nbsp;&nbsp;&nbsp;VM History</a></li>
+<li><a class="reference internal" href="#managing-flavors">6.9&nbsp;&nbsp;&nbsp;Managing Flavors</a><ul>
+<li><a class="reference internal" href="#list-flavors">6.9.1&nbsp;&nbsp;&nbsp;List Flavors</a></li>
+<li><a class="reference internal" href="#flavor-information">6.9.2&nbsp;&nbsp;&nbsp;Flavor information</a></li>
+<li><a class="reference internal" href="#default-flavor">6.9.3&nbsp;&nbsp;&nbsp;Default Flavor</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#manageing-security-groups">5.12.2&nbsp;&nbsp;&nbsp;Manageing Security Groups</a></li>
-<li><a class="reference internal" href="#managing-volumes">5.12.3&nbsp;&nbsp;&nbsp;Managing Volumes</a></li>
-<li><a class="reference internal" href="#managing-heat-s-for-openstack">5.12.4&nbsp;&nbsp;&nbsp;Managing heat&#8217;s for OpenStack</a></li>
+<li><a class="reference internal" href="#managing-virtual-machines">6.10&nbsp;&nbsp;&nbsp;Managing Virtual Machines</a><ul>
+<li><a class="reference internal" href="#starting-vms">6.10.1&nbsp;&nbsp;&nbsp;Starting VMs</a><ul>
+<li><a class="reference internal" href="#vm-history">6.10.1.1&nbsp;&nbsp;&nbsp;VM History</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#managing-security-groups">5.13&nbsp;&nbsp;&nbsp;Managing Security Groups</a></li>
-<li><a class="reference internal" href="#examples">5.14&nbsp;&nbsp;&nbsp;Examples</a></li>
-<li><a class="reference internal" href="#todo-most-likely-in-cloud-command-and-register-command">5.15&nbsp;&nbsp;&nbsp;TODO (most likely in cloud command and register command)</a></li>
+<li><a class="reference internal" href="#managing-security-groups">6.10.2&nbsp;&nbsp;&nbsp;Managing Security Groups</a></li>
+<li><a class="reference internal" href="#managing-volumes">6.10.3&nbsp;&nbsp;&nbsp;Managing Volumes</a></li>
+<li><a class="reference internal" href="#managing-heat-s-for-openstack">6.10.4&nbsp;&nbsp;&nbsp;Managing heat&#8217;s for OpenStack</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#commands">6&nbsp;&nbsp;&nbsp;Commands</a><ul>
-<li><a class="reference internal" href="#eof">6.1&nbsp;&nbsp;&nbsp;EOF</a></li>
-<li><a class="reference internal" href="#clear">6.2&nbsp;&nbsp;&nbsp;clear</a></li>
-<li><a class="reference internal" href="#cloud">6.3&nbsp;&nbsp;&nbsp;cloud</a></li>
-<li><a class="reference internal" href="#count">6.4&nbsp;&nbsp;&nbsp;count</a></li>
-<li><a class="reference internal" href="#id1">6.5&nbsp;&nbsp;&nbsp;defaults</a></li>
-<li><a class="reference internal" href="#dot2">6.6&nbsp;&nbsp;&nbsp;dot2</a></li>
-<li><a class="reference internal" href="#edit">6.7&nbsp;&nbsp;&nbsp;edit</a></li>
-<li><a class="reference internal" href="#exec">6.8&nbsp;&nbsp;&nbsp;exec</a></li>
-<li><a class="reference internal" href="#exp">6.9&nbsp;&nbsp;&nbsp;exp</a></li>
-<li><a class="reference internal" href="#graphviz">6.10&nbsp;&nbsp;&nbsp;graphviz</a></li>
-<li><a class="reference internal" href="#help">6.11&nbsp;&nbsp;&nbsp;help</a></li>
-<li><a class="reference internal" href="#id2">6.12&nbsp;&nbsp;&nbsp;info</a></li>
-<li><a class="reference internal" href="#init">6.13&nbsp;&nbsp;&nbsp;init</a></li>
-<li><a class="reference internal" href="#keys">6.14&nbsp;&nbsp;&nbsp;keys</a></li>
-<li><a class="reference internal" href="#list">6.15&nbsp;&nbsp;&nbsp;list</a></li>
-<li><a class="reference internal" href="#man">6.16&nbsp;&nbsp;&nbsp;man</a></li>
-<li><a class="reference internal" href="#open">6.17&nbsp;&nbsp;&nbsp;open</a></li>
-<li><a class="reference internal" href="#pause">6.18&nbsp;&nbsp;&nbsp;pause</a></li>
-<li><a class="reference internal" href="#plugins">6.19&nbsp;&nbsp;&nbsp;plugins</a></li>
-<li><a class="reference internal" href="#project">6.20&nbsp;&nbsp;&nbsp;project</a></li>
-<li><a class="reference internal" href="#py">6.21&nbsp;&nbsp;&nbsp;py</a></li>
-<li><a class="reference internal" href="#q">6.22&nbsp;&nbsp;&nbsp;q</a></li>
-<li><a class="reference internal" href="#quit">6.23&nbsp;&nbsp;&nbsp;quit</a></li>
-<li><a class="reference internal" href="#reg">6.24&nbsp;&nbsp;&nbsp;reg</a></li>
-<li><a class="reference internal" href="#rst">6.25&nbsp;&nbsp;&nbsp;rst</a></li>
-<li><a class="reference internal" href="#script">6.26&nbsp;&nbsp;&nbsp;script</a></li>
-<li><a class="reference internal" href="#timer">6.27&nbsp;&nbsp;&nbsp;timer</a></li>
-<li><a class="reference internal" href="#use">6.28&nbsp;&nbsp;&nbsp;use</a></li>
-<li><a class="reference internal" href="#user">6.29&nbsp;&nbsp;&nbsp;user</a></li>
-<li><a class="reference internal" href="#var">6.30&nbsp;&nbsp;&nbsp;var</a></li>
-<li><a class="reference internal" href="#verbose">6.31&nbsp;&nbsp;&nbsp;verbose</a></li>
-<li><a class="reference internal" href="#version">6.32&nbsp;&nbsp;&nbsp;version</a></li>
-<li><a class="reference internal" href="#vm">6.33&nbsp;&nbsp;&nbsp;vm</a></li>
+<li><a class="reference internal" href="#id1">6.11&nbsp;&nbsp;&nbsp;Managing Security Groups</a></li>
+<li><a class="reference internal" href="#examples">6.12&nbsp;&nbsp;&nbsp;Examples</a></li>
+<li><a class="reference internal" href="#todo-most-likely-in-cloud-command-and-register-command">6.13&nbsp;&nbsp;&nbsp;TODO (most likely in cloud command and register command)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#commands">7&nbsp;&nbsp;&nbsp;Commands</a><ul>
+<li><a class="reference internal" href="#eof">7.1&nbsp;&nbsp;&nbsp;EOF</a></li>
+<li><a class="reference internal" href="#clear">7.2&nbsp;&nbsp;&nbsp;clear</a></li>
+<li><a class="reference internal" href="#cloud">7.3&nbsp;&nbsp;&nbsp;cloud</a></li>
+<li><a class="reference internal" href="#count">7.4&nbsp;&nbsp;&nbsp;count</a></li>
+<li><a class="reference internal" href="#id2">7.5&nbsp;&nbsp;&nbsp;defaults</a></li>
+<li><a class="reference internal" href="#dot2">7.6&nbsp;&nbsp;&nbsp;dot2</a></li>
+<li><a class="reference internal" href="#edit">7.7&nbsp;&nbsp;&nbsp;edit</a></li>
+<li><a class="reference internal" href="#exec">7.8&nbsp;&nbsp;&nbsp;exec</a></li>
+<li><a class="reference internal" href="#exp">7.9&nbsp;&nbsp;&nbsp;exp</a></li>
+<li><a class="reference internal" href="#graphviz">7.10&nbsp;&nbsp;&nbsp;graphviz</a></li>
+<li><a class="reference internal" href="#id3">7.11&nbsp;&nbsp;&nbsp;help</a></li>
+<li><a class="reference internal" href="#info">7.12&nbsp;&nbsp;&nbsp;info</a></li>
+<li><a class="reference internal" href="#init">7.13&nbsp;&nbsp;&nbsp;init</a></li>
+<li><a class="reference internal" href="#keys">7.14&nbsp;&nbsp;&nbsp;keys</a></li>
+<li><a class="reference internal" href="#list">7.15&nbsp;&nbsp;&nbsp;list</a></li>
+<li><a class="reference internal" href="#man">7.16&nbsp;&nbsp;&nbsp;man</a></li>
+<li><a class="reference internal" href="#open">7.17&nbsp;&nbsp;&nbsp;open</a></li>
+<li><a class="reference internal" href="#pause">7.18&nbsp;&nbsp;&nbsp;pause</a></li>
+<li><a class="reference internal" href="#plugins">7.19&nbsp;&nbsp;&nbsp;plugins</a></li>
+<li><a class="reference internal" href="#project">7.20&nbsp;&nbsp;&nbsp;project</a></li>
+<li><a class="reference internal" href="#py">7.21&nbsp;&nbsp;&nbsp;py</a></li>
+<li><a class="reference internal" href="#q">7.22&nbsp;&nbsp;&nbsp;q</a></li>
+<li><a class="reference internal" href="#quit">7.23&nbsp;&nbsp;&nbsp;quit</a></li>
+<li><a class="reference internal" href="#reg">7.24&nbsp;&nbsp;&nbsp;reg</a></li>
+<li><a class="reference internal" href="#rst">7.25&nbsp;&nbsp;&nbsp;rst</a></li>
+<li><a class="reference internal" href="#script">7.26&nbsp;&nbsp;&nbsp;script</a></li>
+<li><a class="reference internal" href="#timer">7.27&nbsp;&nbsp;&nbsp;timer</a></li>
+<li><a class="reference internal" href="#use">7.28&nbsp;&nbsp;&nbsp;use</a></li>
+<li><a class="reference internal" href="#user">7.29&nbsp;&nbsp;&nbsp;user</a></li>
+<li><a class="reference internal" href="#var">7.30&nbsp;&nbsp;&nbsp;var</a></li>
+<li><a class="reference internal" href="#verbose">7.31&nbsp;&nbsp;&nbsp;verbose</a></li>
+<li><a class="reference internal" href="#version">7.32&nbsp;&nbsp;&nbsp;version</a></li>
+<li><a class="reference internal" href="#vm">7.33&nbsp;&nbsp;&nbsp;vm</a></li>
 </ul>
 </li>
 </ul>
@@ -737,211 +767,273 @@
   <div class="row">
     <div class="col-md-12">
       
-  <div class="section" id="cloud-mesh">
-<h1>5&nbsp;&nbsp;&nbsp;Cloud Mesh<a class="headerlink" href="#cloud-mesh" title="Permalink to this headline">¶</a></h1>
-<p>A project to interface easily with multiple clouds from the
-commandline and a command shell.</p>
-<div class="section" id="info">
-<h2>5.1&nbsp;&nbsp;&nbsp;Info<a class="headerlink" href="#info" title="Permalink to this headline">¶</a></h2>
-<p>The info command is a standard command that is defined in cmd3 and
-displays some internal information related to the commandshell. It
-lists the cmd3 dict, as well as information about verions and
-scopeless commands. Commands with scops can be activated with the use
+  <div class="section" id="cloudmesh-shell">
+<h1>5&nbsp;&nbsp;&nbsp;Cloudmesh Shell<a class="headerlink" href="#cloudmesh-shell" title="Permalink to this headline">¶</a></h1>
+<p>The cloudmesh shell allows to interact with multiple clouds either
+through the commandline or through a command shell.</p>
+<div class="section" id="commandline">
+<h2>5.1&nbsp;&nbsp;&nbsp;Commandline<a class="headerlink" href="#commandline" title="Permalink to this headline">¶</a></h2>
+<p>To start a command line simply type the command cm followed by the
+actual cloudmesh command. For example to invoke the <cite>help</cite> command
+type in:</p>
+<div class="highlight-python"><pre>$ cm help</pre>
+</div>
+<p>Note that $ indicates your command shell prompt.</p>
+</div>
+<div class="section" id="shell-usage">
+<h2>5.2&nbsp;&nbsp;&nbsp;Shell Usage<a class="headerlink" href="#shell-usage" title="Permalink to this headline">¶</a></h2>
+<p>In many cases you like to invoke multiple commands and preserve some
+local state. This can easily be done while starting cloudmesh as a
+shell via the <cite>cm</cite> command. Simply type in you command shell:</p>
+<div class="highlight-python"><pre>$ cm</pre>
+</div>
+<p>You will see next a prompt such as:</p>
+<div class="highlight-python"><pre>cm&gt;</pre>
+</div>
+<p>In which you can type in multiple cloudmesh commands. Please not that
+each of the commands can be executed directly from the shell by
+preceding the <cite>cm</cite> command.</p>
+<p>The command shell is based on cmd3 which is in more detail documented
+at:</p>
+<ul class="simple">
+<li><a class="reference external" href="http://cloudmesh.github.com/cmd3/">http://cloudmesh.github.com/cmd3/</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="command-overview">
+<h1>6&nbsp;&nbsp;&nbsp;Command Overview<a class="headerlink" href="#command-overview" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="help">
+<h2>6.1&nbsp;&nbsp;&nbsp;Help<a class="headerlink" href="#help" title="Permalink to this headline">¶</a></h2>
+<p>The help command is a standard command that is defined in cmd3 and
+displays some internal information related to the command shell. It
+lists the cmd3 dict, as well as information about versions and
+scope-less commands. Commands with scopes can be activated with the use
 command. For more information see:</p>
 <div class="highlight-python"><pre>cm&gt; help use</pre>
 </div>
 </div>
 <div class="section" id="variables">
-<h2>5.2&nbsp;&nbsp;&nbsp;Variables<a class="headerlink" href="#variables" title="Permalink to this headline">¶</a></h2>
-<p>The shell allows you to set variables so it is easy for you to resuse
+<h2>6.2&nbsp;&nbsp;&nbsp;Variables<a class="headerlink" href="#variables" title="Permalink to this headline">¶</a></h2>
+<p>The shell allows you to set variables so it is easy for you to reuse
 them at a later time two standard variables are defined as $date and
 $time which will provide you with the current date and time. You can
 list the variables with the command in the shell with:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">cm</span><span class="o">&gt;</span> <span class="n">var</span>
 </pre></div>
 </div>
+<div class="highlight-python"><pre>Usage:
+  var list
+  var delete NAME
+  var NAME=VALUE</pre>
+</div>
 </div>
 <div class="section" id="defaults">
-<h2>5.3&nbsp;&nbsp;&nbsp;Defaults<a class="headerlink" href="#defaults" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">defaults</span>
+<h2>6.3&nbsp;&nbsp;&nbsp;Defaults<a class="headerlink" href="#defaults" title="Permalink to this headline">¶</a></h2>
+<p>This manages the defaults associated with the user. You can load, list and clean defaults associated with a user and a cloud. The default parameters include index, prefix, flavor and image.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">cm</span><span class="o">&gt;</span> <span class="n">defaults</span>
 </pre></div>
 </div>
-<div class="highlight-python"><pre>default ...</pre>
+<p>Following options are available:</p>
+<div class="highlight-python"><pre>Usage:
+ defaults clean
+ defaults load [CLOUD]
+ defaults list [--json] [CLOUD]</pre>
 </div>
+<p>Examples:</p>
+<ul class="simple">
+<li>defaults load</li>
+<li>defaults clean alamo</li>
+<li>defaults list &#8211;json alamo</li>
+</ul>
 </div>
 <div class="section" id="managing-users">
-<h2>5.4&nbsp;&nbsp;&nbsp;Managing Users<a class="headerlink" href="#managing-users" title="Permalink to this headline">¶</a></h2>
-<p>Creating configuration files</p>
-<div class="highlight-python"><pre>cm&gt; generate me
-
-cm&gt; generat yaml</pre>
+<h2>6.4&nbsp;&nbsp;&nbsp;Managing Users<a class="headerlink" href="#managing-users" title="Permalink to this headline">¶</a></h2>
+<p>Administrative command to list information about the user, create configuration files and list the config details.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">cm</span><span class="o">&gt;</span> <span class="n">user</span>
+</pre></div>
 </div>
-<dl class="docutils">
-<dt>::</dt>
-<dd>cm-manage</dd>
-</dl>
+<p>Following options are available:</p>
+<div class="highlight-python"><pre>Usage:
+  user list
+  user ID
+  user ID me
+  user ID yaml
+  user ID ldap
+  user ID new FORMAT [dict|yaml]</pre>
+</div>
+<p>Examples:</p>
+<ul class="simple">
+<li>user list</li>
+<li>user abcd</li>
+<li>user abcd new dict</li>
+</ul>
 </div>
 <div class="section" id="managing-clouds">
-<h2>5.5&nbsp;&nbsp;&nbsp;Managing Clouds<a class="headerlink" href="#managing-clouds" title="Permalink to this headline">¶</a></h2>
+<h2>6.5&nbsp;&nbsp;&nbsp;Managing Clouds<a class="headerlink" href="#managing-clouds" title="Permalink to this headline">¶</a></h2>
 <p>Before you can use a cloud you need to register it. Registration will
 allow you to log into the cloud and use its resources.</p>
-<div class="section" id="register-an-aws-account">
-<h3>5.5.1&nbsp;&nbsp;&nbsp;Register an AWS account<a class="headerlink" href="#register-an-aws-account" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><pre>cm register aws ...</pre>
+<div class="section" id="register-a-cloud">
+<h3>6.5.1&nbsp;&nbsp;&nbsp;Register a cloud<a class="headerlink" href="#register-a-cloud" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><pre>cm&gt; reg &lt;CloudName&gt;</pre>
 </div>
-<p>Example:</p>
-<ul class="simple">
-<li>Amazon AWS account</li>
-</ul>
-</div>
-<div class="section" id="register-an-azure-account">
-<h3>5.5.2&nbsp;&nbsp;&nbsp;Register an azure account<a class="headerlink" href="#register-an-azure-account" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><pre>cm register azure ...</pre>
-</div>
-<p>Example:</p>
-<ul class="simple">
-<li>Microsoft azure Cloud</li>
-</ul>
-</div>
-<div class="section" id="register-an-eucalyptus-account">
-<h3>5.5.3&nbsp;&nbsp;&nbsp;Register an Eucalyptus account<a class="headerlink" href="#register-an-eucalyptus-account" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><pre>cm register eucalyptus ...</pre>
-</div>
-<ul class="simple">
-<li>FutureGrid india (Eucalyptus)</li>
-</ul>
-</div>
-<div class="section" id="register-an-openstack-account">
-<h3>5.5.4&nbsp;&nbsp;&nbsp;Register an OpenStack account<a class="headerlink" href="#register-an-openstack-account" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><pre>cm register openstack ...</pre>
+<p>You can set the same cloud to active (activate a cloud) by using the switch &#8216;&#8211;activate&#8217;/&#8217;-a&#8217;
+Also, a cloud can be removed from active list by using the switch &#8216;&#8211;deact&#8217;/&#8217;-d&#8217;</p>
+<div class="highlight-python"><pre>cm&gt; reg --act &lt;CloudName&gt;
+cm&gt; reg --deact &lt;CloudName&gt;</pre>
 </div>
 <p>Examples:</p>
 <ul class="simple">
-<li>FutureGrid sierra</li>
-<li>FutureGrid india (Openstack)</li>
-<li>HP Cloud</li>
+<li>reg sierra_openstack_grizzly</li>
+<li>reg -a alamo</li>
+<li>reg &#8211;deact india_openstack_essex</li>
 </ul>
 </div>
-<div class="section" id="register-an-ec2-account">
-<h3>5.5.5&nbsp;&nbsp;&nbsp;Register an EC2 account<a class="headerlink" href="#register-an-ec2-account" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><pre>cm register ec2 ...</pre>
-</div>
-<p>Examples:</p>
-<ul class="simple">
-<li>FutureGrid alamo</li>
-<li>FutureGrid hotel</li>
-</ul>
-</div>
-</div>
-<div class="section" id="activate-clouds">
-<h2>5.6&nbsp;&nbsp;&nbsp;Activate Clouds<a class="headerlink" href="#activate-clouds" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="activate-cloud">
+<h3>6.5.2&nbsp;&nbsp;&nbsp;Activate cloud<a class="headerlink" href="#activate-cloud" title="Permalink to this headline">¶</a></h3>
 <p>Clouds can be activated with the following commands</p>
-<div class="highlight-python"><pre>cm&gt; cloud --on &lt;label&gt;</pre>
+<div class="highlight-python"><pre>cm&gt; cloud --on &lt;CloudName&gt;</pre>
 </div>
-<div class="highlight-python"><pre>cm&gt; cloud --off &lt;label&gt;</pre>
+<div class="highlight-python"><pre>cm&gt; cloud --off &lt;CloudName&gt;</pre>
 </div>
-<p>To select a specific cloud from a simple ascii menu you can use the
-command</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">cm</span><span class="o">&gt;</span> <span class="n">activate</span> <span class="o">&lt;</span><span class="n">label</span><span class="o">&gt;</span> <span class="n">select</span>
-</pre></div>
+<p>Examples:</p>
+<ul class="simple">
+<li>cloud &#8211;on sierra_openstack_grizzly</li>
+<li>cloud &#8211;off alamo</li>
+</ul>
 </div>
 </div>
 <div class="section" id="managing-projects">
-<h2>5.7&nbsp;&nbsp;&nbsp;Managing Projects<a class="headerlink" href="#managing-projects" title="Permalink to this headline">¶</a></h2>
-<p>projects = tennnats in openstack</p>
+<h2>6.6&nbsp;&nbsp;&nbsp;Managing Projects<a class="headerlink" href="#managing-projects" title="Permalink to this headline">¶</a></h2>
+<p>Projects are equivalent to tenants in openstack</p>
 <div class="section" id="project-list">
-<h3>5.7.1&nbsp;&nbsp;&nbsp;Project List<a class="headerlink" href="#project-list" title="Permalink to this headline">¶</a></h3>
+<h3>6.6.1&nbsp;&nbsp;&nbsp;Project List<a class="headerlink" href="#project-list" title="Permalink to this headline">¶</a></h3>
+<p>Lists the projects a user is in</p>
 <div class="highlight-python"><pre>cm&gt; project list</pre>
 </div>
-<p>lists the projects a user is in</p>
 </div>
 <div class="section" id="project-information">
-<h3>5.7.2&nbsp;&nbsp;&nbsp;Project Information<a class="headerlink" href="#project-information" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><pre>cm&gt; project --info &lt;number&gt;</pre>
-</div>
+<h3>6.6.2&nbsp;&nbsp;&nbsp;Project Information<a class="headerlink" href="#project-information" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>retrieves information about the project</li>
 <li>if the user is the manager or lead it returns member information</li>
 </ul>
+<div class="highlight-python"><pre>cm&gt; project info &lt;name&gt;</pre>
+</div>
+<p>Examples:</p>
+<ul class="simple">
+<li>project info fg82</li>
+</ul>
 </div>
 <div class="section" id="project-activation">
-<h3>5.7.3&nbsp;&nbsp;&nbsp;Project Activation<a class="headerlink" href="#project-activation" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><pre>cm&gt; project --activate &lt;number&gt;</pre>
-</div>
+<h3>6.6.3&nbsp;&nbsp;&nbsp;Project Activation<a class="headerlink" href="#project-activation" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>activates charging for this project</li>
 <li>subsequent calls are charged against this project</li>
 </ul>
-</div>
-<div class="section" id="project-deactivation">
-<h3>5.7.4&nbsp;&nbsp;&nbsp;Project Deactivation<a class="headerlink" href="#project-deactivation" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">cm</span><span class="o">&gt;</span> <span class="n">project</span> <span class="o">--</span><span class="n">deactivate</span>
-</pre></div>
+<div class="highlight-python"><pre>cm&gt; project activate &lt;name&gt;</pre>
 </div>
 </div>
 </div>
-<div class="section" id="managaging-images">
-<h2>5.8&nbsp;&nbsp;&nbsp;Managaging Images<a class="headerlink" href="#managaging-images" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="managing-keys">
+<h2>6.7&nbsp;&nbsp;&nbsp;Managing Keys<a class="headerlink" href="#managing-keys" title="Permalink to this headline">¶</a></h2>
+<p>Retrieve your key information, get key fingerprint and view the key.</p>
+<dl class="docutils">
+<dt>::</dt>
+<dd>cm&gt; keys</dd>
+</dl>
+<p>Following options are available</p>
+<div class="highlight-python"><pre>Usage:
+  keys info [NAME]
+  keys default
+  keys show [NAME]</pre>
+</div>
+<p>Examples:</p>
+<ul class="simple">
+<li>keys info default_key</li>
+<li>keys show key1</li>
+</ul>
+</div>
+<div class="section" id="managing-images">
+<h2>6.8&nbsp;&nbsp;&nbsp;Managing Images<a class="headerlink" href="#managing-images" title="Permalink to this headline">¶</a></h2>
+<p>Manage images for clouds</p>
 <div class="section" id="list-images">
-<h3>5.8.1&nbsp;&nbsp;&nbsp;List images<a class="headerlink" href="#list-images" title="Permalink to this headline">¶</a></h3>
-<p>To list all images you do</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">cm</span><span class="o">&gt;</span> <span class="n">image</span> <span class="o">--</span><span class="nb">list</span>
-</pre></div>
-</div>
-<p>To list a specfic image you can do:</p>
-<div class="highlight-python"><pre>the other</pre>
-</div>
-<p>To select an image you do:</p>
-<div class="highlight-python"><pre>cm&gt; image --select &lt;cloud&gt;</pre>
-</div>
-<p>If the cloud parameter is missing than also the cloud will be asked:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">cm</span><span class="o">&gt;</span> <span class="n">image</span> <span class="o">--</span><span class="n">select</span>
-</pre></div>
+<h3>6.8.1&nbsp;&nbsp;&nbsp;List images<a class="headerlink" href="#list-images" title="Permalink to this headline">¶</a></h3>
+<p>List all images for specified cloud. If cloud name is not specified,
+images for default cloud are displayed.</p>
+<div class="highlight-python"><pre>cm&gt; image list &lt;name&gt;</pre>
 </div>
 </div>
+<div class="section" id="image-information">
+<h3>6.8.2&nbsp;&nbsp;&nbsp;Image information<a class="headerlink" href="#image-information" title="Permalink to this headline">¶</a></h3>
+<p>Get specific information about the image.</p>
+<dl class="docutils">
+<dt>::</dt>
+<dd>cm&gt; image info &lt;name&gt;</dd>
+</dl>
 </div>
-<div class="section" id="activating-images">
-<h2>5.9&nbsp;&nbsp;&nbsp;Activating Images<a class="headerlink" href="#activating-images" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="default-image">
+<h3>6.8.3&nbsp;&nbsp;&nbsp;Default image<a class="headerlink" href="#default-image" title="Permalink to this headline">¶</a></h3>
+<p>Set an image as default image.</p>
 <div class="highlight-python"><pre>cm&gt; image --default &lt;cloud&gt; &lt;label&gt;</pre>
 </div>
 </div>
+</div>
 <div class="section" id="managing-flavors">
-<h2>5.10&nbsp;&nbsp;&nbsp;Managing Flavors<a class="headerlink" href="#managing-flavors" title="Permalink to this headline">¶</a></h2>
-<p>see images and than complete the documentation here</p>
+<h2>6.9&nbsp;&nbsp;&nbsp;Managing Flavors<a class="headerlink" href="#managing-flavors" title="Permalink to this headline">¶</a></h2>
+<p>Manage flavors for clouds.</p>
 <div class="section" id="list-flavors">
-<h3>5.10.1&nbsp;&nbsp;&nbsp;List Flavors<a class="headerlink" href="#list-flavors" title="Permalink to this headline">¶</a></h3>
+<h3>6.9.1&nbsp;&nbsp;&nbsp;List Flavors<a class="headerlink" href="#list-flavors" title="Permalink to this headline">¶</a></h3>
+<p>List all images for specified cloud. If cloud name is not specified,
+flavors for default cloud are displayed.</p>
+<div class="highlight-python"><pre>cm&gt; flavor list &lt;name&gt;</pre>
 </div>
 </div>
-<div class="section" id="activating-flavors">
-<h2>5.11&nbsp;&nbsp;&nbsp;Activating Flavors<a class="headerlink" href="#activating-flavors" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="flavor-information">
+<h3>6.9.2&nbsp;&nbsp;&nbsp;Flavor information<a class="headerlink" href="#flavor-information" title="Permalink to this headline">¶</a></h3>
+<p>Get specific information about the flavor.</p>
+<dl class="docutils">
+<dt>::</dt>
+<dd>cm&gt; flavor info &lt;name&gt;</dd>
+</dl>
 </div>
-<div class="section" id="manageing-virtual-machines">
-<h2>5.12&nbsp;&nbsp;&nbsp;Manageing Virtual Machines<a class="headerlink" href="#manageing-virtual-machines" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="default-flavor">
+<h3>6.9.3&nbsp;&nbsp;&nbsp;Default Flavor<a class="headerlink" href="#default-flavor" title="Permalink to this headline">¶</a></h3>
+<p>Set an image as default image.</p>
+<div class="highlight-python"><pre>cm&gt; image --default &lt;cloud&gt; &lt;label&gt;</pre>
+</div>
+</div>
+</div>
+<div class="section" id="managing-virtual-machines">
+<h2>6.10&nbsp;&nbsp;&nbsp;Managing Virtual Machines<a class="headerlink" href="#managing-virtual-machines" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="starting-vms">
-<h3>5.12.1&nbsp;&nbsp;&nbsp;Starting VMs<a class="headerlink" href="#starting-vms" title="Permalink to this headline">¶</a></h3>
+<h3>6.10.1&nbsp;&nbsp;&nbsp;Starting VMs<a class="headerlink" href="#starting-vms" title="Permalink to this headline">¶</a></h3>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">The label in the vm commands is optional, if not specified,
-we will use the approriate defaults from the last vm.</p>
+we will use the appropriate defaults from the last vm.</p>
 </div>
+<p>Creates a new instance/VM on default cloud:</p>
 <div class="highlight-python"><pre>cm&gt; vm create &lt;label&gt;</pre>
 </div>
-<div class="highlight-python"><pre>cm&gt; vm destroy &lt;label&gt;</pre>
+<p>Deletes the specified or last default instance/VM on default cloud:</p>
+<div class="highlight-python"><pre>cm&gt; vm delete &lt;label&gt;</pre>
 </div>
-<div class="highlight-python"><pre>cm&gt; vm terminate &lt;label&gt;</pre>
-</div>
+<p>Suspends the specified or last default instance/VM on default cloud:</p>
 <div class="highlight-python"><pre>cm&gt; vm suspend &lt;label&gt;</pre>
 </div>
+<p>Resumes the specified or last suspended instance/VM on default cloud:</p>
 <div class="highlight-python"><pre>cm&gt; vm resume &lt;label&gt;</pre>
 </div>
+<p>Login into the specified or last default instance/VM:</p>
 <div class="highlight-python"><pre>cm&gt; vm login &lt;label&gt;</pre>
 </div>
+<p>SSH into the specified or last default instance/VM:</p>
 <div class="highlight-python"><pre>cm&gt; ssh vm &lt;label&gt;</pre>
 </div>
 <div class="section" id="vm-history">
-<h4>5.12.1.1&nbsp;&nbsp;&nbsp;VM History<a class="headerlink" href="#vm-history" title="Permalink to this headline">¶</a></h4>
+<h4>6.10.1.1&nbsp;&nbsp;&nbsp;VM History<a class="headerlink" href="#vm-history" title="Permalink to this headline">¶</a></h4>
 <p>To list the history of all previously started vms, please use the
-<tt class="docutils literal"><span class="pre">history</span></tt> command. It will tell you whne the vm was started,
+<tt class="docutils literal"><span class="pre">history</span></tt> command. It will tell you when the vm was started,
 launcched, and terminated. If no label is provided this information
 returns a list of vms started in order. In contrast to the normal list
 command given by IaaS framework, this list command sorts the vms by
@@ -953,8 +1045,8 @@ in ~/.futuregrid/cloudmesh/history:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">cm</span><span class="o">&gt;</span> <span class="n">history</span> <span class="o">--</span><span class="n">clear</span>
 </pre></div>
 </div>
-<p>Each command in the history is preceeded with an id. You can rerun the
-command by execuring the history command followed by the id:</p>
+<p>Each command in the history is preceded with an id. You can rerun the
+command by executing the history command followed by the id:</p>
 <div class="highlight-python"><pre>cm&gt; history 101</pre>
 </div>
 <p>You can also set a convenient variables so you do not have to remember
@@ -968,39 +1060,40 @@ easier remember</p>
 <p>It will start the command associated with the 101 id in the</p>
 </div>
 </div>
-<div class="section" id="manageing-security-groups">
-<h3>5.12.2&nbsp;&nbsp;&nbsp;Manageing Security Groups<a class="headerlink" href="#manageing-security-groups" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="managing-security-groups">
+<h3>6.10.2&nbsp;&nbsp;&nbsp;Managing Security Groups<a class="headerlink" href="#managing-security-groups" title="Permalink to this headline">¶</a></h3>
 </div>
 <div class="section" id="managing-volumes">
-<h3>5.12.3&nbsp;&nbsp;&nbsp;Managing Volumes<a class="headerlink" href="#managing-volumes" title="Permalink to this headline">¶</a></h3>
+<h3>6.10.3&nbsp;&nbsp;&nbsp;Managing Volumes<a class="headerlink" href="#managing-volumes" title="Permalink to this headline">¶</a></h3>
 </div>
 <div class="section" id="managing-heat-s-for-openstack">
-<h3>5.12.4&nbsp;&nbsp;&nbsp;Managing heat&#8217;s for OpenStack<a class="headerlink" href="#managing-heat-s-for-openstack" title="Permalink to this headline">¶</a></h3>
+<h3>6.10.4&nbsp;&nbsp;&nbsp;Managing heat&#8217;s for OpenStack<a class="headerlink" href="#managing-heat-s-for-openstack" title="Permalink to this headline">¶</a></h3>
 <p>(Jonathan)</p>
 </div>
 </div>
-<div class="section" id="managing-security-groups">
-<h2>5.13&nbsp;&nbsp;&nbsp;Managing Security Groups<a class="headerlink" href="#managing-security-groups" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-python"><pre>cm&gt; seceurity group add &lt;label&gt; &lt;parameters&gt;</pre>
+<div class="section" id="id1">
+<h2>6.11&nbsp;&nbsp;&nbsp;Managing Security Groups<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><pre>cm&gt; security group add &lt;label&gt; &lt;parameters&gt;</pre>
 </div>
-<div class="highlight-python"><pre>cm&gt; seceurity group delete</pre>
+<div class="highlight-python"><pre>cm&gt; security group delete</pre>
 </div>
-<div class="highlight-python"><pre>cm&gt; seceurity group default add &lt;label&gt;</pre>
+<div class="highlight-python"><pre>cm&gt; security group default add &lt;label&gt;</pre>
 </div>
-<div class="highlight-python"><pre>cm&gt; seceurity group default delete &lt;label&gt;</pre>
+<div class="highlight-python"><pre>cm&gt; security group default delete &lt;label&gt;</pre>
 </div>
 </div>
 <div class="section" id="examples">
-<h2>5.14&nbsp;&nbsp;&nbsp;Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<h2>6.12&nbsp;&nbsp;&nbsp;Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
 <p>The goal of this example is to .....</p>
 <p>multiple vms, multiple clouds
 configuration</p>
 <p>starting vms</p>
-<p>listng status of all started vmsd across all clouds</p>
-<p>ssh login -&gt; can not be don with pytho sha but must be done with os.system</p>
+<p>listing status of all started vms across all clouds</p>
+<p>ssh login -&gt; can not be done with python sha but must be done with os.system</p>
 </div>
 <div class="section" id="todo-most-likely-in-cloud-command-and-register-command">
-<h2>5.15&nbsp;&nbsp;&nbsp;TODO (most likely in cloud command and register command)<a class="headerlink" href="#todo-most-likely-in-cloud-command-and-register-command" title="Permalink to this headline">¶</a></h2>
+<h2>6.13&nbsp;&nbsp;&nbsp;TODO (most likely in cloud command and register command)<a class="headerlink" href="#todo-most-likely-in-cloud-command-and-register-command" title="Permalink to this headline">¶</a></h2>
+<p>What does this do?:</p>
 <div class="highlight-python"><pre>cm&gt; manage initialize --user&lt;name&gt; --password &lt;password&gt;</pre>
 </div>
 <ul class="simple">
@@ -1011,48 +1104,38 @@ information</li>
 <li>account is disabled</li>
 <li>if the command is called more than 10 times a day the account is disabled</li>
 </ul>
+<p>Lists the resources available for the user:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">cm</span><span class="o">&gt;</span> <span class="n">resource</span> <span class="o">--</span><span class="nb">list</span>
 </pre></div>
 </div>
-<ul class="simple">
-<li>lists the resources available for the user</li>
-</ul>
+<p>List the services in the cloud mesh:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">cm</span><span class="o">&gt;</span> <span class="n">service</span> <span class="o">--</span><span class="nb">list</span>
 </pre></div>
 </div>
-<ul class="simple">
-<li>list the services in the cloud mesh</li>
-</ul>
+<p>See fg-inventory:</p>
 <div class="highlight-python"><pre>cm&gt; service register</pre>
 </div>
-<p>see fg-inventory</p>
+<p>See fg-inventory:</p>
 <div class="highlight-python"><pre>cm&gt; resource register</pre>
 </div>
-<p>see fg-inventory</p>
+<p>List all ids and their types:</p>
 <div class="highlight-python"><pre>cm id --list</pre>
 </div>
-<ul class="simple">
-<li>list all ids and their types</li>
-</ul>
+<p>Associates a human readable lable with an id:</p>
 <div class="highlight-python"><pre>cm label --id &lt;id&gt;</pre>
 </div>
-<ul class="simple">
-<li>associates a human readable lable with an id</li>
-</ul>
 <div class="admonition warning">
 <p class="first admonition-title">Warning</p>
-<p>The following commands are automatically created with</p>
-<blockquote>
-<div>fab doc.man</div></blockquote>
-<p class="last">If you like to update them, please donot do this in the man.rst file,
+<p class="last">The following commands are automatically created with <cite>fab doc.man</cite>
+If you like to update them, please do not do this in the man.rst file,
 but update the commands in the actual manual page in the code</p>
 </div>
 </div>
 </div>
 <div class="section" id="commands">
-<h1>6&nbsp;&nbsp;&nbsp;Commands<a class="headerlink" href="#commands" title="Permalink to this headline">¶</a></h1>
+<h1>7&nbsp;&nbsp;&nbsp;Commands<a class="headerlink" href="#commands" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="eof">
-<h2>6.1&nbsp;&nbsp;&nbsp;EOF<a class="headerlink" href="#eof" title="Permalink to this headline">¶</a></h2>
+<h2>7.1&nbsp;&nbsp;&nbsp;EOF<a class="headerlink" href="#eof" title="Permalink to this headline">¶</a></h2>
 <p>Commnad - EOF:</p>
 <div class="highlight-python"><pre>Usage:
     EOF
@@ -1061,7 +1144,7 @@ Action to be performed at the` end of a file. If true it terminates reating the 
 </div>
 </div>
 <div class="section" id="clear">
-<h2>6.2&nbsp;&nbsp;&nbsp;clear<a class="headerlink" href="#clear" title="Permalink to this headline">¶</a></h2>
+<h2>7.2&nbsp;&nbsp;&nbsp;clear<a class="headerlink" href="#clear" title="Permalink to this headline">¶</a></h2>
 <p>Commnad - clear:</p>
 <div class="highlight-python"><pre>Usage:
     clear
@@ -1070,7 +1153,7 @@ Clears the screen.</pre>
 </div>
 </div>
 <div class="section" id="cloud">
-<h2>6.3&nbsp;&nbsp;&nbsp;cloud<a class="headerlink" href="#cloud" title="Permalink to this headline">¶</a></h2>
+<h2>7.3&nbsp;&nbsp;&nbsp;cloud<a class="headerlink" href="#cloud" title="Permalink to this headline">¶</a></h2>
 <p>Commnad - cloud:</p>
 <div class="highlight-python"><pre>Usage:
        cloud
@@ -1094,7 +1177,7 @@ Options:
 </div>
 </div>
 <div class="section" id="count">
-<h2>6.4&nbsp;&nbsp;&nbsp;count<a class="headerlink" href="#count" title="Permalink to this headline">¶</a></h2>
+<h2>7.4&nbsp;&nbsp;&nbsp;count<a class="headerlink" href="#count" title="Permalink to this headline">¶</a></h2>
 <p>Commnad - count:</p>
 <div class="highlight-python"><pre>Usage:
        count flavors [CLOUD...]
@@ -1111,8 +1194,8 @@ Options:
    -v       verbose mode</pre>
 </div>
 </div>
-<div class="section" id="id1">
-<h2>6.5&nbsp;&nbsp;&nbsp;defaults<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id2">
+<h2>7.5&nbsp;&nbsp;&nbsp;defaults<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <p>Commnad - defaults:</p>
 <div class="highlight-python"><pre>Usage:
        defaults [-v] clean
@@ -1135,7 +1218,7 @@ Options:
 </div>
 </div>
 <div class="section" id="dot2">
-<h2>6.6&nbsp;&nbsp;&nbsp;dot2<a class="headerlink" href="#dot2" title="Permalink to this headline">¶</a></h2>
+<h2>7.6&nbsp;&nbsp;&nbsp;dot2<a class="headerlink" href="#dot2" title="Permalink to this headline">¶</a></h2>
 <p>Commnad - dot2:</p>
 <div class="highlight-python"><pre>Usage:
        dot2 FILENAME FORMAT
@@ -1148,7 +1231,7 @@ Arguments:
 </div>
 </div>
 <div class="section" id="edit">
-<h2>6.7&nbsp;&nbsp;&nbsp;edit<a class="headerlink" href="#edit" title="Permalink to this headline">¶</a></h2>
+<h2>7.7&nbsp;&nbsp;&nbsp;edit<a class="headerlink" href="#edit" title="Permalink to this headline">¶</a></h2>
 <p>Commnad - edit::
 Usage:</p>
 <blockquote>
@@ -1162,12 +1245,12 @@ Usage:</p>
 </div></blockquote>
 </div>
 <div class="section" id="exec">
-<h2>6.8&nbsp;&nbsp;&nbsp;exec<a class="headerlink" href="#exec" title="Permalink to this headline">¶</a></h2>
+<h2>7.8&nbsp;&nbsp;&nbsp;exec<a class="headerlink" href="#exec" title="Permalink to this headline">¶</a></h2>
 <p>Commnad - exec::
 Execute script file</p>
 </div>
 <div class="section" id="exp">
-<h2>6.9&nbsp;&nbsp;&nbsp;exp<a class="headerlink" href="#exp" title="Permalink to this headline">¶</a></h2>
+<h2>7.9&nbsp;&nbsp;&nbsp;exp<a class="headerlink" href="#exp" title="Permalink to this headline">¶</a></h2>
 <p>Commnad - exp:</p>
 <div class="highlight-python"><pre>Usage:
        exp clean
@@ -1194,7 +1277,7 @@ Options:
 </div>
 </div>
 <div class="section" id="graphviz">
-<h2>6.10&nbsp;&nbsp;&nbsp;graphviz<a class="headerlink" href="#graphviz" title="Permalink to this headline">¶</a></h2>
+<h2>7.10&nbsp;&nbsp;&nbsp;graphviz<a class="headerlink" href="#graphviz" title="Permalink to this headline">¶</a></h2>
 <p>Commnad - graphviz:</p>
 <div class="highlight-python"><pre>Usage:
        graphviz FILENAME
@@ -1205,13 +1288,13 @@ Arguments:
     FILENAME   The filename</pre>
 </div>
 </div>
-<div class="section" id="help">
-<h2>6.11&nbsp;&nbsp;&nbsp;help<a class="headerlink" href="#help" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id3">
+<h2>7.11&nbsp;&nbsp;&nbsp;help<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
 <p>Commnad - help::
 List available commands with &#8220;help&#8221; or detailed help with &#8220;help cmd&#8221;.</p>
 </div>
-<div class="section" id="id2">
-<h2>6.12&nbsp;&nbsp;&nbsp;info<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="info">
+<h2>7.12&nbsp;&nbsp;&nbsp;info<a class="headerlink" href="#info" title="Permalink to this headline">¶</a></h2>
 <p>Commnad - info:</p>
 <div class="highlight-python"><pre>Usage:
        info
@@ -1220,7 +1303,7 @@ Prints some internal information about the shell</pre>
 </div>
 </div>
 <div class="section" id="init">
-<h2>6.13&nbsp;&nbsp;&nbsp;init<a class="headerlink" href="#init" title="Permalink to this headline">¶</a></h2>
+<h2>7.13&nbsp;&nbsp;&nbsp;init<a class="headerlink" href="#init" title="Permalink to this headline">¶</a></h2>
 <p>Commnad - init:</p>
 <div class="highlight-python"><pre>Usage:
        init [force] generate yaml
@@ -1251,7 +1334,7 @@ Options:
 </div>
 </div>
 <div class="section" id="keys">
-<h2>6.14&nbsp;&nbsp;&nbsp;keys<a class="headerlink" href="#keys" title="Permalink to this headline">¶</a></h2>
+<h2>7.14&nbsp;&nbsp;&nbsp;keys<a class="headerlink" href="#keys" title="Permalink to this headline">¶</a></h2>
 <p>Commnad - keys:</p>
 <div class="highlight-python"><pre>Usage:
        keys info [NAME]
@@ -1271,7 +1354,7 @@ Options:
 </div>
 </div>
 <div class="section" id="list">
-<h2>6.15&nbsp;&nbsp;&nbsp;list<a class="headerlink" href="#list" title="Permalink to this headline">¶</a></h2>
+<h2>7.15&nbsp;&nbsp;&nbsp;list<a class="headerlink" href="#list" title="Permalink to this headline">¶</a></h2>
 <p>Commnad - list:</p>
 <div class="highlight-python"><pre>Usage:
        list flavors [CLOUD...]
@@ -1289,7 +1372,7 @@ Options:
 </div>
 </div>
 <div class="section" id="man">
-<h2>6.16&nbsp;&nbsp;&nbsp;man<a class="headerlink" href="#man" title="Permalink to this headline">¶</a></h2>
+<h2>7.16&nbsp;&nbsp;&nbsp;man<a class="headerlink" href="#man" title="Permalink to this headline">¶</a></h2>
 <p>Commnad - man:</p>
 <div class="highlight-python"><pre>Usage:
        man [--noheader]
@@ -1301,7 +1384,7 @@ Prints out the help pages</pre>
 </div>
 </div>
 <div class="section" id="open">
-<h2>6.17&nbsp;&nbsp;&nbsp;open<a class="headerlink" href="#open" title="Permalink to this headline">¶</a></h2>
+<h2>7.17&nbsp;&nbsp;&nbsp;open<a class="headerlink" href="#open" title="Permalink to this headline">¶</a></h2>
 <p>Commnad - open::
 Usage:</p>
 <blockquote>
@@ -1320,7 +1403,7 @@ you must specify it with ./FILENAME</dd>
 </div></blockquote>
 </div>
 <div class="section" id="pause">
-<h2>6.18&nbsp;&nbsp;&nbsp;pause<a class="headerlink" href="#pause" title="Permalink to this headline">¶</a></h2>
+<h2>7.18&nbsp;&nbsp;&nbsp;pause<a class="headerlink" href="#pause" title="Permalink to this headline">¶</a></h2>
 <p>Commnad - pause:</p>
 <div class="highlight-python"><pre>Usage:
     pause [MESSAGE]
@@ -1332,7 +1415,7 @@ Arguments:
 </div>
 </div>
 <div class="section" id="plugins">
-<h2>6.19&nbsp;&nbsp;&nbsp;plugins<a class="headerlink" href="#plugins" title="Permalink to this headline">¶</a></h2>
+<h2>7.19&nbsp;&nbsp;&nbsp;plugins<a class="headerlink" href="#plugins" title="Permalink to this headline">¶</a></h2>
 <p>Commnad - plugins:</p>
 <div class="highlight-python"><pre>Ussage:
     plugins
@@ -1341,7 +1424,7 @@ activates the plugins.</pre>
 </div>
 </div>
 <div class="section" id="project">
-<h2>6.20&nbsp;&nbsp;&nbsp;project<a class="headerlink" href="#project" title="Permalink to this headline">¶</a></h2>
+<h2>7.20&nbsp;&nbsp;&nbsp;project<a class="headerlink" href="#project" title="Permalink to this headline">¶</a></h2>
 <p>Commnad - project:</p>
 <div class="highlight-python"><pre>Usage:
        project json info [NAME]
@@ -1362,7 +1445,7 @@ Options:
 </div>
 </div>
 <div class="section" id="py">
-<h2>6.21&nbsp;&nbsp;&nbsp;py<a class="headerlink" href="#py" title="Permalink to this headline">¶</a></h2>
+<h2>7.21&nbsp;&nbsp;&nbsp;py<a class="headerlink" href="#py" title="Permalink to this headline">¶</a></h2>
 <p>Commnad - py:</p>
 <div class="highlight-python"><pre>Usage:
     py
@@ -1385,7 +1468,7 @@ This code is copied from Cmd2.</pre>
 </div>
 </div>
 <div class="section" id="q">
-<h2>6.22&nbsp;&nbsp;&nbsp;q<a class="headerlink" href="#q" title="Permalink to this headline">¶</a></h2>
+<h2>7.22&nbsp;&nbsp;&nbsp;q<a class="headerlink" href="#q" title="Permalink to this headline">¶</a></h2>
 <p>Commnad - q:</p>
 <div class="highlight-python"><pre>Usage:
     quit
@@ -1394,7 +1477,7 @@ Action to be performed whne quit is typed</pre>
 </div>
 </div>
 <div class="section" id="quit">
-<h2>6.23&nbsp;&nbsp;&nbsp;quit<a class="headerlink" href="#quit" title="Permalink to this headline">¶</a></h2>
+<h2>7.23&nbsp;&nbsp;&nbsp;quit<a class="headerlink" href="#quit" title="Permalink to this headline">¶</a></h2>
 <p>Commnad - quit:</p>
 <div class="highlight-python"><pre>Usage:
     quit
@@ -1403,7 +1486,7 @@ Action to be performed whne quit is typed</pre>
 </div>
 </div>
 <div class="section" id="reg">
-<h2>6.24&nbsp;&nbsp;&nbsp;reg<a class="headerlink" href="#reg" title="Permalink to this headline">¶</a></h2>
+<h2>7.24&nbsp;&nbsp;&nbsp;reg<a class="headerlink" href="#reg" title="Permalink to this headline">¶</a></h2>
 <p>Commnad - reg:</p>
 <div class="highlight-python"><pre>Usage:
   reg NAME
@@ -1413,7 +1496,7 @@ Arguments:
 </div>
 </div>
 <div class="section" id="rst">
-<h2>6.25&nbsp;&nbsp;&nbsp;rst<a class="headerlink" href="#rst" title="Permalink to this headline">¶</a></h2>
+<h2>7.25&nbsp;&nbsp;&nbsp;rst<a class="headerlink" href="#rst" title="Permalink to this headline">¶</a></h2>
 <p>Commnad - rst:</p>
 <div class="highlight-python"><pre>Usage:
        rst COMMAND
@@ -1425,7 +1508,7 @@ Arguments:
 </div>
 </div>
 <div class="section" id="script">
-<h2>6.26&nbsp;&nbsp;&nbsp;script<a class="headerlink" href="#script" title="Permalink to this headline">¶</a></h2>
+<h2>7.26&nbsp;&nbsp;&nbsp;script<a class="headerlink" href="#script" title="Permalink to this headline">¶</a></h2>
 <p>Commnad - script:</p>
 <div class="highlight-python"><pre>Usage:
        script
@@ -1454,7 +1537,7 @@ Process FILE and optionally apply some options</pre>
 </div>
 </div>
 <div class="section" id="timer">
-<h2>6.27&nbsp;&nbsp;&nbsp;timer<a class="headerlink" href="#timer" title="Permalink to this headline">¶</a></h2>
+<h2>7.27&nbsp;&nbsp;&nbsp;timer<a class="headerlink" href="#timer" title="Permalink to this headline">¶</a></h2>
 <p>Commnad - timer:</p>
 <div class="highlight-python"><pre>Ussage:
     timer (on|off)
@@ -1463,7 +1546,7 @@ switches timers on and off not yet implemented</pre>
 </div>
 </div>
 <div class="section" id="use">
-<h2>6.28&nbsp;&nbsp;&nbsp;use<a class="headerlink" href="#use" title="Permalink to this headline">¶</a></h2>
+<h2>7.28&nbsp;&nbsp;&nbsp;use<a class="headerlink" href="#use" title="Permalink to this headline">¶</a></h2>
 <p>Commnad - use:</p>
 <div class="highlight-python"><pre>USAGE:
 
@@ -1489,7 +1572,7 @@ ARGUMENTS:
 </div>
 </div>
 <div class="section" id="user">
-<h2>6.29&nbsp;&nbsp;&nbsp;user<a class="headerlink" href="#user" title="Permalink to this headline">¶</a></h2>
+<h2>7.29&nbsp;&nbsp;&nbsp;user<a class="headerlink" href="#user" title="Permalink to this headline">¶</a></h2>
 <p>Commnad - user:</p>
 <div class="highlight-python"><pre>Usage:
        user list
@@ -1517,7 +1600,7 @@ Options:
 </div>
 </div>
 <div class="section" id="var">
-<h2>6.30&nbsp;&nbsp;&nbsp;var<a class="headerlink" href="#var" title="Permalink to this headline">¶</a></h2>
+<h2>7.30&nbsp;&nbsp;&nbsp;var<a class="headerlink" href="#var" title="Permalink to this headline">¶</a></h2>
 <p>Commnad - var:</p>
 <div class="highlight-python"><pre>Usage:
     var list | var
@@ -1532,7 +1615,7 @@ special vars date and time are defined</pre>
 </div>
 </div>
 <div class="section" id="verbose">
-<h2>6.31&nbsp;&nbsp;&nbsp;verbose<a class="headerlink" href="#verbose" title="Permalink to this headline">¶</a></h2>
+<h2>7.31&nbsp;&nbsp;&nbsp;verbose<a class="headerlink" href="#verbose" title="Permalink to this headline">¶</a></h2>
 <p>Commnad - verbose:</p>
 <div class="highlight-python"><pre>Usage:
     verbose (True | False)
@@ -1545,7 +1628,7 @@ The default is set to True</pre>
 </div>
 </div>
 <div class="section" id="version">
-<h2>6.32&nbsp;&nbsp;&nbsp;version<a class="headerlink" href="#version" title="Permalink to this headline">¶</a></h2>
+<h2>7.32&nbsp;&nbsp;&nbsp;version<a class="headerlink" href="#version" title="Permalink to this headline">¶</a></h2>
 <p>Commnad - version:</p>
 <div class="highlight-python"><pre>Usage:
    version
@@ -1554,7 +1637,7 @@ Prints out the version number</pre>
 </div>
 </div>
 <div class="section" id="vm">
-<h2>6.33&nbsp;&nbsp;&nbsp;vm<a class="headerlink" href="#vm" title="Permalink to this headline">¶</a></h2>
+<h2>7.33&nbsp;&nbsp;&nbsp;vm<a class="headerlink" href="#vm" title="Permalink to this headline">¶</a></h2>
 <p>Commnad - vm:</p>
 <div class="highlight-python"><pre>Usage:
   vm create [--count=&lt;count&gt;] [--image=&lt;imgName&gt;] [--flavor=&lt;FlavorId&gt;] [--cloud=&lt;CloudName&gt;]
