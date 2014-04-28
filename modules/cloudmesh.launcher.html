@@ -146,26 +146,27 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../developer.html#install-fabric">8.3&nbsp;&nbsp;&nbsp;Install fabric</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../developer.html#github">8.4&nbsp;&nbsp;&nbsp;Github</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../developer.html#github-ssh-keys">8.4.1&nbsp;&nbsp;&nbsp;GIthub ssh keys</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer.html#github-ssh-keys">8.4.1&nbsp;&nbsp;&nbsp;Github ssh keys</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../developer.html#git-username-and-e-mail">8.4.2&nbsp;&nbsp;&nbsp;Git username and e-mail</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../developer.html#quick-deployment">8.5&nbsp;&nbsp;&nbsp;Quick deployment</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../developer.html#aptana-studio">8.5.1&nbsp;&nbsp;&nbsp;Aptana Studio</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../developer.html#requirements">8.5.2&nbsp;&nbsp;&nbsp;Requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer.html#yaml-files">8.5.3&nbsp;&nbsp;&nbsp;YAML files</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../developer.html#generating-a-cloudmesh-yaml-file">8.5.3.1&nbsp;&nbsp;&nbsp;Generating a cloudmesh.yaml file</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../developer.html#mongo-commands-overview">8.5.4&nbsp;&nbsp;&nbsp;Mongo - Commands Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer.html#mongo-commands-that-need-to-be-issued">8.5.5&nbsp;&nbsp;&nbsp;Mongo commands that need to be issued</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer.html#starting-the-web-service">8.5.6&nbsp;&nbsp;&nbsp;Starting the Web Service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer.html#starting-and-testing-the-queue-service">8.5.7&nbsp;&nbsp;&nbsp;Starting and testing the Queue Service</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../developer.html#additional-installation-for-documentation-generation">8.6&nbsp;&nbsp;&nbsp;Additional Installation for Documentation Generation</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../developer.html#blockdiag-family">8.6.1&nbsp;&nbsp;&nbsp;Blockdiag family</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../developer.html#yaml-files">8.6.2&nbsp;&nbsp;&nbsp;YAML files</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../developer.html#generating-a-cloudmesh-yaml-file">8.6.2.1&nbsp;&nbsp;&nbsp;Generating a cloudmesh.yaml file</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../developer.html#mongo">8.6.3&nbsp;&nbsp;&nbsp;Mongo</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../developer.html#starting-and-testing-the-queue-service">8.6.4&nbsp;&nbsp;&nbsp;Starting and testing the Queue Service</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../developer.html#starting-the-web-service">8.6.5&nbsp;&nbsp;&nbsp;Starting the Web Service</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../developer.html#the-t-py-program">8.6.6&nbsp;&nbsp;&nbsp;The t.py program</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../developer.html#developer-tests">8.6.7&nbsp;&nbsp;&nbsp;Developer Tests</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer.html#the-t-py-program">8.6.2&nbsp;&nbsp;&nbsp;The t.py program</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer.html#developer-tests">8.6.3&nbsp;&nbsp;&nbsp;Developer Tests</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../developer.html#cleaning">8.7&nbsp;&nbsp;&nbsp;Cleaning</a></li>
@@ -457,7 +458,7 @@
 <li class="toctree-l6"><a class="reference internal" href="cloudmesh.launcher.queue.html">cloudmesh.launcher.queue package</a><ul>
 <li class="toctree-l7"><a class="reference internal" href="cloudmesh.launcher.queue.html#submodules">Submodules</a></li>
 <li class="toctree-l7"><a class="reference internal" href="cloudmesh.launcher.queue.html#module-cloudmesh.launcher.queue.celery">cloudmesh.launcher.queue.celery module</a></li>
-<li class="toctree-l7"><a class="reference internal" href="cloudmesh.launcher.queue.html#module-cloudmesh.launcher.queue.tasks">cloudmesh.launcher.queue.tasks module</a></li>
+<li class="toctree-l7"><a class="reference internal" href="cloudmesh.launcher.queue.html#cloudmesh-launcher-queue-tasks-module">cloudmesh.launcher.queue.tasks module</a></li>
 <li class="toctree-l7"><a class="reference internal" href="cloudmesh.launcher.queue.html#module-cloudmesh.launcher.queue">Module contents</a></li>
 </ul>
 </li>
@@ -526,7 +527,7 @@
 <li class="toctree-l6"><a class="reference internal" href="cloudmesh.provisioner.queue.html">cloudmesh.provisioner.queue package</a><ul>
 <li class="toctree-l7"><a class="reference internal" href="cloudmesh.provisioner.queue.html#submodules">Submodules</a></li>
 <li class="toctree-l7"><a class="reference internal" href="cloudmesh.provisioner.queue.html#module-cloudmesh.provisioner.queue.celery">cloudmesh.provisioner.queue.celery module</a></li>
-<li class="toctree-l7"><a class="reference internal" href="cloudmesh.provisioner.queue.html#module-cloudmesh.provisioner.queue.tasks">cloudmesh.provisioner.queue.tasks module</a></li>
+<li class="toctree-l7"><a class="reference internal" href="cloudmesh.provisioner.queue.html#cloudmesh-provisioner-queue-tasks-module">cloudmesh.provisioner.queue.tasks module</a></li>
 <li class="toctree-l7"><a class="reference internal" href="cloudmesh.provisioner.queue.html#module-cloudmesh.provisioner.queue">Module contents</a></li>
 </ul>
 </li>
@@ -703,7 +704,7 @@
 <li class="toctree-l1"><a class="reference internal" href="cloudmesh.launcher.queue.html">cloudmesh.launcher.queue package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.launcher.queue.html#submodules">Submodules</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.launcher.queue.html#module-cloudmesh.launcher.queue.celery">cloudmesh.launcher.queue.celery module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cloudmesh.launcher.queue.html#module-cloudmesh.launcher.queue.tasks">cloudmesh.launcher.queue.tasks module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.launcher.queue.html#cloudmesh-launcher-queue-tasks-module">cloudmesh.launcher.queue.tasks module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.launcher.queue.html#module-cloudmesh.launcher.queue">Module contents</a></li>
 </ul>
 </li>
