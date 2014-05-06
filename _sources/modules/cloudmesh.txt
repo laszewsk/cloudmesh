@@ -7,8 +7,10 @@ Subpackages
 .. toctree::
 
     cloudmesh.accounting
+    cloudmesh.cobbler
     cloudmesh.config
     cloudmesh.iaas
+    cloudmesh.image
     cloudmesh.launcher
     cloudmesh.metric
     cloudmesh.old_inventory

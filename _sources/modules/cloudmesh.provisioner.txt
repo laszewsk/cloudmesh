@@ -11,6 +11,30 @@ Subpackages
 Submodules
 ----------
 
+cloudmesh.provisioner.baremetal_computer module
+-----------------------------------------------
+
+.. automodule:: cloudmesh.provisioner.baremetal_computer
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+cloudmesh.provisioner.baremetal_db module
+-----------------------------------------
+
+.. automodule:: cloudmesh.provisioner.baremetal_db
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+cloudmesh.provisioner.dbhelper module
+-------------------------------------
+
+.. automodule:: cloudmesh.provisioner.dbhelper
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
 cloudmesh.provisioner.provisioner module
 ----------------------------------------
 
