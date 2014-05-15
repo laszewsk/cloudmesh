@@ -4,10 +4,10 @@ cloudmesh.metric.api package
 Submodules
 ----------
 
-cloudmesh.metric.api.cm_metric_api module
------------------------------------------
+cloudmesh.metric.api.metric module
+----------------------------------
 
-.. automodule:: cloudmesh.metric.api.cm_metric_api
+.. automodule:: cloudmesh.metric.api.metric
     :members:
     :undoc-members:
     :show-inheritance:

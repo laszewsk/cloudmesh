@@ -1,0 +1,183 @@
+meta:
+  yaml_version: 2.1
+  kind: clouds
+cloudmesh:
+    profile:
+        address:
+        - TBD
+        email: 
+        firstname: Gregor
+        gid: 
+        uid: 
+        lastname: von Laszewski
+        phone: 8212 856 1311
+        username: gvonlasz
+    active:
+    - sierra_openstack_grizzly
+    - hp
+    - hp_east
+    hpc:
+        username: gvonlasz
+    clouds:
+        alamo:
+            cm_host: alamo.futuregrid.org
+            cm_label: alamo
+            cm_type: ec2
+            cm_type_version: folsom
+            credentials:
+                EC2_PRIVATE_KEY: $HOME/.futuregrid/alamo/pk.pem
+                EC2_CERT: $HOME/.futuregrid/alamo/cert.pem
+                NOVA_CERT: $HOME/.futuregrid/alamo/cacert.pem
+                EUCALYPTUS_CERT: $HOME/.futuregrid/alamo/cacert.pem
+                EC2_URL: https://openstack.futuregrid.tacc.utexas.edu:8773/services/Cloud
+                EC2_ACCESS_KEY: e4f8f486ef2a438fa52d44c75453028e
+                EC2_SECRET_KEY: 6585929ae53a40d18fe0a87d8b1a4b65
+                keyname: cloudmesh
+                userid: gvonlasz
+            default:
+                flavor: None
+                image: None
+        india_eucalyptus:
+            cm_host: india.futuregrid.org
+            cm_label: india
+            cm_type: ec2
+            cm_type_version: 3.1
+            credentials:
+                EUCALYPTUS_CERT: $HOME/.futuregrid/india/cacert.pem
+                EC2_CERT: $HOME/.futuregrid/india/cert.pem
+                EC2_URL: http://149.165.146.135:8773/services/Eucalyptus
+                EC2_ACCESS_KEY: e4f8f486ef2a438fa52d44c75453028e
+                EC2_SECRET_KEY: 6585929ae53a40d18fe0a87d8b1a4b65
+                EC2_PRIVATE_KEY: $HOME/.futuregrid/india/pk.pem
+            keyname: cloudmesh
+            userid: gvonlasz
+            default:
+                flavor: None
+                image: None
+        india_openstack_havana:
+            cm_host: india.futuregrid.org
+            cm_heading: India OpenStack, Havana
+            cm_label: ios_havana
+            cm_type: openstack
+            cm_type_version: havana
+            credentials:
+                OS_AUTH_URL: https://i57r.idp.iu.futuregrid.org:5000/v2.0
+                OS_CACERT: /home/cloudmesh/.futuregrid/india-havana-cacert.pem
+                OS_PASSWORD: 1SGmWl7EmAc6
+                OS_TENANT_NAME: fg82
+                OS_USERNAME: gvonlasz
+                OS_VERSION: havana
+            default:
+                flavor: None
+                image: None
+        sierra_openstack_grizzly:
+            cm_host: sierra.futuregrid.org
+            cm_heading: Sierra OpenStack, Grizzly
+            cm_label: sos
+            cm_type: openstack
+            cm_type_version: grizzly
+            credentials:
+                OS_AUTH_URL: https://s77r.idp.sdsc.futuregrid.org:5000/v2.0
+                OS_CACERT: $HOME/.futuregrid/sierra-cacert.pem
+                OS_PASSWORD: 1SGmWl7EmAc6
+                OS_TENANT_NAME: fg82
+                OS_USERNAME: gvonlasz
+                OS_VERSION: grizzly
+            default:
+                flavor: None
+                image: None
+        hp:
+            cm_heading: HP Openstack
+            cm_label: hpos
+            cm_type: openstack
+            cm_type_version: grizzly
+            credentials:
+                OS_AUTH_URL: https://region-a.geo-1.identity.hpcloudsvc.com:35357/v2.0/
+                OS_CACERT: None
+                OS_PASSWORD: perl9012!
+                OS_TENANT_NAME: FutureGrid
+                OS_USERNAME: gregor
+            default:
+                flavor: None
+                image: None
+        hp_east:
+            cm_heading: HP Openstack East
+            cm_label: hpeos
+            cm_type: openstack
+            cm_type_version: grizzly
+            credentials:
+                OS_AUTH_URL: https://region-a.geo-1.identity.hpcloudsvc.com:35357/v2.0/
+                OS_CACERT: None
+                OS_PASSWORD: perl9012!
+                OS_TENANT_NAME: FutureGrid
+                OS_USERNAME: gregor
+            default:
+                flavor: None
+                image: None
+        azure:
+            cm_host: windowsazure.com
+            cm_label: waz
+            cm_type: azure
+            cm_type_version:
+            credentials:
+                subscriptionid: None
+                managementcertfile: $HOME/.futuregrid/azure_managementCertificate.pem
+                thumbprint: $HOME/.futuregrid/azure_thumbprint
+                servicecertfile: $HOME/.futuregrid/azure_serviceCertificate.pfx
+            default:
+                flavor: None
+                image: None
+                location: "East US"
+        aws:
+            cm_host: aws.amazon.com
+            cm_label: aws
+            cm_type: aws
+            cm_type_version:
+            credentials:
+                EC2_ACCESS_KEY: None
+                EC2_SECRET_KEY: None
+                keyname: cloudmesh
+                userid: None
+                EC2_PRIVATE_KEY: $HOME/.futuregrid/aws_pk.pem
+            default:
+                flavor: None
+                image: None
+                location: us-east-1
+    projects:
+        active:
+        - fg82
+        - fg101
+        completed:
+        - fg130
+        default: fg82    
+    security:
+        default: development
+        rules:
+            ping:
+                ip-address: 0.0.0.0/0
+                max_port: -1
+                min_port: -1
+                protocol: icmp
+            ssh:
+                ip-address: 0.0.0.0/0
+                max_port: 22
+                min_port: 22
+                protocol: tcp
+            web:
+                ip-address: 0.0.0.0/0
+                max_port: 80
+                min_port: 80
+                protocol: tcp
+        security_groups:
+            development:
+            - ssh
+            - ping
+            - web
+            webserver:
+            - web
+    keys:
+        default: fg_pro
+        keylist:
+            fg_1: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC8CuROXICp7OBRNLf4EYBVyUTE48ZVn9YOtPQpdrtX0F4OnHM0rE3FCGjgd1aCrPakrRKvx0HjHTQjSrOd4nkRcrC1mzSUpjkbHzdFKbhIfWlbVA+GyKlrQzW9GeYX8Um7Of7ZYsQVI3Bs9YmkInHk330olOPVVbNN0Uqu6KpAl04zPmdR+Kf/eHb1bcNKxN9+h3HccSiT+2xBDO8uEjcVd0IByyZO6/ImU5krCx1vpVJMPhwC/GejvQIc7zsG/L2tvpJOlkRsRIHfgJ3IaqPCwnoclv9Xp3pBgvR+c+hjVz5Dw6Q9yZK7wsZ7Tg1h5d3OG0bEfhXuUKAuZ6uhsIdt fg-1
+            fg_pro: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC8CuROXICp7OBRNLf4EYBVyUTE48ZVn9YOtPQpdrtX0F4OnHM0rE3FCGjgd1aCrPakrRKvx0HjHTQjSrOd4nkRcrC1mzSUpjkbHzdFKbhIfWlbVA+GyKlrQzW9GeYX8Um7Of7ZYsQVI3Bs9YmkInHk330olOPVVbNN0Uqu6KpAl04zPmdR+Kf/eHb1bcNKxN9+h3HccSiT+2xBDO8uEjcVd0IByyZO6/ImU5krCx1vpVJMPhwC/GejvQIc7zsG/L2tvpJOlkRsRIHfgJ3IaqPCwnoclv9Xp3pBgvR+c+hjVz5Dw6Q9yZK7wsZ7Tg1h5d3OG0bEfhXuUKAuZ6uhsIdt fg-pro
+            

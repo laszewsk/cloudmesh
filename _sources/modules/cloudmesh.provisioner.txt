@@ -27,6 +27,30 @@ cloudmesh.provisioner.baremetal_db module
     :undoc-members:
     :show-inheritance:
 
+cloudmesh.provisioner.baremetal_policy module
+---------------------------------------------
+
+.. automodule:: cloudmesh.provisioner.baremetal_policy
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+cloudmesh.provisioner.baremetal_status module
+---------------------------------------------
+
+.. automodule:: cloudmesh.provisioner.baremetal_status
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+cloudmesh.provisioner.baremetal_user module
+-------------------------------------------
+
+.. automodule:: cloudmesh.provisioner.baremetal_user
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
 cloudmesh.provisioner.dbhelper module
 -------------------------------------
 
@@ -47,6 +71,14 @@ cloudmesh.provisioner.provisioner_teefaa module
 -----------------------------------------------
 
 .. automodule:: cloudmesh.provisioner.provisioner_teefaa
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+cloudmesh.provisioner.rain_cobbler_wrapper module
+-------------------------------------------------
+
+.. automodule:: cloudmesh.provisioner.rain_cobbler_wrapper
     :members:
     :undoc-members:
     :show-inheritance:

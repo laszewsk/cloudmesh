@@ -12,6 +12,22 @@ cloudmesh.shell.cm_shell module
     :undoc-members:
     :show-inheritance:
 
+cloudmesh.shell.cm_storm module
+-------------------------------
+
+.. automodule:: cloudmesh.shell.cm_storm
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+cloudmesh.shell.cm_user module
+------------------------------
+
+.. automodule:: cloudmesh.shell.cm_user
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
 
 Module contents
 ---------------

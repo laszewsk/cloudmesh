@@ -44,14 +44,6 @@ cloudmesh.util.keys module
     :undoc-members:
     :show-inheritance:
 
-cloudmesh.util.logger module
-----------------------------
-
-.. automodule:: cloudmesh.util.logger
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
 cloudmesh.util.menu module
 --------------------------
 
@@ -88,14 +80,6 @@ cloudmesh.util.stopwatch module
 -------------------------------
 
 .. automodule:: cloudmesh.util.stopwatch
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
-cloudmesh.util.util module
---------------------------
-
-.. automodule:: cloudmesh.util.util
     :members:
     :undoc-members:
     :show-inheritance:

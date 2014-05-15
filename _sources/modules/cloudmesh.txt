@@ -7,7 +7,6 @@ Subpackages
 .. toctree::
 
     cloudmesh.accounting
-    cloudmesh.cobbler
     cloudmesh.config
     cloudmesh.iaas
     cloudmesh.image
@@ -17,6 +16,7 @@ Subpackages
     cloudmesh.pbs
     cloudmesh.provisioner
     cloudmesh.rack
+    cloudmesh.rain
     cloudmesh.shell
     cloudmesh.temperature
     cloudmesh.user
