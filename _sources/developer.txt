@@ -3,13 +3,9 @@
    .. contents::
       :local:
 
-
-.. sectnum::
-   :start: 7
-
 .. _s-instalation:
 **********************************************************************
-Installation
+Prepare the Environment 
 **********************************************************************
 
 In this Section, we describe how to  deploy cloudmesh for
@@ -32,9 +28,6 @@ Furthermore, we assume that you use **ubuntu 14.04** as your
 development environment. Although we started including information for
 other OS, we have not verified if they work.
 
-
-Prepare the Environment
-===========================
 
 Github
 ----------------------------------------------------------------------
@@ -83,6 +76,11 @@ Please obtain and install xcode as documented in
 In a terminal window execute::
     
    $ xcode-select --install
+
+This will opens a user interface dialog to request automatic
+installation of the command line developer tools which you will need
+if you like to conduct development on OSX. 
+
 
 **Others**:
 
@@ -172,7 +170,6 @@ simply say::
 
   echo $CLOUDMESH
 
-
 Preparing the system
 ----------------------------------------------------------------------
 
@@ -184,42 +181,36 @@ script that prepare the system.
 For ubuntu systems there is a ready-made to get all the pre-requisites
 install. To run this script do ::
 
-    $ ./bootstrap_install system
+    $ ./install system
 
 This will make sure all requirements are fulfilled and the cloudmesh
 programs are installed in your environment.
 
-After this you have to propare a virtual env 
+After this you have to create and activate a virtual env.  As we like
+to have an isolated development environment we require that you use
+virtualenv. For simplicity our virtual env will be placed in the home
+directory under `~/ENV`. If you already have such a directory for
+other projects, you can use another name. However, for the rest of the
+manual we assume it is "ENV"
 
-.. warning::
-
-   Please remember to activate your virtualenv. Out of caution not
-   proceed or execute this command in your environment.
-
-After this you have to create and activate a virtual env. 
-As we like to have an isolated development environment we require that
-you use virtualenv. For simplicity our virtual env will be placed in
-the home directory under `~/ENV`. If you already have such a directory
-for other projects, we suggest that you find a new name for the
-virtualenv. However, for the rest of the manual we assume it is "ENV"
-
-This is conducted with::
-
-the following command while assuming you install it in `~/ENV`::
+To create the virtual env in `~/ENV`, run the following command ::
 
   $ virtualenv  --no-site-packages ~/ENV
 
-
-After installation of virtualenv, you can activate virtualenv by
-following command::
+After installation of virtualenv, you can activate the virtual env
+with the following command::
 
     $ source ~/ENV/bin/activate
 
 Please note that you have to do this every time you open a terminal or
-login on the computer you work. Often you may forget it, so we
-recommend that you put it in your .bash_profile or .bashrc page at the
-end.
+login. Since it is easy to forget to do it, we recommend that you activate 
+the virtualenv in your .bash_profile.
 
+If you ever need to deactivate the virtual env, you can run::
+
+    $ deactivate
+
+from within the active virtualenv shell.
 
     
 Modify your rc file:
@@ -249,7 +240,7 @@ check out cloudmesh to ~/github/cloudmesh you can add::
 
    cd ~/github/cloudmesh
 
-SO you jump into your working directory after you start a new
+So you jump into your working directory after you start a new
 terminal, which is quite handy. Alternatively, you may want to set an
 alias such as::
 
@@ -260,43 +251,67 @@ This way if you type dev you cd into the development directory
 Install the Requirements
 ----------------------------------------------------------------------
 
+.. warning::
+
+  Please remember to activate your virtualenv. Out of caution do not
+  proceed or execute this command in your system environment.
+
 In addition to the system packages we will now install into the
-virtual env a number of python packages. Althouth this could be done
-with the command::
-
-  pip install -r requirements.txt
-
-our install program can also do this with::
+virtual env a number of python packages.
+It is important to note that the requirements in requirements.txt must
+be installed in a particular order. As pip does not support this
+properly, we use the following command instead of simply calling `pip
+install -r requirements.txt`::
 
   ./install requirements
 
-For some reason on ubunti it installs the fabric package wrong. Hence
-you have to say in addition to the above command::
+Creating an initial user
+----------------------------------------------------------------------
 
-  pip install fabric
+To create the initial user and cloudmesh yaml files you can use the
+command::
+
+  ./install new
+
+From this point on you should be able to create the user manual
+locally. IF this does not work you may have some error on your system
+and you may carefully revisit the above instruction and locate the
+error.
+
+
 
 Initial Documentation
 ----------------------------------------------------------------------
 
-An initial set of documentation can now be created with the command 
+An initial set of documentation can now be created with the command::
 
-  make sphinx
+  fab doc.html
 
-The documentation is located in
+
+.. note::
+
+   If this does not yet work you can do ::
+
+      make sphinx
+
+The documentation is located in::
 
   doc/build/html/index.html
 
 please use your browser to open it. If you just run on ubuntu server,
-you also need to install the ubuntu-desktop.
+you also need to install the ubuntu-desktop::
 
    sudo apt-get install ubuntu-desktop
 
 
-Quickinstall
-======================================================================
+Quickinstall the Environment
+----------------------------------------------------------------------
 
 We do not recommend that you conduct this quickinstall, but it may
 provide you with a rough overview of the previous steps::
+
+  git config --global user.name "yourname"
+  git config --global user.email "youremail@example.com"
 
   git clone git@github.com:cloudmesh/cloudmesh.git
   cd cloudmesh
@@ -305,24 +320,20 @@ provide you with a rough overview of the previous steps::
   . ~/ENV/bin/activate
   ./install requirements
   ./install new
-  fab doc.htnl
+  fab doc.html
 
-Please remember to use the ./ infornt of the install as there could be
-other install commands in your system.
+Please remember to use the ./ infront of the install as there could be
+other install commands in your $PATH.
 
-
-
-WE GOT TILL HERE
+Configuration Details
 ======================================================================
 
-
-
 Initial YAML files
----------------
+----------------------------------------------------------------------
 
-You will need a number of yaml files. Samples can be found in the etc
+You will need a number of yaml files. Samples can be found in the etc/
 source directory.  More elaborate examples can be obtained from Gregor
-for the personel that work directly with him on FutureGrid.
+for the personnel that work directly with him on FutureGrid.
 
 As we asume you have initially no yaml files, you can create a default
 set with the command::
@@ -330,256 +341,71 @@ set with the command::
   ./install new
 
 This will create a ~/.futuregrid directory in which you can find and
-modify the yaml files. Important is that you modify the file called::
-   
-
-  me.yaml
+modify the yaml files. Important is that you modify the file called
+``me.yaml``
 
 You find the values for the clouds from your cloud provider. Simply
 add them and fill out your user information and you should be done.
 
-.. warning::
+.. note::
+
+   When editing YAML files we strongly recommend that you use an
+   editor with YAML support. YAML syntax is not complicated but is
+   sensitive to proper indentation, and it is very helpful to have an
+   editor that will assist with proper formatting.
+
+This has to be done only once, but you must make sure you keep the
+yaml files up to date. Typically we send an e-mail to all developers
+when a change occurred so you can update yours:
+
+#. `cloudmesh.yaml <https://github.com/cloudmesh/cloudmesh/blob/master/etc/cloudmesh.yaml>`_
+#. `cloudmesh_server.yaml <https://github.com/cloudmesh/cloudmesh/blob/master/etc/cloudmesh_server.yaml>`_
+#. `cloudmesh_cluster.yaml <https://github.com/cloudmesh/cloudmesh/blob/master/etc/cloudmesh_cluster.yaml>`_
+   *For the one from FG please contact Gregor (only if you really need
+   it. Normal users will not get this file).*
+#. `cloumesh_launcher.yaml <https://github.com/cloudmesh/cloudmesh/blob/master/etc/cloudmesh_launcher.yaml>`_
+#. `cloumesh_bootspec.yaml <https://github.com/cloudmesh/cloudmesh/blob/master/etc/cloudmesh_bootspec.yaml>`_
+#. `cloumesh_mac.yaml <https://github.com/cloudmesh/cloudmesh/blob/master/etc/cloudmesh_mac.yaml>`_
 
 
-   not yet done. 
-
-
-
+Install cloudmesh code
+----------------------------------------------------------------------
 
 Next you install the basic cloudmesh code which you can do with::
 
    $ ./install cloudmesh
+   $ fab build.install
 
+The cloudmesh.yaml file
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+After updating the me.yaml file, you can generate a new cloudmesh.yaml
+file. For this purpose you will need to copy the templates from cloudmesh to the ~/.futuregrid directory::
+  $ cp etc/*.yaml ~/.futuregrid/etc
+ 
+The command::
 
-.. Warning:: 
-
-   The next steps are probably not yet properly documented 
-
-
-After you fill out this file, you need to create a new file called
-cloudmesh.yaml with the following command::
-
-  cm init generate me
-
-This will create a cloudmesh.yaml file in the ~/.futuregrid directory
-
-
-
-This has to be done only once, but you maust make sure you keep the
-yaml files up to date in case we change them, typically we send an
-e-mail to all developers when a change occurred so you can update
-yours:
-
-3. `cloudmesh.yaml <https://github.com/cloudmesh/cloudmesh/blob/master/etc/cloudmesh.yaml>`_
-4. `cloudmesh_server.yaml <https://github.com/cloudmesh/cloudmesh/blob/master/etc/cloudmesh_server.yaml>`_
-5. `cloudmesh_cluster.yaml <https://github.com/cloudmesh/cloudmesh/blob/master/etc/cloudmesh_cluster.yaml>`_
-For the one from FG please contact Gregor (only if you realy need
-it. Normal users will not get this file).
-* `cloumesh_launcher.yaml <https://github.com/cloudmesh/cloudmesh/blob/master/etc/cloudmesh_launcher.yaml>`_
-6. `cloumesh_bootspec.yaml
-  <https://github.com/cloudmesh/cloudmesh/blob/master/etc/cloudmesh_bootspec.yaml>`_
-8. `cloumesh_mac.yaml
-  <https://github.com/cloudmesh/cloudmesh/blob/master/etc/cloudmesh_mac.yaml>`_
-
-
-Generating a cloudmesh.yaml file
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-To generate a simple cloudmesh.yaml file, you may want to use place
-the following contents (with modifications applying to you), in a file
-called ~/.futuregrid/me.yaml. In that file, please replace the
-appropriate values with your cloud information. If you do not know the
-values you can just fill in a placeholder, such as None. With active
-we specify the clouds that we like to activate. Clouds not listed in
-activate will be ignored.
-
-.. comment::
-
-     meta:
-      kind: me 
-      yaml_version: 1.2 
-
-    portalname: gvonlasz 
-
-    profile:
-	firstname: Gregor 
-	lastname: von Laszewski 
-	e-mail: gvonlasz@gmail.com  
-
-    active:
-    - sierra_openstack_grizzly 
-
-    password:
-      sierra_openstack_grizzly: mypassword
-
-    azure:
-      subscriptionid: None
-
-    aws: 
-      access_key_id: None
-      secret_access_key: None
-      userid: None
-
-    projects:
-      default: fg82
-      active:
-      - fg82
-      - fg101
-      completed:
-      - fg130
-    keys:
-      fg_0: ssh-rsa ABCD .... fg-0
-      fg_1: ssh-rsa VWXY .... fg-1
-
-In the file etc/me-none.yaml we provide a simple template on what a
-me.yaml file looks like. you can copy it to ~/.futuregrid/me.yaml
-with::
-
-  cp etc/me-none.yaml ~/.futuregrid/me.yaml
-
-Than you can edit this file with you favorite editor such as emacs and
-fill out the values. Please make sure yaml files do not contain
-tabs. The file contains TBD that you can fill with real values
-instead.
-
-.. include:: ../../etc/me-none.yaml
-   :literal:
-
-
-We have a number of programs and templates that make it easy for you
-to generate a new cloudmesh.yaml file. The command::
-
-  $ cm-init fill --file=etc/cloudmesh-template.yaml ~/.futuregrid/me.yaml
+  $ cm-init fill --file=~/.futuregrid/etc/cloudmesh.yaml ~/.futuregrid/me.yaml
 
 will test if the me.yaml file can successfully create a cloudmesh.yaml
 file by printing its output. If no error occurs it will most likely be
-fine. Than you can use the command::
+fine. Then you can use the command::
 
   $ cm-init generate yaml
 
-To create the cloudmesh yaml file from `~/.futuregird/me.yaml` and
+to create the cloudmesh yaml file from `~/.futuregird/me.yaml` and
 write it to `~/.futuregird/cloudmesh.yaml`. Out of precaution we have
 included a couple of questions that could be surpressed with the
 `--force` option.
 
 
-
-
-
-THIS IS OUTDATED
------------------
-
-Than you can print the contents of the yaml file that this input
-generets to the stdout with::
-
-    fab user.yaml
-
-ERROR: not that this prints a Done. msg at the end so if you redirect
-it to ~/.futuregrid/cloudmesh.yaml you need to correct this.
-
-WARNING: If you have a working yaml file, than I suggest you copy this
-first into a backup before overwriting something that worked before ;-)
-
-In future we will have::
-
-   fab user.yaml,safe
-
-which safes this into ~/.futuregrid/cloudmesh.yaml and::
-
-   fab user.verify
-
-which will verify if you can log into the clouds with your credentials
-
-.. note:
-
-   WARNING: fab user.verify, and fab user.yaml,safe are not yet implemented
-
-Most of the commands which are described in the YAML section need
-cloudmesh to be fully installed.
-
-OSX
----------------------------------
-
-Note: that on osx we have to set the ldflags to get to the ttfonts. To
-do this you must first have XCode downloaded and installed. After that
-you can say on the commandline::
-
-  xcode-select --install
-
-This will opens a user interface dialog to request automatic
-installation of the command line developer tools which you will need
-if you like to conduct development on OSX. 
-
-Additionally we recommend that you check if you have the freetype
-fonts installed and set the LDFLAG as follows (if you find the
-freetypes there)::
-
-  LDFLAGS="-L/usr/local/opt/freetype/lib -L/usr/local/opt/libpng/lib" CPPFLAGS="-I/usr/local/opt/freetype/include -I/usr/local/opt/libpng/include -I/usr/local/opt/freetype/include/freetype2" pip install matplotlib 
-
-Furthermore, since version 5.1 of XCode you may see the following error when
-installing pycrypto on OSX::
-
-  clang: error: unknown argument: '-mno-fused-madd' [-Wunused-command-line-argument-hard-error-in-future]
-
-  clang: note: this will be a hard error (cannot be downgraded to a warning) in the future
-
-  error: command 'cc' failed with exit status 1
-
-This error can be fixed by ignoring the option with the following
-shell commands::
-
-   export CFLAGS=-Qunused-arguments
-   export CPPFLAGS=-Qunused-arguments
-
-
-Deployment
------------------------
-
-Next execute the following commands ::
-
-    $ install cloudmesh
-    $ fab build.install
-
-Aptana Studio - Develpment Environment(optional)
---------------------------------------------------
-
-A good IDE for python development for Python is `Aptana Studio 
-<http://www.aptana.com/>`_, which is based
-on eclipse . It contains the ability to directly import packages from
-github by filling out a simple form. So instead of using the
-command line github tool you can use the Aptana Studio version. It
-also contains a very nice way of managing your commits while allowing
-you to select via a GUI the files you have changed and commit them
-with a nice commit message. Pull and Push functions are also
-available. Having said that there is some advantage of using the
-Aptana GUI tools for git as it makes it easier. Aptana Studio has also the
-ability to use emacs key mappings, which is a real nice
-feature. Naturally not all of emacs is supported.
-
-For those new to python an the project we recommend you use it for
-development.
-
-
-Requirements(Not required)
-------------------------------
-
-Although the install contains the automatic installation of
-requirements, we like to point out that changes in the
-requirements.txt file that you may do does require an installation
-with::
-
-    pip install -r requirements.txt
-
-If you do not change the requirements file, this step will be
-automatically executed as part of the installation.
-
-
 Mongo-Db
---------------------------
+----------------------------------------------------------------------
+
 
 List of Commands(Optional)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 
 Cloudmesh uses mongo for serving information to the different
 services.  To managing mongo db it is important that you use our
@@ -610,7 +436,7 @@ To create a cluster with user data base say (requires access to LDAP)::
 Now you have data in the mongo db and you can use and test it.
 
 Mongo commands that need to be issued (Important)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 In order for the everything to work right, please do the following
 mongo steps.::
@@ -624,7 +450,7 @@ For some reason "fab mongo.boot" has to be issued twice for everything
 to work right.
 
 Starting the Web Service
-----------------------
+----------------------------------------------------------------------
 
 To start a service you can use::
 
@@ -659,6 +485,25 @@ This will start the necessary background services, but also will shut
 down existing services. Essentially it will start a clean development
 environment. 
 
+Configure the HPC Environment 
+======================================================================
+
+To use the HPC environment, you need to make sure you can login from
+your machine to the various HPC login nodes. We have created a
+convenient script for you that you can call as follows::
+HPC services::
+
+   fab hpc.touch
+
+This script will log you into
+
+*   alamo
+*   india
+*   sierra
+*   foxtrot
+*   hotel
+
+
 Additional Installation for Documentation Generation
 ======================================================================
 
@@ -676,7 +521,7 @@ downloaded and installed as follows::
     $ python setup.py install
 
 Blockdiag family
-------------------------------
+----------------------------------------------------------------------
 
 blockdiag uses TrueType Font to render text. blockdiag try to detect
 installed fonts but if nothing detected, You can specify fonts with -f
@@ -695,7 +540,7 @@ included from the deployed package
 
 
 Developer Tests
------------------
+----------------------------------------------------------------------
 
 Python has a very good unit test framework called nosetests. As we
 have many different tests it is sometimes useful not to run all of
@@ -724,7 +569,7 @@ will execute the test which has label in its method name first
 
 
 Cleaning
-=========
+======================================================================
 
 sometimes it is important to clean things and start new. This can be done by ::
 
@@ -736,7 +581,7 @@ After that you naturally need to do a new install.
 
 
 Convenient command shortcuts
-=================================
+======================================================================
 
 We are providing a number of useful command that will make your
 development efforts easier.  These commands are build with fabfiles in
@@ -753,7 +598,7 @@ commands:
 
 
 Working with Cloudmesh on a remote server
-==============================
+======================================================================
 
 Sometimes it is desirable to work on cloudmesh on a remote server and
 use your laptop to connect to that server. This can be done for
@@ -784,7 +629,7 @@ the server::
 
 
 Special notes for CentOS
-============================================================
+======================================================================
 
 Minimal initial requirements, git, python2.7, and virtualenv
 installed.  If you don't have python2.7, see the manual installation
@@ -793,7 +638,7 @@ EPEL repo (for mongodb and rabbitmq).
 
 
 Install Python
-------------------------------
+----------------------------------------------------------------------
 
 Cloudmesh requires python 2.7, and CentOS comes with Python 2.6.
 However we cannot replace the system python as yum and other tools
@@ -814,7 +659,7 @@ PATH, then log out and back in.
 
 
 Starting the  RabbitMQ service
-------------------------------
+----------------------------------------------------------------------
 
 On centos rabbit mq can be started as a service with as follows::
 
@@ -826,7 +671,7 @@ values.
 
 
 Making the documentation
-====================
+======================================================================
 
 A simple way to create the documentation is with::
 
@@ -852,7 +697,7 @@ To publish to github::
     $ fab doc.gh
    
 Example: Start the GUI for development
---------------------
+----------------------------------------------------------------------
 
 Open a new terminal and type in::
 
@@ -907,7 +752,7 @@ before you start the server. On ubuntu we found:::
 works well
 
 Example: HPC queue server
-===================
+======================================================================
 
 In case you do not need to work with a cloud, you can also use our hpc
 queue server. That inspects certain queues. This can be done by
@@ -916,91 +761,10 @@ specifying a specific server at startup called hpc::
     $ fab server.start:server=hpc
 
 
-ENVIRONMENT
-==========
-
-::
-
-    deactivate
-    cd
-    virtualenv --no-site-packages ENV
-
-open a new terminal 
-
-::
-
-    $ pip install numpy matplotlib fabric
-    $ git clone git@github.com:cloudmesh/cloudmesh.git
-    $ cd cloudmesh
-    $ fab -f installation/install.py deploy
-    $ fab build.install
-
-    
-HPC services::
-
-   fab hpc.touch
-
-   logs into
-   alamo
-   india
-   sierra
-   foxtrot
-   hotel
-
-   is neede fo the hpc commands
-**********************************************************************
-Cloudmesh Vagrant Developers Environment
-**********************************************************************
-
-This section is for experts that like to deploy cloudmesh in a vagrant
-ubuntu 14.04 image under virtual box. We further assume you have
-checked out cloudmesh from github and are standing in the github
-directory::
-
-    $ git clone git@github.com:cloudmesh/cloudmesh.git
-    $ cd cloudmesh
-
-We assume you have uploaded a box to vagarnt with the name:: 
-
-   ubuntu-14.04-server-amd64
-
-If you do not have such an image you can create it by::
-
-   $ bin/install-veewee.sh
-   $ bin/install-ubuntu64.sh
-
-You can verify the list of boxes with::
-
-   $ vagrant box list
-
-To create a vagrant image you simply can say::
-  
-   deploy vagrant
-
-This will start a vagrant vm. In the vm say::
-
-   sudo apt-get install python-dev
-   sudo apt-get install python-virtualenv
-   virtualenv ~/ENV
-   . ~/ENV/bin/activate
-   pip install fabric
 
 
-Than say::
-
-  cd /vagrant/cloudmesh
-  deploy cloudmesh
-
-Please note that the changes in the cloudmesh directory are synced
-with the directory::
-
-  /tmp/vagrant/cloudmesh
-
-
-
-**********************************************************************
 Usage Quickstart 
-**********************************************************************
+======================================================================
 
 The following are the current steps to bring all services for
 cloudmesh up and running. After you have Installed the software (see
@@ -1016,7 +780,7 @@ can be found with::
 
 
 With access to LDAP 
-===============
+----------------------------------------------------------------------
 It is assumed that the machine has access to LDAP.
 
 ::
@@ -1030,7 +794,7 @@ It is assumed that the machine has access to LDAP.
     fab server.start
     
 Without access to LDAP
-===============
+----------------------------------------------------------------------
 
 ::
 
@@ -1046,7 +810,7 @@ Without access to LDAP
 
 
 Cloudmesh deployment 
-===========================
+----------------------------------------------------------------------
 
 yaml file first, than mongo
 
@@ -1056,7 +820,8 @@ yaml file first, than mongo
 
 
 Imports in cloudmesh_common
-======================================================================
+----------------------------------------------------------------------
+
 
 The cloudmesh code contains a directory `cloudmesh_common` in which we
 collect useful common reusable code that must not depend on an import
@@ -1064,45 +829,26 @@ from cloudmesh. Thus no file in cloudmesh_common must include::
 
    import cloudmesh. ...
 
-Emacs as editor
-======================================================================
+OSX System preparation Tips
+----------------------------------------------------------------------
 
-Emacs is a real good editor for development and has a very good
-interactive macro definition tool that you can use to create
-sophisticated searches and query replacements. This can safe a lot of
-time. 
+On OSX we recommend that you check if you have the freetype
+fonts installed and set the LDFLAG as follows (if you find the
+freetypes there)::
 
-Query replace all ocurences::
+  LDFLAGS="-L/usr/local/opt/freetype/lib -L/usr/local/opt/libpng/lib" CPPFLAGS="-I/usr/local/opt/freetype/include -I/usr/local/opt/libpng/include -I/usr/local/opt/freetype/include/freetype2" pip install matplotlib 
 
-  ESC % <old text> RET <new text> RET !
+Furthermore, since version 5.1 of XCode you may see the following error when
+installing pycrypto on OSX::
 
-Instead of ! you can use RET followed by y/n question to selectively
-replace.
+  clang: error: unknown argument: '-mno-fused-madd' [-Wunused-command-line-argument-hard-error-in-future]
 
-To create a macro that you can reexecute which may include tabs,
-cursor movements or other fancy tricks you can do::
+  clang: note: this will be a hard error (cannot be downgraded to a warning) in the future
 
-   CTRL-x (  <do edit what yo need> CTRL x-)
+  error: command 'cc' failed with exit status 1
 
-A good recource for emacs is the `Emacs Reference Card
-<http://www.gnu.org/software/emacs/refcards/pdf/refcard.pdf>`_
+This error can be fixed by ignoring the option with the following
+shell commands::
 
-This is realy all you need for emacs to make it a useful editor for
-you. xemacs, aquaemacs, carbonemacs are GUI enhanced versions of
-emacs.
- 
-Replace Text in many files from the commandline
-======================================================================
-
-Assume you have changed the location of an import eg yo like to change
-`import a.b.c` to `import a_b.c`. Editing the files with an editor an
-fisiting every file is too time consuming. instead you could use a
-perl one liner such as::
-
-  perl -pi -e 's/import a.b.c/import a_b.c/g' *.py
-  perl -pi -e 's/import a.b.c/import a_b.c/g' */*.py
-  perl -pi -e 's/import a.b.c/import a_b.c/g' */*/*.py
-
-to replace the statement in the given subdirs or a shorter form::
-
-  perl -pi -e 's/import a.b.c/import a_b.c/g' `find ./ -name *.py`
+   export CFLAGS=-Qunused-arguments
+   export CPPFLAGS=-Qunused-arguments

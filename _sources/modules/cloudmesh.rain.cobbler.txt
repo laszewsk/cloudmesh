@@ -1,6 +1,13 @@
 cloudmesh.rain.cobbler package
 ==============================
 
+Subpackages
+-----------
+
+.. toctree::
+
+    cloudmesh.rain.cobbler.queue
+
 Submodules
 ----------
 
