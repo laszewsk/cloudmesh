@@ -4,6 +4,22 @@ cloudmesh.shell package
 Submodules
 ----------
 
+cloudmesh.shell.cm_label module
+-------------------------------
+
+.. automodule:: cloudmesh.shell.cm_label
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+cloudmesh.shell.cm_label2 module
+--------------------------------
+
+.. automodule:: cloudmesh.shell.cm_label2
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
 cloudmesh.shell.cm_shell module
 -------------------------------
 
