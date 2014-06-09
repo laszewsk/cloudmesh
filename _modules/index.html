@@ -180,8 +180,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../celery.html">2.3. Celery Setup</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../celery.html#starting-and-stopping-celery">2.3.1. Starting and Stopping Celery</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../celery.html#log-and-pid-files">2.3.2. Log and Pid Files</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../celery.html#current-celery-based-tasks">2.3.3. Current Celery Based Tasks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../celery.html#current-celery-based-tasks-under-development">2.3.3. Current Celery Based Tasks (Under Development)</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../celery.html#launcher-simulation">2.3.3.1. Launcher (Simulation)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../celery.html#provisioner">2.3.3.2. Provisioner</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../celery.html#pbs-qstat">2.3.3.3. pbs (qstat)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../celery.html#rain-bare-metal-provisioning-with-cobbler-and-rain">2.3.3.4. rain (bare-metal provisioning with cobbler and rain)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../celery.html#rack-system-temperatures">2.3.3.5. rack (system temperatures)</a></li>
 </ul>
 </li>
 </ul>
@@ -214,160 +218,174 @@
 <li class="toctree-l2"><a class="reference internal" href="../doc.html#documenting-the-code">4.3. Documenting the code</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../nosetest.html">5. Testing</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../nosetest.html#install">5.1. Install</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../nosetest.html#run">5.2. Run</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../nosetest.html#system">5.3. System</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../shell.html">6. Cloudmesh Shell</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../cm-shell.html">6.1. Cloudmesh Shell</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../cm-shell.html#commandline">6.1.1. Commandline</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cm-shell.html#shell-usage">6.1.2. Shell Usage</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../cm-shell.html#command-overview">6.2. Command Overview</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../cm-shell.html#help">6.2.1. Help</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cm-shell.html#info">6.2.2. Info</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cm-shell.html#variables">6.2.3. Variables</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cm-shell.html#defaults">6.2.4. Defaults</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cm-shell.html#managing-users">6.2.5. Managing Users</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cm-shell.html#managing-clouds">6.2.6. Managing Clouds</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../cm-shell.html#register-a-cloud">6.2.6.1. Register a cloud</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../cm-shell.html#activate-cloud">6.2.6.2. Activate cloud</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../cm-shell.html#managing-projects">6.2.7. Managing Projects</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../cm-shell.html#project-list">6.2.7.1. Project List</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../cm-shell.html#project-information">6.2.7.2. Project Information</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../cm-shell.html#project-activation">6.2.7.3. Project Activation</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../cm-shell.html#managing-keys">6.2.8. Managing Keys</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cm-shell.html#managing-images">6.2.9. Managing Images</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../cm-shell.html#list-images">6.2.9.1. List images</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../cm-shell.html#image-information">6.2.9.2. Image information</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../cm-shell.html#default-image">6.2.9.3. Default image</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../cm-shell.html#managing-flavors">6.2.10. Managing Flavors</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../cm-shell.html#list-flavors">6.2.10.1. List Flavors</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../cm-shell.html#flavor-information">6.2.10.2. Flavor information</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../cm-shell.html#default-flavor">6.2.10.3. Default Flavor</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../cm-shell.html#managing-virtual-machines">6.2.11. Managing Virtual Machines</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../cm-shell.html#starting-vms">6.2.11.1. Starting VMs</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="../cm-shell.html#vm-history">6.2.11.1.1. VM History</a></li>
-</ul>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="../cm-shell.html#managing-security-groups">6.2.11.2. Managing Security Groups</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../cm-shell.html#managing-volumes">6.2.11.3. Managing Volumes</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../cm-shell.html#managing-heat-s-for-openstack">6.2.11.4. Managing heat&#8217;s for OpenStack</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../cm-shell.html#id1">6.2.12. Managing Security Groups</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cm-shell.html#examples">6.2.13. Examples</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cm-shell.html#todo-most-likely-in-cloud-command-and-register-command">6.2.14. TODO (most likely in cloud command and register command)</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../cm-shell-rain.html">6.3. Cloudmesh Shell Rain</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../cm-shell-rain.html#managing-servers-hosts">6.3.1. Managing Servers/hosts</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cm-shell-rain.html#user-project-and-role-policies">6.3.2. User, Project and Role Policies</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cm-shell-rain.html#information">6.3.3. Information</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cm-shell-rain.html#provisioning">6.3.4. Provisioning</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cm-shell-rain.html#status">6.3.5. Status</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cm-shell-rain.html#reservation-interface-extension">6.3.6. Reservation Interface (extension)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cm-shell-rain.html#time-format">6.3.7. Time Format</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../cm-manage.html">6.4. cm-manage</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../man/man.html">6.5. Commands</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../man/man.html#eof">6.5.1. EOF</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../man/man.html#banner">6.5.2. banner</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../man/man.html#clear">6.5.3. clear</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../man/man.html#cloud">6.5.4. cloud</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../man/man.html#count">6.5.5. count</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../man/man.html#defaults">6.5.6. defaults</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../man/man.html#dot2">6.5.7. dot2</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../man/man.html#edit">6.5.8. edit</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../man/man.html#exec">6.5.9. exec</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../man/man.html#exp">6.5.10. exp</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../man/man.html#graphviz">6.5.11. graphviz</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../man/man.html#help">6.5.12. help</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../man/man.html#info">6.5.13. info</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../man/man.html#init">6.5.14. init</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../man/man.html#inventory">6.5.15. inventory</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../man/man.html#keys">6.5.16. keys</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../man/man.html#label">6.5.17. label</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../man/man.html#list">6.5.18. list</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../man/man.html#login">6.5.19. login</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../man/man.html#man">6.5.20. man</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../man/man.html#metric">6.5.21. metric</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../man/man.html#open">6.5.22. open</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../man/man.html#pause">6.5.23. pause</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../man/man.html#plugins">6.5.24. plugins</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../man/man.html#project">6.5.25. project</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../man/man.html#py">6.5.26. py</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../man/man.html#q">6.5.27. q</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../man/man.html#quit">6.5.28. quit</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../man/man.html#rain">6.5.29. rain</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../man/man.html#reg">6.5.30. reg</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../man/man.html#script">6.5.31. script</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../man/man.html#storm">6.5.32. storm</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../man/man.html#timer">6.5.33. timer</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../man/man.html#use">6.5.34. use</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../man/man.html#user">6.5.35. user</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../man/man.html#var">6.5.36. var</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../man/man.html#verbose">6.5.37. verbose</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../man/man.html#version">6.5.38. version</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../man/man.html#vm">6.5.39. vm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hacking.html">9.3. Tips for Editing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../hacking.html#aptana-studio-develpment-environment-optional">9.3.1. Aptana Studio - Develpment Environment(optional)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hacking.html#emacs-as-editor">9.3.2. Emacs as editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hacking.html#replace-text-in-many-files-from-the-commandline">9.3.3. Replace Text in many files from the commandline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hacking.html#mongodb-tools">9.3.4. MongoDB Tools</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../hacking.html#robomongo">9.3.4.1. Robomongo</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../metric.html">7. Cloudmesh Metric</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../metric.html#routes">7.1. Routes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nosetest.html">6. Testing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../nosetest.html#install">6.1. Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nosetest.html#run">6.2. Run</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nosetest.html#system">6.3. System</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../contributing.html">8. Contributing</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../tasks.html">8.1. Issue Management</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../tasks.html#labels">8.1.1. Labels</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../tasks.html#priority">8.1.2. Priority</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../tasks.html#inactivity">8.1.3. Inactivity</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../tasks.html#shortcuts">8.1.4. Shortcuts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../shell.html">7. Cloudmesh Shell</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cm-shell.html">7.1. Cloudmesh Shell</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../cm-shell.html#commandline">7.1.1. Commandline</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cm-shell.html#shell-usage">7.1.2. Shell Usage</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../coding.html">8.2. Cloudmesh Style Guide</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../coding.html#information">8.2.1. Information</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../coding.html#general">8.2.2. General</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../coding.html#imports">8.2.3. Imports</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../coding.html#human-alphabetical-order-examples">8.2.4. Human Alphabetical Order Examples</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../coding.html#docstrings">8.2.5. Docstrings</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../coding.html#dictionaries-lists">8.2.6. Dictionaries/Lists</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../coding.html#calling-methods">8.2.7. Calling Methods</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../coding.html#internationalization-i18n-strings">8.2.8. Internationalization (i18n) Strings</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../coding.html#python-3-x-compatibility">8.2.9. Python 3.x compatibility</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../coding.html#creating-unit-tests">8.2.10. Creating Unit Tests</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../coding.html#running-tests">8.2.11. Running Tests</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../coding.html#commit-messages">8.2.12. Commit Messages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cm-shell.html#command-overview">7.2. Command Overview</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../cm-shell.html#help">7.2.1. Help</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cm-shell.html#info">7.2.2. Info</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cm-shell.html#variables">7.2.3. Variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cm-shell.html#defaults">7.2.4. Defaults</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cm-shell.html#managing-users">7.2.5. Managing Users</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cm-shell.html#managing-clouds">7.2.6. Managing Clouds</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../cm-shell.html#register-a-cloud">7.2.6.1. Register a cloud</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cm-shell.html#activate-cloud">7.2.6.2. Activate cloud</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../hacking.html">8.3. Tips for Editing</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../hacking.html#aptana-studio-develpment-environment-optional">8.3.1. Aptana Studio - Develpment Environment(optional)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../hacking.html#emacs-as-editor">8.3.2. Emacs as editor</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../hacking.html#replace-text-in-many-files-from-the-commandline">8.3.3. Replace Text in many files from the commandline</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cm-shell.html#managing-projects">7.2.7. Managing Projects</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../cm-shell.html#project-list">7.2.7.1. Project List</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cm-shell.html#project-information">7.2.7.2. Project Information</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cm-shell.html#project-activation">7.2.7.3. Project Activation</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../vagrant.html">8.4. Cloudmesh Vagrant Developers Environment</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../vagrant.html#vagrant">8.4.1. Vagrant</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../vagrant.html#veewee">8.4.2. Veewee</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../vagrant.html#creating-a-cloudmesh-test">8.4.3. Creating a cloudmesh test</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cm-shell.html#managing-keys">7.2.8. Managing Keys</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cm-shell.html#managing-images">7.2.9. Managing Images</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../cm-shell.html#list-images">7.2.9.1. List images</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cm-shell.html#image-information">7.2.9.2. Image information</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cm-shell.html#default-image">7.2.9.3. Default image</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../cm-shell.html#managing-flavors">7.2.10. Managing Flavors</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../cm-shell.html#list-flavors">7.2.10.1. List Flavors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cm-shell.html#flavor-information">7.2.10.2. Flavor information</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cm-shell.html#default-flavor">7.2.10.3. Default Flavor</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../cm-shell.html#managing-virtual-machines">7.2.11. Managing Virtual Machines</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../cm-shell.html#starting-vms">7.2.11.1. Starting VMs</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../cm-shell.html#vm-history">7.2.11.1.1. VM History</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../cm-shell.html#managing-security-groups">7.2.11.2. Managing Security Groups</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cm-shell.html#managing-volumes">7.2.11.3. Managing Volumes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cm-shell.html#managing-heat-s-for-openstack">7.2.11.4. Managing heat&#8217;s for OpenStack</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../cm-shell.html#id1">7.2.12. Managing Security Groups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cm-shell.html#examples">7.2.13. Examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cm-shell.html#todo-most-likely-in-cloud-command-and-register-command">7.2.14. TODO (most likely in cloud command and register command)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../cm-shell-rain.html">7.3. Cloudmesh Shell Rain</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../cm-shell-rain.html#managing-servers-hosts">7.3.1. Managing Servers/hosts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cm-shell-rain.html#user-project-and-role-policies">7.3.2. User, Project and Role Policies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cm-shell-rain.html#information">7.3.3. Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cm-shell-rain.html#provisioning">7.3.4. Provisioning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cm-shell-rain.html#status">7.3.5. Status</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cm-shell-rain.html#reservation-interface-extension">7.3.6. Reservation Interface (extension)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cm-shell-rain.html#time-format">7.3.7. Time Format</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../cm-manage.html">7.4. cm-manage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/man.html">7.5. Commands</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../man/man.html#eof">7.5.1. EOF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../man/man.html#banner">7.5.2. banner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../man/man.html#clear">7.5.3. clear</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../man/man.html#cloud">7.5.4. cloud</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../man/man.html#count">7.5.5. count</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../man/man.html#defaults">7.5.6. defaults</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../man/man.html#dot2">7.5.7. dot2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../man/man.html#edit">7.5.8. edit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../man/man.html#exec">7.5.9. exec</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../man/man.html#exp">7.5.10. exp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../man/man.html#graphviz">7.5.11. graphviz</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../man/man.html#help">7.5.12. help</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../man/man.html#info">7.5.13. info</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../man/man.html#init">7.5.14. init</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../man/man.html#inventory">7.5.15. inventory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../man/man.html#keys">7.5.16. keys</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../man/man.html#label">7.5.17. label</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../man/man.html#list">7.5.18. list</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../man/man.html#login">7.5.19. login</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../man/man.html#man">7.5.20. man</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../man/man.html#metric">7.5.21. metric</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../man/man.html#open">7.5.22. open</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../man/man.html#pause">7.5.23. pause</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../man/man.html#plugins">7.5.24. plugins</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../man/man.html#project">7.5.25. project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../man/man.html#py">7.5.26. py</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../man/man.html#q">7.5.27. q</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../man/man.html#quit">7.5.28. quit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../man/man.html#rain">7.5.29. rain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../man/man.html#reg">7.5.30. reg</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../man/man.html#script">7.5.31. script</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../man/man.html#storm">7.5.32. storm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../man/man.html#timer">7.5.33. timer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../man/man.html#use">7.5.34. use</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../man/man.html#user">7.5.35. user</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../man/man.html#var">7.5.36. var</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../man/man.html#verbose">7.5.37. verbose</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../man/man.html#version">7.5.38. version</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../man/man.html#vm">7.5.39. vm</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../appendix.html">9. Appendix</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="../metric.html">8. Cloudmesh Metric</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../metric.html#routes">8.1. Routes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../contributing.html">9. Contributing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tasks.html">9.1. Issue Management</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tasks.html#labels">9.1.1. Labels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tasks.html#priority">9.1.2. Priority</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tasks.html#inactivity">9.1.3. Inactivity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tasks.html#shortcuts">9.1.4. Shortcuts</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../coding.html">9.2. Cloudmesh Style Guide</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../coding.html#information">9.2.1. Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../coding.html#general">9.2.2. General</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../coding.html#imports">9.2.3. Imports</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../coding.html#human-alphabetical-order-examples">9.2.4. Human Alphabetical Order Examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../coding.html#docstrings">9.2.5. Docstrings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../coding.html#dictionaries-lists">9.2.6. Dictionaries/Lists</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../coding.html#calling-methods">9.2.7. Calling Methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../coding.html#internationalization-i18n-strings">9.2.8. Internationalization (i18n) Strings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../coding.html#python-3-x-compatibility">9.2.9. Python 3.x compatibility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../coding.html#creating-unit-tests">9.2.10. Creating Unit Tests</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../coding.html#running-tests">9.2.11. Running Tests</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../coding.html#commit-messages">9.2.12. Commit Messages</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../hacking.html">9.3. Tips for Editing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../hacking.html#aptana-studio-develpment-environment-optional">9.3.1. Aptana Studio - Develpment Environment(optional)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../hacking.html#emacs-as-editor">9.3.2. Emacs as editor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../hacking.html#replace-text-in-many-files-from-the-commandline">9.3.3. Replace Text in many files from the commandline</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../hacking.html#mongodb-tools">9.3.4. MongoDB Tools</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../hacking.html#robomongo">9.3.4.1. Robomongo</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../vagrant.html">9.4. Cloudmesh Vagrant Developers Environment</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../vagrant.html#vagrant">9.4.1. Vagrant</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../vagrant.html#veewee">9.4.2. Veewee</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../vagrant.html#creating-a-cloudmesh-test">9.4.3. Creating a cloudmesh test</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix.html">10. Appendix</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../cm-shell-new.html">1. Proposed Commands</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../cm-shell-new.html#label">1.1. Label</a></li>
 </ul>
@@ -398,38 +416,37 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../futuregrid.html">10. FutureGrid</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../plan/cal.html">11. Calendar</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../plan/design.html">12. Design: Blueprint</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../plan/design.html#features">12.1. Features</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../plan/design.html#difference-to-other-efforts">12.2. Difference to other efforts</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../plan/design.html#component-view">12.3. Component View</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../plan/design.html#component-user-management">12.4. Component User Management</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../plan/design.html#user-management">12.5. User Management</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../plan/design.html#accounting-will-not-be-worked-on-much">12.6. Accounting (Will not be worked on much)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../plan/design.html#component-resource-management-includes-cloudshifting-as-part-of-reservation">12.7. Component Resource Management (includes cloudshifting as part of reservation)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../plan/design.html#resource-management">12.8. Resource Management</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../plan/design.html#scheduler">12.9. Scheduler</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../plan/design.html#interfaces">12.10. Interfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plan/design.html">11. Design: Blueprint</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plan/design.html#features">11.1. Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plan/design.html#difference-to-other-efforts">11.2. Difference to other efforts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plan/design.html#component-view">11.3. Component View</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plan/design.html#component-user-management">11.4. Component User Management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plan/design.html#user-management">11.5. User Management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plan/design.html#accounting-will-not-be-worked-on-much">11.6. Accounting (Will not be worked on much)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plan/design.html#component-resource-management-includes-cloudshifting-as-part-of-reservation">11.7. Component Resource Management (includes cloudshifting as part of reservation)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plan/design.html#resource-management">11.8. Resource Management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plan/design.html#scheduler">11.9. Scheduler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plan/design.html#interfaces">11.10. Interfaces</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../plan/mock.html">13. Mockup</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../plan/mock.html#create-user">13.1. create_user</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plan/mock.html">12. Mockup</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plan/mock.html#create-user">12.1. create_user</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../plan/plan.html">14. Plan: Cloudmesh Service Shift</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../plan/plan.html#project-objectives">14.1. Project Objectives</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../plan/plan.html#development-objectives">14.2. Development Objectives</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../plan/plan.html#production-objectives">14.2.1. Production Objectives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plan/plan.html">13. Plan: Cloudmesh Service Shift</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plan/plan.html#project-objectives">13.1. Project Objectives</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plan/plan.html#development-objectives">13.2. Development Objectives</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plan/plan.html#production-objectives">13.2.1. Production Objectives</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../plan/plan.html#project-deliverables">14.3. Project Deliverables</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../plan/plan.html#evolution-of-the-project">14.4. Evolution of the Project</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../plan/plan.html#refernce-materials">14.5. Refernce Materials</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../plan/plan.html#definitions-and-acronyms">14.6. Definitions and Acronyms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plan/plan.html#project-deliverables">13.3. Project Deliverables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plan/plan.html#evolution-of-the-project">13.4. Evolution of the Project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plan/plan.html#refernce-materials">13.5. Refernce Materials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plan/plan.html#definitions-and-acronyms">13.6. Definitions and Acronyms</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../user.html">15. Cloudmesh Shell</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../user.html#user-commands">15.1. User Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user.html">14. Cloudmesh Shell</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../user.html#user-commands">14.1. User Commands</a></li>
 </ul>
 </li>
 </ul>
@@ -472,6 +489,16 @@
 </ul>
 </li>
 <li class="toctree-l6"><a class="reference internal" href="../modules/cloudmesh.iaas.azure.html">cloudmesh.iaas.azure package</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="../modules/cloudmesh.iaas.azure.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l8"><a class="reference internal" href="../modules/cloudmesh.iaas.azure.queue.html">cloudmesh.iaas.azure.queue package</a><ul>
+<li class="toctree-l9"><a class="reference internal" href="../modules/cloudmesh.iaas.azure.queue.html#submodules">Submodules</a></li>
+<li class="toctree-l9"><a class="reference internal" href="../modules/cloudmesh.iaas.azure.queue.html#module-cloudmesh.iaas.azure.queue.celery">cloudmesh.iaas.azure.queue.celery module</a></li>
+<li class="toctree-l9"><a class="reference internal" href="../modules/cloudmesh.iaas.azure.queue.html#module-cloudmesh.iaas.azure.queue.tasks">cloudmesh.iaas.azure.queue.tasks module</a></li>
+<li class="toctree-l9"><a class="reference internal" href="../modules/cloudmesh.iaas.azure.queue.html#module-cloudmesh.iaas.azure.queue">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l7"><a class="reference internal" href="../modules/cloudmesh.iaas.azure.html#submodules">Submodules</a></li>
 <li class="toctree-l7"><a class="reference internal" href="../modules/cloudmesh.iaas.azure.html#cloudmesh-iaas-azure-cm-azure-module">cloudmesh.iaas.azure.cm_azure module</a></li>
 <li class="toctree-l7"><a class="reference internal" href="../modules/cloudmesh.iaas.azure.html#module-cloudmesh.iaas.azure.cm_compute">cloudmesh.iaas.azure.cm_compute module</a><ul>
@@ -733,6 +760,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../modules/cloudmesh.html#submodules">Submodules</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../modules/cloudmesh.html#module-cloudmesh.cm_mesh">cloudmesh.cm_mesh module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../modules/cloudmesh.html#module-cloudmesh.cm_mongo">cloudmesh.cm_mongo module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/cloudmesh.html#cloudmesh-cm-register-module">cloudmesh.cm_register module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../modules/cloudmesh.html#module-cloudmesh.inventory">cloudmesh.inventory module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../modules/cloudmesh.html#module-cloudmesh">Module contents</a></li>
 </ul>
@@ -790,11 +818,12 @@
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">2. Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../configure.html">3. Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../doc.html">4. Documentation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../nosetest.html">5. Testing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../shell.html">6. Cloudmesh Shell</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../metric.html">7. Cloudmesh Metric</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../contributing.html">8. Contributing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../appendix.html">9. Appendix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hacking.html">9.3. Tips for Editing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nosetest.html">6. Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../shell.html">7. Cloudmesh Shell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../metric.html">8. Cloudmesh Metric</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contributing.html">9. Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix.html">10. Appendix</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../modules/modules.html">Modules and Classes</a></li>

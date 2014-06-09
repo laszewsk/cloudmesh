@@ -1,6 +1,13 @@
 cloudmesh.iaas.azure package
 ============================
 
+Subpackages
+-----------
+
+.. toctree::
+
+    cloudmesh.iaas.azure.queue
+
 Submodules
 ----------
 

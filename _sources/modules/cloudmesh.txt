@@ -41,6 +41,14 @@ cloudmesh.cm_mongo module
     :undoc-members:
     :show-inheritance:
 
+cloudmesh.cm_register module
+----------------------------
+
+.. automodule:: cloudmesh.cm_register
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
 cloudmesh.inventory module
 --------------------------
 
