@@ -574,11 +574,11 @@ class cloudmesh:
                 position = 0
                 for address in content['vlan102']:
                     if position == 0:
-                        type = "fixed"
+                        kind = "fixed"
                     else:
-                        type = "floating"
+                        kind = "floating"
                     if labels:
-                        result = result + type
+                        result = result + kind
                     result = result + address['addr']
                     result = result + ", "
                     position = position + 1
