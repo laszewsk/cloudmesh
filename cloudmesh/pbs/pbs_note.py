@@ -21,6 +21,8 @@ log = LOGGER(__file__)
 
 
 class pbs_note_builder:
+    """this class allows to set simple attributes in a dict that 
+    will be stroed in pbs as parte of the note feature"""
 
     def __init__(self, user, host):
         self.username = user
@@ -28,13 +30,22 @@ class pbs_note_builder:
         self.inventory = Inventory()
         self.fetch_pbs_nodes_info()
     
-    # get recent pbsnodes info
     def fetch_pbs_nodes_info(self):
+        '''
+        fetches the pbs_nodes information from the remote computer
+        '''
         pbs = PBS(self.username, self.hostname)
         self.pbs_nodes_info = pbs.pbsnodes()
         #print self.pbs_nodes_info
     
     def check_node_validation(self, node):
+        '''
+        checks if the node exists
+        
+        :param node: the node label
+        :type node: String
+        :rtype: node_id_label
+        '''
         node_id_label = self.inventory.get_host_id_label(node)
         berror = False
         if node_id_label is None:
@@ -53,13 +64,27 @@ class pbs_note_builder:
     
     
     def get_note(self, node):
+        '''
+        prints the note from pbs
+        
+        :param node: anme of the node
+        :type node: String
+        '''
         (node_id, node_label) = self.check_node_validation(node)
         print "{0}-note: {1}".format(node_id, self.pbs_nodes_info[node_label]["note"])
     
-    # node is the server name, e.g., i129, i15
-    # note is a dict, {"attr1": "value1", "attr2": "value2"}
-    # setNote doesn't check the correctness of the attribute-value pair
+    #
+    #
+    #
     def set_note(self, node, note):
+        '''sets the note for a given node
+        
+        setNote doesn't check the correctness of the attribute-value pair
+        :param node node is the server name, e.g., i129, i15:
+        :type node: String
+        :param note: note is a dict, {"attr1": "value1", "attr2": "value2"}
+        :type note: dict
+        '''
         (node_id, node_label) = self.check_node_validation(node)
             
         # ["note"] ONLY has two type: dict or string
@@ -93,15 +118,31 @@ class pbs_note_builder:
         #ssh(str_ssh, command)
     
     
-    # set server's temperature
+    #
     # a shortcut of set_note
     def set_temperature_note(self, node, temp):
+        '''
+        set server's temperature. Note the temperature must be retrieved elsewhere.
+        
+        :param node node is the server name, e.g., i129, i15:
+        :type node: String
+        :param temp: the temperature
+        :type temp: String
+        '''
         self.set_one_note(node, "temperature", temp)
         
     
     # set server's service type
     # a shortcut of set_note
     def set_service_note(self, node, service):
+        """
+        set server's service type.
+        
+        :param node node is the server name, e.g., i129, i15:
+        :type node: String
+        :param temp: the service type as string
+        :type temp: String
+        """
         self.set_one_note(node, "service", service)
         
     def set_one_note(self, node, attr, value):

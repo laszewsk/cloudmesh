@@ -67,11 +67,14 @@ class PBS:
         self.cluster_queues = cluster_queues
 
     def qinfo_user(self, refresh=True):
-        """Return the number of user from qstat
+        '''Returns qinfo as dict
+            
+        :param refresh: executes a fresh fetch if set to Tru
+        :type refresh: Boolean
+        '''
+        """
         
-            example line is:
-            873664.i136 ...549.sh xcguser  0   Q long
-            $3 indicates an user id
+            e
         """
         if self.pbs_qinfo_default_data is None or refresh:
             try:
@@ -89,6 +92,15 @@ class PBS:
         return merged_data
 
     def merge_queues(self, machines, data):
+        '''
+        splits up the qinfo into various machines as defined in the init 
+        so we can reuse the same queue for multiple machines
+        
+        :param machines: array of machines
+        :type machines: Array of String
+        :param data: the data from the queue
+        :type data: Json
+        '''
         res = {}
         for row in data:
             if not machines:
@@ -107,25 +119,36 @@ class PBS:
         return res
 
     def convert_into_json(self, qstat):
+        '''
+        converts qstat information into a json object
+        
+        :param qstat: the qstat information from a qstat sh commmand
+        :type qstat: String
+        '''
 
-            list_qstat = qstat.split("\n")
-            try:
-                # delete a delimiter line between a header and contents looks
-                # like '-------- --- ---'
-                del(list_qstat[1])
-            except:
-                pass
-            pattern = re.compile(r'\s+')
-            tmp = []
-            for row in list_qstat:
-                tmp.append(re.sub(pattern, ',', row))
+        list_qstat = qstat.split("\n")
+        try:
+            # delete a delimiter line between a header and contents looks
+            # like '-------- --- ---'
+            del(list_qstat[1])
+        except:
+            pass
+        pattern = re.compile(r'\s+')
+        tmp = []
+        for row in list_qstat:
+            tmp.append(re.sub(pattern, ',', row))
 
-            res = csv.DictReader(tmp, skipinitialspace=True)
-            return res
+        res = csv.DictReader(tmp, skipinitialspace=True)
+        return res
 
     def qinfo(self, refresh=True):
-        """returns qstat -Q -f in dict format"""
-
+        '''
+        returns qstat -Q -f in dict format
+        
+        :param refresh: refreshes the qinfo
+        :type refresh: Boolean
+        '''
+        
         if self.pbs_qinfo_data is None or refresh:
             try:
                 result = ssh("{0}@{1}".format(self.user, self.host), "qstat -Q -f")
@@ -177,6 +200,14 @@ class PBS:
 
 
     def qinfo_extract(self, cluster_queues, qinfo_data):
+        '''
+        extracts from the qinfo string a dict
+        
+        :param cluster_queues: the names of the cluster queues
+        :type cluster_queues: dict od Strings
+        :param qinfo_data: the data of qinfo as dict
+        :type qinfo_data: dict of strings
+        '''
 
         # initialize the queues
         queues = {}
@@ -193,12 +224,21 @@ class PBS:
         return queues
 
     def _qmgr(self, command):
+        '''
+        simple executes the command on a remote host. The host is globally set
+        
+        TODO: there is a bug here as qmgr is not properly called
+        
+        :param command: the command to be executed
+        :type command: String
+        '''
         result = None
         try:
             result = ssh("{0}@{1}".format(self.user, self.host), command)
         except:
             raise RuntimeError("can not execute qmgr via ssh {0}".format(command))
         return result
+
 
     def create_node(self, name):
         """create node"""
@@ -220,7 +260,13 @@ class PBS:
         result = qmgr("set node {0} note {1}".format(name, note))
 
     def pbsnodes(self, refresh=True):
-        """returns the pbs node infor from an pbs_nodes_raw_data is a string see above for example"""
+        '''
+        returns the pbs node infor from an pbs_nodes_raw_data is a string 
+        
+        :param refresh: refresheds the data if set to True
+        :type refresh: Boolean
+        '''
+        """"""
 
         if self.pbs_nodes_data is None or refresh:
             try:
@@ -257,23 +303,47 @@ class PBS:
         return self.pbs_nodes_data
 
     def exists(self, host):
+        '''
+        checks if the host exists in the cache
+        
+        :param host: label of the host
+        :type host: String
+        '''
         """ prints true if the host is in the node list """
         return host in self.pbs_nodes_data
 
     def set(self, spec, attribute):
-        """add an attribute for the specified hosts in the format
+        '''
+        add an attribute for the specified hosts in the format
         i[1-20]. which would set the attribute for all hosts in i1 to
-        i20"""
+        i20
+        
+        TODO: attribute is probably value
+        TODO: this is not implemented
+        
+        :param spec: the hostlist
+        :type spec: hostlist
+        :param attribute: the value
+        :type attribute: the value
+        '''
         hosts = expand_hostlist(spec)
         for host in hosts:
             self._set(host, attribute)
 
     def _set(self, host, attribute):
-        """add an attribute for the specified hosts"""
+        """add an attribute for the specified hosts
+        TODO: Allan, this is not implemented
+        """
         print "TODO: ALLAN"
 
 
     def qstat(self, refresh=True):
+        '''
+        returns qstat from all clusters as a dict
+        
+        :param refresh: refreshes the data if set to True
+        :type refresh: Boolean
+        '''
         if self.pbs_qstat_data is None or refresh:
             try:
                 xmldata = str(ssh("{0}@{1}".format(self.user, self.host), "qstat", "-x"))
@@ -309,6 +379,14 @@ class PBS:
             return self.qstat_extract(self.cluster_queues, self.pbs_qstat_data)
 
     def qstat_extract(self, cluster_queues, qstat_data):
+        '''
+        extrstcts the data from a qstat command into a dict
+        
+        :param cluster_queues: names of the queues
+        :type cluster_queues: dict
+        :param qstat_data: qstat data 
+        :type qstat_data: dict
+        '''
 
         # initialize the queues
         queues = {}
@@ -327,6 +405,12 @@ class PBS:
 
     
     def get_uniq_users(self, refresh=False):
+        '''
+        Get the unique users of the queues
+
+        :param refresh: refreshes the data if set to True
+        :type refresh: Boolean
+        '''
         if self.pbs_qstat_data is None or refresh:
             self.qstat()
 
@@ -355,6 +439,12 @@ class PBS:
         return qname
 
     def service_distribution(self, simple=True):
+        '''
+        returns a simple startistic of the count of the services
+        
+        :param simple: not used
+        :type simple: Boolean
+        '''
         """prints the distribution of services"""
 
         def pbsnodes_data(host):
