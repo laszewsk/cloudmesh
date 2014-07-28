@@ -5,7 +5,7 @@ from ast import literal_eval
 from collections import Counter
 from hostlist import expand_hostlist
 from pprint import pprint
-from sh import ssh, ssh
+from sh import ssh
 from xml.dom import minidom
 import yaml
 import sys
@@ -242,22 +242,22 @@ class PBS:
 
     def create_node(self, name):
         """create node"""
-        result = qmgr("create node {0}".format(name))
+        result = _qmgr("create node {0}".format(name))
         return result
 
 
     def set_np(self, name, np):
         """set node %name np %np | qmgr"""
-        result = qmgr("set node {0} np {1}".format(name, np))
+        result = _qmgr("set node {0} np {1}".format(name, np))
         return result
 
     def set_properties(self, name, properties):
         """set node % properties %"""
-        result = qmgr("set node {0} properties {1}".format(name, properties))
+        result = _qmgr("set node {0} properties {1}".format(name, properties))
 
     def set_note (self, name, note):
         """set node % note %"""
-        result = qmgr("set node {0} note {1}".format(name, note))
+        result = _qmgr("set node {0} note {1}".format(name, note))
 
     def pbsnodes(self, refresh=True):
         '''
